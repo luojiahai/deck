@@ -47,14 +47,6 @@
   .criteria-list li{font-size:36px;display:flex;align-items:center;gap:18px;line-height:1.3}
   .criteria-list .checkbox{width:38px;height:38px;border:2px solid var(--red);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--red)}
 
-  /* ---- S3: Warm-up Timer ---- */
-  .timer-circle-area{position:absolute;top:160px;left:0;right:0;bottom:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
-  .timer-circle{width:260px;height:260px;border-radius:50%;border:8px solid var(--red);display:flex;align-items:center;justify-content:center;position:relative}
-  .timer-circle .time{font-size:96px;font-weight:700;color:var(--red);letter-spacing:0.04em}
-  .timer-circle .label{position:absolute;bottom:52px;font-size:18px;color:var(--pinyin);text-transform:uppercase;letter-spacing:0.1em}
-  .big-prompt{font-size:44px;font-weight:700;text-align:center;letter-spacing:0.04em;line-height:1.4}
-  .big-prompt .sub{font-size:24px;color:var(--pinyin);font-weight:400;display:block;margin-top:8px}
-  .answer-list-placeholder{width:900px;min-height:80px;border:3px dashed var(--light-border);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--pinyin);margin-top:12px;padding:20px}
 
   /* ---- S4: Question Bank ---- */
   .bank-area{position:absolute;top:160px;left:120px;right:120px;bottom:100px;display:flex;flex-direction:column;gap:16px;overflow-y:auto}
@@ -220,7 +212,7 @@
       <span class="q-num">1</span>
       <span class="q-zh">你每天看几个小时的书?</span>
       <span class="q-py">Nǐ měitiān kàn jǐge xiǎoshí de shū?</span>
-      <span class="q-en">How many hours of books do you read?</span>
+      <span class="q-en">How many hours a day do you read?</span>
     </div>
     <div class="q-row">
       <span class="q-num">2</span>
@@ -286,7 +278,7 @@
         <div class="speaker">A</div>
         <div class="zh-line">你每天看几个小时的书?</div>
         <div class="py-line">Nǐ měitiān kàn jǐge xiǎoshí de shū?</div>
-        <div class="en-line">How many hours of books do you read?</div>
+        <div class="en-line">How many hours a day do you read?</div>
       </div>
     </div>
     <div class="dialogue-pair B">
@@ -347,16 +339,19 @@
     <div class="ext-q-card red-box">
       <div class="grammar-badge">正在 pattern</div>
       <div class="q-zh">你现在正在做什么?</div>
+      <div class="q-py" style="font-size:20px;color:var(--pinyin);margin-bottom:4px">Nǐ xiànzài zhèngzài zuò shénme?</div>
       <div class="q-en">What are you doing RIGHT NOW?</div>
     </div>
     <div class="ext-q-card gold-box">
       <div class="grammar-badge">都 pattern</div>
       <div class="q-zh">唱歌、弹钢琴，你都会吗?</div>
+      <div class="q-py" style="font-size:20px;color:var(--pinyin);margin-bottom:4px">Chàng gē, tán gāngqín, nǐ dōu huì ma?</div>
       <div class="q-en">Can you do both — sing and play piano?</div>
     </div>
     <div class="ext-q-card green-box">
       <div class="grammar-badge">一边...一边... pattern</div>
       <div class="q-zh">你有时候一边听音乐一边看书吗?</div>
+      <div class="q-py" style="font-size:20px;color:var(--pinyin);margin-bottom:4px">Nǐ yǒushíhou yībiān tīng yīnyuè yībiān kàn shū ma?</div>
       <div class="q-en">Do you sometimes listen to music while reading?</div>
     </div>
     <div class="ext-q-footer">Add these to your interview! Use at least 5 questions.</div>
@@ -393,6 +388,10 @@
       <div class="qs-row"><span class="qs-num">6</span><span class="qs-zh">你会弹钢琴吗?</span><span class="qs-py">nǐ huì tán gāngqín ma</span></div>
       <div class="qs-row"><span class="qs-num">7</span><span class="qs-zh">你正在做什么?</span><span class="qs-py">nǐ zhèngzài zuò shénme</span></div>
       <div class="qs-row"><span class="qs-num">8</span><span class="qs-zh">你每天做什么?</span><span class="qs-py">nǐ měitiān zuò shénme</span></div>
+      <div style="margin:8px 24px;border-top:2px dashed var(--light-border)"></div>
+      <div class="qs-row"><span class="qs-num">+</span><span class="qs-zh">你现在正在做什么?</span><span class="qs-py">nǐ xiànzài zhèngzài zuò shénme</span></div>
+      <div class="qs-row"><span class="qs-num">+</span><span class="qs-zh">唱歌、弹钢琴，你都会吗?</span><span class="qs-py">chàng gē, tán gāngqín, nǐ dōu huì ma</span></div>
+      <div class="qs-row"><span class="qs-num">+</span><span class="qs-zh">一边听音乐一边看书吗?</span><span class="qs-py">yībiān tīng yīnyuè yībiān kàn shū ma</span></div>
     </div>
   </div>
 </section>
@@ -423,7 +422,7 @@
     </div>
     <div class="example-paragraph">
       <span class="label">Example</span>
-      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，他都会。他现在正在看书。他有时候一边听音乐一边看书。
+      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，这两样他都会。他现在正在看书。他有时候一边听音乐一边看书。
     </div>
   </div>
 </section>
@@ -452,7 +451,7 @@
     </div>
     <div style="font-size:22px;color:var(--pinyin);margin-bottom:8px">Grammar checklist — make sure all three appear in your paragraph!</div>
     <div class="annotated-text">
-      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，<span class="mark-gold">他都会</span>。<span class="mark-red">他现在正在看书</span>。他有时候<span class="mark-green">一边听音乐一边看书</span>。
+      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，这两样<span class="mark-gold">他都会</span>。<span class="mark-red">他现在正在看书</span>。他有时候<span class="mark-green">一边听音乐一边看书</span>。
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px">
       <div style="display:flex;align-items:center;gap:16px;padding:18px 32px;background:#FFFBF0;border-left:5px solid var(--gold);border-radius:0 12px 12px 0">
