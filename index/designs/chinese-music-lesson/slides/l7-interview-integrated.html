@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7 · 采访同学</title>
+<style>
+  :root { --red: #C43E2C; --gold: #D4953A; --bg: #FEFAF5; --text: #2D2A26; --pinyin: #8B7E74; --warm-bg: #F5EDE3; --light-border: #E8DED4; --card-bg: #FFFBF7; --green: #4A8C5C; }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: #1a1a1a;
+      font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .stage {
+      width: 1920px; height: 1080px;
+      overflow: hidden; position: relative;
+      background: var(--bg); color: var(--text);
+      transform-origin: top left;
+      text-wrap: pretty;
+    }
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px}
+  section.active{display:block}
+  .accent-bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red)}
+  .slide-num{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6}
+  .page-header{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px}
+  .page-header .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase}
+  .page-header h2{font-size:52px;font-weight:700;letter-spacing:0.03em}
+  .page-header .py{font-size:22px;color:var(--pinyin)}
+
+  /* ---- S1: Title ---- */
+  .hero-badge{position:absolute;top:80px;right:96px}
+  .unit-badge{display:inline-block;font-size:16px;font-weight:600;letter-spacing:0.08em;color:var(--gold);border:1.5px solid var(--gold);border-radius:8px;padding:6px 16px;text-transform:uppercase}
+  .hero-title{position:absolute;top:200px;left:96px;right:96px}
+  .hero-title .lesson-num{font-size:22px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;margin-bottom:16px}
+  .hero-title h1{font-size:72px;font-weight:700;letter-spacing:0.03em;line-height:1.2;margin-bottom:12px}
+  .hero-title .pinyin{font-size:28px;color:var(--pinyin);margin-bottom:20px}
+  .hero-title .eng{font-size:24px;color:var(--pinyin);font-style:italic}
+
+  /* ---- S2: Learning Intention ---- */
+  .warm-panel{background:var(--warm-bg);border-radius:24px;padding:64px 72px;position:absolute;left:96px;right:96px;top:160px;bottom:90px;display:flex;flex-direction:column;gap:32px}
+  .warm-panel h2{font-size:44px;font-weight:700;margin-bottom:4px}
+  .warm-panel .li-sub{font-size:22px;color:var(--pinyin);font-style:italic;margin-bottom:24px}
+  .criteria-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+  .criteria-list li{font-size:36px;display:flex;align-items:center;gap:18px;line-height:1.3}
+  .criteria-list .checkbox{width:38px;height:38px;border:2px solid var(--red);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--red)}
+
+  /* ---- S3: Warm-up Timer ---- */
+  .timer-circle-area{position:absolute;top:160px;left:0;right:0;bottom:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .timer-circle{width:260px;height:260px;border-radius:50%;border:8px solid var(--red);display:flex;align-items:center;justify-content:center;position:relative}
+  .timer-circle .time{font-size:96px;font-weight:700;color:var(--red);letter-spacing:0.04em}
+  .timer-circle .label{position:absolute;bottom:52px;font-size:18px;color:var(--pinyin);text-transform:uppercase;letter-spacing:0.1em}
+  .big-prompt{font-size:44px;font-weight:700;text-align:center;letter-spacing:0.04em;line-height:1.4}
+  .big-prompt .sub{font-size:24px;color:var(--pinyin);font-weight:400;display:block;margin-top:8px}
+  .answer-list-placeholder{width:900px;min-height:80px;border:3px dashed var(--light-border);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--pinyin);margin-top:12px;padding:20px}
+
+  /* ---- S4: Question Bank ---- */
+  .bank-area{position:absolute;top:160px;left:120px;right:120px;bottom:100px;display:flex;flex-direction:column;gap:16px;overflow-y:auto}
+  .q-row{display:flex;align-items:baseline;gap:28px;padding:20px 36px;background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px}
+  .q-row .q-num{font-size:24px;font-weight:700;color:var(--gold);min-width:36px}
+  .q-row .q-zh{font-size:34px;font-weight:700;letter-spacing:0.04em;flex:1}
+  .q-row .q-py{font-size:20px;color:var(--pinyin)}
+  .q-row .q-en{font-size:19px;color:var(--pinyin);font-style:italic;min-width:260px}
+  .celebrate-banner{background:linear-gradient(135deg,var(--gold),#E8A840);color:#fff;border-radius:14px;padding:24px 48px;font-size:28px;font-weight:700;text-align:center;letter-spacing:0.04em;margin-top:8px}
+
+  /* ---- S5: Model Dialogue ---- */
+  .dialogue-area{position:absolute;top:160px;left:160px;right:160px;bottom:120px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  .dialogue-pair{display:flex;align-items:flex-start;gap:24px}
+  .dialogue-pair.A{justify-content:flex-start}
+  .dialogue-pair.B{justify-content:flex-end}
+  .dialogue-bubble{max-width:700px;background:var(--card-bg);border:2px solid var(--light-border);border-radius:24px;padding:28px 40px}
+  .dialogue-pair.A .dialogue-bubble{border-bottom-left-radius:4px;border-color:var(--red)}
+  .dialogue-pair.B .dialogue-bubble{border-bottom-right-radius:4px;border-color:var(--gold)}
+  .dialogue-bubble .speaker{font-size:16px;font-weight:700;color:var(--pinyin);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+  .dialogue-bubble .zh-line{font-size:36px;font-weight:700;letter-spacing:0.04em;margin-bottom:4px}
+  .dialogue-bubble .meta{font-size:18px;color:var(--pinyin);line-height:1.4}
+  .textbook-ref{position:absolute;bottom:76px;right:96px;font-size:18px;color:var(--pinyin);font-style:italic}
+
+  /* ---- S6: Extended Questions ---- */
+  .ext-q-area{position:absolute;top:160px;left:120px;right:120px;bottom:120px;display:flex;flex-direction:column;gap:28px;justify-content:center}
+  .ext-q-card{border-radius:20px;padding:36px 48px;display:flex;flex-direction:column;gap:8px;border-left:6px solid}
+  .ext-q-card.red-box{background:#FEF5F5;border-left-color:var(--red)}
+  .ext-q-card.gold-box{background:#FFFBF0;border-left-color:var(--gold)}
+  .ext-q-card.green-box{background:#F5FAF6;border-left-color:var(--green)}
+  .ext-q-card .grammar-badge{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+  .ext-q-card.red-box .grammar-badge{color:var(--red)}
+  .ext-q-card.gold-box .grammar-badge{color:var(--gold)}
+  .ext-q-card.green-box .grammar-badge{color:var(--green)}
+  .ext-q-card .q-zh{font-size:42px;font-weight:700;letter-spacing:0.04em}
+  .ext-q-card .q-en{font-size:20px;color:var(--pinyin);font-style:italic}
+  .ext-q-footer{font-size:26px;font-weight:600;color:var(--text);text-align:center;margin-top:8px}
+
+  /* ---- S7: Interview Instructions ---- */
+  .task-card{background:var(--warm-bg);border-radius:24px;padding:48px 64px;position:absolute;top:160px;left:96px;right:582px;bottom:100px;display:flex;flex-direction:column;gap:20px}
+  .task-card h3{font-size:36px;font-weight:700;margin-bottom:8px}
+  .task-card .step-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .task-card .step-list li{font-size:30px;display:flex;align-items:center;gap:14px;line-height:1.4}
+  .task-card .step-num{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .table-preview{position:absolute;top:160px;right:96px;width:450px;bottom:100px;background:var(--card-bg);border:2px solid var(--light-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .table-preview .tbl-title{background:var(--warm-bg);padding:16px 24px;font-size:18px;font-weight:700;text-align:center;border-bottom:2px solid var(--light-border)}
+  .table-preview .tbl-header{display:grid;grid-template-columns:120px 1fr;background:var(--warm-bg)}
+  .table-preview .tbl-header span{padding:12px 16px;font-size:16px;font-weight:700;border-bottom:1px solid var(--light-border);color:var(--pinyin)}
+  .table-preview .tbl-row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--light-border)}
+  .table-preview .tbl-row span{padding:10px 16px;font-size:15px;color:var(--pinyin)}
+  .table-preview .tbl-col-head{padding:6px 16px;font-size:13px;font-weight:600;color:var(--pinyin);writing-mode:vertical-rl;text-orientation:mixed}
+
+  /* ---- S8: Interview Timer ---- */
+  .timer-full{position:absolute;top:160px;left:0;right:0;bottom:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .timer-big{width:320px;height:320px;border-radius:50%;border:10px solid var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .timer-big .minutes{font-size:120px;font-weight:700;color:var(--red);line-height:1;letter-spacing:0.02em}
+  .timer-big .unit{font-size:24px;color:var(--pinyin);text-transform:uppercase;letter-spacing:0.15em}
+  .chinese-only-banner{background:var(--red);color:#fff;font-size:36px;font-weight:700;padding:20px 64px;border-radius:16px;letter-spacing:0.08em;text-align:center}
+  .timer-ref-strip{position:absolute;bottom:90px;left:96px;right:96px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .timer-ref-strip .ref-tag{font-size:18px;padding:8px 18px;background:var(--warm-bg);border-radius:8px;color:var(--text);font-weight:600}
+
+  /* ---- S9: Paragraph Writing ---- */
+  .writing-area{position:absolute;top:160px;left:120px;right:120px;bottom:90px;display:flex;flex-direction:column;gap:24px;overflow-y:auto}
+  .instruction-block{background:var(--warm-bg);border-radius:20px;padding:32px 48px;border-left:5px solid var(--red)}
+  .instruction-block .step{font-size:28px;line-height:1.6;color:var(--text)}
+  .instruction-block .step strong{color:var(--red)}
+  .grammar-checklist{display:flex;gap:32px;margin:12px 0}
+  .grammar-checklist span{font-size:24px;font-weight:600;color:var(--text)}
+  .example-paragraph{background:var(--card-bg);border:2px solid var(--light-border);border-radius:16px;padding:36px 48px;font-size:28px;line-height:1.7;color:var(--text)}
+  .example-paragraph .label{font-size:18px;font-weight:600;color:var(--pinyin);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:block}
+
+  /* ---- S10: Annotated Paragraph ---- */
+  .annotated-area{position:absolute;top:130px;left:120px;right:120px;bottom:70px;display:flex;flex-direction:column;gap:20px;overflow-y:auto}
+  .checklist-row{display:flex;gap:40px;margin-bottom:8px}
+  .checklist-row .check-item{font-size:26px;font-weight:600;display:flex;align-items:center;gap:10px}
+  .check-item .chk-box{width:32px;height:32px;border:2px solid var(--text);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--green)}
+  .annotated-text{font-size:32px;line-height:2;padding:20px 0}
+  .annotated-text .mark-red{border-bottom:3px solid var(--red);padding:2px 6px;position:relative}
+  .annotated-text .mark-gold{border-bottom:3px solid var(--gold);padding:2px 6px;position:relative}
+  .annotated-text .mark-green{border-bottom:3px solid var(--green);padding:2px 6px;position:relative}
+  .annotation-note{display:inline-block;font-size:18px;font-weight:600;margin-left:8px;padding:2px 10px;border-radius:8px;vertical-align:super}
+  .annotation-note.note-red{color:var(--red);background:#FEF5F5}
+  .annotation-note.note-gold{color:var(--gold);background:#FFFBF0}
+  .annotation-note.note-green{color:var(--green);background:#F5FAF6}
+
+  /* ---- S11: Peer Feedback ---- */
+  .swap-area{position:absolute;top:160px;left:160px;right:160px;bottom:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .swap-banner{font-size:60px;font-weight:700;color:var(--red);letter-spacing:0.06em;text-align:center}
+  .swap-banner .sub{font-size:26px;color:var(--pinyin);font-weight:400;display:block;margin-top:12px}
+  .check-grid{display:flex;flex-direction:column;gap:24px;width:100%;max-width:1100px}
+  .check-row{display:flex;align-items:center;gap:24px;padding:24px 36px;background:var(--card-bg);border:2px solid var(--light-border);border-radius:16px}
+  .check-row .check-num{font-size:24px;font-weight:700;color:var(--red);min-width:40px}
+  .check-row .check-label{font-size:30px;font-weight:600;flex:1;line-height:1.3}
+  .check-row .check-mark{font-size:36px;min-width:120px;text-align:center}
+
+  /* ---- S12: Exit Ticket ---- */
+  .exit-area{position:absolute;top:180px;left:160px;right:160px;bottom:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px}
+  .exit-question{font-size:40px;font-weight:700;text-align:center;line-height:1.4;letter-spacing:0.03em}
+  .exit-question .en-hint{font-size:22px;color:var(--pinyin);font-weight:400;display:block;margin-top:10px}
+  .share-prompt{background:var(--warm-bg);border-radius:20px;padding:36px 56px;text-align:center;width:100%;max-width:1100px}
+  .share-prompt .big-q{font-size:38px;font-weight:700;margin-bottom:12px}
+  .share-prompt .starter{font-size:28px;color:var(--pinyin);line-height:1.5}
+  .preview-box{background:var(--warm-bg);border:3px solid var(--gold);border-radius:20px;padding:28px 48px;font-size:26px;color:var(--text);text-align:center;line-height:1.5;width:100%;max-width:1100px}
+  .preview-box .next-label{font-size:18px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+  .preview-box .next-zh{font-weight:700;font-size:32px}
+  .preview-box .next-en{color:var(--pinyin);font-style:italic;font-size:22px;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: Title -->
+<!-- ============================================================ -->
+<section class="active">
+  <div class="accent-bar"></div>
+  <div class="slide-num">1 / 12</div>
+  <div class="hero-badge"><span class="unit-badge">Unit 3 · 爱好 (一): 音乐</span></div>
+  <div class="hero-title">
+    <div class="lesson-num">第7课</div>
+    <h1>采访同学</h1>
+    <div class="pinyin">cǎifǎng tóngxué</div>
+    <div class="eng">Lesson 7: Interview Your Classmates</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: Learning Intention & Success Criteria -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">2 / 12</div>
+  <div class="page-header">
+    <span class="tag">Learning Intention</span>
+    <h2>我们要学什么?</h2>
+  </div>
+  <div class="warm-panel">
+    <div>
+      <h2>We are learning to conduct a full interview in Chinese using everything we've learned</h2>
+      <div class="li-sub">我们要用学过的所有知识，用中文进行一次完整的采访</div>
+    </div>
+    <ul class="criteria-list">
+      <li><span class="checkbox">☐</span> I can ask and answer the three interview questions from the textbook</li>
+      <li><span class="checkbox">☐</span> I can interview at least 3 classmates entirely in Chinese</li>
+      <li><span class="checkbox">☐</span> I can write my partner's answers into a short paragraph</li>
+      <li><span class="checkbox">☐</span> I can perform a dialogue that uses 正在, 都, or 一边...一边...</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: Warm-up — How Many Questions Do You Know? -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">3 / 12</div>
+  <div class="page-header">
+    <span class="tag">Warm-up</span>
+    <h2>你会问什么问题?</h2>
+  </div>
+  <div class="timer-circle-area">
+    <div class="timer-circle">
+      <span class="time">2:00</span>
+      <span class="label">minutes</span>
+    </div>
+    <div class="big-prompt">
+      你会问什么问题?
+      <span class="sub">Write down every Chinese question you know!</span>
+    </div>
+    <div class="answer-list-placeholder">
+      Write your questions here — students call out answers after timer ends
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: Class Question Bank -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">4 / 12</div>
+  <div class="page-header">
+    <span class="tag">Question Bank</span>
+    <h2>我们的问题库 · Our Question Bank</h2>
+  </div>
+  <div class="bank-area">
+    <div class="q-row">
+      <span class="q-num">1</span>
+      <span class="q-zh">你叫什么名字?</span>
+      <span class="q-py">Nǐ jiào shénme míngzì?</span>
+      <span class="q-en">What's your name?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">2</span>
+      <span class="q-zh">你住在哪儿?</span>
+      <span class="q-py">Nǐ zhù zài nǎr?</span>
+      <span class="q-en">Where do you live?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">3</span>
+      <span class="q-zh">你的爱好是什么?</span>
+      <span class="q-py">Nǐ de àihào shì shénme?</span>
+      <span class="q-en">What's your hobby?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">4</span>
+      <span class="q-zh">你喜欢做什么?</span>
+      <span class="q-py">Nǐ xǐhuān zuò shénme?</span>
+      <span class="q-en">What do you like to do?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">5</span>
+      <span class="q-zh">你喜欢什么音乐?</span>
+      <span class="q-py">Nǐ xǐhuān shénme yīnyuè?</span>
+      <span class="q-en">What music do you like?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">6</span>
+      <span class="q-zh">你会弹钢琴吗?</span>
+      <span class="q-py">Nǐ huì tán gāngqín ma?</span>
+      <span class="q-en">Can you play piano?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">7</span>
+      <span class="q-zh">你正在做什么?</span>
+      <span class="q-py">Nǐ zhèngzài zuò shénme?</span>
+      <span class="q-en">What are you doing right now?</span>
+    </div>
+    <div class="q-row">
+      <span class="q-num">8</span>
+      <span class="q-zh">你每天做什么?</span>
+      <span class="q-py">Nǐ měitiān zuò shénme?</span>
+      <span class="q-en">What do you do every day?</span>
+    </div>
+    <div class="celebrate-banner">
+      Look how much Chinese you can already say! 你已经会说这么多中文了!
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: Textbook p.73 Model Dialogue -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">5 / 12</div>
+  <div class="page-header">
+    <span class="tag">Model Dialogue</span>
+    <h2>课文对话 · Textbook Dialogue</h2>
+  </div>
+  <div class="dialogue-area">
+    <div class="dialogue-pair A">
+      <div class="dialogue-bubble">
+        <div class="speaker">A</div>
+        <div class="zh-line">你叫什么名字?</div>
+        <div class="meta">Nǐ jiào shénme míngzì? · What's your name?</div>
+      </div>
+    </div>
+    <div class="dialogue-pair B">
+      <div class="dialogue-bubble">
+        <div class="speaker">B</div>
+        <div class="zh-line">我叫秋云。</div>
+        <div class="meta">Wǒ jiào Qiūyún. · My name is Qiuyun.</div>
+      </div>
+    </div>
+    <div class="dialogue-pair A">
+      <div class="dialogue-bubble">
+        <div class="speaker">A</div>
+        <div class="zh-line">你住在哪儿?</div>
+        <div class="meta">Nǐ zhù zài nǎr? · Where do you live?</div>
+      </div>
+    </div>
+    <div class="dialogue-pair B">
+      <div class="dialogue-bubble">
+        <div class="speaker">B</div>
+        <div class="zh-line">我住在北京。</div>
+        <div class="meta">Wǒ zhù zài Běijīng. · I live in Beijing.</div>
+      </div>
+    </div>
+    <div class="dialogue-pair A">
+      <div class="dialogue-bubble">
+        <div class="speaker">A</div>
+        <div class="zh-line">你每天做什么?</div>
+        <div class="meta">Nǐ měitiān zuò shénme? · What do you do every day?</div>
+      </div>
+    </div>
+    <div class="dialogue-pair B">
+      <div class="dialogue-bubble">
+        <div class="speaker">B</div>
+        <div class="zh-line">我每天读书、听音乐、唱歌。</div>
+        <div class="meta">Wǒ měitiān dúshū, tīng yīnyuè, chàng gē. · I read, listen to music, and sing every day.</div>
+      </div>
+    </div>
+  </div>
+  <div class="textbook-ref">轻松学中文2, p.73</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: Extended Interview Questions -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">6 / 12</div>
+  <div class="page-header">
+    <span class="tag">Extension</span>
+    <h2>扩展问题 · Extended Questions</h2>
+  </div>
+  <div class="ext-q-area">
+    <div class="ext-q-card red-box">
+      <div class="grammar-badge">正在 pattern</div>
+      <div class="q-zh">你现在正在做什么?</div>
+      <div class="q-en">What are you doing RIGHT NOW?</div>
+    </div>
+    <div class="ext-q-card gold-box">
+      <div class="grammar-badge">都 pattern</div>
+      <div class="q-zh">唱歌、弹钢琴，你都会吗?</div>
+      <div class="q-en">Can you do both — sing and play piano?</div>
+    </div>
+    <div class="ext-q-card green-box">
+      <div class="grammar-badge">一边...一边... pattern</div>
+      <div class="q-zh">你有时候一边听音乐一边看书吗?</div>
+      <div class="q-en">Do you sometimes listen to music while reading?</div>
+    </div>
+    <div class="ext-q-footer">Add these to your interview! Use at least 5 questions.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: Interview Instructions -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">7 / 12</div>
+  <div class="page-header">
+    <span class="tag">Task</span>
+    <h2>采访任务 · Interview Task</h2>
+  </div>
+  <div class="task-card">
+    <h3>Instructions</h3>
+    <ul class="step-list">
+      <li><span class="step-num">1</span> Interview 3-5 classmates</li>
+      <li><span class="step-num">2</span> Ask at least 5 questions each</li>
+      <li><span class="step-num">3</span> Record answers in your table</li>
+      <li><span class="step-num">4</span> ONLY Chinese during interviews!</li>
+    </ul>
+  </div>
+  <div class="table-preview">
+    <div class="tbl-title">Interview Record · 采访记录</div>
+    <div class="tbl-header">
+      <span>名字</span><span>住在</span><span>爱好</span><span>每天做什么</span><span>正在做什么</span><span>都会吗?</span><span>一边...一边...?</span>
+    </div>
+    <div class="tbl-row"><span>1. _______</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="tbl-row"><span>2. _______</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="tbl-row"><span>3. _______</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="tbl-row"><span>4. _______</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="tbl-row"><span>5. _______</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: Interview Time (Timer) -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">8 / 12</div>
+  <div class="page-header">
+    <span class="tag">Interview Time</span>
+    <h2>开始采访! · Start Interviewing!</h2>
+  </div>
+  <div class="timer-full">
+    <div class="timer-big">
+      <span class="minutes">15:00</span>
+      <span class="unit">minutes</span>
+    </div>
+    <div class="chinese-only-banner">只用中文! Chinese Only!</div>
+  </div>
+  <div class="timer-ref-strip">
+    <span class="ref-tag">你叫什么名字?</span>
+    <span class="ref-tag">你住在哪儿?</span>
+    <span class="ref-tag">你的爱好是什么?</span>
+    <span class="ref-tag">你喜欢什么音乐?</span>
+    <span class="ref-tag">你正在做什么?</span>
+    <span class="ref-tag">你都会吗?</span>
+    <span class="ref-tag">一边...一边...?</span>
+    <span class="ref-tag">你每天做什么?</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: Paragraph Writing Instructions -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">9 / 12</div>
+  <div class="page-header">
+    <span class="tag">Writing</span>
+    <h2>写一段话 · Write a Paragraph</h2>
+  </div>
+  <div class="writing-area">
+    <div class="instruction-block">
+      <div class="step">
+        <strong>Choose ONE person</strong> you interviewed. Write 4-6 sentences about them.
+      </div>
+      <div class="step" style="margin-top:12px">
+        You MUST include:
+      </div>
+      <div class="grammar-checklist">
+        <span>at least one <strong style="color:var(--red)">正在</strong> sentence</span>
+        <span>at least one <strong style="color:var(--gold)">都</strong> sentence</span>
+        <span>at least one <strong style="color:var(--green)">一边...一边...</strong> sentence</span>
+      </div>
+    </div>
+    <div class="example-paragraph">
+      <span class="label">Example</span>
+      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，他都会。他现在正在看书。他有时候一边听音乐一边看书。
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: Paragraph Example — Annotated -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">10 / 12</div>
+  <div class="page-header">
+    <span class="tag">Grammar Check</span>
+    <h2>范文分析 · Example Analysis</h2>
+  </div>
+  <div class="annotated-area">
+    <div class="checklist-row">
+      <div class="check-item">
+        <span class="chk-box">✓</span> 正在
+      </div>
+      <div class="check-item">
+        <span class="chk-box">✓</span> 都
+      </div>
+      <div class="check-item">
+        <span class="chk-box">✓</span> 一边...一边...
+      </div>
+    </div>
+    <div style="font-size:22px;color:var(--pinyin);margin-bottom:8px">Grammar checklist — make sure all three appear in your paragraph!</div>
+    <div class="annotated-text">
+      我的朋友叫小明。他住在墨尔本。他的爱好是唱歌和弹钢琴，<span class="mark-gold">他都会</span>。<span class="mark-red">他现在正在看书</span>。他有时候<span class="mark-green">一边听音乐一边看书</span>。
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px">
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 32px;background:#FFFBF0;border-left:5px solid var(--gold);border-radius:0 12px 12px 0">
+        <span style="font-size:20px;font-weight:700;color:var(--gold);min-width:80px">都 pattern</span>
+        <span style="font-size:28px;font-weight:700">他<span style="color:var(--gold)">都</span>会</span>
+        <span style="font-size:20px;color:var(--pinyin)">— he can do both (sing AND play piano)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 32px;background:#FEF5F5;border-left:5px solid var(--red);border-radius:0 12px 12px 0">
+        <span style="font-size:20px;font-weight:700;color:var(--red);min-width:80px">正在 pattern</span>
+        <span style="font-size:28px;font-weight:700">他<span style="color:var(--red)">正在</span>看书</span>
+        <span style="font-size:20px;color:var(--pinyin)">— he is reading RIGHT NOW</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 32px;background:#F5FAF6;border-left:5px solid var(--green);border-radius:0 12px 12px 0">
+        <span style="font-size:20px;font-weight:700;color:var(--green);min-width:80px">一边 pattern</span>
+        <span style="font-size:28px;font-weight:700"><span style="color:var(--green)">一边</span>听音乐<span style="color:var(--green)">一边</span>看书</span>
+        <span style="font-size:20px;color:var(--pinyin)">— listening to music AND reading at the same time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11: Peer Feedback — Swap and Check -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">11 / 12</div>
+  <div class="page-header">
+    <span class="tag">Peer Feedback</span>
+    <h2>交换! · Swap and Check</h2>
+  </div>
+  <div class="swap-area">
+    <div class="swap-banner">
+      交换!
+      <span class="sub">Swap paragraphs with the person you wrote about</span>
+    </div>
+    <div class="check-grid">
+      <div class="check-row">
+        <span class="check-num">1</span>
+        <span class="check-label">Is the information correct?</span>
+        <span class="check-mark">✅ / ❌</span>
+      </div>
+      <div class="check-row">
+        <span class="check-num">2</span>
+        <span class="check-label">Are 正在, 都, and 一边...一边... used?</span>
+        <span class="check-mark">✅ / ❌</span>
+      </div>
+      <div class="check-row">
+        <span class="check-num">3</span>
+        <span class="check-label">Is the Chinese understandable?</span>
+        <span class="check-mark">✅ / ❌</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 12: Exit Ticket + Wrap-up -->
+<!-- ============================================================ -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">12 / 12</div>
+  <div class="page-header">
+    <span class="tag">Exit Ticket</span>
+    <h2>总结 · Wrap-up</h2>
+  </div>
+  <div class="exit-area">
+    <div class="share-prompt">
+      <div class="big-q">What did you learn about your classmates today?</div>
+      <div class="starter">你今天学了同学的什么? Share one interesting thing!</div>
+    </div>
+    <div class="preview-box">
+      <div class="next-label">下次 · Next Lesson</div>
+      <div class="next-zh">中国乐器与文化 + 单元测验!</div>
+      <div class="next-en">Chinese instruments, culture, and UNIT TEST.</div>
+      <div style="font-size:20px;color:var(--pinyin);margin-top:6px;font-style:italic">Study ALL vocabulary and grammar patterns!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NAVIGATION SCRIPT -->
+<!-- ============================================================ -->
+<script>
+(function() {
+  var stage = document.querySelector('.stage');
+  function fit() {
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var scale = Math.min(sw / 1920, sh / 1080);
+    stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginLeft = (sw - 1920 * scale) / 2 + 'px';
+    stage.style.marginTop = (sh - 1080 * scale) / 2 + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function(){var s=document.querySelectorAll('section');var c=0;function show(i){s.forEach(function(x){x.classList.remove('active')});c=(i+s.length)%s.length;s[c].classList.add('active');}document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown')show(c+1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')show(c-1)});document.addEventListener('click',function(e){if(e.target.closest('.stage')||e.target.tagName==='SECTION'||e.target.closest('section')){show(c+1)}})})();
+</script>
+</div>
+</body>
+</html>

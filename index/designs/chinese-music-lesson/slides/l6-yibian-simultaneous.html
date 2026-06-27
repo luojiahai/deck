@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6 · 一边听音乐一边看书</title>
+<style>
+:root {
+  --red: #C43E2C;
+  --gold: #D4953A;
+  --bg: #FEFAF5;
+  --text: #2D2A26;
+  --pinyin: #8B7E74;
+  --warm-bg: #F5EDE3;
+  --light-border: #E8DED4;
+  --card-bg: #FFFBF7;
+  --green: #4A8C5C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: #1a1a1a;
+      font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .stage {
+      width: 1920px; height: 1080px;
+      overflow: hidden; position: relative;
+      background: var(--bg); color: var(--text);
+      transform-origin: top left;
+      text-wrap: pretty;
+    }
+
+/* Accent bar */
+.accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--red);
+  z-index: 10;
+}
+
+/* Slide counter */
+.slide-counter {
+  position: absolute;
+  bottom: 32px;
+  right: 96px;
+  font-size: 16px;
+  color: var(--pinyin);
+  opacity: 0.6;
+  z-index: 10;
+}
+
+/* Sections */
+section {
+  display: none;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 80px 120px 80px 120px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.active {
+  display: flex;
+}
+
+/* ---- Typography ---- */
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 40px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.pinyin {
+  color: var(--pinyin);
+  font-size: 32px;
+}
+
+.english {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.body-text {
+  font-size: 36px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* Inline red highlight for 一边 */
+.red-hl {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.blue-hl {
+  color: #3B6FB6;
+  font-weight: 600;
+}
+
+.green-hl {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ---- Slide 1: Title ---- */
+.s1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.s1-content h1 {
+  margin-bottom: 16px;
+}
+
+.s1-content .pinyin {
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+.unit-badge {
+  position: absolute;
+  top: 80px;
+  right: 120px;
+  background: var(--red);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 24px;
+  letter-spacing: 0.04em;
+}
+
+.year-label {
+  position: absolute;
+  top: 140px;
+  right: 120px;
+  font-size: 18px;
+  color: var(--pinyin);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Slide 2: Learning Intention ---- */
+.warm-panel {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 48px 56px;
+  width: 100%;
+}
+
+.criteria-list {
+  list-style: none;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.criteria-list li {
+  font-size: 36px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* ---- Slide 3: Warm-up 2x2 Grid ---- */
+.warmup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+  flex: 1;
+}
+
+.scenario-card {
+  background: var(--card-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 20px;
+  padding: 36px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.scenario-card.possible {
+  border-color: var(--green);
+  background: linear-gradient(135deg, #F0F8F2 0%, var(--card-bg) 40%);
+}
+
+.scenario-card.impossible {
+  border-color: var(--red);
+  background: linear-gradient(135deg, #FDF0EE 0%, var(--card-bg) 40%);
+}
+
+.scenario-card .symbols {
+  font-size: 56px;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.scenario-card .symbols .plus {
+  font-size: 36px;
+  color: var(--pinyin);
+  font-weight: 300;
+}
+
+.scenario-card .label {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.scenario-card .verdict {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 8px 24px;
+  border-radius: 20px;
+}
+
+.scenario-card.possible .verdict {
+  background: #E8F5EC;
+  color: var(--green);
+}
+
+.scenario-card.impossible .verdict {
+  background: #FDECEA;
+  color: var(--red);
+}
+
+.bridge-text {
+  text-align: center;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 32px;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Slide 4: Textbook Example Featured Card ---- */
+.featured-card {
+  background: var(--card-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 20px;
+  padding: 56px 64px;
+  margin-top: 40px;
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  flex: 1;
+}
+
+.featured-card .card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.featured-card .sentence-zh {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.featured-card .sentence-py {
+  font-size: 30px;
+  color: var(--pinyin);
+  line-height: 1.5;
+}
+
+.featured-card .sentence-en {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.featured-card .card-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--warm-bg);
+  border-radius: 16px;
+  min-height: 320px;
+  font-size: 120px;
+}
+
+.textbook-ref {
+  font-size: 20px;
+  color: var(--pinyin);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* ---- Slide 5: Structure Breakdown (KEY PEDAGOGICAL SLIDE) ---- */
+.structure-display {
+  margin-top: 48px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.formula-box {
+  background: var(--warm-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 24px;
+  padding: 48px 56px;
+  text-align: center;
+  width: 100%;
+}
+
+.formula-box .formula-line {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.formula-box .formula-line .bracket {
+  color: var(--pinyin);
+}
+
+.formula-box .formula-line .person {
+  color: #3B6FB6;
+}
+
+.formula-box .formula-line .yibian {
+  color: var(--red);
+}
+
+.formula-box .formula-line .action {
+  color: var(--green);
+}
+
+.example-breakdown {
+  background: var(--card-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 20px;
+  padding: 48px 56px;
+  width: 100%;
+  text-align: center;
+}
+
+.example-breakdown .big-example {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+  line-height: 1.4;
+}
+
+.example-breakdown .big-example .pers { color: #3B6FB6; }
+.example-breakdown .big-example .yi { color: var(--red); }
+.example-breakdown .big-example .act { color: var(--green); }
+
+.example-breakdown .legend {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.example-breakdown .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  color: var(--pinyin);
+}
+
+.example-breakdown .legend-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.example-breakdown .legend-dot.pers-dot { background: #3B6FB6; }
+.example-breakdown .legend-dot.yi-dot { background: var(--red); }
+.example-breakdown .legend-dot.act-dot { background: var(--green); }
+
+.simultaneous-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.simultaneous-arrows .arr {
+  font-size: 52px;
+}
+
+/* ---- Slide 6: More Examples ---- */
+.example-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+  flex: 1;
+}
+
+.example-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 16px;
+  padding: 32px 44px;
+}
+
+.example-row .row-icon {
+  font-size: 64px;
+  flex-shrink: 0;
+  width: 100px;
+  text-align: center;
+}
+
+.example-row .row-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.example-row .row-zh {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.example-row .row-py {
+  font-size: 24px;
+  color: var(--pinyin);
+}
+
+/* ---- Slide 7: 有时候 + 一边...一边... ---- */
+.pattern-box {
+  background: var(--warm-bg);
+  border-left: 4px solid var(--red);
+  border-radius: 0 16px 16px 0;
+  padding: 48px 56px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pattern-box.gold-border {
+  border-left-color: var(--gold);
+}
+
+.pattern-box .question-zh {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.pattern-box .question-pinyin {
+  font-size: 30px;
+  color: var(--pinyin);
+}
+
+.pattern-box .question-en {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.pattern-box .formula-sm {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-top: 12px;
+}
+
+.pattern-note {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 12px;
+  padding: 24px 36px;
+  margin-top: 28px;
+  font-size: 28px;
+  color: var(--pinyin);
+  line-height: 1.6;
+}
+
+.pattern-note .highlight {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---- Slide 8: Quick Check ---- */
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  flex: 1;
+}
+
+.check-item {
+  background: var(--card-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.check-item .pair {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.check-item .pair .plus-sign {
+  color: var(--pinyin);
+  margin: 0 12px;
+}
+
+.check-item .judgment {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.check-item.possible .judgment {
+  color: var(--green);
+}
+
+.check-item.impossible .judgment {
+  color: var(--red);
+}
+
+.check-item.possible {
+  border-color: var(--green);
+}
+
+.check-item.impossible {
+  border-color: var(--red);
+}
+
+/* ---- Slide 9: Extension ---- */
+.extension-box {
+  background: var(--card-bg);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 16px 16px 0;
+  padding: 48px 56px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.extension-box .ext-label {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.extension-box .ext-zh {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.extension-box .ext-py {
+  font-size: 28px;
+  color: var(--pinyin);
+}
+
+.extension-box .ext-note {
+  font-size: 28px;
+  color: var(--pinyin);
+  line-height: 1.6;
+  margin-top: 12px;
+  padding: 20px 24px;
+  background: var(--warm-bg);
+  border-radius: 12px;
+}
+
+.extension-box .ext-note .key-word {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---- Slides 10-11: Character Writing ---- */
+.char-writing-layout {
+  display: flex;
+  gap: 64px;
+  margin-top: 40px;
+  flex: 1;
+  align-items: center;
+}
+
+.char-big {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 240px;
+  font-weight: 700;
+  color: var(--text);
+  position: relative;
+}
+
+.char-info-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.char-info-panel .info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.char-info-panel .info-label {
+  font-size: 22px;
+  color: var(--pinyin);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 100px;
+}
+
+.char-info-panel .info-value {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.char-info-panel .info-note {
+  font-size: 28px;
+  color: var(--pinyin);
+  line-height: 1.5;
+  margin-top: 12px;
+  padding: 20px;
+  background: var(--warm-bg);
+  border-radius: 12px;
+}
+
+.stroke-order-diagram {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.stroke-order-diagram .stroke-step {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--pinyin);
+}
+
+.stroke-order-diagram .arrow-step {
+  font-size: 20px;
+  color: var(--light-border);
+}
+
+.air-trace {
+  margin-top: 16px;
+  font-size: 28px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ---- Slide 12: Drawing Activity ---- */
+.instruction-card {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 56px 64px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.instruction-card .big-prompt {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.instruction-card .en-prompt {
+  font-size: 30px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.instruction-card .detail-text {
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stick-figure-examples {
+  display: flex;
+  gap: 40px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.stick-figure-example {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  font-size: 80px;
+  min-width: 160px;
+}
+
+.timer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 24px;
+  align-self: flex-start;
+}
+
+/* ---- Slide 13: Gallery Walk ---- */
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+  flex: 1;
+}
+
+.gallery-step {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 36px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.gallery-step .step-num {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.gallery-step .step-text {
+  flex: 1;
+}
+
+.gallery-highlight {
+  background: var(--warm-bg);
+  border-radius: 16px;
+  padding: 28px 36px;
+  font-size: 30px;
+  color: var(--gold);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-top: auto;
+}
+
+/* ---- Slide 14: Winner Announcement ---- */
+.celebration-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+
+.celebration-title {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.celebration-subtitle {
+  font-size: 36px;
+  color: var(--pinyin);
+}
+
+.winner-spotlight {
+  background: var(--warm-bg);
+  border: 2px dashed var(--gold);
+  border-radius: 20px;
+  padding: 56px;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: var(--pinyin);
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.winning-sentences {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.winning-sentence {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.celebration-emoji {
+  font-size: 80px;
+}
+
+/* ---- Slide 15: Exit Ticket ---- */
+.exit-ticket-prompt {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 56px 64px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.exit-ticket-prompt .instruction-line {
+  font-size: 36px;
+  color: var(--pinyin);
+  margin-bottom: 40px;
+}
+
+.exit-ticket-prompt .sentence-line {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.exit-ticket-prompt .blank-line {
+  display: inline-block;
+  border-bottom: 3px solid var(--red);
+  min-width: 240px;
+  margin: 0 16px;
+}
+
+.exit-ticket-prompt .hint-line {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.preview-teaser {
+  margin-top: 32px;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+/* ---- Utility ---- */
+.spacer-sm { height: 16px; }
+.spacer-md { height: 28px; }
+.spacer-lg { height: 40px; }
+.mt-auto { margin-top: auto; }
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="accent-bar"></div>
+<div class="slide-counter" id="counter">6 / 15</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: Title Slide -->
+<!-- ============================================================ -->
+<section class="active" id="s1">
+  <div class="unit-badge">Unit 3 · 爱好 (一): 音乐</div>
+  <div class="year-label">Year 8 Chinese · 八年级中文</div>
+  <div class="s1-content">
+    <h1>第6课: 一边听音乐一边看书</h1>
+    <span class="pinyin">Dì 6 kè: Yībiān tīng yīnyuè yībiān kàn shū</span>
+    <span class="english" style="font-size: 32px;">Lesson 6: Listening to Music While Reading</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: Learning Intention & Success Criteria -->
+<!-- ============================================================ -->
+<section id="s2">
+  <h2>今天我们要学...</h2>
+  <div class="spacer-sm"></div>
+  <span class="pinyin">Jīntiān wǒmen yào xué...</span>
+  <div class="spacer-md"></div>
+  <div class="warm-panel">
+    <ul class="criteria-list">
+      <li>
+        <span class="checkbox"></span>
+        <span>I can explain what <span class="red-hl">一边...一边...</span> means in English</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can form a sentence with <span class="red-hl">一边 A 一边 B</span> correctly</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can combine <span class="red-hl">有时候</span> + <span class="red-hl">一边...一边...</span> in one sentence</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can write the characters <span class="red-hl">边</span> and <span class="red-hl">看</span> with correct stroke order</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: Warm-up — Can You Do Two Things at Once? -->
+<!-- ============================================================ -->
+<section id="s3">
+  <h2>Can You Do Two Things at Once?</h2>
+  <span class="pinyin">你能同时做两件事吗? · Nǐ néng tóngshí zuò liǎng jiàn shì ma?</span>
+  <div class="warmup-grid">
+    <div class="scenario-card possible">
+      <div class="symbols">
+        <span>♪</span><span class="plus">+</span><span>📖</span>
+      </div>
+      <div class="label">听音乐 + 看书</div>
+      <div class="verdict">Possible! ✓</div>
+    </div>
+    <div class="scenario-card impossible">
+      <div class="symbols">
+        <span>😴</span><span class="plus">+</span><span>🏃</span>
+      </div>
+      <div class="label">睡觉 + 跑步</div>
+      <div class="verdict">Impossible! ✗</div>
+    </div>
+    <div class="scenario-card possible">
+      <div class="symbols">
+        <span>🎤</span><span class="plus">+</span><span>🎹</span>
+      </div>
+      <div class="label">唱歌 + 弹钢琴</div>
+      <div class="verdict">Possible! ✓</div>
+    </div>
+    <div class="scenario-card impossible">
+      <div class="symbols">
+        <span>🍚</span><span class="plus">+</span><span>🏊</span>
+      </div>
+      <div class="label">吃饭 + 游泳</div>
+      <div class="verdict">Impossible! ✗</div>
+    </div>
+  </div>
+  <div class="bridge-text">
+    Thumbs up 👍 or thumbs down 👎 for each one — then we learn how to say "doing A while doing B" in Chinese!
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: Textbook p.72 — 一边...一边... -->
+<!-- ============================================================ -->
+<section id="s4">
+  <h2>Textbook Example</h2>
+  <span class="textbook-ref">p.72 · 一边...一边...</span>
+  <div class="featured-card">
+    <div class="card-text">
+      <div class="sentence-zh">
+        他有时候<span class="red-hl">一边</span>听音乐<span class="red-hl">一边</span>看书。
+      </div>
+      <div class="sentence-py">
+        Tā yǒu shíhou <span style="color: var(--red); font-weight: 600;">yībiān</span> tīng yīnyuè <span style="color: var(--red); font-weight: 600;">yībiān</span> kàn shū.
+      </div>
+      <div class="sentence-en">
+        He sometimes reads while listening to music.
+      </div>
+    </div>
+    <div class="card-image">
+      🎧📖
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: Structure Breakdown — KEY PEDAGOGICAL SLIDE -->
+<!-- ============================================================ -->
+<section id="s5">
+  <h2>Structure Breakdown</h2>
+  <span class="pinyin">Jùxíng jiégòu · Sentence Structure</span>
+  <div class="structure-display">
+    <div class="formula-box">
+      <div class="formula-line">
+        <span class="bracket">[</span><span class="person">Person</span><span class="bracket">]</span> + <span class="yibian">一边</span> + <span class="bracket">[</span><span class="action">Action A</span><span class="bracket">]</span> + <span class="yibian">一边</span> + <span class="bracket">[</span><span class="action">Action B</span><span class="bracket">]</span>
+      </div>
+    </div>
+    <div class="simultaneous-arrows">
+      <span>Action A</span><span class="arr">⇄</span><span>Action B</span>
+      <span style="font-size: 28px; color: var(--pinyin); font-weight: 400;">These two actions happen at the SAME TIME</span>
+    </div>
+    <div class="example-breakdown">
+      <div class="big-example">
+        <span class="pers">他</span>&ensp;<span class="yi">一边</span>&ensp;<span class="act">听音乐</span>&ensp;<span class="yi">一边</span>&ensp;<span class="act">看书</span>
+      </div>
+      <div class="legend">
+        <div class="legend-item">
+          <span class="legend-dot pers-dot"></span>
+          <span>Person / Subject</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot yi-dot"></span>
+          <span>一边 Marker (while)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot act-dot"></span>
+          <span>Action / Verb phrase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: More Examples -->
+<!-- ============================================================ -->
+<section id="s6">
+  <h2>More Examples</h2>
+  <span class="pinyin">Gèng duō lìzi · More Example Sentences</span>
+  <div class="example-rows">
+    <div class="example-row">
+      <div class="row-icon">🎤🎹</div>
+      <div class="row-text">
+        <div class="row-zh">我<span class="red-hl">一边</span>唱歌<span class="red-hl">一边</span>弹钢琴。</div>
+        <div class="row-py">Wǒ <span style="color: var(--red); font-weight: 600;">yībiān</span> chàng gē <span style="color: var(--red); font-weight: 600;">yībiān</span> tán gāngqín.</div>
+      </div>
+    </div>
+    <div class="example-row">
+      <div class="row-icon">🍚📱</div>
+      <div class="row-text">
+        <div class="row-zh">他<span class="red-hl">一边</span>吃饭<span class="red-hl">一边</span>看手机。</div>
+        <div class="row-py">Tā <span style="color: var(--red); font-weight: 600;">yībiān</span> chīfàn <span style="color: var(--red); font-weight: 600;">yībiān</span> kàn shǒujī.</div>
+      </div>
+    </div>
+    <div class="example-row">
+      <div class="row-icon">🚶🎧</div>
+      <div class="row-text">
+        <div class="row-zh">她<span class="red-hl">一边</span>走路<span class="red-hl">一边</span>听音乐。</div>
+        <div class="row-py">Tā <span style="color: var(--red); font-weight: 600;">yībiān</span> zǒulù <span style="color: var(--red); font-weight: 600;">yībiān</span> tīng yīnyuè.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: 有时候 + 一边...一边... -->
+<!-- ============================================================ -->
+<section id="s7">
+  <h2>有时候 + 一边...一边...</h2>
+  <span class="pinyin">Yǒu shíhou — Sometimes</span>
+  <div class="pattern-box gold-border">
+    <div class="question-zh" style="font-size: 44px;">有时候 <span style="color: var(--pinyin); font-weight: 400;">= sometimes</span></div>
+    <div class="question-pinyin">yǒu shíhou</div>
+    <div class="formula-sm">
+      Subject + <span class="red-hl">有时候</span> + <span class="red-hl">一边</span> A <span class="red-hl">一边</span> B
+    </div>
+  </div>
+  <div class="spacer-md"></div>
+  <div class="example-row">
+    <div class="row-icon">📚🎧</div>
+    <div class="row-text">
+      <div class="row-zh">我<span class="red-hl">有时候</span><span class="red-hl">一边</span>听音乐<span class="red-hl">一边</span>做功课。</div>
+      <div class="row-py">Wǒ yǒu shíhou yībiān tīng yīnyuè yībiān zuò gōngkè.</div>
+    </div>
+  </div>
+  <div class="pattern-note">
+    <span class="highlight">有</span> (yǒu = have) + <span class="highlight">时候</span> (shíhou = time) → "have times when" = <span class="highlight">sometimes</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: Quick Check — Is It Possible? -->
+<!-- ============================================================ -->
+<section id="s8">
+  <h2>Quick Check: Is It Possible?</h2>
+  <span class="pinyin">Kuàisù jiǎnchá · Can you do both at once?</span>
+  <div class="check-grid">
+    <div class="check-item possible">
+      <div class="judgment">✅</div>
+      <div class="pair">
+        听音乐<span class="plus-sign">+</span>看书
+      </div>
+    </div>
+    <div class="check-item impossible">
+      <div class="judgment">❌</div>
+      <div class="pair">
+        睡觉<span class="plus-sign">+</span>唱歌
+      </div>
+    </div>
+    <div class="check-item possible">
+      <div class="judgment">✅</div>
+      <div class="pair">
+        吃饭<span class="plus-sign">+</span>说话
+      </div>
+    </div>
+    <div class="check-item impossible">
+      <div class="judgment">❌</div>
+      <div class="pair">
+        跑步<span class="plus-sign">+</span>游泳
+      </div>
+    </div>
+    <div class="check-item possible">
+      <div class="judgment">✅</div>
+      <div class="pair">
+        弹钢琴<span class="plus-sign">+</span>唱歌
+      </div>
+    </div>
+    <div class="check-item impossible">
+      <div class="judgment">❌</div>
+      <div class="pair">
+        读书<span class="plus-sign">+</span>看电视
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: Extension — 好几个小时 -->
+<!-- ============================================================ -->
+<section id="s9">
+  <h2>Extension: 好几个小时</h2>
+  <span class="pinyin">Kuòzhǎn · Extension (not required, but useful!)</span>
+  <div class="extension-box">
+    <div class="ext-label">✦ Extension Vocabulary</div>
+    <div class="ext-zh">好几个小时</div>
+    <div class="ext-py">hǎo jǐ ge xiǎoshí = several hours</div>
+  </div>
+  <div class="spacer-md"></div>
+  <div class="example-row">
+    <div class="row-icon">⏱️</div>
+    <div class="row-text">
+      <div class="row-zh" style="font-size: 36px;">
+        他<span class="red-hl">一边</span>听音乐<span class="red-hl">一边</span>看书，看了<span class="green-hl">好几个小时</span>。
+      </div>
+      <div class="row-py" style="font-size: 22px;">
+        Tā yībiān tīng yīnyuè yībiān kàn shū, kàn le hǎo jǐ ge xiǎoshí.
+      </div>
+    </div>
+  </div>
+  <div class="pattern-note">
+    <span class="key-word" style="color: var(--gold); font-weight: 600;">好</span> here = "quite" or "a good" (colloquial), <strong>not</strong> "good"<br>
+    <span class="key-word" style="color: var(--gold); font-weight: 600;">好几</span> + measure word = "quite a few" / "several"
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: Character Writing — 边 (biān) -->
+<!-- ============================================================ -->
+<section id="s10">
+  <h2>写字: 边 (biān)</h2>
+  <span class="pinyin">Xiě zì · Character Writing</span>
+  <div class="char-writing-layout">
+    <div class="char-big">边</div>
+    <div class="char-info-panel">
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">辶 (chuò) — walk / movement</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">5 strokes</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value">biān</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">side; while (in 一边)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Components</span>
+        <span class="info-value">力 (lì) + 辶 (chuò)</span>
+      </div>
+      <div class="info-note">
+        边 is simplified from 邊 (biān).<br>
+        一边 yībiān = on one side / while<br>
+        旁边 pángbiān = beside / next to
+      </div>
+      <div class="air-trace">✋ Air-trace the character with your finger!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11: Character Writing — 看 (kàn) -->
+<!-- ============================================================ -->
+<section id="s11">
+  <h2>写字: 看 (kàn)</h2>
+  <span class="pinyin">Xiě zì · Character Writing</span>
+  <div class="char-writing-layout">
+    <div class="char-big">看</div>
+    <div class="char-info-panel">
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">目 (mù) — eye</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">9 strokes</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value">kàn</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">to look at; to read</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Components</span>
+        <span class="info-value">手 (shǒu, modified) + 目 (mù)</span>
+      </div>
+      <div class="info-note">
+        Mnemonic: "Hand above eyes — looking into the distance."<br>
+        看书 kàn shū = to read (silently)<br>
+        看电视 kàn diànshì = to watch TV
+      </div>
+      <div class="air-trace">✋ Air-trace the character with your finger!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 12: Drawing Activity Instructions -->
+<!-- ============================================================ -->
+<section id="s12">
+  <h2>画一画，写一写</h2>
+  <span class="pinyin">Draw and Write! · Activity Instructions</span>
+  <div class="instruction-card">
+    <div class="big-prompt">Draw a picture of someone doing TWO things at the same time.</div>
+    <div class="en-prompt">画一个人同时做两件事。Below your drawing, write a caption using 一边...一边...</div>
+    <div class="detail-text">
+      Be creative — and school-appropriate! Focus on getting the Chinese sentence right.
+    </div>
+    <div class="stick-figure-examples">
+      <div class="stick-figure-example">🎧<br>📖</div>
+      <div class="stick-figure-example">🎤<br>🎹</div>
+      <div class="stick-figure-example">🍚<br>📱</div>
+    </div>
+    <div class="timer-badge">⏱ 10 minutes</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 13: Gallery Walk -->
+<!-- ============================================================ -->
+<section id="s13">
+  <h2>画廊漫步</h2>
+  <span class="pinyin">Huàláng Mànbù · Gallery Walk!</span>
+  <div class="gallery-content">
+    <div class="gallery-step">
+      <div class="step-num">1</div>
+      <div class="step-text">Display your artwork on your desk.</div>
+    </div>
+    <div class="gallery-step">
+      <div class="step-num">2</div>
+      <div class="step-text">Walk around and read each other's captions.</div>
+    </div>
+    <div class="gallery-step">
+      <div class="step-num">3</div>
+      <div class="step-text">Check: is <span class="red-hl">一边...一边...</span> used correctly?</div>
+    </div>
+    <div class="gallery-step">
+      <div class="step-num">4</div>
+      <div class="step-text">Vote for your favourite with sticky dots!</div>
+    </div>
+    <div class="gallery-highlight">
+      走一走! 看一看! 选最喜欢的! &mdash; Walk, look, and pick your favourite!
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 14: Winner Announcement + Top Sentences -->
+<!-- ============================================================ -->
+<section id="s14">
+  <h2>最佳一边...一边...艺术奖!</h2>
+  <span class="pinyin">Best 一边...一边... Art Award!</span>
+  <div class="celebration-content">
+    <div class="celebration-emoji">🏆🎉</div>
+    <div class="winner-spotlight">
+      [ Project the winning artwork here — take a photo and display! ]
+    </div>
+    <div class="winning-sentences">
+      <div class="winning-sentence">
+        我<span class="red-hl">一边</span>______<span class="red-hl">一边</span>______。
+      </div>
+      <div class="winning-sentence">
+        他<span class="red-hl">一边</span>______<span class="red-hl">一边</span>______。
+      </div>
+      <div class="winning-sentence">
+        她<span class="red-hl">一边</span>______<span class="red-hl">一边</span>______。
+      </div>
+    </div>
+    <div class="celebration-subtitle">Everyone did an amazing job! 大家都做得很好!</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 15: Exit Ticket + Wrap-up -->
+<!-- ============================================================ -->
+<section id="s15">
+  <h2>Exit Ticket</h2>
+  <span class="pinyin">Chūkǒu piào · Show what you know</span>
+  <div class="exit-ticket-prompt">
+    <div class="instruction-line">你有时候一边做什么一边做什么?</div>
+    <div class="instruction-line" style="font-size: 28px; color: var(--pinyin); font-style: italic; margin-bottom: 32px;">
+      What do you sometimes do while doing something else?
+    </div>
+    <div class="sentence-line">
+      我有时候<span class="red-hl">一边</span><span class="blank-line"></span><span class="red-hl">一边</span><span class="blank-line"></span>。
+    </div>
+    <div class="hint-line">Write a complete sentence using 有时候 + 一边...一边...</div>
+  </div>
+  <div class="preview-teaser">
+    下次: 采访同学 — Interview your classmates using everything we've learned!
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NAVIGATION SCRIPT -->
+<!-- ============================================================ -->
+<script>
+(function() {
+  var stage = document.querySelector('.stage');
+  function fit() {
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var scale = Math.min(sw / 1920, sh / 1080);
+    stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginLeft = (sw - 1920 * scale) / 2 + 'px';
+    stage.style.marginTop = (sh - 1080 * scale) / 2 + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('section');
+  var counter = document.getElementById('counter');
+  var total = slides.length;
+  var current = 0;
+
+  function updateCounter(i) {
+    counter.textContent = '6 / 15';
+  }
+
+  function show(i) {
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    current = (i + total) % total;
+    slides[current].classList.add('active');
+    updateCounter(current);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') show(current + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') show(current - 1);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.stage') || e.target.tagName === 'SECTION' || e.target.closest('section')) {
+      show(current + 1);
+    }
+  });
+
+  updateCounter(0);
+})();
+</script>
+</div>
+</body>
+</html>

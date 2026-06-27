@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2 · 你喜欢什么音乐?</title>
+<style>
+  :root { --red: #C43E2C; --gold: #D4953A; --bg: #FEFAF5; --text: #2D2A26; --pinyin: #8B7E74; --warm-bg: #F5EDE3; --light-border: #E8DED4; --card-bg: #FFFBF7; --green: #4A8C5C; }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: #1a1a1a;
+      font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .stage {
+      width: 1920px; height: 1080px;
+      overflow: hidden; position: relative;
+      background: var(--bg); color: var(--text);
+      transform-origin: top left;
+      text-wrap: pretty;
+    }
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px}
+  section.active{display:block}
+  .accent-bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red)}
+  .slide-num{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6}
+  .page-header{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px}
+  .page-header .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase}
+  .page-header h2{font-size:52px;font-weight:700;letter-spacing:0.03em}
+  .vocab-card{background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px 36px;display:flex;flex-direction:column;gap:8px;position:relative}
+  .vocab-card .zh{font-size:46px;font-weight:700;letter-spacing:0.06em;line-height:1.2}
+  .vocab-card .py{font-size:21px;color:var(--pinyin)}
+  .vocab-card .en{font-size:19px;color:var(--pinyin);font-style:italic}
+  .pattern-box{background:var(--warm-bg);border-radius:20px;padding:48px 56px;margin-bottom:24px;border-left:4px solid var(--red)}
+  .pattern-box .zh{font-size:42px;font-weight:700;margin-bottom:8px}
+  .pattern-box .py{font-size:22px;color:var(--pinyin);margin-bottom:6px}
+  .pattern-box .en{font-size:20px;color:var(--pinyin);font-style:italic}
+
+  /* Additional L2-specific styles */
+  .unit-badge{display:inline-block;font-size:16px;font-weight:600;letter-spacing:0.08em;color:var(--gold);border:1.5px solid var(--gold);border-radius:8px;padding:6px 16px;text-transform:uppercase}
+  .hero-title{position:absolute;top:200px;left:96px;right:96px}
+  .hero-title .lesson-num{font-size:22px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;margin-bottom:16px}
+  .hero-title h1{font-size:72px;font-weight:700;letter-spacing:0.03em;line-height:1.2;margin-bottom:12px}
+  .hero-title .pinyin{font-size:28px;color:var(--pinyin);margin-bottom:20px}
+  .hero-title .eng{font-size:24px;color:var(--pinyin);font-style:italic}
+  .hero-badge{position:absolute;top:80px;right:96px}
+
+  .warm-panel{background:var(--warm-bg);border-radius:24px;padding:64px 72px;position:absolute;left:96px;right:96px;top:140px;bottom:100px;display:flex;flex-direction:column;gap:32px}
+  .warm-panel h2{font-size:44px;font-weight:700;margin-bottom:4px}
+  .warm-panel .li-sub{font-size:22px;color:var(--pinyin);font-style:italic;margin-bottom:24px}
+  .criteria-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+  .criteria-list li{font-size:36px;display:flex;align-items:center;gap:18px;line-height:1.3}
+  .criteria-list .checkbox{width:38px;height:38px;border:2px solid var(--red);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--red)}
+
+  .image-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:40px;padding:0 120px;position:absolute;top:170px;left:0;right:0;bottom:140px}
+  .image-cell{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .image-cell .img-placeholder{width:100%;aspect-ratio:4/3;background:var(--warm-bg);border:2px solid var(--light-border);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:60px;color:var(--pinyin)}
+  .image-cell .answer-line{width:80%;height:56px;border-bottom:3px dashed var(--light-border);font-size:32px;text-align:center;color:var(--text);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px}
+  .image-cell .answer-reveal{font-size:36px;font-weight:700;color:var(--green);text-align:center}
+  .image-cell .answer-pinyin{font-size:20px;color:var(--pinyin);text-align:center}
+
+  .hero-image-area{position:absolute;top:160px;left:120px;right:120px;bottom:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+  .hero-image-area .img-ph{width:700px;height:400px;background:var(--warm-bg);border:3px solid var(--light-border);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:120px}
+  .hero-image-area .big-word{font-size:64px;font-weight:700;letter-spacing:0.06em}
+  .hero-image-area .big-pinyin{font-size:26px;color:var(--pinyin)}
+  .hero-image-area .big-eng{font-size:24px;color:var(--pinyin);font-style:italic}
+  .note-box{background:var(--warm-bg);border-radius:16px;padding:28px 36px;font-size:22px;color:var(--pinyin);line-height:1.5;max-width:1000px;text-align:center}
+  .note-box strong{color:var(--text)}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;position:absolute;top:160px;left:120px;right:120px;bottom:140px}
+  .music-type-card{background:var(--card-bg);border:1px solid var(--light-border);border-radius:24px;padding:48px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+  .music-type-card .icon{font-size:96px;margin-bottom:8px}
+  .music-type-card .zh{font-size:52px;font-weight:700;letter-spacing:0.06em}
+  .music-type-card .py{font-size:24px;color:var(--pinyin)}
+  .music-type-card .en{font-size:22px;color:var(--pinyin);font-style:italic}
+  .music-type-card .breakdown{font-size:20px;color:var(--pinyin);margin-top:8px;line-height:1.5}
+  .music-type-card .breakdown span{color:var(--red);font-weight:600}
+
+  .pattern-area{position:absolute;top:180px;left:120px;right:120px;bottom:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .tag-options{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+  .tag-option{display:inline-block;background:var(--card-bg);border:2px solid var(--gold);border-radius:14px;padding:16px 36px;font-size:36px;font-weight:700;color:var(--text);letter-spacing:0.04em}
+  .tag-both{display:inline-block;background:var(--red);color:#fff;border-radius:14px;padding:16px 36px;font-size:36px;font-weight:700;letter-spacing:0.04em}
+
+  .grammar-area{position:absolute;top:160px;left:120px;right:120px;bottom:120px;display:flex;flex-direction:column;gap:32px}
+  .grammar-intro{background:var(--warm-bg);border-radius:20px;padding:28px 40px;border-left:4px solid var(--red)}
+  .grammar-intro .rule{font-size:38px;font-weight:700;margin-bottom:8px}
+  .grammar-intro .en-note{font-size:20px;color:var(--pinyin);font-style:italic}
+  .example-list{display:flex;flex-direction:column;gap:20px}
+  .example-row{background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:24px 36px;display:flex;align-items:center;gap:32px}
+  .example-row .ex-num{font-size:20px;font-weight:700;color:var(--red);min-width:32px}
+  .example-row .ex-zh{font-size:38px;font-weight:700;flex:1;letter-spacing:0.04em}
+  .example-row .ex-py{font-size:20px;color:var(--pinyin);min-width:300px}
+  .example-row .ex-en{font-size:19px;color:var(--pinyin);font-style:italic;min-width:240px}
+  .warning-box{background:#FFF5F5;border:2px solid var(--red);border-radius:16px;padding:24px 36px;font-size:22px;color:var(--red);line-height:1.5;display:flex;align-items:center;gap:16px}
+  .warning-box .warn-icon{font-size:36px}
+
+  .instruction-card{background:var(--warm-bg);border-radius:24px;padding:64px 72px;position:absolute;top:200px;left:160px;right:160px;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+  .instruction-card h2{font-size:52px;font-weight:700}
+  .instruction-card .bingo-grid-preview{width:320px;height:320px;border:3px solid var(--gold);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:2px;background:var(--gold)}
+  .instruction-card .bingo-cell{background:var(--card-bg);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--pinyin);writing-mode:vertical-rl}
+  .instruction-card .instr-text{font-size:28px;line-height:1.6;color:var(--text)}
+
+  .sentence-list-area{position:absolute;top:150px;left:120px;right:120px;bottom:140px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+  .numbered-sentence{display:flex;align-items:center;gap:24px;padding:18px 32px;background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px}
+  .numbered-sentence .num{font-size:28px;font-weight:700;color:var(--red);min-width:44px;text-align:right}
+  .numbered-sentence .s-zh{font-size:36px;font-weight:600;letter-spacing:0.04em;flex:1}
+  .numbered-sentence .s-py{font-size:19px;color:var(--pinyin);min-width:300px}
+
+  .check-area{position:absolute;top:150px;left:120px;right:120px;bottom:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .check-area .big-check{font-size:120px;color:var(--green)}
+  .check-area h2{font-size:48px;font-weight:700}
+
+  .char-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;position:absolute;top:160px;left:120px;right:120px;bottom:140px;align-items:center}
+  .char-display{display:flex;flex-direction:column;align-items:center;gap:24px}
+  .char-display .big-char{font-size:260px;font-weight:700;line-height:1;color:var(--text)}
+  .char-display .stroke-count{font-size:24px;color:var(--pinyin)}
+  .char-display .hint-text{font-size:20px;color:var(--pinyin);font-style:italic;text-align:center;max-width:500px}
+  .char-info{display:flex;flex-direction:column;gap:20px}
+  .char-info .info-row{display:flex;align-items:baseline;gap:16px;font-size:28px}
+  .char-info .info-label{font-weight:600;color:var(--red);min-width:120px}
+  .char-info .info-value{color:var(--text)}
+  .char-info .info-value.py{color:var(--pinyin);font-size:22px}
+  .char-info .mnemonic{background:var(--warm-bg);border-radius:16px;padding:24px 32px;font-size:24px;color:var(--text);line-height:1.5;margin-top:12px}
+  .char-info .mnemonic .label{font-size:18px;font-weight:600;color:var(--red);margin-bottom:8px}
+  .air-trace{background:var(--warm-bg);border:2px dashed var(--light-border);border-radius:16px;width:300px;height:300px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--pinyin);margin-top:8px}
+
+  .survey-area{position:absolute;top:140px;left:120px;right:120px;bottom:120px;display:flex;flex-direction:column;gap:32px}
+  .survey-table{border:2px solid var(--light-border);border-radius:16px;overflow:hidden}
+  .survey-table .table-header{display:grid;grid-template-columns:1fr 2fr;background:var(--warm-bg)}
+  .survey-table .table-header div{padding:20px 32px;font-size:24px;font-weight:700;border-bottom:2px solid var(--light-border)}
+  .survey-table .table-row{display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--light-border)}
+  .survey-table .table-row:last-child{border-bottom:none}
+  .survey-table .table-row div{padding:18px 32px;font-size:22px;background:var(--card-bg)}
+  .survey-table .table-row .col-name{font-weight:600;color:var(--text)}
+  .survey-table .table-row .col-answer{color:var(--pinyin)}
+  .vocab-ref-strip{display:flex;gap:24px;flex-wrap:wrap;padding:20px 0}
+  .vocab-ref-strip .v-tag{font-size:22px;font-weight:600;padding:8px 20px;background:var(--warm-bg);border-radius:10px;color:var(--text)}
+
+  .report-area{position:absolute;top:200px;left:120px;right:120px;bottom:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .report-area .prompt{font-size:44px;font-weight:700;color:var(--text)}
+  .report-area .frame{font-size:56px;font-weight:700;letter-spacing:0.06em;color:var(--red);background:var(--warm-bg);padding:32px 64px;border-radius:20px;border-left:6px solid var(--red)}
+  .report-area .frame .placeholder{border-bottom:3px solid var(--red);padding:0 24px}
+
+  .exit-area{position:absolute;top:180px;left:120px;right:120px;bottom:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px}
+  .exit-sentence{font-size:56px;font-weight:700;letter-spacing:0.06em;text-align:center;line-height:1.4}
+  .exit-sentence .blank{display:inline-block;min-width:180px;border-bottom:4px solid var(--red);margin:0 12px;padding:0 8px}
+  .preview-box{background:var(--warm-bg);border:2px solid var(--gold);border-radius:20px;padding:28px 48px;font-size:26px;color:var(--text);text-align:center;line-height:1.5}
+  .preview-box .next-label{font-size:18px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+  .preview-box .next-zh{font-weight:700}
+  .preview-box .next-en{color:var(--pinyin);font-style:italic;font-size:22px}
+
+  .section-label{font-size:22px;font-weight:600;color:var(--pinyin);letter-spacing:0.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- Slide 1: Title -->
+<section class="active">
+  <div class="accent-bar"></div>
+  <div class="slide-num">1 / 16</div>
+  <div class="hero-badge"><span class="unit-badge">Unit 3 · 爱好 (一): 音乐</span></div>
+  <div class="hero-title">
+    <div class="lesson-num">第2课</div>
+    <h1>你喜欢什么音乐?</h1>
+    <div class="pinyin">nǐ xǐhuān shénme yīnyuè?</div>
+    <div class="eng">Lesson 2: What Music Do You Like?</div>
+  </div>
+</section>
+
+<!-- Slide 2: Learning Intention & Success Criteria -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">2 / 16</div>
+  <div class="page-header">
+    <span class="tag">Learning Intention</span>
+    <h2>我们要学什么?</h2>
+  </div>
+  <div class="warm-panel" style="top:160px;bottom:90px">
+    <div>
+      <h2>We are learning to describe what kinds of music we like</h2>
+      <div class="li-sub">我们要学习描述我们喜欢什么样的音乐</div>
+    </div>
+    <ul class="criteria-list">
+      <li><span class="checkbox">☐</span> I can name 2 types of music in Chinese</li>
+      <li><span class="checkbox">☐</span> I can ask and answer "What music do you like?"</li>
+      <li><span class="checkbox">☐</span> I can use 和 to list two activities</li>
+      <li><span class="checkbox">☐</span> I can write 唱 and 歌 with correct stroke order</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Slide 3: Warm-up Quick Recall -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">3 / 16</div>
+  <div class="page-header">
+    <span class="tag">Warm-up</span>
+    <h2>Quick Recall · 快速回忆</h2>
+  </div>
+  <div style="position:absolute;top:140px;left:96px;font-size:22px;color:var(--pinyin)">Write the Chinese word for each picture on your whiteboard. Pinyin OK!</div>
+  <div class="image-grid" style="padding:0 120px;top:190px;bottom:120px">
+    <div class="image-cell">
+      <div class="img-placeholder">🎤</div>
+      <div class="answer-line"></div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">🎹</div>
+      <div class="answer-line"></div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">📖</div>
+      <div class="answer-line"></div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">🎧</div>
+      <div class="answer-line"></div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">📚</div>
+      <div class="answer-line"></div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">👀📖</div>
+      <div class="answer-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 4: Warm-up Answers Revealed -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">4 / 16</div>
+  <div class="page-header">
+    <span class="tag">Warm-up</span>
+    <h2>Answers · 答案</h2>
+  </div>
+  <div class="image-grid" style="padding:0 120px;top:150px;bottom:80px">
+    <div class="image-cell">
+      <div class="img-placeholder">🎤</div>
+      <div class="answer-reveal">唱歌</div>
+      <div class="answer-pinyin">chàng gē</div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">🎹</div>
+      <div class="answer-reveal">弹钢琴</div>
+      <div class="answer-pinyin">tán gāngqín</div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">📖</div>
+      <div class="answer-reveal">读书</div>
+      <div class="answer-pinyin">dúshū</div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">🎧</div>
+      <div class="answer-reveal">听音乐</div>
+      <div class="answer-pinyin">tīng yīnyuè</div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">📚</div>
+      <div class="answer-reveal">看书</div>
+      <div class="answer-pinyin">kàn shū</div>
+    </div>
+    <div class="image-cell">
+      <div class="img-placeholder">👀📖</div>
+      <div class="answer-reveal">看书</div>
+      <div class="answer-pinyin">kàn shū</div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 5: New Word 弹吉他 -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">5 / 16</div>
+  <div class="page-header">
+    <span class="tag">New Word</span>
+    <h2>学新词</h2>
+  </div>
+  <div class="hero-image-area">
+    <div class="img-ph">🎸</div>
+    <div class="big-word">弹吉他</div>
+    <div class="big-pinyin">tán jítā</div>
+    <div class="big-eng">to play guitar</div>
+    <div class="note-box">
+      <strong>弹</strong> = same verb as 弹钢琴, for stringed/key instruments<br>
+      <strong>吉他</strong> = loanword from "guitar" (吉 jí = lucky, 他 tā = he)
+    </div>
+  </div>
+</section>
+
+<!-- Slide 6: Types of Music -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">6 / 16</div>
+  <div class="page-header">
+    <span class="tag">New Words</span>
+    <h2>Types of Music · 音乐的种类</h2>
+  </div>
+  <div class="two-col">
+    <div class="music-type-card">
+      <div class="icon">🎵</div>
+      <div class="zh">流行音乐</div>
+      <div class="py">liúxíng yīnyuè</div>
+      <div class="en">pop music</div>
+      <div class="breakdown"><span>流</span> = flow · <span>行</span> = go/travel → "popular"</div>
+    </div>
+    <div class="music-type-card">
+      <div class="icon">🎻</div>
+      <div class="zh">古典音乐</div>
+      <div class="py">gǔdiǎn yīnyuè</div>
+      <div class="en">classical music</div>
+      <div class="breakdown"><span>古</span> = ancient · <span>典</span> = canon/classic</div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 7: Pattern 你喜欢什么音乐? -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">7 / 16</div>
+  <div class="page-header">
+    <span class="tag">Key Pattern</span>
+    <h2>问答 · Question & Answer</h2>
+  </div>
+  <div class="pattern-area">
+    <div class="pattern-box" style="width:100%;max-width:1100px">
+      <div class="zh">你喜欢什么音乐?</div>
+      <div class="py">Nǐ xǐhuān shénme yīnyuè?</div>
+      <div class="en">What music do you like?</div>
+    </div>
+    <div style="font-size:38px;font-weight:700;margin-bottom:16px">我喜欢______。</div>
+    <div class="tag-options">
+      <span class="tag-option">流行音乐</span>
+      <span class="tag-option">古典音乐</span>
+    </div>
+    <div style="margin-top:24px">
+      <span class="tag-both">我都喜欢!</span>
+      <div style="font-size:20px;color:var(--pinyin);margin-top:10px;text-align:center">(preview: 都 = both — more in Lesson 5!)</div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 8: Grammar 和 for Listing -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">8 / 16</div>
+  <div class="page-header">
+    <span class="tag">Grammar</span>
+    <h2>和 for Listing</h2>
+  </div>
+  <div class="grammar-area">
+    <div class="grammar-intro">
+      <div class="rule">和 = and (for nouns and activities)</div>
+      <div class="en-note">Use 和 to connect two things you like — NOT for connecting sentences</div>
+    </div>
+    <div class="example-list">
+      <div class="example-row">
+        <span class="ex-num">1</span>
+        <span class="ex-zh">唱歌和弹钢琴</span>
+        <span class="ex-py">chàng gē hé tán gāngqín</span>
+        <span class="ex-en">singing and playing piano</span>
+      </div>
+      <div class="example-row">
+        <span class="ex-num">2</span>
+        <span class="ex-zh">流行音乐和古典音乐</span>
+        <span class="ex-py">liúxíng yīnyuè hé gǔdiǎn yīnyuè</span>
+        <span class="ex-en">pop music and classical music</span>
+      </div>
+      <div class="example-row">
+        <span class="ex-num">3</span>
+        <span class="ex-zh">听音乐和看书</span>
+        <span class="ex-py">tīng yīnyuè hé kàn shū</span>
+        <span class="ex-en">listening to music and reading</span>
+      </div>
+    </div>
+    <div class="warning-box">
+      <span class="warn-icon">⚠️</span>
+      <span>和 connects nouns/verb phrases only — <strong>NOT</strong> for connecting sentences!<br>❌ 我喜欢唱歌和我喜欢弹钢琴 → ✅ 我喜欢唱歌和弹钢琴</span>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 9: Listening Bingo Instructions -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">9 / 16</div>
+  <div class="page-header">
+    <span class="tag">Activity</span>
+    <h2>Bingo! · 听一听，找一找</h2>
+  </div>
+  <div class="instruction-card">
+    <h2>Bingo! 听一听，找一找</h2>
+    <div class="bingo-grid-preview">
+      <div class="bingo-cell">唱歌</div><div class="bingo-cell">弹钢琴</div><div class="bingo-cell">听音乐</div><div class="bingo-cell">看书</div>
+      <div class="bingo-cell">弹吉他</div><div class="bingo-cell">流行音乐</div><div class="bingo-cell">古典音乐</div><div class="bingo-cell">读书</div>
+      <div class="bingo-cell">听音乐</div><div class="bingo-cell">唱歌</div><div class="bingo-cell">弹钢琴</div><div class="bingo-cell">弹吉他</div>
+      <div class="bingo-cell">看书</div><div class="bingo-cell">读书</div><div class="bingo-cell">流行音乐</div><div class="bingo-cell">古典音乐</div>
+    </div>
+    <div class="instr-text">
+      I will say a sentence in Chinese.<br>
+      Find the matching activities on your bingo card. Mark them.<br>
+      <strong>First to get 4 in a row wins!</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 10: Bingo Caller Sentences -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">10 / 16</div>
+  <div class="page-header">
+    <span class="tag">Bingo</span>
+    <h2>Caller Sentences · 听句子</h2>
+  </div>
+  <div class="sentence-list-area" style="top:150px;left:140px;right:140px;bottom:120px">
+    <div class="numbered-sentence">
+      <span class="num">1</span>
+      <span class="s-zh">我喜欢唱歌和弹钢琴。</span>
+      <span class="s-py">Wǒ xǐhuān chàng gē hé tán gāngqín.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">2</span>
+      <span class="s-zh">我的爱好是听音乐。</span>
+      <span class="s-py">Wǒ de àihào shì tīng yīnyuè.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">3</span>
+      <span class="s-zh">我喜欢流行音乐。</span>
+      <span class="s-py">Wǒ xǐhuān liúxíng yīnyuè.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">4</span>
+      <span class="s-zh">我喜欢看书和听音乐。</span>
+      <span class="s-py">Wǒ xǐhuān kàn shū hé tīng yīnyuè.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">5</span>
+      <span class="s-zh">我的爱好是弹吉他。</span>
+      <span class="s-py">Wǒ de àihào shì tán jítā.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">6</span>
+      <span class="s-zh">我喜欢古典音乐和弹钢琴。</span>
+      <span class="s-py">Wǒ xǐhuān gǔdiǎn yīnyuè hé tán gāngqín.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">7</span>
+      <span class="s-zh">我喜欢读书。</span>
+      <span class="s-py">Wǒ xǐhuān dúshū.</span>
+    </div>
+    <div class="numbered-sentence">
+      <span class="num">8</span>
+      <span class="s-zh">我喜欢唱歌、弹吉他和听音乐。</span>
+      <span class="s-py">Wǒ xǐhuān chàng gē、tán jítā hé tīng yīnyuè.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 11: Bingo Winner Check -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">11 / 16</div>
+  <div class="page-header">
+    <span class="tag">Bingo</span>
+    <h2>Check the Winner's Card!</h2>
+  </div>
+  <div class="check-area">
+    <div class="big-check">✅</div>
+    <h2>Check the Winner's Card!</h2>
+    <div style="font-size:26px;color:var(--pinyin);text-align:center;max-width:900px;line-height:1.6">
+      Read through all sentences together — whole class choral repetition
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 48px;font-size:24px;max-width:1100px">
+      <div>1. 我喜欢唱歌和弹钢琴。</div>
+      <div>5. 我的爱好是弹吉他。</div>
+      <div>2. 我的爱好是听音乐。</div>
+      <div>6. 我喜欢古典音乐和弹钢琴。</div>
+      <div>3. 我喜欢流行音乐。</div>
+      <div>7. 我喜欢读书。</div>
+      <div>4. 我喜欢看书和听音乐。</div>
+      <div>8. 我喜欢唱歌、弹吉他和听音乐。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 12: Character Writing 唱 -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">12 / 16</div>
+  <div class="page-header">
+    <span class="tag">Character Writing</span>
+    <h2>写汉字 · 唱</h2>
+  </div>
+  <div class="char-layout">
+    <div class="char-display">
+      <div class="big-char">唱</div>
+      <div class="stroke-count">11 strokes</div>
+      <div class="air-trace">✋ Air-trace here</div>
+      <div class="hint-text">口 (mouth) + 昌 (chāng) — makes sense for singing!</div>
+    </div>
+    <div class="char-info">
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value py">chàng</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">to sing</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">口 (kǒu) — mouth</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">11</span>
+      </div>
+      <div class="mnemonic">
+        <div class="label">Mnemonic</div>
+        口 (mouth) on the left + 昌 (prosperous) on the right = singing makes your mouth prosperous!
+      </div>
+      <div class="mnemonic" style="margin-top:12px">
+        <div class="label">Stroke Order</div>
+        竖、横折、横、竖、横折、横、横、竖、横折、横、横
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 13: Character Writing 歌 -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">13 / 16</div>
+  <div class="page-header">
+    <span class="tag">Character Writing</span>
+    <h2>写汉字 · 歌</h2>
+  </div>
+  <div class="char-layout">
+    <div class="char-display">
+      <div class="big-char">歌</div>
+      <div class="stroke-count">14 strokes</div>
+      <div class="air-trace">✋ Air-trace here</div>
+      <div class="hint-text">哥 (elder brother) + 欠 (owe) = "Elder brother owes a song"</div>
+    </div>
+    <div class="char-info">
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value py">gē</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">song</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">欠 (qiàn) — owe/lack</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">14</span>
+      </div>
+      <div class="mnemonic">
+        <div class="label">Mnemonic</div>
+        哥 (gē, elder brother) + 欠 (qiàn, owe) = 歌 (gē, song)<br>
+        "Elder brother owes a song!" — He promised to sing but hasn't yet!
+      </div>
+      <div class="mnemonic" style="margin-top:12px">
+        <div class="label">Stroke Order</div>
+        横、竖、横折、横、竖、横、竖、横折、横、竖、横、撇、横撇、捺
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 14: Pair Survey -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">14 / 16</div>
+  <div class="page-header">
+    <span class="tag">Activity</span>
+    <h2>采访三个同学 · Interview 3 Classmates</h2>
+  </div>
+  <div class="survey-area">
+    <div class="pattern-box" style="width:100%;margin-bottom:8px">
+      <div class="zh">你喜欢什么音乐?</div>
+      <div class="py">Nǐ xǐhuān shénme yīnyuè?</div>
+      <div class="en">What music do you like?</div>
+    </div>
+    <div class="survey-table">
+      <div class="table-header">
+        <div>Name · 名字</div>
+        <div>Answer · 回答</div>
+      </div>
+      <div class="table-row">
+        <div class="col-name">1. _________________</div>
+        <div class="col-answer">_________________</div>
+      </div>
+      <div class="table-row">
+        <div class="col-name">2. _________________</div>
+        <div class="col-answer">_________________</div>
+      </div>
+      <div class="table-row">
+        <div class="col-name">3. _________________</div>
+        <div class="col-answer">_________________</div>
+      </div>
+    </div>
+    <div class="vocab-ref-strip">
+      <span class="v-tag">流行音乐</span>
+      <span class="v-tag">古典音乐</span>
+      <span class="v-tag" style="background:var(--red);color:#fff">我都喜欢!</span>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 15: Report Back -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">15 / 16</div>
+  <div class="page-header">
+    <span class="tag">Report</span>
+    <h2>谁可以报告? · Who Can Report?</h2>
+  </div>
+  <div class="report-area">
+    <div class="prompt">Report what you learned about your classmates</div>
+    <div class="frame">
+      <span class="placeholder">______</span> 喜欢 <span class="placeholder">______</span>。
+    </div>
+    <div style="font-size:22px;color:var(--pinyin);text-align:center;max-width:800px;line-height:1.6">
+      Example: Tom 喜欢流行音乐。<br>
+      Example: Emma 喜欢古典音乐。<br>
+      Example: Jack 流行音乐、古典音乐，他都喜欢。
+    </div>
+  </div>
+</section>
+
+<!-- Slide 16: Exit Ticket + Wrap-up -->
+<section>
+  <div class="accent-bar"></div>
+  <div class="slide-num">16 / 16</div>
+  <div class="page-header">
+    <span class="tag">Exit Ticket</span>
+    <h2>写一写 · 总结</h2>
+  </div>
+  <div class="exit-area">
+    <div class="exit-sentence">
+      我喜欢 <span class="blank"></span> 和 <span class="blank"></span>。
+    </div>
+    <div style="font-size:24px;color:var(--pinyin);text-align:center">
+      Write two activities you like. Try to use characters!
+    </div>
+    <div class="preview-box">
+      <div class="next-label">下次 · Next Lesson</div>
+      <div class="next-zh">他正在唱歌!</div>
+      <div class="next-en">He IS singing right now! (正在 progressive aspect)</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var stage = document.querySelector('.stage');
+  function fit() {
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var scale = Math.min(sw / 1920, sh / 1080);
+    stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginLeft = (sw - 1920 * scale) / 2 + 'px';
+    stage.style.marginTop = (sh - 1080 * scale) / 2 + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function(){var s=document.querySelectorAll('section');var c=0;function show(i){s.forEach(function(x){x.classList.remove('active')});c=(i+s.length)%s.length;s[c].classList.add('active');}document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown')show(c+1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')show(c-1)});document.addEventListener('click',function(e){if(e.target.closest('.stage')||e.target.tagName==='SECTION'||e.target.closest('section')){show(c+1)}})})();
+</script>
+</div>
+</body>
+</html>

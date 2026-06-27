@@ -3,395 +3,1112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 1 · 认识爱好</title>
+<title>Lesson 1 · 你的爱好是什么?</title>
 <style>
-  :root {
-    --red: #C43E2C; --gold: #D4953A; --bg: #FEFAF5;
-    --text: #2D2A26; --pinyin: #8B7E74; --warm-bg: #F5EDE3;
-    --light-border: #E8DED4; --card-bg: #FFFBF7; --green: #4A8C5C;
-  }
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    width:1920px; height:1080px; background:var(--bg);
-    font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
-    color:var(--text); overflow:hidden; position:relative;
-  }
-  section {
-    position:absolute; inset:0; display:none;
-    width:1920px; height:1080px;
-  }
-  section.active { display:block; }
+:root {
+  --red: #C43E2C;
+  --gold: #D4953A;
+  --bg: #FEFAF5;
+  --text: #2D2A26;
+  --pinyin: #8B7E74;
+  --warm-bg: #F5EDE3;
+  --light-border: #E8DED4;
+  --card-bg: #FFFBF7;
+  --green: #4A8C5C;
+}
 
-  .accent-bar { position:absolute; top:0; left:0; right:0; height:6px; background:var(--red); }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* ── Slide counter ── */
-  .slide-num { position:absolute; bottom:32px; right:96px; font-size:16px; color:var(--pinyin); opacity:0.6; }
+body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: #1a1a1a;
+      font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .stage {
+      width: 1920px; height: 1080px;
+      overflow: hidden; position: relative;
+      background: var(--bg); color: var(--text);
+      transform-origin: top left;
+      text-wrap: pretty;
+    }
 
-  /* ── Shared header ── */
-  .page-header { position:absolute; top:56px; left:96px; right:96px; display:flex; align-items:baseline; gap:20px; }
-  .page-header .tag { font-size:16px; font-weight:600; letter-spacing:0.12em; color:var(--red); text-transform:uppercase; }
-  .page-header h2 { font-size:52px; font-weight:700; letter-spacing:0.03em; }
-  .page-header .py { font-size:22px; color:var(--pinyin); }
+/* Accent bar */
+.accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--red);
+  z-index: 10;
+}
 
-  /* ── Vocab grid ── */
-  .vocab-grid { position:absolute; top:200px; left:96px; right:96px; display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-  .vocab-card { background:var(--card-bg); border:1px solid var(--light-border); border-radius:16px; padding:32px 36px; display:flex; flex-direction:column; gap:8px; position:relative; }
-  .vocab-card .zh { font-size:46px; font-weight:700; letter-spacing:0.06em; line-height:1.2; }
-  .vocab-card .py { font-size:21px; color:var(--pinyin); }
-  .vocab-card .en { font-size:19px; color:var(--pinyin); font-style:italic; }
-  .vocab-card .num { position:absolute; top:16px; right:20px; font-size:14px; font-weight:600; color:var(--pinyin); opacity:0.45; }
+/* Slide counter */
+.slide-counter {
+  position: absolute;
+  bottom: 32px;
+  right: 96px;
+  font-size: 16px;
+  color: var(--pinyin);
+  opacity: 0.6;
+  z-index: 10;
+}
 
-  .vocab-grid.wide { grid-template-columns:repeat(3,1fr); }
+/* All sections hidden by default */
+section {
+  display: none;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 80px 120px 80px 120px;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  /* ── Hero title ── */
-  .hero { position:absolute; top:50%; left:96px; transform:translateY(-55%); max-width:1400px; }
-  .hero .unit { font-size:22px; font-weight:500; color:var(--pinyin); letter-spacing:0.08em; margin-bottom:12px; }
-  .hero h1 { font-size:96px; font-weight:700; line-height:1.15; letter-spacing:0.04em; }
-  .hero h1 .hl { color:var(--red); }
-  .hero .sub { margin-top:28px; font-size:30px; color:var(--pinyin); font-weight:400; line-height:1.6; }
-  .info-strip { position:absolute; bottom:64px; left:96px; right:96px; display:flex; gap:48px; font-size:18px; color:var(--pinyin); border-top:1px solid var(--light-border); padding-top:24px; }
-  .info-strip strong { color:var(--text); font-weight:600; margin-right:6px; }
-  .corner-dot { position:absolute; bottom:80px; right:96px; width:12px; height:12px; border-radius:50%; background:var(--gold); opacity:0.6; }
-  .note-deco { position:absolute; right:120px; top:50%; transform:translateY(-50%); width:380px; height:380px; opacity:0.05; }
+section.active {
+  display: flex;
+}
 
-  /* ── Pattern display ── */
-  .pattern-box { background:var(--warm-bg); border-radius:20px; padding:48px 56px; margin-bottom:24px; border-left:4px solid var(--red); }
-  .pattern-box .zh { font-size:42px; font-weight:700; margin-bottom:8px; }
-  .pattern-box .py { font-size:22px; color:var(--pinyin); margin-bottom:6px; }
-  .pattern-box .en { font-size:20px; color:var(--pinyin); font-style:italic; }
+/* ---- Typography ---- */
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  line-height: 1.2;
+}
 
-  /* ── Dialogue ── */
-  .dialogue-area { position:absolute; top:200px; left:96px; right:96px; display:flex; flex-direction:column; gap:32px; max-width:1200px; }
-  .dialogue-line { display:flex; gap:24px; align-items:flex-start; }
-  .dialogue-line .speaker { font-size:20px; font-weight:700; color:var(--red); min-width:80px; text-align:right; padding-top:6px; }
-  .dialogue-line .bubble { background:var(--card-bg); border:1px solid var(--light-border); border-radius:20px; padding:28px 36px; flex:1; }
-  .dialogue-line .bubble .zh { font-size:38px; font-weight:600; }
-  .dialogue-line .bubble .py { font-size:20px; color:var(--pinyin); margin-top:6px; }
-  .dialogue-line .bubble .en { font-size:18px; color:var(--pinyin); font-style:italic; margin-top:4px; }
+h2 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.25;
+}
 
-  /* ── Activity card ── */
-  .activity-card { background:var(--warm-bg); border-radius:20px; padding:48px 56px; text-align:center; }
-  .activity-card .icon { font-size:64px; margin-bottom:16px; }
-  .activity-card h3 { font-size:38px; font-weight:700; margin-bottom:12px; }
-  .activity-card p { font-size:24px; color:var(--pinyin); line-height:1.6; }
+h3 {
+  font-size: 40px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  line-height: 1.3;
+}
 
-  /* ── Two column layout ── */
-  .two-col { position:absolute; top:200px; left:96px; right:96px; display:grid; grid-template-columns:1fr 1fr; gap:64px; max-width:1600px; }
+.pinyin {
+  color: var(--pinyin);
+  font-size: 32px;
+}
 
-  /* ── Teacher note ── */
-  .t-note { position:absolute; bottom:56px; left:96px; right:96px; font-size:18px; color:var(--pinyin); border-top:1px solid var(--light-border); padding-top:20px; display:flex; gap:8px; align-items:center; }
-  .t-note .dot { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+.english {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+}
 
-  /* ── Game elements ── */
-  .game-grid { position:absolute; top:220px; left:96px; right:96px; display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
-  .game-card { background:var(--card-bg); border:2px dashed var(--light-border); border-radius:18px; padding:28px 12px; text-align:center; cursor:pointer; transition:all 0.2s; }
-  .game-card:hover { border-color:var(--red); background:var(--warm-bg); }
-  .game-card .emoji { font-size:44px; margin-bottom:8px; display:block; }
-  .game-card .label { font-size:20px; color:var(--text); font-weight:600; }
-  .game-card .py { font-size:14px; color:var(--pinyin); margin-top:2px; }
+.label-sm {
+  font-size: 20px;
+  color: var(--pinyin);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
-  /* ── Progress dots ── */
-  .progress { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; }
-  .progress .dot { width:10px; height:10px; border-radius:50%; background:var(--light-border); transition:background 0.3s; }
-  .progress .dot.on { background:var(--red); }
+.body-text {
+  font-size: 36px;
+  line-height: 1.5;
+  color: var(--text);
+}
 
-  /* ── Warm-up badge ── */
-  .warmup-badge { display:inline-block; background:var(--gold); color:#fff; font-size:16px; font-weight:700; padding:6px 16px; border-radius:20px; letter-spacing:0.08em; margin-bottom:16px; }
+/* ---- Slide 1: Title ---- */
+.s1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.s1-content h1 {
+  margin-bottom: 16px;
+}
+
+.s1-content .pinyin {
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+.unit-badge {
+  position: absolute;
+  top: 80px;
+  right: 120px;
+  background: var(--red);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 24px;
+  letter-spacing: 0.04em;
+}
+
+.year-label {
+  position: absolute;
+  top: 140px;
+  right: 120px;
+  font-size: 18px;
+  color: var(--pinyin);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Slide 2: Learning Intention ---- */
+.warm-panel {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 48px 56px;
+  width: 100%;
+}
+
+.criteria-list {
+  list-style: none;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.criteria-list li {
+  font-size: 36px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* ---- Slide 3: Warm-up Grid ---- */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.image-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--warm-bg);
+  border: 2px dashed var(--light-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--pinyin);
+}
+
+.image-label {
+  font-size: 28px;
+  color: var(--pinyin);
+}
+
+/* ---- Slides 4-6: Vocab Cards ---- */
+.vocab-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex: 1;
+  align-items: stretch;
+}
+
+.vocab-card {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 12px;
+  text-align: center;
+  min-height: 280px;
+}
+
+.vocab-card .characters {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.vocab-card .pinyin-line {
+  font-size: 28px;
+  color: var(--pinyin);
+}
+
+.vocab-card .english-line {
+  font-size: 26px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.vocab-card .symbol {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.vocab-grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+  flex: 1;
+}
+
+.vocab-grid-2x3 .vocab-card {
+  min-height: 200px;
+  padding: 24px 28px;
+}
+
+.vocab-grid-2x3 .vocab-card .characters {
+  font-size: 44px;
+}
+
+.vocab-grid-2x3 .vocab-card .pinyin-line {
+  font-size: 24px;
+}
+
+.vocab-grid-2x3 .vocab-card .english-line {
+  font-size: 22px;
+}
+
+.vocab-grid-2x3 .vocab-card .symbol {
+  font-size: 32px;
+}
+
+/* ---- Slides 7-8: Pattern Box ---- */
+.pattern-box {
+  background: var(--warm-bg);
+  border-left: 4px solid var(--red);
+  border-radius: 0 16px 16px 0;
+  padding: 48px 56px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pattern-box.gold-border {
+  border-left-color: var(--gold);
+}
+
+.pattern-box .question-zh {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.pattern-box .question-pinyin {
+  font-size: 30px;
+  color: var(--pinyin);
+}
+
+.pattern-box .question-en {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.answer-template {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-top: 12px;
+}
+
+.fill-tags {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.fill-tag {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 24px;
+  padding: 10px 28px;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.fill-blank {
+  display: inline-block;
+  border-bottom: 3px solid var(--text);
+  min-width: 200px;
+  margin: 0 12px;
+}
+
+/* ---- Slide 9: Pair Work ---- */
+.instruction-card {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 56px 64px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.instruction-card .big-prompt {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.instruction-card .en-prompt {
+  font-size: 30px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+.timer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 24px;
+  align-self: flex-start;
+}
+
+.vocab-ref-strip {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.vocab-ref-item {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.vocab-ref-item span {
+  color: var(--pinyin);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* ---- Slides 10-12: Character Writing ---- */
+.char-writing-layout {
+  display: flex;
+  gap: 64px;
+  margin-top: 40px;
+  flex: 1;
+  align-items: center;
+}
+
+.char-big {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 240px;
+  font-weight: 700;
+  color: var(--text);
+  position: relative;
+}
+
+.char-info-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.char-info-panel .info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.char-info-panel .info-label {
+  font-size: 22px;
+  color: var(--pinyin);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 100px;
+}
+
+.char-info-panel .info-value {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.char-info-panel .info-note {
+  font-size: 28px;
+  color: var(--pinyin);
+  line-height: 1.5;
+  margin-top: 12px;
+  padding: 20px;
+  background: var(--warm-bg);
+  border-radius: 12px;
+}
+
+.air-trace {
+  margin-top: 16px;
+  font-size: 28px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ---- Slide 13: Guided Practice ---- */
+.ask-counter {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+.ask-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--light-border);
+  background: var(--card-bg);
+}
+
+.practice-prompts {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.practice-prompt-card {
+  flex: 1;
+  background: var(--warm-bg);
+  border-radius: 16px;
+  padding: 36px 40px;
+  text-align: center;
+}
+
+.practice-prompt-card .q {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.practice-prompt-card .a {
+  font-size: 36px;
+  color: var(--pinyin);
+}
+
+.stand-up-call {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--green);
+  text-align: center;
+  margin-top: 32px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Slide 14: Exit Ticket ---- */
+.exit-ticket-prompt {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 56px 64px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.exit-ticket-prompt .instruction-line {
+  font-size: 36px;
+  color: var(--pinyin);
+  margin-bottom: 40px;
+}
+
+.exit-ticket-prompt .sentence-line {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.exit-ticket-prompt .blank-line {
+  display: inline-block;
+  border-bottom: 3px solid var(--red);
+  min-width: 240px;
+  margin: 0 16px;
+}
+
+.exit-ticket-prompt .hint-line {
+  font-size: 28px;
+  color: var(--pinyin);
+  font-style: italic;
+}
+
+/* ---- Slide 15: Wrap-up ---- */
+.summary-box {
+  background: var(--warm-bg);
+  border-radius: 20px;
+  padding: 40px 48px;
+  margin-top: 32px;
+}
+
+.summary-box .summary-list {
+  font-size: 36px;
+  line-height: 1.6;
+  color: var(--text);
+  list-style: none;
+}
+
+.summary-box .summary-list li::before {
+  content: '\2713 ';
+  color: var(--green);
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+.homework-box {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.homework-box .hw-label {
+  font-size: 22px;
+  color: var(--pinyin);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+.homework-box .hw-text {
+  font-size: 30px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.preview-teaser {
+  margin-top: 32px;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Utility ---- */
+.spacer-sm { height: 16px; }
+.spacer-md { height: 28px; }
+.spacer-lg { height: 40px; }
+.mt-auto { margin-top: auto; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
 </style>
 </head>
 <body>
+<div class="stage">
+<div class="accent-bar"></div>
+<div class="slide-counter" id="counter">1 / 15</div>
 
-<!-- ═══════════════════════════════════════════ S01 COVER ═══════════════════ -->
-<section class="active">
-  <div class="accent-bar"></div>
-  <div class="hero">
-    <div class="unit">Unit 3 · Hobbies 爱好</div>
-    <h1>爱好（一）<br><span class="hl">音乐</span> · Music</h1>
-    <div class="sub">What are your hobbies? · 你有什么爱好？</div>
+<!-- ============================================================ -->
+<!-- SLIDE 1: Title Slide -->
+<!-- ============================================================ -->
+<section class="active" id="s1">
+  <div class="unit-badge">Unit 3 · 爱好 (一): 音乐</div>
+  <div class="year-label">Year 8 Chinese · 八年级中文</div>
+  <div class="s1-content">
+    <h1>第1课: 你的爱好是什么?</h1>
+    <span class="pinyin">Dì 1 kè: Nǐ de àihào shì shénme?</span>
   </div>
-  <div class="note-deco">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="140" r="28" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="140" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="10"/><line x1="50" y1="140" x2="50" y2="30" stroke="currentColor" stroke-width="8"/><line x1="140" y1="100" x2="140" y2="30" stroke="currentColor" stroke-width="6"/><line x1="50" y1="30" x2="160" y2="45" stroke="currentColor" stroke-width="14"/></svg>
-  </div>
-  <div class="info-strip"><span><strong>Year 8 Chinese</strong> · 八年级中文</span><span><strong>Textbook</strong> 轻松学中文 2</span><span><strong>Duration</strong> 50 minutes</span></div>
-  <div class="corner-dot"></div>
-  <div class="slide-num">1 / 10</div>
 </section>
 
-<!-- ═══════════════════════════════════════════ S02 WARM-UP ═══════════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>热身 · Warm-up</h2><span class="py">rè shēn</span></div>
-  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
-    <span class="warmup-badge">⏱ 5 minutes</span>
-    <p style="font-size:36px;font-weight:600;margin:24px 0 16px;">🎵 Listen to the music clip.</p>
-    <p style="font-size:28px;color:var(--pinyin);line-height:1.7;max-width:1000px;">
-      What instruments do you hear?<br>
-      Do you like this kind of music?<br>
-      <span style="font-size:20px;margin-top:8px;display:inline-block;">你听到了什么乐器？你喜欢这种音乐吗？</span>
-    </p>
-    <div style="margin-top:48px;display:flex;gap:32px;">
-      <div style="background:var(--warm-bg);border-radius:16px;padding:32px 40px;text-align:center;flex:1;">
-        <span style="font-size:20px;color:var(--pinyin);">Todayʼs topic</span>
-        <p style="font-size:38px;font-weight:700;margin-top:8px;">爱好 · Hobbies</p>
+<!-- ============================================================ -->
+<!-- SLIDE 2: Learning Intention & Success Criteria -->
+<!-- ============================================================ -->
+<section id="s2">
+  <h2>今天我们要学...</h2>
+  <div class="spacer-sm"></div>
+  <span class="pinyin">Jīntiān wǒmen yào xué...</span>
+  <div class="spacer-md"></div>
+  <div class="warm-panel">
+    <ul class="criteria-list">
+      <li>
+        <span class="checkbox"></span>
+        <span>I can say 5 hobby words in Chinese with correct tones</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can ask "What is your hobby?" in Chinese</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can answer "My hobby is..." in Chinese</span>
+      </li>
+      <li>
+        <span class="checkbox"></span>
+        <span>I can write 爱, 音, 乐 with correct stroke order</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: Warm-up — What Do You See? -->
+<!-- ============================================================ -->
+<section id="s3">
+  <h2>你看到了什么?</h2>
+  <span class="pinyin">Nǐ kàn dàole shénme? · What do you see?</span>
+  <div class="image-grid">
+    <div class="image-cell">
+      <div class="image-placeholder">🎤</div>
+      <div class="image-label">? </div>
+    </div>
+    <div class="image-cell">
+      <div class="image-placeholder">🎹</div>
+      <div class="image-label">? </div>
+    </div>
+    <div class="image-cell">
+      <div class="image-placeholder">📖</div>
+      <div class="image-label">? </div>
+    </div>
+    <div class="image-cell">
+      <div class="image-placeholder">🎧</div>
+      <div class="image-label">? </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: New Words Part 1 -->
+<!-- ============================================================ -->
+<section id="s4">
+  <h2>生词 (一)</h2>
+  <span class="pinyin">Shēngcí — New Words</span>
+  <div class="vocab-row">
+    <div class="vocab-card">
+      <div class="symbol">♪</div>
+      <div class="characters">音乐</div>
+      <div class="pinyin-line">yīnyuè</div>
+      <div class="english-line">music</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎤</div>
+      <div class="characters">唱歌</div>
+      <div class="pinyin-line">chàng gē</div>
+      <div class="english-line">to sing</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎧</div>
+      <div class="characters">听音乐</div>
+      <div class="pinyin-line">tīng yīnyuè</div>
+      <div class="english-line">to listen to music</div>
+    </div>
+  </div>
+  <div class="spacer-md"></div>
+  <p class="body-text" style="color: var(--pinyin); text-align: center; font-size: 28px;">
+    音 appears in both 音乐 and 听音乐!
+  </p>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: New Words Part 2 -->
+<!-- ============================================================ -->
+<section id="s5">
+  <h2>生词 (二)</h2>
+  <span class="pinyin">Shēngcí — New Words</span>
+  <div class="vocab-row">
+    <div class="vocab-card">
+      <div class="symbol">🎹</div>
+      <div class="characters">弹钢琴</div>
+      <div class="pinyin-line">tán gāngqín</div>
+      <div class="english-line">to play piano</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">读书</div>
+      <div class="pinyin-line">dúshū</div>
+      <div class="english-line">to read (study / read aloud)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">看书</div>
+      <div class="pinyin-line">kàn shū</div>
+      <div class="english-line">to read (silently / look at books)</div>
+    </div>
+  </div>
+  <div class="spacer-md"></div>
+  <p class="body-text" style="color: var(--pinyin); text-align: center; font-size: 28px;">
+    读 dú = read aloud / study &nbsp;|&nbsp; 看 kàn = look at / read silently
+  </p>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: All 6 Words — Quick Review -->
+<!-- ============================================================ -->
+<section id="s6">
+  <h2>指一指!</h2>
+  <span class="pinyin">Zhǐ yī zhǐ! · Point to the one I say!</span>
+  <span class="body-text" style="font-size: 24px; color: var(--pinyin); margin-top: 8px;">Teacher calls out English, students point to the correct word</span>
+  <div class="vocab-grid-2x3">
+    <div class="vocab-card">
+      <div class="symbol">♪</div>
+      <div class="characters">音乐</div>
+      <div class="pinyin-line">yīnyuè</div>
+      <div class="english-line">music</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎤</div>
+      <div class="characters">唱歌</div>
+      <div class="pinyin-line">chàng gē</div>
+      <div class="english-line">to sing</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎧</div>
+      <div class="characters">听音乐</div>
+      <div class="pinyin-line">tīng yīnyuè</div>
+      <div class="english-line">to listen to music</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎹</div>
+      <div class="characters">弹钢琴</div>
+      <div class="pinyin-line">tán gāngqín</div>
+      <div class="english-line">to play piano</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">读书</div>
+      <div class="pinyin-line">dúshū</div>
+      <div class="english-line">to read (study)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">看书</div>
+      <div class="pinyin-line">kàn shū</div>
+      <div class="english-line">to read (silently)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: Key Pattern — 你的爱好是什么? -->
+<!-- ============================================================ -->
+<section id="s7">
+  <h2>Key Pattern</h2>
+  <span class="pinyin">Guānjiàn jùxíng · Key Sentence Pattern</span>
+  <div class="pattern-box">
+    <div class="question-zh">你的爱好是什么?</div>
+    <div class="question-pinyin">Nǐ de àihào shì shénme?</div>
+    <div class="question-en">What is your hobby?</div>
+    <div class="answer-template">我的爱好是<span class="fill-blank"></span>。</div>
+  </div>
+  <div class="fill-tags" style="margin-top: 28px;">
+    <span class="fill-tag">唱歌</span>
+    <span class="fill-tag">听音乐</span>
+    <span class="fill-tag">弹钢琴</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: Pattern Extension — 你喜欢做什么? -->
+<!-- ============================================================ -->
+<section id="s8">
+  <h2>Pattern Extension</h2>
+  <span class="pinyin">Kuòzhǎn jùxíng · Extended Pattern</span>
+  <div class="pattern-box gold-border">
+    <div class="question-zh">你喜欢做什么?</div>
+    <div class="question-pinyin">Nǐ xǐhuān zuò shénme?</div>
+    <div class="question-en">What do you like to do?</div>
+    <div class="answer-template">我喜欢<span class="fill-blank"></span>。</div>
+  </div>
+  <div class="fill-tags" style="margin-top: 28px;">
+    <span class="fill-tag">唱歌</span>
+    <span class="fill-tag">听音乐</span>
+    <span class="fill-tag">弹钢琴</span>
+    <span class="fill-tag">读书</span>
+    <span class="fill-tag">看书</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: Pair Work Instructions -->
+<!-- ============================================================ -->
+<section id="s9">
+  <h2>Pair Work</h2>
+  <span class="pinyin">Liǎng rén liànxí · Partner Practice</span>
+  <div class="instruction-card">
+    <div class="big-prompt">Ask your partner: 你的爱好是什么?</div>
+    <div class="en-prompt">Answer using today's vocabulary. Swap roles.</div>
+    <div class="timer-badge">⏱ 8 minutes</div>
+  </div>
+  <div class="vocab-ref-strip">
+    <div class="vocab-ref-item">音乐 <span>yīnyuè</span></div>
+    <div class="vocab-ref-item">唱歌 <span>chàng gē</span></div>
+    <div class="vocab-ref-item">听音乐 <span>tīng yīnyuè</span></div>
+    <div class="vocab-ref-item">弹钢琴 <span>tán gāngqín</span></div>
+    <div class="vocab-ref-item">读书 <span>dúshū</span></div>
+    <div class="vocab-ref-item">看书 <span>kàn shū</span></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: Character Writing — 爱 (ài) -->
+<!-- ============================================================ -->
+<section id="s10">
+  <h2>写字: 爱 (ài)</h2>
+  <span class="pinyin">Xiě zì · Character Writing</span>
+  <div class="char-writing-layout">
+    <div class="char-big">爱</div>
+    <div class="char-info-panel">
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">爫 (zhuǎ)</span>
       </div>
-      <div style="background:var(--warm-bg);border-radius:16px;padding:32px 40px;text-align:center;flex:1;">
-        <span style="font-size:20px;color:var(--pinyin);">Todayʼs question</span>
-        <p style="font-size:38px;font-weight:700;margin-top:8px;">你有什么爱好？</p>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">10 strokes</span>
       </div>
-    </div>
-  </div>
-  <div class="slide-num">2 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S03 NEW WORDS 1 ═══════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>生词 · New Words</h2><span class="py">shēng cí</span></div>
-  <div style="position:absolute;top:168px;left:96px;font-size:16px;font-weight:600;letter-spacing:0.1em;color:var(--gold);">PART 1 — 5 WORDS</div>
-  <div class="vocab-grid" style="top:210px;">
-    <div class="vocab-card"><span class="num">1</span><span class="zh">爱好</span><span class="py">ài hào</span><span class="en">hobby / hobbies</span></div>
-    <div class="vocab-card"><span class="num">2</span><span class="zh">音乐</span><span class="py">yīn yuè</span><span class="en">music</span></div>
-    <div class="vocab-card"><span class="num">3</span><span class="zh">唱歌</span><span class="py">chàng gē</span><span class="en">to sing (a song)</span></div>
-    <div class="vocab-card"><span class="num">4</span><span class="zh">听音乐</span><span class="py">tīng yīn yuè</span><span class="en">to listen to music</span></div>
-    <div class="vocab-card"><span class="num">5</span><span class="zh">跳舞</span><span class="py">tiào wǔ</span><span class="en">to dance</span></div>
-  </div>
-  <div class="t-note"><span class="dot"></span> Teacher: Read each word twice. Students repeat. Show pictures for each. Point out the 女 radical in 好.</div>
-  <div class="slide-num">3 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S04 NEW WORDS 2 ═══════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>生词 · New Words</h2><span class="py">shēng cí</span></div>
-  <div style="position:absolute;top:168px;left:96px;font-size:16px;font-weight:600;letter-spacing:0.1em;color:var(--gold);">PART 2 — 6 WORDS</div>
-  <div class="vocab-grid" style="top:210px;grid-template-columns:repeat(3,1fr);max-width:1500px;">
-    <div class="vocab-card"><span class="num">6</span><span class="zh">喜欢</span><span class="py">xǐ huān</span><span class="en">to like / to be fond of</span></div>
-    <div class="vocab-card"><span class="num">7</span><span class="zh">读书</span><span class="py">dú shū</span><span class="en">to read (books) / to study</span></div>
-    <div class="vocab-card"><span class="num">8</span><span class="zh">看书</span><span class="py">kàn shū</span><span class="en">to read books</span></div>
-    <div class="vocab-card"><span class="num">9</span><span class="zh">弹钢琴</span><span class="py">tán gāng qín</span><span class="en">to play the piano</span></div>
-    <div class="vocab-card"><span class="num">10</span><span class="zh">看电视</span><span class="py">kàn diàn shì</span><span class="en">to watch TV</span></div>
-    <div class="vocab-card"><span class="num">11</span><span class="zh">玩儿电脑游戏</span><span class="py">wánr diànnǎo yóuxì</span><span class="en">to play computer games</span></div>
-  </div>
-  <div class="t-note"><span class="dot"></span> Teacher: 读书 (read + book = study/read) vs 看书 (look + book = read). 玩儿 = to play (fun). 电脑 = computer, 游戏 = game.</div>
-  <div class="slide-num">4 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S05 PATTERN ═══════════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>句型 · Sentence Pattern</h2><span class="py">jù xíng</span></div>
-  <div style="position:absolute;top:210px;left:96px;right:96px;max-width:1400px;">
-    <div class="pattern-box">
-      <span style="font-size:18px;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;">Question</span>
-      <div class="zh">你有什么爱好？</div>
-      <div class="py">Nǐ yǒu shénme àihào?</div>
-      <div class="en">What hobbies do you have?</div>
-    </div>
-    <div class="pattern-box">
-      <span style="font-size:18px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;">Answer</span>
-      <div class="zh">我喜欢<span style="color:var(--gold);">________</span>。</div>
-      <div class="py">Wǒ xǐhuān ________.</div>
-      <div class="en">I like ________.</div>
-    </div>
-    <div style="margin-top:32px;display:flex;gap:20px;flex-wrap:wrap;">
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">唱歌</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">听音乐</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">跳舞</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">读书</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">弹钢琴</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">看电视</span>
-      <span style="background:var(--warm-bg);padding:12px 24px;border-radius:12px;font-size:22px;font-weight:600;">玩儿电脑游戏</span>
-    </div>
-  </div>
-  <div class="t-note"><span class="dot"></span> Teacher: Model the Q&A with a student. Then students practice in pairs. Point to the word chips as prompts.</div>
-  <div class="slide-num">5 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S06 DIALOGUE ═══════════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>对话 · Dialogue</h2><span class="py">duì huà</span></div>
-  <div class="dialogue-area" style="top:190px;">
-    <div class="dialogue-line">
-      <span class="speaker">A</span>
-      <div class="bubble"><div class="zh">你有什么爱好？</div><div class="py">Nǐ yǒu shénme àihào?</div><div class="en">What hobbies do you have?</div></div>
-    </div>
-    <div class="dialogue-line">
-      <span class="speaker">B</span>
-      <div class="bubble"><div class="zh">我喜欢唱歌和跳舞。</div><div class="py">Wǒ xǐhuān chànggē hé tiàowǔ.</div><div class="en">I like singing and dancing.</div></div>
-    </div>
-    <div class="dialogue-line">
-      <span class="speaker">A</span>
-      <div class="bubble"><div class="zh">你喜欢听音乐吗？</div><div class="py">Nǐ xǐhuān tīng yīnyuè ma?</div><div class="en">Do you like listening to music?</div></div>
-    </div>
-    <div class="dialogue-line">
-      <span class="speaker">B</span>
-      <div class="bubble"><div class="zh">喜欢！我喜欢听音乐。</div><div class="py">Xǐhuān! Wǒ xǐhuān tīng yīnyuè.</div><div class="en">Yes! I like listening to music.</div></div>
-    </div>
-  </div>
-  <div class="t-note"><span class="dot"></span> Teacher: Read together (whole class), then in two groups (A/B), then pairs. Swap roles.</div>
-  <div class="slide-num">6 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S07 PATTERN: 会 ═══════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>句型 · Pattern</h2><span class="py">jù xíng</span></div>
-  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
-    <div class="pattern-box">
-      <span style="font-size:18px;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;">New word: 会 (huì) — can / know how to</span>
-      <div class="zh">你会<span style="color:var(--gold);">________</span>吗？</div>
-      <div class="py">Nǐ huì ________ ma?</div>
-      <div class="en">Can you ________? / Do you know how to ________?</div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px;">
-      <div class="pattern-box" style="border-left-color:var(--green);">
-        <span style="font-size:16px;font-weight:700;color:var(--green);">✅ Yes</span>
-        <div class="zh" style="font-size:34px;">会！我会弹钢琴。</div>
-        <div class="py">Huì! Wǒ huì tán gāngqín.</div>
-        <div class="en">Yes! I can play the piano.</div>
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value">ài</span>
       </div>
-      <div class="pattern-box" style="border-left-color:#999;">
-        <span style="font-size:16px;font-weight:700;color:#999;">❌ No</span>
-        <div class="zh" style="font-size:34px;">不会。我不会弹钢琴。</div>
-        <div class="py">Bú huì. Wǒ bú huì tán gāngqín.</div>
-        <div class="en">No. I canʼt play the piano.</div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">love; hobby (in 爱好)</span>
       </div>
-    </div>
-    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
-      <span style="background:var(--warm-bg);padding:10px 20px;border-radius:10px;font-size:22px;font-weight:600;">唱歌</span>
-      <span style="background:var(--warm-bg);padding:10px 20px;border-radius:10px;font-size:22px;font-weight:600;">跳舞</span>
-      <span style="background:var(--warm-bg);padding:10px 20px;border-radius:10px;font-size:22px;font-weight:600;">弹钢琴</span>
-      <span style="background:var(--warm-bg);padding:10px 20px;border-radius:10px;font-size:22px;font-weight:600;">弹吉他</span>
+      <div class="info-note">
+        爱好 àihào = hobby<br>
+        我爱音乐 Wǒ ài yīnyuè = I love music
+      </div>
+      <div class="air-trace">✋ Air-trace the character with your finger!</div>
     </div>
   </div>
-  <div class="t-note"><span class="dot"></span> Teacher: 会 is different from 喜欢 — 会 = ability (can you?), 喜欢 = preference (do you like?). Drill both: 「你喜欢...吗?」vs「你会...吗?」</div>
-  <div class="slide-num">7 / 10</div>
 </section>
 
-<!-- ═══════════════════════════════════════════ S08 PAIR WORK ═══════════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>Pair Work · 两人活动</h2><span class="py">liǎng rén huódòng</span></div>
-  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
-    <div style="background:var(--warm-bg);border-radius:20px;padding:48px 56px;margin-bottom:32px;">
-      <p style="font-size:32px;font-weight:700;margin-bottom:16px;">🎯 Ask 3 classmates about their hobbies</p>
-      <p style="font-size:24px;color:var(--pinyin);line-height:1.8;">
-        <strong>A:</strong> 你有什么爱好？<br>
-        <strong>B:</strong> 我喜欢 ________。<br>
-        <strong>A:</strong> 你喜欢 ________ 吗？<br>
-        <strong>B:</strong> 喜欢 / 不喜欢。
-      </p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:28px;">
-        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">Name: ________</p>
-        <p style="font-size:28px;font-weight:600;">爱好：________</p>
+<!-- ============================================================ -->
+<!-- SLIDE 11: Character Writing — 音 (yīn) -->
+<!-- ============================================================ -->
+<section id="s11">
+  <h2>写字: 音 (yīn)</h2>
+  <span class="pinyin">Xiě zì · Character Writing</span>
+  <div class="char-writing-layout">
+    <div class="char-big">音</div>
+    <div class="char-info-panel">
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">音 (yīn) — sound</span>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:28px;">
-        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">Name: ________</p>
-        <p style="font-size:28px;font-weight:600;">爱好：________</p>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">9 strokes</span>
       </div>
-      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:28px;">
-        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">Name: ________</p>
-        <p style="font-size:28px;font-weight:600;">爱好：________</p>
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value">yīn</span>
       </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">sound</span>
+      </div>
+      <div class="info-note">
+        音乐 yīnyuè = music<br>
+        声音 shēngyīn = sound / voice
+      </div>
+      <div class="air-trace">✋ Air-trace the character with your finger!</div>
     </div>
   </div>
-  <div class="t-note"><span class="dot"></span> Teacher: Give students 5 minutes to walk around and interview 3 classmates. Then ask 2-3 students to report.</div>
-  <div class="slide-num">8 / 10</div>
 </section>
 
-<!-- ═══════════════════════════════════════════ S09 GAME: CHARADES ═══════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>Game · 游戏</h2><span class="py">yóu xì</span></div>
-  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
-    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;text-align:center;margin-bottom:36px;">
-      <span style="font-size:64px;display:block;margin-bottom:12px;">🎭</span>
-      <h3 style="font-size:38px;font-weight:700;margin-bottom:8px;">Charades · 比手画脚</h3>
-      <p style="font-size:24px;color:var(--pinyin);line-height:1.6;">One student acts out a hobby.<br>The class guesses in Chinese!</p>
-    </div>
-    <div class="game-grid">
-      <div class="game-card"><span class="emoji">🎤</span><span class="label">唱歌</span><span class="py">chàng gē</span></div>
-      <div class="game-card"><span class="emoji">💃</span><span class="label">跳舞</span><span class="py">tiào wǔ</span></div>
-      <div class="game-card"><span class="emoji">🎹</span><span class="label">弹钢琴</span><span class="py">tán gāngqín</span></div>
-      <div class="game-card"><span class="emoji">🎧</span><span class="label">听音乐</span><span class="py">tīng yīnyuè</span></div>
-      <div class="game-card"><span class="emoji">📖</span><span class="label">读书</span><span class="py">dú shū</span></div>
-      <div class="game-card"><span class="emoji">📚</span><span class="label">看书</span><span class="py">kàn shū</span></div>
-      <div class="game-card"><span class="emoji">🎸</span><span class="label">弹吉他</span><span class="py">tán jítā</span></div>
-      <div class="game-card"><span class="emoji">🎨</span><span class="label">画画</span><span class="py">huà huà</span></div>
-      <div class="game-card"><span class="emoji">📺</span><span class="label">看电视</span><span class="py">kàn diànshì</span></div>
-      <div class="game-card"><span class="emoji">🎮</span><span class="label">玩儿电脑游戏</span><span class="py">wánr diànnǎo yóuxì</span></div>
-    </div>
-  </div>
-  <div class="t-note"><span class="dot"></span> Teacher: Call one student to the front. Whisper a hobby to them. They act it out. Others raise hands and guess in Chinese.</div>
-  <div class="slide-num">9 / 10</div>
-</section>
-
-<!-- ═══════════════════════════════════════════ S10 WRAP-UP ═══════════════════ -->
-<section>
-  <div class="accent-bar"></div>
-  <div class="page-header"><span class="tag">Lesson 1</span><h2>Wrap-up · 总结</h2><span class="py">zǒng jié</span></div>
-  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1200px;">
-    <div style="margin-bottom:40px;">
-      <p style="font-size:24px;color:var(--pinyin);margin-bottom:8px;">Today we learned ✓</p>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;">9 new words</span>
-        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;">你有什么爱好？</span>
-        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;">我喜欢 + hobby</span>
-        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;">你喜欢...吗？</span>
+<!-- ============================================================ -->
+<!-- SLIDE 12: Character Writing — 乐 (yuè) -->
+<!-- ============================================================ -->
+<section id="s12">
+  <h2>写字: 乐 (yuè)</h2>
+  <span class="pinyin">Xiě zì · Character Writing</span>
+  <div class="char-writing-layout">
+    <div class="char-big">乐</div>
+    <div class="char-info-panel">
+      <div class="info-row">
+        <span class="info-label">Radical</span>
+        <span class="info-value">丿 (piě)</span>
       </div>
-    </div>
-    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;margin-bottom:32px;">
-      <p style="font-size:28px;font-weight:700;margin-bottom:12px;">📝 Homework · 作业</p>
-      <ol style="font-size:24px;color:var(--pinyin);line-height:2.2;padding-left:28px;">
-        <li>Write each new word <strong style="color:var(--text);">3 times</strong> (汉字 + 拼音)</li>
-        <li>Practice the dialogue with a family member</li>
-        <li>Be ready to say: <strong style="color:var(--text);">「我的爱好是...」</strong></li>
-      </ol>
+      <div class="info-row">
+        <span class="info-label">Strokes</span>
+        <span class="info-value">5 strokes</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pinyin</span>
+        <span class="info-value">yuè / lè</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">English</span>
+        <span class="info-value">music (yuè); happy (lè)</span>
+      </div>
+      <div class="info-note">
+        音乐 yīnyuè = music (yuè)<br>
+        快乐 kuàilè = happy (lè)
+      </div>
+      <div class="air-trace">✋ Air-trace the character with your finger!</div>
     </div>
   </div>
-  <div class="t-note"><span class="dot"></span> Next lesson: More hobbies — 弹吉他, 画画, 看小说 + 「也」and「还」</div>
-  <div class="slide-num">10 / 10</div>
 </section>
 
-<!-- Keyboard navigation -->
+<!-- ============================================================ -->
+<!-- SLIDE 13: Guided Practice — Ask Around -->
+<!-- ============================================================ -->
+<section id="s13">
+  <h2>Ask Around!</h2>
+  <span class="pinyin">Wèn yī wèn! · Ask 3 classmates</span>
+  <div class="practice-prompts">
+    <div class="practice-prompt-card" style="border-left: 4px solid var(--red);">
+      <div class="q">你的爱好是什么?</div>
+      <div class="a">我的爱好是______。</div>
+    </div>
+    <div class="practice-prompt-card" style="border-left: 4px solid var(--gold);">
+      <div class="q">你喜欢做什么?</div>
+      <div class="a">我喜欢______。</div>
+    </div>
+  </div>
+  <div class="ask-counter">
+    <div class="ask-circle"></div>
+    <div class="ask-circle"></div>
+    <div class="ask-circle"></div>
+  </div>
+  <div class="stand-up-call">站起来! 走一走! 问一问!<br><span style="font-size: 24px; font-weight: 400;">Stand up, walk around, ask 3 classmates.</span></div>
+  <div class="timer-badge" style="margin: 20px auto 0 auto;">⏱ 5 minutes</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 14: Exit Ticket -->
+<!-- ============================================================ -->
+<section id="s14">
+  <h2>Exit Ticket</h2>
+  <span class="pinyin">Chūkǒu piào · Show what you know</span>
+  <div class="exit-ticket-prompt">
+    <div class="instruction-line">写一写 Write on your mini whiteboard:</div>
+    <div class="sentence-line">我的爱好是<span class="blank-line"></span>。</div>
+    <div class="hint-line">Use one Chinese word from today.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 15: Wrap-up + Preview -->
+<!-- ============================================================ -->
+<section id="s15">
+  <h2>今天学了</h2>
+  <span class="pinyin">Jīntiān xué le · Today we learned</span>
+  <div class="summary-box">
+    <ul class="summary-list">
+      <li>6 hobby words</li>
+      <li>2 question patterns</li>
+      <li>3 characters (爱音乐)</li>
+    </ul>
+  </div>
+  <div class="homework-box">
+    <span class="hw-label">Homework</span>
+    <span class="hw-text">Practise 爱, 音, 乐 — 5 times each.<br>Quizlet: 爱好(一)音乐 L1</span>
+  </div>
+  <div class="preview-teaser">下次: 你喜欢什么音乐? &mdash; What music do you like?</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NAVIGATION SCRIPT -->
+<!-- ============================================================ -->
 <script>
-(function(){
-  var slides = document.querySelectorAll('section');
-  var idx = 0;
-  function show(i){
-    slides.forEach(function(s){ s.classList.remove('active'); });
-    idx = (i + slides.length) % slides.length;
-    slides[idx].classList.add('active');
+(function() {
+  var stage = document.querySelector('.stage');
+  function fit() {
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var scale = Math.min(sw / 1920, sh / 1080);
+    stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginLeft = (sw - 1920 * scale) / 2 + 'px';
+    stage.style.marginTop = (sh - 1080 * scale) / 2 + 'px';
   }
-  document.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){ e.preventDefault(); show(idx+1); }
-    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); show(idx-1); }
-  });
-  document.addEventListener('click',function(e){
-    if(e.target.closest('.game-card')) return;
-    show(idx+1);
-  });
-  show(0);
-})();
-</script>
-<script>
-(function(){
-  var W=1920, H=1080;
-  function fit(){
-    var s = Math.min(window.innerWidth/W, window.innerHeight/H);
-    document.body.style.transform = 'scale('+s+')';
-    document.body.style.transformOrigin = '0 0';
-    document.documentElement.style.width = window.innerWidth + 'px';
-    document.documentElement.style.height = window.innerHeight + 'px';
-  }
-  document.documentElement.style.overflow = 'hidden';
-  document.documentElement.style.background = '#FEFAF5';
   fit();
   window.addEventListener('resize', fit);
 })();
 </script>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('section');
+  var counter = document.getElementById('counter');
+  var total = slides.length;
+  var current = 0;
+
+  function updateCounter(i) {
+    counter.textContent = (i + 1) + ' / ' + total;
+  }
+
+  function show(i) {
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    current = (i + total) % total;
+    slides[current].classList.add('active');
+    updateCounter(current);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') show(current + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') show(current - 1);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.stage') || e.target.tagName === 'SECTION' || e.target.closest('section')) {
+      show(current + 1);
+    }
+  });
+
+  updateCounter(0);
+})();
+</script>
+</div>
 </body>
 </html>
