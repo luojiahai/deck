@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Pomodoro · iOS Prototype</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f3f0;
+    --text: #1c1c1e;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── App chrome ── */
+  .app-shell {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 40px 48px 80px;
+  }
+
+  .app-header {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .app-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1a1a18;
+  }
+
+  .app-header h1 span {
+    color: #e8734a;
+  }
+
+  .app-header .subtitle {
+    font-size: 13px;
+    color: #8e8e93;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Phone grid ── */
+  .phone-grid {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .phone-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .phone-label {
+    font-size: 12px;
+    font-style: italic;
+    color: #8e8e93;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── iPhone frame ── */
+  .iphone-outer {
+    width: 368px;
+    background: #1a1a1c;
+    border-radius: 52px;
+    padding: 10px;
+    box-shadow:
+      0 25px 70px rgba(0,0,0,0.18),
+      0 4px 12px rgba(0,0,0,0.08),
+      inset 0 0 0 1px rgba(255,255,255,0.06);
+    position: relative;
+  }
+
+  /* Side buttons (decorative) */
+  .iphone-outer::before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 180px;
+    width: 3px;
+    height: 60px;
+    background: #2a2a2e;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .iphone-screen {
+    width: 348px;
+    height: 752px;
+    background: #fbfbfd;
+    border-radius: 42px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* ── Dynamic Island ── */
+  .dynamic-island {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 112px;
+    height: 33px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  /* ── Status Bar ── */
+  .status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54px;
+    padding: 12px 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+    pointer-events: none;
+    color: #000;
+  }
+
+  .status-time {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding-left: 8px;
+  }
+
+  .status-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 8px;
+  }
+
+  .status-icons svg {
+    width: 16px;
+    height: 12px;
+  }
+
+  /* ── Content area ── */
+  .screen-content {
+    flex: 1;
+    padding-top: 54px;
+    padding-bottom: 84px; /* tab bar + home indicator */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .screen-content::-webkit-scrollbar { display: none; }
+
+  /* ── Tab Bar ── */
+  .tab-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    padding: 8px 12px 28px;
+    background: rgba(251, 251, 253, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    z-index: 10;
+  }
+
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 8px;
+    transition: background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .tab-item:active {
+    background: rgba(0,0,0,0.05);
+  }
+
+  .tab-icon {
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.45;
+    transition: opacity 0.2s;
+  }
+
+  .tab-item.active .tab-icon {
+    opacity: 1;
+  }
+
+  .tab-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #8e8e93;
+    transition: color 0.2s;
+  }
+
+  .tab-item.active .tab-label {
+    color: #e8734a;
+  }
+
+  /* ── Home Indicator ── */
+  .home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 134px;
+    height: 5px;
+    background: #1a1a1c;
+    border-radius: 3px;
+    z-index: 11;
+    pointer-events: none;
+  }
+
+  /* ── Shared screen styles ── */
+  .screen-header {
+    padding: 8px 20px 12px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1c1c1e;
+  }
+
+  .screen-subheader {
+    padding: 0 20px 16px;
+    font-size: 13px;
+    color: #8e8e93;
+  }
+
+  /* ── Timer Screen ── */
+  .timer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 20px 0;
+  }
+
+  .timer-ring-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 4px 0 16px;
+  }
+
+  .timer-ring-container svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .timer-ring-bg {
+    fill: none;
+    stroke: #f0f0f2;
+    stroke-width: 6;
+  }
+
+  .timer-ring-progress {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.95s linear, stroke 0.5s;
+  }
+
+  .timer-center-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .timer-time {
+    font-size: 52px;
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: #1c1c1e;
+    line-height: 1;
+  }
+
+  .timer-session-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #e8734a;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .timer-session-label.break {
+    color: #5e9eff;
+  }
+
+  /* Progress dots */
+  .timer-dots {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .timer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e5e5ea;
+    transition: background 0.3s;
+  }
+
+  .timer-dot.done {
+    background: #e8734a;
+  }
+
+  .timer-dot.current {
+    background: #e8734a;
+    box-shadow: 0 0 0 3px rgba(232, 115, 74, 0.2);
+  }
+
+  /* Task chip */
+  .task-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1px solid #e5e5ea;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #3a3a3c;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .task-chip:hover {
+    border-color: #d1d1d6;
+  }
+
+  .task-chip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e8734a;
+  }
+
+  /* AI insight badge */
+  .ai-insight {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #fff7f2 0%, #fffaf8 100%);
+    border-radius: 12px;
+    font-size: 12px;
+    color: #6e6e73;
+    line-height: 1.5;
+    max-width: 260px;
+    margin-bottom: 16px;
+    cursor: default;
+  }
+
+  .ai-insight .ai-star {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .ai-insight strong {
+    color: #3a3a3c;
+    font-weight: 500;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 200px;
+    height: 44px;
+    border: none;
+    border-radius: 22px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-focus {
+    background: #e8734a;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(232, 115, 74, 0.3);
+  }
+
+  .btn-focus:hover {
+    box-shadow: 0 6px 20px rgba(232, 115, 74, 0.4);
+  }
+
+  .btn-focus:active {
+    background: #d15c32;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #8e8e93;
+    width: auto;
+    height: 36px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 16px;
+  }
+
+  .btn-ghost:hover {
+    color: #6e6e73;
+  }
+
+  .btn-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── Analytics Screen ── */
+  .stats-row {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 14px;
+  }
+
+  .stat-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .stat-value {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #1c1c1e;
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #8e8e93;
+    margin-top: 4px;
+  }
+
+  .stat-sub {
+    font-size: 10px;
+    color: #e8734a;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  /* Chart */
+  .chart-section {
+    padding: 0 20px 12px;
+  }
+
+  .chart-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a3a3c;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chart-period {
+    display: flex;
+    gap: 2px;
+    background: #f2f2f5;
+    border-radius: 6px;
+    padding: 2px;
+  }
+
+  .chart-period-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: #8e8e93;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+
+  .chart-period-btn.active {
+    background: #fff;
+    color: #1c1c1e;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 90px;
+    padding: 4px 0;
+  }
+
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bar-fill {
+    width: 100%;
+    max-width: 28px;
+    border-radius: 6px 6px 3px 3px;
+    transition: height 0.4s ease;
+    min-height: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .bar-fill:hover {
+    filter: brightness(0.92);
+  }
+
+  .bar-label {
+    font-size: 10px;
+    color: #aeaeb2;
+    font-weight: 500;
+  }
+
+  /* Insight cards */
+  .insight-card {
+    margin: 0 20px 8px;
+    padding: 12px 14px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    cursor: pointer;
+    transition: transform 0.15s;
+    border-left: 3px solid transparent;
+  }
+
+  .insight-card:active {
+    transform: scale(0.98);
+  }
+
+  .insight-card.highlight {
+    border-left-color: #e8734a;
+    background: #fffaf8;
+  }
+
+  .insight-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1c1c1e;
+    margin-bottom: 2px;
+  }
+
+  .insight-card-body {
+    font-size: 11px;
+    color: #6e6e73;
+    line-height: 1.5;
+  }
+
+  .insight-card .expanded {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.5px solid #e5e5ea;
+    font-size: 11px;
+    color: #6e6e73;
+    line-height: 1.6;
+  }
+
+  /* ── Tasks Screen ── */
+  .task-list {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.15s;
+  }
+
+  .task-card:active {
+    transform: scale(0.98);
+  }
+
+  .task-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #d1d1d6;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 12px;
+    color: transparent;
+  }
+
+  .task-check.done {
+    background: #e8734a;
+    border-color: #e8734a;
+    color: #fff;
+  }
+
+  .task-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .task-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1e;
+    line-height: 1.3;
+  }
+
+  .task-done .task-title {
+    text-decoration: line-through;
+    color: #aeaeb2;
+  }
+
+  .task-meta {
+    font-size: 11px;
+    color: #8e8e93;
+    margin-top: 2px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .task-pomos {
+    display: flex;
+    gap: 3px;
+  }
+
+  .task-pomo-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e5e5ea;
+  }
+
+  .task-pomo-dot.filled {
+    background: #e8734a;
+  }
+
+  .task-ai-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: #f2f2f5;
+    border-radius: 4px;
+    color: #8e8e93;
+  }
+
+  .add-task-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: #8e8e93;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .add-task-btn:hover {
+    color: #6e6e73;
+  }
+
+  /* ── Settings Screen ── */
+  .settings-group {
+    margin: 0 20px 16px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .settings-group-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 16px 6px;
+  }
+
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 0.5px solid #f0f0f2;
+    cursor: pointer;
+    transition: background 0.1s;
+    min-height: 44px;
+  }
+
+  .settings-row:last-child {
+    border-bottom: none;
+  }
+
+  .settings-row:active {
+    background: #f8f8fa;
+  }
+
+  .settings-row-label {
+    font-size: 14px;
+    color: #1c1c1e;
+  }
+
+  .settings-row-value {
+    font-size: 14px;
+    color: #8e8e93;
+  }
+
+  .settings-row-value.accent {
+    color: #e8734a;
+  }
+
+  /* Toggle switch */
+  .toggle {
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    background: #e5e5ea;
+    cursor: pointer;
+    transition: background 0.25s;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .toggle.on {
+    background: #e8734a;
+  }
+
+  .toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    transition: transform 0.25s;
+  }
+
+  .toggle.on::after {
+    transform: translateX(20px);
+  }
+
+  /* AI personality */
+  .ai-level-selector {
+    display: flex;
+    gap: 6px;
+    padding: 8px 16px 14px;
+  }
+
+  .ai-level-btn {
+    flex: 1;
+    padding: 8px 6px;
+    border-radius: 10px;
+    border: 1.5px solid #e5e5ea;
+    background: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .ai-level-btn .level-icon {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .ai-level-btn .level-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #8e8e93;
+  }
+
+  .ai-level-btn.active {
+    border-color: #e8734a;
+    background: #fffaf8;
+  }
+
+  .ai-level-btn.active .level-label {
+    color: #e8734a;
+  }
+
+  /* ── Footer ── */
+  .prototype-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aeaeb2;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 840px) {
+    .phone-grid { gap: 20px; }
+    .app-shell { padding: 24px 16px 60px; }
+    .app-header h1 { font-size: 22px; }
+  }
+
+  @media (max-width: 420px) {
+    .iphone-outer {
+      width: 340px;
+      border-radius: 48px;
+      padding: 8px;
+    }
+    .iphone-screen {
+      width: 324px;
+      height: 700px;
+      border-radius: 40px;
+    }
+    .dynamic-island {
+      width: 100px;
+      height: 30px;
+      top: 9px;
+    }
+    .screen-content { padding-top: 52px; padding-bottom: 80px; }
+    .timer-ring-container { width: 180px; height: 180px; }
+    .timer-time { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+// ═══════════════════════════════════════
+// Design Tokens
+// ═══════════════════════════════════════
+const COLORS = {
+  accent: '#e8734a',
+  accentLight: '#fff7f2',
+  accentDark: '#d15c32',
+  break: '#5e9eff',
+  bg: '#fbfbfd',
+  card: '#ffffff',
+  text: '#1c1c1e',
+  textSecondary: '#6e6e73',
+  textTertiary: '#8e8e93',
+  border: '#e5e5ea',
+  borderLight: '#f0f0f2',
+  success: '#30b158',
+};
+
+const SCREENS = { timer: 'timer', analytics: 'analytics', tasks: 'tasks', settings: 'settings' };
+
+const CIRCUMFERENCE = 2 * Math.PI * 88;
+
+// ═══════════════════════════════════════
+// Helper: format mm:ss
+// ═══════════════════════════════════════
+function fmtTime(seconds) {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+// ═══════════════════════════════════════
+// Battery Icon (inline SVG)
+// ═══════════════════════════════════════
+function BatteryIcon({ pct }) {
+  const w = 22, h = 11, fillW = Math.round((w - 6) * pct / 100);
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ display: 'block' }}>
+      <rect x="0" y="0" width={w - 2} height={h} rx="2.5" fill="none" stroke="#000" strokeWidth="1" opacity="0.35" />
+      <rect x="2" y="2" width={fillW} height={h - 4} rx="1" fill="#000" />
+      <rect x={w - 2} y="3.5" width="2" height="4" rx="0.8" fill="#000" opacity="0.4" />
+    </svg>
+  );
+}
+
+// ═══════════════════════════════════════
+// Signal Icon
+// ═══════════════════════════════════════
+function SignalIcon() {
+  return (
+    <svg width="15" height="11" viewBox="0 0 15 11" style={{ display: 'block' }}>
+      <rect x="0" y="7" width="3" height="4" rx="0.8" fill="#000" />
+      <rect x="4" y="4.5" width="3" height="6.5" rx="0.8" fill="#000" />
+      <rect x="8" y="2" width="3" height="9" rx="0.8" fill="#000" />
+      <rect x="12" y="0" width="3" height="11" rx="0.8" fill="#000" />
+    </svg>
+  );
+}
+
+// ═══════════════════════════════════════
+// IosFrame — device bezel, island, status bar, home indicator
+// ═══════════════════════════════════════
+function IosFrame({ children }) {
+  return (
+    <div className="iphone-outer">
+      <div className="iphone-screen">
+        <div className="dynamic-island" />
+        <div className="status-bar">
+          <span className="status-time">9:41</span>
+          <span className="status-icons">
+            <SignalIcon />
+            <BatteryIcon pct={78} />
+          </span>
+        </div>
+        {children}
+        <div className="home-indicator" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TabBar
+// ═══════════════════════════════════════
+const TAB_ITEMS = [
+  { key: 'timer', icon: '🍅', label: 'Focus' },
+  { key: 'analytics', icon: '📊', label: 'Insights' },
+  { key: 'tasks', icon: '📋', label: 'Tasks' },
+  { key: 'settings', icon: '⚙️', label: 'Settings' },
+];
+
+function TabBar({ current, onNavigate }) {
+  return (
+    <div className="tab-bar">
+      {TAB_ITEMS.map(t => (
+        <div
+          key={t.key}
+          className={`tab-item${current === t.key ? ' active' : ''}`}
+          onClick={() => onNavigate(t.key)}
+        >
+          <span className="tab-icon">{t.icon}</span>
+          <span className="tab-label">{t.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TimerScreen — circular countdown, task chip, AI insight
+// ═══════════════════════════════════════
+function TimerScreen({ timer, actions }) {
+  const { status, secondsLeft, sessionType, sessionsCompleted, totalSessions, taskName, sessionDuration } = timer;
+  const progress = sessionDuration > 0 ? (sessionDuration - secondsLeft) / sessionDuration : 0;
+  const dashOffset = CIRCUMFERENCE * (1 - progress);
+  const isFocus = sessionType === 'focus';
+  const ringColor = isFocus ? COLORS.accent : COLORS.break;
+
+  return (
+    <div className="screen-content">
+      <div className="screen-header" style={{ textAlign: 'center' }}>
+        {isFocus ? 'Deep Focus' : 'Take a Break'}
+      </div>
+      <div className="screen-subheader" style={{ textAlign: 'center' }}>
+        {isFocus ? '专注力最宝贵的 25 分钟' : '休息一下，回来更强'}
+      </div>
+
+      <div className="timer-wrapper">
+        {/* Session dots */}
+        <div className="timer-dots">
+          {Array.from({ length: totalSessions }, (_, i) => (
+            <div
+              key={i}
+              className={`timer-dot${i < sessionsCompleted ? ' done' : ''}${i === sessionsCompleted && status !== 'idle' ? ' current' : ''}`}
+            />
+          ))}
+        </div>
+
+        {/* Circular timer */}
+        <div className="timer-ring-container">
+          <svg viewBox="0 0 200 200">
+            <circle className="timer-ring-bg" cx="100" cy="100" r="88" />
+            <circle
+              className="timer-ring-progress"
+              cx="100" cy="100" r="88"
+              stroke={ringColor}
+              strokeDasharray={CIRCUMFERENCE}
+              strokeDashoffset={dashOffset}
+              style={{ opacity: status === 'idle' ? 0.3 : 1 }}
+            />
+          </svg>
+          <div className="timer-center-text">
+            <div className="timer-time">{fmtTime(secondsLeft)}</div>
+            <div className={`timer-session-label${!isFocus ? ' break' : ''}`}>
+              {isFocus ? 'Focus' : sessionType === 'shortBreak' ? 'Short Break' : 'Long Break'}
+            </div>
+          </div>
+        </div>
+
+        {/* Current task */}
+        {taskName && (
+          <div className="task-chip" onClick={actions.onTaskTap}>
+            <span className="task-chip-dot" />
+            <span>{taskName}</span>
+            <span style={{ color: '#aeaeb2', marginLeft: 2 }}>›</span>
+          </div>
+        )}
+
+        {/* AI Insight */}
+        <div className="ai-insight">
+          <span className="ai-star">✦</span>
+          <span>
+            <strong>AI 洞察：</strong>
+            {isFocus
+              ? '你今天上午的专注效率比下午高 32%。建议趁现在状态最好，先攻克最难的任务。'
+              : '研究表明 5 分钟的眼部休息比刷手机恢复得快 2.3 倍。试试闭眼深呼吸。'}
+          </span>
+        </div>
+
+        {/* Action buttons */}
+        {status === 'idle' && (
+          <button className="btn-primary btn-focus" onClick={actions.onStart}>
+            ▶  Start Focus
+          </button>
+        )}
+
+        {status === 'running' && (
+          <div className="btn-row">
+            <button className="btn-primary btn-focus" onClick={actions.onPause}>
+              ⏸  Pause
+            </button>
+            <button className="btn-primary btn-ghost" onClick={actions.onSkip}>
+              Skip →
+            </button>
+          </div>
+        )}
+
+        {status === 'paused' && (
+          <div className="btn-row">
+            <button className="btn-primary btn-focus" onClick={actions.onResume}>
+              ▶  Resume
+            </button>
+            <button className="btn-primary btn-ghost" onClick={actions.onReset}>
+              ↺  Reset
+            </button>
+          </div>
+        )}
+
+        {status === 'complete' && (
+          <div className="btn-row">
+            <button className="btn-primary btn-focus" onClick={actions.onNextSession}>
+              {isFocus ? '☕  Start Break' : '🍅  Back to Focus'}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// AnalyticsScreen — stats, chart, insights
+// ═══════════════════════════════════════
+function AnalyticsScreen() {
+  const [period, setPeriod] = useState('D');
+  const [expandedInsight, setExpandedInsight] = useState(null);
+
+  const weeklyData = period === 'D'
+    ? [{ label: 'M', h: 45 }, { label: 'T', h: 82 }, { label: 'W', h: 38 }, { label: 'T', h: 95 }, { label: 'F', h: 70 }, { label: 'S', h: 25 }, { label: 'S', h: 10 }]
+    : period === 'W'
+    ? [{ label: 'W1', h: 320 }, { label: 'W2', h: 410 }, { label: 'W3', h: 280 }, { label: 'W4', h: 355 }]
+    : [{ label: 'Jan', h: 60 }, { label: 'Feb', h: 75 }, { label: 'Mar', h: 55 }, { label: 'Apr', h: 88 }, { label: 'May', h: 82 }, { label: 'Jun', h: 70 }];
+
+  const maxH = Math.max(...weeklyData.map(d => d.h));
+
+  const insights = [
+    {
+      id: 1,
+      title: '黄金时段：上午 9:00 – 11:00',
+      body: '你的专注峰值出现在上午。在这 2 小时内完成的 Pomodoro 比其他时段多 47%。',
+      detail: '我们会自动建议在这个时段安排最重要的深度工作任务。你也可以在设置中手动调整偏好时段。连续 4 周数据显示，上午 9-11 点的完成率和中断率都是最优的。',
+      highlight: true,
+    },
+    {
+      id: 2,
+      title: '25 分钟是你的最佳节奏',
+      body: '相比 45 分钟长 session，25 分钟的完成率高 32%，中断率低 41%。',
+      detail: '番茄工作法的创始人 Francesco Cirillo 最初设定的就是 25 分钟。你的数据显示这个长度对你来说确实是 sweet spot——足够深入，又不至于疲劳。',
+    },
+    {
+      id: 3,
+      title: '散步 > 刷手机',
+      body: '10 分钟散步后的专注恢复比刷手机好 18%。试试把短休息改成走动。',
+    },
+  ];
+
+  return (
+    <div className="screen-content">
+      <div className="screen-header">AI Insights</div>
+      <div className="screen-subheader">你的专注力，由数据说话</div>
+
+      {/* Stats row */}
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-value">2.8<span style={{ fontSize: 14, fontWeight: 400 }}>h</span></div>
+          <div className="stat-label">今日专注</div>
+          <div className="stat-sub">↑ 12% vs 昨日</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">6</div>
+          <div className="stat-label">完成 Sessions</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">87</div>
+          <div className="stat-label">专注评分</div>
+          <div className="stat-sub">优秀</div>
+        </div>
+      </div>
+
+      {/* Chart */}
+      <div className="chart-section">
+        <div className="chart-title">
+          <span>专注趋势</span>
+          <div className="chart-period">
+            {['D', 'W', 'M'].map(p => (
+              <button
+                key={p}
+                className={`chart-period-btn${period === p ? ' active' : ''}`}
+                onClick={() => setPeriod(p)}
+              >
+                {p === 'D' ? '周' : p === 'W' ? '月' : '年'}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="bar-chart">
+          {weeklyData.map((d, i) => (
+            <div key={i} className="bar-col">
+              <div
+                className="bar-fill"
+                style={{
+                  height: `${(d.h / maxH) * 80}px`,
+                  background: d.h === maxH
+                    ? `linear-gradient(180deg, ${COLORS.accent} 0%, ${COLORS.accent}88 100%)`
+                    : `linear-gradient(180deg, #d1d1d6 0%, #e5e5ea 100%)`,
+                }}
+                title={`${d.h} min`}
+              />
+              <span className="bar-label">{d.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Insight cards */}
+      <div style={{ padding: '0 20px 4px' }}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: '#3a3a3c', marginBottom: 8 }}>AI 洞察</div>
+      </div>
+      {insights.map(ins => (
+        <div
+          key={ins.id}
+          className={`insight-card${ins.highlight ? ' highlight' : ''}`}
+          onClick={() => setExpandedInsight(expandedInsight === ins.id ? null : ins.id)}
+        >
+          <div className="insight-card-title">{ins.title}</div>
+          <div className="insight-card-body">{ins.body}</div>
+          {expandedInsight === ins.id && ins.detail && (
+            <div className="expanded">{ins.detail}</div>
+          )}
+        </div>
+      ))}
+
+      <div style={{ height: 16 }} />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TasksScreen — todo list with pomo estimates
+// ═══════════════════════════════════════
+function TasksScreen({ tasks, actions }) {
+  const [adding, setAdding] = useState(false);
+
+  return (
+    <div className="screen-content">
+      <div className="screen-header">Tasks</div>
+      <div className="screen-subheader">
+        AI 已按能量匹配排序 · {tasks.filter(t => t.done).length}/{tasks.length} 完成
+      </div>
+
+      <div className="task-list">
+        {tasks.map((task, idx) => (
+          <div
+            key={task.id}
+            className={`task-card${task.done ? ' task-done' : ''}`}
+            onClick={() => actions.onToggleTask(task.id)}
+          >
+            <div className={`task-check${task.done ? ' done' : ''}`}>
+              {task.done ? '✓' : ''}
+            </div>
+            <div className="task-info">
+              <div className="task-title">{task.title}</div>
+              <div className="task-meta">
+                <span className="task-pomos">
+                  {Array.from({ length: task.totalPomos }, (_, i) => (
+                    <span key={i} className={`task-pomo-dot${i < task.donePomos ? ' filled' : ''}`} />
+                  ))}
+                </span>
+                <span>{task.donePomos}/{task.totalPomos} 🍅</span>
+                {task.aiTip && (
+                  <span className="task-ai-tag" style={{ cursor: 'default' }} title={task.aiTip}>
+                    ✦ AI
+                  </span>
+                )}
+              </div>
+            </div>
+            <span style={{ color: '#aeaeb2', fontSize: 13, flexShrink: 0 }}>
+              {idx === 0 && !task.done ? '⭐' : ''}
+            </span>
+          </div>
+        ))}
+
+        {adding ? (
+          <div style={{ display: 'flex', gap: 8, padding: '4px 0' }}>
+            <input
+              autoFocus
+              placeholder="新任务…"
+              style={{
+                flex: 1, padding: '8px 12px', borderRadius: 8, border: `1.5px solid ${COLORS.accent}`,
+                fontSize: 13, fontFamily: 'inherit', outline: 'none',
+              }}
+              onKeyDown={e => {
+                if (e.key === 'Enter' && e.target.value.trim()) {
+                  actions.onAddTask(e.target.value.trim());
+                  setAdding(false);
+                }
+                if (e.key === 'Escape') setAdding(false);
+              }}
+            />
+          </div>
+        ) : (
+          <div className="add-task-btn" onClick={() => setAdding(true)}>
+            <span style={{ fontSize: 18, lineHeight: 1 }}>+</span>
+            <span>添加任务</span>
+          </div>
+        )}
+      </div>
+
+      {/* AI suggestion */}
+      <div style={{ padding: '12px 20px' }}>
+        <div className="ai-insight" style={{ maxWidth: '100%' }}>
+          <span className="ai-star">✦</span>
+          <span>
+            <strong>AI 建议：</strong>
+            把「Design homepage」放在上午第一件事——你的设计类任务在上午的完成速度比下午快 41%。
+          </span>
+        </div>
+      </div>
+
+      <div style={{ height: 16 }} />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// SettingsScreen — timer config, AI level, notifications
+// ═══════════════════════════════════════
+function SettingsScreen({ settings, actions }) {
+  return (
+    <div className="screen-content">
+      <div className="screen-header">Settings</div>
+      <div className="screen-subheader">定制你的专注体验</div>
+
+      {/* Timer durations */}
+      <div className="settings-group">
+        <div className="settings-group-title">计时设置</div>
+        <div className="settings-row" onClick={() => actions.onCycleSetting('focusDuration')}>
+          <span className="settings-row-label">专注时长</span>
+          <span className="settings-row-value accent">{settings.focusDuration} 分钟</span>
+        </div>
+        <div className="settings-row" onClick={() => actions.onCycleSetting('shortBreak')}>
+          <span className="settings-row-label">短休息</span>
+          <span className="settings-row-value">{settings.shortBreak} 分钟</span>
+        </div>
+        <div className="settings-row" onClick={() => actions.onCycleSetting('longBreak')}>
+          <span className="settings-row-label">长休息</span>
+          <span className="settings-row-value">{settings.longBreak} 分钟</span>
+        </div>
+        <div className="settings-row" onClick={() => actions.onCycleSetting('sessionsUntilLong')}>
+          <span className="settings-row-label">长休息间隔</span>
+          <span className="settings-row-value">{settings.sessionsUntilLong} 个 session 后</span>
+        </div>
+      </div>
+
+      {/* AI */}
+      <div className="settings-group">
+        <div className="settings-group-title">AI 助手</div>
+        <div style={{ padding: '4px 16px 8px', fontSize: 12, color: COLORS.textTertiary }}>
+          AI 会根据你的专注模式，自动调整建议
+        </div>
+        <div className="ai-level-selector">
+          {[
+            { key: 'minimal', icon: '🔹', label: '轻声' },
+            { key: 'balanced', icon: '🔷', label: '平衡' },
+            { key: 'maximum', icon: '💎', label: '深度' },
+          ].map(lv => (
+            <button
+              key={lv.key}
+              className={`ai-level-btn${settings.aiLevel === lv.key ? ' active' : ''}`}
+              onClick={() => actions.onSetSetting('aiLevel', lv.key)}
+            >
+              <span className="level-icon">{lv.icon}</span>
+              <span className="level-label">{lv.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Preferences */}
+      <div className="settings-group">
+        <div className="settings-group-title">偏好</div>
+        <div className="settings-row" onClick={() => actions.onToggleSetting('soundEnabled')}>
+          <span className="settings-row-label">完成音效</span>
+          <div className={`toggle${settings.soundEnabled ? ' on' : ''}`} />
+        </div>
+        <div className="settings-row" onClick={() => actions.onToggleSetting('autoStartBreak')}>
+          <span className="settings-row-label">自动开始休息</span>
+          <div className={`toggle${settings.autoStartBreak ? ' on' : ''}`} />
+        </div>
+        <div className="settings-row" onClick={() => actions.onToggleSetting('notifications')}>
+          <span className="settings-row-label">推送提醒</span>
+          <div className={`toggle${settings.notifications ? ' on' : ''}`} />
+        </div>
+      </div>
+
+      <div style={{ height: 16 }} />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// AppPhone — independent state machine
+// ═══════════════════════════════════════
+function AppPhone({ initialScreen }) {
+  const [screen, setScreen] = useState(initialScreen);
+
+  // Timer state
+  const [timerStatus, setTimerStatus] = useState('idle'); // idle | running | paused | complete
+  const [secondsLeft, setSecondsLeft] = useState(25 * 60);
+  const [sessionType, setSessionType] = useState('focus'); // focus | shortBreak | longBreak
+  const [sessionsCompleted, setSessionsCompleted] = useState(0);
+  const [taskName, setTaskName] = useState('Design homepage v2');
+
+  // Settings
+  const [settings, setSettings] = useState({
+    focusDuration: 25,
+    shortBreak: 5,
+    longBreak: 15,
+    sessionsUntilLong: 4,
+    aiLevel: 'balanced',
+    soundEnabled: true,
+    autoStartBreak: false,
+    notifications: true,
+  });
+
+  // Tasks
+  const [tasks, setTasks] = useState([
+    { id: 1, title: 'Design homepage layout', totalPomos: 3, donePomos: 1, done: false, aiTip: 'Best done 9-11 AM' },
+    { id: 2, title: 'Write API documentation', totalPomos: 2, donePomos: 0, done: false, aiTip: 'Break into 2 sessions' },
+    { id: 3, title: 'Review pull requests #42 #43', totalPomos: 1, donePomos: 0, done: false, aiTip: 'Quick win for afternoon' },
+  ]);
+
+  // Timer countdown effect
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (timerStatus === 'running') {
+      timerRef.current = setInterval(() => {
+        setSecondsLeft(s => {
+          if (s <= 1) {
+            // Timer complete — counting is handled by onNextSession / onSkip
+            setTimerStatus('complete');
+            return 0;
+          }
+          return s - 1;
+        });
+      }, 1000);
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+    }
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [timerStatus, sessionType]);
+
+  // Timer actions
+  const timerActions = {
+    onStart: () => setTimerStatus('running'),
+    onPause: () => setTimerStatus('paused'),
+    onResume: () => setTimerStatus('running'),
+    onReset: () => {
+      setTimerStatus('idle');
+      setSecondsLeft(settings.focusDuration * 60);
+      setSessionType('focus');
+    },
+    onSkip: () => {
+      setTimerStatus('complete');
+      setSecondsLeft(0);
+      if (sessionType === 'focus') setSessionsCompleted(c => c + 1);
+    },
+    onNextSession: () => {
+      setSessionsCompleted(c => {
+        const wasFocus = sessionType === 'focus';
+        const newCount = wasFocus ? c + 1 : c;
+
+        let newType, newDuration;
+        if (wasFocus) {
+          newType = newCount >= settings.sessionsUntilLong ? 'longBreak' : 'shortBreak';
+          newDuration = newType === 'longBreak' ? settings.longBreak : settings.shortBreak;
+        } else {
+          newType = 'focus';
+          newDuration = settings.focusDuration;
+        }
+
+        setSessionType(newType);
+        setSecondsLeft(newDuration * 60);
+        setTimerStatus('idle');
+
+        return newCount;
+      });
+    },
+    onTaskTap: () => setScreen('tasks'),
+  };
+
+  // Tasks actions
+  const taskActions = {
+    onToggleTask: (id) => {
+      setTasks(ts => ts.map(t => t.id === id ? { ...t, done: !t.done } : t));
+    },
+    onAddTask: (title) => {
+      const newId = Math.max(0, ...tasks.map(t => t.id)) + 1;
+      setTasks(ts => [...ts, { id: newId, title, totalPomos: 1, donePomos: 0, done: false, aiTip: null }]);
+    },
+  };
+
+  // Settings actions
+  const settingActions = {
+    onCycleSetting: (key) => {
+      const cycles = {
+        focusDuration: [15, 25, 30, 45, 60],
+        shortBreak: [3, 5, 10, 15],
+        longBreak: [10, 15, 20, 30],
+        sessionsUntilLong: [2, 3, 4, 5],
+      };
+      if (cycles[key]) {
+        setSettings(s => {
+          const opts = cycles[key];
+          const idx = opts.indexOf(s[key]);
+          const next = opts[(idx + 1) % opts.length];
+          return { ...s, [key]: next };
+        });
+      }
+    },
+    onToggleSetting: (key) => {
+      setSettings(s => ({ ...s, [key]: !s[key] }));
+    },
+    onSetSetting: (key, value) => {
+      setSettings(s => ({ ...s, [key]: value }));
+    },
+  };
+
+  const timerState = {
+    status: timerStatus,
+    secondsLeft,
+    sessionType,
+    sessionsCompleted,
+    totalSessions: settings.sessionsUntilLong,
+    taskName,
+    sessionDuration: sessionType === 'focus'
+      ? settings.focusDuration * 60
+      : sessionType === 'longBreak'
+        ? settings.longBreak * 60
+        : settings.shortBreak * 60,
+  };
+
+  return (
+    <IosFrame>
+      {screen === 'timer' && <TimerScreen timer={timerState} actions={timerActions} />}
+      {screen === 'analytics' && <AnalyticsScreen />}
+      {screen === 'tasks' && <TasksScreen tasks={tasks} actions={taskActions} />}
+      {screen === 'settings' && <SettingsScreen settings={settings} actions={settingActions} />}
+      <TabBar current={screen} onNavigate={setScreen} />
+    </IosFrame>
+  );
+}
+
+// ═══════════════════════════════════════
+// App — main layout: header + 4 phones
+// ═══════════════════════════════════════
+function App() {
+  const phones = [
+    { key: 'timer', label: 'Focus · 专注计时' },
+    { key: 'analytics', label: 'Analytics · AI 洞察' },
+    { key: 'tasks', label: 'Tasks · 任务管理' },
+    { key: 'settings', label: 'Settings · 个性化' },
+  ];
+
+  return (
+    <div className="app-shell">
+      <div className="app-header">
+        <h1>
+          <span>🍅</span> AI Pomodoro
+        </h1>
+        <span className="subtitle">iOS Prototype · 4 Core Screens · Tap to Interact</span>
+      </div>
+
+      <div className="phone-grid">
+        {phones.map(p => (
+          <div key={p.key} className="phone-column">
+            <div className="phone-label">{p.label}</div>
+            <AppPhone initialScreen={p.key} />
+          </div>
+        ))}
+      </div>
+
+      <div className="prototype-footer">
+        每个 iPhone 独立可操作 · 点击 Tab 切换界面 · 计时器真实可用 · AI 数据为演示模拟
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// Mount
+// ═══════════════════════════════════════
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

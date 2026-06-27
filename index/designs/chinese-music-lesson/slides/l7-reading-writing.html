@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7 · 阅读与写作</title>
+<style>
+  :root{--red:#C43E2C;--gold:#D4953A;--bg:#FEFAF5;--text:#2D2A26;--pinyin:#8B7E74;--warm-bg:#F5EDE3;--light-border:#E8DED4;--card-bg:#FFFBF7;--green:#4A8C5C;--blue:#3B7D9E;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{width:1920px;height:1080px;background:var(--bg);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);overflow:hidden;position:relative;}
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px;} section.active{display:block;}
+  .bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red);}
+  .sn{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6;}
+  .ph{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px;}
+  .ph .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;}
+  .ph h2{font-size:52px;font-weight:700;} .ph .py{font-size:22px;color:var(--pinyin);}
+  .hero{position:absolute;top:50%;left:96px;transform:translateY(-55%);max-width:1400px;}
+  .hero .unit{font-size:22px;font-weight:500;color:var(--pinyin);letter-spacing:0.08em;margin-bottom:12px;}
+  .hero h1{font-size:84px;font-weight:700;line-height:1.15;} .hero h1 .hl{color:var(--red);}
+  .hero .sub{margin-top:28px;font-size:30px;color:var(--pinyin);}
+  .istrip{position:absolute;bottom:64px;left:96px;right:96px;display:flex;gap:48px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:24px;}
+  .istrip strong{color:var(--text);font-weight:600;margin-right:6px;}
+  .cdot{position:absolute;bottom:80px;right:96px;width:12px;height:12px;border-radius:50%;background:var(--gold);opacity:0.6;}
+  .deco{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:0.05;}
+  .tn{position:absolute;bottom:56px;left:96px;right:96px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:20px;display:flex;gap:8px;align-items:center;}
+  .tn .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  .pbox{background:var(--warm-bg);border-radius:20px;padding:32px 40px;margin-bottom:16px;border-left:4px solid var(--red);}
+  .pbox .zh{font-size:36px;font-weight:700;margin-bottom:6px;} .pbox .py{font-size:20px;color:var(--pinyin);}
+  .reading{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:36px 52px;max-width:1400px;margin:0 auto;}
+  .reading .zh{font-size:34px;font-weight:600;line-height:2.2;letter-spacing:0.04em;}
+  .reading .py{font-size:20px;color:var(--pinyin);line-height:1.8;}
+  .wbadge{display:inline-block;background:var(--gold);color:#fff;font-size:16px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.08em;margin-bottom:16px;}
+  .q-card{background:var(--warm-bg);border-radius:16px;padding:28px 36px;display:flex;align-items:center;gap:20px;}
+  .q-card .qn{font-size:28px;font-weight:700;color:var(--red);min-width:36px;}
+  .q-card .qt{font-size:28px;font-weight:600;}
+  .q-card .qhint{font-size:18px;color:var(--pinyin);}
+  .write-prompt{background:var(--card-bg);border:2px dashed var(--gold);border-radius:20px;padding:40px 48px;text-align:center;}
+  .chip{background:var(--warm-bg);padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;display:inline-block;margin:4px;}
+</style>
+</head>
+<body>
+<!-- S01 COVER -->
+<section class="active">
+  <div class="bar"></div>
+  <div class="hero"><div class="unit">Unit 3 · Lesson 7</div><h1>阅读与写作<br><span class="hl">Reading & Writing</span></h1><div class="sub">Show what you know! · 展示你的中文！</div></div>
+  <div class="deco"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="140" r="28" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="140" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="10"/><line x1="50" y1="140" x2="50" y2="30" stroke="currentColor" stroke-width="8"/><line x1="140" y1="100" x2="140" y2="30" stroke="currentColor" stroke-width="6"/><line x1="50" y1="30" x2="160" y2="45" stroke="currentColor" stroke-width="14"/></svg></div>
+  <div class="istrip"><span><strong>Year 8</strong></span><span><strong>Lesson 7</strong></span><span><strong>Duration</strong> 50 min</span></div>
+  <div class="cdot"></div><div class="sn">1 / 9</div>
+</section>
+
+<!-- S02 REVIEW ALL PATTERNS -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>句型总复习 · All Patterns</h2><span class="py">jù xíng zǒng fù xí</span></div>
+  <div style="position:absolute;top:160px;left:96px;"><span class="wbadge">⏱ 5 min — Quick recall</span></div>
+  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1500px;display:flex;flex-direction:column;gap:16px;">
+    <div class="pbox" style="border-left-color:var(--red);"><span style="font-size:14px;font-weight:700;color:var(--red);">1</span><div class="zh" style="font-size:30px;">你有什么爱好？→ 我喜欢 ______ 。</div></div>
+    <div class="pbox" style="border-left-color:var(--blue);"><span style="font-size:14px;font-weight:700;color:var(--blue);">2</span><div class="zh" style="font-size:30px;">我喜欢 ______，也喜欢 ______，还喜欢 ______。</div></div>
+    <div class="pbox" style="border-left-color:var(--green);"><span style="font-size:14px;font-weight:700;color:var(--green);">3</span><div class="zh" style="font-size:30px;">我一边 ______ 一边 ______。</div></div>
+    <div class="pbox" style="border-left-color:var(--gold);"><span style="font-size:14px;font-weight:700;color:var(--gold);">4</span><div class="zh" style="font-size:30px;">因为我觉得 ______ 很有意思，所以我 ______。</div></div>
+    <div class="pbox" style="border-left-color:var(--red);"><span style="font-size:14px;font-weight:700;color:var(--red);">5</span><div class="zh" style="font-size:30px;">我从 ______ 开始 ______。我每天 ______ 个小时的 ______。</div></div>
+  </div>
+  <div class="tn"><span class="dot"></span> These 5 patterns are your toolkit. Use ALL of them in todayʼs writing!</div>
+  <div class="sn">2 / 9</div>
+</section>
+
+<!-- S03 READING: TIAN YUN -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>课文阅读 · Reading</h2><span class="py">kè wén yuè dú</span></div>
+  <div style="position:absolute;top:180px;left:96px;right:96px;">
+    <div class="reading">
+      <p style="font-size:20px;color:var(--gold);font-weight:600;margin-bottom:20px;">📖 我叫田云</p>
+      <p class="zh">我叫田云。我有很多爱好。我<span style="color:var(--red);">一边</span>弹钢琴<span style="color:var(--red);">一边</span>唱歌。我<span style="color:var(--blue);">还</span>喜欢听音乐和读书。我<span style="color:var(--green);">每天</span>读<span style="color:var(--green);">一个小时</span>的书。<span style="color:var(--gold);">因为</span>我<span style="color:var(--gold);">觉得</span>读书<span style="color:var(--gold);">很有意思</span>。我<span style="color:var(--red);">从</span>六岁<span style="color:var(--red);">开始</span>读书。</p>
+      <p class="py" style="margin-top:16px;">Wǒ jiào Tián Yún. Wǒ yǒu hěn duō àihào. Wǒ yìbiān tán gāngqín yìbiān chànggē. Wǒ hái xǐhuān tīng yīnyuè hé dúshū. Wǒ měitiān dú yí ge xiǎoshí de shū. Yīnwèi wǒ juéde dúshū hěn yǒuyìsi. Wǒ cóng liù suì kāishǐ dúshū.</p>
+    </div>
+    <p style="font-size:24px;color:var(--pinyin);text-align:center;margin-top:28px;">🔍 Find all 5 patterns in the text! · 找出课文里的五个句型！</p>
+  </div>
+  <div class="tn"><span class="dot"></span> Students underline each pattern with different colors. Then read aloud individually.</div>
+  <div class="sn">3 / 9</div>
+</section>
+
+<!-- S04 COMPREHENSION -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>理解问题 · Comprehension</h2><span class="py">lǐ jiě wèn tí</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;display:flex;flex-direction:column;gap:20px;">
+    <div class="q-card"><span class="qn">1.</span><span class="qt">田云有什么爱好？</span><span class="qhint">(List them all)</span></div>
+    <div class="q-card"><span class="qn">2.</span><span class="qt">她一边做什么一边做什么？</span></div>
+    <div class="q-card"><span class="qn">3.</span><span class="qt">她每天读几个小时的书？</span></div>
+    <div class="q-card"><span class="qn">4.</span><span class="qt">她为什么喜欢读书？</span><span class="qhint">(Use 因为...所以...)</span></div>
+    <div class="q-card"><span class="qn">5.</span><span class="qt">她从什么时候开始读书？</span></div>
+  </div>
+  <div class="tn"><span class="dot"></span> Students write answers in complete Chinese sentences. Then check with a partner.</div>
+  <div class="sn">4 / 9</div>
+</section>
+
+<!-- S05 EXTENDED READING -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>拓展阅读 · Extended Reading</h2><span class="py">tuò zhǎn yuè dú</span></div>
+  <div style="position:absolute;top:180px;left:96px;right:96px;">
+    <div class="reading">
+      <p style="font-size:20px;color:var(--gold);font-weight:600;margin-bottom:20px;">📖 我的好朋友</p>
+      <p class="zh">我的好朋友叫小明。他有很多爱好。他喜欢弹吉他和唱歌。他一边弹吉他一边唱歌，非常好听！他还喜欢跳舞。他觉得跳舞很有意思。他从八岁开始跳舞。他每天跳一个小时的舞。我也喜欢跳舞，所以我们常常一起跳舞。</p>
+      <p class="py" style="margin-top:12px;">Wǒ de hǎo péngyou jiào Xiǎo Míng. Tā yǒu hěn duō àihào. Tā xǐhuān tán jítā hé chànggē. Tā yìbiān tán jítā yìbiān chànggē, fēicháng hǎotīng! Tā hái xǐhuān tiàowǔ. Tā juéde tiàowǔ hěn yǒuyìsi. Tā cóng bā suì kāishǐ tiàowǔ. Tā měitiān tiào yí ge xiǎoshí de wǔ. Wǒ yě xǐhuān tiàowǔ, suǒyǐ wǒmen chángcháng yìqǐ tiàowǔ.</p>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> New words: 常常 (chángcháng = often), 一起 (yìqǐ = together), 好听 (hǎotīng = pleasant to listen to).</div>
+  <div class="sn">5 / 9</div>
+</section>
+
+<!-- S06 COMPREHENSION 2 -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>理解问题 · Comprehension</h2><span class="py">lǐ jiě wèn tí</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;display:flex;flex-direction:column;gap:20px;">
+    <div class="q-card"><span class="qn">1.</span><span class="qt">小明的爱好是什么？</span></div>
+    <div class="q-card"><span class="qn">2.</span><span class="qt">他从什么时候开始跳舞？</span></div>
+    <div class="q-card"><span class="qn">3.</span><span class="qt">他每天跳多长时间的舞？</span></div>
+    <div class="q-card"><span class="qn">4.</span><span class="qt">为什么「我们常常一起跳舞」？</span></div>
+  </div>
+  <div class="tn"><span class="dot"></span> Bonus Q: Compare 田云 and 小明 — who has more hobbies? What's the same? What's different?</div>
+  <div class="sn">6 / 9</div>
+</section>
+
+<!-- S07 WRITING TASK -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>写作 · Writing</h2><span class="py">xiě zuò</span></div>
+  <div style="position:absolute;top:190px;left:96px;right:96px;max-width:1400px;">
+    <div class="write-prompt" style="margin-bottom:32px;">
+      <p style="font-size:32px;font-weight:700;margin-bottom:16px;">✏️ Write about YOUR hobbies · 写写你的爱好</p>
+      <p style="font-size:22px;color:var(--pinyin);line-height:1.8;margin-bottom:20px;">Write 6-8 sentences. Include ALL 5 patterns!</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <span class="chip">✅ 你有什么爱好？</span><span class="chip">✅ 也/还</span><span class="chip">✅ 一边...一边...</span><span class="chip">✅ 因为...所以...</span><span class="chip">✅ 从...开始 + 个小时</span>
+      </div>
+    </div>
+    <div style="background:var(--warm-bg);border-radius:16px;padding:28px 36px;text-align:center;">
+      <p style="font-size:20px;color:var(--pinyin);">⏱ Writing time: <strong style="color:var(--text);font-size:28px;">15 minutes</strong></p>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Encourage students to write about their REAL hobbies. Authentic content is more motivating!</div>
+  <div class="sn">7 / 9</div>
+</section>
+
+<!-- S08 SPEAKING: SHARE -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>Speaking · 口语分享</h2><span class="py">kǒu yǔ fēn xiǎng</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;text-align:center;margin-bottom:32px;">
+      <span style="font-size:56px;display:block;margin-bottom:8px;">🎤</span>
+      <h3 style="font-size:34px;font-weight:700;margin-bottom:8px;">Share Your Writing · 分享你的作文</h3>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:24px;font-weight:700;color:var(--red);display:block;margin-bottom:12px;">Step 1</span>
+        <p style="font-size:22px;font-weight:600;">Read to your partner</p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">Partner listens & gives 1 compliment</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:24px;font-weight:700;color:var(--blue);display:block;margin-bottom:12px;">Step 2</span>
+        <p style="font-size:22px;font-weight:600;">Swap partners</p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">Read to someone new</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:24px;font-weight:700;color:var(--green);display:block;margin-bottom:12px;">Step 3</span>
+        <p style="font-size:22px;font-weight:600;">Volunteer for class</p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">3 volunteers read to everyone</p>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Build confidence: partner share → new partner → whole class. Low-stakes → higher stakes.</div>
+  <div class="sn">8 / 9</div>
+</section>
+
+<!-- S09 WRAP-UP -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 7</span><h2>Wrap-up · 总结</h2><span class="py">zǒng jié</span></div>
+  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1200px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;margin-bottom:32px;">
+      <p style="font-size:28px;font-weight:700;margin-bottom:12px;">📝 Homework · 作业</p>
+      <ol style="font-size:24px;color:var(--pinyin);line-height:2.2;padding-left:28px;">
+        <li>Polish your paragraph — check for all 5 patterns</li>
+        <li>Practice reading it aloud <strong style="color:var(--text);">3 times</strong> (fluency!)</li>
+        <li><strong style="color:var(--red);">⚠️ Tomorrow: Unit Quiz!</strong> Review all vocab + patterns</li>
+      </ol>
+    </div>
+    <p style="font-size:28px;font-weight:700;text-align:center;color:var(--red);">📢 Quiz tomorrow! 明天测验！</p>
+  </div>
+  <div class="tn"><span class="dot"></span> Remind students: Quiz covers ALL vocab (22 words) + ALL 5 sentence patterns from L1-L7.</div>
+  <div class="sn">9 / 9</div>
+</section>
+
+<script>
+(function(){
+  var s=document.querySelectorAll('section'),i=0;
+  function sh(n){s.forEach(function(x){x.classList.remove('active');});i=(n+s.length)%s.length;s[i].classList.add('active');}
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();sh(i+1);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();sh(i-1);}});
+  document.addEventListener('click',function(e){sh(i+1);});
+  sh(0);
+})();
+</script>
+<script>
+(function(){
+  var W=1920, H=1080;
+  function fit(){
+    var s = Math.min(window.innerWidth/W, window.innerHeight/H);
+    document.body.style.transform = 'scale('+s+')';
+    document.body.style.transformOrigin = '0 0';
+    document.documentElement.style.width = window.innerWidth + 'px';
+    document.documentElement.style.height = window.innerHeight + 'px';
+  }
+  document.documentElement.style.overflow = 'hidden';
+  document.documentElement.style.background = '#FEFAF5';
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6 · 时间与频率</title>
+<style>
+  :root{--red:#C43E2C;--gold:#D4953A;--bg:#FEFAF5;--text:#2D2A26;--pinyin:#8B7E74;--warm-bg:#F5EDE3;--light-border:#E8DED4;--card-bg:#FFFBF7;--green:#4A8C5C;--blue:#3B7D9E;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{width:1920px;height:1080px;background:var(--bg);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);overflow:hidden;position:relative;}
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px;} section.active{display:block;}
+  .bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red);}
+  .sn{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6;}
+  .ph{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px;}
+  .ph .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;}
+  .ph h2{font-size:52px;font-weight:700;} .ph .py{font-size:22px;color:var(--pinyin);}
+  .hero{position:absolute;top:50%;left:96px;transform:translateY(-55%);max-width:1400px;}
+  .hero .unit{font-size:22px;font-weight:500;color:var(--pinyin);letter-spacing:0.08em;margin-bottom:12px;}
+  .hero h1{font-size:84px;font-weight:700;line-height:1.15;} .hero h1 .hl{color:var(--red);}
+  .hero .sub{margin-top:28px;font-size:30px;color:var(--pinyin);}
+  .istrip{position:absolute;bottom:64px;left:96px;right:96px;display:flex;gap:48px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:24px;}
+  .istrip strong{color:var(--text);font-weight:600;margin-right:6px;}
+  .cdot{position:absolute;bottom:80px;right:96px;width:12px;height:12px;border-radius:50%;background:var(--gold);opacity:0.6;}
+  .deco{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:0.05;}
+  .tn{position:absolute;bottom:56px;left:96px;right:96px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:20px;display:flex;gap:8px;align-items:center;}
+  .tn .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  .pbox{background:var(--warm-bg);border-radius:20px;padding:32px 40px;margin-bottom:16px;border-left:4px solid var(--red);}
+  .pbox .zh{font-size:36px;font-weight:700;margin-bottom:6px;} .pbox .py{font-size:20px;color:var(--pinyin);margin-bottom:3px;}
+  .pbox .en{font-size:18px;color:var(--pinyin);font-style:italic;}
+  .vcard{background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px 36px;display:flex;flex-direction:column;gap:8px;position:relative;}
+  .vcard .zh{font-size:46px;font-weight:700;} .vcard .py{font-size:21px;color:var(--pinyin);} .vcard .en{font-size:19px;color:var(--pinyin);font-style:italic;}
+  .vcard .num{position:absolute;top:16px;right:20px;font-size:14px;font-weight:600;color:var(--pinyin);opacity:0.45;}
+  .dl-area{position:absolute;top:200px;left:96px;right:96px;display:flex;flex-direction:column;gap:22px;max-width:1200px;}
+  .dl-line{display:flex;gap:20px;align-items:flex-start;}
+  .dl-line .spk{font-size:18px;font-weight:700;color:var(--red);min-width:60px;text-align:right;padding-top:6px;}
+  .dl-line .bub{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:22px 28px;flex:1;}
+  .dl-line .bub .zh{font-size:34px;font-weight:600;} .dl-line .bub .py{font-size:18px;color:var(--pinyin);margin-top:4px;}
+  .wbadge{display:inline-block;background:var(--gold);color:#fff;font-size:16px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.08em;margin-bottom:16px;}
+  .big-g{background:var(--card-bg);border:2px solid var(--red);border-radius:24px;padding:36px 48px;text-align:center;margin-bottom:20px;}
+  .big-g .zh{font-size:52px;font-weight:700;color:var(--red);letter-spacing:0.06em;}
+  .big-g .py{font-size:21px;color:var(--pinyin);margin-top:8px;}
+  .chip{background:var(--warm-bg);padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;display:inline-block;margin:4px;}
+  .formula{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:30px;font-weight:600;padding:32px;background:var(--warm-bg);border-radius:20px;}
+  .formula .hl{color:var(--red);}
+</style>
+</head>
+<body>
+<!-- S01 COVER -->
+<section class="active">
+  <div class="bar"></div>
+  <div class="hero"><div class="unit">Unit 3 · Lesson 6</div><h1>时间与频率<br><span class="hl">Time & Frequency</span></h1><div class="sub">How long? Since when? How often? · 多长时间？从什么时候开始？</div></div>
+  <div class="deco"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="110" r="30" fill="none" stroke="currentColor" stroke-width="12"/><line x1="50" y1="80" x2="50" y2="30" stroke="currentColor" stroke-width="8"/><line x1="50" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="8"/></svg></div>
+  <div class="istrip"><span><strong>Year 8</strong></span><span><strong>Lesson 6</strong></span><span><strong>Duration</strong> 50 min</span></div>
+  <div class="cdot"></div><div class="sn">1 / 9</div>
+</section>
+
+<!-- S02 REVIEW -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>复习 · Review</h2><span class="py">fù xí</span></div>
+  <div style="position:absolute;top:160px;left:96px;"><span class="wbadge">⏱ 5 min</span></div>
+  <div style="position:absolute;top:230px;left:96px;right:96px;max-width:1400px;">
+    <div class="pbox"><div class="zh">你为什么喜欢 ______ ？</div><div class="py">因为我觉得 ______ 很有意思。</div></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+      <span class="chip">唱歌</span><span class="chip">跳舞</span><span class="chip">弹钢琴</span><span class="chip">弹吉他</span><span class="chip">听音乐</span><span class="chip">读书</span><span class="chip">画画儿</span>
+    </div>
+    <p style="font-size:24px;color:var(--pinyin);margin-top:32px;text-align:center;">Quick-fire round: Teacher points, student answers with a reason!</p>
+  </div>
+  <div class="tn"><span class="dot"></span> Push students to say the complete sentence: 因为我觉得...很有意思/没意思。</div>
+  <div class="sn">2 / 9</div>
+</section>
+
+<!-- S03 NEW WORDS -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>生词 · New Words</h2><span class="py">shēng cí</span></div>
+  <div style="position:absolute;top:168px;left:96px;font-size:16px;font-weight:600;letter-spacing:0.1em;color:var(--gold);">4 WORDS</div>
+  <div style="position:absolute;top:210px;left:96px;right:96px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:900px;">
+    <div class="vcard"><span class="num">23</span><span class="zh">从...开始</span><span class="py">cóng...kāishǐ</span><span class="en">from... / since...</span></div>
+    <div class="vcard"><span class="num">24</span><span class="zh">正在</span><span class="py">zhèng zài</span><span class="en">in the process of (doing)</span></div>
+    <div class="vcard"><span class="num">—</span><span class="zh">几个小时</span><span class="py">jǐ ge xiǎoshí</span><span class="en">how many hours</span></div>
+    <div class="vcard"><span class="num">—</span><span class="zh">多长时间</span><span class="py">duō cháng shíjiān</span><span class="en">how long (time)</span></div>
+  </div>
+  <div class="tn"><span class="dot"></span> 从...开始 = since/from a point in time. 正在 = action in progress (like -ing). 多小时 = review from L3.</div>
+  <div class="sn">3 / 9</div>
+</section>
+
+<!-- S04 GRAMMAR 1: DURATION -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>语法① · Duration</h2><span class="py">yǔ fǎ</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1500px;">
+    <div class="big-g"><div class="zh">Verb + 多长时间？</div><div class="py">duō cháng shíjiān?</div></div>
+    <div class="formula" style="margin-bottom:24px;">你每天 <span class="hl">弹</span> <span style="color:var(--gold);">多长时间</span> 的 <span class="hl">钢琴</span>？</div>
+    <div class="formula" style="background:var(--card-bg);border:1px solid var(--green);">
+      <span>我每天弹</span><span style="color:var(--green);font-size:38px;font-weight:700;">一个小时</span><span>的钢琴。</span>
+      <span style="font-size:20px;color:var(--pinyin);margin-left:12px;">(1 hour)</span>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:24px;color:var(--pinyin);">
+      📐 Pattern: Verb + 多长时间 + 的 + Noun? → Verb + [number] + 个小时 + 的 + Noun
+    </p>
+  </div>
+  <div class="tn"><span class="dot"></span> 的 is important here! 「弹一个小时的钢琴」— the 的 connects the duration to the activity.</div>
+  <div class="sn">4 / 9</div>
+</section>
+
+<!-- S05 GRAMMAR 2: SINCE / IN PROGRESS -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>语法②③ · Since & -ing</h2><span class="py">yǔ fǎ</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div class="pbox" style="border-left-color:var(--blue);">
+      <span style="font-size:16px;font-weight:700;color:var(--blue);">② 从...开始 — since / from a point in time</span>
+      <div class="zh" style="font-size:32px;">我<span style="color:var(--blue);">从</span>五岁<span style="color:var(--blue);">开始</span>弹钢琴。</div>
+      <div class="py">Wǒ cóng wǔ suì kāishǐ tán gāngqín.</div>
+      <div class="en">Iʼve played piano since I was 5.</div>
+    </div>
+    <div class="pbox" style="border-left-color:var(--green);">
+      <span style="font-size:16px;font-weight:700;color:var(--green);">③ 正在 — in the process of (like -ing)</span>
+      <div class="zh" style="font-size:32px;">我<span style="color:var(--green);">正在</span>听音乐。</div>
+      <div class="py">Wǒ zhèngzài tīng yīnyuè.</div>
+      <div class="en">I am listening to music (right now).</div>
+    </div>
+    <div style="display:flex;gap:32px;margin-top:20px;justify-content:center;">
+      <span class="chip">从三岁开始</span><span class="chip">从去年开始</span><span class="chip">正在唱歌</span><span class="chip">正在读书</span>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> 正在 goes right before the verb. 从 [time] 开始 → [time] can be age, year, month, etc.</div>
+  <div class="sn">5 / 9</div>
+</section>
+
+<!-- S06 PRACTICE ALL 3 -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>练习 · Practice</h2><span class="py">liàn xí</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <p style="font-size:28px;font-weight:600;margin-bottom:32px;">Use all 3 patterns in one answer! · 三个句型一起用！</p>
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;margin-bottom:32px;">
+      <p style="font-size:22px;color:var(--pinyin);margin-bottom:16px;">Example answer:</p>
+      <p style="font-size:34px;font-weight:700;line-height:1.8;">
+        我<span style="color:var(--blue);">从</span>六岁<span style="color:var(--blue);">开始</span>弹钢琴。<br>
+        我<span style="color:var(--green);">正在</span>弹钢琴。<br>
+        我每天弹<span style="color:var(--red);">一个小时</span>的钢琴。
+      </p>
+    </div>
+    <p style="font-size:24px;color:var(--pinyin);text-align:center;">🎯 Now your turn! Pick a hobby and write 3 sentences.</p>
+  </div>
+  <div class="tn"><span class="dot"></span> Students write individually for 5 min. Then share with partner. 3 volunteers read to class.</div>
+  <div class="sn">6 / 9</div>
+</section>
+
+<!-- S07 DIALOGUE -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>对话 · Dialogue</h2><span class="py">duì huà</span></div>
+  <div class="dl-area" style="top:180px;">
+    <div class="dl-line"><span class="spk">A</span><div class="bub"><div class="zh">你有什么爱好？</div><div class="py">Nǐ yǒu shénme àihào?</div></div></div>
+    <div class="dl-line"><span class="spk">B</span><div class="bub"><div class="zh">我喜欢弹钢琴。我从五岁开始弹钢琴。</div><div class="py">Wǒ xǐhuān tán gāngqín. Wǒ cóng wǔ suì kāishǐ tán gāngqín.</div></div></div>
+    <div class="dl-line"><span class="spk">A</span><div class="bub"><div class="zh">你每天弹多长时间的钢琴？</div><div class="py">Nǐ měitiān tán duō cháng shíjiān de gāngqín?</div></div></div>
+    <div class="dl-line"><span class="spk">B</span><div class="bub"><div class="zh">我每天弹一个小时的钢琴。</div><div class="py">Wǒ měitiān tán yí ge xiǎoshí de gāngqín.</div></div></div>
+  </div>
+  <div class="tn"><span class="dot"></span> Practice in pairs. Then change the hobby and time. 「从十岁开始」「弹两个小时的吉他」etc.</div>
+  <div class="sn">7 / 9</div>
+</section>
+
+<!-- S08 MAKE YOUR SCHEDULE -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>Activity · 活动</h2><span class="py">huó dòng</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;text-align:center;margin-bottom:32px;">
+      <span style="font-size:52px;display:block;margin-bottom:8px;">📅</span>
+      <h3 style="font-size:34px;font-weight:700;margin-bottom:8px;">My Hobby Schedule · 我的爱好时间表</h3>
+      <p style="font-size:22px;color:var(--pinyin);line-height:1.6;">Fill in your weekly hobby schedule. Then describe it to your partner!</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;">
+        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">爱好</p><p style="font-size:30px;font-weight:700;">________</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;">
+        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">从...开始</p><p style="font-size:30px;font-weight:700;">________</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;">
+        <p style="font-size:20px;color:var(--pinyin);margin-bottom:8px;">每天多长时间？</p><p style="font-size:30px;font-weight:700;">________</p>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> After filling in, students walk around and share: 「我的爱好是...，我从...开始...，我每天...个小时...」</div>
+  <div class="sn">8 / 9</div>
+</section>
+
+<!-- S09 READING & WRITING -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>阅读与写作 · Read & Write</h2><span class="py">yuè dú yǔ xiě zuò</span></div>
+  <div style="position:absolute;top:170px;left:96px;right:96px;max-width:1500px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:24px;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:18px;padding:24px 32px;">
+        <p style="font-size:16px;color:var(--gold);font-weight:600;margin-bottom:10px;">📖 小明的爱好时间表</p>
+        <p style="font-size:26px;font-weight:600;line-height:1.9;letter-spacing:0.04em;">我<span style="color:var(--blue);">从</span>八岁<span style="color:var(--blue);">开始</span>弹吉他。我<span style="color:var(--green);">每天</span>弹<span style="color:var(--red);">一个小时</span>的吉他。现在我<span style="color:var(--green);">正在</span>学一首新歌。</p>
+        <p style="font-size:15px;color:var(--pinyin);line-height:1.5;margin-top:6px;">Wǒ cóng bā suì kāishǐ tán jítā. Wǒ měitiān tán yí ge xiǎoshí de jítā. Xiànzài wǒ zhèngzài xué yì shǒu xīn gē.</p>
+      </div>
+      <div style="background:var(--warm-bg);border-radius:18px;padding:24px 32px;">
+        <p style="font-size:16px;color:var(--gold);font-weight:600;margin-bottom:10px;">✏️ 写你的爱好时间表</p>
+        <p style="font-size:20px;color:var(--pinyin);line-height:1.6;">Fill in with your hobby:</p>
+        <p style="font-size:24px;font-weight:600;line-height:1.9;margin-top:6px;">
+          我从 <span style="color:var(--blue);">____</span> 开始 <span style="color:var(--blue);">____</span>。<br>
+          我每天 <span style="color:var(--red);">____</span> 个小时的 <span style="color:var(--red);">____</span>。<br>
+          现在我正在 <span style="color:var(--green);">____</span>。
+        </p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:1100px;">
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">1.</span><span style="font-size:20px;font-weight:600;">小明从什么时候开始弹吉他？</span></div>
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">2.</span><span style="font-size:20px;font-weight:600;">他每天弹几个小时的吉他？</span></div>
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">3.</span><span style="font-size:20px;font-weight:600;">✏️ 你现在正在做什么？（用「正在」回答）</span></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Students read 小明's schedule, answer Q1-2. Then fill in their own schedule and share with partner.</div>
+  <div class="sn">9 / 10</div>
+</section>
+
+<!-- S10 WRAP-UP -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 6</span><h2>Wrap-up · 总结</h2><span class="py">zǒng jié</span></div>
+  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1200px;">
+    <div style="margin-bottom:36px;">
+      <p style="font-size:24px;color:var(--pinyin);margin-bottom:12px;">Today we learned ✓</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="background:var(--blue);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">从...开始</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">正在</span>
+        <span style="background:var(--red);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">多长时间</span>
+        <span style="background:var(--gold);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">几个小时</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">📖✏️ 读写</span>
+      </div>
+    </div>
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;">
+      <p style="font-size:28px;font-weight:700;margin-bottom:12px;">📝 Homework</p>
+      <ol style="font-size:24px;color:var(--pinyin);line-height:2.2;padding-left:28px;">
+        <li>Write about <strong style="color:var(--text);">your hobby</strong> using 从...开始, 正在, and 个小时</li>
+        <li>Interview a family member about their hobby — when did they start? How long each day?</li>
+      </ol>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Next: Reading & writing — extended text + write your own paragraph!</div>
+  <div class="sn">10 / 10</div>
+</section>
+
+<script>
+(function(){
+  var s=document.querySelectorAll('section'),i=0;
+  function sh(n){s.forEach(function(x){x.classList.remove('active');});i=(n+s.length)%s.length;s[i].classList.add('active');}
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();sh(i+1);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();sh(i-1);}});
+  document.addEventListener('click',function(e){sh(i+1);});
+  sh(0);
+})();
+</script>
+<script>
+(function(){
+  var W=1920, H=1080;
+  function fit(){
+    var s = Math.min(window.innerWidth/W, window.innerHeight/H);
+    document.body.style.transform = 'scale('+s+')';
+    document.body.style.transformOrigin = '0 0';
+    document.documentElement.style.width = window.innerWidth + 'px';
+    document.documentElement.style.height = window.innerHeight + 'px';
+  }
+  document.documentElement.style.overflow = 'hidden';
+  document.documentElement.style.background = '#FEFAF5';
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

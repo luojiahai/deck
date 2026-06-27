@@ -45,4 +45,6 @@ vercel deploy           # preview URL
 
 ## Design generation
 
-Use the **huashu-design** skill (`/huashu-design`) to generate HTML design prototypes. Output files go into `index/designs/<design-id>/`.
+Use the **huashu-design** skill (`/huashu-design`) to generate HTML design prototypes.
+
+🔴 **铁律：所有设计产出必须放在 `index/designs/<design-id>/` 目录下。** 不要在项目根目录或其他位置创建设计目录。每个 design 一个子文件夹，入口文件命名为 `index.html`。幻灯片/课件的每页 slide 放在 `index/designs/<design-id>/slides/` 下。

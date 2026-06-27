@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5 · 表达原因</title>
+<style>
+  :root{--red:#C43E2C;--gold:#D4953A;--bg:#FEFAF5;--text:#2D2A26;--pinyin:#8B7E74;--warm-bg:#F5EDE3;--light-border:#E8DED4;--card-bg:#FFFBF7;--green:#4A8C5C;--blue:#3B7D9E;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{width:1920px;height:1080px;background:var(--bg);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);overflow:hidden;position:relative;}
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px;} section.active{display:block;}
+  .bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red);}
+  .sn{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6;}
+  .ph{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px;}
+  .ph .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;}
+  .ph h2{font-size:52px;font-weight:700;} .ph .py{font-size:22px;color:var(--pinyin);}
+  .hero{position:absolute;top:50%;left:96px;transform:translateY(-55%);max-width:1400px;}
+  .hero .unit{font-size:22px;font-weight:500;color:var(--pinyin);letter-spacing:0.08em;margin-bottom:12px;}
+  .hero h1{font-size:88px;font-weight:700;line-height:1.15;} .hero h1 .hl{color:var(--red);}
+  .hero .sub{margin-top:28px;font-size:30px;color:var(--pinyin);}
+  .istrip{position:absolute;bottom:64px;left:96px;right:96px;display:flex;gap:48px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:24px;}
+  .istrip strong{color:var(--text);font-weight:600;margin-right:6px;}
+  .deco{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:0.05;}
+  .tn{position:absolute;bottom:56px;left:96px;right:96px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:20px;display:flex;gap:8px;align-items:center;}
+  .tn .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  .pbox{background:var(--warm-bg);border-radius:20px;padding:32px 40px;margin-bottom:16px;border-left:4px solid var(--red);}
+  .pbox .zh{font-size:38px;font-weight:700;margin-bottom:6px;} .pbox .py{font-size:20px;color:var(--pinyin);margin-bottom:3px;}
+  .pbox .en{font-size:18px;color:var(--pinyin);font-style:italic;}
+  .vcard{background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px 36px;display:flex;flex-direction:column;gap:8px;position:relative;}
+  .vcard .zh{font-size:46px;font-weight:700;} .vcard .py{font-size:21px;color:var(--pinyin);} .vcard .en{font-size:19px;color:var(--pinyin);font-style:italic;}
+  .vcard .num{position:absolute;top:16px;right:20px;font-size:14px;font-weight:600;color:var(--pinyin);opacity:0.45;}
+  .dl-area{position:absolute;top:200px;left:96px;right:96px;display:flex;flex-direction:column;gap:22px;max-width:1200px;}
+  .dl-line{display:flex;gap:20px;align-items:flex-start;}
+  .dl-line .spk{font-size:18px;font-weight:700;color:var(--red);min-width:60px;text-align:right;padding-top:6px;}
+  .dl-line .bub{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:22px 28px;flex:1;}
+  .dl-line .bub .zh{font-size:34px;font-weight:600;} .dl-line .bub .py{font-size:18px;color:var(--pinyin);margin-top:4px;}
+  .wbadge{display:inline-block;background:var(--gold);color:#fff;font-size:16px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.08em;margin-bottom:16px;}
+  .rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .rcard{background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:18px 14px;text-align:center;}
+  .rcard .zh{font-size:28px;font-weight:700;} .rcard .py{font-size:15px;color:var(--pinyin);margin-top:4px;}
+  .big-grammar{background:var(--card-bg);border:2px solid var(--red);border-radius:24px;padding:40px 52px;text-align:center;margin-bottom:24px;}
+  .big-grammar .zh{font-size:56px;font-weight:700;color:var(--red);letter-spacing:0.06em;}
+  .big-grammar .py{font-size:22px;color:var(--pinyin);margin-top:10px;}
+  .big-grammar .en{font-size:20px;color:var(--pinyin);font-style:italic;margin-top:4px;}
+  .chip{background:var(--warm-bg);padding:10px 22px;border-radius:10px;font-size:22px;font-weight:600;display:inline-block;margin:4px;}
+  .cdot{position:absolute;bottom:80px;right:96px;width:12px;height:12px;border-radius:50%;background:var(--gold);opacity:0.6;}
+</style>
+</head>
+<body>
+<!-- S01 COVER -->
+<section class="active">
+  <div class="bar"></div>
+  <div class="hero"><div class="unit">Unit 3 · Lesson 5</div><h1>为什么喜欢？<br><span class="hl">Why Do You Like It?</span></h1><div class="sub">因为...所以... · Expressing reasons · 表达原因</div></div>
+  <div class="deco"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="140" r="28" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="140" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="10"/><line x1="50" y1="140" x2="50" y2="30" stroke="currentColor" stroke-width="8"/><line x1="140" y1="100" x2="140" y2="30" stroke="currentColor" stroke-width="6"/><line x1="50" y1="30" x2="160" y2="45" stroke="currentColor" stroke-width="14"/></svg></div>
+  <div class="istrip"><span><strong>Year 8</strong></span><span><strong>Lesson 5</strong></span><span><strong>Duration</strong> 50 min</span></div>
+  <div class="cdot"></div><div class="sn">1 / 9</div>
+</section>
+
+<!-- S02 REVIEW -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>复习 · Review</h2><span class="py">fù xí</span></div>
+  <div style="position:absolute;top:160px;left:96px;"><span class="wbadge">⏱ 5 min — Weekend recap</span></div>
+  <div style="position:absolute;top:230px;left:96px;right:96px;max-width:1500px;">
+    <div class="rgrid">
+      <div class="rcard"><div class="zh">爱好</div><div class="py">ài hào</div></div><div class="rcard"><div class="zh">弹钢琴</div><div class="py">tán gāngqín</div></div>
+      <div class="rcard"><div class="zh">弹吉他</div><div class="py">tán jítā</div></div><div class="rcard"><div class="zh">唱歌</div><div class="py">chàng gē</div></div>
+      <div class="rcard"><div class="zh">跳舞</div><div class="py">tiào wǔ</div></div><div class="rcard"><div class="zh">听音乐</div><div class="py">tīng yīnyuè</div></div>
+      <div class="rcard"><div class="zh">读书</div><div class="py">dú shū</div></div><div class="rcard"><div class="zh">画画儿</div><div class="py">huà huàr</div></div>
+    </div>
+    <p style="font-size:28px;font-weight:600;margin-top:32px;text-align:center;">🎤 Ask 3 students: 你有什么爱好？→ 用也/还/一边...一边...回答</p>
+  </div>
+  <div class="tn"><span class="dot"></span> Push for long answers! 「我喜欢X，也喜欢Y，还喜欢Z。我一边A一边B。」</div>
+  <div class="sn">2 / 9</div>
+</section>
+
+<!-- S03 NEW WORDS -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>生词 · New Words</h2><span class="py">shēng cí</span></div>
+  <div style="position:absolute;top:168px;left:96px;font-size:16px;font-weight:600;letter-spacing:0.1em;color:var(--gold);">5 WORDS</div>
+  <div style="position:absolute;top:210px;left:96px;right:96px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1300px;">
+    <div class="vcard"><span class="num">18</span><span class="zh">因为</span><span class="py">yīn wèi</span><span class="en">because</span></div>
+    <div class="vcard"><span class="num">19</span><span class="zh">所以</span><span class="py">suǒ yǐ</span><span class="en">so / therefore</span></div>
+    <div class="vcard"><span class="num">20</span><span class="zh">觉得</span><span class="py">jué de</span><span class="en">to feel / to think</span></div>
+    <div class="vcard"><span class="num">21</span><span class="zh">有意思</span><span class="py">yǒu yì si</span><span class="en">interesting</span></div>
+    <div class="vcard"><span class="num">22</span><span class="zh">没意思</span><span class="py">méi yì si</span><span class="en">boring / not interesting</span></div>
+  </div>
+  <div class="tn"><span class="dot"></span> 因为 = because (gives a reason). 所以 = so/therefore (gives a result). 有意思/没意思 are very common in spoken Chinese!</div>
+  <div class="sn">3 / 9</div>
+</section>
+
+<!-- S04 GRAMMAR -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>语法 · Grammar</h2><span class="py">yǔ fǎ</span></div>
+  <div style="position:absolute;top:190px;left:96px;right:96px;max-width:1400px;">
+    <div class="big-grammar" style="margin-bottom:36px;">
+      <div class="zh">因为 A，所以 B</div>
+      <div class="py">Yīnwèi A, suǒyǐ B</div>
+      <div class="en">Because A, therefore B</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <div class="pbox"><div class="zh" style="font-size:32px;">我<span style="color:var(--red);">觉得</span>唱歌<span style="color:var(--red);">很有意思</span>。</div><div class="py">Wǒ juéde chànggē hěn yǒu yìsi.</div><div class="en">I think singing is very interesting.</div></div>
+      <div class="pbox" style="border-left-color:var(--blue);"><div class="zh" style="font-size:32px;"><span style="color:var(--blue);">因为</span>我喜欢音乐，<span style="color:var(--blue);">所以</span>我弹钢琴。</div><div class="py">Yīnwèi wǒ xǐhuān yīnyuè, suǒyǐ wǒ tán gāngqín.</div><div class="en">Because I like music, I play piano.</div></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Chinese often uses 因为...所以... together (unlike English where "because... so..." is wrong).</div>
+  <div class="sn">4 / 9</div>
+</section>
+
+<!-- S05 WHY DO YOU LIKE... -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>句型 · Patterns</h2><span class="py">jù xíng</span></div>
+  <div style="position:absolute;top:190px;left:96px;right:96px;max-width:1400px;">
+    <div class="pbox"><span style="font-size:16px;font-weight:700;color:var(--red);">Question</span><div class="zh">你为什么喜欢<span style="color:var(--gold);">________</span>？</div><div class="py">Nǐ wèishénme xǐhuān ________?</div><div class="en">Why do you like ________?</div></div>
+    <div class="pbox" style="border-left-color:var(--green);"><span style="font-size:16px;font-weight:700;color:var(--green);">Answer</span><div class="zh">因为我觉得<span style="color:var(--gold);">________</span>很有意思。</div><div class="py">Yīnwèi wǒ juéde ________ hěn yǒu yìsi.</div><div class="en">Because I think ________ is very interesting.</div></div>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+      <span class="chip">唱歌</span><span class="chip">跳舞</span><span class="chip">弹钢琴</span><span class="chip">弹吉他</span><span class="chip">听音乐</span><span class="chip">读书</span><span class="chip">画画儿</span><span class="chip">音乐</span>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Drill: Teacher asks 「你为什么喜欢...？」→ Student answers with 因为我觉得...很有意思。</div>
+  <div class="sn">5 / 9</div>
+</section>
+
+<!-- S06 DIALOGUE -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>对话 · Dialogue</h2><span class="py">duì huà</span></div>
+  <div class="dl-area" style="top:190px;">
+    <div class="dl-line"><span class="spk">A</span><div class="bub"><div class="zh">你有什么爱好？</div><div class="py">Nǐ yǒu shénme àihào?</div></div></div>
+    <div class="dl-line"><span class="spk">B</span><div class="bub"><div class="zh">我喜欢弹吉他。</div><div class="py">Wǒ xǐhuān tán jítā.</div></div></div>
+    <div class="dl-line"><span class="spk">A</span><div class="bub"><div class="zh">你为什么喜欢弹吉他？</div><div class="py">Nǐ wèishénme xǐhuān tán jítā?</div></div></div>
+    <div class="dl-line"><span class="spk">B</span><div class="bub"><div class="zh">因为我觉得弹吉他很有意思！</div><div class="py">Yīnwèi wǒ juéde tán jítā hěn yǒu yìsi!</div></div></div>
+  </div>
+  <div class="tn"><span class="dot"></span> Practice in pairs. Then swap the hobby and give a real reason. 「因为我觉得...很酷/很好玩/很好听」</div>
+  <div class="sn">6 / 9</div>
+</section>
+
+<!-- S07 PRACTICE: EXPRESS OPINIONS -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>练习 · Practice</h2><span class="py">liàn xí</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <p style="font-size:28px;font-weight:600;margin-bottom:32px;">Give your opinion! · 说说你的看法！</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:52px;display:block;margin-bottom:8px;">🎤</span>
+        <p style="font-size:28px;font-weight:700;margin-bottom:8px;">唱歌</p>
+        <p style="font-size:20px;color:var(--pinyin);">我觉得唱歌 <span style="color:var(--red);font-weight:700;">很有意思 / 没意思</span></p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">因为 ______</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:52px;display:block;margin-bottom:8px;">🎹</span>
+        <p style="font-size:28px;font-weight:700;margin-bottom:8px;">弹钢琴</p>
+        <p style="font-size:20px;color:var(--pinyin);">我觉得弹钢琴 <span style="color:var(--red);font-weight:700;">很有意思 / 没意思</span></p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">因为 ______</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:52px;display:block;margin-bottom:8px;">💃</span>
+        <p style="font-size:28px;font-weight:700;margin-bottom:8px;">跳舞</p>
+        <p style="font-size:20px;color:var(--pinyin);">我觉得跳舞 <span style="color:var(--red);font-weight:700;">很有意思 / 没意思</span></p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">因为 ______</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px;text-align:center;">
+        <span style="font-size:52px;display:block;margin-bottom:8px;">📖</span>
+        <p style="font-size:28px;font-weight:700;margin-bottom:8px;">读书</p>
+        <p style="font-size:20px;color:var(--pinyin);">我觉得读书 <span style="color:var(--red);font-weight:700;">很有意思 / 没意思</span></p>
+        <p style="font-size:18px;color:var(--pinyin);margin-top:8px;">因为 ______</p>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Students write 2 sentences: one 有意思, one 没意思. Share with partner. Then 3 volunteers share with class.</div>
+  <div class="sn">7 / 9</div>
+</section>
+
+<!-- S08 DEBATE ACTIVITY -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>Debate · 辩论</h2><span class="py">biàn lùn</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;text-align:center;margin-bottom:36px;">
+      <span style="font-size:56px;display:block;margin-bottom:8px;">🗣️</span>
+      <h3 style="font-size:36px;font-weight:700;margin-bottom:8px;">Which hobby is the best? · 哪个爱好最好？</h3>
+      <p style="font-size:22px;color:var(--pinyin);line-height:1.6;">Make your case! Use: 我觉得... / 因为...所以...</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;"><span style="font-size:40px;">🎤</span><p style="font-size:24px;font-weight:700;margin-top:8px;">唱歌</p></div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;"><span style="font-size:40px;">🎹</span><p style="font-size:24px;font-weight:700;margin-top:8px;">弹钢琴</p></div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;"><span style="font-size:40px;">💃</span><p style="font-size:24px;font-weight:700;margin-top:8px;">跳舞</p></div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:24px;text-align:center;"><span style="font-size:40px;">🎸</span><p style="font-size:24px;font-weight:700;margin-top:8px;">弹吉他</p></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Each student picks one hobby. Stand up and say 1-2 sentences why it's the best. Class votes!</div>
+  <div class="sn">8 / 9</div>
+</section>
+
+<!-- S09 READING -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>阅读 · Reading</h2><span class="py">yuè dú</span></div>
+  <div style="position:absolute;top:170px;left:96px;right:96px;max-width:1500px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:18px;padding:24px 32px;">
+        <p style="font-size:16px;color:var(--gold);font-weight:600;margin-bottom:10px;">📖 小美的爱好</p>
+        <p style="font-size:28px;font-weight:600;line-height:1.8;letter-spacing:0.04em;">我叫小美。我喜欢<span style="color:var(--red);">唱歌</span>。<span style="color:var(--blue);">因为</span>我<span style="color:var(--blue);">觉得</span>唱歌<span style="color:var(--blue);">很有意思</span>，<span style="color:var(--blue);">所以</span>我每天都唱歌。</p>
+        <p style="font-size:16px;color:var(--pinyin);line-height:1.5;margin-top:6px;">Wǒ jiào Xiǎoměi. Wǒ xǐhuān chànggē. Yīnwèi wǒ juéde chànggē hěn yǒuyìsi, suǒyǐ wǒ měitiān dōu chànggē.</p>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:18px;padding:24px 32px;">
+        <p style="font-size:16px;color:var(--gold);font-weight:600;margin-bottom:10px;">📖 大伟的爱好</p>
+        <p style="font-size:28px;font-weight:600;line-height:1.8;letter-spacing:0.04em;">我叫大伟。我喜欢<span style="color:var(--red);">弹钢琴</span>。我<span style="color:var(--green);">觉得</span>弹钢琴<span style="color:var(--green);">没意思</span>！<span style="color:var(--red);">因为</span>太难了，<span style="color:var(--red);">所以</span>我不喜欢。</p>
+        <p style="font-size:16px;color:var(--pinyin);line-height:1.5;margin-top:6px;">Wǒ jiào Dàwěi. Wǒ xǐhuān tán gāngqín. Wǒ juéde tán gāngqín méi yìsi! Yīnwèi tài nán le, suǒyǐ wǒ bù xǐhuān.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;max-width:1100px;">
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">1.</span><span style="font-size:20px;font-weight:600;">小美为什么喜欢唱歌？</span></div>
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">2.</span><span style="font-size:20px;font-weight:600;">大伟为什么不喜欢弹钢琴？</span></div>
+      <div style="background:var(--warm-bg);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;"><span style="font-size:20px;font-weight:700;color:var(--red);min-width:24px;">3.</span><span style="font-size:20px;font-weight:600;">✏️ 你喜欢什么？为什么？用「因为...所以...」写一句话。</span></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Read both passages together. Q1-2 oral. Q3: write in notebook, then share with partner.</div>
+  <div class="sn">9 / 10</div>
+</section>
+
+<!-- S10 WRAP-UP -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 5</span><h2>Wrap-up · 总结</h2><span class="py">zǒng jié</span></div>
+  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1200px;">
+    <div style="margin-bottom:36px;">
+      <p style="font-size:24px;color:var(--pinyin);margin-bottom:12px;">Today we learned ✓</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">因为...所以...</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">觉得</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">有意思 / 没意思</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">为什么？</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">📖 阅读</span>
+      </div>
+    </div>
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;">
+      <p style="font-size:28px;font-weight:700;margin-bottom:12px;">📝 Homework</p>
+      <ol style="font-size:24px;color:var(--pinyin);line-height:2.2;padding-left:28px;">
+        <li>Write <strong style="color:var(--text);">3 sentences</strong> explaining why you like/don't like hobbies</li>
+        <li>Use 因为...所以... in each sentence</li>
+        <li>Use both 有意思 and 没意思</li>
+      </ol>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Next: Time & frequency — 几个小时, 从...开始, 正在...</div>
+  <div class="sn">10 / 10</div>
+</section>
+
+<script>
+(function(){
+  var s=document.querySelectorAll('section'),i=0;
+  function sh(n){s.forEach(function(x){x.classList.remove('active');});i=(n+s.length)%s.length;s[i].classList.add('active');}
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();sh(i+1);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();sh(i-1);}});
+  document.addEventListener('click',function(e){if(!e.target.closest('.rcard'))sh(i+1);});
+  sh(0);
+})();
+</script>
+<script>
+(function(){
+  var W=1920, H=1080;
+  function fit(){
+    var s = Math.min(window.innerWidth/W, window.innerHeight/H);
+    document.body.style.transform = 'scale('+s+')';
+    document.body.style.transformOrigin = '0 0';
+    document.documentElement.style.width = window.innerWidth + 'px';
+    document.documentElement.style.height = window.innerHeight + 'px';
+  }
+  document.documentElement.style.overflow = 'hidden';
+  document.documentElement.style.background = '#FEFAF5';
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

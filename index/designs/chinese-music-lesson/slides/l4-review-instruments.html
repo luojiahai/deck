@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4 · 复习 + 中国乐器</title>
+<style>
+  :root{--red:#C43E2C;--gold:#D4953A;--bg:#FEFAF5;--text:#2D2A26;--pinyin:#8B7E74;--warm-bg:#F5EDE3;--light-border:#E8DED4;--card-bg:#FFFBF7;--green:#4A8C5C;--blue:#3B7D9E;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{width:1920px;height:1080px;background:var(--bg);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);overflow:hidden;position:relative;}
+  section{position:absolute;inset:0;display:none;width:1920px;height:1080px;} section.active{display:block;}
+  .bar{position:absolute;top:0;left:0;right:0;height:6px;background:var(--red);}
+  .sn{position:absolute;bottom:32px;right:96px;font-size:16px;color:var(--pinyin);opacity:0.6;}
+  .ph{position:absolute;top:56px;left:96px;right:96px;display:flex;align-items:baseline;gap:20px;}
+  .ph .tag{font-size:16px;font-weight:600;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;}
+  .ph h2{font-size:52px;font-weight:700;} .ph .py{font-size:22px;color:var(--pinyin);}
+  .hero{position:absolute;top:50%;left:96px;transform:translateY(-55%);max-width:1400px;}
+  .hero .unit{font-size:22px;font-weight:500;color:var(--pinyin);letter-spacing:0.08em;margin-bottom:12px;}
+  .hero h1{font-size:88px;font-weight:700;line-height:1.15;letter-spacing:0.04em;}
+  .hero h1 .hl{color:var(--red);} .hero .sub{margin-top:28px;font-size:30px;color:var(--pinyin);}
+  .istrip{position:absolute;bottom:64px;left:96px;right:96px;display:flex;gap:48px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:24px;}
+  .istrip strong{color:var(--text);font-weight:600;margin-right:6px;}
+  .cdot{position:absolute;bottom:80px;right:96px;width:12px;height:12px;border-radius:50%;background:var(--gold);opacity:0.6;}
+  .deco{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:0.05;}
+  .tn{position:absolute;bottom:56px;left:96px;right:96px;font-size:18px;color:var(--pinyin);border-top:1px solid var(--light-border);padding-top:20px;display:flex;gap:8px;align-items:center;}
+  .tn .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  .rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .rcard{background:var(--card-bg);border:1px solid var(--light-border);border-radius:14px;padding:18px 14px;text-align:center;}
+  .rcard .zh{font-size:28px;font-weight:700;} .rcard .py{font-size:15px;color:var(--pinyin);margin-top:4px;}
+  .pbox{background:var(--warm-bg);border-radius:20px;padding:32px 40px;margin-bottom:16px;border-left:4px solid var(--red);}
+  .pbox .zh{font-size:36px;font-weight:700;margin-bottom:6px;} .pbox .py{font-size:20px;color:var(--pinyin);margin-bottom:3px;}
+  .pbox .en{font-size:18px;color:var(--pinyin);font-style:italic;}
+  .dl-area{position:absolute;top:200px;left:96px;right:96px;display:flex;flex-direction:column;gap:22px;max-width:1200px;}
+  .dl-line{display:flex;gap:20px;align-items:flex-start;}
+  .dl-line .spk{font-size:18px;font-weight:700;color:var(--red);min-width:60px;text-align:right;padding-top:6px;}
+  .dl-line .bub{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:22px 28px;flex:1;}
+  .dl-line .bub .zh{font-size:34px;font-weight:600;} .dl-line .bub .py{font-size:18px;color:var(--pinyin);margin-top:4px;}
+  .ins-card{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .ins-card .name{font-size:38px;font-weight:700;} .ins-card .py{font-size:20px;color:var(--pinyin);}
+  .ins-card .en{font-size:18px;color:var(--pinyin);font-style:italic;}
+  .ins-card .desc{font-size:17px;color:var(--pinyin);line-height:1.5;margin-top:4px;}
+  .wbadge{display:inline-block;background:var(--gold);color:#fff;font-size:16px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.08em;margin-bottom:16px;}
+  .reading-box{background:var(--card-bg);border:1px solid var(--light-border);border-radius:20px;padding:40px 56px;max-width:1300px;margin:0 auto;}
+  .reading-box .zh{font-size:36px;font-weight:600;line-height:2;letter-spacing:0.04em;}
+</style>
+</head>
+<body>
+
+<!-- S01 COVER -->
+<section class="active">
+  <div class="bar"></div>
+  <div class="hero">
+    <div class="unit">Unit 3 · Lesson 4</div>
+    <h1>复习 + <span class="hl">中国乐器</span></h1>
+    <div class="sub">Review Week 1 · Chinese Musical Instruments · 中国乐器</div>
+  </div>
+  <div class="deco"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="140" r="28" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="140" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="10"/><line x1="50" y1="140" x2="50" y2="30" stroke="currentColor" stroke-width="8"/><line x1="140" y1="100" x2="140" y2="30" stroke="currentColor" stroke-width="6"/><line x1="50" y1="30" x2="160" y2="45" stroke="currentColor" stroke-width="14"/></svg></div>
+  <div class="istrip"><span><strong>Year 8 Chinese</strong></span><span><strong>Lesson 4</strong> · End of Week 1</span><span><strong>Duration</strong> 50 min</span></div>
+  <div class="cdot"></div><div class="sn">1 / 9</div>
+</section>
+
+<!-- S02 VOCAB FLASH REVIEW -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>词汇总复习 · Vocab Review</h2><span class="py">cí huì fù xí</span></div>
+  <div style="position:absolute;top:160px;left:96px;"><span class="wbadge">⏱ 10 min — All words from L1-L3</span></div>
+  <div style="position:absolute;top:230px;left:96px;right:96px;max-width:1550px;">
+    <div class="rgrid">
+      <div class="rcard"><div class="zh">爱好</div><div class="py">ài hào</div></div><div class="rcard"><div class="zh">音乐</div><div class="py">yīn yuè</div></div>
+      <div class="rcard"><div class="zh">唱歌</div><div class="py">chàng gē</div></div><div class="rcard"><div class="zh">听音乐</div><div class="py">tīng yīnyuè</div></div>
+      <div class="rcard"><div class="zh">跳舞</div><div class="py">tiào wǔ</div></div><div class="rcard"><div class="zh">喜欢</div><div class="py">xǐ huān</div></div>
+      <div class="rcard"><div class="zh">弹钢琴</div><div class="py">tán gāngqín</div></div><div class="rcard"><div class="zh">弹吉他</div><div class="py">tán jítā</div></div>
+      <div class="rcard"><div class="zh">读书</div><div class="py">dú shū</div></div><div class="rcard"><div class="zh">看书</div><div class="py">kàn shū</div></div>
+      <div class="rcard"><div class="zh">画画儿</div><div class="py">huà huàr</div></div><div class="rcard"><div class="zh">看小说</div><div class="py">kàn xiǎoshuō</div></div>
+      <div class="rcard"><div class="zh">也</div><div class="py">yě</div></div><div class="rcard"><div class="zh">还</div><div class="py">hái</div></div>
+      <div class="rcard"><div class="zh">一边</div><div class="py">yì biān</div></div><div class="rcard"><div class="zh">小时</div><div class="py">xiǎo shí</div></div>
+      <div class="rcard"><div class="zh">每天</div><div class="py">měi tiān</div></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Game: Teacher covers the pinyin, students read characters. Then cover characters, show English — students say Chinese.</div>
+  <div class="sn">2 / 9</div>
+</section>
+
+<!-- S03 GRAMMAR RECAP -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>语法复习 · Grammar Recap</h2><span class="py">yǔ fǎ fù xí</span></div>
+  <div style="position:absolute;top:190px;left:96px;right:96px;max-width:1400px;">
+    <div class="pbox"><span style="font-size:16px;font-weight:700;color:var(--red);">Pattern 1</span><div class="zh">你有什么爱好？→ 我喜欢 ______。</div><div class="py">Asking & answering about hobbies</div></div>
+    <div class="pbox" style="border-left-color:var(--blue);"><span style="font-size:16px;font-weight:700;color:var(--blue);">Pattern 2</span><div class="zh">我喜欢 ______，也喜欢 ______，还喜欢 ______。</div><div class="py">Extending answers with 也 and 还</div></div>
+    <div class="pbox" style="border-left-color:var(--green);"><span style="font-size:16px;font-weight:700;color:var(--green);">Pattern 3</span><div class="zh">我一边 ______ 一边 ______。</div><div class="py">Two actions at the same time</div></div>
+  </div>
+  <div class="tn"><span class="dot"></span> Quick oral drill: Ask 5 students random questions using these 3 patterns. Keep it fast!</div>
+  <div class="sn">3 / 9</div>
+</section>
+
+<!-- S04 READING: 田云 -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>课文 · Reading</h2><span class="py">kè wén</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;">
+    <div class="reading-box">
+      <p style="font-size:22px;color:var(--gold);font-weight:600;margin-bottom:16px;">📖 我叫田云 · My name is Tian Yun</p>
+      <p class="zh" style="margin-bottom:8px;">我叫田云。我有很多爱好。</p>
+      <p style="font-size:20px;color:var(--pinyin);margin-bottom:20px;">Wǒ jiào Tián Yún. Wǒ yǒu hěn duō àihào.</p>
+      <p class="zh" style="margin-bottom:8px;">我喜欢<span style="color:var(--red);">一边弹钢琴，一边唱歌</span>。</p>
+      <p style="font-size:20px;color:var(--pinyin);margin-bottom:20px;">Wǒ xǐhuān yìbiān tán gāngqín, yìbiān chànggē.</p>
+      <p class="zh" style="margin-bottom:8px;">我还喜欢听音乐和读书。</p>
+      <p style="font-size:20px;color:var(--pinyin);margin-bottom:20px;">Wǒ hái xǐhuān tīng yīnyuè hé dúshū.</p>
+      <p class="zh">我<span style="color:var(--green);">每天</span>读<span style="color:var(--green);">一个小时</span>的书。</p>
+      <p style="font-size:20px;color:var(--pinyin);margin-top:8px;">Wǒ měitiān dú yí ge xiǎoshí de shū.</p>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Read together twice. Then students read individually. Highlight: 一边...一边..., 还, 每天, 一个小时.</div>
+  <div class="sn">4 / 9</div>
+</section>
+
+<!-- S05 COMPREHENSION -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>理解问题 · Comprehension</h2><span class="py">lǐ jiě wèn tí</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div style="background:var(--warm-bg);border-radius:16px;padding:32px 40px;display:flex;align-items:center;gap:24px;">
+        <span style="font-size:28px;font-weight:700;color:var(--red);min-width:40px;">1.</span>
+        <span style="font-size:30px;font-weight:600;">田云有什么爱好？</span>
+        <span style="font-size:20px;color:var(--pinyin);">(What are Tian Yunʼs hobbies?)</span>
+      </div>
+      <div style="background:var(--warm-bg);border-radius:16px;padding:32px 40px;display:flex;align-items:center;gap:24px;">
+        <span style="font-size:28px;font-weight:700;color:var(--red);min-width:40px;">2.</span>
+        <span style="font-size:30px;font-weight:600;">她一边做什么一边做什么？</span>
+        <span style="font-size:20px;color:var(--pinyin);">(What does she do at the same time?)</span>
+      </div>
+      <div style="background:var(--warm-bg);border-radius:16px;padding:32px 40px;display:flex;align-items:center;gap:24px;">
+        <span style="font-size:28px;font-weight:700;color:var(--red);min-width:40px;">3.</span>
+        <span style="font-size:30px;font-weight:600;">她每天读几个小时的书？</span>
+        <span style="font-size:20px;color:var(--pinyin);">(How many hours does she read?)</span>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Students answer in pairs first, then share with class. Aim for full Chinese sentence answers!</div>
+  <div class="sn">5 / 9</div>
+</section>
+
+<!-- S06 CHINESE INSTRUMENTS INTRO -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>中国乐器 · Chinese Instruments</h2><span class="py">Zhōngguó yuèqì</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div class="ins-card">
+        <span style="font-size:72px;">🪕</span>
+        <span class="name">古筝</span>
+        <span class="py">gǔ zhēng</span>
+        <span class="en">Chinese zither</span>
+        <span class="desc">21 strings · plucked · 2500+ years old</span>
+      </div>
+      <div class="ins-card">
+        <span style="font-size:72px;">🎻</span>
+        <span class="name">二胡</span>
+        <span class="py">èr hú</span>
+        <span class="en">Chinese fiddle</span>
+        <span class="desc">2 strings · bowed · very expressive sound</span>
+      </div>
+      <div class="ins-card">
+        <span style="font-size:72px;">🎵</span>
+        <span class="name">琵琶</span>
+        <span class="py">pí pá</span>
+        <span class="en">Chinese lute</span>
+        <span class="desc">4 strings · plucked · "pear-shaped" body</span>
+      </div>
+      <div class="ins-card">
+        <span style="font-size:72px;">🎶</span>
+        <span class="name">笛子</span>
+        <span class="py">dí zi</span>
+        <span class="en">Chinese flute</span>
+        <span class="desc">Bamboo · horizontal · bright, clear tone</span>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Play a short clip of each instrument if available (YouTube: 古筝, 二胡, 琵琶, 笛子). Students guess which is which.</div>
+  <div class="sn">6 / 9</div>
+</section>
+
+<!-- S07 LISTEN & GUESS INSTRUMENT -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>听一听 · Listen & Guess</h2><span class="py">tīng yì tīng</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:44px 52px;text-align:center;margin-bottom:36px;">
+      <span style="font-size:56px;display:block;margin-bottom:8px;">👂</span>
+      <h3 style="font-size:36px;font-weight:700;margin-bottom:8px;">Which instrument is playing?</h3>
+      <p style="font-size:24px;color:var(--pinyin);line-height:1.6;">Teacher plays a short clip.<br>Students name the instrument in Chinese!</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div style="background:var(--card-bg);border:2px dashed var(--light-border);border-radius:16px;padding:28px;text-align:center;"><span style="font-size:40px;font-weight:700;">古筝</span><span style="font-size:18px;color:var(--pinyin);display:block;margin-top:4px;">gǔ zhēng</span></div>
+      <div style="background:var(--card-bg);border:2px dashed var(--light-border);border-radius:16px;padding:28px;text-align:center;"><span style="font-size:40px;font-weight:700;">二胡</span><span style="font-size:18px;color:var(--pinyin);display:block;margin-top:4px;">èr hú</span></div>
+      <div style="background:var(--card-bg);border:2px dashed var(--light-border);border-radius:16px;padding:28px;text-align:center;"><span style="font-size:40px;font-weight:700;">琵琶</span><span style="font-size:18px;color:var(--pinyin);display:block;margin-top:4px;">pí pá</span></div>
+      <div style="background:var(--card-bg);border:2px dashed var(--light-border);border-radius:16px;padding:28px;text-align:center;"><span style="font-size:40px;font-weight:700;">笛子</span><span style="font-size:18px;color:var(--pinyin);display:block;margin-top:4px;">dí zi</span></div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Extension: 「我喜欢古筝。」「我一边听二胡一边读书。」— combine instrument vocab with patterns.</div>
+  <div class="sn">7 / 9</div>
+</section>
+
+<!-- S08 GROUP DIALOGUE -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>Group Dialogue · 小组对话</h2><span class="py">xiǎo zǔ duì huà</span></div>
+  <div style="position:absolute;top:200px;left:96px;right:96px;max-width:1400px;">
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;margin-bottom:32px;">
+      <p style="font-size:26px;font-weight:700;margin-bottom:20px;">🎯 Create & perform a dialogue. Include:</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+        <span class="wbadge">你有什么爱好？</span>
+        <span class="wbadge">我喜欢 + 也/还</span>
+        <span class="wbadge">一边...一边...</span>
+        <span class="wbadge">每天...个小时</span>
+      </div>
+      <p style="font-size:22px;color:var(--pinyin);">Work in groups of 2-3. Write 6-8 lines. Perform for the class!</p>
+    </div>
+    <div style="display:flex;gap:32px;justify-content:center;">
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px 40px;text-align:center;">
+        <span style="font-size:20px;color:var(--pinyin);display:block;margin-bottom:8px;">⏱ Prep time</span>
+        <span style="font-size:40px;font-weight:700;color:var(--red);">8 min</span>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--light-border);border-radius:16px;padding:32px 40px;text-align:center;">
+        <span style="font-size:20px;color:var(--pinyin);display:block;margin-bottom:8px;">🎭 Perform</span>
+        <span style="font-size:40px;font-weight:700;color:var(--green);">2 min each</span>
+      </div>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Encourage creativity! They can pretend to be musicians, talk about Chinese instruments, be funny.</div>
+  <div class="sn">8 / 9</div>
+</section>
+
+<!-- S09 WRAP-UP -->
+<section>
+  <div class="bar"></div>
+  <div class="ph"><span class="tag">Lesson 4</span><h2>Wrap-up · 总结</h2><span class="py">zǒng jié</span></div>
+  <div style="position:absolute;top:220px;left:96px;right:96px;max-width:1200px;">
+    <div style="margin-bottom:36px;">
+      <p style="font-size:24px;color:var(--pinyin);margin-bottom:12px;">✅ Week 1 complete! We covered:</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">17 vocab words</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">3 sentence patterns</span>
+        <span style="background:var(--green);color:#fff;padding:10px 22px;border-radius:10px;font-size:20px;font-weight:600;">4 Chinese instruments</span>
+      </div>
+    </div>
+    <div style="background:var(--warm-bg);border-radius:20px;padding:40px 48px;">
+      <p style="font-size:28px;font-weight:700;margin-bottom:12px;">📝 Weekend Homework · 周末作业</p>
+      <ol style="font-size:24px;color:var(--pinyin);line-height:2.2;padding-left:28px;">
+        <li>Review all 17 words — quiz next week!</li>
+        <li>Write a short paragraph about <strong style="color:var(--text);">your hobbies</strong> (5+ sentences, use 也/还/一边...一边...)</li>
+        <li>Optional: Listen to one Chinese instrument piece on YouTube. Write its name in Chinese.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="tn"><span class="dot"></span> Next week: Expressing reasons (因为, 所以, 觉得), Time & frequency, Reading, and Final quiz!</div>
+  <div class="sn">9 / 9</div>
+</section>
+
+<script>
+(function(){
+  var s=document.querySelectorAll('section'),i=0;
+  function sh(n){s.forEach(function(x){x.classList.remove('active');});i=(n+s.length)%s.length;s[i].classList.add('active');}
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();sh(i+1);}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();sh(i-1);}});
+  document.addEventListener('click',function(e){if(!e.target.closest('.rcard,.ins-card'))sh(i+1);});
+  sh(0);
+})();
+</script>
+<script>
+(function(){
+  var W=1920, H=1080;
+  function fit(){
+    var s = Math.min(window.innerWidth/W, window.innerHeight/H);
+    document.body.style.transform = 'scale('+s+')';
+    document.body.style.transformOrigin = '0 0';
+    document.documentElement.style.width = window.innerWidth + 'px';
+    document.documentElement.style.height = window.innerHeight + 'px';
+  }
+  document.documentElement.style.overflow = 'hidden';
+  document.documentElement.style.background = '#FEFAF5';
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

@@ -1,25 +1,18 @@
 {
   "designs": [
     {
-      "id": "swiss-modernism",
-      "title": "Swiss Modernism",
-      "description": "瑞士现代主义风格——网格系统、大胆排版、红色强调。",
+      "id": "chinese-music-lesson",
+      "title": "轻松学中文2 · 爱好（一）音乐",
+      "description": "Year 8 中文课件——两周8节课，包含生词、句型、对话、游戏、中国文化（中国乐器）、测验。轻松学中文2 Unit 3 Lesson 7。",
       "createdAt": "2026-06-27",
-      "thumbnail": "designs/swiss-modernism/thumb.png"
+      "thumbnail": "designs/chinese-music-lesson/thumb.png"
     },
     {
-      "id": "editorial-warm",
-      "title": "Editorial Warm",
-      "description": "编辑式温暖风格——衬线字体、杂志感排版、暖色调。",
+      "id": "ai-pomodoro",
+      "title": "AI Pomodoro · iOS 原型",
+      "description": "AI 番茄钟 iOS 高保真原型——4 个核心屏幕（专注计时、AI 洞察、任务管理、个性化设置），每台 iPhone 独立可交互，计时器真实可用。",
       "createdAt": "2026-06-27",
-      "thumbnail": "designs/editorial-warm/thumb.png"
-    },
-    {
-      "id": "zen-emptiness",
-      "title": "Zen Emptiness",
-      "description": "禅意留白风格——原研哉式极简、触感纹理、空之美。",
-      "createdAt": "2026-06-27",
-      "thumbnail": "designs/zen-emptiness/thumb.png"
+      "thumbnail": "designs/ai-pomodoro/thumb.png"
     }
   ]
 }

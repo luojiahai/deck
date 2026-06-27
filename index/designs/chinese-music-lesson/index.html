@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>轻松学中文2 · Unit 3 爱好（一）音乐 · 课件</title>
+<style>
+  :root {
+    --red: #C43E2C; --gold: #D4953A; --bg: #FEFAF5;
+    --text: #2D2A26; --pinyin: #8B7E74; --warm-bg: #F5EDE3;
+    --light-border: #E8DED4; --card-bg: #FFFBF7; --green: #4A8C5C;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    min-height: 100vh;
+  }
+
+  .hero-strip {
+    padding: 80px 96px 48px;
+  }
+  .hero-strip .label {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--red); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .hero-strip h1 {
+    font-size: 64px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.2;
+  }
+  .hero-strip h1 .hl { color: var(--red); }
+  .hero-strip .meta {
+    margin-top: 16px; font-size: 22px; color: var(--pinyin);
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .hero-strip .meta strong { color: var(--text); font-weight: 600; }
+
+  .lesson-grid {
+    padding: 0 96px 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 1600px) {
+    .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .lesson-card {
+    background: var(--card-bg);
+    border: 1px solid var(--light-border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; flex-direction: column; gap: 12px;
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .lesson-card:hover {
+    box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+    border-color: var(--red);
+  }
+  .lesson-card .num {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--red); text-transform: uppercase;
+  }
+  .lesson-card h3 {
+    font-size: 32px; font-weight: 700; letter-spacing: 0.03em;
+  }
+  .lesson-card .py {
+    font-size: 18px; color: var(--pinyin);
+  }
+  .lesson-card .desc {
+    font-size: 16px; color: var(--pinyin); line-height: 1.5;
+  }
+  .lesson-card .badges {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
+  }
+  .lesson-card .badges span {
+    font-size: 13px; font-weight: 600; padding: 4px 10px;
+    border-radius: 6px; background: var(--warm-bg); color: var(--pinyin);
+  }
+
+  /* Accent side stripe */
+  .lesson-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--red); border-radius: 4px 0 0 4px;
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .lesson-card:hover::before { opacity: 1; }
+
+  footer {
+    padding: 32px 96px; border-top: 1px solid var(--light-border);
+    font-size: 15px; color: var(--pinyin); text-align: center;
+  }
+  footer a { color: var(--red); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero-strip">
+  <div class="label">Courseware · 课件</div>
+  <h1>爱好（一）<span class="hl">音乐</span> · Music</h1>
+  <div class="meta">
+    <span><strong>轻松学中文 2</strong> · Unit 3, Lesson 7</span>
+    <span><strong>Year 8 Chinese</strong> · 八年级中文</span>
+    <span><strong>2 weeks</strong> · 8 lessons × 50 min</span>
+    <span><strong>Total</strong> 78 slides</span>
+  </div>
+</div>
+
+<div class="lesson-grid">
+
+  <a href="slides/l1-hobbies-intro.html" class="lesson-card">
+    <span class="num">Lesson 1</span>
+    <h3>认识爱好</h3>
+    <span class="py">rèn shi ài hào</span>
+    <span class="desc">Getting to know hobbies — 11 words (incl. 看电视, 电脑游戏), 「你有什么爱好？」, 会, pair work, charades game</span>
+    <div class="badges">
+      <span>10 slides</span><span>11 new words</span><span>🎭 Game</span>
+    </div>
+  </a>
+
+  <a href="slides/l2-more-hobbies.html" class="lesson-card">
+    <span class="num">Lesson 2</span>
+    <h3>更多爱好</h3>
+    <span class="py">gèng duō ài hào</span>
+    <span class="desc">More hobbies — 弹吉他, 画画儿, 看小说, 杂志, 国画儿. Using 也, 还, 都. Survey activity + reading passage</span>
+    <div class="badges">
+      <span>10 slides</span><span>9 new words</span><span>📊 Survey</span><span>📖 Reading</span>
+    </div>
+  </a>
+
+  <a href="slides/l3-yibian-grammar.html" class="lesson-card">
+    <span class="num">Lesson 3</span>
+    <h3>一边…一边…</h3>
+    <span class="py">yì biān... yì biān...</span>
+    <span class="desc">Grammar focus — doing two things at once. 小时, 每天. Mime &amp; guess activity. Writing: 一边...一边... sentences</span>
+    <div class="badges">
+      <span>10 slides</span><span>3 new words</span><span>🤸 Activity</span><span>✏️ Writing</span>
+    </div>
+  </a>
+
+  <a href="slides/l4-review-instruments.html" class="lesson-card">
+    <span class="num">Lesson 4</span>
+    <h3>复习 + 中国乐器</h3>
+    <span class="py">fù xí + Zhōngguó yuèqì</span>
+    <span class="desc">Week 1 review — 17 vocab recap, grammar drill, 田云 reading, Chinese instruments: 古筝, 二胡, 琵琶, 笛子</span>
+    <div class="badges">
+      <span>9 slides</span><span>🎵 Culture</span><span>📖 Reading</span>
+    </div>
+  </a>
+
+  <a href="slides/l5-why-like.html" class="lesson-card">
+    <span class="num">Lesson 5</span>
+    <h3>为什么喜欢？</h3>
+    <span class="py">wèi shén me xǐ huān?</span>
+    <span class="desc">Expressing reasons — 因为…所以…, 觉得, 有意思/没意思. Reading: 小美 &amp; 大伟. Debate: which hobby is best?</span>
+    <div class="badges">
+      <span>10 slides</span><span>5 new words</span><span>📖 Reading</span><span>🗣️ Debate</span>
+    </div>
+  </a>
+
+  <a href="slides/l6-time-frequency.html" class="lesson-card">
+    <span class="num">Lesson 6</span>
+    <h3>时间与频率</h3>
+    <span class="py">shí jiān yǔ pín lǜ</span>
+    <span class="desc">Time &amp; frequency — 从…开始, 正在, 个小时, 多长时间. Reading: 小明's schedule. Write your own hobby schedule</span>
+    <div class="badges">
+      <span>10 slides</span><span>4 new words</span><span>📖✏️ R&amp;W</span><span>📅 Schedule</span>
+    </div>
+  </a>
+
+  <a href="slides/l7-reading-writing.html" class="lesson-card">
+    <span class="num">Lesson 7</span>
+    <h3>阅读与写作</h3>
+    <span class="py">yuè dú yǔ xiě zuò</span>
+    <span class="desc">Reading &amp; writing — 田云 + 小明 texts, comprehension, write your own paragraph, peer sharing</span>
+    <div class="badges">
+      <span>9 slides</span><span>✏️ Writing</span><span>🎤 Speaking</span>
+    </div>
+  </a>
+
+  <a href="slides/l8-review-quiz.html" class="lesson-card">
+    <span class="num">Lesson 8</span>
+    <h3>总复习 + 测验</h3>
+    <span class="py">zǒng fù xí + cè yàn</span>
+    <span class="desc">Final review — all 22 words &amp; 5 patterns. 4-part quiz. Bingo game. Self-assessment. 🎉</span>
+    <div class="badges">
+      <span>10 slides</span><span>📝 Quiz</span><span>🎉 Bingo</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  Built with <a href="https://github.com/nicepixel/huashu-design" target="_blank">Huashu-Design</a> ·
+  轻松学中文 2 — Unit 3, Lesson 7: 爱好（一）音乐 ·
+  Year 8 Chinese · 2-week courseware
+</footer>
+
+</body>
+</html>
