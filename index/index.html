@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deck — 设计画廊</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafaf8;
+    --text: #1a1a18;
+    --text-muted: #6b6b65;
+    --accent: #d44c2f;
+    --border: #e8e8e2;
+    --card-bg: #ffffff;
+  }
+
+  body {
+    font-family: "Songti SC", "Noto Serif SC", "Source Serif 4", Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Header ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    margin-bottom: 56px;
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .logo span { color: var(--accent); }
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 360px;
+  }
+  .search-wrap input {
+    width: 100%;
+    padding: 10px 16px 10px 38px;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 76, 47, 0.1);
+  }
+  .search-wrap input::placeholder { color: #b0b0a8; }
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  /* ── Stats ── */
+  .stats {
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .stats strong { color: var(--text); }
+
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.25s, transform 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .card-thumb {
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, #f5f3ef 0%, #ebe7e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    overflow: hidden;
+  }
+  .card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 20px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .card-body .desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .card-body .meta {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #b0b0a8;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Empty state ── */
+  .empty {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+  }
+  .empty .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+  .empty h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .empty p { font-size: 14px; }
+
+  .hidden { display: none !important; }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 80px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    header .container { flex-direction: column; align-items: flex-start; }
+    .search-wrap { max-width: 100%; width: 100%; }
+    .grid { grid-template-columns: 1fr; }
+    header { margin-bottom: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">Deck<span>.</span></a>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search" placeholder="搜索设计..." autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="stats" id="stats"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty hidden" id="empty">
+    <div class="icon">🎨</div>
+    <h2>还没有设计</h2>
+    <p>使用 <code>/design</code> 命令创建你的第一个设计</p>
+  </div>
+  <div class="empty hidden" id="no-results">
+    <div class="icon">🔍</div>
+    <h2>没有匹配的设计</h2>
+    <p>试试其他关键词</p>
+  </div>
+</main>
+
+<footer>
+  © 2026 Deck · 用专注做好每一页
+</footer>
+
+<script>
+(async function() {
+  const grid = document.getElementById('grid');
+  const stats = document.getElementById('stats');
+  const empty = document.getElementById('empty');
+  const noResults = document.getElementById('no-results');
+  const searchInput = document.getElementById('search');
+
+  // Fetch design manifest
+  let designs = [];
+  try {
+    const resp = await fetch('/designs.json');
+    const data = await resp.json();
+    designs = data.designs || [];
+  } catch (e) {
+    designs = [];
+  }
+
+  function render(filter = '') {
+    const q = filter.toLowerCase().trim();
+    const filtered = designs.filter(d =>
+      !q || d.title.toLowerCase().includes(q) || (d.description || '').toLowerCase().includes(q)
+    );
+
+    // Stats
+    stats.innerHTML = designs.length
+      ? `共 <strong>${designs.length}</strong> 个设计` + (q ? `，匹配 <strong>${filtered.length}</strong> 个` : '')
+      : '';
+
+    // Empty state
+    empty.classList.toggle('hidden', designs.length > 0);
+    noResults.classList.toggle('hidden', designs.length === 0 || filtered.length > 0);
+
+    // Grid
+    grid.innerHTML = filtered.map(d => `
+      <a href="/designs/${d.id}/" class="card">
+        <div class="card-thumb">
+          ${d.thumbnail ? `<img src="${d.thumbnail}" alt="${d.title}" loading="lazy">` : '预览'}
+        </div>
+        <div class="card-body">
+          <h3>${escapeHtml(d.title)}</h3>
+          <p class="desc">${escapeHtml(d.description || '')}</p>
+          <div class="meta">${escapeHtml(d.createdAt || '')}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  searchInput.addEventListener('input', () => render(searchInput.value));
+  render();
+})();
+</script>
+
+</body>
+</html>

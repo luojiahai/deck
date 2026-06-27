@@ -1,0 +1,25 @@
+{
+  "designs": [
+    {
+      "id": "swiss-modernism",
+      "title": "Swiss Modernism",
+      "description": "瑞士现代主义风格——网格系统、大胆排版、红色强调。",
+      "createdAt": "2026-06-27",
+      "thumbnail": "designs/swiss-modernism/thumb.png"
+    },
+    {
+      "id": "editorial-warm",
+      "title": "Editorial Warm",
+      "description": "编辑式温暖风格——衬线字体、杂志感排版、暖色调。",
+      "createdAt": "2026-06-27",
+      "thumbnail": "designs/editorial-warm/thumb.png"
+    },
+    {
+      "id": "zen-emptiness",
+      "title": "Zen Emptiness",
+      "description": "禅意留白风格——原研哉式极简、触感纹理、空之美。",
+      "createdAt": "2026-06-27",
+      "thumbnail": "designs/zen-emptiness/thumb.png"
+    }
+  ]
+}
