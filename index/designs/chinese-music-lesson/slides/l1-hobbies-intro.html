@@ -646,6 +646,120 @@ h3 {
   letter-spacing: 0.03em;
 }
 
+/* ---- Game Slides: Vocab Practice ---- */
+.match-game-layout {
+  display: flex;
+  gap: 80px;
+  margin-top: 40px;
+  flex: 1;
+  align-items: stretch;
+}
+
+.match-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.match-item {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  border-radius: 14px;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.match-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--warm-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.match-column.right .match-num {
+  color: var(--gold);
+}
+
+.match-column.right .match-item {
+  font-size: 28px;
+}
+
+.match-instruction {
+  font-size: 26px;
+  color: var(--pinyin);
+  text-align: center;
+  margin-top: 28px;
+}
+
+.match-instruction span {
+  display: inline-block;
+  border-bottom: 2px solid var(--text);
+  min-width: 80px;
+  margin: 0 6px;
+}
+
+/* Speed Challenge */
+.speed-challenge-zone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 48px;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+  align-content: center;
+}
+
+.speed-card {
+  background: var(--card-bg);
+  border: 2px solid var(--light-border);
+  border-radius: 20px;
+  padding: 40px 48px;
+  text-align: center;
+  min-width: 220px;
+  transition: all 0.15s;
+}
+
+.speed-card .sc-char {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.speed-card .sc-pinyin {
+  font-size: 24px;
+  color: var(--pinyin);
+  margin-top: 8px;
+}
+
+.challenge-badge {
+  background: var(--red);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  display: inline-block;
+}
+
 /* ---- Utility ---- */
 .spacer-sm { height: 16px; }
 .spacer-md { height: 28px; }
@@ -1387,9 +1501,123 @@ h3 {
 </section>
 
 <!-- ============================================================ -->
-<!-- SLIDE 24: Guided Practice — Ask Around -->
+<!-- SLIDE 24: Match Game — 连一连 -->
 <!-- ============================================================ -->
 <section id="s24">
+  <h2>连一连!</h2>
+  <span class="pinyin">Lián yī lián! · Match the Chinese to English</span>
+  <div class="match-game-layout">
+    <div class="match-column">
+      <div class="match-item"><span class="match-num">1</span>音乐</div>
+      <div class="match-item"><span class="match-num">2</span>唱歌</div>
+      <div class="match-item"><span class="match-num">3</span>听音乐</div>
+      <div class="match-item"><span class="match-num">4</span>弹钢琴</div>
+      <div class="match-item"><span class="match-num">5</span>读书</div>
+      <div class="match-item"><span class="match-num">6</span>看书</div>
+    </div>
+    <div class="match-column right">
+      <div class="match-item"><span class="match-num">A</span>to read (silently)</div>
+      <div class="match-item"><span class="match-num">B</span>to play piano</div>
+      <div class="match-item"><span class="match-num">C</span>music</div>
+      <div class="match-item"><span class="match-num">D</span>to read (study)</div>
+      <div class="match-item"><span class="match-num">E</span>to sing</div>
+      <div class="match-item"><span class="match-num">F</span>to listen to music</div>
+    </div>
+  </div>
+  <div class="match-instruction">✏️ Write your answers: <span>1-__</span> <span>2-__</span> <span>3-__</span> <span>4-__</span> <span>5-__</span> <span>6-__</span></div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 25: Speed Challenge — 抢答 -->
+<!-- ============================================================ -->
+<section id="s25">
+  <h2>抢答!</h2>
+  <span class="pinyin">Qiǎngdá! · Speed Challenge</span>
+  <div style="margin-top: 20px; text-align: center;">
+    <div class="challenge-badge">👩‍🏫 Teacher says English → Students race to say Chinese!</div>
+  </div>
+  <div class="speed-challenge-zone">
+    <div class="speed-card">
+      <div class="sc-char">音乐</div>
+      <div class="sc-pinyin">yīnyuè</div>
+    </div>
+    <div class="speed-card">
+      <div class="sc-char">唱歌</div>
+      <div class="sc-pinyin">chàng gē</div>
+    </div>
+    <div class="speed-card">
+      <div class="sc-char">听音乐</div>
+      <div class="sc-pinyin">tīng yīnyuè</div>
+    </div>
+    <div class="speed-card">
+      <div class="sc-char">弹钢琴</div>
+      <div class="sc-pinyin">tán gāngqín</div>
+    </div>
+    <div class="speed-card">
+      <div class="sc-char">读书</div>
+      <div class="sc-pinyin">dúshū</div>
+    </div>
+    <div class="speed-card">
+      <div class="sc-char">看书</div>
+      <div class="sc-pinyin">kàn shū</div>
+    </div>
+  </div>
+  <div style="margin-top: 24px; text-align: center; font-size: 28px; color: var(--green); font-weight: 600;">
+    🏆 谁最快? Who's the fastest?
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 26: Sentence Challenge — 造句挑战 -->
+<!-- ============================================================ -->
+<section id="s26">
+  <h2>造句挑战!</h2>
+  <span class="pinyin">Zàojù tiǎozhàn! · Sentence Challenge</span>
+  <div class="instruction-card" style="margin-top: 32px; background: var(--card-bg); border: 1px solid var(--light-border);">
+    <div class="big-prompt" style="font-size: 40px;">Pick a word — make a sentence!</div>
+    <div class="en-prompt">Use: 我喜欢______。 or 我的爱好是______。</div>
+  </div>
+  <div class="vocab-grid-2x3" style="margin-top: 28px;">
+    <div class="vocab-card">
+      <div class="symbol">♪</div>
+      <div class="characters">音乐</div>
+      <div class="pinyin-line">yīnyuè</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎤</div>
+      <div class="characters">唱歌</div>
+      <div class="pinyin-line">chàng gē</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎧</div>
+      <div class="characters">听音乐</div>
+      <div class="pinyin-line">tīng yīnyuè</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">🎹</div>
+      <div class="characters">弹钢琴</div>
+      <div class="pinyin-line">tán gāngqín</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">读书</div>
+      <div class="pinyin-line">dúshū</div>
+    </div>
+    <div class="vocab-card">
+      <div class="symbol">📖</div>
+      <div class="characters">看书</div>
+      <div class="pinyin-line">kàn shū</div>
+    </div>
+  </div>
+  <div style="margin-top: 20px; display: flex; gap: 16px; justify-content: center;">
+    <div class="timer-badge">⏱ 30 seconds each</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 27: Guided Practice — Ask Around -->
+<!-- ============================================================ -->
+<section id="s27">
   <h2>Ask Around!</h2>
   <span class="pinyin">Wèn yī wèn! · Ask 3 classmates and write down their answers</span>
   <div class="practice-prompts">
@@ -1429,9 +1657,9 @@ h3 {
 </section>
 
 <!-- ============================================================ -->
-<!-- SLIDE 25: Exit Ticket -->
+<!-- SLIDE 28: Exit Ticket -->
 <!-- ============================================================ -->
-<section id="s25">
+<section id="s28">
   <h2>Exit Ticket</h2>
   <span class="pinyin">Chūkǒu piào · Show what you know</span>
   <div class="exit-ticket-prompt">
@@ -1441,9 +1669,9 @@ h3 {
 </section>
 
 <!-- ============================================================ -->
-<!-- SLIDE 26: Wrap-up + Preview -->
+<!-- SLIDE 29: Wrap-up + Preview -->
 <!-- ============================================================ -->
-<section id="s26">
+<section id="s29">
   <h2>今天学了</h2>
   <span class="pinyin">Jīntiān xué le · Today we learned</span>
   <div class="summary-box">
