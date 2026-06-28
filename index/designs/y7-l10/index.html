@@ -85,22 +85,36 @@
     border-radius: 50%;
     background: var(--accent);
   }
-  .download-link {
-    margin-top: 14px;
+  /* ── Card internals ── */
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
-  .download-link a {
-    display: inline-block;
-    font-size: 14px;
+  .card-pptx {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 12px;
     color: var(--accent);
     text-decoration: none;
     border: 1px solid var(--accent);
-    padding: 6px 18px;
-    border-radius: 999px;
+    padding: 5px 0;
+    border-radius: 6px;
     transition: background 0.2s, color 0.2s;
   }
-  .download-link a:hover {
+  .card-pptx:hover {
     background: var(--accent);
     color: #fff;
+  }
+  .card-pptx.disabled {
+    color: var(--text-muted);
+    border-color: var(--border-light);
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   /* ── Clock motif ── */
@@ -164,13 +178,10 @@
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 28px 24px;
-    text-decoration: none;
     color: inherit;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     display: flex;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
   }
   .lesson-card:hover {
     transform: translateY(-3px);
@@ -316,9 +327,6 @@
       <span class="sep"></span>
       <span class="pill">Speaking + Listening</span>
     </div>
-    <div class="download-link">
-      <a href="l1-oclock/l1-oclock.pptx">📥 Download L1 · Editable PPTX</a>
-    </div>
   </div>
 </section>
 
@@ -366,61 +374,85 @@
     <div class="section-title">8 节课程 · Lesson Decks</div>
     <div class="lesson-grid">
 
-      <a href="l1-oclock/" class="lesson-card">
-        <div class="card-num">01</div>
-        <div class="card-title">点 · O'clock</div>
-        <div class="card-en">Numbers Review + 点</div>
-        <span class="card-badge badge-speaking">Speaking + Listening</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l1-oclock/" class="card-link">
+          <div class="card-num">01</div>
+          <div class="card-title">点 · O'clock</div>
+          <div class="card-en">Numbers Review + 点</div>
+          <span class="card-badge badge-speaking">Speaking + Listening</span>
+        </a>
+        <a href="l1-oclock/l1-oclock.pptx" class="card-pptx">📥 PPTX</a>
+      </div>
 
-      <a href="l2-minutes/" class="lesson-card">
-        <div class="card-num">02</div>
-        <div class="card-title">分 · Minutes</div>
-        <div class="card-en">X点Y分 + 零 Rule</div>
-        <span class="card-badge badge-sprint">Quick Pace · 5 Sprints</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l2-minutes/" class="card-link">
+          <div class="card-num">02</div>
+          <div class="card-title">分 · Minutes</div>
+          <div class="card-en">X点Y分 + 零 Rule</div>
+          <span class="card-badge badge-sprint">Quick Pace · 5 Sprints</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l3-half-past/" class="lesson-card">
-        <div class="card-num">03</div>
-        <div class="card-title">半 · Half Past</div>
-        <div class="card-en">X点半 + Cumulative</div>
-        <span class="card-badge badge-cumulative">Cumulative Mastery</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l3-half-past/" class="card-link">
+          <div class="card-num">03</div>
+          <div class="card-title">半 · Half Past</div>
+          <div class="card-en">X点半 + Cumulative</div>
+          <span class="card-badge badge-cumulative">Cumulative Mastery</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l4-quarters/" class="lesson-card">
-        <div class="card-num">04</div>
-        <div class="card-title">刻 · Quarters</div>
-        <div class="card-en">一刻 + 三刻 Pattern</div>
-        <span class="card-badge badge-clock">Clock Face Heavy</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l4-quarters/" class="card-link">
+          <div class="card-num">04</div>
+          <div class="card-title">刻 · Quarters</div>
+          <div class="card-en">一刻 + 三刻 Pattern</div>
+          <span class="card-badge badge-clock">Clock Face Heavy</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l5-minutes-to/" class="lesson-card">
-        <div class="card-num">05</div>
-        <div class="card-title">差 · Minutes To</div>
-        <div class="card-en">差 Structure + Choice</div>
-        <span class="card-badge badge-scaffolded">Scaffolded · 3 Layers</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l5-minutes-to/" class="card-link">
+          <div class="card-num">05</div>
+          <div class="card-title">差 · Minutes To</div>
+          <div class="card-en">差 Structure + Choice</div>
+          <span class="card-badge badge-scaffolded">Scaffolded · 3 Layers</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l6-asking-time/" class="lesson-card">
-        <div class="card-num">06</div>
-        <div class="card-title">现在几点？</div>
-        <div class="card-en">Asking the Time · Dialogue</div>
-        <span class="card-badge badge-interaction">Whole-Class Interaction</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l6-asking-time/" class="card-link">
+          <div class="card-num">06</div>
+          <div class="card-title">现在几点？</div>
+          <div class="card-en">Asking the Time · Dialogue</div>
+          <span class="card-badge badge-interaction">Whole-Class Interaction</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l7-mixed-practice/" class="lesson-card">
-        <div class="card-num">07</div>
-        <div class="card-title">时间奥运会</div>
-        <div class="card-en">Time Olympics · 4 Rounds</div>
-        <span class="card-badge badge-olympics">Competition Format</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l7-mixed-practice/" class="card-link">
+          <div class="card-num">07</div>
+          <div class="card-title">时间奥运会</div>
+          <div class="card-en">Time Olympics · 4 Rounds</div>
+          <span class="card-badge badge-olympics">Competition Format</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
-      <a href="l8-review-test-prep/" class="lesson-card">
-        <div class="card-num">08</div>
-        <div class="card-title">复习 · Beat the Test</div>
-        <div class="card-en">Review + Test Prep · Game Show</div>
-        <span class="card-badge badge-gameshow">Game Show Format</span>
-      </a>
+      <div class="lesson-card">
+        <a href="l8-review-test-prep/" class="card-link">
+          <div class="card-num">08</div>
+          <div class="card-title">复习 · Beat the Test</div>
+          <div class="card-en">Review + Test Prep · Game Show</div>
+          <span class="card-badge badge-gameshow">Game Show Format</span>
+        </a>
+        <span class="card-pptx disabled">PPTX 暂未提供</span>
+      </div>
 
     </div>
   </div>
