@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-10b · Error Hunt Answers</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+  .reveal-badge {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: #fff;
+    padding: 8px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .error-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1600px;
+  }
+  .error-card {
+    background: #fff;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+  }
+  .error-card.correct-card { border-color: var(--accent-teal); background: var(--accent-teal-dim); }
+  .error-card.wrong-card { border-color: var(--accent-coral); background: var(--accent-coral-dim); }
+  .error-card .item-digit {
+    font-family: var(--font-mono);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+  }
+  .error-card .item-chinese {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .verdict {
+    margin-bottom: 6px;
+  }
+  .verdict-tick {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .verdict-cross {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-coral);
+  }
+  .fix {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .fix-correct { color: var(--accent-teal); }
+  .fix-wrong { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">Sprint 3 · Answers Reveal</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Answer Check</div>
+  <div class="main-title">Error Hunt: Answers · 答案</div>
+  <div class="subtitle">Check your answers! The key mistake to remember: use 零 for minutes under 10!</div>
+
+  <div class="reveal-badge">🔑 Answer Key</div>
+
+  <div class="error-grid">
+    <div class="error-card correct-card">
+      <div class="item-digit">3:10</div>
+      <div class="item-chinese">三点十分</div>
+      <div class="verdict"><span class="verdict-tick">✓ Correct</span></div>
+      <div class="fix fix-correct">No mistake — 10 ≥ 10, no 零 needed</div>
+    </div>
+    <div class="error-card wrong-card">
+      <div class="item-digit">5:05</div>
+      <div class="item-chinese">五点五分</div>
+      <div class="verdict"><span class="verdict-cross">✗ Wrong</span></div>
+      <div class="fix fix-wrong">→ 五点零五分 (missing 零!)</div>
+    </div>
+    <div class="error-card wrong-card">
+      <div class="item-digit">7:20</div>
+      <div class="item-chinese">七点零二十分</div>
+      <div class="verdict"><span class="verdict-cross">✗ Wrong</span></div>
+      <div class="fix fix-wrong">→ 七点二十分 (no 零 for 10+)</div>
+    </div>
+    <div class="error-card wrong-card">
+      <div class="item-digit">12:01</div>
+      <div class="item-chinese">十二点一分</div>
+      <div class="verdict"><span class="verdict-cross">✗ Wrong</span></div>
+      <div class="fix fix-wrong">→ 十二点零一分 (missing 零!)</div>
+    </div>
+    <div class="error-card correct-card">
+      <div class="item-digit">9:30</div>
+      <div class="item-chinese">九点三十分</div>
+      <div class="verdict"><span class="verdict-tick">✓ Correct</span></div>
+      <div class="fix fix-correct">No mistake — 30 ≥ 10, no 零 needed</div>
+    </div>
+    <div class="error-card correct-card">
+      <div class="item-digit">2:45</div>
+      <div class="item-chinese">两点四十五分</div>
+      <div class="verdict"><span class="verdict-tick">✓ Correct</span></div>
+      <div class="fix fix-correct">No mistake — 45 ≥ 10, no 零 needed</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>
