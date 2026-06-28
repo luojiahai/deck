@@ -21,12 +21,14 @@
   .table-wrap { flex: 1; }
   .et { width: 100%; border-collapse: collapse; }
   .et th { text-align: left; font-weight: 700; color: #5B6677; padding: 5pt 8pt; border-bottom: 2pt solid #D4756B; font-size: 8pt; letter-spacing: 0.06em; background: #F6F2E8; }
+  .et th:nth-child(3),
+  .et th:nth-child(4) { display: none; }
   .et td { padding: 5pt 8pt; border-bottom: 1pt solid #E5DFD0; font-size: 10pt; color: #1E2A38; vertical-align: middle; }
-  .et .mark { text-align: center; font-weight: 700; font-size: 11pt; }
-  .et .mark.ok { color: #3A7D8C; }
-  .et .mark.wr { color: #D4756B; }
+  .et .mark { display: none; }
   .et .zh { font-family: 'Noto Serif SC', serif; font-size: 12pt; font-weight: 700; }
-  .et .corr { font-size: 8pt; color: #5B6677; }
+  .et .corr { display: none; }
+  .ans-note { margin-top: 6pt; display: flex; align-items: center; gap: 8pt; background: rgba(212,117,107,0.1); border-radius: 5pt; padding: 4pt 12pt; }
+  .ans-note p { font-size: 7pt; font-weight: 700; color: #D4756B; margin: 0; }
   .score-box { margin-top: 6pt; background: rgba(212,117,107,0.1); border: 1.5pt solid #D4756B; border-radius: 5pt; padding: 6pt 16pt; text-align: center; }
   .score-box p { margin: 0; }
   .sf { font-size: 11pt; font-weight: 700; color: #1E2A38; }
@@ -39,6 +41,7 @@
   <div class="sl"><p>Round 3 · 7 min (cont.)</p></div>
   <div class="mt"><h2>Error Hunter · 错误猎人</h2></div>
   <div class="st"><p>Items 7–12. Mark (correct) or (wrong). If wrong, write the correction.</p></div>
+  <div class="ans-note"><p>&#128274; Answers on next slide</p></div>
   <div class="table-wrap">
     <table class="et">
       <thead><tr><th>#</th><th>Expression</th><th>V/X</th><th>Correction</th></tr></thead>
