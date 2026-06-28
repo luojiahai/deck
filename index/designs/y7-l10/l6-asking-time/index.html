@@ -94,8 +94,10 @@
   #frame { width: 1920px; height: 1080px; overflow: hidden; position: relative; background: #fff; }
   .counter { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; z-index: 100; opacity: 0.7; }
   .counter .label { color: rgba(255,255,255,0.7); margin-left: 8px; }
-  .overview-btn { position: fixed; top: 20px; left: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; }
+  .overview-btn { position: fixed; top: 56px; left: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; }
   .overview-btn:hover { opacity: 1; }
+  .list-btn { position: fixed; top: 20px; left: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; text-decoration: none; }
+  .list-btn:hover { opacity: 1; }
   .nav-zone { position: fixed; top: 0; bottom: 0; width: 15%; cursor: pointer; z-index: 50; }
   .nav-zone.left { left: 0; } .nav-zone.right { right: 0; }
   .nav-hint { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; font-size: 22px; opacity: 0; transition: opacity .2s; }
@@ -107,7 +109,7 @@
     html, body { background: #fff; overflow: visible; height: auto; }
     body[data-mode] .overview { display: none !important; }
     #stage { position: static; transform: none !important; box-shadow: none; }
-    .counter, .nav-zone, .overview-btn, .start-btn { display: none !important; }
+    .counter, .nav-zone, .list-btn, .overview-btn, .start-btn { display: none !important; }
     .print-stack { display: block; }
   }
 
@@ -165,6 +167,7 @@
 
 <div id="present-ui">
   <div id="stage"><div id="frame"></div></div>
+  <a class="list-btn" href="../">← 列表</a>
   <button class="overview-btn" id="overviewBtn">&#8847; 概览</button>
   <div class="nav-zone left"  id="navL"><div class="nav-hint">&#8249;</div></div>
   <div class="nav-zone right" id="navR"><div class="nav-hint">&#8250;</div></div>
@@ -187,7 +190,6 @@
   const wall = document.getElementById('wall');
   const gallery = document.getElementById('gallery');
   const driftLayer = document.getElementById('driftLayer');
-  const storageKey = 'deck-index-' + location.pathname;
   let current = 0;
 
   stage.style.width = W + 'px'; stage.style.height = H + 'px';
@@ -332,7 +334,6 @@
     current = idx;
     const item = deck[idx];
     counter.innerHTML = (idx + 1) + ' / ' + deck.length + ' <span class="label">' + (item.label || '') + '</span>';
-    try { localStorage.setItem(storageKey, String(idx)); } catch (_) {}
     if (location.hash !== '#' + (idx + 1)) history.replaceState(null, '', '#' + (idx + 1));
 
     if (loadedFile !== item.file) {
@@ -392,9 +393,7 @@
   document.getElementById('ov-grid').addEventListener('scroll', updateScrollOrigin, { passive: true });
   window.addEventListener('hashchange', () => { const m = location.hash.match(/^#(\d+)$/); if (m) { current = parseInt(m[1], 10) - 1; setMode('present'); } });
 
-  const hashMatch = location.hash.match(/^#(\d+)$/);
-  if (hashMatch) current = Math.min(parseInt(hashMatch[1], 10) - 1, deck.length - 1);
-  else { try { const v = parseInt(localStorage.getItem(storageKey), 10); if (!isNaN(v) && v >= 0 && v < deck.length) current = v; } catch (_) {} }
+  // Always start at first slide — no persistence
 
   fit(); show(current);
   setMode('present');
