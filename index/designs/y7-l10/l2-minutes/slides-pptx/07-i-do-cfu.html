@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 16pt 56pt; display: flex; flex-direction: column; justify-content: center; }
+  .sl { margin-bottom: 4pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #C8943E; margin: 0; }
+  .mt { margin-bottom: 12pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 20pt; font-weight: 900; margin: 0; }
+  .cfu-list { display: flex; flex-direction: column; gap: 8pt; margin-bottom: 12pt; }
+  .cfu-item { display: flex; align-items: center; gap: 10pt; background: #F6F2E8; border-radius: 6pt; padding: 10pt 14pt; }
+  .cfu-num { width: 24pt; text-align: center; flex-shrink: 0; }
+  .cfu-num p { font-size: 22pt; font-weight: 900; color: rgba(200,148,62,0.3); font-family: 'Noto Serif SC', serif; margin: 0; }
+  .cfu-q { flex: 1; }
+  .cfu-q p { font-size: 11pt; color: #1E2A38; margin: 0; }
+  .cfu-a { text-align: right; }
+  .cfu-a p { font-size: 9pt; color: #3A7D8C; font-weight: 500; margin: 0; }
+  .table-wrap { }
+  .table-wrap table { width: 100%; border-collapse: collapse; }
+  .table-wrap th { border-bottom: 1.5pt solid #C8943E; }
+  .table-wrap th p { font-size: 8pt; font-weight: 700; color: #5B6677; margin: 0; padding: 4pt 8pt; }
+  .table-wrap td { border-bottom: 1pt solid #E5DFD0; }
+  .table-wrap td p { font-size: 9pt; margin: 0; padding: 4pt 8pt; }
+  .wrong p { color: #D4756B; }
+  .right p { color: #3A7D8C; font-weight: 700; }
+  .tdig p { color: #1E2A38; }
+  .tdwhy p { color: #5B6677; }
+  .finger-hint { margin-top: 10pt; display: flex; gap: 24pt; }
+  .finger-hint p { font-size: 8pt; color: #8B94A3; margin: 0; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L2 · MINUTES</p><div class="s"></div><p class="n">I Do · Check for Understanding</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>10–18 min · CFU Checkpoints</p></div>
+  <div class="mt"><h2>Check for Understanding</h2></div>
+  <div class="cfu-list">
+    <div class="cfu-item"><div class="cfu-num"><p>1</p></div><div class="cfu-q"><p>4:07 — Do we need 零? 1 finger = Yes, 2 fingers = No.</p></div><div class="cfu-a"><p>1 finger — YES, 四点零七分</p></div></div>
+    <div class="cfu-item"><div class="cfu-num"><p>2</p></div><div class="cfu-q"><p>8:15 — Do we need 零? 1 finger = Yes, 2 fingers = No.</p></div><div class="cfu-a"><p>2 fingers — NO, 八点十五分</p></div></div>
+    <div class="cfu-item"><div class="cfu-num"><p>3</p></div><div class="cfu-q"><p>On paper: Write 3:05 in Chinese characters. Hold it up!</p></div><div class="cfu-a"><p>→ 三点零五分</p></div></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th><p>Time</p></th><th><p>Wrong</p></th><th><p>Right</p></th><th><p>Why?</p></th></tr></thead>
+      <tbody>
+        <tr><td class="tdig"><p>3:05</p></td><td class="wrong"><p>三点五分</p></td><td class="right"><p>三点零五分</p></td><td class="tdwhy"><p>Minutes 1–9 → need 零</p></td></tr>
+        <tr><td class="tdig"><p>7:20</p></td><td class="wrong"><p>七点零二十分</p></td><td class="right"><p>七点二十分</p></td><td class="tdwhy"><p>Minutes 10+ → NO 零</p></td></tr>
+        <tr><td class="tdig"><p>12:01</p></td><td class="wrong"><p>十二点一分</p></td><td class="right"><p>十二点零一分</p></td><td class="tdwhy"><p>Minutes 1–9 → need 零</p></td></tr>
+        <tr><td class="tdig"><p>6:15</p></td><td class="wrong"><p>六点零十五分</p></td><td class="right"><p>六点十五分</p></td><td class="tdwhy"><p>Minutes 10+ → NO 零</p></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="finger-hint"><p>1 finger = Yes / Agree</p><p>2 fingers = No / Disagree</p></div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

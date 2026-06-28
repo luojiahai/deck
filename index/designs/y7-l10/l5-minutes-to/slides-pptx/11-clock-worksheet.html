@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 12pt 36pt; display: flex; flex-direction: column; justify-content: center; }
+  .sl { margin-bottom: 2pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #3A7D8C; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 17pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 10pt; }
+  .st p { font-size: 8pt; color: #8B94A3; margin: 0; }
+  .clock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7pt; }
+  .clock-cell { background: #F6F2E8; border-radius: 6pt; padding: 7pt 6pt; text-align: center; }
+  .clock-cell p { margin: 0; }
+  .cdig { font-size: 9pt; color: #C8943E; font-weight: 500; }
+  .cline { font-size: 8pt; margin: 2pt 0; }
+  .cpast { color: #3A7D8C; }
+  .ccha { color: #C8943E; font-weight: 700; }
+  .chint { font-size: 7pt; color: #8B94A3; }
+  .clock-cell.warn { border: 1.5pt solid #D4756B; }
+  .clock-cell.warn .ccha { color: #D4756B; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L5 · MINUTES TO</p><div class="s"></div><p class="n">Activity 2 · Clock Worksheet</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>Activity 2 · 10 min — Individual</p></div>
+  <div class="mt"><h2>Clock → 差 + Past · 时钟工作表</h2></div>
+  <div class="st"><p>For each clock: write BOTH the past expression AND the 差 expression. Circle the more natural one.</p></div>
+  <div class="clock-grid">
+    <div class="clock-cell">
+      <p class="cdig">6:50</p>
+      <p class="cline cpast">Past: 六点五十分</p>
+      <p class="cline ccha">差: 差十分七点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">8:40</p>
+      <p class="cline cpast">Past: 八点四十分</p>
+      <p class="cline ccha">差: 差二十分九点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">10:55</p>
+      <p class="cline cpast">Past: 十点五十五分</p>
+      <p class="cline ccha">差: 差五分十一点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">2:20</p>
+      <p class="cline cpast">Past: 两点二十分</p>
+      <p class="cline ccha">差: 差四十分三点</p>
+      <p class="chint">→ Circle: Past</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">7:45</p>
+      <p class="cline cpast">Past: 七点三刻</p>
+      <p class="cline ccha">差: 差一刻八点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">12:10</p>
+      <p class="cline cpast">Past: 十二点十分</p>
+      <p class="cline ccha">差: 差五十分一点</p>
+      <p class="chint">→ Circle: Past</p>
+    </div>
+    <div class="clock-cell">
+      <p class="cdig">4:50</p>
+      <p class="cline cpast">Past: 四点五十分</p>
+      <p class="cline ccha">差: 差十分五点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+    <div class="clock-cell warn">
+      <p class="cdig">1:58 ⚠️</p>
+      <p class="cline cpast">Past: 一点五十八分</p>
+      <p class="cline ccha">差: 差二分两点</p>
+      <p class="chint">→ Circle: 差</p>
+    </div>
+  </div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

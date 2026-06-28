@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 16pt 48pt; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .sl { margin-bottom: 2pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #D4756B; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 22pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 14pt; }
+  .st p { font-size: 10pt; color: #8B94A3; margin: 0; }
+
+  .activity-box {
+    background: #F6F2E8;
+    border: 1.5pt dashed #E5DFD0;
+    border-radius: 8pt;
+    padding: 16pt 28pt;
+    margin: 0 auto 14pt;
+    position: relative;
+  }
+  .activity-badge {
+    position: absolute;
+    top: -10pt; left: 20pt;
+    background: #3A7D8C;
+    border-radius: 999pt;
+    padding: 3pt 14pt;
+  }
+  .activity-badge p { font-size: 7pt; font-weight: 700; color: #fff; margin: 0; letter-spacing: 0.04em; }
+  .chain-flow { display: flex; align-items: center; gap: 8pt; justify-content: center; margin-bottom: 12pt; }
+  .chain-step {
+    background: #fff;
+    border-radius: 6pt;
+    padding: 8pt 14pt;
+  }
+  .chain-step p { font-size: 11pt; font-weight: 700; color: #1E2A38; margin: 0; }
+  .chain-arrow p { font-size: 16pt; color: #C8943E; margin: 0; }
+
+  .rules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8pt; max-width: 600pt; margin: 0 auto; }
+  .rule-card {
+    background: #fff;
+    border-radius: 6pt;
+    padding: 10pt 14pt;
+    text-align: left;
+    display: flex; align-items: flex-start; gap: 8pt;
+    box-shadow: 0 1pt 4pt rgba(0,0,0,0.03);
+  }
+  .rule-card .rule-icon { flex-shrink: 0; }
+  .rule-card .rule-icon p { font-size: 14pt; margin: 0; }
+  .rule-card .rule-text { }
+  .rule-card .rule-text p { font-size: 9pt; color: #5B6677; margin: 0; }
+
+  .example-box {
+    margin-top: 12pt;
+    background: rgba(200,148,62,0.1);
+    border-radius: 6pt;
+    padding: 10pt 20pt;
+    display: flex; align-items: center; gap: 10pt;
+    justify-content: center;
+  }
+  .ex-label { }
+  .ex-label p { font-size: 7pt; font-weight: 700; letter-spacing: 0.08em; color: #C8943E; margin: 0; }
+  .ex-text p { font-size: 12pt; color: #1E2A38; margin: 0; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L6 · ASKING TIME</p><div class="s"></div><p class="n">Practice · Chain Dialogue</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>18–25 min · Activity 1</p></div>
+  <div class="mt"><h2>Chain Dialogue · 对话链</h2></div>
+  <div class="st"><p>Whole-class chain. Ask the person next to you, they answer, then they ask the next person!</p></div>
+
+  <div class="activity-box">
+    <div class="activity-badge"><p>Whole Class</p></div>
+    <div class="chain-flow">
+      <div class="chain-step"><p>You</p></div>
+      <div class="chain-arrow"><p>Ask →</p></div>
+      <div class="chain-step"><p>Neighbour</p></div>
+      <div class="chain-arrow"><p>Answers →</p></div>
+      <div class="chain-step"><p>Neighbour</p></div>
+      <div class="chain-arrow"><p>Ask →</p></div>
+      <div class="chain-step"><p>Next</p></div>
+    </div>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-icon"><p>1</p></div>
+      <div class="rule-text"><p><strong>No repeating times.</strong> Each person must give a different time from everyone before them.</p></div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon"><p>2</p></div>
+      <div class="rule-text"><p><strong>No same pattern twice in a row.</strong> If the last person said 半, you must use a different pattern (刻, 分, 差...).</p></div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon"><p>3</p></div>
+      <div class="rule-text"><p><strong>Listen carefully.</strong> You need to know what patterns have already been used!</p></div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon"><p>4</p></div>
+      <div class="rule-text"><p><strong>Keep it moving.</strong> Max 10 seconds per person. If stuck, the class can help.</p></div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="ex-label"><p>Example</p></div>
+    <div class="ex-text"><p>A: 现在几点？ B: 三点一刻。 (turns to C) C: 差五分六点。</p></div>
+  </div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

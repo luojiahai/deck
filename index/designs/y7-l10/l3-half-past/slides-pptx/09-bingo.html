@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 12pt 36pt; }
+  .sl { margin-bottom: 2pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #3A7D8C; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 18pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 10pt; }
+  .st p { font-size: 9pt; color: #8B94A3; margin: 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: start; }
+  .bingo-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; background: #F6F2E8; border-radius: 8pt; padding: 12pt; border: 2pt solid #C8943E; }
+  .bc { background: #fff; border-radius: 4pt; padding: 10pt 4pt; text-align: center; border: 1pt dashed #E5DFD0; display: flex; align-items: center; justify-content: center; min-height: 28pt; }
+  .bc p { font-family: 'Noto Serif SC', serif; font-size: 11pt; font-weight: 700; color: #1E2A38; margin: 0; }
+  .bc.free { background: rgba(200,148,62,0.12); border-color: #C8943E; }
+  .bc.free p { color: #C8943E; font-size: 9pt; }
+  .word-bank-title { margin-bottom: 4pt; }
+  .word-bank-title p { font-size: 7pt; font-weight: 700; letter-spacing: 0.1em; color: #3A7D8C; margin: 0; }
+  .bank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }
+  .bi { background: #F6F2E8; border-radius: 4pt; padding: 4pt 8pt; display: flex; justify-content: space-between; align-items: center; }
+  .bi p { margin: 0; }
+  .bzh { font-family: 'Noto Serif SC', serif; font-size: 8pt; font-weight: 700; color: #1E2A38; }
+  .bdg { font-size: 6pt; color: #8B94A3; }
+  .how-to { margin-top: 10pt; }
+  .how-to p { font-size: 7pt; color: #5B6677; margin: 0; line-height: 1.6; }
+  .hw { display: flex; align-items: flex-start; gap: 4pt; }
+  .hw p { font-size: 7pt; color: #5B6677; margin: 0; line-height: 1.6; }
+  .sn { width: 10pt; height: 10pt; border-radius: 50%; background: #3A7D8C; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sn p { font-size: 6pt; font-weight: 700; color: #fff; margin: 0; line-height: 1; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L3 · HALF PAST</p><div class="s"></div><p class="n">Activity · Bingo</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>Activity 2 · Cumulative Bingo — 8 min</p></div>
+  <div class="mt"><h2>Cumulative Bingo · 宾果游戏</h2></div>
+  <div class="st"><p>Fill your 3x3 card with 8 different times. The centre is FREE!</p></div>
+
+  <div class="two-col">
+    <div class="bingo-card">
+      <div class="bc"><p>三点</p></div>
+      <div class="bc"><p>七点半</p></div>
+      <div class="bc"><p>十二点</p></div>
+      <div class="bc"><p>两点十五分</p></div>
+      <div class="bc free"><p>半 FREE</p></div>
+      <div class="bc"><p>五点半</p></div>
+      <div class="bc"><p>九点零五分</p></div>
+      <div class="bc"><p>八点半</p></div>
+      <div class="bc"><p>一点四十五</p></div>
+    </div>
+
+    <div>
+      <div class="word-bank-title"><p>Word Bank — Pick any 8</p></div>
+      <div class="bank-grid">
+        <div class="bi"><p class="bzh">三点</p><p class="bdg">3:00</p></div>
+        <div class="bi"><p class="bzh">七点半</p><p class="bdg">7:30</p></div>
+        <div class="bi"><p class="bzh">十二点</p><p class="bdg">12:00</p></div>
+        <div class="bi"><p class="bzh">两点十五分</p><p class="bdg">2:15</p></div>
+        <div class="bi"><p class="bzh">五点半</p><p class="bdg">5:30</p></div>
+        <div class="bi"><p class="bzh">九点零五分</p><p class="bdg">9:05</p></div>
+        <div class="bi"><p class="bzh">八点半</p><p class="bdg">8:30</p></div>
+        <div class="bi"><p class="bzh">一点四十五</p><p class="bdg">1:45</p></div>
+        <div class="bi"><p class="bzh">十一点半</p><p class="bdg">11:30</p></div>
+        <div class="bi"><p class="bzh">四点二十分</p><p class="bdg">4:20</p></div>
+        <div class="bi"><p class="bzh">六点半</p><p class="bdg">6:30</p></div>
+        <div class="bi"><p class="bzh">十点零一分</p><p class="bdg">10:01</p></div>
+      </div>
+
+      <div class="how-to">
+        <div class="hw"><div class="sn"><p>1</p></div><p>Draw a 3x3 grid. Centre = 半 FREE</p></div>
+        <div class="hw"><div class="sn"><p>2</p></div><p>Pick 8 times from the word bank, arrange randomly</p></div>
+        <div class="hw"><div class="sn"><p>3</p></div><p>Teacher calls times in Chinese — cross them off!</p></div>
+        <div class="hw"><div class="sn"><p>4</p></div><p>Shout BINGO! when you get a row, column, or diagonal</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 12pt 36pt; display: flex; flex-direction: column; justify-content: center; }
+  .sl { margin-bottom: 4pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #D4756B; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 16pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 10pt; }
+  .st p { font-size: 9pt; color: #8B94A3; margin: 0; }
+  .error-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin-bottom: 8pt; }
+  .ec { background: #F6F2E8; border-radius: 6pt; padding: 10pt 8pt; text-align: center; position: relative; }
+  .ec .qn { position: absolute; top: 4pt; left: 6pt; }
+  .ec .qn p { font-size: 7pt; font-weight: 700; color: #8B94A3; margin: 0; }
+  .ec .given { margin-bottom: 6pt; }
+  .ec .given p { font-family: 'Noto Serif SC', serif; font-size: 18pt; font-weight: 900; color: #1E2A38; margin: 0; line-height: 1.2; }
+  .ec .verdict { margin-bottom: 6pt; }
+  .ec .verdict p { font-size: 8pt; font-weight: 700; letter-spacing: 0.06em; margin: 0; }
+  .ec.wrong .verdict { background: rgba(212,117,107,0.12); border-radius: 999pt; padding: 2pt 8pt; display: inline-block; }
+  .ec.wrong .verdict p { color: #D4756B; }
+  .ec.correct .verdict { background: rgba(58,125,140,0.12); border-radius: 999pt; padding: 2pt 8pt; display: inline-block; }
+  .ec.correct .verdict p { color: #3A7D8C; }
+  .ec .correction p { font-family: 'Noto Serif SC', serif; font-size: 15pt; font-weight: 900; color: #C8943E; margin: 0; line-height: 1.2; }
+  .ec.correct .correction p { color: #3A7D8C; }
+  .ec .reason { margin-top: 2pt; }
+  .ec .reason p { font-size: 7pt; color: #8B94A3; margin: 0; }
+  .progress p { font-size: 8pt; color: #8B94A3; margin: 0; text-align: center; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L8 · BEAT THE TEST</p><div class="s"></div><p class="n">Round 3 · Error Bounty</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>30–38 min · Round 3 · 20 pts each</p></div>
+  <div class="mt"><h2>Error Bounty · 错误悬赏</h2></div>
+  <div class="st"><p>Spot the mistake &amp; write the correct form — some are already right!</p></div>
+  <div class="error-grid">
+    <div class="ec wrong">
+      <div class="qn"><p>1</p></div>
+      <div class="given"><p>二点十分</p></div>
+      <div class="verdict"><p>&#10060; WRONG</p></div>
+      <div class="correction"><p>两点十分</p></div>
+      <div class="reason"><p>二 &#8594; 两 before 点</p></div>
+    </div>
+    <div class="ec correct">
+      <div class="qn"><p>2</p></div>
+      <div class="given"><p>四点三十分</p></div>
+      <div class="verdict"><p>&#9989; CORRECT</p></div>
+      <div class="correction"><p>四点三十分</p></div>
+      <div class="reason"><p>No error</p></div>
+    </div>
+    <div class="ec wrong">
+      <div class="qn"><p>3</p></div>
+      <div class="given"><p>三点五分</p></div>
+      <div class="verdict"><p>&#10060; WRONG</p></div>
+      <div class="correction"><p>三点零五分</p></div>
+      <div class="reason"><p>Need 零 for single-digit</p></div>
+    </div>
+    <div class="ec wrong">
+      <div class="qn"><p>4</p></div>
+      <div class="given"><p>七差十分点</p></div>
+      <div class="verdict"><p>&#10060; WRONG</p></div>
+      <div class="correction"><p>差十分七点</p></div>
+      <div class="reason"><p>Word order: 差 X 分 Y 点</p></div>
+    </div>
+    <div class="ec correct">
+      <div class="qn"><p>5</p></div>
+      <div class="given"><p>六点十五分</p></div>
+      <div class="verdict"><p>&#9989; CORRECT</p></div>
+      <div class="correction"><p>六点十五分</p></div>
+      <div class="reason"><p>No error</p></div>
+    </div>
+    <div class="ec wrong">
+      <div class="qn"><p>6</p></div>
+      <div class="given"><p>差十分二点</p></div>
+      <div class="verdict"><p>&#10060; WRONG</p></div>
+      <div class="correction"><p>差十分两点</p></div>
+      <div class="reason"><p>二 &#8594; 两 before 点</p></div>
+    </div>
+    <div class="ec correct">
+      <div class="qn"><p>7</p></div>
+      <div class="given"><p>九点三刻</p></div>
+      <div class="verdict"><p>&#9989; CORRECT</p></div>
+      <div class="correction"><p>九点三刻</p></div>
+      <div class="reason"><p>No error</p></div>
+    </div>
+    <div class="ec wrong">
+      <div class="qn"><p>8</p></div>
+      <div class="given"><p>十二点六十</p></div>
+      <div class="verdict"><p>&#10060; WRONG</p></div>
+      <div class="correction"><p>一点 / 十三点</p></div>
+      <div class="reason"><p>60分 = 1 hour</p></div>
+    </div>
+  </div>
+  <div class="progress"><p>8 items · 3 correct · 5 wrong</p></div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

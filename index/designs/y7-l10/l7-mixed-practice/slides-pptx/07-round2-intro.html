@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .sep { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 16pt 48pt; display: flex; flex-direction: column; }
+  .sl { margin-bottom: 4pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #3A7D8C; margin: 0; }
+  .badge-row { margin-bottom: 4pt; display: flex; align-items: baseline; gap: 8pt; }
+  .badge-row .big-num { font-size: 36pt; font-family: 'Noto Serif SC', serif; font-weight: 900; color: #3A7D8C; }
+  .badge-row h2 { font-family: 'Noto Serif SC', serif; font-size: 24pt; font-weight: 900; margin: 0; }
+  .big-rule { margin-bottom: 10pt; }
+  .big-rule p { font-size: 11pt; font-weight: 700; color: #5B6677; margin: 0; }
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin-bottom: 10pt; }
+  .rule-item { background: #F6F2E8; border-radius: 5pt; padding: 10pt 14pt; display: flex; align-items: flex-start; gap: 10pt; border-left: 3pt solid #3A7D8C; }
+  .rule-item .ricon { flex-shrink: 0; }
+  .rule-item .ricon p { font-size: 14pt; margin: 0; }
+  .rule-item .rtxt p { font-size: 9pt; color: #5B6677; margin: 0; }
+  .bonus-box { background: rgba(200,148,62,0.12); border: 1.5pt solid #C8943E; border-radius: 5pt; padding: 8pt 16pt; text-align: center; margin-bottom: 8pt; }
+  .bonus-box p { margin: 0; }
+  .bt { font-size: 11pt; font-weight: 700; color: #1E2A38; }
+  .bd { font-size: 7pt; color: #8B94A3; }
+  .scoring-box { background: #EDE7D7; border-radius: 5pt; padding: 8pt 16pt; text-align: center; }
+  .scoring-box p { font-size: 11pt; font-weight: 700; color: #5B6677; margin: 0; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L7 · TIME OLYMPICS</p><div class="sep"></div><p class="n">Round 2 · Speaking Sprint</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>Round 2 · 8 min</p></div>
+  <div class="badge-row"><p class="big-num">02</p><h2>Speaking Sprint</h2></div>
+  <div class="big-rule"><p>See the clock face → whole class says the time chorally → self-score on paper</p></div>
+  <div class="rules-grid">
+    <div class="rule-item"><div class="ricon"><p>1</p></div><div class="rtxt"><p>Choral response — Everyone speaks every time. Say the most natural Chinese expression.</p></div></div>
+    <div class="rule-item"><div class="ricon"><p>2</p></div><div class="rtxt"><p>5 seconds per clock — Say it loud and clear. No whispering!</p></div></div>
+    <div class="rule-item"><div class="ricon"><p>3</p></div><div class="rtxt"><p>Self-score — Mark yourself: 1 if you said it correctly, 0 if you didn't. Be honest.</p></div></div>
+    <div class="rule-item"><div class="ricon"><p>4</p></div><div class="rtxt"><p>Bonus +5 — For any clock where you chose 差 over past-style and were correct.</p></div></div>
+  </div>
+  <div class="bonus-box">
+    <p class="bt">Bonus: +5 pts for choosing 差 over past-style</p>
+    <p class="bd">Applies when both 差 and past-style are valid (e.g. 差十分三点 instead of 两点五十分)</p>
+  </div>
+  <div class="scoring-box">
+    <p>15 items x 6 + up to 5 items x 5 bonus = Max 110 pts</p>
+  </div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Time Olympics · 时间奥运会</p></div>
+</body>
+</html>

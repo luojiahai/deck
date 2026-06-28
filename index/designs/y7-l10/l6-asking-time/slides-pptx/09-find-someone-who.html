@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .s { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 14pt 48pt; display: flex; flex-direction: column; justify-content: center; }
+  .sl { margin-bottom: 2pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #D4756B; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 20pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 12pt; }
+  .st p { font-size: 10pt; color: #8B94A3; margin: 0; }
+
+  .find-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8pt; }
+  .find-item {
+    background: #F6F2E8;
+    border-radius: 8pt;
+    padding: 12pt 18pt;
+    display: flex;
+    align-items: center;
+    gap: 12pt;
+  }
+  .find-num {
+    width: 28pt; height: 28pt;
+    border-radius: 50%;
+    background: #3A7D8C;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .find-num p { font-size: 12pt; font-weight: 700; color: #fff; margin: 0; }
+  .find-content { flex: 1; }
+  .find-zh { }
+  .find-zh p { font-size: 11pt; font-weight: 700; color: #1E2A38; margin: 0; }
+  .find-en { margin-top: 2pt; }
+  .find-en p { font-size: 8pt; color: #8B94A3; margin: 0; }
+  .find-target {
+    border-radius: 999pt;
+    padding: 2pt 8pt;
+    flex-shrink: 0;
+  }
+  .find-target.pattern { background: rgba(200,148,62,0.15); }
+  .find-target.ptn { background: rgba(58,125,140,0.1); }
+  .find-target p { font-size: 7pt; font-weight: 700; margin: 0; }
+  .find-target.pattern p { color: #C8943E; letter-spacing: 0.04em; }
+  .find-target.ptn p { color: #3A7D8C; letter-spacing: 0.04em; }
+  .name-slot {
+    min-width: 60pt;
+    border-bottom: 1.5pt dashed #C8943E;
+    padding-bottom: 2pt;
+    flex-shrink: 0;
+  }
+  .name-slot p { font-size: 8pt; color: #8B94A3; margin: 0; }
+
+  .instructions {
+    margin-top: 10pt;
+    background: rgba(212,117,107,0.08);
+    border-radius: 6pt;
+    padding: 8pt 14pt;
+    display: flex; align-items: center; gap: 8pt;
+  }
+  .instructions p { font-size: 9pt; color: #5B6677; margin: 0; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L6 · ASKING TIME</p><div class="s"></div><p class="n">Practice · Find Someone Who</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>33–43 min · Activity 3</p></div>
+  <div class="mt"><h2>Find Someone Who... · 找人</h2></div>
+  <div class="st"><p>Walk around the room. Find a different person for each prompt. When you find someone, write their name!</p></div>
+
+  <div class="find-grid">
+    <div class="find-item">
+      <div class="find-num"><p>1</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，他的时间用「半」。</p></div>
+        <div class="find-en"><p>Find someone whose time uses 半 (half past).</p></div>
+        <div class="find-target pattern"><p>Pattern: 半</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num"><p>2</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，他的时间用「差」。</p></div>
+        <div class="find-en"><p>Find someone whose time uses 差 (minutes to).</p></div>
+        <div class="find-target pattern"><p>Pattern: 差</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num"><p>3</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，他的时间用「刻」。</p></div>
+        <div class="find-en"><p>Find someone whose time uses 刻 (quarter).</p></div>
+        <div class="find-target pattern"><p>Pattern: 刻</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num"><p>4</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，他的时间里有「零」。</p></div>
+        <div class="find-en"><p>Find someone whose time uses 零 (e.g. X:05).</p></div>
+        <div class="find-target ptn"><p>Pattern: 零</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num"><p>5</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，他的时间超过 9 点。</p></div>
+        <div class="find-en"><p>Find someone whose time is after 9:00.</p></div>
+        <div class="find-target ptn"><p>Time after 9:00</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num"><p>6</p></div>
+      <div class="find-content">
+        <div class="find-zh"><p>找一个人，用「请问」问他/她时间。</p></div>
+        <div class="find-en"><p>Find someone and ask them using 请问 politely.</p></div>
+        <div class="find-target pattern"><p>Polite: 请问</p></div>
+      </div>
+      <div class="name-slot"><p>Name: ______</p></div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <p>Rules: Different person for each prompt (6 different classmates). Must ask「现在几点？」in Chinese. Listen to the pattern they use, not just the time.</p>
+  </div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 960pt; height: 540pt; overflow: hidden; font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif; color: #1E2A38; background: #FEFCF7; }
+  .hdr { position: absolute; top: 0; left: 0; right: 0; height: 36pt; border-bottom: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .hdr .t { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: #C8943E; margin: 0; }
+  .hdr .sep { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .hdr .n { font-size: 7pt; color: #5B6677; margin: 0; }
+  .hdr .al { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 24pt; border-top: 1pt solid #E5DFD0; display: flex; align-items: center; padding: 0 36pt; }
+  .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
+  .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 14pt 36pt; display: flex; flex-direction: column; }
+  .sl { margin-bottom: 3pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #3A7D8C; margin: 0; }
+  .mt { margin-bottom: 2pt; }
+  .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 18pt; font-weight: 900; margin: 0; }
+  .st { margin-bottom: 10pt; }
+  .st p { font-size: 9pt; color: #8B94A3; margin: 0; }
+  .sprint-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6pt; flex: 1; }
+  .cell { background: #F6F2E8; border-radius: 5pt; padding: 6pt 4pt; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .cell .num { font-size: 6pt; font-weight: 700; color: #8B94A3; margin: 0 0 4pt 0; }
+  .clock { width: 34pt; height: 34pt; border-radius: 50%; border: 1.5pt solid #1E2A38; position: relative; background: #fff; margin: 0 auto 4pt; }
+  .clock .dot { position: absolute; width: 2pt; height: 2pt; background: #1E2A38; border-radius: 50%; top: 50%; left: 50%; margin-left: -1pt; margin-top: -1pt; }
+  .clock .hh { position: absolute; width: 1.5pt; height: 10pt; background: #1E2A38; border-radius: 1pt; bottom: 50%; left: 50%; margin-left: -0.75pt; transform-origin: bottom center; }
+  .clock .mh { position: absolute; width: 1pt; height: 14pt; background: #C8943E; border-radius: 0.5pt; bottom: 50%; left: 50%; margin-left: -0.5pt; transform-origin: bottom center; }
+  .cell .slot { font-size: 8pt; color: #8B94A3; margin: 0; }
+  .btm { margin-top: 8pt; display: flex; align-items: center; gap: 12pt; background: rgba(200,148,62,0.12); border-radius: 5pt; padding: 6pt 16pt; }
+  .btm .timer { font-size: 10pt; font-weight: 700; color: #C8943E; margin: 0; }
+  .btm .lbl { font-size: 7pt; color: #5B6677; margin: 0; }
+</style>
+</head>
+<body>
+<div class="hdr"><p class="t">L7 · TIME OLYMPICS</p><div class="sep"></div><p class="n">Review · Pattern Sprint</p><div class="al"></div></div>
+<div class="ct">
+  <div class="sl"><p>0–8 min · Warm-up</p></div>
+  <div class="mt"><h2>Pattern Sprint · 模式冲刺</h2></div>
+  <div class="st"><p>15 clock faces at 5-second intervals. Write the digits on your answer sheet.</p></div>
+  <div class="sprint-grid">
+    <div class="cell"><p class="num">1</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(30deg);"></div><div class="mh" style="transform:rotate(0deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">2</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(105deg);"></div><div class="mh" style="transform:rotate(180deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">3</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(157.5deg);"></div><div class="mh" style="transform:rotate(90deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">4</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(232.5deg);"></div><div class="mh" style="transform:rotate(270deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">5</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(272.5deg);"></div><div class="mh" style="transform:rotate(30deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">6</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(340deg);"></div><div class="mh" style="transform:rotate(120deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">7</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(60deg);"></div><div class="mh" style="transform:rotate(0deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">8</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(125deg);"></div><div class="mh" style="transform:rotate(60deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">9</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(200deg);"></div><div class="mh" style="transform:rotate(240deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">10</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(265deg);"></div><div class="mh" style="transform:rotate(300deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">11</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(300deg);"></div><div class="mh" style="transform:rotate(0deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">12</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(15deg); height:8pt;"></div><div class="mh" style="transform:rotate(180deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">13</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(57.5deg);"></div><div class="mh" style="transform:rotate(330deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">14</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(187.5deg);"></div><div class="mh" style="transform:rotate(90deg);"></div></div><p class="slot">___ : ___</p></div>
+    <div class="cell"><p class="num">15</p><div class="clock"><div class="dot"></div><div class="hh" style="transform:rotate(292.5deg);"></div><div class="mh" style="transform:rotate(270deg);"></div></div><p class="slot">___ : ___</p></div>
+  </div>
+  <div class="btm"><p class="timer">5 sec each</p><p class="lbl">Teacher controls pace. Students write digits only. Self-check after sprint.</p></div>
+</div>
+<div class="ftr"><p>Y7 Chinese · Time Olympics · 时间奥运会</p></div>
+</body>
+</html>
