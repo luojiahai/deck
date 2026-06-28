@@ -1,25 +1,11 @@
 {
   "designs": [
     {
-      "id": "chinese-music-lesson",
-      "title": "轻松学中文2 · Unit 3 爱好（一）音乐",
-      "description": "Year 8 中文课件——8节课×50分钟，覆盖生词(28个)、语法(正在/都/一边)、对话、中国乐器文化(古筝/二胡/琵琶/笛子)、单元测验。轻松学中文2 Unit 3 Lesson 1, pp.70-73。",
-      "createdAt": "2026-06-27",
-      "thumbnail": "designs/chinese-music-lesson/thumb.png"
-    },
-    {
       "id": "y7-l10",
       "title": "Y7 中文课件 · 时间 Unit（8 课完整版）",
       "description": "Year 7 中文课件——时间单元完整 8 课：L1 数字+点(整点)、L2 分(分钟)、L3 半(半点)、L4 刻(刻钟)、L5 差(差几分)、L6 问时间(对话)、L7 综合练习、L8 复习+测验。Chineasy 暖奶油+珊瑚设计语言，每课~15页，答案页分离。轻松学中文系列，澳洲课程体系。",
       "createdAt": "2026-06-28",
       "thumbnail": "designs/y7-l10/thumb.png"
-    },
-    {
-      "id": "ai-pomodoro",
-      "title": "AI Pomodoro · iOS 原型",
-      "description": "AI 番茄钟 iOS 高保真原型——4 个核心屏幕（专注计时、AI 洞察、任务管理、个性化设置），每台 iPhone 独立可交互，计时器真实可用。",
-      "createdAt": "2026-06-27",
-      "thumbnail": "designs/ai-pomodoro/thumb.png"
     }
   ]
 }

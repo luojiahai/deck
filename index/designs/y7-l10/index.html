@@ -5,239 +5,852 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Y7 Chinese · 时间 Unit · 课件</title>
 <style>
+/* ============================================================
+   CHINEASY DESIGN GRAMMAR — Y7 Chinese Courseware Hub
+   时间 Unit · 8-lesson index
+   Palette: warm cream + charcoal + coral accent
+   ============================================================ */
+
 :root {
-  --cream: #FEFAF5; --cream-warm: #FAF6F0;
-  --charcoal: #2C2416; --charcoal-soft: #4A4236;
-  --muted: #9B8E7E; --muted-light: #C4BAAA;
-  --coral: #D4543A; --coral-soft: #E8A080;
-  --rule-bg: #F5F0E8; --divider: #E8E0D5;
-  --green: #5B8C6F;
-  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', serif;
-  --font-body: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --cream:        #FEFAF5;
+  --cream-warm:   #FAF6F0;
+  --charcoal:     #2C2416;
+  --charcoal-soft:#4A4236;
+  --muted:        #9B8E7E;
+  --muted-light:  #C4BAAA;
+  --coral:        #D4543A;
+  --coral-soft:   #E8A080;
+  --coral-pale:   #F5E2DB;
+  --rule-bg:      #F5F0E8;
+  --divider:      #E8E0D5;
+  --green:        #5B8C6F;
+  --green-pale:   #E6F0EA;
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', 'SimSun', serif;
+  --font-body:    'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
 }
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  background: #F2EFEA; color: var(--charcoal);
-  font-family: var(--font-body); min-height: 100vh;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  min-height: 100vh;
   text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Subtle dot texture */
+  background-image: radial-gradient(circle, var(--divider) 1px, transparent 1px);
+  background-size: 32px 32px;
+  position: relative;
 }
 
-.hero-strip {
-  padding: 80px 96px 48px;
-}
-.hero-strip .label {
-  font-size: 18px; font-weight: 600; letter-spacing: 0.12em;
-  color: var(--coral); text-transform: uppercase; margin-bottom: 12px;
-}
-.hero-strip h1 {
+/* Large decorative watermark */
+body::before {
+  content: '时';
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: 64px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.2;
+  font-size: clamp(200px, 40vw, 480px);
+  color: var(--cream-warm);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.hero-strip h1 .hl { color: var(--coral); }
-.hero-strip .meta {
-  margin-top: 16px; font-size: 22px; color: var(--muted);
-  display: flex; gap: 32px; flex-wrap: wrap;
-}
-.hero-strip .meta strong { color: var(--charcoal); font-weight: 600; }
 
+/* ============================================================
+   LAYOUT WRAPPER
+   ============================================================ */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+
+/* ============================================================
+   NAV BAR
+   ============================================================ */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 3vw, 28px) 0;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.nav-bar .wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+
+.nav-bar .wordmark .dot {
+  color: var(--coral);
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+  align-items: center;
+  list-style: none;
+}
+
+.nav-bar .nav-links a {
+  text-decoration: none;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-bar .nav-links a:hover,
+.nav-bar .nav-links a.active {
+  color: var(--coral);
+}
+
+.nav-bar .nav-links .pill {
+  background: var(--coral);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.nav-bar .nav-links .pill:hover {
+  background: var(--charcoal);
+  color: #fff;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--charcoal);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--charcoal);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.25s;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.hero .label {
+  font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--coral);
+  text-transform: uppercase;
+  margin-bottom: clamp(8px, 1.5vw, 16px);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 8vw, 80px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  margin-bottom: clamp(12px, 2vw, 20px);
+}
+
+.hero h1 .hl {
+  color: var(--coral);
+  position: relative;
+}
+
+.hero h1 .hl::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: clamp(4px, 1vw, 8px);
+  background: var(--coral-pale);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero .meta {
+  display: flex;
+  gap: clamp(12px, 2vw, 32px);
+  flex-wrap: wrap;
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero .meta strong {
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.hero .meta .sep {
+  color: var(--divider);
+  user-select: none;
+}
+
+/* ============================================================
+   GRAMMAR STRIP
+   ============================================================ */
 .grammar-strip {
-  padding: 0 96px 48px;
+  background: var(--cream-warm);
+  border: 1px solid var(--divider);
+  border-radius: clamp(16px, 2vw, 24px);
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 4vw, 48px);
+  margin-bottom: clamp(48px, 6vw, 72px);
+  position: relative;
+  overflow: hidden;
 }
-.grammar-strip h3 {
-  font-size: 22px; font-weight: 600; color: var(--muted);
-  letter-spacing: 0.06em; margin-bottom: 16px;
-}
-.grammar-strip .flow {
-  display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
-}
-.grammar-strip .step {
-  background: #FFFBF7; border: 1px solid var(--divider);
-  border-radius: 12px; padding: 12px 24px;
-  font-size: 18px; font-weight: 600; color: var(--charcoal);
-}
-.grammar-strip .step .pattern { color: var(--coral); }
-.grammar-strip .arrow { font-size: 24px; color: var(--coral); }
 
+.grammar-strip::after {
+  content: '句型';
+  position: absolute;
+  right: clamp(16px, 3vw, 32px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 100px);
+  color: var(--divider);
+  pointer-events: none;
+  user-select: none;
+}
+
+.grammar-strip h3 {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  position: relative;
+  z-index: 1;
+}
+
+.grammar-strip .flow {
+  display: flex;
+  gap: clamp(8px, 1.5vw, 16px);
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.grammar-strip .step {
+  background: #FFFBF7;
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  padding: clamp(8px, 1.2vw, 14px) clamp(14px, 2vw, 24px);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 600;
+  color: var(--charcoal);
+  white-space: nowrap;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.grammar-strip .step:hover {
+  border-color: var(--coral);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.grammar-strip .step .pattern {
+  color: var(--coral);
+}
+
+.grammar-strip .arrow {
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--coral-soft);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   LESSON GRID
+   ============================================================ */
 .lesson-grid {
-  padding: 0 96px 80px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: clamp(16px, 2vw, 28px);
+  margin-bottom: clamp(48px, 8vw, 96px);
 }
-@media (max-width: 1600px) {
+
+@media (max-width: 1400px) {
   .lesson-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (max-width: 640px) {
+  .lesson-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   LESSON CARD
+   ============================================================ */
 .lesson-card {
   background: #FFFBF7;
   border: 1px solid var(--divider);
-  border-radius: 20px;
-  padding: 36px 32px;
-  text-decoration: none; color: var(--charcoal);
-  display: flex; flex-direction: column; gap: 12px;
-  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-  position: relative; overflow: hidden;
+  border-radius: clamp(16px, 2vw, 20px);
+  padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px);
+  text-decoration: none;
+  color: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 12px);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(180px, 25vw, 220px);
 }
+
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--coral);
+  border-radius: 4px 0 0 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lesson-card::after {
+  content: '';
+  position: absolute;
+  right: -40px; bottom: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: var(--cream-warm);
+  transition: transform 0.4s, background 0.3s;
+}
+
 .lesson-card:hover {
-  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
-  transform: translateY(-2px); border-color: var(--coral);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+  border-color: var(--coral-soft);
 }
+
+.lesson-card:hover::before {
+  opacity: 1;
+}
+
+.lesson-card:hover::after {
+  transform: scale(1.3);
+  background: var(--coral-pale);
+}
+
+.lesson-card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
 .lesson-card .num {
-  font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
-  color: var(--coral); text-transform: uppercase;
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--coral);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
+
 .lesson-card h3 {
   font-family: var(--font-display);
-  font-size: 32px; font-weight: 700; letter-spacing: 0.03em;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 1;
 }
-.lesson-card .py {
-  font-size: 18px; color: var(--muted);
-}
-.lesson-card .desc {
-  font-size: 16px; color: var(--muted); line-height: 1.5;
-}
-.lesson-card .badges {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
-}
-.lesson-card .badges span {
-  font-size: 13px; font-weight: 600; padding: 4px 10px;
-  border-radius: 6px; background: var(--rule-bg); color: var(--muted);
-}
-.lesson-card::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 4px; background: var(--coral); border-radius: 4px 0 0 4px;
-  opacity: 0; transition: opacity 0.25s;
-}
-.lesson-card:hover::before { opacity: 1; }
 
-footer {
-  padding: 32px 96px; border-top: 1px solid var(--divider);
-  font-size: 15px; color: var(--muted); text-align: center;
+.lesson-card .py {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
 }
-footer a { color: var(--coral); text-decoration: none; }
+
+.lesson-card .desc {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--muted);
+  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.lesson-card .badges {
+  display: flex;
+  gap: clamp(6px, 0.8vw, 8px);
+  flex-wrap: wrap;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-card .badges span {
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--rule-bg);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.lesson-card .badges span.highlight {
+  background: var(--coral-pale);
+  color: var(--coral);
+}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.section-header .count {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ============================================================
+   FEATURES STRIP
+   ============================================================ */
+.features-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  margin-bottom: clamp(48px, 8vw, 96px);
+}
+
+@media (max-width: 900px) {
+  .features-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .features-strip { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  background: #FFFBF7;
+  border: 1px solid var(--divider);
+  border-radius: clamp(14px, 2vw, 18px);
+  padding: clamp(20px, 2.5vw, 32px);
+  text-align: center;
+}
+
+.feature-card .icon {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: clamp(8px, 1vw, 14px);
+  display: block;
+}
+
+.feature-card h4 {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--divider);
+  padding: clamp(24px, 3vw, 40px) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--coral);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--charcoal);
+}
+
+footer .footer-left {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ============================================================
+   MOBILE NAV
+   ============================================================ */
+@media (max-width: 640px) {
+  .nav-bar .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    padding: 16px;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+
+  .nav-bar .nav-links.open {
+    display: flex;
+  }
+
+  .nav-bar {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .grammar-strip .flow {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    gap: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .grammar-strip .step {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .grammar-strip .arrow {
+    flex-shrink: 0;
+  }
+}
+
+/* ============================================================
+   UTILITY: skip link
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--coral);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  z-index: 100;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  body { background: #fff; }
+  body::before { display: none; }
+  .lesson-card { break-inside: avoid; }
+  footer { border-top-color: #ccc; }
+}
 </style>
 </head>
 <body>
 
-<div class="hero-strip">
-  <div class="label">Courseware · 课件</div>
-  <h1>时间 · <span class="hl">Telling the Time</span></h1>
-  <div class="meta">
-    <span><strong>轻松学中文</strong> · Time Unit</span>
-    <span><strong>Year 7 Chinese</strong> · 七年级中文</span>
-    <span><strong>8 lessons</strong> × 50 min</span>
-    <span><strong>Est.</strong> ~120 slides</span>
+<a href="#lessons" class="skip-link">Skip to Lessons</a>
+
+<div class="wrapper">
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav-bar" aria-label="Main navigation">
+    <a href="/" class="wordmark">
+      花叔<span class="dot">·</span>Design
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#lessons" class="active">Lessons</a></li>
+      <li><a href="#features">About</a></li>
+      <li><a href="/">← Gallery</a></li>
+      <li><a href="slides/l1-oclock.html" class="pill">Start Lesson 1 →</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero">
+    <div class="label">Courseware · 课件</div>
+    <h1>时间 · <span class="hl">Telling the Time</span></h1>
+    <div class="meta">
+      <span><strong>轻松学中文</strong>&nbsp;· Time Unit</span>
+      <span aria-hidden="true" class="sep">|</span>
+      <span><strong>Year 7 Chinese</strong>&nbsp;· 七年级中文</span>
+      <span aria-hidden="true" class="sep">|</span>
+      <span><strong>8 lessons</strong>&nbsp;× 50 min</span>
+      <span aria-hidden="true" class="sep">|</span>
+      <span><strong>Est.</strong>&nbsp;~120 slides</span>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       GRAMMAR STRIP
+       ============================================================ -->
+  <section class="grammar-strip" aria-label="Pattern progression">
+    <h3>Pattern Progression · 句型递进</h3>
+    <div class="flow">
+      <span class="step">L1 · <span class="pattern">X + 点</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L2 · <span class="pattern">X点Y分</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L3 · <span class="pattern">X点半</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L4 · <span class="pattern">X点Y刻</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L5 · <span class="pattern">差X分Y点</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L6 · <span class="pattern">现在几点?</span></span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L7 · Mixed Practice</span>
+      <span class="arrow" aria-hidden="true">→</span>
+      <span class="step">L8 · Review + Test</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LESSONS
+       ============================================================ -->
+  <div class="section-header" id="lessons">
+    <h2>Lessons · 课程</h2>
+    <span class="count">8 lessons · ~120 slides total</span>
   </div>
-</div>
 
-<div class="grammar-strip">
-  <h3>Pattern Progression · 句型递进</h3>
-  <div class="flow">
-    <span class="step">L1 · <span class="pattern">X + 点</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L2 · <span class="pattern">X点Y分</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L3 · <span class="pattern">X点半</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L4 · <span class="pattern">X点Y刻</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L5 · <span class="pattern">差X分Y点</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L6 · <span class="pattern">现在几点?</span></span>
-    <span class="arrow">→</span>
-    <span class="step">L7 · Mixed Practice</span>
-    <span class="arrow">→</span>
-    <span class="step">L8 · Review + Test</span>
+  <div class="lesson-grid">
+
+    <a href="slides/l1-oclock.html" class="lesson-card">
+      <span class="num">Lesson 1</span>
+      <h3>几点？</h3>
+      <span class="py">Jǐ diǎn? · What's the Time?</span>
+      <span class="desc">Numbers review + o'clock（点）— textbook p84/p87 warm-up, key rule 两点≠二点, clock flash, telephone game, exit ticket</span>
+      <div class="badges">
+        <span class="highlight">16 slides</span>
+        <span>🔢 Numbers</span>
+        <span>🕐 点</span>
+        <span>🎮 Game</span>
+      </div>
+    </a>
+
+    <a href="slides/l2-minutes.html" class="lesson-card">
+      <span class="num">Lesson 2</span>
+      <h3>几点几分？</h3>
+      <span class="py">Jǐ diǎn jǐ fēn? · Minutes</span>
+      <span class="desc">Adding minutes（分）— X点Y分 pattern, 零五 rule, clock drawing, listening bingo</span>
+      <div class="badges">
+        <span class="highlight">~16 slides</span>
+        <span>🕐 分</span>
+        <span>🎧 Listening</span>
+      </div>
+    </a>
+
+    <a href="slides/l3-half-past.html" class="lesson-card">
+      <span class="num">Lesson 3</span>
+      <h3>几点半？</h3>
+      <span class="py">Jǐ diǎn bàn? · Half Past</span>
+      <span class="desc">Half past（半）— X点半 = X:30, clock hands at half-past position, pair speaking practice</span>
+      <div class="badges">
+        <span class="highlight">~15 slides</span>
+        <span>🕐 半</span>
+        <span>🗣️ Speaking</span>
+      </div>
+    </a>
+
+    <a href="slides/l4-quarters.html" class="lesson-card">
+      <span class="num">Lesson 4</span>
+      <h3>几点几刻？</h3>
+      <span class="py">Jǐ diǎn jǐ kè? · Quarters</span>
+      <span class="desc">Quarters（刻）— 一刻:15 / 三刻:45, rule 三刻≠四刻, clock bingo, all patterns so far</span>
+      <div class="badges">
+        <span class="highlight">~15 slides</span>
+        <span>🕐 刻</span>
+        <span>🎮 Bingo</span>
+      </div>
+    </a>
+
+    <a href="slides/l5-minutes-to.html" class="lesson-card">
+      <span class="num">Lesson 5</span>
+      <h3>差几分？</h3>
+      <span class="py">Chà jǐ fēn? · Minutes To</span>
+      <span class="desc">Minutes to（差）— 差X分Y点 = X to Y, visual clock arcs, train schedule reading</span>
+      <div class="badges">
+        <span class="highlight">~16 slides</span>
+        <span>🕐 差</span>
+        <span>🚂 Reading</span>
+      </div>
+    </a>
+
+    <a href="slides/l6-asking-time.html" class="lesson-card">
+      <span class="num">Lesson 6</span>
+      <h3>现在几点？</h3>
+      <span class="py">Xiànzài jǐ diǎn? · Asking the Time</span>
+      <span class="desc">Conversation — 现在几点? Q&amp;A with ALL 5 patterns, pair dialogues, daily schedule speaking</span>
+      <div class="badges">
+        <span class="highlight">~16 slides</span>
+        <span>💬 Dialogue</span>
+        <span>🗣️ Speaking</span>
+      </div>
+    </a>
+
+    <a href="slides/l7-mixed-practice.html" class="lesson-card">
+      <span class="num">Lesson 7</span>
+      <h3>综合练习</h3>
+      <span class="py">Zōnghé liànxí · Mixed Practice</span>
+      <span class="desc">All 5 patterns mixed — random clock flash, listening dictation, daily schedule writing, pair Q&amp;A</span>
+      <div class="badges">
+        <span class="highlight">~16 slides</span>
+        <span>🔄 Mixed</span>
+        <span>✏️ Writing</span>
+      </div>
+    </a>
+
+    <a href="slides/l8-review-test-prep.html" class="lesson-card">
+      <span class="num">Lesson 8</span>
+      <h3>复习与测验</h3>
+      <span class="py">Fùxí yǔ cèyàn · Review + Test</span>
+      <span class="desc">Full review + practice test — common mistakes, listening/reading/writing sections, final game 🎉</span>
+      <div class="badges">
+        <span class="highlight">~18 slides</span>
+        <span>📝 Test</span>
+        <span>🔍 Review</span>
+        <span>🎉</span>
+      </div>
+    </a>
+
   </div>
-</div>
 
-<div class="lesson-grid">
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
+  <div class="section-header" id="features">
+    <h2>About this Unit · 关于本单元</h2>
+  </div>
 
-  <a href="slides/l1-oclock.html" class="lesson-card">
-    <span class="num">Lesson 1</span>
-    <h3>几点？</h3>
-    <span class="py">Jǐ diǎn? · What's the Time?</span>
-    <span class="desc">Numbers review + o'clock（点）— textbook p84/p87 warm-up, key rule 两点≠二点, clock flash, telephone game, exit ticket</span>
-    <div class="badges">
-      <span>16 slides</span><span>🔢 Numbers</span><span>🕐 点</span><span>🎮 Game</span>
+  <div class="features-strip">
+    <div class="feature-card">
+      <span class="icon" aria-hidden="true">📚</span>
+      <h4>轻松学中文</h4>
+      <p>Aligned with the Easy Steps to Chinese textbook series — Australian curriculum compatible</p>
     </div>
-  </a>
 
-  <a href="slides/l2-minutes.html" class="lesson-card">
-    <span class="num">Lesson 2</span>
-    <h3>几点几分？</h3>
-    <span class="py">Jǐ diǎn jǐ fēn? · Minutes</span>
-    <span class="desc">Adding minutes（分）— X点Y分 pattern, 零五 rule, clock drawing, listening bingo</span>
-    <div class="badges">
-      <span>~16 slides</span><span>🕐 分</span><span>🎧 Listening</span>
+    <div class="feature-card">
+      <span class="icon" aria-hidden="true">🎯</span>
+      <h4>Progressive Scaffolding</h4>
+      <p>Each lesson builds on the previous — from simple 点 through to mixed-pattern fluency</p>
     </div>
-  </a>
 
-  <a href="slides/l3-half-past.html" class="lesson-card">
-    <span class="num">Lesson 3</span>
-    <h3>几点半？</h3>
-    <span class="py">Jǐ diǎn bàn? · Half Past</span>
-    <span class="desc">Half past（半）— X点半 = X:30, clock hands at half-past position, pair speaking practice</span>
-    <div class="badges">
-      <span>~15 slides</span><span>🕐 半</span><span>🗣️ Speaking</span>
+    <div class="feature-card">
+      <span class="icon" aria-hidden="true">🎨</span>
+      <h4>Chineasy Design</h4>
+      <p>Warm cream + charcoal + coral palette designed for readability and reduced cognitive load</p>
     </div>
-  </a>
+  </div>
 
-  <a href="slides/l4-quarters.html" class="lesson-card">
-    <span class="num">Lesson 4</span>
-    <h3>几点几刻？</h3>
-    <span class="py">Jǐ diǎn jǐ kè? · Quarters</span>
-    <span class="desc">Quarters（刻）— 一刻:15 / 三刻:45, rule 三刻≠四刻, clock bingo, all patterns so far</span>
-    <div class="badges">
-      <span>~15 slides</span><span>🕐 刻</span><span>🎮 Bingo</span>
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-left">
+      <span>Built with <a href="/">花叔·Design</a></span>
+      <span aria-hidden="true">·</span>
+      <span>轻松学中文 · Y7 Chinese — Time Unit</span>
     </div>
-  </a>
+    <a href="/">← Back to Gallery</a>
+  </footer>
 
-  <a href="slides/l5-minutes-to.html" class="lesson-card">
-    <span class="num">Lesson 5</span>
-    <h3>差几分？</h3>
-    <span class="py">Chà jǐ fēn? · Minutes To</span>
-    <span class="desc">Minutes to（差）— 差X分Y点 = X to Y, visual clock arcs, train schedule reading</span>
-    <div class="badges">
-      <span>~16 slides</span><span>🕐 差</span><span>🚂 Reading</span>
-    </div>
-  </a>
+</div><!-- /wrapper -->
 
-  <a href="slides/l6-asking-time.html" class="lesson-card">
-    <span class="num">Lesson 6</span>
-    <h3>现在几点？</h3>
-    <span class="py">Xiànzài jǐ diǎn? · Asking the Time</span>
-    <span class="desc">Conversation — 现在几点? Q&A with ALL 5 patterns, pair dialogues, daily schedule speaking</span>
-    <div class="badges">
-      <span>~16 slides</span><span>💬 Dialogue</span><span>🗣️ Speaking</span>
-    </div>
-  </a>
+<!-- Tiny nav toggle polyfill for mobile -->
+<script>
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
 
-  <a href="slides/l7-mixed-practice.html" class="lesson-card">
-    <span class="num">Lesson 7</span>
-    <h3>综合练习</h3>
-    <span class="py">Zōnghé liànxí · Mixed Practice</span>
-    <span class="desc">All 5 patterns mixed — random clock flash, listening dictation, daily schedule writing, pair Q&A</span>
-    <div class="badges">
-      <span>~16 slides</span><span>🔄 Mixed</span><span>✏️ Writing</span>
-    </div>
-  </a>
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    links.classList.toggle('open');
+  });
 
-  <a href="slides/l8-review-test-prep.html" class="lesson-card">
-    <span class="num">Lesson 8</span>
-    <h3>复习与测验</h3>
-    <span class="py">Fùxí yǔ cèyàn · Review + Test</span>
-    <span class="desc">Full review + practice test — common mistakes, listening/reading/writing sections, final game 🎉</span>
-    <div class="badges">
-      <span>~18 slides</span><span>📝 Test</span><span>🔍 Review</span><span>🎉</span>
-    </div>
-  </a>
+  // Close when clicking a link
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      links.classList.remove('open');
+    });
+  });
 
-</div>
-
-<footer>
-  Built with Huashu-Design · 轻松学中文 · Y7 Chinese — Time Unit · 8-lesson courseware
-</footer>
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!links.contains(e.target) && !toggle.contains(e.target)) {
+      links.classList.remove('open');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
