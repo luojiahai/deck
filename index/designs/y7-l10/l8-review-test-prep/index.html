@@ -347,16 +347,27 @@
       fetch(item.file)
         .then(function(r) { return r.text(); })
         .then(function(html) {
-          // Extract <style> blocks, rewrite body/html -> #frame
-          var styles = '';
-          var styleRe = /<style[^>]*>([\s\S]*?)<\/style>/gi;
-          var m;
-          while ((m = styleRe.exec(html)) !== null) {
-            styles += '<style>' + m[1].replace(/\b(html|body)\b(?=\s*[{,])/g, '#frame') + '</style>';
-          }
-          // Extract <body> content
-          var bodyM = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-          frame.innerHTML = styles + (bodyM ? bodyM[1] : '');
+          // Extract <link rel="stylesheet"> and fetch linked CSS
+          var linkRe = /<link[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi;
+          var cssLinks = [];
+          var lm;
+          while ((lm = linkRe.exec(html)) !== null) { cssLinks.push(lm[1]); }
+          return Promise.all(cssLinks.map(function(href) {
+            var url = /^https?:/.test(href) ? href : new URL(href, new URL(item.file, location.href)).href;
+            return fetch(url).then(function(r) { return r.text(); }).catch(function() { return ''; });
+          })).then(function(cssContents) {
+            var linkedCss = cssContents.join('\n');
+            var styles = linkedCss ? '<style>' + linkedCss.replace(/\b(html|body)\b(?=\s*[{,])/g, '#frame') + '</style>' : '';
+            // Extract <style> blocks, rewrite body/html -> #frame
+            var styleRe = /<style[^>]*>([\s\S]*?)<\/style>/gi;
+            var m;
+            while ((m = styleRe.exec(html)) !== null) {
+              styles += '<style>' + m[1].replace(/\b(html|body)\b(?=\s*[{,])/g, '#frame') + '</style>';
+            }
+            // Extract <body> content
+            var bodyM = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+            frame.innerHTML = styles + (bodyM ? bodyM[1] : '');
+          });
         })
         .catch(function() {
           frame.innerHTML = '<div style="color:#fff;padding:40px;text-align:center;font-size:24px;">Slide not found</div>';
