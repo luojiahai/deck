@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>几点？半 · Y7 Chinese · 时间 Unit Lesson 3</title>
+<style>
+/* ============================================================
+   CHINEASY DESIGN GRAMMAR — Y7 Chinese Courseware
+   时间 Unit · Lesson 3: Half Past (半)
+   Palette: warm cream + charcoal + coral accent
+   ============================================================ */
+
+:root {
+  --cream:        #FEFAF5;
+  --cream-warm:   #FAF6F0;
+  --charcoal:     #2C2416;
+  --charcoal-soft:#4A4236;
+  --muted:        #9B8E7E;
+  --muted-light:  #C4BAAA;
+  --coral:        #D4543A;
+  --coral-soft:   #E8A080;
+  --rule-bg:      #F5F0E8;
+  --divider:      #E8E0D5;
+  --green-check:  #5B8C6F;
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', 'SimSun', serif;
+  --font-body:    'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  background: #1a1a1a;
+  font-family: var(--font-body);
+}
+
+.stage {
+  width: 1920px; height: 1080px;
+  overflow: hidden; position: relative;
+  background: var(--cream);
+  color: var(--charcoal);
+  transform-origin: top left;
+  text-wrap: pretty;
+}
+
+section {
+  display: none;
+  width: 1920px; height: 1080px;
+  position: absolute; top: 0; left: 0;
+  flex-direction: column;
+  padding: 80px 120px 80px 120px;
+  justify-content: center;
+}
+section.active { display: flex; }
+
+/* ============================================================
+   SHARED COMPONENTS
+   ============================================================ */
+
+.page-tag {
+  position: absolute;
+  bottom: 32px; right: 48px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted-light);
+  z-index: 2;
+}
+
+/* Section title bar */
+.sec-title {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.sec-subtitle {
+  font-size: 26px; color: var(--muted);
+  letter-spacing: 0.03em;
+  margin-bottom: 48px;
+}
+
+/* Warm panel */
+.warm-panel {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 56px;
+  width: 100%;
+}
+
+/* Numbered list item */
+.num-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  font-size: 38px; line-height: 1.5;
+}
+.num-item .idx {
+  font-family: var(--font-display);
+  font-size: 42px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 48px; text-align: right;
+  user-select: none;
+}
+.num-item .zh { font-weight: 600; letter-spacing: 0.04em; }
+.num-item .py { font-size: 24px; color: var(--muted); display: block; }
+.num-item .en { font-size: 22px; color: var(--muted); font-style: italic; display: block; }
+
+/* Checkbox for criteria */
+.criteria-list {
+  list-style: none; display: flex; flex-direction: column; gap: 24px;
+}
+.criteria-list li {
+  font-size: 38px; line-height: 1.4;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.checkbox {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border: 2px solid var(--charcoal);
+  border-radius: 6px;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* CSS Clock */
+.clock {
+  border-radius: 50%;
+  border: 2.5px solid var(--charcoal);
+  position: relative;
+  background: var(--cream);
+}
+.clock .tick {
+  position: absolute;
+  width: 2px; height: 6px;
+  background: var(--charcoal);
+  left: 50%; margin-left: -1px;
+  top: 4px;
+}
+.clock .tick.major { height: 11px; width: 2.5px; }
+.clock .hour-hand {
+  position: absolute;
+  width: 4px; height: 30%;
+  background: var(--charcoal);
+  left: 50%; margin-left: -2px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 2px;
+}
+.clock .min-hand {
+  position: absolute;
+  width: 2px; height: 42%;
+  background: var(--coral);
+  left: 50%; margin-left: -1px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 1px;
+}
+.clock .center-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Activity step card */
+.step-card {
+  flex: 1;
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.step-card .step-num {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--divider); line-height: 1;
+  user-select: none;
+}
+.step-card .step-role {
+  font-size: 16px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.step-card .step-action {
+  font-family: var(--font-display);
+  font-size: 34px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.step-card .step-note {
+  font-size: 20px; color: var(--muted);
+  line-height: 1.5;
+}
+
+/* CFU */
+.cfu-list { display: flex; flex-direction: column; gap: 32px; max-width: 1500px; }
+.cfu-item {
+  display: flex; align-items: flex-start; gap: 24px;
+  font-size: 40px; font-weight: 600;
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.cfu-num {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;
+  color: var(--muted-light); min-width: 44px;
+  text-align: right; user-select: none;
+}
+.finger-hint {
+  font-size: 18px; color: var(--muted);
+  display: flex; gap: 4px; align-items: center;
+  margin-left: auto; flex-shrink: 0;
+}
+.finger-hint .yes { color: var(--green-check); font-weight: 600; }
+.finger-hint .no { color: var(--coral); font-weight: 600; }
+
+/* Navigation hint */
+.nav-hint {
+  position: absolute;
+  bottom: 32px; left: 48px;
+  font-size: 14px; color: var(--muted-light);
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+/* ============================================================
+   SLIDE 1 — Cover · 半
+   ============================================================ */
+.s1 {
+  align-items: center; justify-content: center;
+  background: linear-gradient(175deg, #FEFAF5 0%, #FBF6EF 40%, #F8F2E8 100%);
+  padding: 0;
+}
+.s1::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px; height: 720px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  opacity: 0.45; pointer-events: none;
+}
+.s1-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0;
+}
+.s1-clock { width: 120px; height: 120px; margin-bottom: 36px; }
+.s1-clock .tick { transform-origin: 50% 56px; }
+.s1-clock .hour-hand { height: 34px; transform: rotate(75deg); }
+.s1-clock .min-hand { height: 48px; transform: rotate(180deg); }
+.s1-title-zh {
+  font-family: var(--font-display);
+  font-size: 96px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.06em; line-height: 1.15;
+}
+.s1-title-en {
+  font-family: var(--font-body);
+  font-size: 28px; font-weight: 400;
+  color: var(--muted); letter-spacing: 0.04em;
+  margin-top: 10px;
+}
+.s1-meta {
+  margin-top: 48px;
+  font-size: 18px; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.06em;
+  display: flex; gap: 14px; align-items: center;
+}
+.s1-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--muted-light); }
+
+/* ============================================================
+   SLIDE 2 — Speed Correct (Review Part A)
+   ============================================================ */
+.s2 .speed-list {
+  display: flex; flex-direction: column; gap: 14px;
+  max-width: 1500px;
+}
+.s2 .speed-row {
+  display: flex; align-items: baseline; gap: 20px;
+}
+.s2 .speed-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s2 .speed-zh {
+  font-size: 44px; font-weight: 600;
+  letter-spacing: 0.06em;
+  min-width: 280px;
+}
+.s2 .speed-mark {
+  font-size: 32px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 48px;
+}
+
+/* ============================================================
+   SLIDE 3 — Speed Correct 答案揭晓
+   ============================================================ */
+.s3 .speed-list { display: flex; flex-direction: column; gap: 14px; max-width: 1500px; }
+.s3 .speed-row { display: flex; align-items: baseline; gap: 20px; }
+.s3 .speed-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s3 .speed-zh { font-size: 44px; font-weight: 600; letter-spacing: 0.06em; min-width: 280px; }
+.s3 .speed-mark { font-size: 32px; font-weight: 700; min-width: 48px; }
+.s3 .speed-mark.tick { color: var(--green-check); }
+.s3 .speed-mark.cross { color: var(--coral); }
+.s3 .speed-why { font-size: 22px; color: var(--muted); font-style: italic; }
+
+/* ============================================================
+   SLIDE 4 — Word Building (Review Part B)
+   ============================================================ */
+.s4 .word-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 80px;
+  max-width: 1400px;
+  align-self: center;
+}
+.s4 .word-item {
+  display: flex; align-items: baseline; gap: 20px;
+  font-size: 46px; font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.s4 .word-item .clue { color: var(--charcoal-soft); }
+.s4 .word-item .arrow { color: var(--coral); font-size: 36px; margin: 0 4px; }
+.s4 .word-item .answer {
+  font-family: var(--font-display);
+  color: var(--charcoal); font-weight: 700;
+}
+.s4 .word-item .meaning {
+  font-size: 20px; color: var(--muted);
+  font-style: italic; margin-left: 6px;
+}
+
+/* ============================================================
+   SLIDE 5 — Connection Bridge
+   ============================================================ */
+.s5 {
+  align-items: center; justify-content: center;
+  background: var(--cream); gap: 32px; padding: 80px 120px;
+}
+.s5 .bridge-flow {
+  display: flex; align-items: center; gap: 32px;
+}
+.s5 .bridge-chars {
+  font-family: var(--font-display);
+  font-size: 72px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.08em;
+}
+.s5 .bridge-arrow {
+  font-size: 56px; color: var(--coral);
+}
+.s5 .bridge-text {
+  font-size: 32px; color: var(--muted);
+  text-align: center; max-width: 800px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+.s5 .bridge-en {
+  font-size: 24px; color: var(--muted-light);
+  font-style: italic; margin-top: 8px;
+}
+
+/* ============================================================
+   SLIDE 6 — Learning Intention & Success Criteria
+   ============================================================ */
+.s6 .li-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 40px 56px;
+  margin-bottom: 48px;
+}
+.s6 .li-box .li-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.s6 .li-box .li-text {
+  font-size: 42px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.s6 .sc-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.s6 .criteria-list li { font-size: 36px; }
+.s6 .criteria-list li .zh { font-weight: 600; letter-spacing: 0.03em; }
+
+/* ============================================================
+   SLIDE 7 — New Vocabulary: 半
+   ============================================================ */
+.s7 {
+  align-items: center; justify-content: center;
+  gap: 0; padding: 80px 120px;
+}
+.s7-vocab-char {
+  font-family: var(--font-display);
+  font-size: 200px; font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1; letter-spacing: 0.04em;
+}
+.s7-vocab-py {
+  font-size: 42px; color: var(--muted);
+  margin-top: 16px; letter-spacing: 0.06em;
+}
+.s7-vocab-en {
+  font-size: 30px; color: var(--muted);
+  font-style: italic; margin-top: 8px;
+}
+.s7-clock-wrap {
+  display: flex; align-items: center; gap: 24px;
+  margin-top: 48px;
+}
+.s7-clock-wrap .mini-clock { width: 80px; height: 80px; }
+.s7-clock-wrap .mini-clock .tick { transform-origin: 50% 36px; }
+.s7-clock-wrap .mini-clock .hour-hand { height: 22px; transform: rotate(75deg); }
+.s7-clock-wrap .mini-clock .min-hand { height: 32px; transform: rotate(180deg); }
+.s7-clock-wrap .sample-time {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.06em;
+}
+.s7-note {
+  margin-top: 36px; font-size: 24px; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.5; text-align: center;
+  max-width: 700px;
+}
+
+/* ============================================================
+   SLIDE 8 — Key Pattern: X点半 = X:30
+   ============================================================ */
+.s8 .pattern-formula {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--charcoal);
+  text-align: center; letter-spacing: 0.06em;
+  margin-bottom: 48px;
+}
+.s8 .pattern-formula .hl { color: var(--coral); }
+.s8 .clock-row {
+  display: flex; gap: 48px;
+  justify-content: center;
+}
+.s8 .clock-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 20px;
+}
+.s8 .clock-cell .big-clock { width: 200px; height: 200px; }
+.s8 .clock-cell .big-clock .tick { transform-origin: 50% 96px; }
+.s8 .clock-cell .big-clock .hour-hand { height: 30%; }
+.s8 .clock-cell .big-clock .min-hand { height: 42%; }
+.s8 .clock-cell .time-label {
+  font-family: var(--font-display);
+  font-size: 42px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.06em;
+}
+.s8 .clock-cell .time-py {
+  font-size: 22px; color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   SLIDE 9 — Critical Rule: 两点半 ≠ 二点半
+   ============================================================ */
+.s9 {
+  align-items: center; justify-content: center;
+  background: var(--cream); gap: 0; padding: 80px 120px;
+}
+.s9-visual {
+  display: flex; align-items: center;
+  justify-content: center; gap: 60px;
+}
+.s9-correct, .s9-wrong {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+}
+.s9-correct .chars {
+  font-family: var(--font-display);
+  font-size: 160px; font-weight: 700;
+  color: var(--charcoal); line-height: 1;
+  letter-spacing: 0.06em;
+}
+.s9-correct .py-line { font-size: 32px; color: var(--muted); letter-spacing: 0.04em; }
+.s9-vs {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--coral); line-height: 1;
+}
+.s9-wrong .char-wrap { position: relative; display: inline-block; }
+.s9-wrong .chars {
+  font-family: var(--font-display);
+  font-size: 100px; font-weight: 700;
+  color: var(--muted-light); line-height: 1;
+  letter-spacing: 0.06em;
+}
+.s9-wrong .x-mark {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: var(--font-body);
+  font-size: 140px; font-weight: 300;
+  color: var(--coral); line-height: 1;
+  pointer-events: none; user-select: none;
+}
+.s9-wrong .py-line { font-size: 28px; color: var(--muted-light); letter-spacing: 0.04em; }
+.s9-text {
+  margin-top: 56px; text-align: center; max-width: 900px;
+}
+.s9-text .main {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 600;
+  color: var(--charcoal); letter-spacing: 0.04em; line-height: 1.5;
+}
+.s9-text .sub {
+  font-size: 24px; color: var(--muted);
+  margin-top: 12px; letter-spacing: 0.03em; line-height: 1.6;
+}
+.s9-text .em { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 10 — Cumulative Comparison Chart
+   ============================================================ */
+.s10 .chart-table {
+  width: 100%; max-width: 1600px;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+.s10 .chart-table th {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  text-align: left; padding: 14px 28px;
+  border-bottom: 2px solid var(--divider);
+}
+.s10 .chart-table td {
+  font-size: 36px; padding: 18px 28px;
+  border-bottom: 1px solid var(--divider);
+  vertical-align: middle;
+}
+.s10 .chart-table .digit {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--charcoal-soft);
+  font-size: 34px;
+}
+.s10 .chart-table .pattern {
+  color: var(--coral); font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 36px;
+}
+.s10 .chart-table .zh {
+  font-family: var(--font-display);
+  font-weight: 600; letter-spacing: 0.04em;
+}
+.s10 .chart-table .note {
+  font-size: 20px; color: var(--muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   SLIDE 12 — Activity 1: Cumulative Clock Flash
+   ============================================================ */
+.s12 .act-header {
+  display: flex; align-items: center; gap: 24px;
+  margin-bottom: 36px;
+}
+.s12 .act-icon-clock { width: 64px; height: 64px; flex-shrink: 0; }
+.s12 .act-icon-clock .tick { transform-origin: 50% 28px; }
+.s12 .act-icon-clock .hour-hand { height: 18px; transform: rotate(195deg); }
+.s12 .act-icon-clock .min-hand { height: 26px; transform: rotate(180deg); }
+.s12 .instr-list { display: flex; flex-direction: column; gap: 18px; max-width: 1400px; }
+.s12 .instr-item {
+  font-size: 36px; line-height: 1.5;
+  display: flex; align-items: baseline; gap: 16px;
+}
+.s12 .instr-num {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s12 .scaffold-box {
+  margin-top: 40px;
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 28px 40px;
+  display: flex; align-items: center; gap: 16px;
+  font-size: 34px; font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.s12 .scaffold-box .formula { color: var(--coral); font-family: var(--font-display); }
+
+/* ============================================================
+   SLIDE 13 — Activity 2: Cumulative Bingo
+   ============================================================ */
+.s13 .steps-row { display: flex; gap: 28px; }
+
+/* ============================================================
+   SLIDE 14 — Game: Writing Relay
+   ============================================================ */
+.s14 .game-layout {
+  display: flex; gap: 64px;
+}
+.s14 .game-rules {
+  flex: 1; display: flex; flex-direction: column; gap: 24px;
+}
+.s14 .game-rule-item {
+  display: flex; align-items: baseline; gap: 16px;
+  font-size: 36px; line-height: 1.5;
+}
+.s14 .game-rule-num {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s14 .game-rounds {
+  flex: 1;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 36px 40px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.s14 .round-item {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 32px;
+}
+.s14 .round-label {
+  font-weight: 600; font-size: 16px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  min-width: 80px;
+}
+.s14 .round-time {
+  font-family: var(--font-display);
+  font-size: 38px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.06em;
+}
+.s14 .round-time.trap { color: var(--coral); }
+.s14 .round-hint { font-size: 20px; color: var(--muted); font-style: italic; }
+
+/* ============================================================
+   SLIDE 15 — Plenary
+   ============================================================ */
+.s15 .sc-revisit { display: flex; flex-direction: column; gap: 36px; max-width: 1400px; }
+.s15 .sc-row {
+  display: flex; align-items: center; gap: 20px;
+  font-size: 38px;
+}
+.s15 .sc-num {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s15 .sc-zh { font-weight: 600; letter-spacing: 0.03em; flex: 1; }
+.s15 .rating {
+  display: flex; gap: 8px;
+}
+.s15 .rating .finger { font-size: 32px; opacity: 0.4; }
+.s15 .self-assess {
+  margin-top: 48px;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 36px 48px;
+}
+.s15 .self-assess .sa-title {
+  font-size: 28px; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 12px;
+}
+.s15 .self-assess .sa-text {
+  font-size: 28px; color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SLIDE 16 — Exit Ticket + Preview
+   ============================================================ */
+.s16 {
+  align-items: center; justify-content: center;
+  gap: 64px; padding: 80px 120px;
+}
+.s16 .exit-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 64px;
+  text-align: center;
+  max-width: 1000px;
+}
+.s16 .exit-label {
+  font-size: 20px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.s16 .exit-task {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em; line-height: 1.4;
+}
+.s16 .exit-hint {
+  font-size: 24px; color: var(--muted);
+  margin-top: 12px;
+}
+.s16 .preview-box {
+  text-align: center;
+}
+.s16 .preview-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 12px;
+}
+.s16 .preview-text {
+  font-size: 32px; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.5;
+}
+.s16 .preview-text .em { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 17 — Pattern Note: X点半 = X点三十分
+   ============================================================ */
+.s17 {
+  align-items: center; justify-content: center;
+  gap: 36px; padding: 80px 120px;
+}
+.s17 .note-visual {
+  display: flex; align-items: center; gap: 40px;
+}
+.s17 .note-block {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+}
+.s17 .note-zh {
+  font-family: var(--font-display);
+  font-size: 72px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.06em;
+}
+.s17 .note-py {
+  font-size: 28px; color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.s17 .note-eq {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--coral);
+}
+.s17 .note-text {
+  margin-top: 32px; text-align: center; max-width: 900px;
+}
+.s17 .note-text .main {
+  font-size: 34px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.5;
+}
+.s17 .note-text .sub {
+  font-size: 24px; color: var(--muted);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.s17 .note-text .em { color: var(--coral); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- ====== SLIDE 1: Cover ====== -->
+  <section class="s1 active" data-index="0">
+    <div class="s1-content">
+      <div class="clock s1-clock">
+        <div class="tick major" style="transform:rotate(0deg)"></div>
+        <div class="tick" style="transform:rotate(30deg)"></div>
+        <div class="tick" style="transform:rotate(60deg)"></div>
+        <div class="tick major" style="transform:rotate(90deg)"></div>
+        <div class="tick" style="transform:rotate(120deg)"></div>
+        <div class="tick" style="transform:rotate(150deg)"></div>
+        <div class="tick major" style="transform:rotate(180deg)"></div>
+        <div class="tick" style="transform:rotate(210deg)"></div>
+        <div class="tick" style="transform:rotate(240deg)"></div>
+        <div class="tick major" style="transform:rotate(270deg)"></div>
+        <div class="tick" style="transform:rotate(300deg)"></div>
+        <div class="tick" style="transform:rotate(330deg)"></div>
+        <div class="hour-hand"></div>
+        <div class="min-hand"></div>
+        <div class="center-dot"></div>
+      </div>
+      <div class="s1-title-zh">几点？半</div>
+      <div class="s1-title-en">What's the Time? — Half Past</div>
+      <div class="s1-meta">
+        <span>Y7 Chinese</span><span class="sep"></span>
+        <span>时间 Unit</span><span class="sep"></span>
+        <span>Lesson 3</span>
+      </div>
+    </div>
+    <div class="page-tag">封面 · Cover</div>
+    <div class="nav-hint">← → 翻页</div>
+  </section>
+
+  <!-- ====== SLIDE 2: Review Part A — Speed Correct ====== -->
+  <section class="s2" data-index="1">
+    <div class="sec-title">复习 · Review</div>
+    <div class="sec-subtitle">Speed Correct — ✓ or ✗ ? Write on paper and hold it up!</div>
+    <div class="speed-list">
+      <div class="speed-row">
+        <span class="speed-num">1</span>
+        <span class="speed-zh">两点</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">2</span>
+        <span class="speed-zh">四点半</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">3</span>
+        <span class="speed-zh">二点十分</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">4</span>
+        <span class="speed-zh">三点五分</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">5</span>
+        <span class="speed-zh">六点零五分</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">6</span>
+        <span class="speed-zh">十二点</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">7</span>
+        <span class="speed-zh">七点零二分</span>
+        <span class="speed-mark">？</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">8</span>
+        <span class="speed-zh">二点半</span>
+        <span class="speed-mark">？</span>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Review A</div>
+  </section>
+
+  <!-- ====== SLIDE 3: Speed Correct 答案揭晓 ====== -->
+  <section class="s3" data-index="2">
+    <div class="sec-title">复习 · 答案揭晓</div>
+    <div class="sec-subtitle">Speed Correct — let's check your answers!</div>
+    <div class="speed-list">
+      <div class="speed-row">
+        <span class="speed-num">1</span>
+        <span class="speed-zh">两点</span>
+        <span class="speed-mark tick">✓</span>
+        <span class="speed-why">正确 — 时间永远用「两」</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">2</span>
+        <span class="speed-zh">四点半</span>
+        <span class="speed-mark tick">✓</span>
+        <span class="speed-why">正确 — 半 preview! Today's topic 🔔</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">3</span>
+        <span class="speed-zh">二点十分</span>
+        <span class="speed-mark cross">✗</span>
+        <span class="speed-why">应该是「两点十分」— 两 not 二!</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">4</span>
+        <span class="speed-zh">三点五分</span>
+        <span class="speed-mark cross">✗</span>
+        <span class="speed-why">应该是「三点零五分」— missing 零!</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">5</span>
+        <span class="speed-zh">六点零五分</span>
+        <span class="speed-mark tick">✓</span>
+        <span class="speed-why">正确 — 零 five pattern</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">6</span>
+        <span class="speed-zh">十二点</span>
+        <span class="speed-mark tick">✓</span>
+        <span class="speed-why">正确 — 12:00 o'clock</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">7</span>
+        <span class="speed-zh">七点零二分</span>
+        <span class="speed-mark tick">✓</span>
+        <span class="speed-why">正确 — 零 two pattern</span>
+      </div>
+      <div class="speed-row">
+        <span class="speed-num">8</span>
+        <span class="speed-zh">二点半</span>
+        <span class="speed-mark cross">✗</span>
+        <span class="speed-why">应该是「两点半」— 两 + 半，big lesson today!</span>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 4: Word Building (Review Part B) ====== -->
+  <section class="s4" data-index="3">
+    <div class="sec-title">词语搭建 · Word Building</div>
+    <div class="sec-subtitle">Textbook p87 — Complete the two-character word. Write on paper!</div>
+    <div class="word-grid">
+      <div class="word-item">
+        <span class="clue">明__</span>
+        <span class="arrow">→</span>
+        <span class="answer">名字</span>
+        <span class="meaning">name</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">什__</span>
+        <span class="arrow">→</span>
+        <span class="answer">什么</span>
+        <span class="meaning">what</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">现__</span>
+        <span class="arrow">→</span>
+        <span class="answer">现在</span>
+        <span class="meaning">now</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">多__</span>
+        <span class="arrow">→</span>
+        <span class="answer">多少</span>
+        <span class="meaning">how many</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">秘__</span>
+        <span class="arrow">→</span>
+        <span class="answer">秘书</span>
+        <span class="meaning">secretary</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">好__</span>
+        <span class="arrow">→</span>
+        <span class="answer">好看</span>
+        <span class="meaning">good-looking</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">年__</span>
+        <span class="arrow">→</span>
+        <span class="answer">年级</span>
+        <span class="meaning">year/grade</span>
+      </div>
+      <div class="word-item">
+        <span class="clue">老__</span>
+        <span class="arrow">→</span>
+        <span class="answer">老师</span>
+        <span class="meaning">teacher</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;font-size:22px;color:var(--muted);">
+      These are words you already know. Building them from memory keeps them fresh!
+    </div>
+    <div class="page-tag">复习 · Review B</div>
+  </section>
+
+  <!-- ====== SLIDE 5: Connection Bridge ====== -->
+  <section class="s5" data-index="4">
+    <div class="bridge-flow">
+      <div class="bridge-chars">点</div>
+      <div class="bridge-arrow">+</div>
+      <div class="bridge-chars">分</div>
+      <div class="bridge-arrow">→</div>
+      <div class="bridge-chars" style="color:var(--coral)">半</div>
+    </div>
+    <div class="bridge-text">你已掌握了整点和分钟时间。<br>今天：半小时 — 最容易的一个！</div>
+    <div class="bridge-en">You can already do o'clock and minutes. Today: half past — the easiest one yet!</div>
+    <div class="page-tag">过渡 · Transition</div>
+  </section>
+
+  <!-- ====== SLIDE 6: Learning Intention & Success Criteria ====== -->
+  <section class="s6" data-index="5">
+    <div class="sec-title">学习目标 · Learning Goals</div>
+    <div class="sec-subtitle">今天学什么？What are we learning today?</div>
+    <div class="li-box">
+      <div class="li-label">Learning Intention</div>
+      <div class="li-text">We are learning to say half-past times using 半, and to choose between 点, 分, and 半 when telling time.</div>
+    </div>
+    <div class="sc-label">Success Criteria — I can…</div>
+    <ul class="criteria-list">
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">用「半」说半点时间</span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">区分「X点半」和「X点三十分」</span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">看钟选择合适的表达：点、分 还是 半</span>
+      </li>
+    </ul>
+    <div class="page-tag">学习目标 · Learning Goals</div>
+  </section>
+
+  <!-- ====== SLIDE 7: New Vocabulary — 半 ====== -->
+  <section class="s7" data-index="6">
+    <div class="s7-vocab-char">半</div>
+    <div class="s7-vocab-py">bàn</div>
+    <div class="s7-vocab-en">half</div>
+    <div class="s7-clock-wrap">
+      <div class="clock mini-clock">
+        <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+        <div class="hour-hand"></div>
+        <div class="min-hand"></div>
+        <div class="center-dot"></div>
+      </div>
+      <div class="sample-time">两点半 = 2:30</div>
+    </div>
+    <div class="s7-note">「半」放在数字 + 点 后面，表示半点。<br>Place <span style="color:var(--coral);font-weight:600">半</span> after the number + 点 to say half past.</div>
+    <div class="page-tag">新词汇 · New Vocabulary</div>
+  </section>
+
+  <!-- ====== SLIDE 8: Key Pattern — X点半 = X:30 ====== -->
+  <section class="s8" data-index="7">
+    <div class="sec-title">句型 · Key Pattern</div>
+    <div class="sec-subtitle">How to say half-past times — the easiest one!</div>
+    <div class="pattern-formula">数字 + 点 + <span class="hl">半</span> = X:30</div>
+    <div class="clock-row">
+      <div class="clock-cell">
+        <div class="clock big-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(75deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="time-label">两点半</div>
+        <div class="time-py">liǎng diǎn bàn · 2:30</div>
+      </div>
+      <div class="clock-cell">
+        <div class="clock big-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(195deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="time-label">六点半</div>
+        <div class="time-py">liù diǎn bàn · 6:30</div>
+      </div>
+      <div class="clock-cell">
+        <div class="clock big-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(345deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="time-label">十一点半</div>
+        <div class="time-py">shíyī diǎn bàn · 11:30</div>
+      </div>
+      <div class="clock-cell">
+        <div class="clock big-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(15deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="time-label">十二点半</div>
+        <div class="time-py">shí'èr diǎn bàn · 12:30</div>
+      </div>
+    </div>
+    <div class="page-tag">句型 · Pattern</div>
+  </section>
+
+  <!-- ====== SLIDE 9: Pattern Note — X点半 = X点三十分 ====== -->
+  <section class="s17" data-index="8">
+    <div class="sec-title">你知道吗？· Did You Know?</div>
+    <div class="sec-subtitle">Both ways are correct — but one is much more common!</div>
+    <div class="note-visual">
+      <div class="note-block">
+        <div class="note-zh">两点半</div>
+        <div class="note-py">liǎng diǎn bàn</div>
+      </div>
+      <div class="note-eq">=</div>
+      <div class="note-block">
+        <div class="note-zh" style="font-size:60px;color:var(--muted)">两点三十分</div>
+        <div class="note-py">liǎng diǎn sānshí fēn</div>
+      </div>
+    </div>
+    <div class="note-text">
+      <div class="main">X点半 = X点三十分 — 两个都对！</div>
+      <div class="sub"><span class="em">半</span> 是快捷方式，说话时更常用。<br><span class="em">半</span> is the shortcut — more common in everyday speech.</div>
+    </div>
+    <div class="page-tag">重点 · Key Note</div>
+  </section>
+
+  <!-- ====== SLIDE 10: Critical Rule — 两点半 ≠ 二点半 ====== -->
+  <section class="s9" data-index="9">
+    <div class="s9-visual">
+      <div class="s9-correct">
+        <div class="chars">两点半</div>
+        <div class="py-line">liǎng diǎn bàn</div>
+      </div>
+      <div class="s9-vs">≠</div>
+      <div class="s9-wrong">
+        <div class="char-wrap">
+          <div class="chars">二点半</div>
+          <div class="x-mark">✕</div>
+        </div>
+        <div class="py-line">èr diǎn bàn</div>
+      </div>
+    </div>
+    <div class="s9-text">
+      <div class="main">「半」前面的<span class="em">「两」</span>规则不变！<br>2:30 永远是 <span class="em">两点半</span>，不是二点半</div>
+      <div class="sub">The <span class="em">两</span> rule does not change when you add 半 — 2:30 is always 两点半, never 二点半.</div>
+    </div>
+    <div class="page-tag">重点教学 · Key Point</div>
+  </section>
+
+  <!-- ====== SLIDE 11: Cumulative Comparison Chart ====== -->
+  <section class="s10" data-index="10">
+    <div class="sec-title">句型对比 · Pattern Comparison</div>
+    <div class="sec-subtitle">Which pattern should you use? 点？分？还是半？</div>
+    <table class="chart-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Pattern</th>
+          <th>Chinese</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="digit">3:00</td>
+          <td class="pattern">点</td>
+          <td class="zh">三点</td>
+        </tr>
+        <tr>
+          <td class="digit">7:20</td>
+          <td class="pattern">分</td>
+          <td class="zh">七点二十分</td>
+        </tr>
+        <tr style="background:var(--rule-bg)">
+          <td class="digit">6:30</td>
+          <td class="pattern" style="font-size:48px">半</td>
+          <td class="zh">六点半</td>
+        </tr>
+        <tr>
+          <td class="digit">9:05</td>
+          <td class="pattern">分 + 零</td>
+          <td class="zh">九点零五分</td>
+        </tr>
+        <tr style="background:var(--rule-bg)">
+          <td class="digit">2:30</td>
+          <td class="pattern">半 + <span style="font-size:28px">两!</span></td>
+          <td class="zh">两点半</td>
+        </tr>
+        <tr>
+          <td class="digit">11:11</td>
+          <td class="pattern">分 (no 零)</td>
+          <td class="zh">十一点十一分</td>
+        </tr>
+        <tr>
+          <td class="digit">12:00</td>
+          <td class="pattern">点</td>
+          <td class="zh">十二点</td>
+        </tr>
+        <tr>
+          <td class="digit">5:07</td>
+          <td class="pattern">分 + 零</td>
+          <td class="zh">五点零七分</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-tag">句型对比 · Comparison</div>
+  </section>
+
+  <!-- ====== SLIDE 12: CFU Checkpoints ====== -->
+  <section class="s9" data-index="11">
+    <div class="sec-title">检查理解 · Check for Understanding</div>
+    <div class="sec-subtitle">Show your answer — fingers, thumbs, or paper!</div>
+    <div class="cfu-list">
+      <div class="cfu-item">
+        <span class="cfu-num">1</span>
+        <span>2:30 — fingers: 1 for 两点半, 2 for 二点半</span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">2</span>
+        <span>四点半 and 四点三十分 — same? Thumbs up = yes, thumbs down = no</span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">3</span>
+        <span>Write 8:30 in Chinese on paper. Hold it up!</span>
+      </div>
+    </div>
+    <div class="page-tag">检测 · Check</div>
+  </section>
+
+  <!-- ====== SLIDE 13: CFU 答案揭晓 ====== -->
+  <section class="s9" data-index="12">
+    <div class="sec-title">检查理解 · 答案揭晓</div>
+    <div class="sec-subtitle">Let's check — did you get them right?</div>
+    <div class="cfu-list">
+      <div class="cfu-item">
+        <span class="cfu-num">1</span>
+        <span>2:30 — 两点半 or 二点半?</span>
+        <span class="finger-hint"><span class="yes">☝ 1 — 两点半！永远用「两」</span></span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">2</span>
+        <span>四点半 = 四点三十分?</span>
+        <span class="finger-hint"><span class="yes">👍 Yes! Both are correct — 半 is the shortcut</span></span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">3</span>
+        <span>Write 8:30 in Chinese</span>
+        <span class="finger-hint" style="color:var(--charcoal);font-weight:600">→ 八点半（or 八点三十分，both OK!）</span>
+      </div>
+    </div>
+    <div class="page-tag">检测 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 14: Activity 1 — Cumulative Clock Flash ====== -->
+  <section class="s12" data-index="13">
+    <div class="act-header">
+      <div class="clock act-icon-clock">
+        <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+        <div class="hour-hand"></div>
+        <div class="min-hand"></div>
+        <div class="center-dot"></div>
+      </div>
+      <div>
+        <div class="sec-title" style="margin-bottom:4px">累计闪卡 · Cumulative Clock Flash</div>
+        <div class="sec-subtitle" style="margin-bottom:0">We Do — whole class choral response</div>
+      </div>
+    </div>
+    <div class="instr-list">
+      <div class="instr-item">
+        <span class="instr-num">1</span>
+        <span>Projector shows <strong>20 clock faces</strong> — a mix of o'clock, minutes, and half-past</span>
+      </div>
+      <div class="instr-item">
+        <span class="instr-num">2</span>
+        <span>Everyone says the time <strong>together in Chinese</strong> — start slow, speed up!</span>
+      </div>
+      <div class="instr-item">
+        <span class="instr-num">3</span>
+        <span>2:30 appears — pause! Remember: <strong>两点半</strong>, not 二点半!</span>
+      </div>
+      <div class="instr-item">
+        <span class="instr-num">★</span>
+        <span>Extension: add <strong>现在</strong> before every answer — 现在三点半，现在六点…</span>
+      </div>
+    </div>
+    <div class="scaffold-box">
+      <span>Scaffold:</span>
+      <span class="formula">点 / 分 / 半</span>
+      <span style="color:var(--muted)">— pattern chart visible for first 10, hidden for last 10</span>
+    </div>
+    <div class="page-tag">活动 · Activity 1</div>
+  </section>
+
+  <!-- ====== SLIDE 15: Activity 2 — Cumulative Bingo ====== -->
+  <section class="s13" data-index="14">
+    <div class="sec-title">累计宾果 · Cumulative Bingo</div>
+    <div class="sec-subtitle">You Do — 3×3 grid with mixed times</div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-role">准备 · Setup</div>
+        <div class="step-action">Each student gets a pre-printed Bingo card — 9 squares with digital times</div>
+        <div class="step-note">Mix of o'clock, minutes (with/without 零), and half-past</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-role">游戏 · Play</div>
+        <div class="step-action">Teacher calls times in Chinese — students <strong>circle the matching digit</strong></div>
+        <div class="step-note">First to complete a row wins! Winner reads their row back in Chinese.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-role">扩展 · Extend</div>
+        <div class="step-action">Winners must also say <strong>which pattern</strong> each time uses</div>
+        <div class="step-note">点、分 (with/without 零), or 半? Pattern reference on projector.</div>
+      </div>
+    </div>
+    <div class="page-tag">活动 · Activity 2</div>
+  </section>
+
+  <!-- ====== SLIDE 16: Game — Writing Relay ====== -->
+  <section class="s14" data-index="15">
+    <div class="sec-title">写字接力 · Writing Relay</div>
+    <div class="sec-subtitle">4 teams — run, write, win!</div>
+    <div class="game-layout">
+      <div class="game-rules">
+        <div class="game-rule-item">
+          <span class="game-rule-num">1</span>
+          <span>Class in <strong>4 teams</strong> — line up, first student ready at the board</span>
+        </div>
+        <div class="game-rule-item">
+          <span class="game-rule-num">2</span>
+          <span>Teacher calls a time in English — <strong>first student runs and writes it in Chinese</strong></span>
+        </div>
+        <div class="game-rule-item">
+          <span class="game-rule-num">3</span>
+          <span>First student runs back, <strong>next student goes</strong> for the next time</span>
+        </div>
+        <div class="game-rule-item">
+          <span class="game-rule-num">★</span>
+          <span>Fastest <strong>correct</strong> team wins the point! Watch out for traps…</span>
+        </div>
+      </div>
+      <div class="game-rounds">
+        <div style="font-size:20px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Rounds</div>
+        <div class="round-item">
+          <span class="round-label">Round 1</span>
+          <span class="round-time">三点</span>
+          <span class="round-hint">warm-up</span>
+        </div>
+        <div class="round-item">
+          <span class="round-label">Round 2</span>
+          <span class="round-time">八点半</span>
+        </div>
+        <div class="round-item">
+          <span class="round-label">Round 3</span>
+          <span class="round-time trap">五点零五分</span>
+          <span class="round-hint">← 零 trap!</span>
+        </div>
+        <div class="round-item">
+          <span class="round-label">Round 4</span>
+          <span class="round-time trap">两点半</span>
+          <span class="round-hint">← 两 trap!</span>
+        </div>
+        <div class="round-item">
+          <span class="round-label">Round 5</span>
+          <span class="round-time">十二点半</span>
+        </div>
+        <div class="round-item">
+          <span class="round-label">Round 6</span>
+          <span class="round-time">九点十一分</span>
+          <span class="round-hint">no 零 needed</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-tag">游戏 · Game</div>
+  </section>
+
+  <!-- ====== SLIDE 17: Plenary ====== -->
+  <section class="s15" data-index="16">
+    <div class="sec-title">总结 · Plenary</div>
+    <div class="sec-subtitle">Revisit Success Criteria — how did we go?</div>
+    <div class="sc-revisit">
+      <div class="sc-row">
+        <span class="sc-num">1</span>
+        <span class="sc-zh">I can say half-past times using 半</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">2</span>
+        <span class="sc-zh">I can tell the difference between X点半 and X点三十分</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">3</span>
+        <span class="sc-zh">I can pick the right pattern — 点, 分, or 半 — when I see a clock</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+    </div>
+    <div class="self-assess">
+      <div class="sa-title">自我评估 · Self-assessment</div>
+      <div class="sa-text">On your paper, <strong>draw a clock showing a time you find easy</strong> to say in Chinese. Then <strong>draw a clock showing a time you find hard</strong>. Teacher will scan to see which patterns need more work.</div>
+    </div>
+    <div class="page-tag">总结 · Plenary</div>
+  </section>
+
+  <!-- ====== SLIDE 18: Exit Ticket + Preview ====== -->
+  <section class="s16" data-index="17">
+    <div class="exit-box">
+      <div class="exit-label">Exit Ticket · 出门票</div>
+      <div class="exit-task">老师说「Half past two」<br>你写中文</div>
+      <div class="exit-hint">Write your answer on paper and hand it to the teacher on your way out.<br>Hint: 两 + 半 — the double trap!</div>
+    </div>
+    <div class="preview-box">
+      <div class="preview-label">下节课预告 · Next Lesson</div>
+      <div class="preview-text">We'll add <span class="em">quarters — 刻</span>.<br>You'll be able to say :15 and :45 — then you can tell ANY time!</div>
+    </div>
+    <div class="page-tag">下课 · Exit</div>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   Auto-scale + keyboard navigation + click
+   ============================================================ */
+(function() {
+  const stage = document.getElementById('stage');
+  const sections = Array.from(stage.querySelectorAll('section'));
+  let current = 0;
+
+  function fit() {
+    const ww = window.innerWidth;
+    const wh = window.innerHeight;
+    const scale = Math.min(ww / 1920, wh / 1080);
+    stage.style.transform = 'translate(' + ((ww - 1920 * scale) / 2) + 'px, ' + ((wh - 1080 * scale) / 2) + 'px) scale(' + scale + ')';
+  }
+
+  function show(idx) {
+    sections.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+    current = idx;
+  }
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      if (current < sections.length - 1) show(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (current > 0) show(current - 1);
+    }
+  });
+
+  stage.addEventListener('click', function(e) {
+    var rect = stage.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var w = rect.width;
+    if (x > w / 2 && current < sections.length - 1) {
+      show(current + 1);
+    } else if (x < w / 2 && current > 0) {
+      show(current - 1);
+    }
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+
+</body>
+</html>

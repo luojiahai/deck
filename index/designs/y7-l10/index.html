@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y7 Chinese · 时间 Unit · 课件</title>
+<style>
+:root {
+  --cream: #FEFAF5; --cream-warm: #FAF6F0;
+  --charcoal: #2C2416; --charcoal-soft: #4A4236;
+  --muted: #9B8E7E; --muted-light: #C4BAAA;
+  --coral: #D4543A; --coral-soft: #E8A080;
+  --rule-bg: #F5F0E8; --divider: #E8E0D5;
+  --green: #5B8C6F;
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', serif;
+  --font-body: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #F2EFEA; color: var(--charcoal);
+  font-family: var(--font-body); min-height: 100vh;
+  text-wrap: pretty;
+}
+
+.hero-strip {
+  padding: 80px 96px 48px;
+}
+.hero-strip .label {
+  font-size: 18px; font-weight: 600; letter-spacing: 0.12em;
+  color: var(--coral); text-transform: uppercase; margin-bottom: 12px;
+}
+.hero-strip h1 {
+  font-family: var(--font-display);
+  font-size: 64px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.2;
+}
+.hero-strip h1 .hl { color: var(--coral); }
+.hero-strip .meta {
+  margin-top: 16px; font-size: 22px; color: var(--muted);
+  display: flex; gap: 32px; flex-wrap: wrap;
+}
+.hero-strip .meta strong { color: var(--charcoal); font-weight: 600; }
+
+.grammar-strip {
+  padding: 0 96px 48px;
+}
+.grammar-strip h3 {
+  font-size: 22px; font-weight: 600; color: var(--muted);
+  letter-spacing: 0.06em; margin-bottom: 16px;
+}
+.grammar-strip .flow {
+  display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+}
+.grammar-strip .step {
+  background: #FFFBF7; border: 1px solid var(--divider);
+  border-radius: 12px; padding: 12px 24px;
+  font-size: 18px; font-weight: 600; color: var(--charcoal);
+}
+.grammar-strip .step .pattern { color: var(--coral); }
+.grammar-strip .arrow { font-size: 24px; color: var(--coral); }
+
+.lesson-grid {
+  padding: 0 96px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+@media (max-width: 1600px) {
+  .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.lesson-card {
+  background: #FFFBF7;
+  border: 1px solid var(--divider);
+  border-radius: 20px;
+  padding: 36px 32px;
+  text-decoration: none; color: var(--charcoal);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  position: relative; overflow: hidden;
+}
+.lesson-card:hover {
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+  transform: translateY(-2px); border-color: var(--coral);
+}
+.lesson-card .num {
+  font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--coral); text-transform: uppercase;
+}
+.lesson-card h3 {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 700; letter-spacing: 0.03em;
+}
+.lesson-card .py {
+  font-size: 18px; color: var(--muted);
+}
+.lesson-card .desc {
+  font-size: 16px; color: var(--muted); line-height: 1.5;
+}
+.lesson-card .badges {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
+}
+.lesson-card .badges span {
+  font-size: 13px; font-weight: 600; padding: 4px 10px;
+  border-radius: 6px; background: var(--rule-bg); color: var(--muted);
+}
+.lesson-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; background: var(--coral); border-radius: 4px 0 0 4px;
+  opacity: 0; transition: opacity 0.25s;
+}
+.lesson-card:hover::before { opacity: 1; }
+
+footer {
+  padding: 32px 96px; border-top: 1px solid var(--divider);
+  font-size: 15px; color: var(--muted); text-align: center;
+}
+footer a { color: var(--coral); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero-strip">
+  <div class="label">Courseware · 课件</div>
+  <h1>时间 · <span class="hl">Telling the Time</span></h1>
+  <div class="meta">
+    <span><strong>轻松学中文</strong> · Time Unit</span>
+    <span><strong>Year 7 Chinese</strong> · 七年级中文</span>
+    <span><strong>8 lessons</strong> × 50 min</span>
+    <span><strong>Est.</strong> ~120 slides</span>
+  </div>
+</div>
+
+<div class="grammar-strip">
+  <h3>Pattern Progression · 句型递进</h3>
+  <div class="flow">
+    <span class="step">L1 · <span class="pattern">X + 点</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L2 · <span class="pattern">X点Y分</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L3 · <span class="pattern">X点半</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L4 · <span class="pattern">X点Y刻</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L5 · <span class="pattern">差X分Y点</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L6 · <span class="pattern">现在几点?</span></span>
+    <span class="arrow">→</span>
+    <span class="step">L7 · Mixed Practice</span>
+    <span class="arrow">→</span>
+    <span class="step">L8 · Review + Test</span>
+  </div>
+</div>
+
+<div class="lesson-grid">
+
+  <a href="slides/l1-oclock.html" class="lesson-card">
+    <span class="num">Lesson 1</span>
+    <h3>几点？</h3>
+    <span class="py">Jǐ diǎn? · What's the Time?</span>
+    <span class="desc">Numbers review + o'clock（点）— textbook p84/p87 warm-up, key rule 两点≠二点, clock flash, telephone game, exit ticket</span>
+    <div class="badges">
+      <span>16 slides</span><span>🔢 Numbers</span><span>🕐 点</span><span>🎮 Game</span>
+    </div>
+  </a>
+
+  <a href="slides/l2-minutes.html" class="lesson-card">
+    <span class="num">Lesson 2</span>
+    <h3>几点几分？</h3>
+    <span class="py">Jǐ diǎn jǐ fēn? · Minutes</span>
+    <span class="desc">Adding minutes（分）— X点Y分 pattern, 零五 rule, clock drawing, listening bingo</span>
+    <div class="badges">
+      <span>~16 slides</span><span>🕐 分</span><span>🎧 Listening</span>
+    </div>
+  </a>
+
+  <a href="slides/l3-half-past.html" class="lesson-card">
+    <span class="num">Lesson 3</span>
+    <h3>几点半？</h3>
+    <span class="py">Jǐ diǎn bàn? · Half Past</span>
+    <span class="desc">Half past（半）— X点半 = X:30, clock hands at half-past position, pair speaking practice</span>
+    <div class="badges">
+      <span>~15 slides</span><span>🕐 半</span><span>🗣️ Speaking</span>
+    </div>
+  </a>
+
+  <a href="slides/l4-quarters.html" class="lesson-card">
+    <span class="num">Lesson 4</span>
+    <h3>几点几刻？</h3>
+    <span class="py">Jǐ diǎn jǐ kè? · Quarters</span>
+    <span class="desc">Quarters（刻）— 一刻:15 / 三刻:45, rule 三刻≠四刻, clock bingo, all patterns so far</span>
+    <div class="badges">
+      <span>~15 slides</span><span>🕐 刻</span><span>🎮 Bingo</span>
+    </div>
+  </a>
+
+  <a href="slides/l5-minutes-to.html" class="lesson-card">
+    <span class="num">Lesson 5</span>
+    <h3>差几分？</h3>
+    <span class="py">Chà jǐ fēn? · Minutes To</span>
+    <span class="desc">Minutes to（差）— 差X分Y点 = X to Y, visual clock arcs, train schedule reading</span>
+    <div class="badges">
+      <span>~16 slides</span><span>🕐 差</span><span>🚂 Reading</span>
+    </div>
+  </a>
+
+  <a href="slides/l6-asking-time.html" class="lesson-card">
+    <span class="num">Lesson 6</span>
+    <h3>现在几点？</h3>
+    <span class="py">Xiànzài jǐ diǎn? · Asking the Time</span>
+    <span class="desc">Conversation — 现在几点? Q&A with ALL 5 patterns, pair dialogues, daily schedule speaking</span>
+    <div class="badges">
+      <span>~16 slides</span><span>💬 Dialogue</span><span>🗣️ Speaking</span>
+    </div>
+  </a>
+
+  <a href="slides/l7-mixed-practice.html" class="lesson-card">
+    <span class="num">Lesson 7</span>
+    <h3>综合练习</h3>
+    <span class="py">Zōnghé liànxí · Mixed Practice</span>
+    <span class="desc">All 5 patterns mixed — random clock flash, listening dictation, daily schedule writing, pair Q&A</span>
+    <div class="badges">
+      <span>~16 slides</span><span>🔄 Mixed</span><span>✏️ Writing</span>
+    </div>
+  </a>
+
+  <a href="slides/l8-review-test-prep.html" class="lesson-card">
+    <span class="num">Lesson 8</span>
+    <h3>复习与测验</h3>
+    <span class="py">Fùxí yǔ cèyàn · Review + Test</span>
+    <span class="desc">Full review + practice test — common mistakes, listening/reading/writing sections, final game 🎉</span>
+    <div class="badges">
+      <span>~18 slides</span><span>📝 Test</span><span>🔍 Review</span><span>🎉</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  Built with Huashu-Design · 轻松学中文 · Y7 Chinese — Time Unit · 8-lesson courseware
+</footer>
+
+</body>
+</html>

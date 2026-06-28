@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时间奥运会 · Y7 Chinese · 时间 Unit Lesson 7</title>
+<style>
+/* ============================================================
+   CHINEASY DESIGN GRAMMAR — Y7 Chinese Courseware
+   时间 Unit · Lesson 7: Mixed Practice — Time Olympics
+   Palette: warm cream + charcoal + coral accent
+   ============================================================ */
+
+:root {
+  --cream:        #FEFAF5;
+  --cream-warm:   #FAF6F0;
+  --charcoal:     #2C2416;
+  --charcoal-soft:#4A4236;
+  --muted:        #9B8E7E;
+  --muted-light:  #C4BAAA;
+  --coral:        #D4543A;
+  --coral-soft:   #E8A080;
+  --rule-bg:      #F5F0E8;
+  --divider:      #E8E0D5;
+  --green-check:  #5B8C6F;
+  --gold:         #C4923A;
+  --silver:       #8A8A8A;
+  --bronze:       #B8733A;
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', 'SimSun', serif;
+  --font-body:    'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  background: #1a1a1a;
+  font-family: var(--font-body);
+}
+
+.stage {
+  width: 1920px; height: 1080px;
+  overflow: hidden; position: relative;
+  background: var(--cream);
+  color: var(--charcoal);
+  transform-origin: top left;
+  text-wrap: pretty;
+}
+
+section {
+  display: none;
+  width: 1920px; height: 1080px;
+  position: absolute; top: 0; left: 0;
+  flex-direction: column;
+  padding: 80px 120px 80px 120px;
+  justify-content: center;
+}
+section.active { display: flex; }
+
+/* ============================================================
+   SHARED COMPONENTS
+   ============================================================ */
+
+.page-tag {
+  position: absolute;
+  bottom: 32px; right: 48px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted-light);
+  z-index: 2;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.sec-subtitle {
+  font-size: 26px; color: var(--muted);
+  letter-spacing: 0.03em;
+  margin-bottom: 48px;
+}
+
+.warm-panel {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 56px;
+  width: 100%;
+}
+
+.criteria-list {
+  list-style: none; display: flex; flex-direction: column; gap: 24px;
+}
+.criteria-list li {
+  font-size: 36px; line-height: 1.4;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.checkbox {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border: 2px solid var(--charcoal);
+  border-radius: 6px;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* CSS Clock */
+.clock {
+  border-radius: 50%;
+  border: 2.5px solid var(--charcoal);
+  position: relative;
+  background: var(--cream);
+}
+.clock .tick {
+  position: absolute;
+  width: 2px; height: 6px;
+  background: var(--charcoal);
+  left: 50%; margin-left: -1px;
+  top: 4px;
+}
+.clock .tick.major { height: 11px; width: 2.5px; }
+.clock .hour-hand {
+  position: absolute;
+  width: 4px; height: 30%;
+  background: var(--charcoal);
+  left: 50%; margin-left: -2px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 2px;
+}
+.clock .min-hand {
+  position: absolute;
+  width: 2px; height: 42%;
+  background: var(--coral);
+  left: 50%; margin-left: -1px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 1px;
+}
+.clock .center-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Clock size variants — tick transform-origin = (size/2 - 4)px */
+.ck-90  .tick { transform-origin: 50% 41px; }
+.ck-100 .tick { transform-origin: 50% 46px; }
+.ck-110 .tick { transform-origin: 50% 51px; }
+.ck-120 .tick { transform-origin: 50% 56px; }
+.ck-130 .tick { transform-origin: 50% 61px; }
+.ck-140 .tick { transform-origin: 50% 66px; }
+.ck-160 .tick { transform-origin: 50% 76px; }
+.ck-180 .tick { transform-origin: 50% 86px; }
+
+/* Activity step card */
+.step-card {
+  flex: 1;
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.step-card .step-num {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--divider); line-height: 1;
+  user-select: none;
+}
+.step-card .step-role {
+  font-size: 16px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.step-card .step-action {
+  font-family: var(--font-display);
+  font-size: 34px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.step-card .step-note {
+  font-size: 20px; color: var(--muted);
+  line-height: 1.5;
+}
+
+/* CFU list */
+.cfu-list { display: flex; flex-direction: column; gap: 32px; max-width: 1500px; }
+.cfu-item {
+  display: flex; align-items: flex-start; gap: 24px;
+  font-size: 36px; font-weight: 500;
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.cfu-num {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 700;
+  color: var(--muted-light); min-width: 44px;
+  text-align: right; user-select: none;
+}
+
+/* Nav hint */
+.nav-hint {
+  position: absolute;
+  bottom: 32px; left: 48px;
+  font-size: 14px; color: var(--muted-light);
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+/* ============================================================
+   SLIDE 1 — 封面 · Cover
+   ============================================================ */
+.s1 {
+  align-items: center; justify-content: center;
+  background: linear-gradient(175deg, #FEFAF5 0%, #FBF6EF 40%, #F8F2E8 100%);
+  padding: 0;
+}
+.s1::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px; height: 720px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  opacity: 0.45; pointer-events: none;
+}
+.s1-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0;
+}
+.s1-crown {
+  font-size: 64px; line-height: 1;
+  margin-bottom: 24px;
+}
+.s1-title-zh {
+  font-family: var(--font-display);
+  font-size: 88px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.06em; line-height: 1.15;
+}
+.s1-title-en {
+  font-family: var(--font-body);
+  font-size: 28px; font-weight: 400;
+  color: var(--muted); letter-spacing: 0.04em;
+  margin-top: 10px;
+}
+.s1-meta {
+  margin-top: 48px;
+  font-size: 18px; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.06em;
+  display: flex; gap: 14px; align-items: center;
+}
+.s1-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--muted-light); }
+
+/* ============================================================
+   SLIDE 2 — Quick Review: 5 Patterns
+   ============================================================ */
+.s2 .pattern-grid {
+  display: flex; gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.s2 .pattern-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 18px;
+  width: 260px;
+}
+.s2 .pattern-cell .p-clock { width: 140px; height: 140px; }
+.s2 .pattern-cell .p-time {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.06em;
+}
+.s2 .pattern-cell .p-py {
+  font-size: 20px; color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.s2 .pattern-cell .p-tag {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--coral);
+  background: var(--rule-bg);
+  padding: 6px 18px; border-radius: 6px;
+}
+
+/* ============================================================
+   SLIDE 3 — Pattern Sprint (Warm-up Clocks)
+   ============================================================ */
+.s3 .sprint-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 60px;
+  max-width: 1500px;
+  align-self: center;
+}
+.s3 .sprint-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+}
+.s3 .sprint-cell .sp-clock { width: 110px; height: 110px; }
+.s3 .sprint-cell .sp-num {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  color: var(--muted-light);
+}
+
+/* ============================================================
+   SLIDE 4 — Learning Intention & Success Criteria
+   ============================================================ */
+.s4 .li-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 40px 56px;
+  margin-bottom: 40px;
+}
+.s4 .li-box .li-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.s4 .li-box .li-text {
+  font-size: 40px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.s4 .sc-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   SLIDE 5 — Round 1: Listening Relay Rules
+   ============================================================ */
+.s5 .steps-row {
+  display: flex; gap: 28px;
+  margin-bottom: 40px;
+}
+.s5 .score-note {
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 28px 40px;
+  font-size: 28px; font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.s5 .score-note .pts { color: var(--coral); font-family: var(--font-display); font-size: 42px; }
+
+/* ============================================================
+   SLIDE 6 — Round 1: Listening Items (Teacher Prompt)
+   ============================================================ */
+.s6 .listen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 60px;
+  max-width: 1500px;
+  align-self: center;
+}
+.s6 .listen-item {
+  display: flex; align-items: baseline; gap: 14px;
+  font-size: 32px; line-height: 1.6;
+}
+.s6 .listen-num {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 40px; text-align: right;
+  user-select: none;
+}
+.s6 .listen-zh { font-weight: 600; letter-spacing: 0.04em; }
+.s6 .listen-py { font-size: 18px; color: var(--muted); }
+
+/* ============================================================
+   SLIDE 7 — Round 1: 答案揭晓
+   ============================================================ */
+.s7 .answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 60px;
+  max-width: 1500px;
+  align-self: center;
+}
+.s7 .answer-item {
+  display: flex; align-items: baseline; gap: 18px;
+  font-size: 32px; line-height: 1.6;
+}
+.s7 .answer-num {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 40px; text-align: right;
+  user-select: none;
+}
+.s7 .answer-zh { font-weight: 600; letter-spacing: 0.04em; }
+.s7 .answer-digit {
+  font-family: var(--font-display);
+  font-size: 30px; font-weight: 700;
+  color: var(--coral);
+  margin-left: auto;
+}
+
+/* ============================================================
+   SLIDE 8 — Round 2: Speaking Sprint
+   ============================================================ */
+.s8 .speak-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 40px;
+  max-width: 1500px;
+  align-self: center;
+}
+.s8 .speak-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+}
+.s8 .speak-cell .sk-clock { width: 120px; height: 120px; }
+.s8 .speak-cell .sk-num {
+  font-size: 22px; font-weight: 700;
+  color: var(--muted-light);
+}
+
+/* ============================================================
+   SLIDE 9 — Round 2: Answers Revealed + Bonus
+   ============================================================ */
+.s9 .speak-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 32px;
+  max-width: 1500px;
+  align-self: center;
+}
+.s9 .speak-answer-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+}
+.s9 .speak-answer-cell .sa-clock { width: 110px; height: 110px; }
+.s9 .speak-answer-cell .sa-time {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.05em;
+}
+.s9 .speak-answer-cell .sa-py {
+  font-size: 16px; color: var(--muted);
+}
+.s9 .bonus-row {
+  display: flex; gap: 60px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.s9 .bonus-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral);
+  margin-top: 40px; margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ============================================================
+   SLIDE 10 — Round 3: Error Hunter (Questions)
+   ============================================================ */
+.s10 .error-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 40px;
+  max-width: 1550px;
+  align-self: center;
+}
+.s10 .error-item {
+  font-size: 34px; font-weight: 600;
+  letter-spacing: 0.04em;
+  display: flex; align-items: baseline; gap: 14px;
+}
+.s10 .error-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 36px; text-align: right;
+  user-select: none;
+}
+.s10 .error-zh { font-family: var(--font-display); }
+
+/* ============================================================
+   SLIDE 11 — Round 3: Error Hunter 答案揭晓
+   ============================================================ */
+.s11 .error-answer-list {
+  display: flex; flex-direction: column; gap: 16px;
+  max-width: 1550px;
+}
+.s11 .error-answer-row {
+  display: flex; align-items: baseline; gap: 16px;
+  font-size: 30px; line-height: 1.5;
+}
+.s11 .ea-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 40px; text-align: right;
+  user-select: none;
+}
+.s11 .ea-judge { font-weight: 700; min-width: 32px; }
+.s11 .ea-judge.yes { color: var(--green-check); }
+.s11 .ea-judge.no  { color: var(--coral); }
+.s11 .ea-orig { font-family: var(--font-display); min-width: 160px; letter-spacing: 0.04em; }
+.s11 .ea-arrow { color: var(--muted-light); margin: 0 8px; }
+.s11 .ea-correct { font-family: var(--font-display); font-weight: 700; color: var(--green-check); letter-spacing: 0.04em; }
+.s11 .ea-reason { font-size: 20px; color: var(--muted); font-style: italic; margin-left: 8px; }
+
+/* ============================================================
+   SLIDE 12 — Round 4: Champion's Choice (Questions)
+   ============================================================ */
+.s12 .champ-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 60px;
+  max-width: 1550px;
+  align-self: center;
+}
+.s12 .champ-item {
+  display: flex; align-items: center; gap: 20px;
+}
+.s12 .champ-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 36px; text-align: right;
+  user-select: none;
+}
+.s12 .champ-clock { width: 90px; height: 90px; flex-shrink: 0; }
+.s12 .champ-opts {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.s12 .champ-opt {
+  font-size: 28px; letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 10px;
+}
+.s12 .champ-opt .opt-letter {
+  font-weight: 700; color: var(--muted);
+  font-size: 22px;
+  min-width: 28px;
+}
+.s12 .champ-opt .opt-zh { font-family: var(--font-display); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 13 — Round 4: Champion's Choice 答案揭晓
+   ============================================================ */
+.s13 .champ-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 60px;
+  max-width: 1550px;
+  align-self: center;
+}
+.s13 .champ-answer-item {
+  display: flex; align-items: center; gap: 18px;
+}
+.s13 .ca-num {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 700;
+  color: var(--muted-light);
+  min-width: 34px; text-align: right;
+}
+.s13 .ca-best {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--green-check);
+  letter-spacing: 0.04em;
+  min-width: 160px;
+}
+.s13 .ca-why {
+  font-size: 18px; color: var(--muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   SLIDE 14 — Medal Ceremony
+   ============================================================ */
+.s14 {
+  align-items: center; justify-content: center;
+  gap: 48px; padding: 80px 120px;
+}
+.s14 .medal-title {
+  font-family: var(--font-display);
+  font-size: 64px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.06em;
+}
+.s14 .score-summary {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 40px 64px;
+  text-align: center;
+  max-width: 1200px;
+}
+.s14 .score-summary .total-label {
+  font-size: 22px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.s14 .score-summary .total-score {
+  font-family: var(--font-display);
+  font-size: 72px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em;
+}
+.s14 .score-summary .total-max {
+  font-size: 24px; color: var(--muted);
+  margin-bottom: 36px;
+}
+.s14 .medal-row {
+  display: flex; gap: 48px;
+  justify-content: center;
+}
+.s14 .medal-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 36px 48px;
+  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  border: 1px solid var(--divider);
+}
+.s14 .medal-card .medal-icon { font-size: 56px; line-height: 1; }
+.s14 .medal-card .medal-name {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+}
+.s14 .medal-card.gold .medal-name { color: var(--gold); }
+.s14 .medal-card.silver .medal-name { color: var(--silver); }
+.s14 .medal-card.bronze .medal-name { color: var(--bronze); }
+.s14 .medal-card .medal-range {
+  font-size: 20px; color: var(--muted);
+}
+
+/* ============================================================
+   SLIDE 15 — Plenary + Self-assessment
+   ============================================================ */
+.s15 .sc-revisit { display: flex; flex-direction: column; gap: 30px; max-width: 1400px; }
+.s15 .sc-row {
+  display: flex; align-items: center; gap: 20px;
+  font-size: 34px;
+}
+.s15 .sc-num {
+  font-family: var(--font-display);
+  font-size: 38px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.s15 .sc-zh { font-weight: 600; letter-spacing: 0.03em; flex: 1; }
+.s15 .rating {
+  display: flex; gap: 8px;
+}
+.s15 .rating .finger {
+  font-size: 32px; opacity: 0.4;
+}
+.s15 .self-assess {
+  margin-top: 40px;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 36px 48px;
+  max-width: 1400px;
+}
+.s15 .self-assess .sa-title {
+  font-size: 28px; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 12px;
+}
+.s15 .self-assess .sa-text {
+  font-size: 26px; color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SLIDE 16 — Exit Ticket + Preview
+   ============================================================ */
+.s16 {
+  align-items: center; justify-content: center;
+  gap: 56px; padding: 80px 120px;
+}
+.s16 .exit-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 64px;
+  text-align: center;
+  max-width: 1000px;
+}
+.s16 .exit-label {
+  font-size: 20px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.s16 .exit-task {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em; line-height: 1.4;
+}
+.s16 .exit-hint {
+  font-size: 22px; color: var(--muted);
+  margin-top: 12px;
+}
+.s16 .preview-box {
+  text-align: center;
+}
+.s16 .preview-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 12px;
+}
+.s16 .preview-text {
+  font-size: 32px; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.5;
+}
+.s16 .preview-text .em { color: var(--coral); font-weight: 600; }
+
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- ====== SLIDE 1: 封面 · Cover ====== -->
+  <section class="s1 active" data-index="0">
+    <div class="s1-content">
+      <div class="s1-crown">🏆</div>
+      <div class="s1-title-zh">时间奥运会</div>
+      <div class="s1-title-en">Time Olympics</div>
+      <div class="s1-meta">
+        <span>Y7 Chinese</span><span class="sep"></span>
+        <span>时间 Unit</span><span class="sep"></span>
+        <span>Lesson 7 · Mixed Practice</span>
+      </div>
+    </div>
+    <div class="page-tag">封面 · Cover</div>
+    <div class="nav-hint">← → 翻页</div>
+  </section>
+
+  <!-- ====== SLIDE 2: Quick Review — 5 Time Patterns ====== -->
+  <section class="s2" data-index="1">
+    <div class="sec-title">五种时间表达 · Five Time Patterns</div>
+    <div class="sec-subtitle">Quick review — can you name all 5?</div>
+    <div class="pattern-grid">
+      <div class="pattern-cell">
+        <div class="clock ck-140 p-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(90deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="p-time">三点</div>
+        <div class="p-py">sān diǎn · 3:00</div>
+        <div class="p-tag">点 o'clock</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="clock ck-140 p-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(95deg)"></div>
+          <div class="min-hand" style="transform:rotate(60deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="p-time">三点十分</div>
+        <div class="p-py">sān diǎn shí fēn · 3:10</div>
+        <div class="p-tag">分 minutes</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="clock ck-140 p-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(105deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="p-time">三点半</div>
+        <div class="p-py">sān diǎn bàn · 3:30</div>
+        <div class="p-tag">半 half</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="clock ck-140 p-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(97.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="p-time">三点一刻</div>
+        <div class="p-py">sān diǎn yī kè · 3:15</div>
+        <div class="p-tag">刻 quarter</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="clock ck-140 p-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(115deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="p-time">差十分四点</div>
+        <div class="p-py">chà shí fēn sì diǎn · 3:50</div>
+        <div class="p-tag">差 to</div>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Review</div>
+  </section>
+
+  <!-- ====== SLIDE 3: Pattern Sprint — Warm-up Clocks (NO answers) ====== -->
+  <section class="s3" data-index="2">
+    <div class="sec-title">模式冲刺 · Pattern Sprint</div>
+    <div class="sec-subtitle">Write the DIGIT for each clock — teacher shows each for ~5 seconds!</div>
+    <div class="sprint-grid">
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(90deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">1</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(195deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">2</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(277.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">3</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(2.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">4</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(205deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">5</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(142.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">6</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(70deg)"></div>
+          <div class="min-hand" style="transform:rotate(120deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">7</div>
+      </div>
+      <div class="sprint-cell">
+        <div class="clock ck-110 sp-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(237.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(330deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sp-num">8</div>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Review Sprint</div>
+  </section>
+
+  <!-- ====== SLIDE 4: Learning Intention & Success Criteria ====== -->
+  <section class="s4" data-index="3">
+    <div class="sec-title">学习目标 · Learning Goals</div>
+    <div class="sec-subtitle">Today: the Time Olympics — 4 rounds, compete against yourself!</div>
+    <div class="li-box">
+      <div class="li-label">Learning Intention</div>
+      <div class="li-text">We are learning to use all time expressions fluently and accurately under time pressure.</div>
+    </div>
+    <div class="sc-label">Success Criteria — I can…</div>
+    <ul class="criteria-list">
+      <li>
+        <div class="checkbox"></div>
+        <span>Hear Chinese time and write the correct digits <span style="color:var(--muted);font-size:24px">（听中文时间写数字）</span></span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span>See a clock and say the most natural Chinese expression instantly <span style="color:var(--muted);font-size:24px">（看钟表秒说中文）</span></span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span>Switch between 点, 分, 半, 刻, and 差 without hesitation <span style="color:var(--muted);font-size:24px">（灵活切换所有时间表达）</span></span>
+      </li>
+    </ul>
+    <div class="page-tag">学习目标 · Learning Goals</div>
+  </section>
+
+  <!-- ====== SLIDE 5: Round 1 — Listening Relay Rules ====== -->
+  <section class="s5" data-index="4">
+    <div class="sec-title">第一轮：听力接力 · Round 1: Listening Relay</div>
+    <div class="sec-subtitle">Listen to Chinese → write the correct digits. 20 items × 5 points = max 100!</div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-role">教师说 · Teacher says</div>
+        <div class="step-action">Teacher says a time in Chinese<br>（e.g.「差十分七点」）</div>
+        <div class="step-note">Listen carefully — all 5 patterns will appear!</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-role">学生写 · Students write</div>
+        <div class="step-action">Write the DIGITS on paper<br>（not Chinese characters — just numbers like 6:50）</div>
+        <div class="step-note">Hold it up after each one!</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-role">检查 · Check</div>
+        <div class="step-action">Teacher reveals correct answer on projector → self-mark ✓ or ✗</div>
+        <div class="step-note">Each correct = 5 points. Be honest!</div>
+      </div>
+    </div>
+    <div class="score-note">
+      <span>本轮满分 · Round max: </span>
+      <span class="pts">100 points</span>
+      <span style="color:var(--muted)"> &nbsp;（20 items × 5 points）</span>
+    </div>
+    <div class="page-tag">第一轮 · Round 1</div>
+  </section>
+
+  <!-- ====== SLIDE 6: Round 1 — Teacher Prompt (Items, NO answers) ====== -->
+  <section class="s6" data-index="5">
+    <div class="sec-title">听力接力 · Listening Relay</div>
+    <div class="sec-subtitle">Teacher reads each time twice — students write the DIGIT on paper</div>
+    <div class="listen-grid">
+      <div class="listen-item"><span class="listen-num">1</span><span class="listen-zh">三点</span><span class="listen-py">sān diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">2</span><span class="listen-zh">六点半</span><span class="listen-py">liù diǎn bàn</span></div>
+      <div class="listen-item"><span class="listen-num">3</span><span class="listen-zh">九点一刻</span><span class="listen-py">jiǔ diǎn yī kè</span></div>
+      <div class="listen-item"><span class="listen-num">4</span><span class="listen-zh">十二点零五分</span><span class="listen-py">shí'èr diǎn líng wǔ fēn</span></div>
+      <div class="listen-item"><span class="listen-num">5</span><span class="listen-zh">差十分七点</span><span class="listen-py">chà shí fēn qī diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">6</span><span class="listen-zh">四点三刻</span><span class="listen-py">sì diǎn sān kè</span></div>
+      <div class="listen-item"><span class="listen-num">7</span><span class="listen-zh">两点二十分</span><span class="listen-py">liǎng diǎn èrshí fēn</span></div>
+      <div class="listen-item"><span class="listen-num">8</span><span class="listen-zh">差五分八点</span><span class="listen-py">chà wǔ fēn bā diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">9</span><span class="listen-zh">七点零一分</span><span class="listen-py">qī diǎn líng yī fēn</span></div>
+      <div class="listen-item"><span class="listen-num">10</span><span class="listen-zh">十一点半</span><span class="listen-py">shíyī diǎn bàn</span></div>
+      <div class="listen-item"><span class="listen-num">11</span><span class="listen-zh">差一刻十二点</span><span class="listen-py">chà yī kè shí'èr diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">12</span><span class="listen-zh">五点十一分</span><span class="listen-py">wǔ diǎn shíyī fēn</span></div>
+      <div class="listen-item"><span class="listen-num">13</span><span class="listen-zh">差二分六点</span><span class="listen-py">chà èr fēn liù diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">14</span><span class="listen-zh">三点零七分</span><span class="listen-py">sān diǎn líng qī fēn</span></div>
+      <div class="listen-item"><span class="listen-num">15</span><span class="listen-zh">八点三刻</span><span class="listen-py">bā diǎn sān kè</span></div>
+      <div class="listen-item"><span class="listen-num">16</span><span class="listen-zh">差十分两点</span><span class="listen-py">chà shí fēn liǎng diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">17</span><span class="listen-zh">十二点半</span><span class="listen-py">shí'èr diǎn bàn</span></div>
+      <div class="listen-item"><span class="listen-num">18</span><span class="listen-zh">六点十九分</span><span class="listen-py">liù diǎn shíjiǔ fēn</span></div>
+      <div class="listen-item"><span class="listen-num">19</span><span class="listen-zh">差五分四点</span><span class="listen-py">chà wǔ fēn sì diǎn</span></div>
+      <div class="listen-item"><span class="listen-num">20</span><span class="listen-zh">九点零九分</span><span class="listen-py">jiǔ diǎn líng jiǔ fēn</span></div>
+    </div>
+    <div class="page-tag">第一轮 · Items</div>
+  </section>
+
+  <!-- ====== SLIDE 7: Round 1 — 答案揭晓 ====== -->
+  <section class="s7" data-index="6">
+    <div class="sec-title">听力接力 · 答案揭晓</div>
+    <div class="sec-subtitle">Self-mark each item — 5 points per correct answer!</div>
+    <div class="answer-grid">
+      <div class="answer-item"><span class="answer-num">1</span><span class="answer-zh">三点</span><span class="answer-digit">3:00</span></div>
+      <div class="answer-item"><span class="answer-num">2</span><span class="answer-zh">六点半</span><span class="answer-digit">6:30</span></div>
+      <div class="answer-item"><span class="answer-num">3</span><span class="answer-zh">九点一刻</span><span class="answer-digit">9:15</span></div>
+      <div class="answer-item"><span class="answer-num">4</span><span class="answer-zh">十二点零五分</span><span class="answer-digit">12:05</span></div>
+      <div class="answer-item"><span class="answer-num">5</span><span class="answer-zh">差十分七点</span><span class="answer-digit">6:50</span></div>
+      <div class="answer-item"><span class="answer-num">6</span><span class="answer-zh">四点三刻</span><span class="answer-digit">4:45</span></div>
+      <div class="answer-item"><span class="answer-num">7</span><span class="answer-zh">两点二十分</span><span class="answer-digit">2:20</span></div>
+      <div class="answer-item"><span class="answer-num">8</span><span class="answer-zh">差五分八点</span><span class="answer-digit">7:55</span></div>
+      <div class="answer-item"><span class="answer-num">9</span><span class="answer-zh">七点零一分</span><span class="answer-digit">7:01</span></div>
+      <div class="answer-item"><span class="answer-num">10</span><span class="answer-zh">十一点半</span><span class="answer-digit">11:30</span></div>
+      <div class="answer-item"><span class="answer-num">11</span><span class="answer-zh">差一刻十二点</span><span class="answer-digit">11:45</span></div>
+      <div class="answer-item"><span class="answer-num">12</span><span class="answer-zh">五点十一分</span><span class="answer-digit">5:11</span></div>
+      <div class="answer-item"><span class="answer-num">13</span><span class="answer-zh">差二分六点</span><span class="answer-digit">5:58</span></div>
+      <div class="answer-item"><span class="answer-num">14</span><span class="answer-zh">三点零七分</span><span class="answer-digit">3:07</span></div>
+      <div class="answer-item"><span class="answer-num">15</span><span class="answer-zh">八点三刻</span><span class="answer-digit">8:45</span></div>
+      <div class="answer-item"><span class="answer-num">16</span><span class="answer-zh">差十分两点</span><span class="answer-digit">1:50</span></div>
+      <div class="answer-item"><span class="answer-num">17</span><span class="answer-zh">十二点半</span><span class="answer-digit">12:30</span></div>
+      <div class="answer-item"><span class="answer-num">18</span><span class="answer-zh">六点十九分</span><span class="answer-digit">6:19</span></div>
+      <div class="answer-item"><span class="answer-num">19</span><span class="answer-zh">差五分四点</span><span class="answer-digit">3:55</span></div>
+      <div class="answer-item"><span class="answer-num">20</span><span class="answer-zh">九点零九分</span><span class="answer-digit">9:09</span></div>
+    </div>
+    <div class="page-tag">第一轮 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 8: Round 2 — Speaking Sprint (Clocks, NO answers) ====== -->
+  <section class="s8" data-index="7">
+    <div class="sec-title">第二轮：口语冲刺 · Round 2: Speaking Sprint</div>
+    <div class="sec-subtitle">See clock → say Chinese. Teacher counts down「3, 2, 1」→ whole class chorally says the time!</div>
+    <div class="speak-grid">
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(60deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">1</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(105deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">2</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(232.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">3</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(277.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">4</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(205deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">5</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(2.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">6</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(120deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">7</div>
+      </div>
+      <div class="speak-cell">
+        <div class="clock ck-120 sk-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(267.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(330deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sk-num">8</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;font-size:22px;color:var(--muted)">
+      15 items × 7 points = 105 max (+ 5 bonus possible → 110)
+    </div>
+    <div class="page-tag">第二轮 · Speaking Sprint</div>
+  </section>
+
+  <!-- ====== SLIDE 9: Round 2 — Answers + Bonus ====== -->
+  <section class="s9" data-index="8">
+    <div class="sec-title">口语冲刺 · 答案揭晓</div>
+    <div class="sec-subtitle">Check your answers — did you choose the most natural pattern?</div>
+    <div class="speak-answer-grid">
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(60deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">两点</div>
+        <div class="sa-py">liǎng diǎn · 2:00</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(105deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">三点半</div>
+        <div class="sa-py">sān diǎn bàn · 3:30</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(232.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">七点三刻</div>
+        <div class="sa-py">qī diǎn sān kè · 7:45</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(277.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">九点一刻</div>
+        <div class="sa-py">jiǔ diǎn yī kè · 9:15</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(205deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">差十分七点</div>
+        <div class="sa-py">chà shí fēn qī diǎn · 6:50</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(2.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">十二点零五分</div>
+        <div class="sa-py">shí'èr diǎn líng wǔ fēn · 12:05</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(120deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">四点</div>
+        <div class="sa-py">sì diǎn · 4:00</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(267.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(330deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">差五分九点</div>
+        <div class="sa-py">chà wǔ fēn jiǔ diǎn · 8:55</div>
+      </div>
+    </div>
+    <div class="bonus-label">Bonus Round — 2 more clocks!</div>
+    <div class="bonus-row">
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(170deg)"></div>
+          <div class="min-hand" style="transform:rotate(240deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">差二十分六点</div>
+        <div class="sa-py">chà èrshí fēn liù diǎn · 5:40</div>
+        <div style="font-size:16px;color:var(--green-check);margin-top:4px">Bonus +5 if you said 差!</div>
+      </div>
+      <div class="speak-answer-cell">
+        <div class="clock ck-110 sa-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(85deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sa-time">差十分三点</div>
+        <div class="sa-py">chà shí fēn sān diǎn · 2:50</div>
+        <div style="font-size:16px;color:var(--green-check);margin-top:4px">Bonus +5 if you said 差!</div>
+      </div>
+    </div>
+    <div class="page-tag">第二轮 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 10: Round 3 — Error Hunter (Questions, NO answers) ====== -->
+  <section class="s10" data-index="9">
+    <div class="sec-title">第三轮：纠错猎手 · Round 3: Error Hunter</div>
+    <div class="sec-subtitle">Write ✓ if correct, ✗ if wrong. If ✗, write the CORRECT version. 12 items × 10 points = max 120!</div>
+    <div class="error-grid">
+      <div class="error-item"><span class="error-num">1</span><span class="error-zh">二点</span></div>
+      <div class="error-item"><span class="error-num">2</span><span class="error-zh">三点一刻</span></div>
+      <div class="error-item"><span class="error-num">3</span><span class="error-zh">三点五分</span></div>
+      <div class="error-item"><span class="error-num">4</span><span class="error-zh">差十分七点</span></div>
+      <div class="error-item"><span class="error-num">5</span><span class="error-zh">七点三刻</span></div>
+      <div class="error-item"><span class="error-num">6</span><span class="error-zh">五点差十分</span></div>
+      <div class="error-item"><span class="error-num">7</span><span class="error-zh">两点半</span></div>
+      <div class="error-item"><span class="error-num">8</span><span class="error-zh">十二点零一分</span></div>
+      <div class="error-item"><span class="error-num">9</span><span class="error-zh">四点六十</span></div>
+      <div class="error-item"><span class="error-num">10</span><span class="error-zh">差一刻十二点</span></div>
+      <div class="error-item"><span class="error-num">11</span><span class="error-zh">八点十刻</span></div>
+      <div class="error-item"><span class="error-num">12</span><span class="error-zh">差十分二点</span></div>
+    </div>
+    <div class="page-tag">第三轮 · Error Hunter</div>
+  </section>
+
+  <!-- ====== SLIDE 11: Round 3 — Error Hunter 答案揭晓 ====== -->
+  <section class="s11" data-index="10">
+    <div class="sec-title">纠错猎手 · 答案揭晓</div>
+    <div class="sec-subtitle">Self-mark — 10 points each: correct judgment + correction both needed!</div>
+    <div class="error-answer-list">
+      <div class="error-answer-row">
+        <span class="ea-num">1</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">二点</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">两点</span>
+        <span class="ea-reason">二→两 before 点</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">2</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">三点一刻</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 3:15</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">3</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">三点五分</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">三点零五分</span>
+        <span class="ea-reason">Missing 零 for single-digit minutes</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">4</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">差十分七点</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 6:50</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">5</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">七点三刻</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 7:45（三刻 = 3 quarters = 45 min）</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">6</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">五点差十分</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">差十分五点</span>
+        <span class="ea-reason">Word order: 差 comes FIRST</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">7</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">两点半</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 2:30</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">8</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">十二点零一分</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 12:01（零 used correctly）</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">9</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">四点六十</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">五点</span>
+        <span class="ea-reason">No such time! 60 min = next hour</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">10</span>
+        <span class="ea-judge yes">✓</span>
+        <span class="ea-orig">差一刻十二点</span>
+        <span style="color:var(--muted);margin-left:8px">Correct — 11:45</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">11</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">八点十刻</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">—</span>
+        <span class="ea-reason">刻 only for 1 or 3 quarters</span>
+      </div>
+      <div class="error-answer-row">
+        <span class="ea-num">12</span>
+        <span class="ea-judge no">✗</span>
+        <span class="ea-orig">差十分二点</span>
+        <span class="ea-arrow">→</span>
+        <span class="ea-correct">差十分两点</span>
+        <span class="ea-reason">二→两</span>
+      </div>
+    </div>
+    <div class="page-tag">第三轮 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 12: Round 4 — Champion's Choice (Questions, NO answers) ====== -->
+  <section class="s12" data-index="11">
+    <div class="sec-title">第四轮：冠军之选 · Round 4: Champion's Choice</div>
+    <div class="sec-subtitle">Which expression is MORE natural? Write A or B. 10 items × 10 points = max 100!</div>
+    <div class="champ-grid">
+      <!-- 1: 3:00 -->
+      <div class="champ-item">
+        <span class="champ-num">1</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(90deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">三点</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">三点零分</span></div>
+        </div>
+      </div>
+      <!-- 2: 7:30 -->
+      <div class="champ-item">
+        <span class="champ-num">2</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(225deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">七点半</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">七点三十分</span></div>
+        </div>
+      </div>
+      <!-- 3: 6:45 -->
+      <div class="champ-item">
+        <span class="champ-num">3</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(202.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">六点三刻</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">六点四十五分</span></div>
+        </div>
+      </div>
+      <!-- 4: 2:50 -->
+      <div class="champ-item">
+        <span class="champ-num">4</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(85deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">两点五十分</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">差十分三点</span></div>
+        </div>
+      </div>
+      <!-- 5: 9:15 -->
+      <div class="champ-item">
+        <span class="champ-num">5</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(277.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">九点一刻</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">九点十五分</span></div>
+        </div>
+      </div>
+      <!-- 6: 11:55 -->
+      <div class="champ-item">
+        <span class="champ-num">6</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(357.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(330deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">十一点五十五分</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">差五分十二点</span></div>
+        </div>
+      </div>
+      <!-- 7: 1:05 -->
+      <div class="champ-item">
+        <span class="champ-num">7</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(32.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">一点零五分</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">差五十五分两点</span></div>
+        </div>
+      </div>
+      <!-- 8: 4:45 -->
+      <div class="champ-item">
+        <span class="champ-num">8</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(142.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">四点三刻</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">差一刻五点</span></div>
+        </div>
+      </div>
+      <!-- 9: 8:50 -->
+      <div class="champ-item">
+        <span class="champ-num">9</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(265deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">差十分九点</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">八点五十分</span></div>
+        </div>
+      </div>
+      <!-- 10: 12:30 -->
+      <div class="champ-item">
+        <span class="champ-num">10</span>
+        <div class="clock ck-90 champ-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(15deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="champ-opts">
+          <div class="champ-opt"><span class="opt-letter">A</span><span class="opt-zh">十二点三十分</span></div>
+          <div class="champ-opt"><span class="opt-letter">B</span><span class="opt-zh">十二点半</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-tag">第四轮 · Champion's Choice</div>
+  </section>
+
+  <!-- ====== SLIDE 13: Round 4 — Champion's Choice 答案揭晓 ====== -->
+  <section class="s13" data-index="12">
+    <div class="sec-title">冠军之选 · 答案揭晓</div>
+    <div class="sec-subtitle">The more natural, spoken-style choice — self-mark: 10 points each!</div>
+    <div class="champ-answer-grid">
+      <div class="champ-answer-item"><span class="ca-num">1</span><span class="ca-best">A — 三点</span><span class="ca-why">Shorter is better</span></div>
+      <div class="champ-answer-item"><span class="ca-num">2</span><span class="ca-best">A — 七点半</span><span class="ca-why">半 is more spoken than 三十分</span></div>
+      <div class="champ-answer-item"><span class="ca-num">3</span><span class="ca-best">A — 六点三刻</span><span class="ca-why">三刻 is shorter and more spoken</span></div>
+      <div class="champ-answer-item"><span class="ca-num">4</span><span class="ca-best">B — 差十分三点</span><span class="ca-why">差 version sounds more natural</span></div>
+      <div class="champ-answer-item"><span class="ca-num">5</span><span class="ca-best">A — 九点一刻</span><span class="ca-why">一刻 is the standard spoken form</span></div>
+      <div class="champ-answer-item"><span class="ca-num">6</span><span class="ca-best">B — 差五分十二点</span><span class="ca-why">差 version is much shorter!</span></div>
+      <div class="champ-answer-item"><span class="ca-num">7</span><span class="ca-best">A — 一点零五分</span><span class="ca-why">差五十五分 is too long</span></div>
+      <div class="champ-answer-item"><span class="ca-num">8</span><span class="ca-best">A — 四点三刻</span><span class="ca-why">三刻 is the shortest option</span></div>
+      <div class="champ-answer-item"><span class="ca-num">9</span><span class="ca-best">A — 差十分九点</span><span class="ca-why">差 is smoother for 8:50</span></div>
+      <div class="champ-answer-item"><span class="ca-num">10</span><span class="ca-best">B — 十二点半</span><span class="ca-why">半 is much more spoken</span></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;font-size:26px;color:var(--muted);letter-spacing:0.03em;line-height:1.6">
+      Key principle: <span style="color:var(--coral);font-weight:600">shorter → more spoken</span>. 半/刻/差 are used because they're faster than saying full minutes!
+    </div>
+    <div class="page-tag">第四轮 · Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 14: Medal Ceremony ====== -->
+  <section class="s14" data-index="13">
+    <div class="medal-title">奥运会颁奖典礼 · Medal Ceremony</div>
+    <div class="score-summary">
+      <div class="total-label">Your Total Score</div>
+      <div class="total-score">___ / 430</div>
+      <div class="total-max">Round 1 (100) + Round 2 (110) + Round 3 (120) + Round 4 (100)</div>
+    </div>
+    <div class="medal-row">
+      <div class="medal-card gold">
+        <div class="medal-icon">🥇</div>
+        <div class="medal-name">金牌 · Gold</div>
+        <div class="medal-range">380+ points</div>
+      </div>
+      <div class="medal-card silver">
+        <div class="medal-icon">🥈</div>
+        <div class="medal-name">银牌 · Silver</div>
+        <div class="medal-range">300 – 379 points</div>
+      </div>
+      <div class="medal-card bronze">
+        <div class="medal-icon">🥉</div>
+        <div class="medal-name">铜牌 · Bronze</div>
+        <div class="medal-range">200 – 299 points</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;font-size:22px;color:var(--muted);letter-spacing:0.03em">
+      Standing ovation for all medalists! &nbsp; Who aced the Error Hunter round? &nbsp; Who got 100 on Listening?
+    </div>
+    <div class="page-tag">颁奖 · Medals</div>
+  </section>
+
+  <!-- ====== SLIDE 15: Plenary — Success Criteria Revisit ====== -->
+  <section class="s15" data-index="14">
+    <div class="sec-title">总结 · Plenary</div>
+    <div class="sec-subtitle">Revisit Success Criteria — how did you go in the Time Olympics?</div>
+    <div class="sc-revisit">
+      <div class="sc-row">
+        <span class="sc-num">1</span>
+        <span class="sc-zh">I can hear Chinese time and write the correct digits</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">2</span>
+        <span class="sc-zh">I can see a clock and say the most natural Chinese expression instantly</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">3</span>
+        <span class="sc-zh">I can switch between 点, 分, 半, 刻, and 差 without hesitation</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+    </div>
+    <div class="self-assess">
+      <div class="sa-title">自我评估 · Self-assessment</div>
+      <div class="sa-text">Write one sentence on paper: 「时间奥运会以后，我觉得说中文时间……」</div>
+      <div style="font-size:22px;color:var(--muted);margin-top:12px;line-height:1.6">
+        Which round was your strongest? &nbsp; Which was hardest? &nbsp; This tells you what to review before the test.
+      </div>
+    </div>
+    <div class="page-tag">总结 · Plenary</div>
+  </section>
+
+  <!-- ====== SLIDE 16: Exit Ticket + Preview ====== -->
+  <section class="s16" data-index="15">
+    <div class="exit-box">
+      <div class="exit-label">Exit Ticket · 出门票</div>
+      <div class="exit-task">写一个你想多练习的时间模式</div>
+      <div class="exit-hint">Write the ONE time pattern（点 / 分 / 半 / 刻 / 差）you want to practise more before the test.</div>
+    </div>
+    <div class="preview-box">
+      <div class="preview-label">下节课预告 · Next Lesson</div>
+      <div class="preview-text">Final review and test prep — <span class="em">「Beat the Test」</span> game show!</div>
+    </div>
+    <div class="page-tag">下课 · Exit</div>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   Auto-scale + keyboard navigation + click
+   ============================================================ */
+(function() {
+  const stage = document.getElementById('stage');
+  const sections = Array.from(stage.querySelectorAll('section'));
+  let current = 0;
+
+  function fit() {
+    const ww = window.innerWidth;
+    const wh = window.innerHeight;
+    const scale = Math.min(ww / 1920, wh / 1080);
+    stage.style.transform = 'translate(' + ((ww - 1920 * scale) / 2) + 'px, ' + ((wh - 1080 * scale) / 2) + 'px) scale(' + scale + ')';
+  }
+
+  function show(idx) {
+    sections.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+    current = idx;
+  }
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      if (current < sections.length - 1) show(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (current > 0) show(current - 1);
+    }
+  });
+
+  stage.addEventListener('click', function(e) {
+    var rect = stage.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var w = rect.width;
+    if (x > w / 2 && current < sections.length - 1) {
+      show(current + 1);
+    } else if (x < w / 2 && current > 0) {
+      show(current - 1);
+    }
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+
+</body>
+</html>

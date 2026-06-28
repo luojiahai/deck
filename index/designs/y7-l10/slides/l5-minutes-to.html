@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>差 · Y7 Chinese · 时间 Unit Lesson 5</title>
+<style>
+/* ============================================================
+   CHINEASY DESIGN GRAMMAR — Y7 Chinese Courseware
+   时间 Unit · Lesson 5: Minutes To (差)
+   Palette: warm cream + charcoal + coral accent
+   ============================================================ */
+
+:root {
+  --cream:        #FEFAF5;
+  --cream-warm:   #FAF6F0;
+  --charcoal:     #2C2416;
+  --charcoal-soft:#4A4236;
+  --muted:        #9B8E7E;
+  --muted-light:  #C4BAAA;
+  --coral:        #D4543A;
+  --coral-soft:   #E8A080;
+  --rule-bg:      #F5F0E8;
+  --divider:      #E8E0D5;
+  --green-check:  #5B8C6F;
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSongti', 'SimSun', serif;
+  --font-body:    'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  background: #1a1a1a;
+  font-family: var(--font-body);
+}
+
+.stage {
+  width: 1920px; height: 1080px;
+  overflow: hidden; position: relative;
+  background: var(--cream);
+  color: var(--charcoal);
+  transform-origin: top left;
+  text-wrap: pretty;
+}
+
+section {
+  display: none;
+  width: 1920px; height: 1080px;
+  position: absolute; top: 0; left: 0;
+  flex-direction: column;
+  padding: 80px 120px 80px 120px;
+  justify-content: center;
+}
+section.active { display: flex; }
+
+/* ============================================================
+   SHARED COMPONENTS — exact copy from L1
+   ============================================================ */
+
+.page-tag {
+  position: absolute;
+  bottom: 32px; right: 48px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted-light);
+  z-index: 2;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.sec-subtitle {
+  font-size: 26px; color: var(--muted);
+  letter-spacing: 0.03em;
+  margin-bottom: 48px;
+}
+
+.warm-panel {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 56px;
+  width: 100%;
+}
+
+.criteria-list {
+  list-style: none; display: flex; flex-direction: column; gap: 24px;
+}
+.criteria-list li {
+  font-size: 38px; line-height: 1.4;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.checkbox {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border: 2px solid var(--charcoal);
+  border-radius: 6px;
+  margin-top: 4px;
+  position: relative;
+}
+
+/* CSS Clock */
+.clock {
+  border-radius: 50%;
+  border: 2.5px solid var(--charcoal);
+  position: relative;
+  background: var(--cream);
+}
+.clock .tick {
+  position: absolute;
+  width: 2px; height: 6px;
+  background: var(--charcoal);
+  left: 50%; margin-left: -1px;
+  top: 4px;
+}
+.clock .tick.major { height: 11px; width: 2.5px; }
+.clock .hour-hand {
+  position: absolute;
+  width: 4px; height: 30%;
+  background: var(--charcoal);
+  left: 50%; margin-left: -2px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 2px;
+}
+.clock .min-hand {
+  position: absolute;
+  width: 2px; height: 42%;
+  background: var(--coral);
+  left: 50%; margin-left: -1px;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 1px;
+}
+.clock .center-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Minutes-to arc overlay — shows the "差" segment on clock face */
+.clock .to-arc {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.clock .to-arc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent var(--to-start, 0deg),
+    rgba(212,84,58,0.13) var(--to-start, 0deg),
+    rgba(212,84,58,0.13) 360deg
+  );
+}
+
+/* Step card */
+.step-card {
+  flex: 1;
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.step-card .step-num {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--divider); line-height: 1;
+  user-select: none;
+}
+.step-card .step-role {
+  font-size: 16px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.step-card .step-action {
+  font-family: var(--font-display);
+  font-size: 34px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.step-card .step-note {
+  font-size: 20px; color: var(--muted);
+  line-height: 1.5;
+}
+
+/* CFU */
+.cfu-list { display: flex; flex-direction: column; gap: 32px; max-width: 1500px; }
+.cfu-item {
+  display: flex; align-items: flex-start; gap: 24px;
+  font-size: 40px; font-weight: 600;
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.cfu-num {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;
+  color: var(--muted-light); min-width: 44px;
+  text-align: right; user-select: none;
+}
+.finger-hint {
+  font-size: 22px; color: var(--muted);
+  display: flex; gap: 4px; align-items: center;
+  margin-left: auto; flex-shrink: 0;
+}
+.finger-hint .yes { color: var(--green-check); font-weight: 600; }
+.finger-hint .no { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 1 — Cover
+   ============================================================ */
+.s1 {
+  align-items: center; justify-content: center;
+  background: linear-gradient(175deg, #FEFAF5 0%, #FBF6EF 40%, #F8F2E8 100%);
+  padding: 0;
+}
+.s1::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px; height: 720px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  opacity: 0.45; pointer-events: none;
+}
+.s1-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0;
+}
+.s1-clock { width: 130px; height: 130px; margin-bottom: 36px; }
+.s1-clock .tick { transform-origin: 50% 61px; }
+.s1-clock .hour-hand { height: 36px; }
+.s1-clock .min-hand { height: 52px; }
+.s1-title-zh {
+  font-family: var(--font-display);
+  font-size: 96px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.06em; line-height: 1.15;
+}
+.s1-title-en {
+  font-family: var(--font-body);
+  font-size: 28px; font-weight: 400;
+  color: var(--muted); letter-spacing: 0.04em;
+  margin-top: 10px;
+}
+.s1-meta {
+  margin-top: 48px;
+  font-size: 18px; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.06em;
+  display: flex; gap: 14px; align-items: center;
+}
+.s1-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--muted-light); }
+
+/* ============================================================
+   SLIDE 2 — Review Clock Grid
+   ============================================================ */
+.l5-rv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 40px;
+  max-width: 1520px; width: 100%;
+  align-self: center;
+}
+.l5-rv-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  background: var(--rule-bg);
+  border-radius: 10px;
+  padding: 24px 16px 20px;
+}
+.l5-rv-cell .rv-clock { width: 140px; height: 140px; }
+.l5-rv-cell .rv-clock .tick { transform-origin: 50% 66px; }
+.l5-rv-cell .rv-clock .hour-hand { height: 26%; }
+.l5-rv-cell .rv-clock .min-hand { height: 38%; }
+.l5-rv-cell .rv-time {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 600;
+  color: var(--charcoal-soft);
+  letter-spacing: 0.04em;
+}
+.l5-rv-cell .rv-ans {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.05em;
+}
+.l5-rv-cell .rv-ans-py {
+  font-size: 20px; color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.l5-rv-cell .rv-ans-en {
+  font-size: 18px; color: var(--muted-light);
+  font-style: italic;
+}
+
+/* ============================================================
+   SLIDE 3 (Answer) — Review Answers
+   ============================================================ */
+/* reuses .l5-rv-grid + .l5-rv-cell */
+
+/* ============================================================
+   SLIDE 4 — Bridge
+   ============================================================ */
+.s4-bridge {
+  align-items: center; justify-content: center;
+  background: var(--cream); gap: 32px; padding: 80px 120px;
+}
+.s4-bridge .bridge-chars {
+  font-family: var(--font-display);
+  font-size: 80px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.08em;
+}
+.s4-bridge .bridge-arrow {
+  font-size: 64px; color: var(--coral);
+}
+.s4-bridge .bridge-text {
+  font-size: 32px; color: var(--muted);
+  text-align: center; max-width: 750px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+.s4-bridge .bridge-en {
+  font-size: 24px; color: var(--muted-light);
+  font-style: italic; margin-top: 8px;
+}
+
+/* ============================================================
+   SLIDE 5 — LI & SC
+   ============================================================ */
+.l5-li-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 40px 56px;
+  margin-bottom: 48px;
+}
+.l5-li-box .li-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.l5-li-box .li-text {
+  font-size: 42px; font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+.l5-sc-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   SLIDE 6 — New Vocabulary
+   ============================================================ */
+.s6-vocab {
+  align-items: center; justify-content: center;
+  gap: 0; padding: 80px 120px;
+}
+.s6-vocab-char {
+  font-family: var(--font-display);
+  font-size: 200px; font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1; letter-spacing: 0.04em;
+}
+.s6-vocab-py {
+  font-size: 42px; color: var(--muted);
+  margin-top: 16px; letter-spacing: 0.06em;
+}
+.s6-vocab-en {
+  font-size: 30px; color: var(--muted);
+  font-style: italic; margin-top: 8px;
+}
+.s6-vocab-note {
+  margin-top: 40px; font-size: 24px; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.6; text-align: center;
+  max-width: 800px;
+}
+.s6-vocab-extras {
+  display: flex; gap: 48px;
+  margin-top: 32px;
+}
+.s6-vocab-extras .ve-item {
+  text-align: center;
+}
+.s6-vocab-extras .ve-zh {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 600;
+  color: var(--charcoal); letter-spacing: 0.05em;
+}
+.s6-vocab-extras .ve-py {
+  font-size: 22px; color: var(--muted);
+}
+.s6-vocab-extras .ve-en {
+  font-size: 18px; color: var(--muted-light);
+  font-style: italic;
+}
+
+/* ============================================================
+   SLIDE 7 — Layer 1: The Math (questions)
+   ============================================================ */
+.l5-math-wrap {
+  max-width: 1100px; width: 100%;
+  align-self: center;
+}
+.l5-math-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  padding: 16px 28px;
+  border-bottom: 2px solid var(--charcoal-soft);
+  font-size: 20px; font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.l5-math-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--divider);
+  font-size: 42px;
+}
+.l5-math-row .digi {
+  font-family: var(--font-display);
+  font-weight: 700; letter-spacing: 0.06em;
+  color: var(--charcoal);
+}
+.l5-math-row .next {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--charcoal-soft);
+  letter-spacing: 0.04em;
+}
+.l5-math-row .mins {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: 0.06em;
+}
+.l5-math-row .mins.q { color: var(--muted-light); font-weight: 400; }
+
+/* ============================================================
+   SLIDE 9 — Layer 2: The Structure
+   ============================================================ */
+.l5-formula {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--charcoal);
+  text-align: center; letter-spacing: 0.08em;
+  margin-bottom: 48px;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 32px 48px;
+  align-self: center;
+}
+.l5-formula .hl { color: var(--coral); }
+.l5-formula .arrow { color: var(--muted-light); font-size: 42px; margin: 0 12px; }
+
+.l5-struct-row {
+  display: flex; gap: 36px;
+  justify-content: center;
+}
+.l5-struct-cell {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
+}
+.l5-struct-cell .sc-clock { width: 180px; height: 180px; }
+.l5-struct-cell .sc-clock .tick { transform-origin: 50% 86px; }
+.l5-struct-cell .sc-clock .hour-hand { height: 28%; }
+.l5-struct-cell .sc-clock .min-hand { height: 40%; }
+.l5-struct-cell .sc-label {
+  font-family: var(--font-display);
+  font-size: 34px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.05em;
+}
+.l5-struct-cell .sc-py {
+  font-size: 20px; color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.l5-struct-cell .sc-digital {
+  font-size: 18px; color: var(--muted-light);
+  margin-top: -8px;
+}
+
+.l5-word-order {
+  margin-top: 40px; text-align: center;
+  font-size: 30px; color: var(--charcoal);
+  letter-spacing: 0.03em;
+}
+.l5-word-order .em { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 11–12 — Layer 3: Comparison Table
+   ============================================================ */
+.l5-cmp-wrap {
+  max-width: 1560px; width: 100%;
+  align-self: center;
+}
+.l5-cmp-header {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 200px;
+  gap: 16px; align-items: center;
+  padding: 14px 24px;
+  border-bottom: 2px solid var(--charcoal-soft);
+  font-size: 20px; font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.l5-cmp-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 200px;
+  gap: 16px; align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--divider);
+  font-size: 30px; letter-spacing: 0.03em;
+}
+.l5-cmp-row .c-time {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 36px;
+  letter-spacing: 0.06em;
+}
+.l5-cmp-row .c-past {
+  color: var(--charcoal-soft);
+}
+.l5-cmp-row .c-cha {
+  color: var(--coral); font-weight: 600;
+}
+.l5-cmp-row .c-best {
+  font-weight: 700; font-size: 31px;
+}
+.l5-cmp-row .c-best.q { color: var(--muted-light); font-weight: 400; font-size: 36px; }
+
+.l5-rule-thumb {
+  margin-top: 36px;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 28px 40px;
+  font-size: 30px; font-weight: 600; color: var(--charcoal);
+  letter-spacing: 0.03em; line-height: 1.5;
+  text-align: center;
+  max-width: 1300px; align-self: center;
+}
+.l5-rule-thumb .hl { color: var(--coral); }
+
+/* ============================================================
+   SLIDE 15 — Key Rule: 两点 + Word Order
+   ============================================================ */
+.s15-kr {
+  align-items: center; justify-content: center;
+  background: var(--cream); gap: 0; padding: 80px 120px;
+}
+.s15-kr-visual {
+  display: flex; align-items: center;
+  justify-content: center; gap: 60px;
+}
+.s15-kr-correct, .s15-kr-wrong {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+}
+.s15-kr-correct .chars {
+  font-family: var(--font-display);
+  font-size: 120px; font-weight: 700;
+  color: var(--charcoal); line-height: 1;
+  letter-spacing: 0.06em;
+}
+.s15-kr-correct .py-line { font-size: 30px; color: var(--muted); letter-spacing: 0.04em; }
+.s15-kr-vs {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  color: var(--coral); line-height: 1;
+}
+.s15-kr-wrong .char-wrap { position: relative; display: inline-block; }
+.s15-kr-wrong .chars {
+  font-family: var(--font-display);
+  font-size: 80px; font-weight: 700;
+  color: var(--muted-light); line-height: 1;
+  letter-spacing: 0.06em;
+}
+.s15-kr-wrong .x-mark {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: var(--font-body);
+  font-size: 120px; font-weight: 300;
+  color: var(--coral); line-height: 1;
+  pointer-events: none; user-select: none;
+}
+.s15-kr-wrong .py-line { font-size: 26px; color: var(--muted-light); letter-spacing: 0.04em; }
+.s15-kr-text {
+  margin-top: 56px; text-align: center; max-width: 900px;
+}
+.s15-kr-text .main {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 600;
+  color: var(--charcoal); letter-spacing: 0.04em; line-height: 1.5;
+}
+.s15-kr-text .sub { font-size: 24px; color: var(--muted); margin-top: 12px; letter-spacing: 0.03em; line-height: 1.6; }
+.s15-kr-text .em { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   SLIDE 16 — Activities
+   ============================================================ */
+.l5-act-steps {
+  display: flex; gap: 28px;
+}
+
+/* ============================================================
+   SLIDE 17 — Plenary
+   ============================================================ */
+.l5-plenary .sc-revisit { display: flex; flex-direction: column; gap: 36px; max-width: 1400px; }
+.l5-plenary .sc-row {
+  display: flex; align-items: center; gap: 20px;
+  font-size: 38px;
+}
+.l5-plenary .sc-num {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 700;
+  color: var(--muted-light); min-width: 36px;
+  text-align: right; user-select: none;
+}
+.l5-plenary .sc-zh { font-weight: 600; letter-spacing: 0.03em; flex: 1; }
+.l5-plenary .rating {
+  display: flex; gap: 8px;
+}
+.l5-plenary .rating .finger {
+  font-size: 32px; opacity: 0.4;
+}
+.l5-plenary .self-assess {
+  margin-top: 48px;
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 36px 48px;
+}
+.l5-plenary .self-assess .sa-title {
+  font-size: 28px; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 12px;
+}
+.l5-plenary .self-assess .sa-text {
+  font-size: 28px; color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SLIDE 18 — Exit Ticket
+   ============================================================ */
+.s18-exit {
+  align-items: center; justify-content: center;
+  gap: 64px; padding: 80px 120px;
+}
+.s18-exit .exit-box {
+  background: var(--rule-bg);
+  border-radius: 12px;
+  padding: 48px 64px;
+  text-align: center;
+  max-width: 1000px;
+}
+.s18-exit .exit-label {
+  font-size: 20px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.s18-exit .exit-task {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em; line-height: 1.4;
+}
+.s18-exit .exit-hint {
+  font-size: 24px; color: var(--muted);
+  margin-top: 12px;
+}
+.s18-exit .preview-box {
+  text-align: center;
+}
+.s18-exit .preview-label {
+  font-size: 18px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 12px;
+}
+.s18-exit .preview-text {
+  font-size: 32px; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.5;
+}
+.s18-exit .preview-text .em { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   Navigation hint
+   ============================================================ */
+.nav-hint {
+  position: absolute;
+  bottom: 32px; left: 48px;
+  font-size: 14px; color: var(--muted-light);
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- ====== SLIDE 1: Cover ====== -->
+  <section class="s1 active" data-index="0">
+    <div class="s1-content">
+      <div class="clock s1-clock" style="--to-start:300deg">
+        <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+        <div class="to-arc"></div>
+        <div class="hour-hand" style="transform:rotate(205deg)"></div>
+        <div class="min-hand" style="transform:rotate(300deg)"></div>
+        <div class="center-dot"></div>
+      </div>
+      <div class="s1-title-zh">差</div>
+      <div class="s1-title-en">Minutes To · cha</div>
+      <div class="s1-meta">
+        <span>Y7 Chinese</span><span class="sep"></span>
+        <span>时间 Unit</span><span class="sep"></span>
+        <span>Lesson 5</span>
+      </div>
+    </div>
+    <div class="page-tag">封面 · Cover</div>
+    <div class="nav-hint">← → 翻页</div>
+  </section>
+
+  <!-- ====== SLIDE 2: Review — Clock Flash (questions) ====== -->
+  <section data-index="1">
+    <div class="sec-title">复习 · Review</div>
+    <div class="sec-subtitle">Write the NATURAL Chinese expression for each clock · 写下最自然的中文表达</div>
+    <div class="l5-rv-grid">
+      <!-- 3:00 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(90deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">3:00</div>
+      </div>
+      <!-- 7:15 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(217.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">7:15</div>
+      </div>
+      <!-- 12:30 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(15deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">12:30</div>
+      </div>
+      <!-- 5:45 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(172.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">5:45</div>
+      </div>
+      <!-- 9:05 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(272.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">9:05</div>
+      </div>
+      <!-- 2:00 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(60deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">2:00</div>
+      </div>
+      <!-- 6:15 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(187.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">6:15</div>
+      </div>
+      <!-- 8:30 -->
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(255deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-time">8:30</div>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Review</div>
+  </section>
+
+  <!-- ====== SLIDE 3: Review — 答案揭晓 ====== -->
+  <section data-index="2">
+    <div class="sec-title">答案揭晓 · Answers</div>
+    <div class="sec-subtitle">Check your answers — 检查你的答案！</div>
+    <div class="l5-rv-grid">
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(90deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">三点</div>
+        <div class="rv-ans-py">san dian</div>
+        <div class="rv-ans-en">3:00 · o'clock</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(217.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">七点一刻</div>
+        <div class="rv-ans-py">qi dian yi ke</div>
+        <div class="rv-ans-en">quarter past 7</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(15deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">十二点半</div>
+        <div class="rv-ans-py">shi'er dian ban</div>
+        <div class="rv-ans-en">half past 12</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(172.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(270deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">五点三刻</div>
+        <div class="rv-ans-py">wu dian san ke</div>
+        <div class="rv-ans-en">quarter to 6 / 5:45</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(272.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(30deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">九点五分</div>
+        <div class="rv-ans-py">jiu dian wu fen</div>
+        <div class="rv-ans-en">5 past 9</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(60deg)"></div>
+          <div class="min-hand" style="transform:rotate(0deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">两点</div>
+        <div class="rv-ans-py">liang dian</div>
+        <div class="rv-ans-en">2:00 · NOT 二点!</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(187.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(90deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">六点一刻</div>
+        <div class="rv-ans-py">liu dian yi ke</div>
+        <div class="rv-ans-en">quarter past 6</div>
+      </div>
+      <div class="l5-rv-cell">
+        <div class="clock rv-clock">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="hour-hand" style="transform:rotate(255deg)"></div>
+          <div class="min-hand" style="transform:rotate(180deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="rv-ans">八点半</div>
+        <div class="rv-ans-py">ba dian ban</div>
+        <div class="rv-ans-en">half past 8</div>
+      </div>
+    </div>
+    <div class="page-tag">复习 · Review Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 4: Connection Bridge ====== -->
+  <section class="s4-bridge" data-index="3">
+    <div class="bridge-chars">三刻</div>
+    <div class="bridge-arrow">→</div>
+    <div class="bridge-chars">差</div>
+    <div class="bridge-text">「三刻」已经向下一小时看齐了。<br>今天我们用「差」，对<strong>每一分钟</strong>都这样做。</div>
+    <div class="bridge-en">三刻 already looks toward the next hour. Today, 差 does the same for EVERY minute — not just quarters.</div>
+    <div class="page-tag">过渡 · Transition</div>
+  </section>
+
+  <!-- ====== SLIDE 5: Learning Intention & Success Criteria ====== -->
+  <section data-index="4">
+    <div class="sec-title">学习目标 · Learning Goals</div>
+    <div class="sec-subtitle">今天学什么？What are we learning today?</div>
+    <div class="l5-li-box">
+      <div class="li-label">Learning Intention</div>
+      <div class="li-text">We are learning to say 「minutes to」 times using 差.</div>
+    </div>
+    <div class="l5-sc-label">Success Criteria — I can…</div>
+    <ul class="criteria-list">
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">心算差几分 — calculate how many minutes are left until the next hour</span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">正确使用差的结构 — use the correct word order: 差 + X分 + Y点</span>
+      </li>
+      <li>
+        <div class="checkbox"></div>
+        <span class="zh">选择最自然的表达 — choose the most natural expression for any given time</span>
+      </li>
+    </ul>
+    <div class="page-tag">学习目标 · Learning Goals</div>
+  </section>
+
+  <!-- ====== SLIDE 6: New Vocabulary ====== -->
+  <section class="s6-vocab" data-index="5">
+    <div class="s6-vocab-char">差</div>
+    <div class="s6-vocab-py">cha</div>
+    <div class="s6-vocab-en">fall short of; to (minutes to)</div>
+    <div class="s6-vocab-extras">
+      <div class="ve-item">
+        <div class="ve-zh">现在</div>
+        <div class="ve-py">xianzai</div>
+        <div class="ve-en">now</div>
+      </div>
+      <div class="ve-item">
+        <div class="ve-zh">表</div>
+        <div class="ve-py">biao</div>
+        <div class="ve-en">watch</div>
+      </div>
+    </div>
+    <div class="s6-vocab-note">「差」的意思是还缺少、还差一点才到。<br>
+    想象你正在向下一小时前进——还剩 X 分钟。差 = 「差X分钟就到」<br>
+    <span style="color:var(--muted-light);font-size:20px;display:block;margin-top:8px">Think: climbing toward the next hour — you've still got X minutes to go.</span></div>
+    <div class="page-tag">新词汇 · New Vocabulary</div>
+  </section>
+
+  <!-- ====== SLIDE 7: Layer 1 — The Math (questions) ====== -->
+  <section data-index="6">
+    <div class="sec-title">心算 · Mental Math</div>
+    <div class="sec-subtitle">How many minutes until the next hour? Write JUST THE NUMBER on paper.</div>
+    <div class="l5-math-wrap">
+      <div class="l5-math-header">
+        <span>Digital Time</span>
+        <span>Next Hour</span>
+        <span>Minutes To?</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">6:50</span>
+        <span class="next">7:00</span>
+        <span class="mins q">？</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">7:55</span>
+        <span class="next">8:00</span>
+        <span class="mins q">？</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">3:40</span>
+        <span class="next">4:00</span>
+        <span class="mins q">？</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">9:49</span>
+        <span class="next">10:00</span>
+        <span class="mins q">？</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">11:35</span>
+        <span class="next">12:00</span>
+        <span class="mins q">？</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">2:58</span>
+        <span class="next">3:00</span>
+        <span class="mins q">？</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;font-size:22px;color:var(--muted)">60 − minutes = minutes to next hour · Hold up your paper after each one!</div>
+    <div class="page-tag">第一层 · Layer 1</div>
+  </section>
+
+  <!-- ====== SLIDE 8: Layer 1 — 答案揭晓 ====== -->
+  <section data-index="7">
+    <div class="sec-title">答案揭晓 · Math Answers</div>
+    <div class="sec-subtitle">60 − minutes = minutes to next hour · 检查你的答案！</div>
+    <div class="l5-math-wrap">
+      <div class="l5-math-header">
+        <span>Digital Time</span>
+        <span>Next Hour</span>
+        <span>Minutes To</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">6:50</span>
+        <span class="next">7:00</span>
+        <span class="mins">10 分钟</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">7:55</span>
+        <span class="next">8:00</span>
+        <span class="mins">5 分钟</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">3:40</span>
+        <span class="next">4:00</span>
+        <span class="mins">20 分钟</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">9:49</span>
+        <span class="next">10:00</span>
+        <span class="mins">11 分钟</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">11:35</span>
+        <span class="next">12:00</span>
+        <span class="mins">25 分钟</span>
+      </div>
+      <div class="l5-math-row">
+        <span class="digi">2:58</span>
+        <span class="next">3:00</span>
+        <span class="mins">2 分钟</span>
+      </div>
+    </div>
+    <div class="page-tag">第一层 · Layer 1 Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 9: Layer 2 — The Structure ====== -->
+  <section data-index="8">
+    <div class="sec-title">句型 · Key Pattern</div>
+    <div class="sec-subtitle">How to say 「minutes to」 times in Chinese</div>
+    <div class="l5-formula">
+      差 <span class="arrow">+</span> <span class="hl">X</span> 分 <span class="arrow">+</span> <span class="hl">Y</span> 点
+    </div>
+    <div class="l5-struct-row">
+      <!-- 6:50 → 差十分七点 -->
+      <div class="l5-struct-cell">
+        <div class="clock sc-clock" style="--to-start:300deg">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="to-arc"></div>
+          <div class="hour-hand" style="transform:rotate(205deg)"></div>
+          <div class="min-hand" style="transform:rotate(300deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sc-label">差十分七点</div>
+        <div class="sc-py">cha shi fen qi dian</div>
+        <div class="sc-digital">6:50</div>
+      </div>
+      <!-- 7:55 → 差五分八点 -->
+      <div class="l5-struct-cell">
+        <div class="clock sc-clock" style="--to-start:330deg">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="to-arc"></div>
+          <div class="hour-hand" style="transform:rotate(237.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(330deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sc-label">差五分八点</div>
+        <div class="sc-py">cha wu fen ba dian</div>
+        <div class="sc-digital">7:55</div>
+      </div>
+      <!-- 3:40 → 差二十分四点 -->
+      <div class="l5-struct-cell">
+        <div class="clock sc-clock" style="--to-start:240deg">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="to-arc"></div>
+          <div class="hour-hand" style="transform:rotate(110deg)"></div>
+          <div class="min-hand" style="transform:rotate(240deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sc-label">差二十分四点</div>
+        <div class="sc-py">cha ershi fen si dian</div>
+        <div class="sc-digital">3:40</div>
+      </div>
+      <!-- 5:59 → 差一分六点 -->
+      <div class="l5-struct-cell">
+        <div class="clock sc-clock" style="--to-start:354deg">
+          <div class="tick major" style="transform:rotate(0deg)"></div><div class="tick" style="transform:rotate(30deg)"></div><div class="tick" style="transform:rotate(60deg)"></div><div class="tick major" style="transform:rotate(90deg)"></div><div class="tick" style="transform:rotate(120deg)"></div><div class="tick" style="transform:rotate(150deg)"></div><div class="tick major" style="transform:rotate(180deg)"></div><div class="tick" style="transform:rotate(210deg)"></div><div class="tick" style="transform:rotate(240deg)"></div><div class="tick major" style="transform:rotate(270deg)"></div><div class="tick" style="transform:rotate(300deg)"></div><div class="tick" style="transform:rotate(330deg)"></div>
+          <div class="to-arc"></div>
+          <div class="hour-hand" style="transform:rotate(179.5deg)"></div>
+          <div class="min-hand" style="transform:rotate(354deg)"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div class="sc-label">差一分六点</div>
+        <div class="sc-py">cha yi fen liu dian</div>
+        <div class="sc-digital">5:59</div>
+      </div>
+    </div>
+    <div class="l5-word-order">「差」<span class="em">永远在最前面</span> —— 英语 "ten TO seven" 的 TO 在中间；中文的「差」永远在开头！</div>
+    <div class="page-tag">第二层 · Layer 2</div>
+  </section>
+
+  <!-- ====== SLIDE 10: Layer 3 — Choosing Best Expression (questions) ====== -->
+  <section data-index="9">
+    <div class="sec-title">选择最自然的表达</div>
+    <div class="sec-subtitle">For each time, which is more natural? 「Past」 style or 差 style?</div>
+    <div class="l5-cmp-wrap">
+      <div class="l5-cmp-header">
+        <span>Time</span>
+        <span>「Past」style</span>
+        <span>差 style</span>
+        <span>More natural?</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">6:50</span>
+        <span class="c-past">六点五十分</span>
+        <span class="c-cha">差十分七点</span>
+        <span class="c-best q">？</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">7:55</span>
+        <span class="c-past">七点五十五分</span>
+        <span class="c-cha">差五分八点</span>
+        <span class="c-best q">？</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">3:40</span>
+        <span class="c-past">三点四十分</span>
+        <span class="c-cha">差二十分四点</span>
+        <span class="c-best q">？</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">10:45</span>
+        <span class="c-past">十点四十五分 / 十点三刻</span>
+        <span class="c-cha">差一刻十一点</span>
+        <span class="c-best q">？</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">9:10</span>
+        <span class="c-past">九点十分</span>
+        <span class="c-cha" style="color:var(--muted-light);font-weight:400">—</span>
+        <span class="c-best q">？</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;font-size:22px;color:var(--muted)">Think: which version is shorter? Which sounds more natural to a Chinese speaker?</div>
+    <div class="page-tag">第三层 · Layer 3</div>
+  </section>
+
+  <!-- ====== SLIDE 11: Layer 3 — 答案揭晓 ====== -->
+  <section data-index="10">
+    <div class="sec-title">选择最自然的表达 · 答案</div>
+    <div class="sec-subtitle">The rule: if minutes > 30, consider 差. If minutes > 45, definitely use 差!</div>
+    <div class="l5-cmp-wrap">
+      <div class="l5-cmp-header">
+        <span>Time</span>
+        <span>「Past」style</span>
+        <span>差 style</span>
+        <span>More natural?</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">6:50</span>
+        <span class="c-past">六点五十分</span>
+        <span class="c-cha">差十分七点</span>
+        <span class="c-best" style="color:var(--coral)">差 — shorter!</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">7:55</span>
+        <span class="c-past">七点五十五分</span>
+        <span class="c-cha">差五分八点</span>
+        <span class="c-best" style="color:var(--coral)">差 — much shorter!</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">3:40</span>
+        <span class="c-past">三点四十分</span>
+        <span class="c-cha">差二十分四点</span>
+        <span class="c-best" style="color:var(--coral)">差 — shorter</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">10:45</span>
+        <span class="c-past">十点四十五分 / 十点三刻</span>
+        <span class="c-cha">差一刻十一点</span>
+        <span class="c-best" style="color:var(--green-check)">三刻 — even shorter!</span>
+      </div>
+      <div class="l5-cmp-row">
+        <span class="c-time">9:10</span>
+        <span class="c-past">九点十分</span>
+        <span class="c-cha" style="color:var(--muted-light);font-weight:400">差五十分十点 ← 太长!</span>
+        <span class="c-best" style="color:var(--green-check)">Past style — 差 would be too long</span>
+      </div>
+    </div>
+    <div class="l5-rule-thumb">
+      <span style="color:var(--muted)">Rule of thumb:</span>
+      如果分钟数 &gt; 30，考虑用 <span class="hl">差</span>；如果 &gt; 45，<span class="hl">一定要用差</span>（或三刻）。
+      <br>如果分钟数 ≤ 30，用「Past」风格。
+    </div>
+    <div class="page-tag">第三层 · Layer 3 Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 12: CFU Checkpoints (questions) ====== -->
+  <section data-index="11">
+    <div class="sec-title">检查理解 · CFU</div>
+    <div class="sec-subtitle">Finger voting — 1 finger = 1st option / 2 fingers = 2nd option</div>
+    <div class="cfu-list">
+      <div class="cfu-item">
+        <span class="cfu-num">1</span>
+        <span>6:50 — which is more natural?<br>1 = 六点五十分 / 2 = 差十分七点</span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">2</span>
+        <span>Write 7:55 in Chinese using 差 — hold up your paper!</span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">3</span>
+        <span>What's the trap with 2:50? Write your answer in Chinese.</span>
+      </div>
+    </div>
+    <div class="page-tag">检测 · CFU</div>
+  </section>
+
+  <!-- ====== SLIDE 13: CFU — 答案揭晓 ====== -->
+  <section data-index="12">
+    <div class="sec-title">检查理解 · 答案</div>
+    <div class="sec-subtitle">Let's check — did you get them right?</div>
+    <div class="cfu-list">
+      <div class="cfu-item">
+        <span class="cfu-num">1</span>
+        <span>6:50 — 差十分七点 is more natural</span>
+        <span class="finger-hint"><span class="yes">2 fingers — 差 is shorter ✓</span></span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">2</span>
+        <span>7:55 → 差五分八点</span>
+        <span class="finger-hint"><span class="yes">✓ 差五分八点</span></span>
+      </div>
+      <div class="cfu-item">
+        <span class="cfu-num">3</span>
+        <span>2:50 → 差十分三点</span>
+        <span class="finger-hint" style="color:var(--charcoal);font-weight:600">The hour is the NEXT hour (3点),<br>NOT the current hour (2点)!</span>
+      </div>
+    </div>
+    <div class="page-tag">检测 · CFU Answers</div>
+  </section>
+
+  <!-- ====== SLIDE 14: Key Rule — 两点 Trap + Word Order ====== -->
+  <section class="s15-kr" data-index="13">
+    <div class="s15-kr-visual" style="margin-bottom:24px">
+      <div class="s15-kr-correct">
+        <div class="chars">差五分两点</div>
+        <div class="py-line">cha wu fen liang dian</div>
+      </div>
+      <div class="s15-kr-vs">≠</div>
+      <div class="s15-kr-wrong">
+        <div class="char-wrap">
+          <div class="chars">差五分二点</div>
+          <div class="x-mark">✕</div>
+        </div>
+        <div class="py-line">cha wu fen er dian</div>
+      </div>
+    </div>
+    <div class="s15-kr-text">
+      <div class="main">表示时间，<span class="em">「两」点</span>，不是「二」点！<br>「差」<span class="em">永远在最前面</span></div>
+      <div class="sub">When telling time, it's always <span class="em">两点</span> — never 二点. And 差 always comes FIRST in the sentence.</div>
+    </div>
+    <div class="page-tag">重点教学 · Key Rule</div>
+  </section>
+
+  <!-- ====== SLIDE 15: Activity — Sentence Jumble (We Do) ====== -->
+  <section data-index="14">
+    <div class="sec-title">活动一 · Sentence Jumble</div>
+    <div class="sec-subtitle">We Do — arrange the word cards to form the correct 差 expression</div>
+    <div class="l5-act-steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-role">教师说 · Teacher calls</div>
+        <div class="step-action">Teacher shows a clock or says a time in English</div>
+        <div class="step-note">Pair work — one envelope of word cards per pair</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-role">学生排 · Students arrange</div>
+        <div class="step-action">Arrange the cards to form the correct 差 expression</div>
+        <div class="step-note">First correct pair gets a point! Formula visible for rounds 1–4.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-role">举起 · Hold it up!</div>
+        <div class="step-action">Hold up your arrangement — teacher scans the class</div>
+        <div class="step-note">Extension: winners also say the 「past」 version for a bonus point!</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:36px;background:var(--rule-bg);border-radius:10px;padding:22px 36px;align-items:center;flex-wrap:wrap">
+      <span style="font-size:20px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-right:12px">Rounds</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">1. 差十分七点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">2. 差五分八点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">3. 差一刻十二点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">4. 差二十分四点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--coral);letter-spacing:0.04em">5. 差五分两点 ★</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">6. 差一分六点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">7. 差十一分十点</span>
+      <span style="color:var(--divider);font-size:20px">|</span>
+      <span style="font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em">8. 差十分十二点</span>
+    </div>
+    <div class="page-tag">活动一 · Activity 1</div>
+  </section>
+
+  <!-- ====== SLIDE 16: Activity 2 — Clock → 差 + Past (You Do) ====== -->
+  <section data-index="15">
+    <div class="sec-title">活动二 · Clock → 差 + Past</div>
+    <div class="sec-subtitle">You Do — write BOTH expressions for each clock, then circle the more natural one</div>
+    <div class="l5-act-steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-role">看钟 · Look at the clock</div>
+        <div class="step-action">8 clock faces on your worksheet showing times that favour 差</div>
+        <div class="step-note">Times: 6:50, 7:55, 3:40, 10:50, 2:55, 8:49, 12:45, 5:35</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-role">写两种 · Write both styles</div>
+        <div class="step-action">Write the 「past」 version AND the 差 version for each clock</div>
+        <div class="step-note">First 2 done as whole class — formula visible throughout</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-role">圈 · Circle the best</div>
+        <div class="step-action">Circle the one that's more natural for each time</div>
+        <div class="step-note">Extension: write a full Q&A dialogue: A: 现在几点？ B: 差十分七点。 A: 谢谢！</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;font-size:22px;color:var(--muted)">Scaffold: <span style="font-family:var(--font-display);color:var(--coral);font-weight:600">差 + X分 + Y点</span> — keep this formula visible</div>
+    <div class="page-tag">活动二 · Activity 2</div>
+  </section>
+
+  <!-- ====== SLIDE 17: Plenary — Success Criteria Revisit ====== -->
+  <section class="l5-plenary" data-index="16">
+    <div class="sec-title">总结 · Plenary</div>
+    <div class="sec-subtitle">Revisit Success Criteria — how far did you get?</div>
+    <div class="sc-revisit">
+      <div class="sc-row">
+        <span class="sc-num">1</span>
+        <span class="sc-zh">I can calculate how many minutes are left until the next hour（心算差几分）</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">2</span>
+        <span class="sc-zh">I can use the correct 差 structure: 差 + X分 + Y点</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+      <div class="sc-row">
+        <span class="sc-num">3</span>
+        <span class="sc-zh">I can choose the most natural expression for any given time</span>
+        <div class="rating"><span class="finger">☝</span><span class="finger">✌</span><span class="finger">✊</span></div>
+      </div>
+    </div>
+    <div class="self-assess">
+      <div class="sa-title">自我评估 · Self-assessment</div>
+      <div class="sa-text">On your paper, write the <strong>one 差 time you still find tricky</strong>. Teacher collects as exit data.</div>
+    </div>
+    <div class="page-tag">总结 · Plenary</div>
+  </section>
+
+  <!-- ====== SLIDE 18: Exit Ticket + Preview ====== -->
+  <section class="s18-exit" data-index="17">
+    <div class="exit-box">
+      <div class="exit-label">Exit Ticket · 出门票</div>
+      <div class="exit-task">Write 4:50 in Chinese<br>using 差</div>
+      <div class="exit-hint">Write your answer on paper and hand it to the teacher on your way out.</div>
+    </div>
+    <div class="preview-box">
+      <div class="preview-label">下节课预告 · Next Lesson</div>
+      <div class="preview-text">You've learned ALL FIVE time patterns! Next lesson: we put them together and learn to ask <span class="em">「现在几点？」</span> — What time is it?</div>
+    </div>
+    <div class="page-tag">下课 · Exit</div>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   Auto-scale + keyboard navigation + click
+   ============================================================ */
+(function() {
+  const stage = document.getElementById('stage');
+  const sections = Array.from(stage.querySelectorAll('section'));
+  let current = 0;
+
+  function fit() {
+    const ww = window.innerWidth;
+    const wh = window.innerHeight;
+    const scale = Math.min(ww / 1920, wh / 1080);
+    stage.style.transform = 'translate(' + ((ww - 1920 * scale) / 2) + 'px, ' + ((wh - 1080 * scale) / 2) + 'px) scale(' + scale + ')';
+  }
+
+  function show(idx) {
+    sections.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+    current = idx;
+  }
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      if (current < sections.length - 1) show(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (current > 0) show(current - 1);
+    }
+  });
+
+  stage.addEventListener('click', function(e) {
+    var rect = stage.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var w = rect.width;
+    if (x > w / 2 && current < sections.length - 1) {
+      show(current + 1);
+    } else if (x < w / 2 && current > 0) {
+      show(current - 1);
+    }
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+
+</body>
+</html>
