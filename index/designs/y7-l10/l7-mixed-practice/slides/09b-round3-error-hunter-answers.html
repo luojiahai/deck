@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>L7-09 · Round 3: Error Hunter</title>
+<title>L7-09b · Round 3: Error Hunter · Answer Reveal</title>
 <link rel="stylesheet" href="../../shared/tokens.css">
 <style>
   .slide-content { justify-content: center; padding: 45px 100px; }
-  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 6px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
   .main-title { font-family: var(--font-display); font-size: 42px; font-weight: 900; margin-bottom: 4px; color: var(--text-primary); }
   .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 16px; }
   .error-table { width: 100%; border-collapse: collapse; max-width: 1520px; }
@@ -15,13 +15,12 @@
     font-weight: 700;
     color: var(--text-secondary);
     padding: 10px 16px;
-    border-bottom: 2px solid var(--accent-coral);
+    border-bottom: 2px solid var(--accent-gold);
     font-size: 16px;
     letter-spacing: 0.06em;
     background: var(--bg-secondary);
   }
-  .error-table th:last-child { display: none; }
-  .error-table th:nth-child(3) { display: none; }
+  .error-table th:last-child { text-align: left; width: 380px; }
   .error-table td {
     padding: 12px 16px;
     border-bottom: 1px solid var(--border-light);
@@ -31,22 +30,15 @@
     vertical-align: middle;
   }
   .error-table tr:nth-child(even) td { background: var(--bg-secondary); }
-  .error-table .mark-col { display: none; }
-  .correction { display: none; }
-  .answers-note {
-    display: flex; align-items: center; gap: 8px;
-    margin-top: 12px;
-    padding: 8px 18px;
-    background: var(--accent-coral-dim);
-    border-radius: var(--radius-sm);
-    font-size: 15px; font-weight: 700; color: var(--accent-coral);
-    align-self: center;
-  }
+  .error-table .mark-col { text-align: center; font-weight: 700; font-size: 26px; }
+  .error-table .mark-col.correct { color: var(--accent-teal); }
+  .error-table .mark-col.wrong { color: var(--accent-coral); }
+  .correction { font-size: 18px; color: var(--text-muted); }
   .correction .arrow { color: var(--accent-coral); margin: 0 6px; }
   .scoring-box {
     margin-top: 16px;
-    background: var(--accent-coral-dim);
-    border: 2px solid var(--accent-coral);
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
     border-radius: var(--radius-md);
     padding: 14px 28px;
     text-align: center;
@@ -62,15 +54,14 @@
 <div class="slide-header">
   <span class="lesson-tag">L7 · TIME OLYMPICS</span>
   <span class="sep"></span>
-  <span class="section-name">Round 3 · Error Hunter</span>
+  <span class="section-name">Round 3 · Error Hunter · Answer Reveal</span>
   <div class="accent-line"></div>
 </div>
 
 <div class="slide-content">
-  <div class="section-label">Round 3 · 7 min</div>
+  <div class="section-label">&#128274; ANSWER REVEAL</div>
   <div class="main-title">&#128269; Error Hunter · 错误猎人</div>
-  <div class="subtitle">Mark each expression &#10003; (correct) or &#10007; (wrong). If wrong, write the correction. 10 pts each.</div>
-  <div class="answers-note">&#128274; Answers on next slide</div>
+  <div class="subtitle">Items 1–6. Check your verdicts and corrections. 10 pts each.</div>
 
   <table class="error-table">
     <thead>
@@ -122,7 +113,7 @@
   </table>
 
   <div class="scoring-box">
-    <div class="score-text">12 items &times; 10 pts = <span style="color:var(--accent-coral);">Max 120 pts</span></div>
+    <div class="score-text">12 items &times; 10 pts = <span style="color:var(--accent-gold);">Max 120 pts</span></div>
     <div class="score-note">1 pt for correct &#10003;/&#10007; + 9 pts for correct correction = 10 per item</div>
   </div>
 </div>

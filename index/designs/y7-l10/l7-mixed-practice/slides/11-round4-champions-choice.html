@@ -46,14 +46,16 @@
   }
   .option.a { background: var(--accent-teal-dim); color: var(--accent-teal); }
   .option.b { background: var(--accent-coral-dim); color: var(--accent-coral); }
-  .option.correct { background: var(--accent-gold-dim); color: var(--accent-gold); border: 2px solid var(--accent-gold); }
-  .answer-hint {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    width: 40px;
-    text-align: center;
+  .option.correct { background: inherit; color: inherit; }
+  .answer-hint { display: none; }
+  .answers-note {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-sm);
+    font-size: 15px; font-weight: 700; color: var(--accent-gold);
+    align-self: center;
   }
   .scoring-box {
     margin-top: 12px;
@@ -83,6 +85,7 @@
   <div class="section-label">Round 4 · 7 min</div>
   <div class="main-title">&#127942; Champion's Choice · 冠军之选</div>
   <div class="subtitle">For each time, pick the <strong>more natural</strong> Chinese expression. Circle A or B. 10 pts each.</div>
+  <div class="answers-note">&#128274; Answers on next slide</div>
 
   <div class="choice-grid">
     <!-- Q1: 3:00 -->

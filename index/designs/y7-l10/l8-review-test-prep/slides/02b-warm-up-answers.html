@@ -2,13 +2,25 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>L8-02 · Warm-Up Round</title>
+<title>L8-02b · Warm-Up Answers</title>
 <link rel="stylesheet" href="../../shared/tokens.css">
 <style>
   .slide-content { justify-content: center; padding: 60px 120px; }
   .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
   .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 8px; }
   .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 32px; }
+  .answer-badge {
+    display: inline-block;
+    background: var(--accent-teal);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
   .warmup-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1520px; }
   .warmup-card {
     background: var(--bg-secondary);
@@ -52,34 +64,8 @@
   }
   .card-hint {
     font-size: 14px;
-    color: var(--text-muted);
-    opacity: 0;
-  }
-  .timer-bar {
-    margin-top: 36px;
-    background: var(--bg-tertiary);
-    border-radius: 999px;
-    height: 8px;
-    max-width: 800px;
-    overflow: hidden;
-  }
-  .timer-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-gold), var(--accent-coral));
-    border-radius: 999px;
-    width: 100%;
-    animation: timerShrink 6s linear forwards;
-  }
-  @keyframes timerShrink {
-    from { width: 100%; }
-    to { width: 0%; }
-  }
-  .timer-label {
-    text-align: center;
-    margin-top: 8px;
-    font-size: 14px;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
+    color: var(--accent-teal);
+    font-weight: 600;
   }
 </style>
 </head>
@@ -88,14 +74,14 @@
 <div class="slide-header">
   <span class="lesson-tag">L8 · BEAT THE TEST</span>
   <span class="sep"></span>
-  <span class="section-name">Warm-Up Round</span>
+  <span class="section-name">Warm-Up Round · Answers</span>
   <div class="accent-line"></div>
 </div>
 
 <div class="slide-content">
   <div class="section-label">0–6 min · Team Warm-Up · Not for points</div>
-  <div class="main-title">Warm-Up Round · 热身赛</div>
-  <div class="subtitle">5 quick questions — discuss with your team. <span class="text-teal">No points, just warm up!</span></div>
+  <div class="main-title">Warm-Up Answers <span class="answer-badge">答案</span></div>
+  <div class="subtitle">5 quick questions — check your team's answers!</div>
 
   <div class="warmup-grid">
     <div class="warmup-card">
@@ -124,9 +110,6 @@
       <div class="card-hint">Answer: What time is it now?</div>
     </div>
   </div>
-
-  <div class="timer-bar"><div class="timer-fill"></div></div>
-  <div class="timer-label">6 minute timer</div>
 </div>
 
 <div class="slide-footer">

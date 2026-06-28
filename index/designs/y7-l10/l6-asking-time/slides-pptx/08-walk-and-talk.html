@@ -83,6 +83,11 @@
   .w-chinese p { font-family: 'Noto Serif SC', serif; font-size: 11pt; font-weight: 700; color: #C8943E; margin: 0; }
   .w-pinyin { }
   .w-pinyin p { font-size: 7pt; color: #8B94A3; margin: 0; }
+
+  .w-chinese, .w-pinyin { display: none; }
+
+  .answer-hint { display: inline-block; margin-bottom: 4pt; padding: 4pt 12pt; background: rgba(212,117,107,0.1); border-radius: 4pt; border: 1pt dashed #D4756B; }
+  .answer-hint p { font-size: 10pt; font-weight: 700; color: #D4756B; margin: 0; }
 </style>
 </head>
 <body>
@@ -128,6 +133,7 @@
   </div>
 
   <!-- Sample watch cards -->
+  <div class="answer-hint"><p>Answers on next slide</p></div>
   <div class="watch-cards">
     <div class="watch-card">
       <div class="w-digital"><p>2:30</p></div>
