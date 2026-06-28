@@ -34,50 +34,59 @@
 
   /* ── Hero ── */
   .hero {
-    padding: 80px 0 56px;
-    text-align: center;
+    padding: 56px 0 48px;
     position: relative;
     overflow: hidden;
   }
+  .hero .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .hero .hero-text {
+    display: flex;
+    flex-direction: column;
+  }
   .hero .unit-tag {
     display: inline-block;
+    align-self: flex-start;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.16em;
     color: var(--accent);
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     padding: 4px 16px;
     border: 1px solid var(--accent);
     border-radius: 999px;
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 900;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .hero h1 .dot { color: var(--accent); }
   .hero .subtitle {
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text-muted);
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     letter-spacing: 0.02em;
   }
   .hero .meta {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
     font-size: 15px;
     color: var(--text-muted);
     letter-spacing: 0.04em;
   }
   .hero .meta .pill {
     background: var(--card-bg);
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 999px;
   }
   .hero .meta .sep {
@@ -119,10 +128,10 @@
 
   /* ── Clock motif ── */
   .hero-clock {
-    width: 100px; height: 100px;
+    width: 96px; height: 96px;
+    flex-shrink: 0;
     border-radius: 50%;
     border: 3px solid var(--border);
-    margin: 0 auto 32px;
     position: relative;
   }
   .hero-clock::before {
@@ -137,7 +146,7 @@
   }
   .hero-clock .hand-h {
     position: absolute;
-    width: 2px; height: 32px;
+    width: 2px; height: 30px;
     background: var(--text);
     border-radius: 1px;
     bottom: 50%; left: 50%;
@@ -146,7 +155,7 @@
   }
   .hero-clock .hand-m {
     position: absolute;
-    width: 1.5px; height: 42px;
+    width: 2px; height: 42px;
     background: var(--accent);
     border-radius: 1px;
     bottom: 50%; left: 50%;
@@ -163,7 +172,6 @@
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 32px;
-    text-align: center;
     color: var(--text-muted);
     letter-spacing: 0.04em;
   }
@@ -229,67 +237,12 @@
   .badge-olympics { background: #FBE8E3; color: #B85D53; }
   .badge-gameshow { background: #F0E8E4; color: #7D5542; }
 
-  /* ── Progress bar ── */
-  .progress-section {
-    padding: 0 0 56px;
-  }
-  .progress-bar-wrap {
-    background: var(--card-bg);
-    border-radius: 999px;
-    height: 8px;
-    overflow: hidden;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent-teal), var(--accent));
-    transition: width 0.6s ease;
-  }
-  .progress-labels {
-    display: flex;
-    justify-content: space-between;
-    max-width: 600px;
-    margin: 8px auto 0;
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 0.04em;
-  }
 
-  /* ── Pattern map ── */
-  .pattern-map {
-    padding: 0 0 64px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .pattern-flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .pattern-node {
-    background: #fff;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 20px;
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .pattern-arrow {
-    color: var(--accent);
-    font-size: 20px;
-  }
 
   /* ── Footer ── */
   footer {
     border-top: 1px solid var(--border);
     padding: 32px 0;
-    text-align: center;
     font-size: 14px;
     color: var(--text-muted);
     letter-spacing: 0.04em;
@@ -302,12 +255,59 @@
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 40px 0 32px; }
     .hero h1 { font-size: 40px; }
+    .hero .hero-inner { gap: 24px; }
+    .hero .subtitle { font-size: 17px; margin-bottom: 16px; }
+    .hero .unit-tag { font-size: 13px; }
+    .hero .meta { font-size: 13px; gap: 12px; }
+    .hero-clock { width: 80px; height: 80px; }
+    .hero-clock .hand-h { height: 25px; }
+    .hero-clock .hand-m { height: 34px; }
+    .lessons .section-title { font-size: 24px; margin-bottom: 24px; }
+    .lesson-card { padding: 22px 18px; border-radius: 14px; }
+    .lesson-card .card-num { font-size: 40px; }
+    .lesson-card .card-title { font-size: 20px; }
+    .lesson-card .card-en { font-size: 13px; }
     .container { padding: 0 20px; }
   }
+
+  @media (max-width: 640px) {
+    .lesson-grid { grid-template-columns: 1fr; gap: 14px; }
+    .hero { padding: 32px 0 24px; }
+    .hero h1 { font-size: 36px; }
+    .hero .hero-inner { gap: 20px; }
+    .hero .subtitle { font-size: 15px; margin-bottom: 12px; }
+    .hero .unit-tag { font-size: 12px; padding: 3px 12px; margin-bottom: 8px; }
+    .hero .meta { font-size: 13px; gap: 10px; }
+    .hero .meta .pill { padding: 3px 10px; }
+    .hero-clock { width: 72px; height: 72px; }
+    .hero-clock .hand-h { height: 22px; }
+    .hero-clock .hand-m { height: 30px; }
+    .lessons { padding: 0 0 48px; }
+    .lessons .section-title { font-size: 20px; margin-bottom: 18px; }
+    .lesson-card { padding: 18px 16px; border-radius: 12px; }
+    .lesson-card .card-num { font-size: 32px; margin-bottom: -4px; }
+    .lesson-card .card-title { font-size: 18px; }
+    .lesson-card .card-en { font-size: 12px; margin-bottom: 8px; }
+    .lesson-card .card-badge { font-size: 10px; padding: 2px 8px; }
+    .card-pptx { font-size: 11px; padding: 4px 0; margin-top: 10px; }
+    footer { padding: 24px 0; font-size: 12px; }
+  }
+
   @media (max-width: 500px) {
-    .lesson-grid { grid-template-columns: 1fr; }
+    .hero { padding: 24px 0 20px; }
+    .hero .hero-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
     .hero h1 { font-size: 32px; }
+    .hero .subtitle { font-size: 14px; margin-bottom: 10px; }
+    .hero .meta { font-size: 12px; gap: 8px; }
+    .hero-clock { width: 56px; height: 56px; }
+    .hero-clock .hand-h { height: 17px; }
+    .hero-clock .hand-m { height: 24px; }
+    .lesson-card { padding: 16px 14px; }
+    .lesson-card .card-num { font-size: 28px; }
+    .lesson-card .card-title { font-size: 17px; }
+    .container { padding: 0 14px; }
   }
 </style>
 </head>
@@ -316,57 +316,25 @@
 <!-- ════════ Hero ════════ -->
 <section class="hero">
   <div class="container">
-    <div class="hero-clock"><div class="hand-h"></div><div class="hand-m"></div></div>
-    <div class="unit-tag">Year 7 · Unit 4.1</div>
-    <h1>几点<span class="dot">？</span></h1>
-    <div class="subtitle">Telling Time in Chinese · 用中文说时间</div>
-    <div class="meta">
-      <span class="pill">8 Lessons</span>
-      <span class="sep"></span>
-      <span class="pill">50 mins each</span>
-      <span class="sep"></span>
-      <span class="pill">Speaking + Listening</span>
+    <div class="hero-inner">
+      <div class="hero-clock"><div class="hand-h"></div><div class="hand-m"></div></div>
+      <div class="hero-text">
+        <div class="unit-tag">Year 7 · Unit 4.1</div>
+        <h1>几点<span class="dot">？</span></h1>
+        <div class="subtitle">Telling Time in Chinese · 用中文说时间</div>
+        <div class="meta">
+          <span class="pill">8 Lessons</span>
+          <span class="sep"></span>
+          <span class="pill">50 mins each</span>
+          <span class="sep"></span>
+          <span class="pill">Speaking + Listening</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ Progress ════════ -->
-<section class="progress-section">
-  <div class="container">
-    <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" style="width: 12.5%;"></div>
-    </div>
-    <div class="progress-labels">
-      <span>L1 · 点</span>
-      <span>L2 · 分</span>
-      <span>L3 · 半</span>
-      <span>L4 · 刻</span>
-      <span>L5 · 差</span>
-      <span>L6 · 几点</span>
-      <span>L7 · 混合</span>
-      <span>L8 · 复习</span>
-    </div>
-  </div>
-</section>
 
-<!-- ════════ Pattern Map ════════ -->
-<section class="pattern-map">
-  <div class="container">
-    <div class="pattern-flow">
-      <div class="pattern-node">点</div>
-      <div class="pattern-arrow">→</div>
-      <div class="pattern-node">分</div>
-      <div class="pattern-arrow">→</div>
-      <div class="pattern-node">半</div>
-      <div class="pattern-arrow">→</div>
-      <div class="pattern-node">刻</div>
-      <div class="pattern-arrow">→</div>
-      <div class="pattern-node">差</div>
-      <div class="pattern-arrow">→</div>
-      <div class="pattern-node" style="border-color:var(--accent);color:var(--accent);">现在几点？</div>
-    </div>
-  </div>
-</section>
 
 <!-- ════════ Lesson Cards ════════ -->
 <section class="lessons">
