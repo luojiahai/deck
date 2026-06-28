@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-12 · Medal Ceremony</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; padding: 50px 100px; text-align: center; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 56px; font-weight: 900; margin-bottom: 28px; color: var(--text-primary); }
+  .podium-row { display: flex; gap: 24px; justify-content: center; align-items: flex-end; margin-bottom: 32px; }
+  .podium-col {
+    flex: 0 0 280px;
+    display: flex; flex-direction: column;
+    align-items: center;
+  }
+  .medal-icon { font-size: 80px; margin-bottom: 12px; }
+  .podium-block {
+    width: 260px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    display: flex; flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+  }
+  .podium-col.gold .podium-block {
+    height: 220px;
+    background: linear-gradient(180deg, var(--accent-gold-dim), var(--accent-gold-dim) 60%, rgba(200,148,62,0.18));
+    border: 2px solid var(--accent-gold);
+    border-bottom: 0;
+  }
+  .podium-col.silver .podium-block {
+    height: 180px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-medium);
+    border-bottom: 0;
+  }
+  .podium-col.bronze .podium-block {
+    height: 140px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-bottom: 0;
+  }
+  .podium-col .tier-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .podium-col.gold .tier-label { color: var(--accent-gold); }
+  .podium-col.silver .tier-label { color: var(--text-muted); }
+  .podium-col.bronze .tier-label { color: var(--accent-coral); }
+  .podium-col .score-range {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .podium-col .score-detail {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .total-bar {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 20px 40px;
+    max-width: 1100px;
+    border: 2px solid var(--accent-gold);
+    margin-bottom: 20px;
+  }
+  .total-bar .max-score {
+    font-family: var(--font-mono);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .total-bar .breakdown {
+    font-size: 18px;
+    color: var(--text-muted);
+    display: flex; gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .total-bar .breakdown span { white-space: nowrap; }
+  .celebrate {
+    margin-top: 20px;
+    font-size: 20px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Medal Ceremony</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Olympics Finale</div>
+  <div class="main-title">&#127942; Medal Ceremony · 颁奖仪式</div>
+
+  <div class="total-bar">
+    <div class="max-score">Max Total = 430 pts</div>
+    <div class="breakdown">
+      <span>R1: 100</span>
+      <span>+</span>
+      <span>R2: 110</span>
+      <span>+</span>
+      <span>R3: 120</span>
+      <span>+</span>
+      <span>R4: 100</span>
+    </div>
+  </div>
+
+  <div class="podium-row">
+    <div class="podium-col silver">
+      <div class="medal-icon">&#129352;</div>
+      <div class="podium-block">
+        <div class="tier-label">Silver</div>
+        <div class="score-range">300–379</div>
+        <div class="score-detail">强! Almost there</div>
+      </div>
+    </div>
+    <div class="podium-col gold">
+      <div class="medal-icon">&#129351;</div>
+      <div class="podium-block">
+        <div class="tier-label">Gold</div>
+        <div class="score-range">380+</div>
+        <div class="score-detail">&#127942; 时间奥运冠军!</div>
+      </div>
+    </div>
+    <div class="podium-col bronze">
+      <div class="medal-icon">&#129353;</div>
+      <div class="podium-block">
+        <div class="tier-label">Bronze</div>
+        <div class="score-range">200–299</div>
+        <div class="score-detail">加油! Keep going</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="celebrate">&#127881; Calculate your total score across all 4 rounds! &#127881;</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

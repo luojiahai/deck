@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-03 · Learning Intention & Success Criteria</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 140px; flex-direction: row; gap: 48px; }
+  .col-left { flex: 1; }
+  .col-right { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 32px; }
+  .li-box {
+    background: var(--accent-gold-dim);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .li-box .label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .li-box .li-text { font-size: 26px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .sc-list { display: flex; flex-direction: column; gap: 14px; }
+  .sc-item { display: flex; align-items: flex-start; gap: 16px; font-size: 22px; color: var(--text-secondary); }
+  .sc-num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .rules-box {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    position: relative;
+  }
+  .rules-box .rules-label {
+    position: absolute;
+    top: -14px; left: 24px;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .rules-box .rule-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+  .rules-box .rule-row:last-child { margin-bottom: 0; }
+  .rule-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .score-preview {
+    background: var(--accent-teal-dim);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .score-preview .round-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 16px;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+  }
+  .score-preview .round-list .pts {
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .score-preview .total {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--accent-gold);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · BEAT THE TEST</span>
+  <span class="sep"></span>
+  <span class="section-name">Learning Intention &amp; Game Rules</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="col-left">
+    <div class="section-label">6–8 min · Display on projector</div>
+    <div class="main-title">今日目标 · Today's Goal</div>
+
+    <div class="li-box">
+      <div class="label">Learning Intention</div>
+      <div class="li-text">We are learning to <span class="text-gold">confidently demonstrate</span> our time-telling skills for the Unit 4.1 test.</div>
+    </div>
+
+    <div class="sc-list">
+      <div class="sc-item">
+        <div class="sc-num">1</div>
+        <div>Translate <strong>any time</strong> between English and Chinese.</div>
+      </div>
+      <div class="sc-item">
+        <div class="sc-num">2</div>
+        <div>Identify and <strong class="text-coral">correct common mistakes</strong>.</div>
+      </div>
+      <div class="sc-item">
+        <div class="sc-num">3</div>
+        <div>Feel <strong class="text-teal">confident and ready</strong> for the test.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-right">
+    <div class="rules-box">
+      <div class="rules-label">GAME SHOW RULES</div>
+      <div class="rule-row"><span class="rule-icon">&#127922;</span> <span>3 rounds + final sprint</span></div>
+      <div class="rule-row"><span class="rule-icon">&#128101;</span> <span>Work in teams — earn points together</span></div>
+      <div class="rule-row"><span class="rule-icon">&#9201;</span> <span>Strict time limits per round</span></div>
+      <div class="rule-row"><span class="rule-icon">&#9995;</span> <span>Hands up to answer — teacher confirms</span></div>
+      <div class="rule-row"><span class="rule-icon">&#127942;</span> <span>Winning team gets medals!</span></div>
+    </div>
+
+    <div class="score-preview">
+      <div class="round-list">
+        <span>R1 Vocab: <span class="pts">150 pts</span></span>
+        <span>R2 Translate: <span class="pts">180 pts</span></span>
+        <span>R3 Errors: <span class="pts">160 pts</span></span>
+      </div>
+      <div class="total">Total possible: 490 points</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

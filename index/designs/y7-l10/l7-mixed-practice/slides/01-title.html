@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot {
+    color: var(--accent-coral);
+  }
+  .title-en {
+    font-size: 36px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  /* Olympics rings motif — abstract arcs */
+  .rings-motif {
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 400px; height: 200px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .rings-motif .arc {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid transparent;
+  }
+  .rings-motif .arc:nth-child(1) { width: 120px; height: 120px; border-color: var(--accent-gold); top: 0; left: 40px; }
+  .rings-motif .arc:nth-child(2) { width: 120px; height: 120px; border-color: var(--accent-teal); top: 0; left: 140px; }
+  .rings-motif .arc:nth-child(3) { width: 120px; height: 120px; border-color: var(--accent-coral); top: 0; left: 240px; }
+  .clock-watermark { right: 80px; bottom: -60px; }
+  .olympic-stars {
+    display: flex; gap: 12px;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+  .olympic-stars span {
+    font-size: 32px;
+    color: var(--accent-gold-light);
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="olympic-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+  <div class="lesson-num">Lesson 7 · Y7 Unit 4</div>
+  <h1 class="title-cn">时间<span class="dot">奥运</span>会</h1>
+  <div class="title-en">Time Olympics · Mixed Practice · 混合练习</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>All Skills: Listening + Speaking + Reading + Writing</span>
+  </div>
+</div>
+
+<div class="rings-motif">
+  <div class="arc"></div>
+  <div class="arc"></div>
+  <div class="arc"></div>
+</div>
+<div class="clock-watermark"></div>
+</body>
+</html>

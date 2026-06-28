@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-12 · Sprint 5: Pinyin Circle</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+  .pinyin-table {
+    width: 100%;
+    max-width: 1500px;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+  .pinyin-table th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: 16px 28px;
+    border-bottom: 2px solid var(--accent-gold);
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    background: var(--bg-secondary);
+  }
+  .pinyin-table td {
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 28px;
+  }
+  .pinyin-table .zh-cell {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .pinyin-table .opt-a, .pinyin-table .opt-b {
+    font-family: var(--font-body);
+    font-size: 24px;
+  }
+  .pinyin-table .opt-correct {
+    color: var(--accent-teal);
+    font-weight: 700;
+  }
+  .pinyin-table .opt-wrong {
+    color: var(--accent-coral);
+  }
+  .pinyin-table .answer-cell {
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+  }
+  .answer-cell.a { color: var(--accent-teal); }
+  .answer-cell.b { color: var(--accent-coral); }
+  .instructions {
+    margin-top: 20px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .textbook-ref {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">Sprint 5 · Pinyin Circle</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">38–43 min · Textbook p89</div>
+  <div class="main-title">Sprint 5: Pinyin Circle · 拼音圈一圈</div>
+  <div class="subtitle">Choose A or B for the correct pinyin. Circle your answer!</div>
+
+  <table class="pinyin-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Chinese</th>
+        <th>Option A</th>
+        <th>Option B</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">1</td>
+        <td class="zh-cell">三点十分</td>
+        <td class="opt-correct">sān diǎn shí fēn</td>
+        <td class="opt-wrong">sān diǎn sì fēn</td>
+        <td class="answer-cell a">A</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">2</td>
+        <td class="zh-cell">五点零五分</td>
+        <td class="opt-wrong">wǔ diǎn wǔ fēn</td>
+        <td class="opt-correct">wǔ diǎn líng wǔ fēn</td>
+        <td class="answer-cell b">B</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">3</td>
+        <td class="zh-cell">七点二十分</td>
+        <td class="opt-correct">qī diǎn èrshí fēn</td>
+        <td class="opt-wrong">qī diǎn èr fēn</td>
+        <td class="answer-cell a">A</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">4</td>
+        <td class="zh-cell">十二点零一分</td>
+        <td class="opt-wrong">shí'èr diǎn yī fēn</td>
+        <td class="opt-correct">shí'èr diǎn líng yī fēn</td>
+        <td class="answer-cell b">B</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">5</td>
+        <td class="zh-cell">九点十五分</td>
+        <td class="opt-wrong">jiǔ diǎn shí wǔ fēn</td>
+        <td class="opt-correct">jiǔ diǎn shíwǔ fēn</td>
+        <td class="answer-cell b">B</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--accent-gold);">6</td>
+        <td class="zh-cell">两点四十分</td>
+        <td class="opt-correct">liǎng diǎn sìshí fēn</td>
+        <td class="opt-wrong">èr diǎn sìshí fēn</td>
+        <td class="answer-cell a">A</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="instructions">
+    <div class="pill">📖 Textbook page 89</div>
+    <div class="pill">⭕ Circle A or B for each item</div>
+    <div class="pill">🤝 Compare with partner then whole-class check</div>
+  </div>
+
+  <div class="textbook-ref">Textbook p89 — Pinyin Circle activity</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

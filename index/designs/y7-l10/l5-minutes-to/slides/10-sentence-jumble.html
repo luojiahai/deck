@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-10 · Sentence Jumble</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+  .jumble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1520px; margin-bottom: 20px; }
+  .jumble-card {
+    background: #fff;
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .jumble-card .round-num {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; color: var(--accent-teal);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .jumble-card .scramble {
+    font-family: var(--font-display);
+    font-size: 30px; font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .jumble-card .time-hint {
+    font-size: 16px; color: var(--accent-gold);
+    font-family: var(--font-mono); font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .jumble-card .answer {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 900;
+    color: var(--accent-teal);
+    visibility: hidden;
+  }
+  .jumble-card:hover .answer { visibility: visible; }
+  .jumble-card.trap {
+    border-color: var(--accent-coral);
+    background: var(--accent-coral-dim);
+  }
+  .instructions {
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · MINUTES TO</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 1 · Sentence Jumble</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1 · 12 min — Pairs</div>
+  <div class="main-title">Sentence Jumble · 句子拼图</div>
+  <div class="subtitle">Arrange the word cards into the correct sentence. Write your answer on paper!</div>
+
+  <div class="jumble-grid">
+    <!-- Round 1: Easy -->
+    <div class="jumble-card">
+      <div class="round-num">Round 1 · Easy</div>
+      <div class="time-hint">→ 6:50</div>
+      <div class="scramble">差 分 十 点 七</div>
+      <div class="answer">差十分七点</div>
+    </div>
+    <!-- Round 2 -->
+    <div class="jumble-card">
+      <div class="round-num">Round 2 · Easy</div>
+      <div class="time-hint">→ 7:55</div>
+      <div class="scramble">分 点 差 八 五</div>
+      <div class="answer">差五分八点</div>
+    </div>
+    <!-- Round 3 -->
+    <div class="jumble-card">
+      <div class="round-num">Round 3 · Medium</div>
+      <div class="time-hint">→ 3:40</div>
+      <div class="scramble">点 二十分 四 差</div>
+      <div class="answer">差二十分四点</div>
+    </div>
+    <!-- Round 4 -->
+    <div class="jumble-card">
+      <div class="round-num">Round 4 · Medium</div>
+      <div class="time-hint">→ 11:45</div>
+      <div class="scramble">一点 刻 二 十 差</div>
+      <div class="answer">差一刻十二点</div>
+    </div>
+    <!-- Round 5: TRAP -->
+    <div class="jumble-card trap">
+      <div class="round-num">Round 5 · ⚠️ TRAP!</div>
+      <div class="time-hint">→ 1:55</div>
+      <div class="scramble">差 点 五 分 两</div>
+      <div class="answer" style="color:var(--accent-coral);">差五分两点</div>
+    </div>
+    <!-- Round 6 -->
+    <div class="jumble-card">
+      <div class="round-num">Round 6 · Hard</div>
+      <div class="time-hint">→ 5:59</div>
+      <div class="scramble">差 分 点 六 一</div>
+      <div class="answer">差一分六点</div>
+    </div>
+    <!-- Round 7 -->
+    <div class="jumble-card">
+      <div class="round-num">Round 7 · Hard</div>
+      <div class="time-hint">→ 9:50</div>
+      <div class="scramble">十 点 分 十 差</div>
+      <div class="answer">差十分十点</div>
+    </div>
+    <!-- Round 8: TRAP -->
+    <div class="jumble-card trap">
+      <div class="round-num">Round 8 · ⚠️ TRAP!</div>
+      <div class="time-hint">→ 4:40</div>
+      <div class="scramble">四点 差 分 五 十 二</div>
+      <div class="answer" style="color:var(--accent-coral);">差二十分五点</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">🧩 Pairs: arrange word cards on desk</div>
+    <div class="pill">🖊️ Write the correct sentence</div>
+    <div class="pill">⚡ Race: first correct pair wins a point!</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    width: 960pt; height: 540pt;
+    overflow: hidden;
+    font-family: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+    color: #1E2A38;
+    background: #FEFCF7;
+  }
+  .header-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 36pt;
+    border-bottom: 1pt solid #E5DFD0;
+    display: flex; align-items: center; padding: 0 36pt;
+  }
+  .header-bar p { font-size: 7pt; margin: 0; }
+  .tag { font-weight: 700; letter-spacing: 0.12em; color: #C8943E; }
+  .sep { width: 1pt; height: 10pt; background: #E5DFD0; margin: 0 8pt; }
+  .section { color: #5B6677; }
+  .accent-line { position: absolute; top: 0; left: 36pt; right: 36pt; height: 3pt; background: #C8943E; }
+  .footer-bar {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 24pt;
+    border-top: 1pt solid #E5DFD0;
+    display: flex; align-items: center; padding: 0 36pt;
+  }
+  .footer-bar p { font-size: 6pt; color: #8B94A3; margin: 0; letter-spacing: 0.06em; }
+  .content { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 24pt 48pt; }
+  .section-label { margin-bottom: 6pt; }
+  .section-label p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #3A7D8C; margin: 0; }
+  .main-title { margin-bottom: 4pt; }
+  .main-title h2 { font-family: 'Noto Serif SC', serif; font-size: 24pt; font-weight: 900; margin: 0; color: #1E2A38; }
+  .subtitle { margin-bottom: 16pt; }
+  .subtitle p { font-size: 10pt; color: #8B94A3; margin: 0; }
+  .q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .q-item { background: #F6F2E8; border-radius: 6pt; padding: 8pt 12pt; display: flex; align-items: flex-start; gap: 8pt; }
+  .q-num { width: 18pt; height: 18pt; border-radius: 50%; background: #3A7D8C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .q-num p { font-size: 8pt; font-weight: 700; color: #fff; margin: 0; }
+  .q-body { flex: 1; min-width: 0; }
+  .q-body p { margin: 0; }
+  .q-text { font-size: 12pt; color: #1E2A38; }
+  .q-hint { font-size: 7pt; color: #8B94A3; }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <p class="tag">L1 · O'CLOCK</p>
+  <div class="sep"></div>
+  <p class="section">Review · Textbook p84</p>
+  <div class="accent-line"></div>
+</div>
+
+<div class="content">
+  <div class="section-label"><p>Review Part A — 5 min</p></div>
+  <div class="main-title"><h2>Quick Questions · 快速问答</h2></div>
+  <div class="subtitle"><p>Write a quick answer on paper. Speed focus — 30 seconds each.</p></div>
+
+  <div class="q-grid">
+    <div class="q-item">
+      <div class="q-num"><p>1</p></div>
+      <div class="q-body">
+        <p class="q-text">你叫什么名字？</p>
+        <p class="q-hint">Write your Chinese name</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>2</p></div>
+      <div class="q-body">
+        <p class="q-text">你是哪国人？</p>
+        <p class="q-hint">美国人 / 英国人 / 澳大利亚人…</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>3</p></div>
+      <div class="q-body">
+        <p class="q-text">你家有几口人？</p>
+        <p class="q-hint">Write a number</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>4</p></div>
+      <div class="q-body">
+        <p class="q-text">你的生日是几月几号？</p>
+        <p class="q-hint">Write the date in digits</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>5</p></div>
+      <div class="q-body">
+        <p class="q-text">你住在哪儿？</p>
+        <p class="q-hint">Write the city</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>6</p></div>
+      <div class="q-body">
+        <p class="q-text">你今年上几年级？</p>
+        <p class="q-hint">七年级</p>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num"><p>7</p></div>
+      <div class="q-body">
+        <p class="q-text">你家的电话号码是多少？</p>
+        <p class="q-hint">Practise digits — any number</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">
+  <p>Y7 Chinese · Unit 4.1 Telling Time</p>
+</div>
+
+</body>
+</html>

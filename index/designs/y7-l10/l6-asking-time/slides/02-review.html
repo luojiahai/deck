@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-02 · Review · 10 Clock Faces</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+  .clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 1700px;
+  }
+  .clock-cell {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 16px 10px;
+    position: relative;
+  }
+  .clock-cell .q-num {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 13px; font-weight: 700;
+    color: var(--accent-teal);
+    letter-spacing: 0.06em;
+  }
+  .mini-clock {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--text-primary);
+    margin: 8px auto 10px;
+    position: relative;
+    background: #fff;
+  }
+  .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .mini-clock .hand-h {
+    position: absolute;
+    width: 4px; height: 30px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .mini-clock .hand-m {
+    position: absolute;
+    width: 2.5px; height: 40px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .digital-time {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .write-zone {
+    font-size: 14px; color: var(--text-muted);
+    border-bottom: 2px dashed var(--border-medium);
+    display: inline-block;
+    min-width: 80px;
+    padding-bottom: 2px;
+  }
+  .instruction-box {
+    margin-top: 18px;
+    background: var(--accent-teal-dim);
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 17px; color: var(--accent-teal);
+    font-weight: 500;
+    max-width: 1300px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · 10 Clock Faces</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Review</div>
+  <div class="main-title">Write the Most Natural Chinese Time</div>
+  <div class="subtitle">All patterns mixed. Write the NATURAL way a Chinese speaker would say it — not word-by-word translation.</div>
+
+  <div class="clocks-grid">
+    <div class="clock-cell">
+      <div class="q-num">1</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(90deg);"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="digital-time">3:00</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">2</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(195deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(180deg);"></div>
+      </div>
+      <div class="digital-time">6:30</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">3</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(277.5deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+      <div class="digital-time">9:15</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">4</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(232.5deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+      <div class="digital-time">7:45</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">5</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(145deg);"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(300deg);"></div>
+      </div>
+      <div class="digital-time">4:50</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">6</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(32.5deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(30deg);"></div>
+      </div>
+      <div class="digital-time">1:05</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">7</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(335deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(60deg);"></div>
+      </div>
+      <div class="digital-time">11:10</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">8</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(70deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(120deg);"></div>
+      </div>
+      <div class="digital-time">2:20</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">9</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(260deg);"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(240deg);"></div>
+      </div>
+      <div class="digital-time">8:40</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="clock-cell">
+      <div class="q-num">10</div>
+      <div class="mini-clock">
+        <div class="hand-h" style="transform:translateX(-50%) rotate(27.5deg); height:24px;"></div>
+        <div class="hand-m" style="transform:translateX(-50%) rotate(330deg);"></div>
+      </div>
+      <div class="digital-time">12:55</div>
+      <div class="write-zone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="instruction-box">
+    <span style="font-size:22px;">&#9998;</span>
+    <span>Write the <strong>most natural</strong> Chinese expression. Think: "How would a Chinese person actually say this?" Not word-by-word from English.</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

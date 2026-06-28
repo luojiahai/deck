@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-05 · Key Pattern: X点Y分</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 52px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 24px; }
+  .pattern-box {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-bottom: 32px;
+  }
+  .pattern-block {
+    background: var(--bg-tertiary);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .pattern-plus {
+    font-size: 32px;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .pattern-equals {
+    font-size: 32px;
+    color: var(--text-muted);
+  }
+  .example-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1500px;
+  }
+  .example-card {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+  }
+  .example-card .time-zh {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .example-card .time-digit {
+    font-size: 26px;
+    color: var(--accent-gold);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .example-card .time-pinyin {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+  .example-card .mini-clock {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 12px auto 0;
+    position: relative;
+    background: #fff;
+  }
+  .example-card .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .example-card .mini-clock .h {
+    position: absolute;
+    width: 3px; height: 30px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .example-card .mini-clock .mm {
+    position: absolute;
+    width: 2px; height: 42px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .zero-rule-box {
+    margin-top: 24px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 20px 32px;
+    max-width: 1300px;
+  }
+  .zero-rule-box .rule-title {
+    font-size: 18px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-coral); margin-bottom: 10px;
+  }
+  .zero-rule-box .rule-body {
+    font-size: 26px; color: var(--text-primary); font-weight: 700;
+    display: flex; gap: 32px; align-items: center;
+  }
+  .zero-rule-box .rule-body .sep {
+    width: 1px; height: 28px; background: var(--accent-coral); opacity: 0.3;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–18 min · I Do</div>
+  <div class="main-title">Key Pattern · 关键句型</div>
+  <div class="subtitle">Number + 点 + Number + 分 = Hour:Minute in Chinese</div>
+
+  <div class="pattern-box">
+    <div class="pattern-block">X</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">点</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">Y</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">分</div>
+  </div>
+
+  <div class="example-grid">
+    <div class="example-card">
+      <div class="time-zh">三点十分</div>
+      <div class="time-digit">3:10</div>
+      <div class="time-pinyin">sān diǎn shí fēn</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(95deg);"></div>
+        <div class="mm" style="transform:translateX(-50%) rotate(60deg);"></div>
+      </div>
+    </div>
+    <div class="example-card" style="border: 2px solid var(--accent-coral);">
+      <div class="time-zh" style="color:var(--accent-coral);">五点<span style="text-decoration:underline;">零</span>五分</div>
+      <div class="time-digit">5:05</div>
+      <div class="time-pinyin">wǔ diǎn líng wǔ fēn</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(152deg);"></div>
+        <div class="mm" style="transform:translateX(-50%) rotate(30deg);"></div>
+      </div>
+    </div>
+    <div class="example-card">
+      <div class="time-zh">七点二十分</div>
+      <div class="time-digit">7:20</div>
+      <div class="time-pinyin">qī diǎn èrshí fēn</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(220deg);"></div>
+        <div class="mm" style="transform:translateX(-50%) rotate(120deg);"></div>
+      </div>
+    </div>
+    <div class="example-card" style="border: 2px solid var(--accent-coral);">
+      <div class="time-zh" style="color:var(--accent-coral);">十二点<span style="text-decoration:underline;">零</span>一分</div>
+      <div class="time-digit">12:01</div>
+      <div class="time-pinyin">shí'èr diǎn líng yī fēn</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(0deg); height:24px;"></div>
+        <div class="mm" style="transform:translateX(-50%) rotate(6deg);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="zero-rule-box">
+    <div class="rule-title">零 RULE</div>
+    <div class="rule-body">
+      <span>If <span class="text-coral">minutes = 1–9</span> → insert 零 after 点</span>
+      <span class="sep"></span>
+      <span>If <span class="text-teal">minutes = 10+</span> → NO 零 needed</span>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

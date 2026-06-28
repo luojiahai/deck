@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-09 · Bingo</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 24px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .bingo-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 3px solid var(--accent-gold);
+    max-width: 440px;
+  }
+  .bingo-cell {
+    background: #fff;
+    border-radius: var(--radius-sm);
+    padding: 18px 8px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    border: 2px dashed var(--border-light);
+    min-height: 70px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bingo-cell.free {
+    background: var(--accent-gold-dim);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    font-size: 20px;
+  }
+  .word-bank { display: flex; flex-direction: column; gap: 12px; }
+  .word-bank-title { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 4px; }
+  .bank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bank-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-size: 18px;
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .bank-item .zh { font-family: var(--font-display); font-weight: 700; }
+  .bank-item .dig { color: var(--text-muted); font-size: 14px; font-family: var(--font-mono); }
+  .how-to { margin-top: 20px; font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+  .how-to .step-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-teal); color: #fff; text-align: center; font-size: 13px; font-weight: 700; line-height: 22px; margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · HALF PAST</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity · Bingo</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 2 · Cumulative Bingo — 8 min</div>
+  <div class="main-title">Cumulative Bingo · 宾果游戏</div>
+  <div class="subtitle">Fill your 3x3 card with 8 different times. The centre is FREE!</div>
+
+  <div class="two-col">
+    <div class="bingo-card">
+      <div class="bingo-cell">三点</div>
+      <div class="bingo-cell">七点半</div>
+      <div class="bingo-cell">十二点</div>
+      <div class="bingo-cell">两点十五分</div>
+      <div class="bingo-cell free">半 FREE</div>
+      <div class="bingo-cell">五点半</div>
+      <div class="bingo-cell">九点零五分</div>
+      <div class="bingo-cell">八点半</div>
+      <div class="bingo-cell">一点四十五</div>
+    </div>
+
+    <div>
+      <div class="word-bank">
+        <div class="word-bank-title">Word Bank — Pick any 8</div>
+        <div class="bank-grid">
+          <div class="bank-item"><span class="zh">三点</span><span class="dig">3:00</span></div>
+          <div class="bank-item"><span class="zh">七点半</span><span class="dig">7:30</span></div>
+          <div class="bank-item"><span class="zh">十二点</span><span class="dig">12:00</span></div>
+          <div class="bank-item"><span class="zh">两点十五分</span><span class="dig">2:15</span></div>
+          <div class="bank-item"><span class="zh">五点半</span><span class="dig">5:30</span></div>
+          <div class="bank-item"><span class="zh">九点零五分</span><span class="dig">9:05</span></div>
+          <div class="bank-item"><span class="zh">八点半</span><span class="dig">8:30</span></div>
+          <div class="bank-item"><span class="zh">一点四十五</span><span class="dig">1:45</span></div>
+          <div class="bank-item"><span class="zh">十一点半</span><span class="dig">11:30</span></div>
+          <div class="bank-item"><span class="zh">四点二十分</span><span class="dig">4:20</span></div>
+          <div class="bank-item"><span class="zh">六点半</span><span class="dig">6:30</span></div>
+          <div class="bank-item"><span class="zh">十点零一分</span><span class="dig">10:01</span></div>
+        </div>
+      </div>
+
+      <div class="how-to">
+        <div><span class="step-num">1</span> Draw a 3×3 grid. Centre = <span style="color:var(--accent-gold);font-weight:700;">半 FREE</span></div>
+        <div><span class="step-num">2</span> Pick 8 times from the word bank, arrange randomly</div>
+        <div><span class="step-num">3</span> Teacher calls times in Chinese — cross them off!</div>
+        <div><span class="step-num">4</span> Shout <strong>BINGO!</strong> when you get a row, column, or diagonal</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

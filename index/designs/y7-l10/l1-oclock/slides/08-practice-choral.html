@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-08 · Choral Clock Flash</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 28px; }
+  .clock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1400px; }
+  .clock-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    text-align: center;
+  }
+  .clock-cell .big-clock {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--text-primary);
+    margin: 0 auto 12px;
+    position: relative;
+    background: #fff;
+  }
+  .clock-cell .big-clock::before {
+    content: '';
+    position: absolute;
+    width: 7px; height: 7px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .clock-cell .big-clock .h {
+    position: absolute;
+    width: 3px; height: 40px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .big-clock .m {
+    position: absolute;
+    width: 2px; height: 55px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .label-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .instructions {
+    margin-top: 24px;
+    display: flex; gap: 32px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · O'CLOCK</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Choral Clock Flash</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1 · 8 min</div>
+  <div class="main-title">Choral Clock Flash · 钟表闪卡</div>
+  <div class="subtitle">Whole class chorally says the time. Start slow, speed up!</div>
+
+  <div class="clock-grid">
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(-30deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">一点</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(30deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">三点</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(90deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">五点</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(150deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">七点</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(210deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">九点</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(270deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">十一点</div>
+    </div>
+    <div class="clock-cell" style="border: 2px solid var(--accent-coral);">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(0deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh" style="color:var(--accent-coral);">两点 ⚠️</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(0deg); height: 30px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="label-zh">十二点</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">📢 Choral response — everyone speaks every time</div>
+    <div class="pill">🔤 Scaffold: Number + 点 formula on board</div>
+    <div class="pill">🚀 Extension: add 早上 / 下午</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

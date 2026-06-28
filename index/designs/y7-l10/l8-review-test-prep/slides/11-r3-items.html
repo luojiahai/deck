@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-11 · Round 3 Error Bounty Items</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 38px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 24px; }
+  .error-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1600px;
+  }
+  .error-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 20px 16px;
+    border: 1px solid var(--border-light);
+    position: relative;
+    text-align: center;
+  }
+  .error-card .q-num {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .error-card .given {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .error-card .verdict {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  .error-card.wrong .verdict {
+    background: var(--accent-coral-dim);
+    color: var(--accent-coral);
+  }
+  .error-card.correct .verdict {
+    background: var(--accent-teal-dim);
+    color: var(--accent-teal);
+  }
+  .error-card .correction {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent-gold);
+  }
+  .error-card .correction .reason {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .error-card.correct .correction {
+    color: var(--accent-teal);
+  }
+  .progress {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · BEAT THE TEST</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 3 · Error Bounty</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">30–38 min · Round 3 · 20 pts each</div>
+  <div class="main-title">Error Bounty · 错误悬赏</div>
+  <div class="subtitle">Spot the mistake &amp; write the correct form — some are already right!</div>
+
+  <div class="error-grid">
+    <div class="error-card wrong">
+      <div class="q-num">1</div>
+      <div class="given">二点十分</div>
+      <div class="verdict">&#10060; WRONG</div>
+      <div class="correction">两点十分<span class="reason">二 → 两 before 点</span></div>
+    </div>
+    <div class="error-card correct">
+      <div class="q-num">2</div>
+      <div class="given">四点三十分</div>
+      <div class="verdict">&#9989; CORRECT</div>
+      <div class="correction">四点三十分<span class="reason">No error</span></div>
+    </div>
+    <div class="error-card wrong">
+      <div class="q-num">3</div>
+      <div class="given">三点五分</div>
+      <div class="verdict">&#10060; WRONG</div>
+      <div class="correction">三点零五分<span class="reason">Need 零 for single-digit min</span></div>
+    </div>
+    <div class="error-card wrong">
+      <div class="q-num">4</div>
+      <div class="given">七差十分点</div>
+      <div class="verdict">&#10060; WRONG</div>
+      <div class="correction">差十分七点<span class="reason">Word order: 差 X 分 Y 点</span></div>
+    </div>
+    <div class="error-card correct">
+      <div class="q-num">5</div>
+      <div class="given">六点十五分</div>
+      <div class="verdict">&#9989; CORRECT</div>
+      <div class="correction">六点十五分<span class="reason">No error</span></div>
+    </div>
+    <div class="error-card wrong">
+      <div class="q-num">6</div>
+      <div class="given">差十分二点</div>
+      <div class="verdict">&#10060; WRONG</div>
+      <div class="correction">差十分两点<span class="reason">二 → 两 before 点</span></div>
+    </div>
+    <div class="error-card correct">
+      <div class="q-num">7</div>
+      <div class="given">九点三刻</div>
+      <div class="verdict">&#9989; CORRECT</div>
+      <div class="correction">九点三刻<span class="reason">No error</span></div>
+    </div>
+    <div class="error-card wrong">
+      <div class="q-num">8</div>
+      <div class="given">十二点六十</div>
+      <div class="verdict">&#10060; WRONG</div>
+      <div class="correction">一点 / 十三点<span class="reason">60分 = 1 hour, rolls over</span></div>
+    </div>
+  </div>
+
+  <div class="progress">8 items · 3 correct · 5 wrong</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

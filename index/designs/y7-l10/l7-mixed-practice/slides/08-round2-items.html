@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-08 · Round 2 Items</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 45px 80px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 6px; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; color: var(--text-primary); }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 18px; }
+  .clock-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1580px; }
+  .clock-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 16px 10px;
+    text-align: center;
+  }
+  .clock-cell.bonus-cell {
+    border: 2px solid var(--accent-gold);
+    position: relative;
+  }
+  .clock-cell.bonus-cell::after {
+    content: '差 BONUS +5';
+    position: absolute;
+    top: 6px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: var(--bg-primary);
+    padding: 2px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .clock-cell .big-clock {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--text-primary);
+    margin: 0 auto 10px;
+    position: relative;
+    background: #fff;
+  }
+  .clock-cell .big-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .clock-cell .big-clock .h {
+    position: absolute;
+    width: 3px; height: 34px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .big-clock .m {
+    position: absolute;
+    width: 2px; height: 46px;
+    background: var(--accent-teal);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .q-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .instructions {
+    margin-top: 16px;
+    display: flex; gap: 20px;
+    font-size: 15px; color: var(--text-muted);
+    justify-content: center;
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 2 · Speaking Sprint · Clock Faces</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Round 2 · 15 Clocks</div>
+  <div class="main-title">Speaking Sprint · 口语冲刺</div>
+  <div class="subtitle">Say the most natural Chinese expression for each clock. Self-score on your sheet.</div>
+
+  <div class="clock-grid">
+    <!-- 1: 1:00 → 一点 -->
+    <div class="clock-cell">
+      <div class="q-num">1</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(30deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+    </div>
+    <!-- 2: 2:30 → 两点半 -->
+    <div class="clock-cell">
+      <div class="q-num">2</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(75deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(180deg);"></div>
+      </div>
+    </div>
+    <!-- 3: 5:15 → 五点一刻 -->
+    <div class="clock-cell">
+      <div class="q-num">3</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(157.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+    <!-- 4: 7:45 → 差一刻八点 (BONUS) -->
+    <div class="clock-cell bonus-cell">
+      <div class="q-num">4</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(232.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+    </div>
+    <!-- 5: 9:05 → 九点零五分 -->
+    <div class="clock-cell">
+      <div class="q-num">5</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(272.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(30deg);"></div>
+      </div>
+    </div>
+    <!-- 6: 11:20 → 十一点二十分 -->
+    <div class="clock-cell">
+      <div class="q-num">6</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(340deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(120deg);"></div>
+      </div>
+    </div>
+    <!-- 7: 3:00 → 三点 -->
+    <div class="clock-cell">
+      <div class="q-num">7</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(90deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+    </div>
+    <!-- 8: 4:10 → 四点十分 -->
+    <div class="clock-cell">
+      <div class="q-num">8</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(125deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(60deg);"></div>
+      </div>
+    </div>
+    <!-- 9: 6:40 → 差二十分七点 (BONUS) -->
+    <div class="clock-cell bonus-cell">
+      <div class="q-num">9</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(200deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(240deg);"></div>
+      </div>
+    </div>
+    <!-- 10: 8:50 → 差十分九点 (BONUS) -->
+    <div class="clock-cell bonus-cell">
+      <div class="q-num">10</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(265deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(300deg);"></div>
+      </div>
+    </div>
+    <!-- 11: 10:00 → 十点 -->
+    <div class="clock-cell">
+      <div class="q-num">11</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(300deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+    </div>
+    <!-- 12: 12:30 → 十二点半 -->
+    <div class="clock-cell">
+      <div class="q-num">12</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(15deg); height:28px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(180deg);"></div>
+      </div>
+    </div>
+    <!-- 13: 1:55 → 差五分两点 (BONUS) -->
+    <div class="clock-cell bonus-cell">
+      <div class="q-num">13</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(57.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(330deg);"></div>
+      </div>
+    </div>
+    <!-- 14: 6:15 → 六点一刻 -->
+    <div class="clock-cell">
+      <div class="q-num">14</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(187.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+    <!-- 15: 9:45 → 差一刻十点 (BONUS) -->
+    <div class="clock-cell bonus-cell">
+      <div class="q-num">15</div>
+      <div class="big-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(292.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">&#128483; Choral response — everyone speaks every time</div>
+    <div class="pill">&#11088; Gold border = 差 bonus available</div>
+    <div class="pill">&#128221; Self-score: 1 = correct, 0 = incorrect</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

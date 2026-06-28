@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-09 · Listen and Draw</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 28px; }
+  .draw-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; max-width: 1500px; }
+  .draw-cell {
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 20px 12px;
+  }
+  .draw-cell .empty-clock {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--border-medium);
+    margin: 0 auto 8px;
+    position: relative;
+    background: #fff;
+  }
+  .draw-cell .empty-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--border-medium);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .draw-cell .cell-num {
+    font-size: 14px; font-weight: 700;
+    color: var(--accent-teal);
+    margin-bottom: 4px;
+  }
+  .draw-cell .draw-zone {
+    width: 80px; height: 2px;
+    background: var(--border-light);
+    margin: 6px auto 0;
+    border-radius: 1px;
+  }
+  .draw-cell .time-hint {
+    font-size: 13px; color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .instructions {
+    margin-top: 28px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · QUARTERS</span>
+  <span class="sep"></span>
+  <span class="section-name">Listen and Draw · Textbook p88</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1b · 6 min</div>
+  <div class="main-title">Listen and Draw · 听画</div>
+  <div class="subtitle">Teacher says the time in Chinese — you draw the hands on each clock.</div>
+
+  <div class="draw-grid">
+    <div class="draw-cell">
+      <div class="cell-num">1</div>
+      <div class="empty-clock"></div>
+      <div class="draw-zone"></div>
+      <div class="time-hint">Teacher reads...</div>
+    </div>
+    <div class="draw-cell">
+      <div class="cell-num">2</div>
+      <div class="empty-clock"></div>
+      <div class="draw-zone"></div>
+      <div class="time-hint">Teacher reads...</div>
+    </div>
+    <div class="draw-cell">
+      <div class="cell-num">3</div>
+      <div class="empty-clock"></div>
+      <div class="draw-zone"></div>
+      <div class="time-hint">Teacher reads...</div>
+    </div>
+    <div class="draw-cell">
+      <div class="cell-num">4</div>
+      <div class="empty-clock"></div>
+      <div class="draw-zone"></div>
+      <div class="time-hint">Teacher reads...</div>
+    </div>
+    <div class="draw-cell">
+      <div class="cell-num">5</div>
+      <div class="empty-clock"></div>
+      <div class="draw-zone"></div>
+      <div class="time-hint">Teacher reads...</div>
+    </div>
+  </div>
+
+  <div class="instructions" style="margin-top:24px;">
+    <div class="pill">👂 Listen carefully — teacher reads twice</div>
+    <div class="pill">✏️ Draw hour + minute hands</div>
+    <div class="pill">👥 Partner check after all 5</div>
+  </div>
+
+  <div style="margin-top: 20px; font-size: 16px; color: var(--text-muted); padding: 14px 28px; background: var(--bg-tertiary); border-radius: var(--radius-md); max-width: 1300px;">
+    <strong>Teacher script:</strong>
+    1. 三点一刻 · 2. 八点三刻 · 3. 十二点一刻 · 4. 五点三刻 · 5. 九点一刻
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.4 Quarters</span>
+</div>
+
+</body>
+</html>

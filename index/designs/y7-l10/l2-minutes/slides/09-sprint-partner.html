@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-09 · Sprint 2: Find Your Partner</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1600px;
+  }
+  .match-col { }
+  .match-col .col-label {
+    font-size: 16px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 16px;
+    padding: 8px 20px; border-radius: 999px;
+    display: inline-block;
+  }
+  .col-label.clock-label { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .col-label.text-label { background: var(--accent-gold-dim); color: var(--accent-gold); }
+  .match-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .match-card {
+    background: #fff;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+    cursor: default;
+  }
+  .match-card .mini-clock {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 0 auto 6px;
+    position: relative;
+    background: #fff;
+  }
+  .match-card .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .match-card .mini-clock .h {
+    position: absolute;
+    width: 2px; height: 24px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .match-card .mini-clock .mm {
+    position: absolute;
+    width: 2px; height: 32px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .match-card .card-digit {
+    font-size: 14px;
+    color: var(--accent-gold);
+    font-family: var(--font-mono);
+  }
+  .match-card .card-text {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .instructions {
+    margin-top: 20px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">Sprint 2 · Find Your Partner</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">23–28 min · Practice Sprint 2</div>
+  <div class="main-title">Sprint 2: Find Your Partner · 找伙伴</div>
+  <div class="subtitle">Half the class gets clock face cards, half gets Chinese text cards. Find your match!</div>
+
+  <div class="match-grid">
+    <div class="match-col">
+      <div class="col-label clock-label">Clock Faces</div>
+      <div class="match-cards">
+        <div class="match-card">
+          <div class="mini-clock">
+            <div class="h" style="transform:translateX(-50%) rotate(95deg);"></div>
+            <div class="mm" style="transform:translateX(-50%) rotate(60deg);"></div>
+          </div>
+          <div class="card-digit">3:10</div>
+        </div>
+        <div class="match-card">
+          <div class="mini-clock">
+            <div class="h" style="transform:translateX(-50%) rotate(152deg);"></div>
+            <div class="mm" style="transform:translateX(-50%) rotate(30deg);"></div>
+          </div>
+          <div class="card-digit">5:05</div>
+        </div>
+        <div class="match-card">
+          <div class="mini-clock">
+            <div class="h" style="transform:translateX(-50%) rotate(220deg);"></div>
+            <div class="mm" style="transform:translateX(-50%) rotate(120deg);"></div>
+          </div>
+          <div class="card-digit">7:20</div>
+        </div>
+        <div class="match-card">
+          <div class="mini-clock">
+            <div class="h" style="transform:translateX(-50%) rotate(0deg); height:18px;"></div>
+            <div class="mm" style="transform:translateX(-50%) rotate(6deg);"></div>
+          </div>
+          <div class="card-digit">12:01</div>
+        </div>
+      </div>
+    </div>
+    <div class="match-col">
+      <div class="col-label text-label">Chinese Text</div>
+      <div class="match-cards">
+        <div class="match-card">
+          <div class="card-text">三点十分</div>
+        </div>
+        <div class="match-card">
+          <div class="card-text">五点零五分</div>
+        </div>
+        <div class="match-card">
+          <div class="card-text">七点二十分</div>
+        </div>
+        <div class="match-card">
+          <div class="card-text">十二点零一分</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">🃏 Each student gets ONE card</div>
+    <div class="pill">🚶 Walk around — find the person whose card matches yours</div>
+    <div class="pill">⏱️ 3 minutes to find ALL pairs</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

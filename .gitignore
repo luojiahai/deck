@@ -4,3 +4,4 @@
 !.agents/skills/lesson-planning/
 .claude/
 .claude.local.md
+node_modules/

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .char {
+    display: inline-block;
+  }
+  .title-cn .char-highlight {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .quarter-icon {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-gold-dim);
+    margin: 0 auto var(--space-lg);
+    position: relative;
+    background: #fff;
+  }
+  .quarter-icon::before {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .quarter-icon .hand-h {
+    position: absolute;
+    width: 3px; height: 50px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  .quarter-icon .hand-m {
+    position: absolute;
+    width: 2px; height: 68px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  .quarter-icon .tick {
+    position: absolute;
+    width: 3px; height: 10px;
+    background: var(--accent-gold);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .quarter-icon .tick-top { top: 12px; height: 14px; }
+  .quarter-icon .tick-right { right: 12px; width: 14px; height: 3px; top: 50%; left: auto; transform: translateY(-50%); }
+  .quarter-icon .tick-bottom { bottom: 12px; height: 14px; }
+  .quarter-icon .tick-left { left: 12px; width: 14px; height: 3px; top: 50%; transform: translateY(-50%); }
+  .clock-watermark { right: 80px; bottom: -60px; }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="quarter-icon">
+    <div class="hand-h"></div>
+    <div class="hand-m"></div>
+    <div class="tick tick-top"></div>
+    <div class="tick tick-right"></div>
+    <div class="tick tick-bottom"></div>
+    <div class="tick tick-left"></div>
+  </div>
+  <div class="lesson-num">Lesson 4 · Y7 Unit 4</div>
+  <h1 class="title-cn">
+    <span class="char">一</span><span class="char char-highlight">刻</span><span class="char"> &amp; </span><span class="char char-highlight">三</span><span class="char char-highlight">刻</span>
+  </h1>
+  <div class="title-en">Quarter-past &amp; Quarter-to · 刻</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Speaking + Listening</span>
+  </div>
+</div>
+
+<div class="clock-watermark"></div>
+</body>
+</html>

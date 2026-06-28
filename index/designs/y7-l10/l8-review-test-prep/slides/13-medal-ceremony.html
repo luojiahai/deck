@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-13 · Medal Ceremony</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 52px; font-weight: 900; margin-bottom: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-muted); margin-bottom: 40px; }
+  .podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .podium-spot {
+    text-align: center;
+    position: relative;
+  }
+  .podium-spot .medal {
+    font-size: 64px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .podium-spot .tier {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .podium-spot .tier.gold   { color: var(--accent-gold); }
+  .podium-spot .tier.silver { color: var(--accent-teal); }
+  .podium-spot .tier.bronze { color: var(--accent-coral); }
+  .podium-spot .label {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    max-width: 260px;
+    line-height: 1.4;
+  }
+  .podium-spot .label .cn {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .podium-spot .block {
+    width: 240px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    margin-top: 20px;
+  }
+  .podium-spot.first  .block { height: 60px; background: var(--accent-gold); }
+  .podium-spot.second .block { height: 40px; background: var(--accent-teal); }
+  .podium-spot.third  .block { height: 24px; background: var(--accent-coral); }
+  .podium-spot.first  { order: 2; }
+  .podium-spot.second { order: 1; }
+  .podium-spot.third  { order: 3; }
+  .team-scores {
+    font-size: 18px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .team-scores .pts {
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · BEAT THE TEST</span>
+  <span class="sep"></span>
+  <span class="section-name">Game Show Finale</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">42–46 min · Award Ceremony</div>
+  <div class="main-title">Medal Ceremony · 颁奖典礼</div>
+  <div class="subtitle">Congratulations to all teams for an incredible effort!</div>
+
+  <div class="podium">
+    <div class="podium-spot second">
+      <span class="medal">&#129352;</span>
+      <div class="tier silver">SILVER</div>
+      <div class="label">Almost There<span class="cn">差一点就满分</span></div>
+      <div class="block"></div>
+    </div>
+    <div class="podium-spot first">
+      <span class="medal">&#129351;</span>
+      <div class="tier gold">GOLD</div>
+      <div class="label">Test-Ready Champions<span class="cn">考试达人</span></div>
+      <div class="block"></div>
+    </div>
+    <div class="podium-spot third">
+      <span class="medal">&#129353;</span>
+      <div class="tier bronze">BRONZE</div>
+      <div class="label">Solid Foundation<span class="cn">基础扎实</span></div>
+      <div class="block"></div>
+    </div>
+  </div>
+
+  <div class="team-scores">
+    Final team scores: <span class="pts">TBA</span> &nbsp;·&nbsp; Top scorer bonus: <span class="pts">+10 pts</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

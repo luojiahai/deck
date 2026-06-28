@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-10 · Sprint 3: Error Hunt</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+  .error-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1600px;
+  }
+  .error-card {
+    background: #fff;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+  }
+  .error-card .item-digit {
+    font-family: var(--font-mono);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+  }
+  .error-card .item-chinese {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .error-card .verdict {
+    display: flex; gap: 16px;
+  }
+  .verdict-btn {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 22px;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+  }
+  .verdict-tick {
+    background: var(--accent-teal-dim);
+    color: var(--accent-teal);
+  }
+  .verdict-cross {
+    background: var(--accent-coral-dim);
+    color: var(--accent-coral);
+  }
+  .answer {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  .answer.correct { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .answer.wrong { background: var(--accent-coral-dim); color: var(--accent-coral); }
+  .instructions {
+    margin-top: 20px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">Sprint 3 · Error Hunt</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">28–33 min · Practice Sprint 3</div>
+  <div class="main-title">Sprint 3: Error Hunt · 找错别字</div>
+  <div class="subtitle">Mark each one ✓ (correct) or ✗ (wrong). If wrong, write the correction!</div>
+
+  <div class="error-grid">
+    <div class="error-card">
+      <div class="item-digit">3:10</div>
+      <div class="item-chinese">三点十分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-tick">✓ Correct</span>
+      </div>
+    </div>
+    <div class="error-card">
+      <div class="item-digit">5:05</div>
+      <div class="item-chinese">五点五分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-cross">✗ Wrong</span>
+      </div>
+      <div class="answer wrong">Fix: 五点零五分 (missing 零!)</div>
+    </div>
+    <div class="error-card">
+      <div class="item-digit">7:20</div>
+      <div class="item-chinese">七点零二十分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-cross">✗ Wrong</span>
+      </div>
+      <div class="answer wrong">Fix: 七点二十分 (no 零 for 10+)</div>
+    </div>
+    <div class="error-card">
+      <div class="item-digit">12:01</div>
+      <div class="item-chinese">十二点一分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-cross">✗ Wrong</span>
+      </div>
+      <div class="answer wrong">Fix: 十二点零一分 (missing 零!)</div>
+    </div>
+    <div class="error-card">
+      <div class="item-digit">9:30</div>
+      <div class="item-chinese">九点三十分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-tick">✓ Correct</span>
+      </div>
+    </div>
+    <div class="error-card">
+      <div class="item-digit">2:45</div>
+      <div class="item-chinese">两点四十五分</div>
+      <div class="verdict">
+        <span class="verdict-btn verdict-tick">✓ Correct</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">🔍 Spot the 零 mistakes!</div>
+    <div class="pill">📝 Write corrections on paper</div>
+    <div class="pill">🤝 Discuss with partner before answers revealed</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

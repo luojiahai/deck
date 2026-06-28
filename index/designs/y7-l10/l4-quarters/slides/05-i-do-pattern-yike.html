@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-05 · Key Pattern: 一刻</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 52px; font-weight: 900; margin-bottom: 8px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 28px; }
+  .pattern-box {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-bottom: 32px;
+  }
+  .pattern-block {
+    background: var(--bg-tertiary);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .pattern-plus {
+    font-size: 34px;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .pattern-equals {
+    font-size: 34px;
+    color: var(--text-muted);
+  }
+  .clocks-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+  }
+  .clock-card {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+  }
+  .clock-card .time-zh {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .clock-card .time-digit {
+    font-size: 26px;
+    color: var(--accent-gold);
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .clock-card .mini-clock {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 10px auto 0;
+    position: relative;
+    background: #fff;
+  }
+  .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .mini-clock .h {
+    position: absolute;
+    width: 3px; height: 26px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .mini-clock .m {
+    position: absolute;
+    width: 2px; height: 36px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .tip-box {
+    margin-top: 28px;
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 14px;
+    max-width: 900px;
+  }
+  .tip-box .tip-icon { font-size: 36px; }
+  .tip-box .tip-text { font-size: 24px; font-weight: 700; color: var(--accent-teal); }
+  .tip-box .tip-sub { font-size: 15px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · QUARTERS</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern: 一刻</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do</div>
+  <div class="main-title">Quarter Past · 一刻</div>
+  <div class="subtitle">X + 点 + 一刻 = X:15</div>
+
+  <div class="pattern-box">
+    <div class="pattern-block">X</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">点</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">一刻</div>
+    <div class="pattern-equals">=</div>
+    <div class="pattern-block">X:15</div>
+  </div>
+
+  <div class="clocks-row">
+    <div class="clock-card">
+      <div class="time-zh">三点一刻</div>
+      <div class="time-digit">3:15</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(7.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">七点一刻</div>
+      <div class="time-digit">7:15</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(127.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">十二点一刻</div>
+      <div class="time-digit">12:15</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(7.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">五点一刻</div>
+      <div class="time-digit">5:15</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(67.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box" style="margin-top:28px;">
+    <div class="tip-icon">💡</div>
+    <div>
+      <div class="tip-text">一刻 = one quarter past the hour</div>
+      <div class="tip-sub">Remember: 一刻 is always :15 — the minute hand is at 3 o'clock position</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.4 Quarters</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-09 · Round 3: Error Hunter</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 45px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 6px; }
+  .main-title { font-family: var(--font-display); font-size: 42px; font-weight: 900; margin-bottom: 4px; color: var(--text-primary); }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 16px; }
+  .error-table { width: 100%; border-collapse: collapse; max-width: 1520px; }
+  .error-table th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--accent-coral);
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    background: var(--bg-secondary);
+  }
+  .error-table th:last-child { text-align: left; width: 380px; }
+  .error-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-family: var(--font-body);
+    font-size: 22px;
+    color: var(--text-primary);
+    vertical-align: middle;
+  }
+  .error-table tr:nth-child(even) td { background: var(--bg-secondary); }
+  .error-table .mark-col { text-align: center; font-weight: 700; font-size: 26px; }
+  .error-table .mark-col.correct { color: var(--accent-teal); }
+  .error-table .mark-col.wrong { color: var(--accent-coral); }
+  .correction { font-size: 18px; color: var(--text-muted); }
+  .correction .arrow { color: var(--accent-coral); margin: 0 6px; }
+  .scoring-box {
+    margin-top: 16px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    text-align: center;
+    max-width: 700px;
+    align-self: center;
+  }
+  .scoring-box .score-text { font-size: 22px; font-weight: 700; color: var(--text-primary); font-family: var(--font-mono); }
+  .scoring-box .score-note { font-size: 15px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 3 · Error Hunter</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Round 3 · 7 min</div>
+  <div class="main-title">&#128269; Error Hunter · 错误猎人</div>
+  <div class="subtitle">Mark each expression &#10003; (correct) or &#10007; (wrong). If wrong, write the correction. 10 pts each.</div>
+
+  <table class="error-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">#</th>
+        <th>Expression</th>
+        <th style="width:60px;text-align:center;">&#10003;/&#10007;</th>
+        <th>Correction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">1</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">二点</td>
+        <td class="mark-col wrong">&#10007;</td>
+        <td class="correction"><span class="text-gold" style="font-size:22px;">两点</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">2</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">三点五分</td>
+        <td class="mark-col wrong">&#10007;</td>
+        <td class="correction"><span class="text-gold" style="font-size:22px;">三点零五分</span><br><span style="font-size:14px;">Must include 零 for single-digit minutes</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">3</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">五点差十分</td>
+        <td class="mark-col wrong">&#10007;</td>
+        <td class="correction"><span class="text-gold" style="font-size:22px;">差十分五点</span><br><span style="font-size:14px;">差 goes BEFORE the minutes, not after</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">4</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">四点六十</td>
+        <td class="mark-col wrong">&#10007;</td>
+        <td class="correction"><span class="text-gold" style="font-size:22px;">五点</span><br><span style="font-size:14px;">60 minutes = next hour!</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">5</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">八点十刻</td>
+        <td class="mark-col wrong">&#10007;</td>
+        <td class="correction"><span style="font-size:14px;color:var(--accent-coral);">&#9888; 刻 = 15 min only. "十刻" is invalid.</span><br><span style="font-size:14px;">Correct: 八点十分 or 八点一刻</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--text-muted);font-size:16px;">6</td>
+        <td style="font-family:var(--font-display);font-size:26px;font-weight:700;">六点半</td>
+        <td class="mark-col correct">&#10003;</td>
+        <td class="correction" style="font-size:16px;color:var(--text-muted);">Correct</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="scoring-box">
+    <div class="score-text">12 items &times; 10 pts = <span style="color:var(--accent-coral);">Max 120 pts</span></div>
+    <div class="score-note">1 pt for correct &#10003;/&#10007; + 9 pts for correct correction = 10 per item</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

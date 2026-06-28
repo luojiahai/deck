@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-11 · Clock Worksheet</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 90px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 22px; }
+  .clock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1560px; }
+  .clock-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .clock-cell .mini-clock {
+    width: 85px; height: 85px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 0 auto 8px;
+    position: relative;
+    background: #fff;
+  }
+  .clock-cell .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .clock-cell .mini-clock .h {
+    position: absolute;
+    width: 2px; height: 24px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .mini-clock .m {
+    position: absolute;
+    width: 2px; height: 36px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .digital {
+    font-size: 16px; color: var(--accent-gold);
+    font-family: var(--font-mono); font-weight: 500;
+  }
+  .clock-cell .past-line {
+    font-size: 18px; color: var(--accent-teal);
+    margin: 4px 0;
+  }
+  .clock-cell .cha-line {
+    font-size: 18px; color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .clock-cell .circle-hint {
+    font-size: 12px; color: var(--text-muted);
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · MINUTES TO</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 2 · Clock Worksheet</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 2 · 10 min — Individual</div>
+  <div class="main-title">Clock → 差 + Past · 时钟工作表</div>
+  <div class="subtitle">For each clock: write BOTH the past expression AND the 差 expression. Circle the more natural one.</div>
+
+  <div class="clock-grid">
+    <!-- 6:50 -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(145deg); height:20px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(300deg);"></div>
+      </div>
+      <div class="digital">6:50</div>
+      <div class="past-line">Past: 六点五十分</div>
+      <div class="cha-line">差: 差十分七点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+    <!-- 8:40 -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(190deg); height:19px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(240deg);"></div>
+      </div>
+      <div class="digital">8:40</div>
+      <div class="past-line">Past: 八点四十分</div>
+      <div class="cha-line">差: 差二十分九点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+    <!-- 10:55 -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(-35deg); height:18px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(330deg);"></div>
+      </div>
+      <div class="digital">10:55</div>
+      <div class="past-line">Past: 十点五十五分</div>
+      <div class="cha-line">差: 差五分十一点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+    <!-- 2:20 (past is more natural) -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(10deg); height:18px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(120deg);"></div>
+      </div>
+      <div class="digital">2:20</div>
+      <div class="past-line">Past: 两点二十分</div>
+      <div class="cha-line">差: 差四十分三点</div>
+      <div class="circle-hint">→ Circle: Past</div>
+    </div>
+    <!-- 7:45 -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(165deg); height:19px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+      <div class="digital">7:45</div>
+      <div class="past-line">Past: 七点三刻</div>
+      <div class="cha-line">差: 差一刻八点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+    <!-- 12:10 (past is more natural) -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(-10deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(60deg);"></div>
+      </div>
+      <div class="digital">12:10</div>
+      <div class="past-line">Past: 十二点十分</div>
+      <div class="cha-line">差: 差五十分一点</div>
+      <div class="circle-hint">→ Circle: Past</div>
+    </div>
+    <!-- 4:50 -->
+    <div class="clock-cell">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(85deg); height:18px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(300deg);"></div>
+      </div>
+      <div class="digital">4:50</div>
+      <div class="past-line">Past: 四点五十分</div>
+      <div class="cha-line">差: 差十分五点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+    <!-- 1:58 -->
+    <div class="clock-cell" style="border: 2px solid var(--accent-coral);">
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(-8deg); height:16px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(348deg);"></div>
+      </div>
+      <div class="digital">1:58 ⚠️</div>
+      <div class="past-line">Past: 一点五十八分</div>
+      <div class="cha-line" style="color:var(--accent-coral);">差: 差二分两点</div>
+      <div class="circle-hint">→ Circle: 差</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

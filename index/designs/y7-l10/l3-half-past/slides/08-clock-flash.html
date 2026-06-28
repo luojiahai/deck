@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-08 · Cumulative Clock Flash</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 80px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+  .clock-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1600px; }
+  .clock-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    text-align: center;
+  }
+  .clock-cell .big-clock {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 0 auto 8px;
+    position: relative;
+    background: #fff;
+  }
+  .clock-cell .big-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .clock-cell .big-clock .h {
+    position: absolute;
+    width: 2px; height: 30px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .big-clock .m {
+    position: absolute;
+    width: 2px; height: 42px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .clock-cell .label-zh {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .clock-cell .label-digital {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+  .clock-cell.trap {
+    border: 2px solid var(--accent-coral);
+  }
+  .clock-cell.trap .label-zh {
+    color: var(--accent-coral);
+  }
+  .instructions {
+    margin-top: 20px;
+    display: flex; gap: 28px;
+    font-size: 16px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · HALF PAST</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Cumulative Clock Flash</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1 · Cumulative Clock Flash — 12 min</div>
+  <div class="main-title">Cumulative Clock Flash · 综合钟表闪卡</div>
+  <div class="subtitle">Twenty clock faces — rapid choral response. Mix of 点, 分, and today's 半!</div>
+
+  <div class="clock-grid">
+    <!-- Row 1: o'clock -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(-30deg);"></div><div class="m" style="transform:translateX(-50%) rotate(0deg);"></div></div>
+      <div class="label-zh">一点</div><div class="label-digital">1:00</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(60deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">两点半</div><div class="label-digital">2:30</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(90deg);"></div><div class="m" style="transform:translateX(-50%) rotate(0deg);"></div></div>
+      <div class="label-zh">三点</div><div class="label-digital">3:00</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(120deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">四点半</div><div class="label-digital">4:30</div>
+    </div>
+    <!-- Special: minutes -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(150deg);"></div><div class="m" style="transform:translateX(-50%) rotate(72deg);"></div></div>
+      <div class="label-zh">五点十二分</div><div class="label-digital">5:12</div>
+    </div>
+
+    <!-- Row 2: half past -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(180deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">六点半</div><div class="label-digital">6:30</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(210deg);"></div><div class="m" style="transform:translateX(-50%) rotate(0deg);"></div></div>
+      <div class="label-zh">七点</div><div class="label-digital">7:00</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(240deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">八点半</div><div class="label-digital">8:30</div>
+    </div>
+    <!-- Trap: 2:30 -->
+    <div class="clock-cell trap">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(60deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">两点半 ⚠️</div><div class="label-digital">2:30 — trap!</div>
+    </div>
+    <!-- Special: minutes with 零 -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(-60deg);"></div><div class="m" style="transform:translateX(-50%) rotate(6deg);"></div></div>
+      <div class="label-zh">十点零一分</div><div class="label-digital">10:01</div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(-15deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">十一点半</div><div class="label-digital">11:30</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(0deg);"></div><div class="m" style="transform:translateX(-50%) rotate(0deg);"></div></div>
+      <div class="label-zh">十二点</div><div class="label-digital">12:00</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(0deg); height:24px;"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">十二点半</div><div class="label-digital">12:30</div>
+    </div>
+    <!-- Special: 9:15 -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(270deg);"></div><div class="m" style="transform:translateX(-50%) rotate(90deg);"></div></div>
+      <div class="label-zh">九点十五分</div><div class="label-digital">9:15</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(150deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">五点半</div><div class="label-digital">5:30</div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(90deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">三点半</div><div class="label-digital">3:30</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(210deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">七点半</div><div class="label-digital">7:30</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(-90deg);"></div><div class="m" style="transform:translateX(-50%) rotate(0deg);"></div></div>
+      <div class="label-zh">九点</div><div class="label-digital">9:00</div>
+    </div>
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(270deg);"></div><div class="m" style="transform:translateX(-50%) rotate(180deg);"></div></div>
+      <div class="label-zh">九点半</div><div class="label-digital">9:30</div>
+    </div>
+    <!-- Special: 2:45 -->
+    <div class="clock-cell">
+      <div class="big-clock"><div class="h" style="transform:translateX(-50%) rotate(75deg);"></div><div class="m" style="transform:translateX(-50%) rotate(270deg);"></div></div>
+      <div class="label-zh">两点四十五</div><div class="label-digital">2:45</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">📢 Choral response — everyone speaks every time</div>
+    <div class="pill">⚡ Start slow (5s per clock), then speed up to 2s!</div>
+    <div class="pill">⚠️ Watch for 两/二 trap at 2:30!</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

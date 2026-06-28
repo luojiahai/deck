@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-04 · Round 1: Listening Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 140px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 10px; }
+  .round-badge { display: inline-flex; align-items: center; gap: 12px; font-size: 64px; font-family: var(--font-display); font-weight: 900; color: var(--text-primary); margin-bottom: 8px; }
+  .round-badge .num { color: var(--accent-gold); font-size: 80px; }
+  .big-rule { font-size: 28px; font-weight: 700; color: var(--text-secondary); margin-bottom: 24px; max-width: 1100px; }
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; max-width: 1300px; }
+  .rule-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    border-left: 4px solid var(--accent-teal);
+  }
+  .rule-icon { font-size: 36px; flex-shrink: 0; }
+  .rule-text { font-size: 20px; color: var(--text-secondary); }
+  .rule-text strong { color: var(--text-primary); }
+  .scoring-box {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 24px 36px;
+    text-align: center;
+    max-width: 800px;
+    align-self: center;
+  }
+  .scoring-box .score-formula { font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .scoring-box .score-note { font-size: 17px; color: var(--text-muted); }
+  .difficulty-bar { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 15px; color: var(--text-muted); }
+  .difficulty-bar .seg { height: 6px; border-radius: 3px; }
+  .difficulty-bar .seg.easy { flex: 1; background: var(--accent-teal-light); }
+  .difficulty-bar .seg.med  { flex: 1; background: var(--accent-gold-light); }
+  .difficulty-bar .seg.hard { flex: 1; background: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 1 · Listening Relay</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Round 1 · 10 min</div>
+  <div class="round-badge"><span class="num">01</span> Listening Relay</div>
+  <div class="big-rule">Teacher says the time in Chinese <span class="text-gold">once</span>. You write the digits. No repeats!</div>
+
+  <div class="rules-grid">
+    <div class="rule-item">
+      <div class="rule-icon">&#9997;&#65039;</div>
+      <div class="rule-text"><strong>Write digits only</strong><br>e.g. hear 三点二十分 &#8594; write 3:20</div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">&#128264;</div>
+      <div class="rule-text"><strong>Teacher says ONCE</strong><br>Listen carefully first time. No calling out.</div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">&#9200;&#65039;</div>
+      <div class="rule-text"><strong>Building difficulty</strong><br>Starts easy, gets harder. Double 零 alert!</div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">&#10133;</div>
+      <div class="rule-text"><strong>Self-mark in green pen</strong><br>Swap papers or self-check after each block.</div>
+    </div>
+  </div>
+
+  <div class="scoring-box">
+    <div class="score-formula">20 items &times; 5 pts = <span class="text-gold">Max 100 pts</span></div>
+    <div class="score-note">Each correct time = 5 points</div>
+  </div>
+
+  <div class="difficulty-bar">
+    <span>Easy</span>
+    <div class="seg easy"></div>
+    <div class="seg easy"></div>
+    <div class="seg med"></div>
+    <div class="seg med"></div>
+    <div class="seg hard"></div>
+    <span>Hard</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

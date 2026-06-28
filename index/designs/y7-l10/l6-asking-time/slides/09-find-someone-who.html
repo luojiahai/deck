@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-09 · Practice: Find Someone Who</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 24px; }
+
+  .find-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1300px;
+  }
+  .find-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .find-item .find-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .find-item .find-content { flex: 1; }
+  .find-item .find-zh {
+    font-size: 22px; font-weight: 700; color: var(--text-primary);
+  }
+  .find-item .find-en {
+    font-size: 15px; color: var(--text-muted); margin-top: 2px;
+  }
+  .find-item .find-target {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .find-item .find-target.pattern { background: var(--accent-gold-dim); color: var(--accent-gold); }
+  .find-item .find-target.ptn { background: var(--accent-teal-dim); color: var(--accent-teal); }
+
+  .name-line {
+    display: flex; gap: 12px; margin-top: 8px;
+  }
+  .name-slot {
+    min-width: 100px;
+    border-bottom: 2px dashed var(--border-medium);
+    font-size: 16px; color: var(--text-muted);
+    padding-bottom: 2px;
+  }
+
+  .instructions {
+    margin-top: 20px;
+    background: var(--accent-coral-dim);
+    border-radius: var(--radius-md);
+    padding: 14px 24px;
+    font-size: 17px; color: var(--text-secondary);
+    max-width: 1100px;
+    display: flex; align-items: center; gap: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">Practice · Find Someone Who</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">33–43 min · Activity 3</div>
+  <div class="main-title">Find Someone Who… · 找人</div>
+  <div class="subtitle">Walk around the room. Find a different person for each prompt. When you find someone, write their name!</div>
+
+  <div class="find-grid">
+    <div class="find-item">
+      <div class="find-num">1</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，他的时间用<span class="text-gold">「半」</span>。</div>
+        <div class="find-en">Find someone whose time uses 半 (half past).</div>
+        <span class="find-target pattern">Pattern: 半</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num">2</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，他的时间用<span class="text-gold">「差」</span>。</div>
+        <div class="find-en">Find someone whose time uses 差 (minutes to).</div>
+        <span class="find-target pattern">Pattern: 差</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num">3</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，他的时间用<span class="text-gold">「刻」</span>。</div>
+        <div class="find-en">Find someone whose time uses 刻 (quarter).</div>
+        <span class="find-target pattern">Pattern: 刻</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num">4</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，他的时间里有<span class="text-gold">「零」</span>。</div>
+        <div class="find-en">Find someone whose time uses 零 (e.g. X:05).</div>
+        <span class="find-target ptn">Pattern: 零</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num">5</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，他的时间超过<span class="text-gold">9 点</span>。</div>
+        <div class="find-en">Find someone whose time is after 9:00.</div>
+        <span class="find-target ptn">Time &gt; 9:00</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+
+    <div class="find-item">
+      <div class="find-num">6</div>
+      <div class="find-content">
+        <div class="find-zh">找一个人，用<span class="text-gold">「请问」</span>问他/她时间。</div>
+        <div class="find-en">Find someone and ask them using 请问 politely.</div>
+        <span class="find-target pattern">Polite: 请问</span>
+      </div>
+      <div class="name-slot">Name: ________</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <span style="font-size:22px;">&#128227;</span>
+    <span><strong>Rules:</strong> Different person for each prompt (6 different classmates). Must ask「现在几点？」in Chinese. Listen to the <strong>pattern</strong> they use, not just the time.</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

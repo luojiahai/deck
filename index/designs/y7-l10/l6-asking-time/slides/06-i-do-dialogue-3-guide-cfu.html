@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-06 · I Do: Dialogue 3, Natural Answer Guide + CFU</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 40px 100px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 20px; }
+
+  /* Left column: Dialogue 3 */
+  .dialogue-label {
+    display: inline-block;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent-teal); text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 4px 14px;
+    background: var(--accent-teal-dim);
+    border-radius: 999px;
+  }
+  .dialogue-box { display: flex; flex-direction: column; gap: 10px; }
+  .speech-line { display: flex; align-items: flex-start; gap: 12px; }
+  .speech-line .speaker {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+  }
+  .speech-line .speaker.a { background: var(--accent-gold); }
+  .speech-line .speaker.b { background: var(--accent-teal); }
+  .speech-line .bubble {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 10px 18px;
+    font-size: 22px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    max-width: 520px;
+  }
+  .speech-line.a-line .bubble { border: 2px solid var(--accent-gold-dim); }
+  .speech-line.b-line .bubble { border: 2px solid var(--accent-teal-dim); }
+  .speech-line .bubble .zh { font-weight: 700; color: var(--text-primary); }
+  .speech-line .bubble .sub { font-size: 13px; color: var(--text-muted); margin-top: 1px; }
+
+  /* Right column: Natural Answer Guide */
+  .section-label { font-size: 14px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
+  .guide-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; margin-bottom: 12px; }
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+  }
+  .guide-table th {
+    text-align: left; font-weight: 700;
+    color: var(--text-secondary);
+    padding: 8px 14px; font-size: 14px;
+    border-bottom: 2px solid var(--accent-gold);
+    letter-spacing: 0.06em;
+  }
+  .guide-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .guide-table td.digital {
+    font-family: var(--font-mono);
+    font-weight: 700; color: var(--text-primary);
+  }
+  .guide-table td.chinese {
+    font-weight: 700; color: var(--accent-gold);
+    font-family: var(--font-display);
+  }
+  .guide-table td.pattern {
+    font-size: 14px; color: var(--text-muted);
+  }
+  .guide-table tr:nth-child(even) td { background: var(--bg-secondary); }
+
+  /* Bottom: CFU */
+  .cfu-section {
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+  }
+  .cfu-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent-coral); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .cfu-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    max-width: 1600px;
+  }
+  .cfu-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .cfu-card .cfu-num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--accent-coral);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .cfu-card .cfu-q { font-size: 18px; color: var(--text-primary); }
+  .cfu-card .cfu-a { font-size: 16px; color: var(--accent-teal); font-weight: 500; margin-left: auto; }
+  .finger-hint {
+    margin-top: 8px;
+    font-size: 14px; color: var(--text-muted);
+    display: flex; gap: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Extended Dialogue + Guide + CFU</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+
+  <div class="two-col">
+
+    <!-- LEFT: Dialogue 3 -->
+    <div>
+      <div class="dialogue-label">Dialogue 3 · Extended (Polite + Reason)</div>
+      <div class="dialogue-box">
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh"><span style="color:var(--accent-coral)">请问</span>，现在几点？</div>
+            <div class="sub">Qǐng wèn — Excuse me, what time is it?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">差十分四点。</div>
+            <div class="sub">Ten to four. (3:50)</div>
+          </div>
+        </div>
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">谢谢你！<span style="font-size:16px;color:var(--text-muted);">我要去踢足球。</span></div>
+            <div class="sub">Thank you! I need to go play football.</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">不客气。玩得开心！</div>
+            <div class="sub">You're welcome. Have fun!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Natural Answer Guide -->
+    <div>
+      <div class="section-label">Natural Answer Guide</div>
+      <div class="guide-title">Most Natural Way to Say It</div>
+      <table class="guide-table">
+        <tr><th>Digital</th><th>Natural Chinese</th><th>Pattern</th></tr>
+        <tr><td class="digital">7:00</td><td class="chinese">七点</td><td class="pattern">X 点</td></tr>
+        <tr><td class="digital">7:05</td><td class="chinese">七点零五分</td><td class="pattern">X 点 零 Y 分</td></tr>
+        <tr><td class="digital">7:10</td><td class="chinese">七点十分</td><td class="pattern">X 点 Y 分</td></tr>
+        <tr><td class="digital">7:15</td><td class="chinese">七点一刻</td><td class="pattern">X 点 一刻</td></tr>
+        <tr><td class="digital">7:30</td><td class="chinese">七点半</td><td class="pattern">X 点 半</td></tr>
+        <tr><td class="digital">7:45</td><td class="chinese">七点三刻</td><td class="pattern">X 点 三刻</td></tr>
+        <tr><td class="digital">7:50</td><td class="chinese">差十分八点</td><td class="pattern">差 Y 分 X 点</td></tr>
+        <tr><td class="digital">7:55</td><td class="chinese">差五分八点</td><td class="pattern">差 Y 分 X 点</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- CFU -->
+  <div class="cfu-section">
+    <div class="cfu-title">Check for Understanding · Fingers up / Paper up</div>
+    <div class="cfu-grid">
+      <div class="cfu-card">
+        <div class="cfu-num">1</div>
+        <div class="cfu-q">How do you ask "What time is it?" in Chinese?</div>
+        <div class="cfu-a">现在几点？</div>
+      </div>
+      <div class="cfu-card">
+        <div class="cfu-num">2</div>
+        <div class="cfu-q">The best answer for 7:45 — <strong> fingers?</strong></div>
+        <div class="cfu-a">✌️ or &#9995; — 七点三刻</div>
+      </div>
+      <div class="cfu-card">
+        <div class="cfu-num">3</div>
+        <div class="cfu-q">"现在" means ___? (1 finger = "now", 2 = "time")</div>
+        <div class="cfu-a">&#9757;&#65039; — "now"</div>
+      </div>
+      <div class="cfu-card">
+        <div class="cfu-num">4</div>
+        <div class="cfu-q">Teacher says「差十分四点」. Write the DIGITS.</div>
+        <div class="cfu-a">3:50</div>
+      </div>
+      <div class="cfu-card">
+        <div class="cfu-num">5</div>
+        <div class="cfu-q">"几" in「现在几点」means ___? (1 = what, 2 = how many)</div>
+        <div class="cfu-a">&#9757;&#65039; — "what" (number)</div>
+      </div>
+      <div class="cfu-card">
+        <div class="cfu-num">6</div>
+        <div class="cfu-q">To be polite when asking a stranger, add ___?</div>
+        <div class="cfu-a">请问!</div>
+      </div>
+    </div>
+    <div class="finger-hint">
+      <span>&#9757;&#65039; 1 finger = Yes / Agree</span>
+      <span>&#9995; 2 fingers = No / Disagree</span>
+      <span>&#9995; Fist = Not sure</span>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

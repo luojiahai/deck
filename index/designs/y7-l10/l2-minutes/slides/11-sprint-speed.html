@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-11 · Sprint 4: Partner Speed Round</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 28px; }
+  .activity-box {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--accent-teal);
+    border-radius: var(--radius-xl);
+    padding: 40px 56px;
+    max-width: 1400px;
+    position: relative;
+  }
+  .activity-badge {
+    position: absolute;
+    top: -16px; left: 40px;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 6px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .round-flow {
+    display: flex; align-items: center; gap: 32px;
+    margin-bottom: 28px;
+  }
+  .role-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px 48px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+  .role-card .role-letter {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .role-card .role-title {
+    font-family: var(--font-display);
+    font-size: 36px; font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .role-card .role-action {
+    font-size: 20px; color: var(--text-muted);
+  }
+  .arrow {
+    font-size: 48px; color: var(--accent-gold);
+  }
+  .practice-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .practice-item {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+    border: 2px solid var(--border-light);
+  }
+  .practice-item .digits {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .practice-item .chinese {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .swap-hint {
+    margin-top: 20px;
+    background: var(--accent-coral-dim);
+    border-radius: 999px;
+    padding: 10px 28px;
+    font-size: 18px;
+    color: var(--accent-coral);
+    font-weight: 700;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MINUTES</span>
+  <span class="sep"></span>
+  <span class="section-name">Sprint 4 · Partner Speed Round</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">33–38 min · Practice Sprint 4</div>
+  <div class="main-title">Sprint 4: Partner Speed Round · 搭档竞速</div>
+  <div class="subtitle">A says the time in Chinese. B writes the digits. How many can you do in 3 minutes?</div>
+
+  <div class="activity-box">
+    <div class="activity-badge">RULES</div>
+    <div class="round-flow">
+      <div class="role-card">
+        <div class="role-letter">Partner A</div>
+        <div class="role-title">说中文</div>
+        <div class="role-action">Say the time in Chinese<br>(e.g. "三点十分")</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="role-card">
+        <div class="role-letter">Partner B</div>
+        <div class="role-title">写数字</div>
+        <div class="role-action">Write the digits<br>(e.g. 3:10)</div>
+      </div>
+    </div>
+
+    <div class="practice-list">
+      <div class="practice-item">
+        <div class="digits">1:10</div>
+        <div class="chinese">一点十分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">5:05</div>
+        <div class="chinese">五点零五分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">8:20</div>
+        <div class="chinese">八点二十分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">10:30</div>
+        <div class="chinese">十点三十分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">3:45</div>
+        <div class="chinese">三点四十五分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">6:08</div>
+        <div class="chinese">六点零八分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">12:01</div>
+        <div class="chinese">十二点零一分</div>
+      </div>
+      <div class="practice-item">
+        <div class="digits">9:15</div>
+        <div class="chinese">九点十五分</div>
+      </div>
+    </div>
+
+    <div class="swap-hint" style="margin-top:20px;">🔄 SWAP after 3 minutes! B says, A writes.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

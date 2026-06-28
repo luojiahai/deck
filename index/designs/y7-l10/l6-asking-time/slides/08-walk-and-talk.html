@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-08 · Practice: Walk and Talk</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 44px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .round-box {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    position: relative;
+    border: 2px solid var(--border-light);
+  }
+  .round-box .round-badge {
+    position: absolute;
+    top: -14px; left: 24px;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .round-box h3 {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 900;
+    margin: 4px 0 10px;
+    color: var(--text-primary);
+  }
+  .step-list { display: flex; flex-direction: column; gap: 8px; }
+  .step-item { display: flex; align-items: center; gap: 10px; font-size: 18px; color: var(--text-secondary); }
+  .step-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .watch-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .watch-card {
+    background: #fff;
+    border: 2px solid var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .watch-card .w-digital {
+    font-family: var(--font-mono);
+    font-size: 24px; font-weight: 700;
+    color: var(--text-primary);
+  }
+  .watch-card .w-chinese {
+    font-size: 22px; font-weight: 700;
+    color: var(--accent-gold);
+    font-family: var(--font-display);
+  }
+  .watch-card .w-pinyin {
+    font-size: 12px; color: var(--text-muted);
+  }
+
+  .record-hint {
+    margin-top: 14px;
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    font-size: 16px; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .followup-section {
+    margin-top: 14px;
+    border-left: 3px solid var(--accent-coral);
+    padding-left: 16px;
+  }
+  .followup-section .fu-title {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-coral); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .followup-section .fu-item {
+    font-size: 17px; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">Practice · Walk and Talk</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">25–33 min · Activity 2</div>
+  <div class="main-title">Walk and Talk · 走一走，说一说</div>
+  <div class="subtitle">Each student gets a "watch card" with a time. Walk around the room and have real conversations!</div>
+
+  <div class="two-col">
+    <!-- Round 1 -->
+    <div class="round-box">
+      <div class="round-badge">Round 1</div>
+      <h3>Basic: Ask + Record</h3>
+      <div class="step-list">
+        <div class="step-item"><div class="step-num">1</div> Walk to a classmate</div>
+        <div class="step-item"><div class="step-num">2</div> Ask: <strong>现在几点？</strong></div>
+        <div class="step-item"><div class="step-num">3</div> They answer using <strong>their watch card</strong></div>
+        <div class="step-item"><div class="step-num">4</div> Write down their time + name</div>
+        <div class="step-item"><div class="step-num">5</div> Switch roles</div>
+        <div class="step-item"><div class="step-num">6</div> Move to a new partner</div>
+      </div>
+      <div class="record-hint">
+        <span style="font-size:20px;">&#128221;</span>
+        <span>Record sheet: Name | Digital Time | Chinese Expression</span>
+      </div>
+    </div>
+
+    <!-- Round 2 -->
+    <div class="round-box">
+      <div class="round-badge">Round 2</div>
+      <h3>Advanced: Write BOTH + Follow-up</h3>
+      <div class="step-list">
+        <div class="step-item"><div class="step-num">1</div> New partner — ask <strong>现在几点？</strong></div>
+        <div class="step-item"><div class="step-num">2</div> Write their answer in <strong>digits AND Chinese</strong></div>
+      </div>
+      <div class="followup-section">
+        <div class="fu-title">Then ask one follow-up:</div>
+        <div class="fu-item"><span style="color:var(--accent-gold);">&#8594;</span> 你要做什么？ (What will you do?)</div>
+        <div class="fu-item"><span style="color:var(--accent-gold);">&#8594;</span> 你忙吗？ (Are you busy?)</div>
+        <div class="fu-item"><span style="color:var(--accent-gold);">&#8594;</span> 你有表吗？ (Do you have a watch?)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sample watch cards -->
+  <div style="margin-top:14px;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:6px;">SAMPLE WATCH CARDS — Print &amp; cut out</div>
+    <div class="watch-cards">
+      <div class="watch-card"><div class="w-digital">2:30</div><div class="w-chinese">两点半</div><div class="w-pinyin">liǎng diǎn bàn</div></div>
+      <div class="watch-card"><div class="w-digital">7:15</div><div class="w-chinese">七点一刻</div><div class="w-pinyin">qī diǎn yī kè</div></div>
+      <div class="watch-card"><div class="w-digital">3:50</div><div class="w-chinese">差十分四点</div><div class="w-pinyin">chà shí fēn sì diǎn</div></div>
+      <div class="watch-card"><div class="w-digital">9:45</div><div class="w-chinese">九点三刻</div><div class="w-pinyin">jiǔ diǎn sān kè</div></div>
+      <div class="watch-card"><div class="w-digital">1:05</div><div class="w-chinese">一点零五分</div><div class="w-pinyin">yī diǎn líng wǔ fēn</div></div>
+      <div class="watch-card"><div class="w-digital">6:40</div><div class="w-chinese">差二十分七点</div><div class="w-pinyin">chà èrshí fēn qī diǎn</div></div>
+      <div class="watch-card"><div class="w-digital">11:10</div><div class="w-chinese">十一点十分</div><div class="w-pinyin">shíyī diǎn shí fēn</div></div>
+      <div class="watch-card"><div class="w-digital">8:00</div><div class="w-chinese">八点</div><div class="w-pinyin">bā diǎn</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

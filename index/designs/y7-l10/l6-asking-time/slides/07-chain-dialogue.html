@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-07 · Practice: Chain Dialogue</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .activity-box {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 32px 40px;
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .activity-box .activity-badge {
+    position: absolute;
+    top: -15px; left: 32px;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 4px 20px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .chain-flow {
+    display: flex; align-items: center; gap: 14px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .chain-step {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    font-size: 20px; font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+  .chain-arrow { font-size: 28px; color: var(--accent-gold); }
+
+  .rules-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .rule-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    text-align: left;
+    display: flex; align-items: flex-start; gap: 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  }
+  .rule-card .rule-icon {
+    font-size: 28px; flex-shrink: 0;
+  }
+  .rule-card .rule-text { font-size: 18px; color: var(--text-secondary); }
+  .rule-card .rule-text strong { color: var(--accent-coral); }
+
+  .example-box {
+    margin-top: 20px;
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    padding: 16px 28px;
+    display: flex; align-items: center; gap: 16px;
+    justify-content: center;
+    font-size: 24px;
+    max-width: 800px; margin: 20px auto 0;
+  }
+  .example-box .ex-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-gold); text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">Practice · Chain Dialogue</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">18–25 min · Activity 1</div>
+  <div class="main-title">Chain Dialogue · 对话链</div>
+  <div class="subtitle">Whole-class chain. Ask the person next to you, they answer, then they ask the next person!</div>
+
+  <div class="activity-box">
+    <div class="activity-badge">Whole Class</div>
+    <div class="chain-flow">
+      <div class="chain-step">&#128101; You</div>
+      <div class="chain-arrow">Ask &#8594;</div>
+      <div class="chain-step">&#128101; Neighbour</div>
+      <div class="chain-arrow">Answers &#8594;</div>
+      <div class="chain-step">&#128101; Neighbour</div>
+      <div class="chain-arrow">Ask &#8594;</div>
+      <div class="chain-step">&#128101; Next</div>
+    </div>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-icon">&#128273;</div>
+      <div class="rule-text"><strong>No repeating times.</strong> Each person must give a <strong>different</strong> time from everyone before them.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon">&#128260;</div>
+      <div class="rule-text"><strong>No same pattern twice in a row.</strong> If the last person said 半, you must use a different pattern (刻, 分, 差…).</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon">&#128066;</div>
+      <div class="rule-text"><strong>Listen carefully.</strong> You need to know what patterns have already been used!</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon">&#9200;</div>
+      <div class="rule-text"><strong>Keep it moving.</strong> Max 10 seconds per person. If stuck, the class can help.</div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <span class="ex-label">Example</span>
+    <span>A: 现在几点？</span>
+    <span style="color:var(--accent-teal);">B: 三点一刻。</span>
+    <span style="color:var(--text-muted);">(turns to C)</span>
+    <span>C: 差五分六点。</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

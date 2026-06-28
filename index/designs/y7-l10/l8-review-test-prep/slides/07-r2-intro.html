@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-07 · Round 2 Intro</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 60px 120px; }
+  .round-badge {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: var(--accent-teal-dim);
+    border: 6px solid var(--accent-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    flex-direction: column;
+  }
+  .round-badge .r-num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--accent-teal);
+    line-height: 1;
+  }
+  .round-badge .r-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-teal);
+  }
+  .round-title {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .round-subtitle {
+    font-size: 28px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .info-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+  }
+  .info-card .icon { font-size: 40px; margin-bottom: 8px; }
+  .info-card .val {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent-teal);
+    margin-bottom: 4px;
+  }
+  .info-card .desc { font-size: 16px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .direction-hint {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .dir-badge {
+    background: var(--accent-teal-dim);
+    padding: 10px 24px;
+    border-radius: 999px;
+    color: var(--accent-teal);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .dir-badge.reverse {
+    background: var(--accent-coral-dim);
+    color: var(--accent-coral);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · BEAT THE TEST</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 2</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="round-badge">
+    <div class="r-num">2</div>
+    <div class="r-label">ROUND</div>
+  </div>
+  <div class="round-title">Translation Showdown</div>
+  <div class="round-subtitle">翻译对决</div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="icon">&#128172;</div>
+      <div class="val">12</div>
+      <div class="desc">Questions</div>
+    </div>
+    <div class="info-card">
+      <div class="icon">&#9202;</div>
+      <div class="val">10</div>
+      <div class="desc">Minutes</div>
+    </div>
+    <div class="info-card">
+      <div class="icon">&#11088;</div>
+      <div class="val">180</div>
+      <div class="desc">Max Points</div>
+    </div>
+  </div>
+
+  <div class="direction-hint">
+    <span class="dir-badge">EN → 中文</span>
+    <span class="dir-badge reverse">中文 → EN</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

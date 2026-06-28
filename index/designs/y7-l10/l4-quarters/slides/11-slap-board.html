@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-11 · Slap the Board</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 28px; }
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1450px;
+  }
+  .board-card {
+    background: #fff;
+    border: 3px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .board-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  }
+  .board-card .b-time-cn {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .board-card .b-time-num {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-top: 4px;
+  }
+  .board-card .b-num {
+    position: absolute;
+    top: 8px; left: 12px;
+    font-size: 12px; font-weight: 700;
+    color: var(--text-muted);
+    opacity: 0.4;
+  }
+  .board-card.type-dian { border-left: 4px solid var(--accent-gold); }
+  .board-card.type-ban { border-left: 4px solid var(--accent-teal); }
+  .board-card.type-yike { border-left: 4px solid var(--accent-gold); background: var(--accent-gold-dim); }
+  .board-card.type-sanke { border-left: 4px solid var(--accent-coral); background: var(--accent-coral-dim); }
+  .instructions {
+    margin-top: 24px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · QUARTERS</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Slap the Board</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Game · 7 min</div>
+  <div class="main-title">Slap the Board · 拍板子</div>
+  <div class="subtitle">Teacher says a time. Two students race to slap the correct expression!</div>
+
+  <div class="board-grid">
+    <div class="board-card type-dian">
+      <div class="b-num">1</div>
+      <div class="b-time-cn">三点</div>
+      <div class="b-time-num">3:00</div>
+    </div>
+    <div class="board-card type-yike">
+      <div class="b-num">2</div>
+      <div class="b-time-cn">五点一刻</div>
+      <div class="b-time-num">5:15</div>
+    </div>
+    <div class="board-card type-sanke">
+      <div class="b-num">3</div>
+      <div class="b-time-cn">八点三刻</div>
+      <div class="b-time-num">8:45</div>
+    </div>
+    <div class="board-card type-ban">
+      <div class="b-num">4</div>
+      <div class="b-time-cn">六点半</div>
+      <div class="b-time-num">6:30</div>
+    </div>
+    <div class="board-card type-yike">
+      <div class="b-num">5</div>
+      <div class="b-time-cn">十二点一刻</div>
+      <div class="b-time-num">12:15</div>
+    </div>
+    <div class="board-card type-sanke">
+      <div class="b-num">6</div>
+      <div class="b-time-cn">四点三刻</div>
+      <div class="b-time-num">4:45</div>
+    </div>
+    <div class="board-card type-dian">
+      <div class="b-num">7</div>
+      <div class="b-time-cn">十点</div>
+      <div class="b-time-num">10:00</div>
+    </div>
+    <div class="board-card type-yike">
+      <div class="b-num">8</div>
+      <div class="b-time-cn">七点一刻</div>
+      <div class="b-time-num">7:15</div>
+    </div>
+    <div class="board-card type-sanke">
+      <div class="b-num">9</div>
+      <div class="b-time-cn">一点三刻</div>
+      <div class="b-time-num">1:45</div>
+    </div>
+    <div class="board-card type-ban">
+      <div class="b-num">10</div>
+      <div class="b-time-cn">九点半</div>
+      <div class="b-time-num">9:30</div>
+    </div>
+    <div class="board-card type-yike">
+      <div class="b-num">11</div>
+      <div class="b-time-cn">两点一刻</div>
+      <div class="b-time-num">2:15</div>
+    </div>
+    <div class="board-card type-sanke">
+      <div class="b-num">12</div>
+      <div class="b-time-cn">十一点三刻</div>
+      <div class="b-time-num">11:45</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">🙋 2 students at the board</div>
+    <div class="pill">👂 Teacher calls out a time in Chinese</div>
+    <div class="pill">👋 First to slap the correct card wins!</div>
+    <div class="pill">🔄 Rotate players each round</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.4 Quarters</span>
+</div>
+
+</body>
+</html>

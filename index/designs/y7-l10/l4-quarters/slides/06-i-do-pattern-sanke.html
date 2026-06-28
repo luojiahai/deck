@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-06 · Key Pattern: 三刻 + Timeline</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 8px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 24px; }
+  .pattern-box {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .pattern-block {
+    background: var(--bg-tertiary);
+    border: 3px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .pattern-plus { font-size: 34px; color: var(--accent-coral); font-weight: 700; }
+  .pattern-equals { font-size: 34px; color: var(--text-muted); }
+  .timeline-wrap { margin-bottom: 24px; }
+  .timeline-label { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 10px; }
+  .timeline {
+    display: flex; align-items: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: 24px 36px;
+    gap: 0;
+    max-width: 1400px;
+    position: relative;
+  }
+  .timeline .tick {
+    display: flex; flex-direction: column; align-items: center;
+    flex: 1; text-align: center; position: relative;
+  }
+  .timeline .tick::before {
+    content: '';
+    width: 2px; height: 20px;
+    background: var(--border-medium);
+    margin-bottom: 8px;
+  }
+  .timeline .tick .t-time {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .timeline .tick .t-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .timeline .tick .t-cn {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent-gold);
+    margin-top: 6px;
+  }
+  .timeline .tick .t-cn.hl-coral { color: var(--accent-coral); }
+  .timeline .tick.highlight::before {
+    background: var(--accent-gold);
+    width: 3px;
+  }
+  .timeline .arrow-row {
+    display: flex; align-items: center; gap: 0; flex: 1;
+  }
+  .timeline .arrow-row .arrow {
+    flex: 1; height: 3px;
+    background: var(--accent-gold);
+    position: relative;
+  }
+  .timeline .arrow-row .arrow::after {
+    content: '→';
+    position: absolute;
+    right: -10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-gold);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .clocks-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1050px;
+  }
+  .clock-card {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+  }
+  .clock-card .time-zh {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .clock-card .time-digit {
+    font-size: 26px;
+    color: var(--accent-coral);
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .clock-card .mini-clock {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 10px auto 0;
+    position: relative;
+    background: #fff;
+  }
+  .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .mini-clock .h {
+    position: absolute;
+    width: 3px; height: 26px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .mini-clock .m {
+    position: absolute;
+    width: 2px; height: 38px;
+    background: var(--accent-coral);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .warning-box {
+    margin-top: 22px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 14px;
+    max-width: 1000px;
+  }
+  .warning-box .warn-icon { font-size: 36px; }
+  .warning-box .warn-text { font-size: 24px; font-weight: 700; color: var(--accent-coral); }
+  .warning-box .warn-sub { font-size: 15px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · QUARTERS</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern: 三刻</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do</div>
+  <div class="main-title">Quarter To · 三刻</div>
+  <div class="subtitle">X + 点 + 三刻 = X:45</div>
+
+  <div class="pattern-box">
+    <div class="pattern-block">X</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">点</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">三刻</div>
+    <div class="pattern-equals">=</div>
+    <div class="pattern-block">X:45</div>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-label">📐 How 三刻 works — counting FORWARD from the hour</div>
+    <div class="timeline">
+      <div class="tick">
+        <div class="t-time">4:00</div>
+        <div class="t-label">hour</div>
+        <div class="t-cn">四点</div>
+      </div>
+      <div style="flex:0.5; text-align:center; font-size:22px; color:var(--accent-gold); padding:0 4px;">→</div>
+      <div class="tick">
+        <div class="t-time">4:15</div>
+        <div class="t-label">1 quarter</div>
+        <div class="t-cn">四点<span style="color:var(--accent-gold);">一刻</span></div>
+      </div>
+      <div style="flex:0.5; text-align:center; font-size:22px; color:var(--accent-gold); padding:0 4px;">→</div>
+      <div class="tick">
+        <div class="t-time">4:30</div>
+        <div class="t-label">2 quarters</div>
+        <div class="t-cn">四点<span style="color:var(--accent-teal);">半</span></div>
+      </div>
+      <div style="flex:0.5; text-align:center; font-size:22px; color:var(--accent-coral); padding:0 4px;">→</div>
+      <div class="tick highlight">
+        <div class="t-time">4:45</div>
+        <div class="t-label"><strong>3 quarters</strong></div>
+        <div class="t-cn hl-coral">四点三刻</div>
+      </div>
+      <div style="flex:0.5; text-align:center; font-size:22px; color:var(--text-muted); padding:0 4px;">→</div>
+      <div class="tick">
+        <div class="t-time">5:00</div>
+        <div class="t-label">next hour</div>
+        <div class="t-cn" style="color:var(--text-muted);">五点</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clocks-row">
+    <div class="clock-card">
+      <div class="time-zh">四点三刻</div>
+      <div class="time-digit">4:45</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(52.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">九点三刻</div>
+      <div class="time-digit">9:45</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(202.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">六点三刻</div>
+      <div class="time-digit">6:45</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(112.5deg); height:22px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="warn-icon">⚠️</div>
+    <div>
+      <div class="warn-text">三刻 = 3 quarters PAST the hour, NOT "to" the next hour!</div>
+      <div class="warn-sub">Always count FORWARD: 4:45 = 四点三刻 (three quarters past 4 o'clock)</div>
+      <div class="warn-sub" style="margin-top:4px;">Also correct: 四点四十五分 — but 三刻 is more natural in spoken Chinese</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.4 Quarters</span>
+</div>
+
+</body>
+</html>

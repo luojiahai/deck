@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-11 · Round 4: Champion's Choice</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 40px 80px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; color: var(--text-primary); }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 14px; }
+  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 1600px; }
+  .choice-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 16px;
+    border-left: 4px solid var(--accent-gold);
+  }
+  .choice-num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .time-display-sm {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 80px;
+    text-align: center;
+  }
+  .vs { font-size: 14px; color: var(--text-muted); font-weight: 700; }
+  .option {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: var(--radius-sm);
+    min-width: 160px;
+    text-align: center;
+  }
+  .option.a { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .option.b { background: var(--accent-coral-dim); color: var(--accent-coral); }
+  .option.correct { background: var(--accent-gold-dim); color: var(--accent-gold); border: 2px solid var(--accent-gold); }
+  .answer-hint {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    width: 40px;
+    text-align: center;
+  }
+  .scoring-box {
+    margin-top: 12px;
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    text-align: center;
+    max-width: 600px;
+    align-self: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Round 4 · Champion's Choice</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Round 4 · 7 min</div>
+  <div class="main-title">&#127942; Champion's Choice · 冠军之选</div>
+  <div class="subtitle">For each time, pick the <strong>more natural</strong> Chinese expression. Circle A or B. 10 pts each.</div>
+
+  <div class="choice-grid">
+    <!-- Q1: 3:00 -->
+    <div class="choice-item">
+      <div class="choice-num">1</div>
+      <div class="time-display-sm">3:00</div>
+      <div class="option a correct">A. 三点</div>
+      <div class="vs">vs</div>
+      <div class="option b">B. 三点零分</div>
+      <div class="answer-hint" style="color:var(--accent-teal);">A</div>
+    </div>
+    <!-- Q2: 2:50 -->
+    <div class="choice-item">
+      <div class="choice-num">2</div>
+      <div class="time-display-sm">2:50</div>
+      <div class="option a">A. 两点五十分</div>
+      <div class="vs">vs</div>
+      <div class="option b correct">B. 差十分三点</div>
+      <div class="answer-hint" style="color:var(--accent-coral);">B</div>
+    </div>
+    <!-- Q3: 11:55 -->
+    <div class="choice-item">
+      <div class="choice-num">3</div>
+      <div class="time-display-sm">11:55</div>
+      <div class="option a">A. 十一点五十五分</div>
+      <div class="vs">vs</div>
+      <div class="option b correct">B. 差五分十二点</div>
+      <div class="answer-hint" style="color:var(--accent-coral);">B</div>
+    </div>
+    <!-- Q4: 6:30 -->
+    <div class="choice-item">
+      <div class="choice-num">4</div>
+      <div class="time-display-sm">6:30</div>
+      <div class="option a correct">A. 六点半</div>
+      <div class="vs">vs</div>
+      <div class="option b">B. 六点三十分</div>
+      <div class="answer-hint" style="color:var(--accent-teal);">A</div>
+    </div>
+    <!-- Q5: 4:15 -->
+    <div class="choice-item">
+      <div class="choice-num">5</div>
+      <div class="time-display-sm">4:15</div>
+      <div class="option a correct">A. 四点一刻</div>
+      <div class="vs">vs</div>
+      <div class="option b">B. 四点十五分</div>
+      <div class="answer-hint" style="color:var(--accent-teal);">A</div>
+    </div>
+    <!-- Q6: 1:45 -->
+    <div class="choice-item">
+      <div class="choice-num">6</div>
+      <div class="time-display-sm">1:45</div>
+      <div class="option a">A. 一点四十五分</div>
+      <div class="vs">vs</div>
+      <div class="option b correct">B. 差一刻两点</div>
+      <div class="answer-hint" style="color:var(--accent-coral);">B</div>
+    </div>
+    <!-- Q7: 8:00 -->
+    <div class="choice-item">
+      <div class="choice-num">7</div>
+      <div class="time-display-sm">8:00</div>
+      <div class="option a correct">A. 八点</div>
+      <div class="vs">vs</div>
+      <div class="option b">B. 八点零分</div>
+      <div class="answer-hint" style="color:var(--accent-teal);">A</div>
+    </div>
+    <!-- Q8: 5:05 -->
+    <div class="choice-item">
+      <div class="choice-num">8</div>
+      <div class="time-display-sm">5:05</div>
+      <div class="option a">A. 五点五分</div>
+      <div class="vs">vs</div>
+      <div class="option b correct">B. 五点零五分</div>
+      <div class="answer-hint" style="color:var(--accent-coral);">B</div>
+    </div>
+    <!-- Q9: 9:35 -->
+    <div class="choice-item">
+      <div class="choice-num">9</div>
+      <div class="time-display-sm">9:35</div>
+      <div class="option a correct">A. 九点三十五分</div>
+      <div class="vs">vs</div>
+      <div class="option b">B. 差二十五分十点</div>
+      <div class="answer-hint" style="color:var(--accent-teal);">A</div>
+    </div>
+    <!-- Q10: 12:10 -->
+    <div class="choice-item">
+      <div class="choice-num">10</div>
+      <div class="time-display-sm">12:10</div>
+      <div class="option a" style="opacity:0.7;">A. 十二点十分</div>
+      <div class="vs">vs</div>
+      <div class="option b" style="opacity:0.7;">B. 十二点十分</div>
+      <div class="answer-hint" style="color:var(--text-muted);">TIE</div>
+    </div>
+  </div>
+
+  <div class="scoring-box">
+    10 items &times; 10 pts = <span class="text-gold" style="font-size:26px;">Max 100 pts</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

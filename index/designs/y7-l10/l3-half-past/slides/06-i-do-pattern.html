@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-06 · Key Pattern: X + 点 + 半</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 52px; font-weight: 900; margin-bottom: 8px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 28px; }
+  .pattern-box {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-bottom: 36px;
+  }
+  .pattern-block {
+    background: var(--bg-tertiary);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 16px 32px;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .pattern-plus {
+    font-size: 36px;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .pattern-equals {
+    font-size: 36px;
+    color: var(--text-muted);
+  }
+  .clocks-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+  }
+  .clock-card {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 28px 16px;
+  }
+  .clock-card .time-zh {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .clock-card .time-digit {
+    font-size: 28px;
+    color: var(--accent-gold);
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .clock-card .mini-clock {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 12px auto 0;
+    position: relative;
+    background: #fff;
+  }
+  .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .mini-clock .hand {
+    position: absolute;
+    width: 2px; height: 28px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .mini-clock .hand-min {
+    position: absolute;
+    width: 2px; height: 38px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(180deg);
+  }
+  .note-box {
+    margin-top: 28px;
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 16px 28px;
+    display: flex; align-items: center; gap: 16px;
+    max-width: 900px;
+  }
+  .note-box .note-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+  .note-box .note-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .note-box .note-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+  .warning-box {
+    margin-top: 16px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 16px 28px;
+    display: flex; align-items: center; gap: 16px;
+    max-width: 900px;
+  }
+  .warning-box .warn-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+  .warning-box .warn-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-coral);
+  }
+  .warning-box .warn-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · HALF PAST</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">12–18 min · I Do</div>
+  <div class="main-title">Key Pattern · 关键句型</div>
+  <div class="subtitle">Number + 点 + 半 = Half past (X:30)</div>
+
+  <div class="pattern-box">
+    <div class="pattern-block">X</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">点</div>
+    <div class="pattern-plus">+</div>
+    <div class="pattern-block">半</div>
+    <div class="pattern-equals">=</div>
+    <div class="pattern-block">X:30</div>
+  </div>
+
+  <div class="clocks-row">
+    <div class="clock-card">
+      <div class="time-zh">两点半</div>
+      <div class="time-digit">2:30</div>
+      <div class="mini-clock">
+        <div class="hand" style="transform:translateX(-50%) rotate(60deg); height:24px;"></div>
+        <div class="hand-min"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">六点半</div>
+      <div class="time-digit">6:30</div>
+      <div class="mini-clock">
+        <div class="hand" style="transform:translateX(-50%) rotate(180deg); height:24px;"></div>
+        <div class="hand-min"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">十一点半</div>
+      <div class="time-digit">11:30</div>
+      <div class="mini-clock">
+        <div class="hand" style="transform:translateX(-50%) rotate(-15deg); height:24px;"></div>
+        <div class="hand-min"></div>
+      </div>
+    </div>
+    <div class="clock-card">
+      <div class="time-zh">十二点半</div>
+      <div class="time-digit">12:30</div>
+      <div class="mini-clock">
+        <div class="hand" style="transform:translateX(-50%) rotate(0deg); height:22px;"></div>
+        <div class="hand-min"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <div class="note-icon">💡</div>
+    <div>
+      <div class="note-text">X点半 = X点三十分 — both correct!</div>
+      <div class="note-sub">半 is shorter and more common in everyday speech. 三十分 is more formal / written.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="warn-icon">⚠️</div>
+    <div>
+      <div class="warn-text">2:30 = <span style="text-decoration:underline;">两点半</span> NOT 二点半!</div>
+      <div class="warn-sub">Same rule as o'clock: before 点, use 两 (liǎng) instead of 二 (èr)</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

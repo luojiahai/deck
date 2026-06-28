@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-05 · I Do: Dialogues 1 & 2</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 24px; }
+
+  .dialogue-section { margin-bottom: 24px; }
+  .dialogue-label {
+    display: inline-block;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent-teal); text-transform: uppercase;
+    margin-bottom: 12px;
+    padding: 4px 14px;
+    background: var(--accent-teal-dim);
+    border-radius: 999px;
+  }
+  .dialogue-box {
+    display: flex; flex-direction: column; gap: 14px;
+    max-width: 1100px;
+  }
+  .speech-line {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .speech-line .speaker {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+  }
+  .speech-line .speaker.a { background: var(--accent-gold); }
+  .speech-line .speaker.b { background: var(--accent-teal); }
+  .speech-line .bubble {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 16px 24px;
+    font-size: 26px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    position: relative;
+    max-width: 700px;
+  }
+  .speech-line.a-line .bubble { border: 2px solid var(--accent-gold-dim); }
+  .speech-line.b-line .bubble { border: 2px solid var(--accent-teal-dim); }
+  .speech-line .bubble .zh { font-weight: 700; color: var(--text-primary); }
+  .speech-line .bubble .sub { font-size: 15px; color: var(--text-muted); margin-top: 2px; }
+
+  .divider {
+    width: 100%; max-width: 1100px;
+    height: 1px; background: var(--border-light);
+    margin: 20px 0;
+  }
+
+  .key-notes {
+    display: flex; gap: 20px;
+    max-width: 1100px;
+  }
+  .key-note {
+    background: var(--accent-coral-dim);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    font-size: 17px; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .key-note .icon { font-size: 22px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · ASKING THE TIME</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Model Dialogues</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–18 min · I Do</div>
+  <div class="main-title">Model Dialogues · 示范对话</div>
+
+  <!-- Dialogue 1: Basic Q&A -->
+  <div class="dialogue-section">
+    <div class="dialogue-label">Dialogue 1 · Basic Q&amp;A</div>
+    <div class="dialogue-box">
+      <div class="speech-line a-line">
+        <div class="speaker a">A</div>
+        <div class="bubble">
+          <div class="zh">现在几点？</div>
+          <div class="sub">Xiànzài jǐ diǎn? · What time is it?</div>
+        </div>
+      </div>
+      <div class="speech-line b-line">
+        <div class="speaker b">B</div>
+        <div class="bubble">
+          <div class="zh">两点半。</div>
+          <div class="sub">Liǎng diǎn bàn. · Half past two.</div>
+        </div>
+      </div>
+      <div class="speech-line a-line">
+        <div class="speaker a">A</div>
+        <div class="bubble">
+          <div class="zh">谢谢！</div>
+          <div class="sub">Xièxie! · Thanks!</div>
+        </div>
+      </div>
+      <div class="speech-line b-line">
+        <div class="speaker b">B</div>
+        <div class="bubble">
+          <div class="zh">不客气。</div>
+          <div class="sub">Bù kèqì. · You're welcome.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Dialogue 2: Verification -->
+  <div class="dialogue-section">
+    <div class="dialogue-label">Dialogue 2 · Verification (repeat to confirm)</div>
+    <div class="dialogue-box">
+      <div class="speech-line a-line">
+        <div class="speaker a">A</div>
+        <div class="bubble">
+          <div class="zh">现在几点？</div>
+          <div class="sub">What time is it?</div>
+        </div>
+      </div>
+      <div class="speech-line b-line">
+        <div class="speaker b">B</div>
+        <div class="bubble">
+          <div class="zh">五点四十五分。</div>
+          <div class="sub">5:45.</div>
+        </div>
+      </div>
+      <div class="speech-line a-line">
+        <div class="speaker a">A</div>
+        <div class="bubble">
+          <div class="zh" style="color: var(--accent-coral);">五点四十五分？</div>
+          <div class="sub">5:45? (repeating to confirm)</div>
+        </div>
+      </div>
+      <div class="speech-line b-line">
+        <div class="speaker b">B</div>
+        <div class="bubble">
+          <div class="zh">对，五点四十五分。</div>
+          <div class="sub">Yes, 5:45.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-notes">
+    <div class="key-note"><span class="icon">&#128161;</span> Repeating the time back shows you understood and confirms accuracy.</div>
+    <div class="key-note"><span class="icon">&#128161;</span> Notice: reply is just the <strong>time</strong> — no need to repeat 现在几点.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.1 Telling Time</span>
+</div>
+
+</body>
+</html>

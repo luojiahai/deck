@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .bg-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle at center, var(--accent-gold-dim) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(30%, -20%);
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .trophy-icon {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 5px solid var(--accent-gold);
+    margin: 0 auto var(--space-lg);
+    position: relative;
+    background: var(--accent-gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+  }
+  .trophy-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    width: 40px; height: 24px;
+    background: var(--accent-gold);
+    border-radius: 0 0 6px 6px;
+  }
+  .trophy-icon .star {
+    position: absolute;
+    font-size: 20px;
+  }
+  .trophy-icon .star:nth-child(1) { top: -14px; left: 20px; color: var(--accent-gold); }
+  .trophy-icon .star:nth-child(2) { top: 10px; right: -10px; color: var(--accent-teal); }
+  .trophy-icon .star:nth-child(3) { bottom: 10px; left: -10px; color: var(--accent-coral); }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .hl-word {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 36px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .title-en .em {
+    color: var(--accent-teal);
+    font-weight: 700;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .deco-line {
+    position: absolute;
+    height: 2px;
+    background: var(--border-light);
+  }
+  .deco-line.top { top: 200px; left: 100px; right: 100px; opacity: 0.5; }
+  .deco-line.bottom { bottom: 200px; left: 100px; right: 100px; opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<div class="bg-accent"></div>
+<div class="decorations">
+  <div class="deco-line top"></div>
+  <div class="deco-line bottom"></div>
+</div>
+
+<div class="main">
+  <div class="trophy-icon">
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    &#9200;
+  </div>
+  <div class="lesson-num">Lesson 8 · Y7 Unit 4.1</div>
+  <h1 class="title-cn">考试<span class="hl-word">大</span>挑战</h1>
+  <div class="title-en"><span class="em">Beat the Test</span> · Review &amp; Test Preparation</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Game Show Format</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-02 · Pattern Sprint</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 80px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 22px; }
+  .sprint-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1580px; }
+  .sprint-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 14px 10px;
+    text-align: center;
+    position: relative;
+  }
+  .sprint-cell .mini-clock {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    margin: 0 auto 8px;
+    position: relative;
+    background: #fff;
+  }
+  .sprint-cell .mini-clock::before {
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .sprint-cell .mini-clock .h {
+    position: absolute;
+    width: 3px; height: 30px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .sprint-cell .mini-clock .m {
+    position: absolute;
+    width: 2px; height: 42px;
+    background: var(--accent-gold);
+    border-radius: 1px;
+    bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+  }
+  .sprint-cell .q-num {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .sprint-cell .answer-slot {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border-light);
+    display: inline-block;
+    min-width: 50px;
+    padding: 2px 4px;
+    margin-top: 4px;
+  }
+  .bottom-bar {
+    display: flex; align-items: center; gap: 24px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    max-width: 1200px;
+    align-self: center;
+  }
+  .bottom-bar .timer {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .bottom-bar .label {
+    font-size: 17px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · TIME OLYMPICS</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · Pattern Sprint</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Warm-up</div>
+  <div class="main-title">Pattern Sprint · 模式冲刺</div>
+  <div class="subtitle">15 clock faces at 5-second intervals. Write the digits on your answer sheet. Self-check after.</div>
+
+  <div class="sprint-grid">
+    <!-- 1: 1:00 -->
+    <div class="sprint-cell">
+      <div class="q-num">1</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(30deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 2: 3:30 -->
+    <div class="sprint-cell">
+      <div class="q-num">2</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(105deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(180deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 3: 5:15 -->
+    <div class="sprint-cell">
+      <div class="q-num">3</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(157.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 4: 7:45 -->
+    <div class="sprint-cell">
+      <div class="q-num">4</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(232.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 5: 9:05 -->
+    <div class="sprint-cell">
+      <div class="q-num">5</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(272.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(30deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 6: 11:20 -->
+    <div class="sprint-cell">
+      <div class="q-num">6</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(340deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(120deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 7: 2:00 -->
+    <div class="sprint-cell">
+      <div class="q-num">7</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(60deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 8: 4:10 -->
+    <div class="sprint-cell">
+      <div class="q-num">8</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(125deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(60deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 9: 6:40 -->
+    <div class="sprint-cell">
+      <div class="q-num">9</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(200deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(240deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 10: 8:50 -->
+    <div class="sprint-cell">
+      <div class="q-num">10</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(265deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(300deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 11: 10:00 -->
+    <div class="sprint-cell">
+      <div class="q-num">11</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(300deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(0deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 12: 12:30 -->
+    <div class="sprint-cell">
+      <div class="q-num">12</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(15deg); height:26px;"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(180deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 13: 1:55 -->
+    <div class="sprint-cell">
+      <div class="q-num">13</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(57.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(330deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 14: 6:15 -->
+    <div class="sprint-cell">
+      <div class="q-num">14</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(187.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(90deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+    <!-- 15: 9:45 -->
+    <div class="sprint-cell">
+      <div class="q-num">15</div>
+      <div class="mini-clock">
+        <div class="h" style="transform:translateX(-50%) rotate(292.5deg);"></div>
+        <div class="m" style="transform:translateX(-50%) rotate(270deg);"></div>
+      </div>
+      <div class="answer-slot">___ : ___</div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="timer">&#9201; 5 sec each</div>
+    <div class="label">Teacher controls the pace. Students write digits only.</div>
+    <div class="label" style="margin-left:auto;">&#10003; Self-check with answer key after sprint</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Time Olympics · 时间奥运会</span>
+</div>
+
+</body>
+</html>

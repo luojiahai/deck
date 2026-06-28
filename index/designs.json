@@ -1,3 +1,11 @@
 {
-  "designs": []
+  "designs": [
+    {
+      "id": "y7-l10",
+      "title": "Y7 L10 · 几点？Telling Time in Chinese",
+      "description": "8 节课程幻灯片系列——Year 7 中文时间单元（点·分·半·刻·差·几点·混合·复习），含 3D 概览墙 + 全屏演示",
+      "createdAt": "2026-06-28",
+      "thumbnail": "designs/y7-l10/thumb.png"
+    }
+  ]
 }
