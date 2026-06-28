@@ -53,15 +53,23 @@ def duplicate_slide(prs, slide_idx):
 
 def clear_text_shape(shape):
     """Clear all text from a shape."""
-    txBody = shape._element.find('.//{http://schemas.openxmlformats.org/drawingml/2006/main}txBody')
+    # txBody can be in either the 'p' (presentationml) or 'a' (drawingml) namespace,
+    # depending on how the PPTX was generated.
+    P_NS = 'http://schemas.openxmlformats.org/presentationml/2006/main'
+    A_NS = 'http://schemas.openxmlformats.org/drawingml/2006/main'
+
+    txBody = (shape._element.find(f'.//{{{P_NS}}}txBody') or
+              shape._element.find(f'.//{{{A_NS}}}txBody'))
     if txBody is not None:
         for p in list(txBody):
             tag = p.tag.split('}')[-1] if '}' in p.tag else p.tag
             if tag == 'p':
                 txBody.remove(p)
-        empty_p = etree.SubElement(txBody, '{http://schemas.openxmlformats.org/drawingml/2006/main}p')
-        empty_r = etree.SubElement(empty_p, '{http://schemas.openxmlformats.org/drawingml/2006/main}r')
-        empty_t = etree.SubElement(empty_r, '{http://schemas.openxmlformats.org/drawingml/2006/main}t')
+        # Use the same namespace as the txBody for the empty paragraph
+        ns = P_NS if txBody.tag == f'{{{P_NS}}}txBody' else A_NS
+        empty_p = etree.SubElement(txBody, f'{{{ns}}}p')
+        empty_r = etree.SubElement(empty_p, f'{{{A_NS}}}r')
+        empty_t = etree.SubElement(empty_r, f'{{{A_NS}}}t')
         empty_t.text = ''
 
 
@@ -93,7 +101,7 @@ PINYIN_RE = re.compile(
 # Single digit or two digits (q-num badges)
 QNUM_RE = re.compile(r'^\d{1,2}$')
 
-# English text (no CJK, no digits-only, not labels)
+# English text (has Latin letters, not pure pinyin, not labels)
 def is_english_label(text):
     """Check if text is an English label (translation)."""
     if not text:
@@ -101,14 +109,14 @@ def is_english_label(text):
     # Skip single/double digits (q-num)
     if QNUM_RE.match(text):
         return False
-    # Must be ASCII-only
-    if not all(ord(c) < 128 for c in text):
+    # Must contain Latin letters
+    if not re.search(r'[a-zA-Z]', text):
         return False
     # Skip known non-answer labels
     skip_prefixes = (
         'Items', 'of ', 'pts', 'L8', 'Y7', 'Round', 'Format',
         '0–', '1–', '2–', '3–', '4–', '5–', '6–', '7–', '8–', '9–',
-        '8–', 'EN ', '中文', 'Y7 Chinese', 'Vocabulary', 'Beat',
+        'EN ', '中文', 'Y7 Chinese', 'Vocabulary', 'Beat',
         'Game', 'Learning', 'We are', 'I can', 'I feel',
         'On your', 'Your', 'Final', 'Congratulations',
         'REVISIT', 'Error Bounty',
@@ -139,8 +147,10 @@ def hide_r1_answers(slide):
         if QNUM_RE.match(text):
             continue
 
-        # Keep Chinese characters
-        if re.search(r'[一-鿿]', text):
+        # Keep pure Chinese characters (CJK but NO Latin letters)
+        has_cjk = bool(re.search(r'[一-鿿]', text))
+        has_latin = bool(re.search(r'[a-zA-Z]', text))
+        if has_cjk and not has_latin:
             continue
 
         # Hide pinyin (letters with tone marks, no digits)
