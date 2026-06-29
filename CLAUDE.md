@@ -31,6 +31,8 @@ deck/
    ```
 4. Run `vercel deploy --prod`
 
+Downloadable `.pptx` exports (linked from a design's `index.html`) are an **optional, per-design** feature — some designs ship them (e.g. `y7-l10`), others are web-only (e.g. `y8-l7`). Keep PPTX/PDF source artifacts that aren't served (`slides-pptx/`, slide-preview `thumbs/`) out of `index/` — they bloat the deploy and are unreferenced.
+
 ## URL routing
 
 No rewrites. Clean directory-based URLs:
@@ -47,7 +49,13 @@ cd index && python3 -m http.server 8080   # → http://localhost:8080
 
 ## Deployment
 
-> **Why `outputDirectory: "index"`?** Vercel defaults to deploying the repo root, but this project's servable content lives under `index/`. `vercel.json` points Vercel there so the gallery homepage resolves at `/` and designs at `/designs/<id>/`.
+`vercel.json` is a no-build static serve:
+
+```json
+{ "framework": null, "installCommand": "", "buildCommand": "", "outputDirectory": "index" }
+```
+
+> **Why this config?** The servable content lives under `index/`, so `outputDirectory` points Vercel there directly — the gallery resolves at `/` and designs at `/designs/<id>/`. `installCommand`/`buildCommand` are empty because serving static HTML needs no build, and the root `package.json` deps (playwright, sharp, etc.) are local-only export tooling that must NOT be installed on deploy. `.vercelignore` keeps `node_modules/`, `scripts/`, `docs/`, and `.archive/` out of the upload.
 
 ```bash
 vercel deploy --prod    # production → deck.liyu.dev

@@ -1,3 +1,6 @@
 {
-  "buildCommand": "cp -r index public"
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "index"
 }
