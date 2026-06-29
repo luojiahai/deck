@@ -52,6 +52,8 @@
   /* Right column: Natural Answer Guide */
   .sl2 { margin-bottom: 2pt; }
   .sl2 p { font-size: 7pt; font-weight: 700; letter-spacing: 0.1em; color: #C8943E; margin: 0; }
+  .ans-badge { display: inline-block; background: #C8943E; border-radius: 3pt; padding: 2pt 8pt; margin-bottom: 6pt; }
+  .ans-badge p { font-size: 7pt; font-weight: 700; color: #fff; letter-spacing: 0.1em; margin: 0; }
   .guide-title { margin-bottom: 8pt; }
   .guide-title h3 { font-family: 'Noto Serif SC', serif; font-size: 16pt; font-weight: 900; margin: 0; }
   .guide-table { width: 100%; border-collapse: collapse; }
@@ -89,19 +91,16 @@
   .cfu-num p { font-size: 9pt; font-weight: 700; color: #fff; margin: 0; }
   .cfu-q { flex: 1; }
   .cfu-q p { font-size: 9pt; color: #1E2A38; margin: 0; }
-  .cfu-a { display: none; }
+  .cfu-a { }
   .cfu-a p { font-size: 9pt; color: #3A7D8C; font-weight: 500; margin: 0; }
   .finger-hint { margin-top: 4pt; display: flex; gap: 16pt; }
   .finger-hint p { font-size: 7pt; color: #8B94A3; margin: 0; }
 
-  .guide-table { display: none; }
-  .guide-instruction { margin-top: 14pt; padding: 14pt 18pt; background: rgba(200,148,62,0.1); border-radius: 6pt; border: 1.5pt dashed #C8943E; text-align: center; }
-  .guide-instruction h3 { font-size: 14pt; font-weight: 700; color: #C8943E; margin: 0; }
-  .guide-instruction p { font-size: 8pt; color: #8B94A3; margin: 3pt 0 0; }
+  .guide-instruction { display: none; }
 </style>
 </head>
 <body>
-<div class="hdr"><p class="t">L6 · ASKING TIME</p><div class="s"></div><p class="n">I Do · Extended Dialogue + Guide + CFU</p><div class="al"></div></div>
+<div class="hdr"><p class="t">L6 · ASKING TIME</p><div class="s"></div><p class="n">I Do · CFU · Answers</p><div class="al"></div></div>
 <div class="ct">
 
   <div class="two-col">
@@ -113,7 +112,7 @@
         <div class="speech-line">
           <div class="speaker a"><p>A</p></div>
           <div class="bubble ga">
-            <div class="zh"><p style="color:#D4756B;">请问</p><p style="font-size:12pt;font-weight:700;color:#1E2A38;margin:0;">现在几点？</p></div>
+            <div class="zh"><p>请问，现在几点？</p></div>
             <div class="sub"><p>Qǐng wèn — Excuse me, what time is it?</p></div>
           </div>
         </div>
@@ -144,6 +143,7 @@
     <!-- RIGHT: Natural Answer Guide -->
     <div>
       <div class="sl2"><p>Natural Answer Guide</p></div>
+      <div class="ans-badge"><p>ANSWERS</p></div>
       <div class="guide-title"><h3>Most Natural Way to Say It</h3></div>
       <div class="guide-instruction"><h3>Natural Answer Guide on next slide</h3><p>Teacher reveals after students attempt</p></div>
       <table class="guide-table">

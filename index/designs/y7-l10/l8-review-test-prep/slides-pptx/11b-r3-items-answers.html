@@ -13,9 +13,11 @@
   .ftr p { font-size: 6pt; color: #8B94A3; margin: 0; }
   .ct { position: absolute; top: 36pt; left: 0; right: 0; bottom: 24pt; padding: 12pt 36pt; display: flex; flex-direction: column; justify-content: center; }
   .sl { margin-bottom: 4pt; }
-  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #D4756B; margin: 0; }
-  .mt { margin-bottom: 2pt; }
+  .sl p { font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; color: #C8943E; margin: 0; }
+  .mt { margin-bottom: 2pt; display: flex; align-items: center; }
   .mt h2 { font-family: 'Noto Serif SC', serif; font-size: 16pt; font-weight: 900; margin: 0; }
+  .badge { background: #D4756B; border-radius: 999pt; padding: 2pt 10pt; margin-left: 8pt; }
+  .badge p { font-size: 8pt; font-weight: 700; color: #fff; margin: 0; letter-spacing: 0.06em; }
   .st { margin-bottom: 10pt; }
   .st p { font-size: 9pt; color: #8B94A3; margin: 0; }
   .error-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin-bottom: 8pt; }
@@ -34,16 +36,16 @@
   .ec.correct .correction p { color: #3A7D8C; }
   .ec .reason { margin-top: 2pt; }
   .ec .reason p { font-size: 7pt; color: #8B94A3; margin: 0; }
-  .ec .verdict, .ec .correction, .ec .reason { display: none; }
-  .progress p { font-size: 8pt; color: #8B94A3; margin: 0; text-align: center; letter-spacing: 0.06em; }
+  .summary { margin-top: 4pt; }
+  .summary p { font-size: 8pt; color: #8B94A3; margin: 0; text-align: center; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
-<div class="hdr"><p class="t">L8 · BEAT THE TEST</p><div class="s"></div><p class="n">Round 3 · Error Bounty</p><div class="al"></div></div>
+<div class="hdr"><p class="t">L8 · BEAT THE TEST</p><div class="s"></div><p class="n">Round 3 · Error Bounty — Answers</p><div class="al"></div></div>
 <div class="ct">
   <div class="sl"><p>30–38 min · Round 3 · 20 pts each</p></div>
-  <div class="mt"><h2>Error Bounty · 错误悬赏</h2></div>
-  <div class="st"><p>Spot the mistake &amp; write the correct form — some are already right!</p></div>
+  <div class="mt"><h2>Error Bounty · Answers</h2><div class="badge"><p>答案</p></div></div>
+  <div class="st"><p>Spot the mistake &amp; write the correct form — here are the verdicts!</p></div>
   <div class="error-grid">
     <div class="ec wrong">
       <div class="qn"><p>1</p></div>
@@ -64,7 +66,7 @@
       <div class="given"><p>三点五分</p></div>
       <div class="verdict"><p>&#10060; WRONG</p></div>
       <div class="correction"><p>三点零五分</p></div>
-      <div class="reason"><p>Need 零 for single-digit</p></div>
+      <div class="reason"><p>Need 零 for single-digit min</p></div>
     </div>
     <div class="ec wrong">
       <div class="qn"><p>4</p></div>
@@ -99,10 +101,10 @@
       <div class="given"><p>十二点六十</p></div>
       <div class="verdict"><p>&#10060; WRONG</p></div>
       <div class="correction"><p>一点 / 十三点</p></div>
-      <div class="reason"><p>60分 = 1 hour</p></div>
+      <div class="reason"><p>60分 = 1 hour, rolls over</p></div>
     </div>
   </div>
-  <div class="progress"><p>8 items · 3 correct · 5 wrong</p></div>
+  <div class="summary"><p>8 items · 3 correct · 5 wrong</p></div>
 </div>
 <div class="ftr"><p>Y7 Chinese · Unit 4.1 Telling Time</p></div>
 </body>
