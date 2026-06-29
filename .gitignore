@@ -6,3 +6,6 @@
 .claude.local.md
 node_modules/
 .vercel/
+
+# Visual brainstorm companion
+.superpowers/
