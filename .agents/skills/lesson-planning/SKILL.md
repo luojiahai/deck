@@ -7,6 +7,8 @@ description: >
   create Chinese learning materials, or brainstorm Chinese teaching ideas — for any of these year levels.
   Also trigger when the user mentions specific unit topics (time, daily routine, transport, hobbies,
   music, sports, dance, school subjects, school facilities, stationery) in a teaching context.
+  If the request has anything to do with planning, structuring, or designing activities for Chinese class
+  at these year levels, use this skill — even if the user doesn't say "lesson plan" explicitly.
   If the user is clearly talking about a different subject or year level, do NOT trigger.
 ---
 
@@ -70,9 +72,18 @@ If the teacher doesn't specify which lesson, show them what's in the unit and as
 - **Y8**: `references/y8-unit3.md` — 轻松学中文 2, Unit 3 (Lessons 7–9)
 - **Y9**: `references/y9-unit3.md` — 轻松学中文 3, Unit 3 (Lessons 7–9)
 
-These references contain the actual vocabulary lists, grammar structures, text passages, and workbook exercise types from each unit. The companion tests (`references/*-tests.md`) show what students are assessed on.
+These references contain the actual vocabulary lists, grammar structures, text passages, workbook exercise types, and test coverage for each unit.
 
 If the reference doesn't contain something the teacher wants, tell them — don't make it up.
+
+---
+
+## Single Lesson vs Multi-Lesson Planning
+
+After Step 0, pick the right path:
+
+- **One lesson** (e.g., "plan a lesson on time"): Read the reference file, then go straight to the Lesson Structure phases below (Phase 1–5). Write the plan in one pass using the output template.
+- **Multiple lessons for one textbook lesson** (e.g., "8 lessons for Lesson 10: Time"): Follow the Multi-Lesson Planning process below.
 
 ---
 
