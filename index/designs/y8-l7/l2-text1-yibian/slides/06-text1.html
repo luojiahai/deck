@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-06 · Text 1</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 28px; }
+  .section-label { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 20px; }
+  .layout { display: grid; grid-template-columns: 1fr 420px; gap: 36px; align-items: start; }
+  .text-panel {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 32px 36px;
+  }
+  .text-panel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .cd-badge {
+    background: var(--accent-teal-dim);
+    border: 1.5px solid var(--accent-teal);
+    color: var(--accent-teal);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+  }
+  .text-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text-secondary); }
+  .text-body {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.9;
+    color: var(--text-primary);
+  }
+  .text-body .yb {
+    color: var(--accent-gold);
+    font-weight: 900;
+    background: linear-gradient(180deg, transparent 55%, rgba(200,148,62,0.18) 55%);
+    padding: 0 2px;
+  }
+  .listen-flow { display: flex; align-items: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .flow-step { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-secondary); font-weight: 500; }
+  .flow-num { background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .flow-arrow { color: var(--border-medium); font-size: 18px; }
+  .right-col { display: flex; flex-direction: column; gap: 18px; }
+  .comprehension-panel {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px 24px;
+  }
+  .cp-label { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 14px; }
+  .cp-qs { display: flex; flex-direction: column; gap: 14px; }
+  .cp-q { font-size: 21px; color: var(--text-primary); line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
+  .cp-q .qnum { color: var(--accent-teal); font-weight: 700; flex-shrink: 0; }
+  .char-box {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+    border: 1.5px solid var(--border-light);
+  }
+  .char-name { font-family: var(--font-display); font-size: 64px; font-weight: 900; color: var(--accent-gold); line-height: 1; margin-bottom: 6px; }
+  .char-en { font-size: 16px; color: var(--text-muted); }
+  .char-role { font-size: 18px; font-weight: 500; color: var(--text-secondary); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · TEXT 1 + 一边……一边……</span>
+  <span class="sep"></span>
+  <span class="section-name">Text 1 · 田云的爱好 · I Do / We Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">I Do · Text Presentation</div>
+  <div class="main-title">Text 1 · 田云的爱好</div>
+
+  <div class="layout">
+    <div class="text-panel">
+      <div class="text-panel-header">
+        <div class="cd-badge">🎵 CD Track 31 · p.60</div>
+        <div class="text-name">课文一</div>
+      </div>
+      <div class="text-body">
+        我叫田云。我有很多爱好。<br>
+        我喜欢<span class="yb">一边</span>弹钢琴，<span class="yb">一边</span>唱歌。<br>
+        我还喜欢听音乐和读书。<br>
+        我每天读一个小时的书。
+      </div>
+      <div class="listen-flow">
+        <div class="flow-step"><div class="flow-num">1</div> Listen with books closed</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="flow-num">2</div> Follow along reading</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="flow-num">3</div> Choral read</div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="char-box">
+        <div class="char-name">田云</div>
+        <div class="char-en">Tián Yún</div>
+        <div class="char-role">Main character · Unit 3</div>
+      </div>
+
+      <div class="comprehension-panel">
+        <div class="cp-label">Comprehension Questions</div>
+        <div class="cp-qs">
+          <div class="cp-q"><span class="qnum">Q1</span><span>田云有什么爱好？<br><em style="font-size:15px;color:var(--text-muted);">What are 田云's hobbies?</em></span></div>
+          <div class="cp-q"><span class="qnum">Q2</span><span>她每天读几个小时的书？<br><em style="font-size:15px;color:var(--text-muted);">How many hours does she read each day?</em></span></div>
+          <div class="cp-q"><span class="qnum">Q3</span><span>What two things does she do at the same time?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

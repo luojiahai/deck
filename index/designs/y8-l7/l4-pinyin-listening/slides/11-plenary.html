@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-11 · Plenary</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 120px 40px;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .section-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+  }
+
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .main-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* SC revisit column */
+  .sc-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-gold);
+  }
+
+  .sc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sc-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+  }
+
+  .sc-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .sc-text {
+    font-size: 20px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  .sc-text .em { color: var(--text-primary); font-weight: 700; }
+
+  .thumbs-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .thumb-chip {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .thumb-chip .thumb-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .thumb-chip.got-it .thumb-label { color: var(--accent-teal); }
+  .thumb-chip.almost .thumb-label { color: var(--accent-gold); }
+  .thumb-chip.stuck .thumb-label { color: var(--accent-coral); }
+
+  /* Exit ticket column */
+  .exit-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ticket-box {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+    flex: 1;
+  }
+
+  .ticket-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+  }
+
+  .ticket-question {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .ticket-rows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .ticket-slot {
+    background: rgba(255,255,255,0.7);
+    border: 1.5px dashed var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ticket-slot .slot-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .ticket-slot .sample {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .sample.ao-word { color: var(--accent-gold); }
+  .sample.ou-word { color: var(--accent-teal); }
+
+  .ticket-slot .pinyin {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · PINYIN ao/ou + LISTENING</span>
+  <span class="sep"></span>
+  <span class="section-name">Plenary · 结束</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Plenary · Lesson Close</div>
+  <div class="main-title">今日总结 · Lesson Wrap-Up</div>
+
+  <div class="main-area">
+    <!-- SC Revisit -->
+    <div class="sc-col">
+      <div class="col-title">Success Criteria · Check In</div>
+      <div class="sc-items">
+        <div class="sc-row">
+          <div class="sc-num">1</div>
+          <div class="sc-text">I can <span class="em">hear the difference</span> between ao and ou in spoken Chinese</div>
+        </div>
+        <div class="sc-row">
+          <div class="sc-num">2</div>
+          <div class="sc-text">I can <span class="em">correctly identify</span> ao / ou in new words</div>
+        </div>
+        <div class="sc-row">
+          <div class="sc-num">3</div>
+          <div class="sc-text">I can <span class="em">follow spoken Chinese</span> to tick answers in a listening grid</div>
+        </div>
+      </div>
+
+      <div class="thumbs-row">
+        <div class="thumb-chip got-it">
+          👍
+          <div class="thumb-label">Got it!</div>
+        </div>
+        <div class="thumb-chip almost">
+          ✋
+          <div class="thumb-label">Almost</div>
+        </div>
+        <div class="thumb-chip stuck">
+          🤔
+          <div class="thumb-label">Still stuck</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exit Ticket -->
+    <div class="exit-col">
+      <div class="col-title" style="color:var(--accent-teal); border-color:var(--accent-teal)">Exit Ticket · 出门票</div>
+
+      <div class="ticket-box">
+        <div class="ticket-label">Exit Ticket</div>
+        <div class="ticket-question">Write 2 Chinese words with <strong style="color:var(--accent-gold)">ao</strong> and 2 with <strong style="color:var(--accent-teal)">ou</strong>:</div>
+
+        <div class="ticket-rows">
+          <div class="ticket-slot">
+            <div class="slot-label">ao word 1</div>
+            <div class="sample ao-word">好</div>
+            <div class="pinyin">hǎo</div>
+          </div>
+          <div class="ticket-slot">
+            <div class="slot-label">ao word 2</div>
+            <div class="sample ao-word">高</div>
+            <div class="pinyin">gāo</div>
+          </div>
+          <div class="ticket-slot">
+            <div class="slot-label">ou word 1</div>
+            <div class="sample ou-word">走</div>
+            <div class="pinyin">zǒu</div>
+          </div>
+          <div class="ticket-slot">
+            <div class="slot-label">ou word 2</div>
+            <div class="sample ou-word">头</div>
+            <div class="pinyin">tóu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

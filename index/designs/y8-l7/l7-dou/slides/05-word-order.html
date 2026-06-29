@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-05 · Critical Word Order</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 120px;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .page-subtitle {
+    font-size: 22px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    flex: 1;
+  }
+  .side {
+    border-radius: var(--radius-xl);
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .side.wrong {
+    background: rgba(212,117,107,0.08);
+    border: 3px solid var(--accent-coral);
+  }
+  .side.correct {
+    background: rgba(58,125,140,0.08);
+    border: 3px solid var(--accent-teal);
+  }
+  .verdict {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .verdict-icon {
+    font-size: 48px;
+    line-height: 1;
+  }
+  .verdict-text {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .verdict-text.wrong { color: var(--accent-coral); }
+  .verdict-text.correct { color: var(--accent-teal); }
+  .sentence-display {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+  .sentence-display.strikethrough {
+    text-decoration: line-through;
+    text-decoration-color: var(--accent-coral);
+    text-decoration-thickness: 4px;
+    color: var(--text-muted);
+  }
+  .sentence-display .dou-wrong {
+    color: var(--accent-coral);
+    font-size: 52px;
+  }
+  .sentence-display .dou-right {
+    color: var(--accent-gold);
+    font-size: 52px;
+  }
+  .explanation {
+    background: rgba(0,0,0,0.04);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    font-size: 20px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .explanation.wrong { border-left: 4px solid var(--accent-coral); }
+  .explanation.correct { border-left: 4px solid var(--accent-teal); }
+  .rule-banner {
+    width: 100%;
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .rule-banner-text {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-align: center;
+  }
+  .rule-banner-text .key {
+    font-family: var(--font-display);
+    font-size: 28px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 都 · BOTH / ALL</span>
+  <span class="sep"></span>
+  <span class="section-name">Critical Word Order</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="page-title">Where does 都 go?</div>
+  <div class="page-subtitle">都 comes BEFORE the verb — never after!</div>
+
+  <div class="comparison">
+    <!-- WRONG -->
+    <div class="side wrong">
+      <div class="verdict">
+        <div class="verdict-icon">❌</div>
+        <div class="verdict-text wrong">WRONG</div>
+      </div>
+      <div class="sentence-display strikethrough">
+        小说、杂志，我喜欢<span class="dou-wrong">都</span>。
+      </div>
+      <div class="explanation wrong">
+        都 placed AFTER the verb 喜欢 — this is incorrect Chinese!
+      </div>
+    </div>
+
+    <!-- CORRECT -->
+    <div class="side correct">
+      <div class="verdict">
+        <div class="verdict-icon">✓</div>
+        <div class="verdict-text correct">CORRECT</div>
+      </div>
+      <div class="sentence-display">
+        小说、杂志，我<span class="dou-right">都</span>喜欢。
+      </div>
+      <div class="explanation correct">
+        都 placed BEFORE the verb 喜欢 — Subject + 都 + Verb ✓
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-banner">
+    <div class="rule-banner-text">
+      Items ，Subject &nbsp;<span class="key">都</span>&nbsp; Verb &nbsp;—&nbsp; 都 always sits between the subject and the verb
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

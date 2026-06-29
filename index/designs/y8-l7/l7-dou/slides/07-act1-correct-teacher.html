@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-07 · Act 1 · Correct the Teacher</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 36px 100px 24px;
+    gap: 16px;
+  }
+  .act-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .act-title {
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .act-chips {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .chip-teal { background: var(--accent-teal-dim); color: var(--accent-teal); border: 1px solid var(--accent-teal); }
+  .chip-time { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-medium); }
+  .act-instruction {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .errors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    flex: 1;
+  }
+  .error-card {
+    background: rgba(212,117,107,0.07);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card-num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+  }
+  .wrong-sentence {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .correct-space {
+    border-top: 2px dashed rgba(212,117,107,0.3);
+    padding-top: 10px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+  }
+  .correct-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-right: 10px;
+  }
+  .correct-blank {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  /* SED strip */
+  .sed-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .sed-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .sed-item .sed-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 都 · BOTH / ALL</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 1 · We Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="act-header">
+    <div class="act-title">Correct the Teacher!</div>
+    <div class="act-chips">
+      <div class="chip chip-teal">Act 1</div>
+      <div class="chip chip-time">⏱ 5 min</div>
+    </div>
+  </div>
+
+  <div class="act-instruction">Each sentence below has a 都 word-order mistake. Can you find and correct it?</div>
+
+  <div class="errors-grid">
+
+    <div class="error-card">
+      <div class="card-num">Error 1</div>
+      <div class="wrong-sentence">小说、杂志，我喜欢都看。</div>
+      <div class="correct-space">
+        <span class="correct-label">Correct →</span>
+        <span class="correct-blank">你来写…</span>
+      </div>
+    </div>
+
+    <div class="error-card">
+      <div class="card-num">Error 2</div>
+      <div class="wrong-sentence">油画儿、水彩画儿，她画都喜欢。</div>
+      <div class="correct-space">
+        <span class="correct-label">Correct →</span>
+        <span class="correct-blank">你来写…</span>
+      </div>
+    </div>
+
+    <div class="error-card">
+      <div class="card-num">Error 3</div>
+      <div class="wrong-sentence">都弹钢琴、唱歌，他喜欢。</div>
+      <div class="correct-space">
+        <span class="correct-label">Correct →</span>
+        <span class="correct-blank">你来写…</span>
+      </div>
+    </div>
+
+    <div class="error-card">
+      <div class="card-num">Error 4</div>
+      <div class="wrong-sentence">我喜欢都国画儿和油画儿。</div>
+      <div class="correct-space">
+        <span class="correct-label">Correct →</span>
+        <span class="correct-blank">你来写…</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Word order reminder: Items → Subject + 都 + Verb
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Write your own error sentence for your partner to correct
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Hold up your corrected sentences for the teacher to see
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

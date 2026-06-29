@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-02 · Review: Slap the Board</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 32px; }
+  .section-label { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .sub-line { font-size: 20px; color: var(--text-muted); margin-bottom: 26px; }
+  .review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 22px; }
+  .word-bank-panel { background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); padding: 24px 28px; }
+  .panel-label { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 16px; }
+  .word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .word-card { background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; border: 1.5px solid var(--border-light); }
+  .wc-hanzi { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--text-primary); }
+  .wc-pinyin { font-size: 15px; color: var(--accent-teal); font-weight: 500; }
+  .wc-en { font-size: 14px; color: var(--text-muted); }
+  .rules-panel { background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; }
+  .game-title { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+  .game-steps { display: flex; flex-direction: column; gap: 10px; }
+  .step { display: flex; align-items: flex-start; gap: 14px; }
+  .step-num { background: var(--accent-coral); color: #fff; font-size: 14px; font-weight: 700; width: 28px; height: 28px; border-radius: 999px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-text { font-size: 19px; color: var(--text-secondary); line-height: 1.45; }
+  .step-text strong { color: var(--text-primary); }
+  .bridge-box { background: var(--accent-teal-dim); border: 2px solid var(--accent-teal); border-radius: var(--radius-md); padding: 16px 24px; display: flex; align-items: flex-start; gap: 16px; }
+  .bridge-icon { font-size: 26px; flex-shrink: 0; }
+  .bridge-text { font-size: 20px; color: var(--accent-teal); font-weight: 700; line-height: 1.5; }
+  .bridge-sub { font-size: 15px; color: var(--text-muted); font-weight: 400; margin-top: 4px; }
+  .time-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .time-badge { background: var(--accent-gold-dim); color: var(--accent-gold); font-size: 16px; font-weight: 700; padding: 6px 18px; border-radius: 999px; border: 1px solid var(--accent-gold); }
+  .round-badge { background: var(--accent-coral-dim); color: var(--accent-coral); font-size: 14px; font-weight: 700; padding: 5px 14px; border-radius: 999px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · TEXT 1 + 一边……一边……</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · Slap the Board · 0–8 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Review</div>
+  <div class="main-title">拍黑板！Slap the Board</div>
+  <div class="time-row">
+    <div class="time-badge">⏱ 8 min</div>
+    <div class="round-badge">3 Rounds</div>
+  </div>
+
+  <div class="review-grid">
+    <div class="word-bank-panel">
+      <div class="panel-label">Word Bank · 词库 (8 words)</div>
+      <div class="word-grid">
+        <div class="word-card">
+          <div class="wc-hanzi">弹钢琴</div>
+          <div class="wc-pinyin">tán gāngqín</div>
+          <div class="wc-en">play the piano</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">唱歌</div>
+          <div class="wc-pinyin">chànggē</div>
+          <div class="wc-en">sing a song</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">听音乐</div>
+          <div class="wc-pinyin">tīng yīnyuè</div>
+          <div class="wc-en">listen to music</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">读书</div>
+          <div class="wc-pinyin">dúshū</div>
+          <div class="wc-en">read / study</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">看电视</div>
+          <div class="wc-pinyin">kàn diànshì</div>
+          <div class="wc-en">watch TV</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">弹吉他</div>
+          <div class="wc-pinyin">tán jítā</div>
+          <div class="wc-en">play guitar</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi" style="font-size:22px;">玩电脑游戏</div>
+          <div class="wc-pinyin">wán diànnǎo yóuxì</div>
+          <div class="wc-en">play computer games</div>
+        </div>
+        <div class="word-card">
+          <div class="wc-hanzi">爱好</div>
+          <div class="wc-pinyin">àihào</div>
+          <div class="wc-en">hobby</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:18px;">
+      <div class="rules-panel">
+        <div class="game-title">🎯 Game Rules</div>
+        <div class="game-steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Two students stand at the board, one flyswatter each</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Teacher calls a word in <strong>English or pinyin</strong></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">First student to <strong>slap the correct character</strong> wins the round</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">3 rounds — then swap players</div></div>
+        </div>
+      </div>
+      <div class="bridge-box">
+        <div class="bridge-icon">🔗</div>
+        <div>
+          <div class="bridge-text">You can already say all these hobbies!</div>
+          <div class="bridge-sub">Today's character 田云 has the same hobbies — let's read what she says about them and learn something new about how she does them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

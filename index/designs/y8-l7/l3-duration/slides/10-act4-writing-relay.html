@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-10 · Act 4 · Writing Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-teal); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-teal-dim); color: var(--accent-teal); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .relay-layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    margin-bottom: 16px;
+    align-items: start;
+  }
+
+  .sentences-col { display: flex; flex-direction: column; gap: 14px; }
+  .sentence-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .s-num {
+    width: 44px; height: 44px;
+    background: var(--accent-teal);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .s-body { flex: 1; }
+  .s-zh {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .s-blank {
+    display: inline-block;
+    min-width: 130px;
+    height: 36px;
+    border-bottom: 3px solid var(--accent-teal);
+    background: var(--accent-teal-dim);
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+    line-height: 36px;
+    margin: 0 4px;
+    color: var(--text-muted);
+    font-size: 18px;
+    font-style: italic;
+    font-family: var(--font-body);
+  }
+  .s-person {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .s-person strong { color: var(--accent-teal); }
+  .answer-pill {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rules-col {
+    width: 360px;
+  }
+  .rules-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 12px;
+  }
+  .rules-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 12px;
+  }
+  .rule-item { display: flex; gap: 10px; align-items: flex-start; font-size: 19px; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 4 · Writing Relay · You Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Activity 4</div>
+    <div class="time-badge">⏱ 1 min</div>
+    <div class="mode-badge">You Do</div>
+  </div>
+  <div class="main-title">Writing Relay · 接力填空</div>
+  <div class="subtitle">Teams of 4 — each person fills one blank, passes to next — fastest correct team wins</div>
+
+  <div class="relay-layout">
+
+    <div class="sentences-col">
+      <div class="sentence-card">
+        <div class="s-num">1</div>
+        <div class="s-body">
+          <div class="s-zh">他每天打<span class="s-blank">____</span>的球。</div>
+          <div class="s-person">Person <strong>1</strong> fills this blank</div>
+        </div>
+        <div class="answer-pill">两个小时</div>
+      </div>
+      <div class="sentence-card">
+        <div class="s-num">2</div>
+        <div class="s-body">
+          <div class="s-zh">她每天唱<span class="s-blank">____</span>的歌。</div>
+          <div class="s-person">Person <strong>2</strong> fills this blank</div>
+        </div>
+        <div class="answer-pill">一刻钟</div>
+      </div>
+      <div class="sentence-card">
+        <div class="s-num">3</div>
+        <div class="s-body">
+          <div class="s-zh">我每天读<span class="s-blank">____</span>的书。</div>
+          <div class="s-person">Person <strong>3</strong> fills this blank</div>
+        </div>
+        <div class="answer-pill">半个小时</div>
+      </div>
+      <div class="sentence-card">
+        <div class="s-num">4</div>
+        <div class="s-body">
+          <div class="s-zh">他每天听<span class="s-blank">____</span>的音乐。</div>
+          <div class="s-person">Person <strong>4</strong> fills this blank</div>
+        </div>
+        <div class="answer-pill">三刻钟</div>
+      </div>
+    </div>
+
+    <div class="rules-col">
+      <div class="rules-box">
+        <h3>Relay Rules</h3>
+        <div class="rule-item"><div class="rule-icon">👥</div><div>Teams of 4 — one paper per team</div></div>
+        <div class="rule-item"><div class="rule-icon">✍️</div><div>Person 1 fills sentence 1, passes paper</div></div>
+        <div class="rule-item"><div class="rule-icon">⚡</div><div>Fastest correct team = wins</div></div>
+        <div class="rule-item"><div class="rule-icon">✅</div><div>All 4 blanks must be correct to count</div></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <div>
+          <div class="tip-text">Answers revealed</div>
+          <div class="tip-sub">Check: verb + duration + 的 + noun order!</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Duration phrase list stays on projector for reference
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Write one extra original sentence with a different duration
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Winning team reads all 4 sentences aloud to the class
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

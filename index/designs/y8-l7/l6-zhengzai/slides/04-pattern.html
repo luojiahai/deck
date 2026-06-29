@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-04 · Key Pattern 正在</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 140px 40px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-family: var(--font-body);
+    margin-bottom: 10px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+  }
+  /* Pattern structure */
+  .pattern-row {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .pat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--bg-tertiary);
+    border: 2.5px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 18px 36px;
+    min-width: 160px;
+  }
+  .pat-block.highlight {
+    border-color: var(--accent-gold);
+    background: var(--accent-gold-dim);
+  }
+  .pat-ch {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+  .pat-block.highlight .pat-ch {
+    color: var(--accent-gold);
+  }
+  .pat-en {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .pat-plus {
+    font-size: 36px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+  .pat-arrow {
+    font-size: 28px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+  }
+  .pat-meaning {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 18px 20px;
+  }
+  /* Examples */
+  .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .example-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 24px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+  .ex-zh {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .ex-zh .key { color: var(--accent-gold); }
+  .ex-en {
+    font-size: 20px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .example-row.silly {
+    border-color: var(--accent-coral);
+    background: var(--accent-coral-dim);
+  }
+  .silly-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+    padding: 2px 12px;
+    border-radius: 999px;
+    background: rgba(212,117,107,0.15);
+    white-space: nowrap;
+  }
+  /* Q form */
+  .q-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg-tertiary);
+    border-left: 5px solid var(--accent-teal);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 16px 28px;
+  }
+  .q-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    white-space: nowrap;
+  }
+  .q-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .q-arrow { font-size: 24px; color: var(--text-muted); }
+  .q-ans {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .blank {
+    display: inline-block;
+    min-width: 160px;
+    border-bottom: 3px solid var(--accent-teal);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">8–20 min · I Do</div>
+  <div class="main-title">Key Pattern · 正在 + verb</div>
+  <div class="subtitle">Use 正在 before any verb to say the action is happening right now</div>
+
+  <div class="pattern-row">
+    <div class="pat-block">
+      <div class="pat-ch">Subject</div>
+      <div class="pat-en">主语 subject</div>
+    </div>
+    <div class="pat-plus">+</div>
+    <div class="pat-block highlight">
+      <div class="pat-ch">正在</div>
+      <div class="pat-en">right now · 现在进行</div>
+    </div>
+    <div class="pat-plus">+</div>
+    <div class="pat-block">
+      <div class="pat-ch">Verb</div>
+      <div class="pat-en">动词 action</div>
+    </div>
+    <div class="pat-plus">+</div>
+    <div class="pat-block">
+      <div class="pat-ch">Object</div>
+      <div class="pat-en">宾语 (optional)</div>
+    </div>
+    <div class="pat-arrow">→</div>
+    <div class="pat-meaning">"[Subject] is [verb]-ing right now"</div>
+  </div>
+
+  <div class="examples">
+    <div class="example-row">
+      <div class="ex-zh">他<span class="key">正在</span>弹钢琴。</div>
+      <div class="ex-en">He is playing piano right now.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-zh">她<span class="key">正在</span>唱歌。</div>
+      <div class="ex-en">She is singing right now.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-zh">你<span class="key">正在</span>听什么音乐？</div>
+      <div class="ex-en">What music are you listening to right now?</div>
+    </div>
+    <div class="example-row silly">
+      <div class="ex-zh">你们<span class="key" style="color:var(--accent-coral)">正在</span>学中文。是不是？<span class="silly-tag">meta · right now!</span></div>
+      <div class="ex-en">You are learning Chinese. Aren't you? (Yes — right now!)</div>
+    </div>
+  </div>
+
+  <div class="q-row">
+    <div class="q-label">Q form</div>
+    <div class="q-zh">你正在做什么？</div>
+    <div class="q-arrow">→</div>
+    <div class="q-ans">我正在<span class="blank"></span>。</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

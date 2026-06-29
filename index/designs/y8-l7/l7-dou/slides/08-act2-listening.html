@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-08 · Act 2 · Listen &amp; Match</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 36px 100px 24px;
+    gap: 18px;
+  }
+  .act-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .act-title {
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .act-chips {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .chip-gold { background: var(--accent-gold-dim); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+  .chip-time { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-medium); }
+  .cd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .instructions-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .play-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+  }
+  .play-step .num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .play-step .text {
+    font-size: 18px;
+    color: var(--text-secondary);
+  }
+  /* Matching area */
+  .match-area {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+  .names-col, .acts-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .name-card {
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .name-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .name-py {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+  .activity-card {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .act-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .act-zh {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .act-en {
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+  .lines-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    gap: 18px;
+    padding: 0 8px;
+  }
+  .line-hint {
+    width: 60px;
+    height: 3px;
+    border-bottom: 3px dashed var(--border-medium);
+    border-radius: 2px;
+  }
+  /* SED strip */
+  .sed-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .sed-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .sed-item .sed-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 都 · BOTH / ALL</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 2 · Listening</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="act-header">
+    <div class="act-title">Listen &amp; Match</div>
+    <div class="act-chips">
+      <div class="chip chip-gold">Act 2</div>
+      <div class="chip chip-time">⏱ 7 min</div>
+      <div class="cd-badge">💿 CD Track 35 · Act. 12</div>
+    </div>
+  </div>
+
+  <div class="instructions-row">
+    <div class="play-step"><div class="num">1</div><div class="text">Listen — who likes what?</div></div>
+    <div class="play-step"><div class="num">2</div><div class="text">Draw a line to match</div></div>
+    <div class="play-step"><div class="num">3</div><div class="text">Check with a partner</div></div>
+  </div>
+
+  <div class="match-area">
+    <!-- Names column -->
+    <div class="names-col">
+      <div class="name-card">
+        <div>
+          <div class="name-zh">大卫</div>
+          <div class="name-py">Dàwèi</div>
+        </div>
+      </div>
+      <div class="name-card">
+        <div>
+          <div class="name-zh">小红</div>
+          <div class="name-py">Xiǎohóng</div>
+        </div>
+      </div>
+      <div class="name-card">
+        <div>
+          <div class="name-zh">李明</div>
+          <div class="name-py">Lǐ Míng</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lines in middle -->
+    <div class="lines-col">
+      <div class="line-hint"></div>
+      <div class="line-hint"></div>
+      <div class="line-hint"></div>
+    </div>
+
+    <!-- Activities column -->
+    <div class="acts-col">
+      <div class="activity-card">
+        <div class="act-icon">🎨</div>
+        <div>
+          <div class="act-zh">画画儿</div>
+          <div class="act-en">drawing / painting</div>
+        </div>
+      </div>
+      <div class="activity-card">
+        <div class="act-icon">🎵</div>
+        <div>
+          <div class="act-zh">弹钢琴</div>
+          <div class="act-en">playing piano</div>
+        </div>
+      </div>
+      <div class="activity-card">
+        <div class="act-icon">📚</div>
+        <div>
+          <div class="act-zh">看小说</div>
+          <div class="act-en">reading novels</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Preview names and activities before pressing play
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Write a 都 sentence for two of the people you heard
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Call out each answer as the teacher reveals them
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

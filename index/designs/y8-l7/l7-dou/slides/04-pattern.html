@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-04 · Key Pattern · 都</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 44px 120px;
+    gap: 28px;
+  }
+  .rule-header {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .rule-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .structure-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+  .struct-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 28px;
+    border-radius: var(--radius-md);
+  }
+  .struct-part.items {
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+  }
+  .struct-part.subject {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-medium);
+    margin-left: 12px;
+  }
+  .struct-part.dou {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    margin-left: 8px;
+  }
+  .struct-part.verb {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-medium);
+    margin-left: 8px;
+  }
+  .struct-arrow {
+    font-size: 32px;
+    color: var(--text-muted);
+    margin: 0 8px;
+    flex-shrink: 0;
+  }
+  .struct-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .struct-zh.gold { color: var(--accent-gold); }
+  .struct-zh.teal { color: var(--accent-teal); }
+  .struct-en {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .rule-note {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-align: center;
+  }
+  .examples-heading {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .example-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 16px 28px;
+    border: 1px solid var(--border-light);
+  }
+  .ex-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    width: 24px;
+    flex-shrink: 0;
+  }
+  .ex-zh {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .ex-zh .dou {
+    color: var(--accent-gold);
+    font-size: 32px;
+  }
+  .ex-en {
+    font-size: 18px;
+    color: var(--text-secondary);
+    flex: 1;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 都 · BOTH / ALL</span>
+  <span class="sep"></span>
+  <span class="section-name">Key Pattern · ……，都……</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="rule-header">
+    <div class="rule-title">The 都 Rule</div>
+  </div>
+
+  <div class="structure-box">
+    <div class="struct-part items">
+      <div class="struct-zh teal">Item 1、Item 2 ……</div>
+      <div class="struct-en">Items listed FIRST</div>
+    </div>
+    <div class="struct-arrow">，</div>
+    <div class="struct-part subject">
+      <div class="struct-zh">Subject</div>
+      <div class="struct-en">who likes</div>
+    </div>
+    <div class="struct-part dou">
+      <div class="struct-zh gold">都</div>
+      <div class="struct-en">both / all</div>
+    </div>
+    <div class="struct-part verb">
+      <div class="struct-zh">Verb</div>
+      <div class="struct-en">action</div>
+    </div>
+  </div>
+
+  <div class="rule-note">⚠ List the items FIRST — then Subject + 都 + Verb</div>
+
+  <div class="examples-heading">Examples</div>
+
+  <div class="examples-list">
+    <div class="example-row">
+      <div class="ex-num">1</div>
+      <div class="ex-zh">油画儿、水彩画儿，我<span class="dou">都</span>喜欢画。</div>
+      <div class="ex-en">Oil paintings and watercolours — I like painting <strong>both</strong>.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-num">2</div>
+      <div class="ex-zh">小说、杂志，他<span class="dou">都</span>喜欢看。</div>
+      <div class="ex-en">Novels and magazines — he likes reading <strong>both</strong>.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-num">3</div>
+      <div class="ex-zh">弹钢琴、唱歌、听音乐，她<span class="dou">都</span>喜欢。</div>
+      <div class="ex-en">Piano, singing, music — she likes them <strong>all</strong>.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

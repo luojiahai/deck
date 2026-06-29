@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-12 · Preview · Next Unit</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body { display:flex; align-items:center; justify-content:center; background:var(--bg-primary); overflow:hidden; }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .next-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .coming-up {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 4px;
+  }
+  .unit-title {
+    font-family: var(--font-display);
+    font-size: 110px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .unit-title .dot { color: var(--accent-gold); }
+  .unit-en {
+    font-size: 36px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-md);
+  }
+  .question-line {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: var(--space-lg);
+  }
+  .sports-preview {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: var(--space-lg);
+  }
+  .sport-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 180px;
+    transition: border-color 0.2s;
+  }
+  .sport-icon { font-size: 52px; line-height: 1; }
+  .sport-zh { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text-primary); }
+  .sport-py { font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .sport-en { font-size: 15px; color: var(--text-secondary); }
+  .sport-card:nth-child(1) { border-color: rgba(58,125,140,0.4); }
+  .sport-card:nth-child(2) { border-color: rgba(200,148,62,0.4); }
+  .sport-card:nth-child(3) { border-color: rgba(212,117,107,0.4); }
+  .sport-card:nth-child(4) { border-color: rgba(200,148,62,0.4); }
+
+  .teaser {
+    font-size: 20px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .teaser strong { color: var(--accent-teal); }
+
+  .bg-char {
+    position: fixed;
+    right: -60px;
+    bottom: -80px;
+    font-family: var(--font-display);
+    font-size: 400px;
+    color: var(--accent-teal);
+    opacity: 0.04;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .congrats-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(200,148,62,0.10), rgba(58,125,140,0.08));
+    border: 1.5px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: 12px 28px;
+    margin-bottom: var(--space-md);
+  }
+  .congrats-text { font-size: 18px; font-weight: 700; color: var(--accent-gold); }
+</style>
+</head>
+<body>
+<div class="bg-char">球</div>
+<div class="main">
+  <div class="congrats-banner">
+    <span style="font-size:24px">🎉</span>
+    <span class="congrats-text">Unit 3 · 爱好 · Complete! You've mastered hobbies, music, art, and 4 grammar structures.</span>
+    <span style="font-size:24px">🎉</span>
+  </div>
+
+  <div class="next-label">Coming Up Next</div>
+  <div class="coming-up">Next Unit →</div>
+  <div class="unit-title">运动<span class="dot">·</span>Sports</div>
+  <div class="unit-en">Unit 4 · Sports &amp; Exercise · 运动</div>
+  <div class="question-line">你喜欢什么运动？</div>
+
+  <div class="sports-preview">
+    <div class="sport-card">
+      <div class="sport-icon">⚽</div>
+      <div class="sport-zh">踢足球</div>
+      <div class="sport-py">tī zúqiú</div>
+      <div class="sport-en">play football</div>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏀</div>
+      <div class="sport-zh">打篮球</div>
+      <div class="sport-py">dǎ lánqiú</div>
+      <div class="sport-en">play basketball</div>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏊</div>
+      <div class="sport-zh">游泳</div>
+      <div class="sport-py">yóuyǒng</div>
+      <div class="sport-en">swim</div>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏃</div>
+      <div class="sport-zh">跑步</div>
+      <div class="sport-py">pǎobù</div>
+      <div class="sport-en">run / jog</div>
+    </div>
+  </div>
+
+  <div class="teaser">New action verbs · new sport nouns · new contexts — <strong>get ready to move!</strong></div>
+</div>
+</body>
+</html>

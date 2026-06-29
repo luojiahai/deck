@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-05 · Minimal Pairs Drill</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 44px 100px 40px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .top-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+
+  .instructions {
+    font-size: 19px;
+    color: var(--text-muted);
+  }
+
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .legend-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 900;
+  }
+
+  .badge-a { background: var(--accent-gold-dim); color: var(--accent-gold); border: 2px solid var(--accent-gold); }
+  .badge-o { background: var(--accent-teal-dim); color: var(--accent-teal); border: 2px solid var(--accent-teal); }
+
+  .pairs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .pair-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+  }
+
+  .pair-num {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .pair-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+  }
+
+  .pair-hanzi {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pair-pinyin {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .pair-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .side-ao .pair-hanzi { color: var(--accent-gold); }
+  .side-ao .pair-pinyin { color: var(--accent-gold); }
+  .side-ao .pair-badge { background: var(--accent-gold-dim); color: var(--accent-gold); border: 2px solid var(--accent-gold); }
+
+  .side-ou .pair-hanzi { color: var(--accent-teal); }
+  .side-ou .pair-pinyin { color: var(--accent-teal); }
+  .side-ou .pair-badge { background: var(--accent-teal-dim); color: var(--accent-teal); border: 2px solid var(--accent-teal); }
+
+  .pair-divider {
+    width: 1px;
+    background: var(--border-light);
+    align-self: stretch;
+    margin: 4px 0;
+  }
+
+  .whiteboard-note {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .whiteboard-note span { color: var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · PINYIN ao/ou + LISTENING</span>
+  <span class="sep"></span>
+  <span class="section-name">Minimal Pairs · ao vs ou</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div>
+      <div class="main-title">最小对比 · Minimal Pairs Drill</div>
+      <div class="instructions">Write <strong>A</strong> if you hear ao · Write <strong>O</strong> if you hear ou</div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-badge badge-a">A</div>
+        <span style="color:var(--accent-gold)">ao</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-badge badge-o">O</div>
+        <span style="color:var(--accent-teal)">ou</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pairs-grid">
+    <!-- Pair 1 -->
+    <div class="pair-card">
+      <div class="pair-num">1</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">好</div>
+        <div class="pair-pinyin">hǎo</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">后</div>
+        <div class="pair-pinyin">hòu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+
+    <!-- Pair 2 -->
+    <div class="pair-card">
+      <div class="pair-num">2</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">告</div>
+        <div class="pair-pinyin">gào</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">够</div>
+        <div class="pair-pinyin">gòu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+
+    <!-- Pair 3 -->
+    <div class="pair-card">
+      <div class="pair-num">3</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">高</div>
+        <div class="pair-pinyin">gāo</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">走</div>
+        <div class="pair-pinyin">zǒu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+
+    <!-- Pair 4 -->
+    <div class="pair-card">
+      <div class="pair-num">4</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">草</div>
+        <div class="pair-pinyin">cǎo</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">口</div>
+        <div class="pair-pinyin">kǒu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+
+    <!-- Pair 5 -->
+    <div class="pair-card">
+      <div class="pair-num">5</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">到</div>
+        <div class="pair-pinyin">dào</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">头</div>
+        <div class="pair-pinyin">tóu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+
+    <!-- Pair 6 -->
+    <div class="pair-card">
+      <div class="pair-num">6</div>
+      <div class="pair-side side-ao">
+        <div class="pair-hanzi">包</div>
+        <div class="pair-pinyin">bāo</div>
+        <div class="pair-badge">A</div>
+      </div>
+      <div class="pair-divider"></div>
+      <div class="pair-side side-ou">
+        <div class="pair-hanzi">后</div>
+        <div class="pair-pinyin">hòu</div>
+        <div class="pair-badge">O</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="whiteboard-note">
+    Teacher says one word from each pair — students write <span>A</span> or <span style="color:var(--accent-teal)">O</span> on whiteboards and hold up.
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

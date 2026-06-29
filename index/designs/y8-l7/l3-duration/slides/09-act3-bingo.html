@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-09 · Act 3 · Bingo</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .bingo-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    margin-bottom: 16px;
+    align-items: start;
+  }
+
+  /* Bingo grid */
+  .bingo-card {
+    border: 3px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    width: 520px;
+  }
+  .bingo-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--accent-coral);
+  }
+  .bingo-letter {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    font-family: var(--font-display);
+    text-align: center;
+    padding: 10px 0;
+    border-right: 2px solid rgba(255,255,255,0.3);
+  }
+  .bingo-letter:last-child { border-right: none; }
+  .bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bingo-cell {
+    border: 1px solid var(--border-medium);
+    padding: 16px 10px;
+    text-align: center;
+    background: var(--bg-primary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    line-height: 1.3;
+  }
+  .bingo-cell:nth-child(3n) { border-right: none; }
+  .bingo-cell.marked {
+    background: var(--accent-coral-dim);
+    color: var(--accent-coral);
+    font-weight: 700;
+    text-decoration: line-through;
+  }
+  .bingo-cell.free {
+    background: var(--accent-coral);
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    font-family: var(--font-display);
+  }
+
+  /* Instructions */
+  .instructions-col { flex: 1; }
+  .how-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .how-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+    margin-bottom: 14px;
+  }
+  .rule-list { display: flex; flex-direction: column; gap: 10px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 20px; color: var(--text-primary); }
+  .rule-icon { font-size: 20px; flex-shrink: 0; }
+  .caller-box {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .caller-icon { font-size: 22px; flex-shrink: 0; }
+  .caller-text { font-size: 19px; font-weight: 700; color: var(--accent-coral); }
+  .caller-sub { font-size: 15px; color: var(--text-muted); margin-top: 2px; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 3 · Bingo · Duration Phrases</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Activity 3</div>
+    <div class="time-badge">⏱ 8 min</div>
+    <div class="mode-badge">You Do</div>
+  </div>
+  <div class="main-title">Bingo · 宾果游戏</div>
+  <div class="subtitle">Teacher calls Chinese duration phrases → mark off the English equivalent — 2–3 rounds</div>
+
+  <div class="bingo-layout">
+
+    <div class="bingo-card">
+      <div class="bingo-header">
+        <div class="bingo-letter">B</div>
+        <div class="bingo-letter">I</div>
+        <div class="bingo-letter">N</div>
+      </div>
+      <div class="bingo-grid">
+        <div class="bingo-cell">5 minutes</div>
+        <div class="bingo-cell">15 minutes</div>
+        <div class="bingo-cell">1.5 hours</div>
+        <div class="bingo-cell">30 minutes</div>
+        <div class="bingo-cell free">G·O</div>
+        <div class="bingo-cell">2 hours</div>
+        <div class="bingo-cell">45 minutes</div>
+        <div class="bingo-cell">1 hour</div>
+        <div class="bingo-cell">10 minutes</div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div>Students have a 3×3 card with <strong>9 English duration phrases</strong> in random squares.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div>Teacher calls out duration phrases <strong>in Chinese</strong> (e.g. 两个小时). Students find &amp; mark the English equivalent.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div><strong>Three in a row</strong> (horizontal, vertical, or diagonal) = BINGO! Call out and read back the phrases.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">🔄</div>
+            <div>Play 2–3 rounds. Sample card shown → each student's card has phrases in <strong>different positions</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="caller-box">
+        <div class="caller-icon">📣</div>
+        <div>
+          <div class="caller-text">Teacher calls in Chinese → students mark English</div>
+          <div class="caller-sub">e.g. 两个小时 → students mark "2 hours"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Duration list stays on projector so weaker students can reference it
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Students take turns calling phrases in Chinese (student caller role)
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">Setup / OTR</div>
+      Print or draw 3×3 blank grid; fill squares with any 9 of the 12 English phrases in any order
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-01 · Title · 汉字·综合写作</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body { display:flex; align-items:center; justify-content:center; background:var(--bg-primary); overflow:hidden; }
+  .main { text-align:center; position:relative; z-index:1; }
+  .lesson-num { font-size:18px; font-weight:700; letter-spacing:0.2em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:var(--space-sm); }
+  .title-cn { font-family:var(--font-display); font-size:90px; font-weight:900; line-height:1.05; color:var(--text-primary); margin-bottom:12px; }
+  .title-cn .dot { color:var(--accent-gold); }
+  .title-en { font-size:30px; color:var(--text-muted); font-weight:400; letter-spacing:0.04em; margin-bottom:8px; }
+  .title-sub { font-size:20px; color:var(--text-muted); letter-spacing:0.08em; margin-bottom:var(--space-lg); opacity:0.7; }
+  .char-motif { display:flex; align-items:center; justify-content:center; gap:48px; margin-bottom:var(--space-lg); }
+  .char-motif .ch { font-family:var(--font-display); font-size:80px; font-weight:900; line-height:1; opacity:0.15; color:var(--accent-gold); }
+  .char-motif .ch.active { opacity:1; color:var(--accent-gold); }
+  .meta { display:flex; align-items:center; justify-content:center; gap:24px; font-size:16px; color:var(--text-muted); letter-spacing:0.06em; }
+  .meta .sep { width:4px; height:4px; border-radius:50%; background:var(--accent-gold); }
+  .bg-char { position:fixed; right:-40px; bottom:-80px; font-family:var(--font-display); font-size:500px; color:var(--accent-gold); opacity:0.03; line-height:1; pointer-events:none; }
+</style>
+</head>
+<body>
+<div class="bg-char">包</div>
+<div class="main">
+  <div class="lesson-num">Lesson 8 of 8 · Final Lesson · Y8 Unit 3</div>
+  <div class="char-motif">
+    <span class="ch active">包</span>
+    <span class="ch active">止</span>
+    <span class="ch active">士</span>
+    <span class="ch active">豆</span>
+  </div>
+  <h1 class="title-cn">汉字<span class="dot">·</span>综合写作</h1>
+  <div class="title-en">Simple Characters + Extended Writing</div>
+  <div class="title-sub">Lesson 8 of 8 · Final Lesson</div>
+  <div class="meta">
+    <span>Year 8 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Reading + Writing</span>
+    <span class="sep"></span>
+    <span>轻松学中文 Book 2 · p.65</span>
+  </div>
+</div>
+</body>
+</html>

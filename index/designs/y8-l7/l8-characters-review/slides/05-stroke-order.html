@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-05 · Stroke Order</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 38px 80px 32px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .char-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+  .char-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .row-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    flex-shrink: 0;
+    padding: 14px 12px;
+    border-right: 1.5px solid var(--border-light);
+    gap: 4px;
+  }
+  .row-hanzi {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .gold-txt { color: var(--accent-gold); }
+  .teal-txt { color: var(--accent-teal); }
+  .coral-txt { color: var(--accent-coral); }
+  .row-pin {
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .stroke-sequence {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 20px;
+    flex: 1;
+  }
+  .stroke-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .stroke-char {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-sm);
+  }
+  .stroke-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .stroke-arrow {
+    font-size: 18px;
+    color: var(--border-medium);
+    align-self: center;
+    margin: 0 2px;
+    flex-shrink: 0;
+  }
+  .row-info {
+    width: 300px;
+    flex-shrink: 0;
+    padding: 14px 20px;
+    border-left: 1.5px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+  .info-count {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .info-known {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .info-known .word { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); }
+  .copy-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-teal-dim);
+    border: 1.5px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-teal);
+  }
+  .copy-prompt span { color: var(--text-muted); font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 汉字·综合写作</span>
+  <span class="sep"></span>
+  <span class="section-name">Stroke Order · 笔顺</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+  <div class="section-label">Stroke Order Guide · 笔顺示意</div>
+  <div class="main-title">Follow the stroke order — then copy each character 5 times</div>
+
+  <div class="char-rows">
+
+    <!-- 包 5 strokes -->
+    <div class="char-row">
+      <div class="row-label">
+        <div class="row-hanzi gold-txt">包</div>
+        <div class="row-pin">bāo</div>
+      </div>
+      <div class="stroke-sequence">
+        <div class="stroke-step"><div class="stroke-char" style="font-size:24px;color:var(--accent-gold)">⌒</div><div class="stroke-num">①</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:24px">勹</div><div class="stroke-num">①②</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px">勹<span style="font-size:14px;vertical-align:middle">巳</span></div><div class="stroke-num">①②③</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:32px">包</div><div class="stroke-num">④⑤</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:36px;color:var(--accent-gold);border-color:var(--accent-gold)">包</div><div class="stroke-num" style="color:var(--accent-gold)">✓</div></div>
+      </div>
+      <div class="row-info">
+        <div class="info-count">5 strokes</div>
+        <div class="info-known">Seen in: <span class="word">书包</span> (school bag)</div>
+        <div class="info-known">Rule: outer wrap 勹 <em>before</em> inner 已</div>
+      </div>
+    </div>
+
+    <!-- 止 4 strokes -->
+    <div class="char-row">
+      <div class="row-label">
+        <div class="row-hanzi teal-txt">止</div>
+        <div class="row-pin">zhǐ</div>
+      </div>
+      <div class="stroke-sequence">
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px;color:var(--accent-teal)">丨</div><div class="stroke-num">①</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px">卜</div><div class="stroke-num">①②</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px">止</div><div class="stroke-num">①②③</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:36px;color:var(--accent-teal);border-color:var(--accent-teal)">止</div><div class="stroke-num" style="color:var(--accent-teal)">✓ ④</div></div>
+      </div>
+      <div class="row-info">
+        <div class="info-count">4 strokes</div>
+        <div class="info-known">Seen in: <span class="word" style="color:var(--accent-teal)">停止</span> (to stop)</div>
+        <div class="info-known">Looks like a foot mid-step going left</div>
+      </div>
+    </div>
+
+    <!-- 士 3 strokes -->
+    <div class="char-row">
+      <div class="row-label">
+        <div class="row-hanzi coral-txt">士</div>
+        <div class="row-pin">shì</div>
+      </div>
+      <div class="stroke-sequence">
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px;color:var(--accent-coral)">一</div><div class="stroke-num">①</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:28px">干</div><div class="stroke-num">①②</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:36px;color:var(--accent-coral);border-color:var(--accent-coral)">士</div><div class="stroke-num" style="color:var(--accent-coral)">✓ ③</div></div>
+      </div>
+      <div class="row-info">
+        <div class="info-count">3 strokes (fewest!)</div>
+        <div class="info-known">Compare with: <span class="word" style="color:var(--accent-coral)">土</span> (soil) — top is <em>longer</em> in 士</div>
+        <div class="info-known">Think: a scholar stands tall</div>
+      </div>
+    </div>
+
+    <!-- 豆 7 strokes -->
+    <div class="char-row">
+      <div class="row-label">
+        <div class="row-hanzi gold-txt">豆</div>
+        <div class="row-pin">dòu</div>
+      </div>
+      <div class="stroke-sequence">
+        <div class="stroke-step"><div class="stroke-char" style="font-size:22px;color:var(--accent-gold)">一</div><div class="stroke-num">①</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:22px">口</div><div class="stroke-num">①②③④</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:26px">豆</div><div class="stroke-num">①—⑥</div></div>
+        <div class="stroke-arrow">→</div>
+        <div class="stroke-step"><div class="stroke-char" style="font-size:36px;color:var(--accent-gold);border-color:var(--accent-gold)">豆</div><div class="stroke-num" style="color:var(--accent-gold)">✓ ⑦</div></div>
+      </div>
+      <div class="row-info">
+        <div class="info-count">7 strokes (most today)</div>
+        <div class="info-known">Think: <em>lid</em> + <em>container</em> + <em>feet</em></div>
+        <div class="info-known">Seen in: <span class="word">豆腐</span> (tofu), <span class="word">豆浆</span> (soy milk)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="copy-prompt">✏️ Copy each character 5 times — follow stroke order <span>· strokes stay on projector</span></div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

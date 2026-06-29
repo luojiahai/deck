@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-05 · Contrast 喜欢 vs 正在</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 120px 40px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-family: var(--font-body);
+    margin-bottom: 8px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+  .contrast-col {
+    border-radius: var(--radius-xl);
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contrast-col.habitual {
+    background: var(--accent-teal-dim);
+    border: 2.5px solid var(--accent-teal);
+  }
+  .contrast-col.present {
+    background: var(--accent-gold-dim);
+    border: 2.5px solid var(--accent-gold);
+  }
+  .col-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 4px;
+  }
+  .habitual .col-badge { background: var(--accent-teal); color: #fff; }
+  .present .col-badge  { background: var(--accent-gold); color: #fff; }
+  .col-keyword {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .habitual .col-keyword { color: var(--accent-teal); }
+  .present .col-keyword  { color: var(--accent-gold); }
+  .col-meaning {
+    font-size: 20px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .col-sentence {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.55);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    line-height: 1.5;
+  }
+  .habitual .col-sentence .key { color: var(--accent-teal); }
+  .present .col-sentence .key  { color: var(--accent-gold); }
+  .col-en {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  /* Divider */
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+  }
+  .vs-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text-muted);
+  }
+  /* Timeline */
+  .timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 36px;
+    gap: 16px;
+  }
+  .tl-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tl-track {
+    flex: 1;
+    position: relative;
+    height: 36px;
+    display: flex;
+    align-items: center;
+  }
+  .tl-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+    background: var(--border-medium);
+    border-radius: 2px;
+  }
+  .tl-zone-habitual {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-teal) 0%, var(--accent-teal) 100%);
+    border-radius: 2px;
+  }
+  .tl-dot {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent-gold);
+    background: var(--accent-gold);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .tl-now {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    white-space: nowrap;
+  }
+  .tl-past { font-size: 13px; color: var(--text-muted); position: absolute; left: 0; top: -18px; }
+  .tl-future { font-size: 13px; color: var(--text-muted); position: absolute; right: 0; top: -18px; }
+  .tl-explain {
+    font-size: 18px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .tl-habitual-marker {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    border: 2px solid #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · 喜欢 vs 正在</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Key Contrast · 区别</div>
+  <div class="main-title">Habitual vs Right Now</div>
+  <div class="subtitle">Same verb — completely different meaning depending on which marker you use</div>
+
+  <div class="contrast-grid">
+    <!-- Habitual: 喜欢 -->
+    <div class="contrast-col habitual">
+      <div class="col-badge">喜欢 · Habitual</div>
+      <div class="col-keyword">喜欢</div>
+      <div class="col-meaning">General truth · always true · habit · preference<br>不受时间限制 — not tied to this moment</div>
+      <div class="col-sentence">
+        他<span class="key">喜欢</span>弹钢琴。
+      </div>
+      <div class="col-en">He likes playing piano. (in general, always)</div>
+    </div>
+
+    <div class="vs-divider">
+      <div class="vs-circle">VS</div>
+    </div>
+
+    <!-- Present: 正在 -->
+    <div class="contrast-col present">
+      <div class="col-badge">正在 · Right Now</div>
+      <div class="col-keyword">正在</div>
+      <div class="col-meaning">Action in progress · happening at this exact moment<br>现在进行 — happening as we speak</div>
+      <div class="col-sentence">
+        他<span class="key">正在</span>弹钢琴。
+      </div>
+      <div class="col-en">He is playing piano right now. (at this moment)</div>
+    </div>
+  </div>
+
+  <!-- Simple timeline -->
+  <div class="timeline-row">
+    <div class="tl-label">Timeline</div>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <!-- habitual dots across -->
+      <div class="tl-habitual-marker" style="left:5%;"></div>
+      <div class="tl-habitual-marker" style="left:20%;"></div>
+      <div class="tl-habitual-marker" style="left:38%;"></div>
+      <div class="tl-habitual-marker" style="left:62%;"></div>
+      <div class="tl-habitual-marker" style="left:78%;"></div>
+      <div class="tl-habitual-marker" style="left:95%;"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-past">Past</div>
+      <div class="tl-now">NOW ▲ 正在</div>
+      <div class="tl-future">Future</div>
+    </div>
+    <div class="tl-explain">
+      <span style="color:var(--accent-teal)">●</span> 喜欢 = repeated across time &nbsp;|&nbsp;
+      <span style="color:var(--accent-gold)">●</span> 正在 = pinned to this moment
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

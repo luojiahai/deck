@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-07 · Act 1 · Oral Drill</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge {
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .time-badge {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .mode-badge {
+    background: var(--accent-teal-dim);
+    color: var(--accent-teal);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .drill-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .phrase-chip {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .chip-zh {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .chip-en {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .mechanics-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+  }
+  .mechanics-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 14px;
+  }
+  .step-list { display: flex; flex-direction: column; gap: 10px; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 14px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+  }
+  .step-icon { font-size: 20px; flex-shrink: 0; }
+  .step-text { font-size: 20px; color: var(--text-primary); line-height: 1.4; }
+  .step-text strong { color: var(--accent-teal); }
+
+  .sed-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .sed-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+  .sed-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 1 · Oral Drill · We Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Activity 1</div>
+    <div class="time-badge">⏱ 6 min</div>
+    <div class="mode-badge">We Do</div>
+  </div>
+  <div class="main-title">Duration Phrases Oral Drill · 口头操练</div>
+  <div class="subtitle">Choral repetition → English→Chinese rapid fire → whiteboard round</div>
+
+  <div class="drill-layout">
+    <!-- Phrases reference -->
+    <div>
+      <div style="font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-teal);margin-bottom:12px;">Duration Phrases (keep visible)</div>
+      <div class="phrases-grid">
+        <div class="phrase-chip"><div class="chip-zh">五分钟</div><div class="chip-en">5 minutes</div></div>
+        <div class="phrase-chip"><div class="chip-zh">十分钟</div><div class="chip-en">10 minutes</div></div>
+        <div class="phrase-chip"><div class="chip-zh">一刻钟</div><div class="chip-en">15 minutes</div></div>
+        <div class="phrase-chip"><div class="chip-zh">半个小时</div><div class="chip-en">30 minutes</div></div>
+        <div class="phrase-chip"><div class="chip-zh">三刻钟</div><div class="chip-en">45 minutes</div></div>
+        <div class="phrase-chip"><div class="chip-zh">一个小时</div><div class="chip-en">1 hour</div></div>
+        <div class="phrase-chip"><div class="chip-zh">一个半小时</div><div class="chip-en">1.5 hours</div></div>
+        <div class="phrase-chip"><div class="chip-zh">两个小时</div><div class="chip-en">2 hours</div></div>
+        <div class="phrase-chip" style="grid-column:span 2;"><div class="chip-zh">四个半小时</div><div class="chip-en">4.5 hours</div></div>
+      </div>
+    </div>
+
+    <!-- Drill mechanics -->
+    <div class="mechanics-box">
+      <h3>Drill Sequence</h3>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-icon">🔊</div>
+          <div class="step-text"><strong>Round 1 — Choral:</strong> Teacher says → class repeats each phrase in unison</div>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">🔄</div>
+          <div class="step-text"><strong>Round 2 — English→Chinese:</strong> Teacher calls English → students call out Chinese</div>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">⚡</div>
+          <div class="step-text"><strong>Round 3 — Rapid Fire Whiteboard:</strong> Teacher calls English → students write Chinese, hold up boards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Phrase list stays visible on projector throughout
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Close eyes for Round 2 — say the full list in order from memory
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Every student — all boards up simultaneously each round
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

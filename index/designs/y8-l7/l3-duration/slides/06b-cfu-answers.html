@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-06b · CFU Answers</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 52px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 36px; }
+
+  .cfu-stack { display: flex; flex-direction: column; gap: 24px; }
+  .cfu-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 26px 36px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .q-num {
+    width: 52px; height: 52px;
+    background: var(--accent-gold);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .q-body { flex: 1; }
+  .q-type {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .q-text {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+  .q-text .zh { font-family: var(--font-display); color: var(--text-primary); font-weight: 700; }
+  .answer-box {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .answer-tick { font-size: 22px; }
+  .answer-zh {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--accent-gold);
+  }
+  .answer-zh .key { color: var(--accent-coral); }
+  .answer-note {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-left: auto;
+    font-style: italic;
+  }
+  .error-analysis {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .err-before {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--accent-coral);
+    text-decoration: line-through;
+  }
+  .err-arrow { font-size: 20px; color: var(--text-muted); }
+  .err-after {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  .err-after em { font-style: normal; color: var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">CFU — Answers Revealed · 答案</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Answers · 答案</div>
+  <div class="main-title">CFU — 答案揭晓</div>
+  <div class="subtitle">Check your whiteboard — correct and discuss any errors.</div>
+
+  <div class="cfu-stack">
+
+    <div class="cfu-card">
+      <div class="q-num">1</div>
+      <div class="q-body">
+        <div class="q-type">Translate · "She reads for 45 minutes every day."</div>
+        <div class="answer-box">
+          <div class="answer-tick">✅</div>
+          <div class="answer-zh">她每天读<span class="key">三刻钟</span>的书。</div>
+          <div class="answer-note">45 min = 三刻钟</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cfu-card">
+      <div class="q-num">2</div>
+      <div class="q-body">
+        <div class="q-type">Spot the Error · 他每天弹钢琴一个小时。</div>
+        <div class="error-analysis">
+          <div class="err-before">他每天弹钢琴一个小时。</div>
+          <div class="err-arrow">→</div>
+          <div class="err-after">他每天弹<em>一个小时</em>的钢琴。✓</div>
+        </div>
+        <div class="answer-box" style="margin-top:10px;">
+          <div class="answer-tick">💡</div>
+          <div class="answer-zh" style="font-size:24px;">Duration goes <span class="key">between verb and object</span>, not after!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cfu-card">
+      <div class="q-num">3</div>
+      <div class="q-body">
+        <div class="q-type">Quick Recall · "one and a half hours"</div>
+        <div class="answer-box">
+          <div class="answer-tick">✅</div>
+          <div class="answer-zh"><span class="key">一个半小时</span></div>
+          <div class="answer-note">lit. "one-and-half hour"</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

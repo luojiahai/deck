@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-10 · Act 3 · My Hobbies Paragraph</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 90px 24px; }
+  .act-header { display:flex; align-items:center; gap:20px; margin-bottom:14px; }
+  .act-num-badge { background:var(--accent-coral); color:#fff; font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 20px; border-radius:999px; }
+  .act-title { font-family:var(--font-display); font-size:40px; font-weight:900; }
+  .act-meta { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .time-badge { background:var(--accent-coral-dim); color:var(--accent-coral); font-size:15px; font-weight:700; padding:6px 18px; border-radius:999px; border:1.5px solid var(--accent-coral); }
+  .phase-badge { background:var(--accent-coral-dim); color:var(--accent-coral); font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:5px 14px; border-radius:999px; border:1.5px solid var(--accent-coral); }
+
+  .main-cols {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 22px;
+    margin-bottom: 16px;
+  }
+  .reqs-panel {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+  }
+  .reqs-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+    margin-bottom: 14px;
+  }
+  .req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .req-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-primary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+  }
+  .req-icon { font-size: 22px; flex-shrink: 0; }
+  .req-text { font-size: 19px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
+  .req-text strong { color: var(--accent-coral); }
+  .no-pinyin-box {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent-coral);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* Grammar colour labels */
+  .struct-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .struct-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .struct-item {
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1.5px solid transparent;
+  }
+  .struct-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .s1 { background: rgba(58,125,140,0.12); border-color: rgba(58,125,140,0.3); }
+  .s1 .struct-dot { background: var(--accent-teal); }
+  .s2 { background: rgba(212,117,107,0.12); border-color: rgba(212,117,107,0.3); }
+  .s2 .struct-dot { background: var(--accent-coral); }
+  .s3 { background: rgba(72,160,96,0.12); border-color: rgba(72,160,96,0.3); }
+  .s3 .struct-dot { background: #3A8A55; }
+  .s4 { background: rgba(200,148,62,0.12); border-color: rgba(200,148,62,0.3); }
+  .s4 .struct-dot { background: var(--accent-gold); }
+  .struct-label {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    flex: 1;
+  }
+  .s1 .struct-label { color: var(--accent-teal); }
+  .s2 .struct-label { color: var(--accent-coral); }
+  .s3 .struct-label { color: #3A8A55; }
+  .s4 .struct-label { color: var(--accent-gold); }
+  .struct-color {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  /* Model paragraph stays visible */
+  .model-mini {
+    background: var(--bg-tertiary);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 12px 18px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 14px; font-size:15px; color:var(--text-secondary); }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .scaffold .sed-label { color:var(--accent-teal); }
+  .extension .sed-label { color:var(--accent-gold); }
+  .otr .sed-label { color:var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 汉字·综合写作</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 3 · My Hobbies Paragraph · 23–31 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-num-badge">Activity 3</div>
+    <div class="act-title">My Hobbies Paragraph · 我的爱好</div>
+  </div>
+  <div class="act-meta">
+    <div class="time-badge">⏱ 8 min</div>
+    <div class="phase-badge">You Do</div>
+  </div>
+
+  <div class="main-cols">
+    <!-- Left: requirements + model -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="reqs-panel">
+        <div class="reqs-title">Requirements · 要求</div>
+        <div class="req-list">
+          <div class="req-item">
+            <div class="req-icon">✏️</div>
+            <div class="req-text"><strong>4–6 sentences</strong> about your own hobbies</div>
+          </div>
+          <div class="req-item">
+            <div class="req-icon">🔢</div>
+            <div class="req-text">Use <strong>≥2 of the 4</strong> L7 grammar structures</div>
+          </div>
+          <div class="req-item">
+            <div class="req-icon">📖</div>
+            <div class="req-text">Use <strong>≥4 different hobby vocabulary words</strong></div>
+          </div>
+          <div class="req-item">
+            <div class="req-icon">🏷️</div>
+            <div class="req-text">Label structures in margin: circle each one in its colour</div>
+          </div>
+        </div>
+        <div class="no-pinyin-box">🚫 No pinyin — characters only!</div>
+      </div>
+
+      <div class="model-mini">
+        <strong style="color:var(--text-muted);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--font-body)">Model (reference):</strong><br>
+        我有很多爱好。我喜欢<span style="color:var(--accent-teal)">一边</span>听音乐，<span style="color:var(--accent-teal)">一边</span>画画儿。<br>
+        油画儿、国画儿，我<span style="color:var(--accent-gold)">都</span>喜欢画。我每天画<span style="color:var(--accent-coral)">半个小时</span>的画儿。<br>
+        我现在<span style="color:#3A8A55">正在</span>学画国画儿。我每天读<span style="color:var(--accent-coral)">一个小时</span>的书。
+      </div>
+    </div>
+
+    <!-- Right: structure label key -->
+    <div class="struct-panel">
+      <div class="struct-title">Grammar Label Key · 语法标注颜色</div>
+      <div class="struct-item s1">
+        <div class="struct-dot"></div>
+        <div class="struct-label">一边……一边……</div>
+        <div class="struct-color">BLUE circle</div>
+      </div>
+      <div class="struct-item s2">
+        <div class="struct-dot"></div>
+        <div class="struct-label">Duration 时量</div>
+        <div class="struct-color">RED circle</div>
+      </div>
+      <div class="struct-item s3">
+        <div class="struct-dot"></div>
+        <div class="struct-label">正在……呢</div>
+        <div class="struct-color">GREEN circle</div>
+      </div>
+      <div class="struct-item s4">
+        <div class="struct-dot"></div>
+        <div class="struct-label">……，都……</div>
+        <div class="struct-color">ORANGE circle</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Model paragraph above stays visible — use it as a template, swap your own hobbies in</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>7–8 sentences, use ALL 4 structures, then hide the model and write from memory</div>
+    <div class="sed-item otr"><div class="sed-label">OTR</div>2–3 volunteers read their paragraph aloud — class ticks each grammar structure they hear</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

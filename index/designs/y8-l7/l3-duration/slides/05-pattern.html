@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-05 · Duration Structure Pattern</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 36px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+
+  /* Formula breakdown */
+  .formula-wrap {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 10px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .formula-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 24px;
+    flex: 1;
+    border-right: 1px solid var(--border-medium);
+    gap: 8px;
+  }
+  .formula-part:last-child { border-right: none; }
+  .formula-part .f-zh {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .formula-part .f-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .f-subject .f-zh { color: var(--accent-teal); }
+  .f-subject .f-label { color: var(--accent-teal); }
+  .f-meitian .f-zh { color: var(--accent-gold); }
+  .f-meitian .f-label { color: var(--accent-gold); }
+  .f-verb .f-zh { color: #9B72CF; }
+  .f-verb .f-label { color: #9B72CF; }
+  .f-duration .f-zh { color: var(--accent-coral); }
+  .f-duration .f-label { color: var(--accent-coral); }
+  .f-de .f-zh { color: var(--text-secondary); font-size: 28px; }
+  .f-de .f-label { color: var(--text-muted); }
+  .f-noun .f-zh { color: var(--accent-teal); }
+  .f-noun .f-label { color: var(--accent-teal); }
+
+  .formula-connector {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 6px;
+    font-size: 20px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    background: var(--bg-tertiary);
+    border-right: 1px solid var(--border-medium);
+  }
+
+  /* Examples */
+  .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .example-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+  }
+  .ex-icon { font-size: 22px; flex-shrink: 0; }
+  .ex-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .ex-zh .subj { color: var(--accent-teal); }
+  .ex-zh .mei { color: var(--accent-gold); }
+  .ex-zh .verb { color: #9B72CF; }
+  .ex-zh .dur { color: var(--accent-coral); }
+  .ex-zh .de { color: var(--text-secondary); }
+  .ex-zh .noun { color: var(--accent-teal); }
+  .ex-en { font-size: 19px; color: var(--text-muted); white-space: nowrap; }
+
+  /* Warning */
+  .warning-box {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .warn-icon { font-size: 26px; flex-shrink: 0; }
+  .warn-body { flex: 1; }
+  .warn-title { font-size: 20px; font-weight: 700; color: var(--accent-coral); margin-bottom: 4px; }
+  .warn-compare {
+    display: flex;
+    gap: 24px;
+    font-family: var(--font-display);
+    font-size: 22px;
+  }
+  .warn-bad { color: var(--accent-coral); text-decoration: line-through; }
+  .warn-good { color: var(--text-primary); font-weight: 700; }
+  .warn-good em { font-style: normal; color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern · Duration Structure</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">I Do · Duration Structure · 时间结构</div>
+  <div class="main-title">Duration Structure · 关键句型</div>
+  <div class="subtitle">Subject + 每天 + Verb + Duration + 的 + Noun</div>
+
+  <div class="formula-wrap">
+    <div class="formula-part f-subject">
+      <div class="f-zh">他</div>
+      <div class="f-label">Subject 主语</div>
+    </div>
+    <div class="formula-connector">+</div>
+    <div class="formula-part f-meitian">
+      <div class="f-zh">每天</div>
+      <div class="f-label">每天 every day</div>
+    </div>
+    <div class="formula-connector">+</div>
+    <div class="formula-part f-verb">
+      <div class="f-zh">弹</div>
+      <div class="f-label">Verb 动词</div>
+    </div>
+    <div class="formula-connector">+</div>
+    <div class="formula-part f-duration">
+      <div class="f-zh">一个小时</div>
+      <div class="f-label">Duration 时间长度</div>
+    </div>
+    <div class="formula-connector">+</div>
+    <div class="formula-part f-de">
+      <div class="f-zh">的</div>
+      <div class="f-label">的 (connector)</div>
+    </div>
+    <div class="formula-connector">+</div>
+    <div class="formula-part f-noun">
+      <div class="f-zh">钢琴</div>
+      <div class="f-label">Noun / Object 名词</div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example-row">
+      <div class="ex-icon">🎹</div>
+      <div class="ex-zh">
+        <span class="subj">他</span><span class="mei">每天</span><span class="verb">弹</span><span class="dur">一个小时</span><span class="de">的</span><span class="noun">钢琴</span>。
+      </div>
+      <div class="ex-en">He plays piano for 1 hour every day.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-icon">🎤</div>
+      <div class="ex-zh">
+        <span class="subj">她</span><span class="mei">每天</span><span class="verb">唱</span><span class="dur">半个小时</span><span class="de">的</span><span class="noun">歌</span>。
+      </div>
+      <div class="ex-en">She sings for 30 minutes every day.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-icon">📺</div>
+      <div class="ex-zh">
+        <span class="subj">我</span><span class="mei">每天</span><span class="verb">看</span><span class="dur">两个小时</span><span class="de">的</span><span class="noun">电视</span>。
+      </div>
+      <div class="ex-en">I watch TV for 2 hours every day.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="warn-icon">⚠️</div>
+    <div class="warn-body">
+      <div class="warn-title">Key Difference from English — Time goes BETWEEN verb and object!</div>
+      <div class="warn-compare">
+        <div class="warn-bad">他每天弹钢琴一个小时。</div>
+        <div>→</div>
+        <div class="warn-good">他每天弹<em>一个小时</em>的钢琴。✓</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

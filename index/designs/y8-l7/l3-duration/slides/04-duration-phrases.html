@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-04 · Duration Phrases</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 36px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 42px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 22px; }
+
+  .cols-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+
+  .phrase-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .col-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--accent-gold);
+    color: #fff;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .phrase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--border-light);
+    align-items: center;
+    transition: background 0.1s;
+  }
+  .phrase-row:last-child { border-bottom: none; }
+  .phrase-row:nth-child(even) { background: var(--bg-primary); }
+  .phrase-row.compound {
+    background: var(--accent-gold-dim);
+  }
+  .phrase-zh {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .phrase-en {
+    font-size: 20px;
+    color: var(--text-secondary);
+  }
+  .phrase-row.compound .phrase-zh { color: var(--accent-gold); }
+
+  .pattern-note {
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .pattern-note .note-icon { font-size: 24px; flex-shrink: 0; }
+  .pattern-note .note-text { font-size: 20px; font-weight: 700; color: var(--accent-teal); }
+  .pattern-note .note-example {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-top: 3px;
+  }
+  .pattern-note .note-example span { color: var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Duration Phrases (Act. 3 p.62)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Duration Phrases · 时间长度词</div>
+  <div class="main-title">Time Duration — Short to Long</div>
+  <div class="subtitle">Act. 3, p.62 · All 12 phrases · Compound times highlighted in gold</div>
+
+  <div class="cols-layout">
+    <!-- Left column: minutes range -->
+    <div class="phrase-col">
+      <div class="col-header">
+        <div>中文</div><div>English</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">五分钟</div>
+        <div class="phrase-en">5 minutes</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">十分钟</div>
+        <div class="phrase-en">10 minutes</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">一刻钟</div>
+        <div class="phrase-en">15 minutes (a quarter)</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">半个小时</div>
+        <div class="phrase-en">30 minutes (half hour)</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">三刻钟</div>
+        <div class="phrase-en">45 minutes (3 quarters)</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">一个小时</div>
+        <div class="phrase-en">1 hour</div>
+      </div>
+    </div>
+
+    <!-- Right column: longer/compound -->
+    <div class="phrase-col">
+      <div class="col-header">
+        <div>中文</div><div>English</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">一个半小时</div>
+        <div class="phrase-en">1.5 hours</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">两个小时</div>
+        <div class="phrase-en">2 hours</div>
+      </div>
+      <div class="phrase-row compound">
+        <div class="phrase-zh">两个小时零五分</div>
+        <div class="phrase-en">2 hrs 5 min</div>
+      </div>
+      <div class="phrase-row compound">
+        <div class="phrase-zh">两个小时十分钟</div>
+        <div class="phrase-en">2 hrs 10 min</div>
+      </div>
+      <div class="phrase-row compound">
+        <div class="phrase-zh">三个小时一刻钟</div>
+        <div class="phrase-en">3 hrs 15 min</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-zh">四个半小时</div>
+        <div class="phrase-en">4.5 hours</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-note">
+    <div class="note-icon">💡</div>
+    <div>
+      <div class="note-text">Compound time pattern: hours first, then 零 + minutes (for small remainders) or minutes directly</div>
+      <div class="note-example">两个小时<span>零</span>五分 · 三个小时<span>一刻钟</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

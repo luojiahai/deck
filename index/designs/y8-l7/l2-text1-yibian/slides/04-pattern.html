@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-04 · Key Pattern: 一边……一边……</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 28px; }
+  .section-label { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 26px; }
+  .layout { display: grid; grid-template-columns: 380px 1fr; gap: 36px; align-items: start; }
+  .pattern-tower {
+    background: linear-gradient(180deg, rgba(200,148,62,0.15) 0%, rgba(200,148,62,0.05) 100%);
+    border: 2.5px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: 36px 28px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  .pt-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-gold); opacity: 0.75; }
+  .pt-formula { font-family: var(--font-display); font-size: 56px; font-weight: 900; line-height: 1.3; color: var(--text-primary); }
+  .pt-formula .yb { color: var(--accent-gold); }
+  .pt-dots { width: 60px; height: 3px; background: var(--accent-gold); border-radius: 2px; opacity: 0.4; }
+  .pt-en { font-size: 19px; color: var(--text-secondary); line-height: 1.6; }
+  .pt-en em { color: var(--accent-gold); font-style: normal; font-weight: 700; }
+  .right-col { display: flex; flex-direction: column; gap: 18px; }
+  .examples-label { font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .example-card {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 28px;
+    border-left: 5px solid var(--accent-gold);
+  }
+  .ex-zh { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--text-primary); line-height: 1.4; margin-bottom: 6px; }
+  .ex-zh .yb { color: var(--accent-gold); font-size: 36px; }
+  .ex-en { font-size: 17px; color: var(--text-muted); line-height: 1.5; }
+  .warning-panel {
+    background: var(--accent-coral-dim);
+    border: 2.5px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 20px 28px;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .warn-icon { font-size: 30px; flex-shrink: 0; }
+  .warn-body { flex: 1; }
+  .warn-title { font-size: 18px; font-weight: 700; color: var(--accent-coral); margin-bottom: 6px; letter-spacing: 0.04em; }
+  .warn-text { font-size: 17px; color: var(--text-secondary); line-height: 1.5; }
+  .warn-text strong { color: var(--text-primary); }
+  .warn-compare { display: flex; gap: 16px; margin-top: 10px; }
+  .compare-pill { padding: 6px 16px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .bad { background: var(--accent-coral-dim); color: var(--accent-coral); border: 1.5px solid var(--accent-coral); }
+  .good { background: var(--accent-teal-dim); color: var(--accent-teal); border: 1.5px solid var(--accent-teal); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · TEXT 1 + 一边……一边……</span>
+  <span class="sep"></span>
+  <span class="section-name">Key Grammar Pattern · 一边……一边……</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">I Do · Grammar Input</div>
+  <div class="main-title">Key Pattern · 关键句型</div>
+
+  <div class="layout">
+    <div class="pattern-tower">
+      <div class="pt-eyebrow">Pattern · 句型</div>
+      <div class="pt-formula">
+        <span class="yb">一边</span> X，<br>
+        <span class="yb">一边</span> Y
+      </div>
+      <div class="pt-dots"></div>
+      <div class="pt-en">doing X <em>while</em> doing Y<br>same person · same time</div>
+    </div>
+
+    <div class="right-col">
+      <div class="examples-label">Examples · 例句</div>
+      <div class="example-card">
+        <div class="ex-zh">我喜欢<span class="yb">一边</span>弹钢琴，<span class="yb">一边</span>唱歌。</div>
+        <div class="ex-en">I like to play the piano while singing.</div>
+      </div>
+      <div class="example-card">
+        <div class="ex-zh">他<span class="yb">一边</span>听音乐，<span class="yb">一边</span>读书。</div>
+        <div class="ex-en">He listens to music while reading.</div>
+      </div>
+      <div class="example-card">
+        <div class="ex-zh">她<span class="yb">一边</span>吃饭，<span class="yb">一边</span>看电视。</div>
+        <div class="ex-en">She eats while watching TV.</div>
+      </div>
+
+      <div class="warning-panel">
+        <div class="warn-icon">⚠️</div>
+        <div class="warn-body">
+          <div class="warn-title">Critical Note · 注意！</div>
+          <div class="warn-text"><strong>Same person, same time</strong> — 一边……一边…… is ONLY for one person doing two things simultaneously.</div>
+          <div class="warn-compare">
+            <div class="compare-pill bad">✗ Two people = 跟……一起</div>
+            <div class="compare-pill good">✓ One person, two actions = 一边……一边……</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

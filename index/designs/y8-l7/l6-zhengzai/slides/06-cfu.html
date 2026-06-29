@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-06 · CFU</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 140px 44px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-family: var(--font-body);
+    margin-bottom: 8px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .cfu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cfu-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 26px 36px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .cfu-num {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: var(--font-body);
+    margin-top: 2px;
+  }
+  .cfu-body { flex: 1; }
+  .cfu-type {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .cfu-q {
+    font-family: var(--font-body);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .cfu-options {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .opt {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 10px 24px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .opt .opt-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-weight: 400;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .cfu-write {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .write-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .write-hint {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--text-muted);
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 4px;
+    min-width: 400px;
+  }
+  .error-sentence {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--accent-coral);
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    display: inline-block;
+  }
+  .error-sentence .strikethrough {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    opacity: 0.6;
+  }
+  .whiteboard-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-teal);
+    letter-spacing: 0.06em;
+    background: var(--accent-teal-dim);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">Check for Understanding</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">CFU · Quick Check</div>
+  <div class="main-title">Check for Understanding · 理解确认</div>
+  <div class="subtitle">Whiteboards ready — discuss with your partner first</div>
+
+  <div class="cfu-list">
+    <!-- Q1 -->
+    <div class="cfu-item">
+      <div class="cfu-num">1</div>
+      <div class="cfu-body">
+        <div class="cfu-type">Choose · 选择题</div>
+        <div class="cfu-q">Which sentence means "he plays piano every day"?</div>
+        <div class="cfu-options">
+          <div class="opt">
+            <span class="opt-label">A</span>
+            他喜欢弹钢琴
+          </div>
+          <div class="opt">
+            <span class="opt-label">B</span>
+            他正在弹钢琴
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="cfu-item">
+      <div class="cfu-num">2</div>
+      <div class="cfu-body">
+        <div class="cfu-type">Write · 翻译</div>
+        <div class="cfu-q">Write in Chinese: "She is reading a novel right now."</div>
+        <div class="cfu-write">
+          <span class="write-icon">✍️</span>
+          <div class="write-hint">她正在…………………</div>
+        </div>
+        <div class="whiteboard-prompt">🖊 Write on whiteboard</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="cfu-item">
+      <div class="cfu-num">3</div>
+      <div class="cfu-body">
+        <div class="cfu-type">Error Hunt · 找错误</div>
+        <div class="cfu-q">What's wrong with this sentence?</div>
+        <div class="error-sentence">他正在弹<span class="strikethrough">了</span>钢琴。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-09 · Act 3 · Stroke Count Competition</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 36px 100px 32px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .top-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+    font-family: var(--font-body);
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+  .act-badge {
+    background: var(--accent-coral);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .rules-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--accent-coral-dim);
+    border: 1.5px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: var(--accent-coral);
+    font-weight: 600;
+  }
+  .rules-row .rule { display: flex; align-items: center; gap: 6px; }
+  .rules-row .rule::before { content: '▸'; }
+  /* Character cards */
+  .char-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .char-card {
+    background: var(--bg-secondary);
+    border: 2.5px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 28px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+  .char-label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .char-hanzi {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-top: 8px;
+  }
+  .char-pinyin {
+    font-size: 18px;
+    color: var(--accent-teal);
+    font-weight: 500;
+  }
+  .char-count-hidden {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 3px dashed var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-muted);
+  }
+  .char-count-reveal {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: var(--accent-coral);
+    border: 3px solid var(--accent-coral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .char-meaning {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  /* Reveal answers row */
+  .answers-strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    margin-bottom: 16px;
+  }
+  .ans-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+    white-space: nowrap;
+  }
+  .ans-items {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .ans-pair {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .ans-pair .cnt {
+    background: var(--accent-coral);
+    color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Activity 3</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div>
+      <div class="section-label">Activity 3 · Act.10 · Game</div>
+      <div class="main-title">Stroke Count Competition · 数笔画比赛</div>
+      <div class="subtitle">Count strokes silently — write your number on the whiteboard — first correct answer wins a point</div>
+    </div>
+    <div class="act-badge">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="white" stroke-width="2"/><path d="M10 5v5l3 3" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      5 min
+    </div>
+  </div>
+
+  <div class="rules-row">
+    <span class="rule">Teacher projects one character at a time</span>
+    <span class="rule">Count strokes silently — trace with finger if needed</span>
+    <span class="rule">Write number on whiteboard</span>
+    <span class="rule">Hold up — first correct wins a point</span>
+  </div>
+
+  <div class="char-grid">
+    <div class="char-card">
+      <span class="char-label">Character 1</span>
+      <div class="char-hanzi">画</div>
+      <div class="char-pinyin">huà</div>
+      <div class="char-count-reveal">8</div>
+      <div class="char-meaning">to paint / drawing</div>
+    </div>
+    <div class="char-card">
+      <span class="char-label">Character 2</span>
+      <div class="char-hanzi">志</div>
+      <div class="char-pinyin">zhì</div>
+      <div class="char-count-reveal">7</div>
+      <div class="char-meaning">magazine / aspiration</div>
+    </div>
+    <div class="char-card">
+      <span class="char-label">Character 3</span>
+      <div class="char-hanzi">彩</div>
+      <div class="char-pinyin">cǎi</div>
+      <div class="char-count-reveal">11</div>
+      <div class="char-meaning">colour / watercolour</div>
+    </div>
+    <div class="char-card">
+      <span class="char-label">Character 4</span>
+      <div class="char-hanzi">正</div>
+      <div class="char-pinyin">zhèng</div>
+      <div class="char-count-reveal">5</div>
+      <div class="char-meaning">right now / upright</div>
+    </div>
+  </div>
+
+  <div class="answers-strip">
+    <div class="ans-label">Answers</div>
+    <div class="ans-items">
+      <div class="ans-pair"><div class="cnt">8</div> 画</div>
+      <div class="ans-pair"><div class="cnt">7</div> 志</div>
+      <div class="ans-pair"><div class="cnt">11</div> 彩</div>
+      <div class="ans-pair"><div class="cnt">5</div> 正</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

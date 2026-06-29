@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-04 · Phonics: ao vs ou</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 48px 80px 40px;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 4px;
+  }
+
+  .top-title {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+
+  .top-sub {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+  }
+
+  /* AO Panel — gold */
+  .panel-ao {
+    background: linear-gradient(160deg, rgba(200,148,62,0.08) 0%, rgba(200,148,62,0.18) 100%);
+    border: 2.5px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-ao::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--accent-gold);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  /* OU Panel — teal */
+  .panel-ou {
+    background: linear-gradient(160deg, rgba(58,125,140,0.06) 0%, rgba(58,125,140,0.15) 100%);
+    border: 2.5px solid var(--accent-teal);
+    border-radius: var(--radius-xl);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-ou::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--accent-teal);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .panel-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .panel-ao .panel-label { color: var(--accent-gold); }
+  .panel-ou .panel-label { color: var(--accent-teal); }
+
+  .big-pinyin {
+    font-family: var(--font-display);
+    font-size: 150px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .panel-ao .big-pinyin { color: var(--accent-gold); }
+  .panel-ou .big-pinyin { color: var(--accent-teal); }
+
+  .mouth-desc {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .sound-like {
+    font-size: 19px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    border-radius: 1px;
+    margin-bottom: 24px;
+  }
+
+  .panel-ao .divider { background: var(--accent-gold); }
+  .panel-ou .divider { background: var(--accent-teal); }
+
+  .examples-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .example-words {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .word-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.65);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+  }
+
+  .word-hanzi {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .panel-ao .word-hanzi { color: var(--accent-gold); }
+  .panel-ou .word-hanzi { color: var(--accent-teal); }
+
+  .word-pinyin {
+    font-size: 22px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .mirror-note {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .mirror-note span {
+    color: var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · PINYIN ao/ou + LISTENING</span>
+  <span class="sep"></span>
+  <span class="section-name">Phonics · ao vs ou</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-bar">
+    <div>
+      <div class="top-title">声母辨音 · Distinguishing ao and ou</div>
+      <div class="top-sub">Exaggerate mouth shapes — students mirror.</div>
+    </div>
+  </div>
+
+  <div class="panels">
+    <!-- AO PANEL -->
+    <div class="panel-ao">
+      <div class="panel-label">Vowel Sound 1</div>
+      <div class="big-pinyin">ao</div>
+      <div class="mouth-desc">Open wide — jaw drops low</div>
+      <div class="sound-like">like "ow" in <strong>c<u>ow</u></strong></div>
+      <div class="divider"></div>
+      <div class="examples-label">Examples</div>
+      <div class="example-words">
+        <div class="word-chip">
+          <span class="word-hanzi">好</span>
+          <span class="word-pinyin">hǎo</span>
+        </div>
+        <div class="word-chip">
+          <span class="word-hanzi">高</span>
+          <span class="word-pinyin">gāo</span>
+        </div>
+        <div class="word-chip">
+          <span class="word-hanzi">爱好</span>
+          <span class="word-pinyin">àihào</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OU PANEL -->
+    <div class="panel-ou">
+      <div class="panel-label">Vowel Sound 2</div>
+      <div class="big-pinyin">ou</div>
+      <div class="mouth-desc">Lips round and close together</div>
+      <div class="sound-like">like "oh" in <strong>g<u>o</u></strong></div>
+      <div class="divider"></div>
+      <div class="examples-label">Examples</div>
+      <div class="example-words">
+        <div class="word-chip">
+          <span class="word-hanzi">走</span>
+          <span class="word-pinyin">zǒu</span>
+        </div>
+        <div class="word-chip">
+          <span class="word-hanzi">头</span>
+          <span class="word-pinyin">tóu</span>
+        </div>
+        <div class="word-chip">
+          <span class="word-hanzi">九</span>
+          <span class="word-pinyin">jiǔ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mirror-note">
+    Teacher says — students <span>mirror the mouth shape</span>. Switch between ao and ou several times.
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

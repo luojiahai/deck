@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-05b · CFU Answers</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 140px; }
+  .cfu-header { display: flex; align-items: center; gap: 20px; margin-bottom: 36px; }
+  .cfu-badge { background: var(--accent-gold); color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 22px; border-radius: 999px; }
+  .cfu-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; }
+  .cfu-subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 32px; }
+  .cfu-list { display: flex; flex-direction: column; gap: 22px; }
+  .cfu-item { background: var(--bg-secondary); border: 1.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 26px 32px; display: flex; align-items: flex-start; gap: 20px; }
+  .q-num { background: var(--accent-gold); color: #fff; font-size: 20px; font-weight: 700; width: 48px; height: 48px; border-radius: 999px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-body); }
+  .q-body { flex: 1; }
+  .q-instruction { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; }
+  .q-text { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px; text-decoration: line-through; }
+  .answer-box {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .ans-icon { font-size: 22px; flex-shrink: 0; }
+  .ans-body { flex: 1; }
+  .ans-verdict { font-size: 18px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px; }
+  .ans-correct { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px; }
+  .ans-explain { font-size: 16px; color: var(--text-secondary); line-height: 1.5; }
+  .q3-good { color: var(--accent-teal); text-decoration: none; }
+  .thumb-good { display: inline-block; background: var(--accent-teal-dim); border: 2px solid var(--accent-teal); color: var(--accent-teal); font-size: 18px; font-weight: 700; padding: 5px 16px; border-radius: 999px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · TEXT 1 + 一边……一边……</span>
+  <span class="sep"></span>
+  <span class="section-name">CFU Answers · 答案</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="cfu-header">
+    <div class="cfu-badge">Answers · 答案</div>
+    <div class="cfu-title">答对了吗？</div>
+  </div>
+  <div class="cfu-subtitle">Let's go through the answers together.</div>
+
+  <div class="cfu-list">
+    <div class="cfu-item">
+      <div class="q-num">1</div>
+      <div class="q-body">
+        <div class="q-instruction">Is this correct?</div>
+        <div class="q-text">我一边弹钢琴，我一边唱歌。</div>
+        <div class="answer-box">
+          <div class="ans-icon">✗</div>
+          <div class="ans-body">
+            <div class="ans-verdict">Incorrect — subject repeated!</div>
+            <div class="ans-correct">✓ 我一边弹钢琴，一边唱歌。</div>
+            <div class="ans-explain">In 一边……一边……, the subject appears only once at the start. Do not repeat 我 before the second 一边.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cfu-item">
+      <div class="q-num">2</div>
+      <div class="q-body">
+        <div class="q-instruction">What is wrong?</div>
+        <div class="q-text">一边我听音乐，一边读书。</div>
+        <div class="answer-box">
+          <div class="ans-icon">✗</div>
+          <div class="ans-body">
+            <div class="ans-verdict">一边 comes after the subject, not before!</div>
+            <div class="ans-correct">✓ 我一边听音乐，一边读书。</div>
+            <div class="ans-explain">Word order: Subject → 一边 → Verb 1，一边 → Verb 2. The subject must come first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cfu-item">
+      <div class="q-num">3</div>
+      <div class="q-body">
+        <div class="q-instruction">Simultaneous actions?</div>
+        <div class="q-text q3-good" style="text-decoration:none;">我喜欢一边吃饭一边看电视。</div>
+        <div class="answer-box">
+          <div class="ans-icon">✓</div>
+          <div class="ans-body">
+            <div class="ans-verdict"><span class="thumb-good">👍 Yes — correct!</span></div>
+            <div class="ans-explain">Eating AND watching TV at the same time — one person, two simultaneous actions. This is a perfect 一边……一边…… sentence!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

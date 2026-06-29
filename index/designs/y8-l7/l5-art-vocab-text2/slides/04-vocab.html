@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-04 · New Vocabulary</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 40px 100px 36px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 20px; }
+
+  .vocab-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  /* Left column: reading/grammar words */
+  .vocab-col { display: flex; flex-direction: column; gap: 12px; }
+
+  .vocab-card {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .vc-hanzi { font-family: var(--font-display); font-size: 34px; font-weight: 900; color: var(--text-primary); white-space: nowrap; min-width: 90px; }
+  .vc-right { display: flex; flex-direction: column; gap: 2px; }
+  .vc-pinyin { font-size: 16px; color: var(--accent-teal); font-weight: 500; }
+  .vc-english { font-size: 16px; color: var(--text-secondary); }
+
+  /* Right column: painting sub-group */
+  .painting-group {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pg-header {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .pg-pattern {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    margin-bottom: 6px;
+  }
+  .pg-pattern-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+  .pg-pattern-formula {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .pg-card {
+    background: var(--bg-primary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .pg-prefix {
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 900;
+    color: var(--accent-gold);
+    min-width: 60px;
+  }
+  .pg-hanzi {
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 900;
+    color: var(--text-primary);
+  }
+  .pg-pinyin { font-size: 15px; color: var(--accent-teal); font-weight: 500; }
+  .pg-english { font-size: 15px; color: var(--text-secondary); }
+
+  .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  .preview-box {
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .preview-icon { font-size: 22px; flex-shrink: 0; }
+  .preview-content {}
+  .preview-title { font-size: 18px; font-weight: 700; color: var(--accent-teal); margin-bottom: 4px; }
+  .preview-words { font-size: 15px; color: var(--text-secondary); }
+  .preview-words strong { font-family: var(--font-display); font-size: 18px; color: var(--text-primary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · ART VOCAB + TEXT 2 · 阅读·艺术</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · New Vocabulary · 8–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">8–20 min · I Do</div>
+  <div class="main-title">New Vocabulary · 词汇</div>
+
+  <div class="vocab-layout">
+
+    <!-- Left: reading + grammar words -->
+    <div class="vocab-col">
+      <div class="vocab-card">
+        <div class="vc-hanzi">小说</div>
+        <div class="vc-right">
+          <div class="vc-pinyin">xiǎoshuō</div>
+          <div class="vc-english">novel</div>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vc-hanzi">杂志</div>
+        <div class="vc-right">
+          <div class="vc-pinyin">zázhì</div>
+          <div class="vc-english">magazine</div>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vc-hanzi">画儿</div>
+        <div class="vc-right">
+          <div class="vc-pinyin">huàr</div>
+          <div class="vc-english">drawing or painting</div>
+        </div>
+      </div>
+      <div class="vocab-card" style="background:var(--accent-gold-dim);border-color:var(--accent-gold)">
+        <div class="vc-hanzi" style="color:var(--accent-coral)">都</div>
+        <div class="vc-right">
+          <div class="vc-pinyin">dōu</div>
+          <div class="vc-english">all; both</div>
+        </div>
+      </div>
+      <div class="vocab-card" style="background:var(--accent-gold-dim);border-color:var(--accent-gold)">
+        <div class="vc-hanzi" style="color:var(--accent-coral)">正在</div>
+        <div class="vc-right">
+          <div class="vc-pinyin">zhèngzài</div>
+          <div class="vc-english">in the process of (right now)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: painting sub-group -->
+    <div class="painting-group">
+      <div class="pg-header">Painting types · 画儿 pattern</div>
+      <div class="pg-pattern">
+        <div class="pg-pattern-label">Pattern:</div>
+        <div class="pg-pattern-formula">prefix + 画儿</div>
+        <div class="pg-pattern-label" style="margin-left:8px">— just learn the prefix!</div>
+      </div>
+      <div class="pg-card">
+        <div>
+          <div style="font-size:13px;color:var(--accent-gold);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">PREFIX</div>
+          <div class="pg-prefix">国</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">FULL WORD</div>
+          <div class="pg-hanzi">国画儿</div>
+          <div class="pg-pinyin">guóhuàr</div>
+          <div class="pg-english">Chinese painting</div>
+        </div>
+      </div>
+      <div class="pg-card">
+        <div>
+          <div style="font-size:13px;color:var(--accent-gold);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">PREFIX</div>
+          <div class="pg-prefix">油</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">FULL WORD</div>
+          <div class="pg-hanzi">油画儿</div>
+          <div class="pg-pinyin">yóuhuàr</div>
+          <div class="pg-english">oil painting</div>
+        </div>
+      </div>
+      <div class="pg-card">
+        <div>
+          <div style="font-size:13px;color:var(--accent-gold);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">PREFIX</div>
+          <div class="pg-prefix" style="font-size:22px">水彩</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--text-muted);font-weight:700;letter-spacing:0.1em;margin-bottom:2px">FULL WORD</div>
+          <div class="pg-hanzi">水彩画儿</div>
+          <div class="pg-pinyin">shuǐcǎihuàr</div>
+          <div class="pg-english">watercolour (painting)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-row">
+    <div class="preview-box">
+      <div class="preview-icon">👁️</div>
+      <div class="preview-content">
+        <div class="preview-title">Preview · <strong style="font-family:var(--font-display)">都</strong> dōu</div>
+        <div class="preview-words">Means "all / both" — deep dive in <strong>L7.7</strong>. Spot it in Text 2 today!</div>
+      </div>
+    </div>
+    <div class="preview-box">
+      <div class="preview-icon">👁️</div>
+      <div class="preview-content">
+        <div class="preview-title">Preview · <strong style="font-family:var(--font-display)">正在</strong> zhèngzài</div>
+        <div class="preview-words">Means "right now / in the process of" — deep dive in <strong>L7.6</strong>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

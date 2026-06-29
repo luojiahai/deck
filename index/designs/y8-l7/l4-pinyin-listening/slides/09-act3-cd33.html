@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-09 · Activity 3 · CD Track 33</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 40px 100px 32px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .act-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .act-badge-large {
+    background: var(--accent-coral);
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  .act-title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+
+  .timer-chip {
+    margin-left: auto;
+    background: var(--accent-coral-dim);
+    border: 1.5px solid var(--accent-coral);
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-coral);
+    flex-shrink: 0;
+  }
+
+  .main-area {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* CD Panel */
+  .cd-panel {
+    background: var(--accent-coral-dim);
+    border: 2.5px solid var(--accent-coral);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+    gap: 12px;
+  }
+
+  .cd-icon { font-size: 64px; line-height: 1; }
+
+  .cd-track-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-coral);
+  }
+
+  .cd-track-num {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--accent-coral);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .cd-book-ref { font-size: 16px; color: var(--text-muted); font-weight: 500; text-align: center; }
+
+  .cd-plays { display: flex; gap: 8px; margin-top: 4px; }
+  .play-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent-coral); opacity: 0.7; }
+  .play-label { font-size: 14px; color: var(--accent-coral); font-weight: 700; }
+
+  /* Grid panel */
+  .grid-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .grid-instr {
+    font-size: 19px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+  .grid-instr strong { color: var(--text-primary); }
+
+  .listen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    flex: 1;
+  }
+
+  .grid-box {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .box-num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-coral);
+    text-transform: uppercase;
+  }
+
+  .box-choices {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    align-items: center;
+  }
+
+  .choice-btn {
+    flex: 1;
+    height: 48px;
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+  }
+
+  .choice-sep {
+    font-size: 14px;
+    color: var(--border-medium);
+  }
+
+  .tick-area {
+    border-top: 1px solid var(--border-light);
+    padding-top: 8px;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .sed-strip { flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · PINYIN ao/ou + LISTENING</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 3 · CD Track 33</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-badge-large">ACT 3 · LISTENING</div>
+    <div class="act-title">听力练习 · Listen &amp; Tick Grid</div>
+    <div class="timer-chip">⏱ 8 min</div>
+  </div>
+
+  <div class="main-area">
+    <!-- CD Panel -->
+    <div class="cd-panel">
+      <div class="cd-icon">💿</div>
+      <div class="cd-track-label">CD Track</div>
+      <div class="cd-track-num">33</div>
+      <div class="cd-book-ref">Book 2 · Unit 3<br>Act. 6</div>
+      <div class="cd-plays">
+        <div class="play-dot"></div>
+        <div class="play-dot"></div>
+        <div class="play-dot"></div>
+      </div>
+      <div class="play-label">3 plays</div>
+    </div>
+
+    <!-- Grid Panel -->
+    <div class="grid-panel">
+      <div class="grid-instr">
+        Listen → <strong>tick one choice (A / B / C)</strong> for each box → check after 3 plays
+      </div>
+
+      <div class="listen-grid">
+        <div class="grid-box">
+          <div class="box-num">Box 1</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+        <div class="grid-box">
+          <div class="box-num">Box 2</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+        <div class="grid-box">
+          <div class="box-num">Box 3</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+        <div class="grid-box">
+          <div class="box-num">Box 4</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+        <div class="grid-box">
+          <div class="box-num">Box 5</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+        <div class="grid-box">
+          <div class="box-num">Box 6</div>
+          <div class="box-choices">
+            <div class="choice-btn">A</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">B</div>
+            <div class="choice-sep">/</div>
+            <div class="choice-btn">C</div>
+          </div>
+          <div class="tick-area">Tick your answer ↑</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Pre-teach any unfamiliar vocabulary before playing
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Write a full Chinese sentence for 2 of the boxes
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Call out A, B, or C aloud after each box is checked
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

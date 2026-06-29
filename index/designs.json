@@ -6,6 +6,13 @@
       "description": "8 节课程幻灯片系列——Year 7 中文时间单元（点·分·半·刻·差·几点·混合·复习），含 3D 概览墙 + 全屏演示",
       "createdAt": "2026-06-28",
       "thumbnail": "designs/y7-l10/thumb.png"
+    },
+    {
+      "id": "y8-l7",
+      "title": "Y8 L7 · 爱好·音乐 Hobbies & Music",
+      "description": "8 节课程幻灯片系列——Year 8 中文爱好单元（词汇·一边……一边……·时间长度·拼音·阅读·正在·都·综合写作），含全屏演示",
+      "createdAt": "2026-06-30",
+      "thumbnail": "designs/y8-l7/thumb.png"
     }
   ]
 }

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-10 · Plenary</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 44px 120px 36px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-family: var(--font-body);
+    margin-bottom: 8px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+  .plenary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 22px;
+  }
+  /* SC revisit */
+  .sc-box {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 26px 30px;
+  }
+  .box-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .sc-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .sc-row:last-child { border-bottom: none; }
+  .sc-tick {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(58,125,140,0.15);
+    border: 2px solid var(--accent-teal);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-teal);
+    font-size: 16px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .sc-text {
+    font-size: 20px;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .sc-text .zh {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  /* Demo SC2 */
+  .demo-box {
+    background: var(--accent-teal-dim);
+    border: 2.5px solid var(--accent-teal);
+    border-radius: var(--radius-xl);
+    padding: 26px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .demo-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 4px;
+  }
+  .demo-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .demo-num {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 3px;
+  }
+  .demo-text {
+    font-size: 19px;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .demo-zh {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  /* Exit ticket */
+  .exit-box {
+    background: var(--accent-gold-dim);
+    border: 2.5px solid var(--accent-gold);
+    border-radius: var(--radius-xl);
+    padding: 22px 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .exit-icon { font-size: 40px; flex-shrink: 0; margin-top: 4px; }
+  .exit-body {}
+  .exit-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+  }
+  .exit-q {
+    font-size: 22px;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .exit-q .zh {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .exit-hint {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">Plenary · Wrap-up</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Plenary · 总结</div>
+  <div class="main-title">Lesson Wrap-up · 本课总结</div>
+  <div class="subtitle">Revisit success criteria → live demo → exit ticket</div>
+
+  <div class="plenary-grid">
+    <!-- SC Revisit -->
+    <div class="sc-box">
+      <div class="box-title">SC Revisit · 我能……</div>
+      <div class="sc-row">
+        <div class="sc-tick">✓</div>
+        <div class="sc-text">Form <span class="zh">正在 + verb</span> sentences</div>
+      </div>
+      <div class="sc-row">
+        <div class="sc-tick">✓</div>
+        <div class="sc-text">Ask <span class="zh">你正在……吗？</span> and answer <span class="zh">我正在……</span></div>
+      </div>
+      <div class="sc-row">
+        <div class="sc-tick">✓</div>
+        <div class="sc-text">Use <span class="zh">正在</span> in a partner dialogue about right-now actions</div>
+      </div>
+    </div>
+
+    <!-- Live demo SC2 -->
+    <div class="demo-box">
+      <div class="demo-title">Live Demo · SC 2</div>
+      <div class="demo-step">
+        <div class="demo-num">1</div>
+        <div class="demo-text">Teacher points to a student</div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-num">2</div>
+        <div class="demo-text">
+          That student asks their neighbour:<br>
+          <div class="demo-zh">你正在做什么？</div>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-num">3</div>
+        <div class="demo-text">
+          Neighbour answers:<br>
+          <div class="demo-zh">我正在学______中文课。</div>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-num">4</div>
+        <div class="demo-text">Chain around the room!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit ticket -->
+  <div class="exit-box">
+    <div class="exit-icon">🎟</div>
+    <div class="exit-body">
+      <div class="exit-title">Exit Ticket · 课堂出口</div>
+      <div class="exit-q">
+        Write <span class="zh">2</span> sentences using <span class="zh">正在</span>:<br>
+        ① One about <span class="zh">yourself right now</span> &nbsp;&nbsp;
+        ② One about <span class="zh">someone else in the room</span>
+      </div>
+      <div class="exit-hint">Hand to teacher before leaving — no name needed, just the sentences.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

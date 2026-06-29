@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-08 · Act 2 · Duration Pictures</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-gold); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-gold-dim); color: var(--accent-gold); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .pictures-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .pic-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pic-placeholder {
+    height: 220px;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+  }
+  .pic-placeholder.modelled {
+    background: var(--accent-teal-dim);
+    border-bottom-color: var(--accent-teal);
+  }
+  .pic-icon { font-size: 56px; line-height: 1; }
+  .pic-duration {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .pic-modelled-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--accent-teal);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+  .pic-pair-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--accent-gold);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+  .pic-info {
+    padding: 12px 16px;
+    flex: 1;
+  }
+  .pic-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .pic-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .pic-scenario {
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .pic-answer {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--accent-teal);
+    font-weight: 600;
+    margin-top: 6px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 6px;
+  }
+
+  .frame-box {
+    background: var(--bg-tertiary);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 14px 24px;
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+  .frame-box .blank {
+    display: inline-block;
+    min-width: 100px;
+    border-bottom: 3px solid var(--accent-gold);
+    color: var(--accent-gold);
+  }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · DURATION · 时间长度</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 2 · Duration Pictures · We Do → You Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Activity 2</div>
+    <div class="time-badge">⏱ 8 min</div>
+    <div class="mode-badge">We Do → You Do</div>
+  </div>
+  <div class="main-title">Act. 5 · Duration Pictures · 说说图片</div>
+  <div class="subtitle">Look at each picture → say how long the person does their hobby</div>
+
+  <div class="pictures-row">
+    <div class="pic-card">
+      <div class="pic-placeholder modelled">
+        <div class="pic-modelled-tag">Modelled ✓</div>
+        <div class="pic-icon">🎹</div>
+        <div class="pic-duration">一个小时</div>
+      </div>
+      <div class="pic-info">
+        <div class="pic-num">Picture 1 · Model</div>
+        <div class="pic-name">田云 · Piano</div>
+        <div class="pic-scenario">plays piano every day</div>
+        <div class="pic-answer">田云每天弹一个小时的钢琴。</div>
+      </div>
+    </div>
+
+    <div class="pic-card">
+      <div class="pic-placeholder">
+        <div class="pic-pair-tag">Pair work</div>
+        <div class="pic-icon">🎤</div>
+        <div class="pic-duration">半个小时</div>
+      </div>
+      <div class="pic-info">
+        <div class="pic-num">Picture 2 · Pair</div>
+        <div class="pic-name">她 · Singing</div>
+        <div class="pic-scenario">sings every day</div>
+        <div class="pic-answer" style="color:var(--text-muted);font-style:italic;">You try!</div>
+      </div>
+    </div>
+
+    <div class="pic-card">
+      <div class="pic-placeholder">
+        <div class="pic-pair-tag">Pair work</div>
+        <div class="pic-icon">⚽</div>
+        <div class="pic-duration">两个小时</div>
+      </div>
+      <div class="pic-info">
+        <div class="pic-num">Picture 3 · Pair</div>
+        <div class="pic-name">他 · Football</div>
+        <div class="pic-scenario">plays football every day</div>
+        <div class="pic-answer" style="color:var(--text-muted);font-style:italic;">You try!</div>
+      </div>
+    </div>
+
+    <div class="pic-card">
+      <div class="pic-placeholder">
+        <div class="pic-pair-tag">Pair work</div>
+        <div class="pic-icon">📺</div>
+        <div class="pic-duration">三刻钟</div>
+      </div>
+      <div class="pic-info">
+        <div class="pic-num">Picture 4 · Pair</div>
+        <div class="pic-name">他们 · TV</div>
+        <div class="pic-scenario">watches TV every day</div>
+        <div class="pic-answer" style="color:var(--text-muted);font-style:italic;">You try!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame-box">
+    <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;</span>每天<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;</span>的<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;</span>。
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Sentence frame above stays visible; duration list on board
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Invent a 5th scenario with a different duration
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Cold call 3–4 students for pictures 2–4
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

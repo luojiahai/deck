@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-10 · Activity 3: Write About Myself</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 120px 28px; }
+
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; }
+  .timer-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-coral-dim); border: 2px solid var(--accent-coral);
+    color: var(--accent-coral); border-radius: 999px;
+    padding: 4px 16px; font-size: 15px; font-weight: 700;
+  }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 16px; }
+
+  .task-box {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 16px 28px;
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .task-icon { font-size: 26px; flex-shrink: 0; }
+
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 16px; }
+
+  .starters-panel {}
+  .sp-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .starter-list { display: flex; flex-direction: column; gap: 10px; }
+  .starter-item {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+  }
+  .starter-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent-coral); flex-shrink: 0;
+  }
+  .starter-zh {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 700; color: var(--text-primary);
+    flex: 1;
+  }
+  .starter-blank {
+    display: inline-block; min-width: 80px;
+    border-bottom: 3px solid var(--accent-coral);
+    color: var(--accent-coral);
+  }
+  .starter-en { font-size: 15px; color: var(--text-muted); }
+
+  .hint-panel {}
+  .hp-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .hint-card {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 12px;
+  }
+  .hint-title { font-size: 16px; font-weight: 700; color: var(--text-secondary); margin-bottom: 8px; letter-spacing: 0.06em; }
+  .hint-words {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .hw {
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 700;
+    background: var(--bg-tertiary);
+    border: 1.5px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    padding: 4px 12px;
+    color: var(--text-primary);
+  }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-item .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · ART VOCAB + TEXT 2 · 阅读·艺术</span>
+  <span class="sep"></span>
+  <span class="section-name">You Do · Activity 3 · Write About Myself</span>
+  <div class="accent-line" style="background:var(--accent-coral)"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="section-label">Activity 3 · You Do</div>
+    <div class="timer-badge">⏱ 7 min</div>
+  </div>
+  <div class="main-title">写我自己 · Write About Myself</div>
+
+  <div class="task-box">
+    <div class="task-icon">✍️</div>
+    <div>Write a <strong>4–5 sentence paragraph</strong> about your own reading and art hobbies. Use the sentence starters below.</div>
+  </div>
+
+  <div class="layout">
+    <div class="starters-panel">
+      <div class="sp-label">Sentence Starters</div>
+      <div class="starter-list">
+        <div class="starter-item">
+          <div class="starter-dot"></div>
+          <div>
+            <div class="starter-zh">我喜欢<span class="starter-blank">______</span>。</div>
+            <div class="starter-en">I like …</div>
+          </div>
+        </div>
+        <div class="starter-item">
+          <div class="starter-dot"></div>
+          <div>
+            <div class="starter-zh">我不太喜欢<span class="starter-blank">______</span>。</div>
+            <div class="starter-en">I don't really like …</div>
+          </div>
+        </div>
+        <div class="starter-item">
+          <div class="starter-dot"></div>
+          <div>
+            <div class="starter-zh"><span class="starter-blank">______</span>，我都喜欢。</div>
+            <div class="starter-en">… I like both / all.</div>
+          </div>
+        </div>
+        <div class="starter-item">
+          <div class="starter-dot"></div>
+          <div>
+            <div class="starter-zh">我正在学<span class="starter-blank">______</span>。</div>
+            <div class="starter-en">I am currently learning …</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint-panel">
+      <div class="hp-label">Vocabulary to Use</div>
+      <div class="hint-card">
+        <div class="hint-title">READING</div>
+        <div class="hint-words">
+          <span class="hw">小说</span>
+          <span class="hw">杂志</span>
+        </div>
+      </div>
+      <div class="hint-card">
+        <div class="hint-title">PAINTING</div>
+        <div class="hint-words">
+          <span class="hw">画画儿</span>
+          <span class="hw">国画儿</span>
+          <span class="hw">油画儿</span>
+          <span class="hw">水彩画儿</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      OK to write one sentence in English if you're stuck — then try to translate it
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Free write 6–7 sentences without using the starters — express yourself!
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      2–3 volunteers share their paragraph with the class
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

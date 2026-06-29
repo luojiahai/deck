@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body { background: var(--bg-primary); }
+  .slide-content { justify-content: center; align-items: flex-start; padding: 0 160px; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); font-family: var(--font-body); margin-bottom: 24px; }
+  .hero-pattern {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .hero-pattern .hl-gold { color: var(--accent-gold); }
+  .subtitle {
+    font-family: var(--font-body);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 56px;
+    letter-spacing: 0.02em;
+  }
+  .meta-row { display: flex; align-items: center; gap: 20px; }
+  .meta-pill {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-medium);
+    border-radius: 999px;
+    padding: 10px 28px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+  }
+  .meta-pill.gold { border-color: var(--accent-gold); color: var(--accent-gold); background: var(--accent-gold-dim); }
+  .left-bar {
+    position: absolute;
+    left: 0; top: 80px; bottom: 52px;
+    width: 10px;
+    background: linear-gradient(180deg, var(--accent-gold) 0%, var(--accent-teal) 50%, var(--accent-coral) 100%);
+  }
+  .watermark {
+    position: absolute;
+    bottom: 60px; right: 100px;
+    font-size: 280px;
+    line-height: 1;
+    color: var(--text-primary);
+    opacity: 0.04;
+    font-family: var(--font-display);
+    pointer-events: none;
+    user-select: none;
+  }
+  .deco-block {
+    position: absolute;
+    right: 120px;
+    top: 140px;
+    bottom: 100px;
+    width: 520px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px;
+  }
+  .deco-formula {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+  .deco-formula .yibian { color: var(--accent-gold); }
+  .deco-dots {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+    border-radius: 2px;
+    margin: 4px auto;
+  }
+  .deco-en {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · TEXT 1 + 一边……一边……</span>
+  <span class="sep"></span>
+  <span class="section-name">Lesson 2 · Text 1 + Grammar</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="left-bar"></div>
+
+<div class="slide-content">
+  <div class="eyebrow">Year 8 · Unit 3 · 爱好</div>
+  <div class="hero-pattern">一边<span class="hl-gold">……</span><br>一边<span class="hl-gold">……</span></div>
+  <div class="subtitle">Lesson 2 · Text 1 + Grammar</div>
+  <div class="meta-row">
+    <div class="meta-pill gold">Year 8</div>
+    <div class="meta-pill">Unit 3 · 爱好</div>
+    <div class="meta-pill">50 min</div>
+    <div class="meta-pill">Easy Steps Book 2 · p.60</div>
+  </div>
+</div>
+
+<div class="deco-block">
+  <div class="deco-formula">
+    <span class="yibian">一边</span> X<br>
+    <span class="deco-dots"></span><br>
+    <span class="yibian">一边</span> Y
+  </div>
+  <div class="deco-en">doing X<br><em>while</em> doing Y<br>at the same time</div>
+</div>
+
+<div class="watermark">♪</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

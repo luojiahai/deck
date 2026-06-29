@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-07 · Act 1 · 正在 Sentences from Pictures</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 36px 100px 32px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .top-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .left-head {}
+  .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    font-family: var(--font-body);
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+  .act-badge {
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  /* Picture grid */
+  .pics-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .pic-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  .pic-num {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--accent-teal);
+    font-family: var(--font-body);
+  }
+  .pic-icon {
+    font-size: 52px;
+    line-height: 1;
+    margin-top: 8px;
+  }
+  .pic-hanzi {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .pic-pinyin {
+    font-size: 14px;
+    color: var(--accent-teal);
+    font-weight: 500;
+  }
+  /* Sentence frame */
+  .frame-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    margin-bottom: 18px;
+  }
+  .frame-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    white-space: nowrap;
+  }
+  .frame-zh {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .frame-blank {
+    display: inline-block;
+    min-width: 200px;
+    border-bottom: 3px solid var(--accent-teal);
+    color: var(--accent-teal);
+  }
+  /* Verb bank */
+  .verb-bank {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+    margin-bottom: 14px;
+  }
+  .vb-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .vb-word {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    padding: 4px 14px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  /* SED strip */
+  .sed-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .sed-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .sed-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    display: block;
+  }
+  .scaffold .sed-label { color: var(--accent-teal); }
+  .extension .sed-label { color: var(--accent-gold); }
+  .otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 正在 · PRESENT CONTINUOUS</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Activity 1</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="left-head">
+      <div class="section-label">Activity 1 · Act.9 · We Do</div>
+      <div class="main-title">正在 Sentences from Pictures</div>
+      <div class="subtitle">Race your partner — say the full 正在 sentence for each picture</div>
+    </div>
+    <div class="act-badge">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="white" stroke-width="2"/><path d="M10 5v5l3 3" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      8 min
+    </div>
+  </div>
+
+  <div class="pics-grid">
+    <div class="pic-card">
+      <span class="pic-num">①</span>
+      <div class="pic-icon">🎹</div>
+      <div class="pic-hanzi">弹钢琴</div>
+      <div class="pic-pinyin">tán gāngqín</div>
+    </div>
+    <div class="pic-card">
+      <span class="pic-num">②</span>
+      <div class="pic-icon">🎤</div>
+      <div class="pic-hanzi">唱歌</div>
+      <div class="pic-pinyin">chàng gē</div>
+    </div>
+    <div class="pic-card">
+      <span class="pic-num">③</span>
+      <div class="pic-icon">📖</div>
+      <div class="pic-hanzi">读书</div>
+      <div class="pic-pinyin">dú shū</div>
+    </div>
+    <div class="pic-card">
+      <span class="pic-num">④</span>
+      <div class="pic-icon">📺</div>
+      <div class="pic-hanzi">看电视</div>
+      <div class="pic-pinyin">kàn diànshì</div>
+    </div>
+    <div class="pic-card">
+      <span class="pic-num">⑤</span>
+      <div class="pic-icon">🖌️</div>
+      <div class="pic-hanzi">画画儿</div>
+      <div class="pic-pinyin">huà huàr</div>
+    </div>
+    <div class="pic-card">
+      <span class="pic-num">⑥</span>
+      <div class="pic-icon">🎧</div>
+      <div class="pic-hanzi">听音乐</div>
+      <div class="pic-pinyin">tīng yīnyuè</div>
+    </div>
+  </div>
+
+  <div class="frame-row">
+    <div class="frame-label">Sentence Frame</div>
+    <div class="frame-zh">他 / 她&nbsp;&nbsp;<span style="color:var(--accent-teal)">正在</span>&nbsp;&nbsp;<span class="frame-blank"></span>。</div>
+  </div>
+
+  <div class="verb-bank">
+    <span class="vb-label">Verb Bank</span>
+    <span class="vb-word">弹钢琴</span>
+    <span class="vb-word">唱歌</span>
+    <span class="vb-word">听音乐</span>
+    <span class="vb-word">读书</span>
+    <span class="vb-word">画画儿</span>
+    <span class="vb-word">看电视</span>
+    <span class="vb-word">玩电脑游戏</span>
+    <span class="vb-word">弹吉他</span>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <span class="sed-label">Scaffold</span>
+      Verb bank on board — point to the picture, say the verb, build the sentence.
+    </div>
+    <div class="sed-item extension">
+      <span class="sed-label">Extension</span>
+      Add a clause: 他正在弹钢琴，一边唱歌。Try at least 2 combo sentences.
+    </div>
+    <div class="sed-item otr">
+      <span class="sed-label">OTR</span>
+      Rapid-fire cold calls — teacher points to picture, student must say full sentence instantly.
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>
