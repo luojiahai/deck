@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-07 · Measure Word 门</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:28px; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1.6fr; gap:40px; }
+
+  /* Hero character */
+  .char-hero { display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--accent-blue-dim); border:2px solid var(--accent-blue); border-radius:var(--radius-xl); padding:32px; gap:8px; }
+  .char-hero .big-char { font-family:var(--font-display); font-size:200px; font-weight:900; color:var(--accent-blue); line-height:1; }
+  .char-hero .char-pinyin { font-size:36px; color:var(--accent-teal); font-weight:700; }
+  .char-hero .char-def { font-size:22px; color:var(--text-secondary); }
+
+  /* Right panel */
+  .right-panel { display:flex; flex-direction:column; gap:20px; }
+  .concept-box { background:var(--bg-secondary); border-radius:var(--radius-lg); padding:24px 28px; border:1px solid var(--border-light); }
+  .concept-box h3 { font-size:16px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px; }
+
+  .error-pair { display:flex; align-items:center; gap:20px; padding:16px 20px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); }
+  .error-wrong { font-family:var(--font-display); font-size:32px; font-weight:700; color:var(--accent-coral); text-decoration:line-through; }
+  .cross { font-size:28px; color:var(--accent-coral); }
+  .error-arrow { font-size:24px; color:var(--text-muted); flex-shrink:0; }
+  .error-correct { font-family:var(--font-display); font-size:32px; font-weight:700; color:var(--accent-teal); }
+  .tick { font-size:28px; color:var(--accent-teal); }
+
+  .warning-box { background:var(--accent-coral-dim); border:2px solid var(--accent-coral); border-radius:var(--radius-md); padding:14px 20px; display:flex; align-items:flex-start; gap:14px; }
+  .warning-box .warn-icon { font-size:26px; flex-shrink:0; }
+  .warning-box .warn-text { font-size:20px; font-weight:700; color:var(--accent-coral); }
+  .warning-box .warn-sub { font-size:15px; color:var(--text-muted); margin-top:3px; }
+
+  .note-box { background:var(--accent-teal-dim); border:2px solid var(--accent-teal); border-radius:var(--radius-md); padding:14px 20px; display:flex; align-items:flex-start; gap:14px; }
+  .note-box .note-icon { font-size:26px; flex-shrink:0; }
+  .note-box .note-text { font-size:20px; font-weight:700; color:var(--accent-teal); }
+  .note-box .note-sub { font-size:15px; color:var(--text-muted); margin-top:3px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Measure Word 门 · 24–28 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">24–28 min · I Do · Grammar Focus</div>
+  <div class="main-title">量词 · Measure Word 门</div>
+
+  <div class="two-col">
+    <div class="char-hero">
+      <div class="big-char">门</div>
+      <div class="char-pinyin">mén</div>
+      <div class="char-def">measure word for subjects / courses</div>
+    </div>
+
+    <div class="right-panel">
+      <div class="concept-box">
+        <h3>In Chinese, numbers need a measure word before the noun</h3>
+        <p style="font-size:19px; color:var(--text-secondary); line-height:1.6;">
+          Just like English says "two <em>slices</em> of bread" or "three <em>sheets</em> of paper" —
+          Chinese uses 门 when counting academic subjects or courses.
+        </p>
+      </div>
+
+      <div class="error-pair">
+        <span class="cross">✗</span>
+        <span class="error-wrong">一个课</span>
+        <span class="error-arrow">→</span>
+        <span class="tick">✓</span>
+        <span class="error-correct">一门课</span>
+      </div>
+
+      <div class="warning-box">
+        <span class="warn-icon">⚠️</span>
+        <div>
+          <div class="warn-text">Most common error: using 个 (gè) instead of 门</div>
+          <div class="warn-sub">个 is the generic measure word — it does NOT work for subjects. Use 门.</div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <span class="note-icon">💡</span>
+        <div>
+          <div class="note-text">门 also means "door / gate" — imagine school subjects as doors of knowledge!</div>
+          <div class="note-sub">三门课 (3 subjects)&nbsp;&nbsp;·&nbsp;&nbsp;七门课 (7 subjects)&nbsp;&nbsp;·&nbsp;&nbsp;十五门课 (15 subjects)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-11 · Game · Correct the Teacher</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:50px; font-weight:900; margin-bottom:6px; }
+  .game-subtitle { font-size:20px; color:var(--text-muted); margin-bottom:20px; }
+  .errors-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px; }
+  .error-card { border-radius:var(--radius-lg); padding:22px 26px; border:2px solid; }
+  .error-card .ec-num { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+  .ec-wrong-row { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .ec-wrong-badge { background:var(--accent-coral-dim); border:1.5px solid var(--accent-coral); border-radius:var(--radius-sm); padding:3px 12px; font-size:13px; font-weight:700; color:var(--accent-coral); letter-spacing:0.06em; flex-shrink:0; }
+  .ec-wrong-text { font-family:var(--font-display); font-size:28px; font-weight:700; color:var(--accent-coral); text-decoration:line-through; text-decoration-color:rgba(201,106,92,0.5); }
+  .ec-arrow { text-align:center; font-size:22px; color:var(--text-muted); margin:4px 0; }
+  .ec-correct-row { display:flex; align-items:center; gap:12px; }
+  .ec-correct-badge { background:var(--accent-teal-dim); border:1.5px solid var(--accent-teal); border-radius:var(--radius-sm); padding:3px 12px; font-size:13px; font-weight:700; color:var(--accent-teal); letter-spacing:0.06em; flex-shrink:0; }
+  .ec-correct-text { font-family:var(--font-display); font-size:28px; font-weight:700; color:var(--accent-teal); }
+  .error-card.card1 { background:rgba(201,106,92,0.04); border-color:var(--border-light); }
+  .error-card.card1 .ec-num { color:var(--accent-coral); }
+  .instructions-row { display:flex; gap:20px; align-items:center; }
+  .inst-box { flex:1; background:var(--bg-secondary); border-radius:var(--radius-md); padding:14px 20px; font-size:18px; color:var(--text-secondary); line-height:1.5; }
+  .inst-box strong { color:var(--text-primary); font-family:var(--font-display); }
+  .inst-icon { font-size:32px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 我觉得</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Correct the Teacher (38–43 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">38–43 min · Game</div>
+  <div class="main-title">改正老师的错误！</div>
+  <div class="game-subtitle">Correct the Teacher · Find the error and write the correct sentence</div>
+
+  <div class="errors-grid">
+    <div class="error-card card1">
+      <div class="ec-num" style="color:var(--accent-coral);">Error 1</div>
+      <div class="ec-wrong-row">
+        <div class="ec-wrong-badge">✗ Wrong</div>
+        <div class="ec-wrong-text">我很难学觉得数学。</div>
+      </div>
+      <div class="ec-arrow">↓</div>
+      <div class="ec-correct-row">
+        <div class="ec-correct-badge">✓ Correct</div>
+        <div class="ec-correct-text">我觉得数学很难学。</div>
+      </div>
+    </div>
+
+    <div class="error-card card1">
+      <div class="ec-num" style="color:var(--accent-coral);">Error 2</div>
+      <div class="ec-wrong-row">
+        <div class="ec-wrong-badge">✗ Wrong</div>
+        <div class="ec-wrong-text">汉字容易不写。</div>
+      </div>
+      <div class="ec-arrow">↓</div>
+      <div class="ec-correct-row">
+        <div class="ec-correct-badge">✓ Correct</div>
+        <div class="ec-correct-text">汉字不容易写。</div>
+      </div>
+    </div>
+
+    <div class="error-card card1">
+      <div class="ec-num" style="color:var(--accent-coral);">Error 3</div>
+      <div class="ec-wrong-row">
+        <div class="ec-wrong-badge">✗ Wrong</div>
+        <div class="ec-wrong-text">英语很我觉得有用。</div>
+      </div>
+      <div class="ec-arrow">↓</div>
+      <div class="ec-correct-row">
+        <div class="ec-correct-badge">✓ Correct</div>
+        <div class="ec-correct-text">我觉得英语很有用。</div>
+      </div>
+    </div>
+
+    <div class="error-card card1">
+      <div class="ec-num" style="color:var(--accent-coral);">Error 4</div>
+      <div class="ec-wrong-row">
+        <div class="ec-wrong-badge">✗ Wrong</div>
+        <div class="ec-wrong-text">物理写难不容易。</div>
+      </div>
+      <div class="ec-arrow">↓</div>
+      <div class="ec-correct-row">
+        <div class="ec-correct-badge">✓ Correct</div>
+        <div class="ec-correct-text">物理很难学，也不容易写。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions-row">
+    <div class="inst-icon">✍️</div>
+    <div class="inst-box">
+      Project errors <strong>one at a time</strong> — students write correction in books, then reveal answer.
+      Class compares: <strong>👍 = agreed · 👎 = still wrong, discuss</strong>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

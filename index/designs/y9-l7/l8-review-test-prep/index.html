@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8 · 综合复习 · Test 3.1 Prep</title>
+<script>
+  window.DECK_MANIFEST = [
+    { file: "slides/01-title.html",          label: "Title · 综合复习 · Test Prep" },
+    { file: "slides/02-review.html",         label: "Review · Quick-Fire 10 Items (0–8 min)" },
+    { file: "slides/03-li-sc.html",          label: "Learning Intention & Success Criteria" },
+    { file: "slides/04-vocab-grid.html",     label: "I Do · Full Test 3.1 Vocabulary Grid" },
+    { file: "slides/05-patterns.html",       label: "I Do · All 8 Key Patterns Summary" },
+    { file: "slides/06-listening.html",      label: "I Do · Act.12 Listening (CD Track 28)" },
+    { file: "slides/07-test-questions.html", label: "I Do · The 3 Test 3.1 Answer Questions" },
+    { file: "slides/08-cfu.html",            label: "I Do · CFU Checkpoints" },
+    { file: "slides/09-act1-self-intro.html", label: "We Do · 自我介绍 Act.15 (20–30 min)" },
+    { file: "slides/10-game-r1.html",        label: "Game · Round 1: 词汇闪卡 (30–32 min)" },
+    { file: "slides/11-game-r2.html",        label: "Game · Round 2: 英译中 (32–34 min)" },
+    { file: "slides/12-game-r3.html",        label: "Game · Round 3: 句子挑战 (34–37 min)" },
+    { file: "slides/13-game-r4.html",        label: "Game · Round 4: 用中文回答 (37–40 min)" },
+    { file: "slides/14-written-practice.html", label: "Written Practice · Test 3.1 Format (40–43 min)" },
+    { file: "slides/15-plenary.html",        label: "Plenary · Self-Assessment · Exit Ticket" },
+  ];
+  window.DECK_WIDTH = 1920;
+  window.DECK_HEIGHT = 1080;
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; font-family: -apple-system, "PingFang SC", sans-serif; background: #0a0a0a; }
+  #stage { position: fixed; top: 50%; left: 50%; transform-origin: top left; will-change: transform; background: #fff; box-shadow: 0 10px 60px rgba(0,0,0,0.4); }
+  #frame { width: 1920px; height: 1080px; overflow: hidden; position: relative; background: #fff; }
+  .counter { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; z-index: 100; opacity: 0.7; }
+  .counter .label { color: rgba(255,255,255,0.7); margin-left: 8px; }
+  .list-btn { position: fixed; top: 20px; left: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; text-decoration: none; display: block; }
+  .list-btn:hover { opacity: 1; }
+  .nav-zone { position: fixed; top: 0; bottom: 0; width: 15%; cursor: pointer; z-index: 50; }
+  .nav-zone.left { left: 0; } .nav-zone.right { right: 0; }
+  .nav-hint { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; font-size: 22px; opacity: 0; transition: opacity .2s; }
+  .nav-zone.left .nav-hint { left: 20px; } .nav-zone.right .nav-hint { right: 20px; }
+  .nav-zone:hover .nav-hint { opacity: 1; }
+
+  /* ── Scoped design tokens ── */
+  #frame {
+    --bg-primary: #FEFCF7; --bg-secondary: #F4F2EE; --bg-tertiary: #EAE6DC;
+    --text-primary: #1A2535; --text-secondary: #4E5C6E; --text-muted: #8695A4;
+    --accent-blue: #3A5F8A; --accent-blue-light: #6A90B8; --accent-blue-dim: rgba(58,95,138,0.12);
+    --accent-teal: #2E7D6E; --accent-teal-light: #5DAF9F; --accent-teal-dim: rgba(46,125,110,0.10);
+    --accent-coral: #C96A5C; --accent-coral-dim: rgba(201,106,92,0.10);
+    --accent-gold: #B87A30; --accent-gold-dim: rgba(184,122,48,0.12);
+    --border-light: #E2DDD4; --border-medium: #CFC9BF;
+    --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+    --font-body: 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+</style>
+</head>
+<body>
+<a class="list-btn" href="../">← 列表</a>
+<div id="stage"><div id="frame"></div></div>
+<div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
+<div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
+<div class="counter" id="counter">1 / 1</div>
+<script>
+(function () {
+  const W = window.DECK_WIDTH || 1920, H = window.DECK_HEIGHT || 1080;
+  const deck = window.DECK_MANIFEST || [];
+  const stage = document.getElementById('stage'), frame = document.getElementById('frame'), counter = document.getElementById('counter');
+  let current = 0;
+  stage.style.width = W + 'px'; stage.style.height = H + 'px';
+  function fit() {
+    const s = Math.min(innerWidth / W, innerHeight / H);
+    stage.style.transform = 'translate(' + ((innerWidth - W*s)/2) + 'px,' + ((innerHeight - H*s)/2) + 'px) scale(' + s + ')';
+    stage.style.top = '0'; stage.style.left = '0';
+  }
+  let loadedFile = null;
+  function show(idx) {
+    if (idx < 0 || idx >= deck.length) return;
+    current = idx;
+    const item = deck[idx];
+    counter.innerHTML = (idx+1) + ' / ' + deck.length + ' <span class="label">' + (item.label||'') + '</span>';
+    if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
+    if (loadedFile !== item.file) {
+      loadedFile = item.file;
+      fetch(item.file).then(r=>r.text()).then(html=>{
+        var linkRe=/<link[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi, cssLinks=[], lm;
+        while((lm=linkRe.exec(html))!==null){cssLinks.push(lm[1]);}
+        return Promise.all(cssLinks.map(href=>{
+          var url=/^https?:/.test(href)?href:new URL(href,new URL(item.file,location.href)).href;
+          return fetch(url).then(r=>r.text()).catch(()=>'');
+        })).then(cssContents=>{
+          var linkedCss=cssContents.join('\n');
+          var styles=linkedCss?'<style>'+linkedCss.replace(/\b(html|body)\b(?=\s*[{,])/g,'#frame')+'</style>':'';
+          var styleRe=/<style[^>]*>([\s\S]*?)<\/style>/gi, m;
+          while((m=styleRe.exec(html))!==null){styles+='<style>'+m[1].replace(/\b(html|body)\b(?=\s*[{,])/g,'#frame')+'</style>';}
+          var bodyM=html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+          frame.innerHTML=styles+(bodyM?bodyM[1]:'');
+        });
+      }).catch(()=>{frame.innerHTML='<div style="color:#fff;padding:40px;text-align:center;font-size:24px;">Slide not found</div>';});
+    }
+  }
+  function next(){show(Math.min(current+1,deck.length-1));}
+  function prev(){show(Math.max(current-1,0));}
+  document.addEventListener('keydown',function(e){
+    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+    switch(e.key){
+      case'ArrowRight':case' ':case'PageDown':e.preventDefault();next();break;
+      case'ArrowLeft':case'PageUp':e.preventDefault();prev();break;
+      case'Home':e.preventDefault();show(0);break;
+      case'End':e.preventDefault();show(deck.length-1);break;
+      case'p':case'P':window.print();break;
+      default:if(e.key>='1'&&e.key<='9'){var i=parseInt(e.key,10)-1;if(i<deck.length){e.preventDefault();show(i);}}
+    }
+  });
+  document.getElementById('navL').addEventListener('click',prev);
+  document.getElementById('navR').addEventListener('click',next);
+  window.addEventListener('resize',fit);
+  window.addEventListener('hashchange',function(){var m=location.hash.match(/^#(\d+)$/);if(m){current=parseInt(m[1],10)-1;show(current);}});
+  fit(); show(0);
+})();
+</script>
+</body>
+</html>

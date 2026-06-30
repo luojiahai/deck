@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-02 · Review · Numbers + Subjects</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:44px 120px 36px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:52px; font-weight:900; margin-bottom:28px; }
+  .review-cols { display:grid; grid-template-columns:1fr 1.4fr; gap:40px; align-items:start; }
+
+  /* Numbers panel */
+  .panel { background:var(--bg-secondary); border-radius:var(--radius-lg); padding:28px 32px; border:1px solid var(--border-light); }
+  .panel-h { font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+  .panel-h.blue { color:var(--accent-blue); }
+  .panel-h.teal { color:var(--accent-teal); }
+
+  .number-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .num-chip { width:68px; height:68px; border-radius:var(--radius-md); background:var(--accent-blue-dim); border:1.5px solid var(--accent-blue-light); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; flex-shrink:0; }
+  .num-chip .hanzi { font-family:var(--font-display); font-size:26px; font-weight:900; color:var(--text-primary); }
+  .num-chip .num { font-size:13px; color:var(--accent-blue); font-weight:700; }
+
+  .drill-instruction { font-size:17px; color:var(--text-secondary); line-height:1.55; }
+  .drill-instruction strong { color:var(--text-primary); }
+
+  /* Subjects panel */
+  .subject-chips { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; }
+  .subj-chip { background:var(--bg-tertiary); border:1px solid var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; display:flex; flex-direction:column; gap:3px; }
+  .subj-chip .zh { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); }
+  .subj-chip .en { font-size:13px; color:var(--text-muted); }
+
+  .bridge-box { margin-top:28px; background:var(--accent-blue-dim); border-left:5px solid var(--accent-blue); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:16px 24px; }
+  .bridge-box .bridge-text { font-size:20px; color:var(--text-secondary); line-height:1.5; }
+  .bridge-box .bridge-text strong { color:var(--accent-blue); font-family:var(--font-display); }
+  .bridge-box .bridge-text .count { font-size:26px; font-weight:900; color:var(--accent-blue); font-family:var(--font-display); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · 0–8 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Review</div>
+  <div class="main-title">回顾 · Numbers &amp; Known Subjects</div>
+
+  <div class="review-cols">
+    <div class="panel">
+      <div class="panel-h blue">Part A · Numbers 1–10</div>
+      <div class="number-row">
+        <div class="num-chip"><div class="hanzi">一</div><div class="num">1</div></div>
+        <div class="num-chip"><div class="hanzi">二</div><div class="num">2</div></div>
+        <div class="num-chip"><div class="hanzi">三</div><div class="num">3</div></div>
+        <div class="num-chip"><div class="hanzi">四</div><div class="num">4</div></div>
+        <div class="num-chip"><div class="hanzi">五</div><div class="num">5</div></div>
+        <div class="num-chip"><div class="hanzi">六</div><div class="num">6</div></div>
+        <div class="num-chip"><div class="hanzi">七</div><div class="num">7</div></div>
+        <div class="num-chip"><div class="hanzi">八</div><div class="num">8</div></div>
+        <div class="num-chip"><div class="hanzi">九</div><div class="num">9</div></div>
+        <div class="num-chip"><div class="hanzi">十</div><div class="num">10</div></div>
+      </div>
+      <div class="drill-instruction">
+        Choral count <strong>forwards</strong> → then <strong>backwards</strong><br>
+        Cold call: teacher points, student says number in Chinese
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h teal">Part B · Known Subjects Flash</div>
+      <div class="subject-chips">
+        <div class="subj-chip"><div class="zh">英文</div><div class="en">English</div></div>
+        <div class="subj-chip"><div class="zh">数学</div><div class="en">maths</div></div>
+        <div class="subj-chip"><div class="zh">音乐</div><div class="en">music</div></div>
+        <div class="subj-chip"><div class="zh">历史</div><div class="en">history</div></div>
+        <div class="subj-chip"><div class="zh">电脑</div><div class="en">computing</div></div>
+        <div class="subj-chip"><div class="zh">汉语</div><div class="en">Chinese</div></div>
+        <div class="subj-chip"><div class="zh">体育</div><div class="en">PE</div></div>
+      </div>
+      <div class="drill-instruction">
+        Flash each 汉字 → choral English → choral pinyin<br>
+        After all seven: "How many subjects was that?"
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-text">
+      We just named <span class="count">七</span> subjects — that's <strong>七门课</strong>！
+      Today we'll learn the word <strong>门 (mén)</strong> — the correct measure word for counting subjects.
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

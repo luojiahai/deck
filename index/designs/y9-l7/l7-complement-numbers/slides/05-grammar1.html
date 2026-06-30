@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-05 · I Do · Grammar 1: Verb + 得 + Complement</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; color:var(--text-primary); margin-bottom:14px; }
+
+  /* Structure diagram */
+  .diagram-row {
+    display:flex; align-items:center; gap:0;
+    margin-bottom:18px;
+  }
+  .diag-part {
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--bg-secondary);
+    border:2px solid var(--border-light);
+    border-radius:var(--radius-md);
+    padding:10px 24px;
+    min-width:140px;
+  }
+  .diag-part.de-part {
+    background:var(--accent-coral-dim);
+    border-color:var(--accent-coral);
+  }
+  .diag-cn { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); }
+  .diag-cn.coral { color:var(--accent-coral); }
+  .diag-en { font-size:13px; color:var(--text-muted); margin-top:2px; }
+  .diag-arrow {
+    font-size:24px; color:var(--accent-blue); opacity:0.5; margin:0 6px; flex-shrink:0;
+  }
+
+  /* Example table */
+  .ex-table { width:100%; border-collapse:collapse; margin-bottom:14px; }
+  .ex-table th {
+    text-align:left; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text-muted); padding:8px 16px 6px;
+    border-bottom:2px solid var(--accent-blue);
+  }
+  .ex-table td {
+    padding:10px 16px;
+    border-bottom:1px solid var(--border-light);
+    font-size:24px;
+    vertical-align:middle;
+  }
+  .ex-table tr:nth-child(even) td { background:var(--bg-secondary); }
+  .ex-cn { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); }
+  .ex-note { font-size:17px; color:var(--text-secondary); }
+  .de { color:var(--accent-coral); font-weight:900; }
+  .vb { color:var(--accent-blue); font-weight:900; }
+
+  /* Tip box */
+  .tip-box {
+    background:var(--accent-gold-dim);
+    border:2px solid var(--accent-gold);
+    border-radius:var(--radius-md);
+    padding:14px 24px;
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .tip-icon { font-size:24px; flex-shrink:0; }
+  .tip-body {}
+  .tip-text { font-size:19px; font-weight:700; color:var(--accent-gold); line-height:1.5; }
+  .tip-options { margin-top:6px; font-size:17px; color:var(--text-secondary); line-height:1.7; }
+  .tip-options .opt-label { font-weight:700; color:var(--accent-blue); }
+  .tip-cn { font-family:var(--font-display); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 动词 + 得</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Grammar 1: Verb + 得 + Complement · 15–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">15–20 min · I Do · Grammar 1</div>
+  <div class="main-title">动词 + 得 + 补语 — How the Structure Works</div>
+
+  <!-- Diagram -->
+  <div class="diagram-row">
+    <div class="diag-part">
+      <div class="diag-cn">主语</div>
+      <div class="diag-en">Subject</div>
+    </div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-part">
+      <div class="diag-cn">动词 (+ 宾语 + 动词)</div>
+      <div class="diag-en">Verb (+ Object + Verb repeated)</div>
+    </div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-part de-part">
+      <div class="diag-cn coral">得</div>
+      <div class="diag-en">degree particle</div>
+    </div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-part">
+      <div class="diag-cn">补语</div>
+      <div class="diag-en">Complement</div>
+    </div>
+  </div>
+
+  <!-- Examples -->
+  <table class="ex-table">
+    <thead>
+      <tr>
+        <th style="width:46%">Example</th>
+        <th>Structure Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ex-cn">老师<span class="vb">教</span><span class="de">得</span><span class="vb">好</span>。</td>
+        <td class="ex-note">教 + 得 + 好 &nbsp;·&nbsp; no explicit object</td>
+      </tr>
+      <tr>
+        <td class="ex-cn">他<span class="vb">滑冰滑</span><span class="de">得</span><span class="vb">很好</span>。</td>
+        <td class="ex-note">滑冰 (V+O) → repeat verb 滑 + 得 + 很好</td>
+      </tr>
+      <tr>
+        <td class="ex-cn">她<span class="vb">跑步跑</span><span class="de">得</span><span class="vb">很快</span>。</td>
+        <td class="ex-note">跑步 (V+O) → repeat verb 跑 + 得 + 很快</td>
+      </tr>
+      <tr>
+        <td class="ex-cn">他<span class="vb">钢琴弹</span><span class="de">得</span><span class="vb">很好</span>。</td>
+        <td class="ex-note">钢琴 (object fronted) + 弹 + 得 + 很好</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Tip -->
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div class="tip-body">
+      <div class="tip-text">When the verb has an object (like 滑冰, 钢琴), you have two choices — both are correct!</div>
+      <div class="tip-options">
+        <span class="opt-label">Option A</span> — repeat the verb:&emsp;
+        <span class="tip-cn">他滑冰<span class="de">滑</span>得很好</span><br>
+        <span class="opt-label">Option B</span> — front the object:&emsp;
+        <span class="tip-cn">他<span class="de">钢琴</span>弹得很好</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-06 · Key Patterns</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:50px; font-weight:900; margin-bottom:24px; }
+  .pattern-table { width:100%; border-collapse:separate; border-spacing:0 10px; }
+  .pattern-table thead th { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); padding:0 20px 8px; text-align:left; }
+  .pattern-row td { padding:18px 22px; background:var(--bg-secondary); }
+  .pattern-row td:first-child { border-radius:var(--radius-md) 0 0 var(--radius-md); border-left:4px solid var(--accent-blue); }
+  .pattern-row td:last-child { border-radius:0 var(--radius-md) var(--radius-md) 0; }
+  .pattern-row.neg td:first-child { border-left-color:var(--accent-coral); }
+  .sentence-hanzi { font-family:var(--font-display); font-size:34px; font-weight:900; color:var(--text-primary); }
+  .sentence-hanzi .key { color:var(--accent-blue); }
+  .sentence-hanzi .neg { color:var(--accent-coral); }
+  .sentence-hanzi .compound { color:var(--accent-teal); }
+  .struct-note { font-size:17px; color:var(--text-muted); margin-top:4px; }
+  .struct-badge { display:inline-block; font-size:13px; font-weight:700; padding:2px 12px; border-radius:999px; }
+  .badge-blue-sm { background:var(--accent-blue-dim); color:var(--accent-blue); }
+  .badge-teal-sm { background:var(--accent-teal-dim); color:var(--accent-teal); }
+  .badge-coral-sm { background:var(--accent-coral-dim); color:var(--accent-coral); }
+  .position-note { margin-top:16px; background:var(--accent-gold-dim); border:1.5px solid var(--accent-gold); border-radius:var(--radius-md); padding:14px 24px; font-size:18px; color:var(--text-secondary); }
+  .position-note strong { color:var(--accent-gold); font-family:var(--font-display); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 我觉得</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Sentence Patterns · 18–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">18–20 min · I Do · Sentence Patterns</div>
+  <div class="main-title">句型 · Key Sentence Patterns</div>
+
+  <table class="pattern-table">
+    <thead>
+      <tr>
+        <th style="width:44%">Example Sentence 例句</th>
+        <th style="width:30%">Structure Note 结构</th>
+        <th style="width:26%">Pattern Tag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pattern-row">
+        <td><div class="sentence-hanzi">我<span class="key">觉得</span>汉语很有用。</div></td>
+        <td><div class="struct-note">Subject + <b>觉得</b> + topic + 很 + adjective</div></td>
+        <td><span class="struct-badge badge-blue-sm">Basic Opinion</span></td>
+      </tr>
+      <tr class="pattern-row">
+        <td><div class="sentence-hanzi">我觉得数学很<span class="compound">难学</span>。</div></td>
+        <td><div class="struct-note">Compound adjective fills the 很 + adj slot</div></td>
+        <td><span class="struct-badge badge-teal-sm">Compound: 难 + verb</span></td>
+      </tr>
+      <tr class="pattern-row neg">
+        <td><div class="sentence-hanzi">汉字<span class="neg">不容易</span>写。</div></td>
+        <td><div class="struct-note">不 before 容易 → negation without 觉得</div></td>
+        <td><span class="struct-badge badge-coral-sm">Negation: 不容易</span></td>
+      </tr>
+      <tr class="pattern-row neg">
+        <td><div class="sentence-hanzi">我觉得英语<span class="neg">不难</span>学。</div></td>
+        <td><div class="struct-note">不 before 难 → not difficult; compound broken</div></td>
+        <td><span class="struct-badge badge-coral-sm">Negation: 不难</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="position-note">
+    <strong>Position Rule:</strong> 觉得 comes immediately after the subject — the opinion clause follows directly.
+    &nbsp;·&nbsp; 不 always goes directly before 容易 or 难, never at the end.
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

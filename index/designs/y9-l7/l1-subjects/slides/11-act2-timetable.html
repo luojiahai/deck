@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-11 · Act 2: 星期一课程表</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:34px 100px 28px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:20px; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1.1fr; gap:36px; }
+
+  .activity-box { background:var(--bg-secondary); border:2px dashed var(--accent-gold); border-radius:var(--radius-xl); padding:26px 26px 20px; position:relative; }
+  .activity-badge { position:absolute; top:-14px; left:28px; background:var(--accent-gold); color:#fff; padding:4px 18px; border-radius:999px; font-size:14px; font-weight:700; letter-spacing:0.06em; }
+
+  .step-list { display:flex; flex-direction:column; gap:13px; }
+  .step { display:flex; align-items:flex-start; gap:13px; }
+  .step-num { width:30px; height:30px; border-radius:50%; background:var(--accent-gold); color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; }
+  .step-text { font-size:18px; color:var(--text-secondary); line-height:1.5; padding-top:3px; }
+  .step-text strong { color:var(--text-primary); }
+  .step-text .zh { font-family:var(--font-display); font-weight:700; color:var(--accent-blue); }
+
+  .frames-box { margin-top:16px; background:var(--bg-tertiary); border-radius:var(--radius-md); padding:16px 20px; }
+  .frames-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
+  .frame-row { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--text-primary); margin-bottom:6px; }
+  .frame-row .blank { display:inline-block; min-width:60px; border-bottom:2px solid var(--accent-blue); color:var(--accent-blue); margin:0 3px; }
+
+  /* Timetable visual */
+  .timetable { width:100%; background:var(--bg-secondary); border-radius:var(--radius-xl); border:1.5px solid var(--border-light); overflow:hidden; }
+  .tt-header { background:var(--accent-blue); color:#fff; text-align:center; padding:12px; font-family:var(--font-display); font-size:26px; font-weight:900; letter-spacing:0.06em; }
+  .tt-row { display:grid; grid-template-columns:80px 1fr; border-bottom:1px solid var(--border-light); }
+  .tt-row:last-child { border-bottom:none; }
+  .tt-period { background:var(--bg-tertiary); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:12px 8px; border-right:1px solid var(--border-light); }
+  .tt-period .p-num { font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-muted); text-transform:uppercase; }
+  .tt-period .p-cn { font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--text-secondary); }
+  .tt-subject { display:flex; align-items:center; justify-content:center; padding:12px 20px; }
+  .tt-subject .zh { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--text-primary); }
+  .tt-subject .zh.new { color:var(--accent-blue); }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+  .sed-item { background:var(--bg-tertiary); border-radius:var(--radius-md); padding:12px 14px; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-text { font-size:14px; color:var(--text-secondary); line-height:1.45; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">You Do · Activity 2 · 41–48 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">41–48 min · You Do</div>
+  <div class="main-title">活动二 · 星期一课程表</div>
+
+  <div class="two-col">
+    <div>
+      <div class="activity-box">
+        <div class="activity-badge">YOU DO · Turn &amp; Talk → Write</div>
+        <div style="height:14px;"></div>
+
+        <div class="step-list">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Teacher models: <span class="zh">星期一，第一节课是数学。</span><br>
+            then full count: <span class="zh">星期一有五门课：……</span></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Turn-and-talk: <strong>Partner A</strong> describes periods 1–3; <strong>Partner B</strong> describes periods 4–5 + total count</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Individual: write <strong>ONE sentence</strong> in exercise book about <em>own</em> Monday timetable</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="frames-box" style="margin-top:14px;">
+        <div class="frames-label">Sentence Frames</div>
+        <div class="frame-row">星期一，第<span class="blank"></span>节课是<span class="blank"></span>。</div>
+        <div class="frame-row">星期一我有<span class="blank"></span>门课：<span class="blank"></span>、<span class="blank"></span>和<span class="blank"></span>。</div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          <div class="sed-text">Subject list on board; students may copy 汉字 for writing task</div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          <div class="sed-text">Add opinion: 我觉得星期一很忙！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timetable">
+      <div class="tt-header">星期一 · Monday</div>
+      <div class="tt-row">
+        <div class="tt-period"><div class="p-num">Period</div><div class="p-cn">第一节</div></div>
+        <div class="tt-subject"><div class="zh">数学</div></div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-period"><div class="p-num">Period</div><div class="p-cn">第二节</div></div>
+        <div class="tt-subject"><div class="zh">英文</div></div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-period"><div class="p-num">Period</div><div class="p-cn">第三节</div></div>
+        <div class="tt-subject"><div class="zh new">物理</div></div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-period"><div class="p-num">Period</div><div class="p-cn">第四节</div></div>
+        <div class="tt-subject"><div class="zh">历史</div></div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-period"><div class="p-num">Period</div><div class="p-cn">第五节</div></div>
+        <div class="tt-subject"><div class="zh new">化学</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

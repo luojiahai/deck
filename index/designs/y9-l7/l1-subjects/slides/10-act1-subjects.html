@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-10 · Act 1: 看图说科目</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:24px; }
+
+  .two-col { display:grid; grid-template-columns:1.2fr 1fr; gap:36px; }
+
+  .activity-box { background:var(--bg-secondary); border:2px dashed var(--accent-teal); border-radius:var(--radius-xl); padding:28px 28px 22px; position:relative; }
+  .activity-badge { position:absolute; top:-14px; left:28px; background:var(--accent-teal); color:#fff; padding:4px 18px; border-radius:999px; font-size:14px; font-weight:700; letter-spacing:0.06em; }
+
+  .step-list { display:flex; flex-direction:column; gap:14px; }
+  .step { display:flex; align-items:flex-start; gap:14px; }
+  .step-num { width:32px; height:32px; border-radius:50%; background:var(--accent-teal); color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; flex-shrink:0; }
+  .step-text { font-size:19px; color:var(--text-secondary); line-height:1.55; padding-top:4px; }
+  .step-text strong { color:var(--text-primary); }
+  .step-text em { color:var(--accent-teal); font-style:normal; font-weight:700; }
+
+  /* Scaffold strip */
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px; }
+  .sed-item { background:var(--bg-tertiary); border-radius:var(--radius-md); padding:14px 16px; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-text { font-size:15px; color:var(--text-secondary); line-height:1.5; }
+
+  /* Right panel: subject preview grid */
+  .right-panel { display:flex; flex-direction:column; gap:16px; }
+  .preview-label { font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); }
+  .subj-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .subj-cell { background:var(--bg-tertiary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:10px 12px; text-align:center; }
+  .subj-cell .zh { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--text-primary); }
+  .subj-cell .pin { font-size:13px; color:var(--accent-teal); margin-top:2px; }
+  .subj-cell.new { border-color:var(--accent-blue); background:var(--accent-blue-dim); }
+
+  .timing-tag { display:inline-block; background:var(--accent-teal-dim); border:1px solid var(--accent-teal); border-radius:999px; padding:3px 14px; font-size:13px; color:var(--accent-teal); font-weight:700; margin-bottom:12px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Activity 1 · 34–41 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">34–41 min · We Do</div>
+  <div class="main-title">活动一 · 看图说科目</div>
+
+  <div class="two-col">
+    <div class="activity-box">
+      <div class="activity-badge">WE DO · Picture Flash</div>
+      <div style="height:14px;"></div>
+
+      <div class="step-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Teacher shows <strong>subject picture</strong> (no text) — class names in Chinese. <em>Choral first</em>, then cold call.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">After naming, <strong>汉字 fades in</strong> to confirm. Class reads aloud.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Final pass: teacher says <strong>English</strong>, class says <strong>Chinese</strong>. No pictures.</div>
+        </div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          <div class="sed-text">Keep pinyin visible on first pass; remove for second + third passes</div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          <div class="sed-text">Fluent students add a full 门 pattern sentence for each subject</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="preview-label">All 13 subjects for the activity</div>
+      <div class="subj-grid">
+        <div class="subj-cell"><div class="zh">英文</div><div class="pin">Yīngwén</div></div>
+        <div class="subj-cell"><div class="zh">数学</div><div class="pin">shùxué</div></div>
+        <div class="subj-cell"><div class="zh">音乐</div><div class="pin">yīnyuè</div></div>
+        <div class="subj-cell"><div class="zh">历史</div><div class="pin">lìshǐ</div></div>
+        <div class="subj-cell"><div class="zh">汉语</div><div class="pin">Hànyǔ</div></div>
+        <div class="subj-cell"><div class="zh">体育</div><div class="pin">tǐyù</div></div>
+        <div class="subj-cell new"><div class="zh">物理</div><div class="pin">wùlǐ</div></div>
+        <div class="subj-cell new"><div class="zh">化学</div><div class="pin">huàxué</div></div>
+        <div class="subj-cell new"><div class="zh">生物</div><div class="pin">shēngwù</div></div>
+        <div class="subj-cell new"><div class="zh">地理</div><div class="pin">dìlǐ</div></div>
+        <div class="subj-cell new"><div class="zh">美术</div><div class="pin">měishù</div></div>
+        <div class="subj-cell new"><div class="zh">戏剧</div><div class="pin">xìjù</div></div>
+        <div class="subj-cell new"><div class="zh">法语</div><div class="pin">Fǎyǔ</div></div>
+      </div>
+      <div style="font-size:13px; color:var(--text-muted);">
+        <span style="background:var(--accent-blue-dim); padding:2px 8px; border-radius:4px; color:var(--accent-blue); font-weight:700;">Blue border</span> = new today
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

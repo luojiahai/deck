@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-01 · Title · 我觉得</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body { display:flex; align-items:center; justify-content:center; background:var(--bg-primary); overflow:hidden; position:relative; }
+  .bg-hanzi { position:absolute; right:-40px; bottom:-60px; font-family:var(--font-display); font-size:520px; font-weight:900; color:var(--accent-blue); opacity:0.04; line-height:1; pointer-events:none; user-select:none; }
+  .bg-hanzi-2 { position:absolute; left:-60px; top:-80px; font-family:var(--font-display); font-size:360px; font-weight:900; color:var(--accent-teal); opacity:0.04; line-height:1; pointer-events:none; user-select:none; }
+  .main { text-align:center; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; }
+  .lesson-tag { display:inline-flex; align-items:center; gap:10px; font-size:16px; font-weight:700; letter-spacing:0.2em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:32px; padding:6px 20px; border:1.5px solid var(--accent-blue); border-radius:999px; }
+  .title-cn { font-family:var(--font-display); font-size:180px; font-weight:900; line-height:1.0; color:var(--text-primary); margin-bottom:4px; letter-spacing:-0.02em; }
+  .title-cn .hi { color:var(--accent-blue); }
+  .title-en { font-size:36px; color:var(--text-muted); font-weight:400; letter-spacing:0.06em; margin-bottom:48px; }
+  .divider { width:60px; height:3px; background:var(--accent-blue); border-radius:2px; margin:0 auto 48px; }
+  .meta { display:flex; align-items:center; justify-content:center; gap:28px; font-size:18px; color:var(--text-muted); letter-spacing:0.05em; }
+  .meta .sep { width:5px; height:5px; border-radius:50%; background:var(--accent-blue); opacity:0.4; }
+</style>
+</head>
+<body>
+<div class="bg-hanzi-2">学</div>
+<div class="bg-hanzi">觉</div>
+<div class="main">
+  <div class="lesson-tag">Lesson 2 of 8 · Y9 Unit 3 科目</div>
+  <h1 class="title-cn">我<span class="hi">觉得</span></h1>
+  <div class="title-en">Giving Opinions on School Subjects</div>
+  <div class="divider"></div>
+  <div class="meta">
+    <span>Year 9 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Speaking + Writing</span>
+    <span class="sep"></span>
+    <span>轻松学中文 Book 3 · p.60</span>
+  </div>
+</div>
+</body>
+</html>

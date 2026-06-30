@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-06 · Pattern 2: 为什么……因为……</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:50px; font-weight:900; margin-bottom:24px; }
+  .qa-legend { display:flex; align-items:center; gap:32px; margin-bottom:22px; }
+  .legend-item { display:flex; align-items:center; gap:10px; font-size:18px; font-weight:700; }
+  .legend-dot { width:18px; height:18px; border-radius:50%; }
+  .legend-dot.q { background:var(--accent-blue); }
+  .legend-dot.a { background:var(--accent-teal); }
+  .legend-label.q { color:var(--accent-blue); }
+  .legend-label.a { color:var(--accent-teal); }
+  .qa-pairs { display:flex; flex-direction:column; gap:16px; margin-bottom:22px; }
+  .qa-pair { display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:var(--radius-lg); overflow:hidden; border:1.5px solid var(--border-medium); }
+  .qa-q { background:var(--accent-blue-dim); border-right:2px solid var(--border-medium); padding:16px 24px; }
+  .qa-a { background:var(--accent-teal-dim); padding:16px 24px; }
+  .qa-label { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px; }
+  .qa-label.q { color:var(--accent-blue); }
+  .qa-label.a { color:var(--accent-teal); }
+  .qa-cn { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--text-primary); line-height:1.2; margin-bottom:4px; }
+  .qa-cn .wèi { color:var(--accent-blue); font-size:30px; }
+  .qa-cn .yīn { color:var(--accent-teal); font-size:30px; }
+  .qa-py { font-family:var(--font-body); font-size:14px; color:var(--text-muted); }
+  .qa-en { font-size:16px; color:var(--text-secondary); margin-top:4px; }
+  .pattern-box { display:flex; align-items:center; gap:24px; background:var(--bg-secondary); border-radius:var(--radius-lg); padding:16px 28px; border:2px solid var(--border-medium); }
+  .pb-q { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--accent-blue); }
+  .pb-arrow { font-size:24px; color:var(--text-muted); }
+  .pb-a { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--accent-teal); }
+  .pb-note { font-size:16px; color:var(--text-secondary); flex:1; line-height:1.4; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 为什么？因为！</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Pattern 2: 为什么……因为……</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">I Do · Pattern 2</div>
+  <div class="main-title">为什么……因为…… — Why &amp; Because</div>
+
+  <div class="qa-legend">
+    <div class="legend-item"><div class="legend-dot q"></div><span class="legend-label q">Question 问句 — 为什么</span></div>
+    <div class="legend-item"><div class="legend-dot a"></div><span class="legend-label a">Answer 回答 — 因为</span></div>
+  </div>
+
+  <div class="qa-pairs">
+    <div class="qa-pair">
+      <div class="qa-q">
+        <div class="qa-label q">Q 问句</div>
+        <div class="qa-cn">你<span class="wèi">为什么</span>喜欢化学？</div>
+        <div class="qa-py">Nǐ wèishénme xǐhuān huàxué?</div>
+      </div>
+      <div class="qa-a">
+        <div class="qa-label a">A 回答</div>
+        <div class="qa-cn"><span class="yīn">因为</span>我觉得化学很有意思。</div>
+        <div class="qa-py">Yīnwèi wǒ juéde huàxué hěn yǒu yìsi.</div>
+        <div class="qa-en">Because I think chemistry is interesting.</div>
+      </div>
+    </div>
+    <div class="qa-pair">
+      <div class="qa-q">
+        <div class="qa-label q">Q 问句</div>
+        <div class="qa-cn">你<span class="wèi">为什么</span>不喜欢物理？</div>
+        <div class="qa-py">Nǐ wèishénme bù xǐhuān wùlǐ?</div>
+      </div>
+      <div class="qa-a">
+        <div class="qa-label a">A 回答</div>
+        <div class="qa-cn"><span class="yīn">因为</span>我觉得物理很难学，没意思。</div>
+        <div class="qa-py">Yīnwèi wǒ juéde wùlǐ hěn nán xué, méi yìsi.</div>
+        <div class="qa-en">Because I think physics is hard and boring.</div>
+      </div>
+    </div>
+    <div class="qa-pair">
+      <div class="qa-q">
+        <div class="qa-label q">Q 问句</div>
+        <div class="qa-cn">你最喜欢哪个科目？<span class="wèi">为什么</span>？</div>
+        <div class="qa-py">Nǐ zuì xǐhuān nǎge kēmù? Wèishénme?</div>
+      </div>
+      <div class="qa-a">
+        <div class="qa-label a">A 回答</div>
+        <div class="qa-cn">我最喜欢历史。<span class="yīn">因为</span>我对历史很感兴趣。</div>
+        <div class="qa-py">Wǒ zuì xǐhuān lìshǐ. Yīnwèi wǒ duì lìshǐ hěn gǎn xìngqù.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-box">
+    <div class="pb-q">为什么？</div>
+    <div class="pb-arrow">→</div>
+    <div class="pb-a">因为……</div>
+    <div class="pb-note">Every 为什么 question needs a 因为 answer. They always come as a pair!</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

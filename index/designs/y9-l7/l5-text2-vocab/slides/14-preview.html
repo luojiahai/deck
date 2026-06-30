@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-14 · Preview: Next Lesson</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 100px 28px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:18px; }
+
+  .body-cols { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+
+  /* Left: recap */
+  .recap-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:10px; }
+  .recap-summary { background:var(--accent-teal-dim); border:1.5px solid var(--accent-teal); border-radius:var(--radius-md); padding:14px 20px; margin-bottom:14px; }
+  .recap-text { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--text-primary); line-height:1.55; }
+  .recap-text .hl { color:var(--accent-teal); }
+
+  .vocab-grid-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:10px; }
+  .vocab-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .vocab-mini { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-md); padding:10px 14px; text-align:center; }
+  .vm-hanzi { font-family:var(--font-display); font-size:24px; font-weight:900; color:var(--text-primary); }
+  .vm-hanzi.pos { color:var(--accent-teal); }
+  .vm-hanzi.neg { color:var(--accent-coral); }
+  .vm-py { font-size:14px; color:var(--accent-teal); margin-top:2px; }
+  .vm-en { font-size:13px; color:var(--text-muted); margin-top:1px; }
+
+  /* Right: next lesson preview */
+  .next-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px; }
+  .next-box { background:var(--accent-blue-dim); border:2px solid var(--accent-blue); border-radius:var(--radius-lg); padding:18px 22px; margin-bottom:14px; }
+  .next-lesson-tag { font-size:13px; font-weight:700; color:var(--accent-blue); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px; }
+  .next-title { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--text-primary); margin-bottom:14px; }
+
+  .next-items { display:flex; flex-direction:column; gap:8px; }
+  .next-item { display:flex; align-items:flex-start; gap:12px; background:var(--bg-primary); border-radius:var(--radius-md); padding:10px 14px; border:1px solid var(--border-light); }
+  .next-icon { font-size:16px; flex-shrink:0; margin-top:2px; }
+  .next-item-body { font-size:16px; color:var(--text-primary); line-height:1.45; }
+  .next-item-body strong { color:var(--accent-blue); }
+  .next-item-body .vocab-list { color:var(--accent-teal); font-weight:700; font-size:15px; }
+
+  .preview-sentence { background:var(--bg-secondary); border:1.5px solid var(--border-medium); border-radius:var(--radius-md); padding:14px 20px; text-align:center; }
+  .ps-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .ps-cn { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); line-height:1.4; }
+  .ps-cn .highlight { color:var(--accent-blue); background:var(--accent-blue-dim); padding:2px 8px; border-radius:4px; }
+  .ps-py { font-size:14px; color:var(--text-muted); margin-top:4px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 为什么？因为！</span>
+  <span class="sep"></span>
+  <span class="section-name">Preview · Next Lesson</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Preview · Next Lesson</div>
+  <div class="main-title">今天 + 下一节课 · Today's Recap &amp; What's Next</div>
+
+  <div class="body-cols">
+
+    <!-- Left: Today's recap + vocab grid -->
+    <div>
+      <div class="recap-label">Today's Recap · 今天我们学了</div>
+      <div class="recap-summary">
+        <div class="recap-text">
+          ✓ <span class="hl">6 个新词</span>：科目、为什么、意思、有意思、没意思、教<br>
+          ✓ <span class="hl">为什么 / 因为</span> 问答模式<br>
+          ✓ 有意思 ↔ 没意思 反义词<br>
+          ✓ 句子理顺游戏
+        </div>
+      </div>
+
+      <div class="vocab-grid-label">6 Words Learned Today · 今天的生词</div>
+      <div class="vocab-grid">
+        <div class="vocab-mini">
+          <div class="vm-hanzi">科目</div>
+          <div class="vm-py">kēmù</div>
+          <div class="vm-en">subject</div>
+        </div>
+        <div class="vocab-mini">
+          <div class="vm-hanzi">为什么</div>
+          <div class="vm-py">wèishénme</div>
+          <div class="vm-en">why</div>
+        </div>
+        <div class="vocab-mini">
+          <div class="vm-hanzi">意思</div>
+          <div class="vm-py">yìsi</div>
+          <div class="vm-en">meaning</div>
+        </div>
+        <div class="vocab-mini">
+          <div class="vm-hanzi pos">有意思</div>
+          <div class="vm-py">yǒu yìsi</div>
+          <div class="vm-en">interesting</div>
+        </div>
+        <div class="vocab-mini">
+          <div class="vm-hanzi neg">没意思</div>
+          <div class="vm-py">méi yìsi</div>
+          <div class="vm-en">boring</div>
+        </div>
+        <div class="vocab-mini">
+          <div class="vm-hanzi">教</div>
+          <div class="vm-py">jiāo</div>
+          <div class="vm-en">teach</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Next lesson preview -->
+    <div>
+      <div class="next-label">Next Lesson Preview · 下一节课</div>
+      <div class="next-box">
+        <div class="next-lesson-tag">L6 · 第六课</div>
+        <div class="next-title">继续学 Text 2 的第二部分</div>
+        <div class="next-items">
+          <div class="next-item">
+            <div class="next-icon">📖</div>
+            <div class="next-item-body">
+              <strong>New vocabulary:</strong><br>
+              <span class="vocab-list">功课、测验、考试、学期、作业、大概、差不多</span>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-icon">🔑</div>
+            <div class="next-item-body">
+              <strong>New pattern:</strong> 多长时间 — asking how long things take
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-sentence">
+        <div class="ps-label">Preview Sentence · 预习句型</div>
+        <div class="ps-cn">你每天功课要做<span class="highlight">多长时间</span>？</div>
+        <div class="ps-py">Nǐ měitiān gōngkè yào zuò duō cháng shíjiān?</div>
+        <div style="font-size:15px; color:var(--text-muted); margin-top:8px; border-top:1px solid var(--border-light); padding-top:8px;">
+          → 大概要做两个小时。(Dàgài yào zuò liǎng gè xiǎoshí.)
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

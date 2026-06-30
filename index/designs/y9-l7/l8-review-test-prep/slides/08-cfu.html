@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-08 · CFU · Check for Understanding</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .page-label {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .main-title {
+    font-family:var(--font-display); font-size:46px; font-weight:900;
+    color:var(--text-primary); margin-bottom:24px; line-height:1.15;
+  }
+
+  .cfu-grid {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px;
+    flex:1;
+  }
+
+  /* ── Base card ── */
+  .cfu-card {
+    border-radius:var(--radius-lg);
+    padding:30px 30px 26px;
+    display:flex; flex-direction:column; gap:16px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* Blue card */
+  .cfu-card.blue {
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+  }
+  .cfu-card.blue .cfu-num { color:var(--accent-blue); }
+  .cfu-card.blue .cfu-title { color:var(--accent-blue); }
+  .cfu-card.blue .highlight-word {
+    background:rgba(58,95,138,0.18); border:1.5px solid var(--accent-blue);
+    color:var(--accent-blue);
+  }
+  .cfu-card.blue .method-box {
+    background:rgba(58,95,138,0.08); border-color:rgba(58,95,138,0.25);
+  }
+
+  /* Teal card */
+  .cfu-card.teal {
+    background:var(--accent-teal-dim);
+    border:2px solid var(--accent-teal);
+  }
+  .cfu-card.teal .cfu-num { color:var(--accent-teal); }
+  .cfu-card.teal .cfu-title { color:var(--accent-teal); }
+  .cfu-card.teal .method-box {
+    background:rgba(46,125,110,0.08); border-color:rgba(46,125,110,0.25);
+  }
+
+  /* Coral card */
+  .cfu-card.coral {
+    background:var(--accent-coral-dim);
+    border:2px solid var(--accent-coral);
+  }
+  .cfu-card.coral .cfu-num { color:var(--accent-coral); }
+  .cfu-card.coral .cfu-title { color:var(--accent-coral); }
+  .cfu-card.coral .method-box {
+    background:rgba(201,106,92,0.08); border-color:rgba(201,106,92,0.25);
+  }
+
+  .cfu-header { display:flex; align-items:center; gap:14px; }
+  .cfu-num {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    font-family:var(--font-body);
+  }
+  .cfu-title {
+    font-family:var(--font-display); font-size:26px; font-weight:900; line-height:1.2;
+  }
+
+  .cfu-instruction {
+    font-size:21px; color:var(--text-secondary); line-height:1.6;
+  }
+  .cfu-instruction .cn {
+    font-family:var(--font-display); font-weight:700; color:var(--text-primary);
+  }
+
+  /* Highlight word chips */
+  .word-highlights {
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .highlight-word {
+    border-radius:var(--radius-md);
+    padding:8px 18px;
+    font-family:var(--font-display); font-size:30px; font-weight:900;
+  }
+
+  /* Sentence frame mini */
+  .mini-frame {
+    background:var(--bg-tertiary);
+    border-left:4px solid var(--accent-teal);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+    padding:10px 16px;
+    font-family:var(--font-display); font-size:22px; font-weight:700;
+    color:var(--text-primary);
+  }
+  .mini-blank {
+    display:inline-block; min-width:60px;
+    border-bottom:2px solid var(--accent-teal); color:var(--accent-teal);
+  }
+
+  .method-box {
+    border:1.5px solid;
+    border-radius:var(--radius-md);
+    padding:12px 16px;
+  }
+  .method-label {
+    font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:4px;
+  }
+  .method-text { font-size:19px; color:var(--text-secondary); line-height:1.5; }
+  .method-text .cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+
+  /* OTR note on blue card */
+  .otr-note {
+    font-size:16px; color:var(--text-muted); font-style:italic; margin-top:auto;
+  }
+
+  /* Speech icon for coral */
+  .speech-icon { font-size:42px; line-height:1; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">CFU · Check for Understanding (33–35 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="page-label">33–35 min · CFU</div>
+  <div class="main-title">三个检查点 · 3 CFU Checkpoints</div>
+
+  <div class="cfu-grid">
+
+    <!-- CFU 1: Blue -->
+    <div class="cfu-card blue">
+      <div>
+        <div class="cfu-num">CFU 1</div>
+        <div class="cfu-title">词汇检查 · Vocab Check</div>
+      </div>
+      <div class="cfu-instruction">
+        Hold up your exercise book — show me your translation for:
+      </div>
+      <div class="word-highlights">
+        <span class="highlight-word">经常</span>
+        <span class="highlight-word">没意思</span>
+      </div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">Class scan — teacher circulates</div>
+      </div>
+      <div class="otr-note">Teacher scans exercise books quickly. Correct on board if needed.</div>
+    </div>
+
+    <!-- CFU 2: Teal -->
+    <div class="cfu-card teal">
+      <div>
+        <div class="cfu-num">CFU 2</div>
+        <div class="cfu-title">句型检查 · Pattern Check</div>
+      </div>
+      <div class="cfu-instruction">
+        Give me <strong>ONE</strong> sentence using <span class="cn">因为……所以……</span>
+      </div>
+      <div class="mini-frame">
+        因为我觉得<span class="mini-blank">&ensp;&ensp;&ensp;</span>，所以<span class="mini-blank">&ensp;&ensp;&ensp;</span>。
+      </div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">
+          Cold call <strong>2 students.</strong><br>
+          Class evaluates — <strong>thumbs up / thumbs down.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CFU 3: Coral -->
+    <div class="cfu-card coral">
+      <div>
+        <div class="cfu-num">CFU 3</div>
+        <div class="cfu-title">听力反馈 · Listening Feedback</div>
+      </div>
+      <div class="speech-icon">&#128172;</div>
+      <div class="cfu-instruction">
+        <span class="cn">哪一题最难？</span>
+      </div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">
+          Turn-and-talk <strong>20 seconds.</strong><br>
+          Then cold call <strong>2 pairs</strong> to share.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

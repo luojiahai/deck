@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-10 · Game · 语法大挑战 Sentence Jumble</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; color:var(--text-primary); margin-bottom:8px; }
+
+  /* Setup bar */
+  .setup-bar {
+    display:flex; gap:14px; align-items:center; margin-bottom:16px; flex-wrap:wrap;
+  }
+  .setup-chip {
+    padding:4px 16px; border-radius:999px; font-size:14px; font-weight:700;
+    background:var(--accent-coral-dim); color:var(--accent-coral); letter-spacing:0.06em;
+  }
+  .setup-text { font-size:17px; color:var(--text-secondary); }
+
+  /* Rounds grid */
+  .rounds-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:12px 20px;
+    margin-bottom:12px;
+  }
+  .round-card {
+    background:var(--bg-secondary);
+    border:1.5px solid var(--border-light);
+    border-radius:var(--radius-lg);
+    padding:14px 18px;
+    position:relative;
+  }
+  .round-label {
+    font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:8px;
+  }
+  .tokens-row { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
+  .token {
+    padding:5px 15px; border-radius:999px;
+    font-family:var(--font-display); font-size:18px; font-weight:700;
+    cursor:default;
+  }
+  .tok-blue  { background:var(--accent-blue);  color:#fff; }
+  .tok-teal  { background:var(--accent-teal);  color:#fff; }
+  .tok-coral { background:var(--accent-coral); color:#fff; }
+  .tok-gold  { background:var(--accent-gold);  color:#fff; }
+  .tok-grey  { background:var(--bg-tertiary);  color:var(--text-primary); border:1px solid var(--border-medium); }
+
+  .answer-row {
+    display:flex; align-items:center; gap:8px;
+    font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--accent-teal);
+  }
+  .arr { color:var(--text-muted); font-size:16px; }
+
+  /* Round 5 spans full width */
+  .round-card.full { grid-column:1/-1; }
+
+  /* Bonus note */
+  .bonus-box {
+    background:var(--accent-gold-dim);
+    border:2px solid var(--accent-gold);
+    border-radius:var(--radius-md);
+    padding:10px 22px;
+    font-size:16px; color:var(--accent-gold); font-weight:700;
+    display:flex; align-items:center; gap:10px;
+  }
+
+  .de { color:var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 动词 + 得</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 语法大挑战 Sentence Jumble · 38–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">38–43 min · Game</div>
+  <div class="main-title">语法大挑战 — Sentence Jumble</div>
+
+  <div class="setup-bar">
+    <span class="setup-chip">Teams of 4</span>
+    <span class="setup-text">15 seconds to whisper &amp; agree · First team to raise hand says the full sentence · Correct = 1 point</span>
+  </div>
+
+  <div class="rounds-grid">
+
+    <!-- Round 1 -->
+    <div class="round-card">
+      <div class="round-label">Round 1</div>
+      <div class="tokens-row">
+        <span class="token tok-coral">很快</span>
+        <span class="token tok-blue">她</span>
+        <span class="token tok-teal">跑步</span>
+        <span class="token tok-blue">跑</span>
+        <span class="token tok-grey">得</span>
+      </div>
+      <div class="answer-row"><span class="arr">→</span> 她跑步跑<span class="de">得</span>很快。</div>
+    </div>
+
+    <!-- Round 2 -->
+    <div class="round-card">
+      <div class="round-label">Round 2</div>
+      <div class="tokens-row">
+        <span class="token tok-teal">教</span>
+        <span class="token tok-blue">老师</span>
+        <span class="token tok-grey">得</span>
+        <span class="token tok-coral">好</span>
+        <span class="token tok-gold">也</span>
+      </div>
+      <div class="answer-row"><span class="arr">→</span> 老师教<span class="de">得</span>也好。</div>
+    </div>
+
+    <!-- Round 3 -->
+    <div class="round-card">
+      <div class="round-label">Round 3</div>
+      <div class="tokens-row">
+        <span class="token tok-coral">很好</span>
+        <span class="token tok-blue">他</span>
+        <span class="token tok-teal">钢琴</span>
+        <span class="token tok-blue">弹</span>
+        <span class="token tok-grey">得</span>
+      </div>
+      <div class="answer-row"><span class="arr">→</span> 他钢琴弹<span class="de">得</span>很好。</div>
+    </div>
+
+    <!-- Round 4 -->
+    <div class="round-card">
+      <div class="round-label">Round 4</div>
+      <div class="tokens-row">
+        <span class="token tok-coral">两三次</span>
+        <span class="token tok-blue">每个</span>
+        <span class="token tok-teal">学期</span>
+        <span class="token tok-blue">考</span>
+      </div>
+      <div class="answer-row"><span class="arr">→</span> 每个学期考<span style="color:var(--accent-coral)">两三次</span>。</div>
+    </div>
+
+    <!-- Round 5 — full width -->
+    <div class="round-card full">
+      <div class="round-label">Round 5</div>
+      <div class="tokens-row">
+        <span class="token tok-teal">经常</span>
+        <span class="token tok-blue">滑冰</span>
+        <span class="token tok-blue">他</span>
+        <span class="token tok-coral">不</span>
+      </div>
+      <div class="answer-row"><span class="arr">→</span> 他不经常滑冰。</div>
+    </div>
+
+  </div>
+
+  <div class="bonus-box">
+    ⭐ After each correct answer: "Can you add one word to make it more interesting?" · Grammar diagrams remain visible as reference.
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-07 · Text 2 (Second Portion) · CD Track 27</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; position:relative; }
+
+  /* CD badge */
+  .cd-badge {
+    position: absolute; top: 36px; right: 100px;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-tertiary); border: 1.5px solid var(--border-medium);
+    border-radius: 999px; padding: 6px 18px;
+    font-size: 16px; font-weight: 700; color: var(--text-secondary);
+    letter-spacing: 0.06em;
+  }
+  .cd-badge .note-sym { color: var(--accent-teal); font-size: 18px; }
+
+  .section-label {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.16em;
+    color: var(--accent-blue); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display); font-size: 44px; font-weight: 900;
+    color: var(--text-primary); margin-bottom: 18px; line-height: 1.15;
+  }
+
+  /* Dialogue */
+  .dialogue { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .speech { display: flex; align-items: flex-start; gap: 14px; }
+  .speech.b { flex-direction: row-reverse; }
+
+  .avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; flex-shrink: 0;
+    margin-top: 4px; font-family: var(--font-body);
+  }
+  .speech.a .avatar { background: var(--accent-blue-dim); color: var(--accent-blue); }
+  .speech.b .avatar { background: var(--accent-teal-dim); color: var(--accent-teal); }
+
+  .bubble {
+    padding: 13px 22px; max-width: 1500px;
+    font-family: var(--font-display); font-size: 28px; font-weight: 700;
+    color: var(--text-primary); line-height: 1.5;
+  }
+  .speech.a .bubble {
+    background: var(--accent-blue-dim); border: 1.5px solid var(--accent-blue);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
+  }
+  .speech.b .bubble {
+    background: var(--accent-teal-dim); border: 1.5px solid var(--accent-teal);
+    border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  /* Vocab word with inline pinyin */
+  .vw {
+    display: inline;
+  }
+  .vw .hz {
+    font-weight: 900;
+    border-bottom: 2px solid;
+    padding-bottom: 1px;
+  }
+  .speech.a .vw .hz { color: var(--accent-blue); border-color: var(--accent-blue); }
+  .speech.b .vw .hz { color: var(--accent-teal); border-color: var(--accent-teal); }
+  .vw .py {
+    font-family: var(--font-body); font-size: 17px; font-weight: 500;
+    color: var(--text-muted); margin-left: 3px;
+  }
+  .speech.a .vw .py { color: var(--accent-blue-light, #6A90B8); }
+  .speech.b .vw .py { color: var(--accent-teal-light, #5DAF9F); }
+
+  /* Comprehension section */
+  .comp-section {
+    background: var(--bg-secondary); border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 16px 28px;
+  }
+  .comp-title {
+    font-size: 16px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  .comp-title em { font-style: normal; color: var(--accent-teal); margin-left: 8px; }
+  .comp-list { display: flex; flex-direction: column; gap: 8px; }
+  .comp-item {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .comp-num {
+    font-family: var(--font-display); font-size: 22px; font-weight: 900;
+    color: var(--accent-teal); opacity: 0.45; min-width: 22px; flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .comp-q {
+    font-family: var(--font-display); font-size: 26px; font-weight: 700;
+    color: var(--text-primary); line-height: 1.4;
+  }
+  .comp-q .hint {
+    font-family: var(--font-body); font-size: 18px; font-weight: 400;
+    color: var(--text-muted); margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 功课与考试</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Text 2 (Second Portion) · CD Track 27</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+
+  <!-- CD badge -->
+  <div class="cd-badge">
+    <span class="note-sym">♪</span>
+    <span>CD Track 27</span>
+  </div>
+
+  <div class="section-label">I Do · Text 2 (Part B)</div>
+  <div class="main-title">Text 2 · 第二部分</div>
+
+  <!-- Dialogue -->
+  <div class="dialogue">
+
+    <!-- A line 1 -->
+    <div class="speech a">
+      <div class="avatar">A</div>
+      <div class="bubble">
+        你每天<span class="vw"><span class="hz">功课</span><span class="py">(gōngkè)</span></span>多吗？要做<span class="vw"><span class="hz">多长时间</span><span class="py">(duō cháng shíjiān)</span></span>？
+      </div>
+    </div>
+
+    <!-- B line 1 -->
+    <div class="speech b">
+      <div class="avatar">B</div>
+      <div class="bubble">
+        不太多，<span class="vw"><span class="hz">大概</span><span class="py">(dàgài)</span></span>要做两个小时。
+      </div>
+    </div>
+
+    <!-- A line 2 -->
+    <div class="speech a">
+      <div class="avatar">A</div>
+      <div class="bubble">
+        你们常常有<span class="vw"><span class="hz">测验</span><span class="py">(cèyàn)</span></span>、<span class="vw"><span class="hz">考试</span><span class="py">(kǎoshì)</span></span>吗？
+      </div>
+    </div>
+
+    <!-- B line 2 -->
+    <div class="speech b">
+      <div class="avatar">B</div>
+      <div class="bubble">
+        每个月测验一次，每个<span class="vw"><span class="hz">学期</span><span class="py">(xuéqī)</span></span>考两三次。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Comprehension questions -->
+  <div class="comp-section">
+    <div class="comp-title">读后思考 <em>Comprehension Check</em></div>
+    <div class="comp-list">
+      <div class="comp-item">
+        <div class="comp-num">1</div>
+        <div class="comp-q">他/她每天功课多不多？</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-num">2</div>
+        <div class="comp-q">他/她做功课要多长时间？<span class="hint">（用中文写）</span></div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-num">3</div>
+        <div class="comp-q">他/她每个学期考几次？</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

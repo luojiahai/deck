@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-10 · Act.2: 有意思/没意思 Sentences</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:30px 100px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:16px; }
+
+  .frames-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px; }
+  .frame-box { background:var(--bg-tertiary); border-left:5px solid var(--accent-blue); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:14px 22px; }
+  .frame-box.teal { border-left-color:var(--accent-teal); }
+  .frame-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:6px; }
+  .frame-box.teal .frame-label { color:var(--accent-teal); }
+  .frame-cn { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); line-height:1.4; }
+  .frame-blank { display:inline-block; min-width:80px; border-bottom:3px solid var(--accent-blue); color:var(--accent-blue); padding:0 4px; }
+  .frame-box.teal .frame-blank { border-bottom-color:var(--accent-teal); color:var(--accent-teal); }
+  .frame-choice { color:var(--accent-blue); font-weight:700; }
+  .frame-box.teal .frame-choice { color:var(--accent-teal); }
+
+  .body-cols { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+
+  .subjects-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px; }
+  .subject-chips { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .subject-chip { font-family:var(--font-display); font-size:26px; font-weight:900; background:var(--bg-secondary); border:2px solid var(--border-medium); border-radius:var(--radius-md); padding:8px 22px; color:var(--text-primary); position:relative; }
+  .subject-chip .chip-num { position:absolute; top:-8px; left:10px; font-size:11px; font-weight:700; color:var(--accent-blue); background:var(--bg-primary); padding:0 4px; letter-spacing:0.06em; }
+
+  .proc-title { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px; }
+  .proc-list { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .proc-item { display:flex; align-items:flex-start; gap:12px; background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 14px; font-size:17px; color:var(--text-primary); border:1px solid var(--border-light); line-height:1.4; }
+  .proc-dot { width:22px; height:22px; border-radius:50%; background:var(--accent-blue); color:#fff; font-size:12px; font-weight:700; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+
+  .model-box { background:var(--accent-blue-dim); border:1.5px solid var(--accent-blue); border-radius:var(--radius-lg); padding:16px 22px; }
+  .model-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px; }
+  .model-subject { font-family:var(--font-display); font-size:18px; font-weight:900; color:var(--accent-blue); margin-bottom:8px; }
+  .model-sent { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--text-primary); line-height:1.5; margin-bottom:4px; }
+  .model-sent::before { content:'✎ '; color:var(--accent-blue); }
+  .model-ext { font-size:16px; color:var(--text-secondary); margin-top:8px; font-style:italic; border-top:1px solid var(--border-light); padding-top:8px; }
+  .model-ext::before { content:'★ Ext: '; color:var(--accent-gold); font-style:normal; font-weight:700; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 14px; font-size:13px; color:var(--text-secondary); border:1px solid var(--border-light); line-height:1.5; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 为什么？因为！</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do/You Do · 有意思/没意思 Sentences (27–33 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">27–33 min · We Do / You Do · Act. 2</div>
+  <div class="main-title">造句练习 · Sentence Writing with 有意思 &amp; 感兴趣</div>
+
+  <div class="frames-row">
+    <div class="frame-box">
+      <div class="frame-label">Sentence Frame 1 · 句型一</div>
+      <div class="frame-cn">我觉得 <span class="frame-blank">　科目　</span> 很（<span class="frame-choice">有意思 / 没意思</span>）。</div>
+    </div>
+    <div class="frame-box teal">
+      <div class="frame-label">Sentence Frame 2 · 句型二</div>
+      <div class="frame-cn">我对 <span class="frame-blank teal">　科目　</span> 很<span class="frame-choice">感兴趣</span>。／ 我对 <span class="frame-blank teal">　　</span> <span class="frame-choice">不感兴趣</span>。</div>
+    </div>
+  </div>
+
+  <div class="body-cols">
+
+    <!-- Left: subject prompts + procedure -->
+    <div>
+      <div class="subjects-label">Subject Prompts · 科目 (cycle through all 4)</div>
+      <div class="subject-chips">
+        <div class="subject-chip"><span class="chip-num">①</span>数学</div>
+        <div class="subject-chip"><span class="chip-num">②</span>历史</div>
+        <div class="subject-chip"><span class="chip-num">③</span>音乐</div>
+        <div class="subject-chip"><span class="chip-num">④</span>物理</div>
+      </div>
+
+      <div class="proc-title">For each subject, write TWO sentences · 每个科目写两句</div>
+      <div class="proc-list">
+        <div class="proc-item">
+          <div class="proc-dot">1</div>
+          Sentence 1 using <strong>有意思</strong> or <strong>没意思</strong>
+        </div>
+        <div class="proc-item">
+          <div class="proc-dot">2</div>
+          Sentence 2 using <strong>对……感兴趣</strong> or <strong>对……不感兴趣</strong>
+        </div>
+        <div class="proc-item">
+          <div class="proc-dot">3</div>
+          After each: 10-second turn-and-talk → cold call <strong>1–2 students</strong>
+        </div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold · 支架</div>
+          Frames stay on projector. Pinyin for 有意思 / 没意思 / 感兴趣 visible throughout.
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension · 延伸</div>
+          Add 因为 clause: e.g. 我觉得物理没意思，因为物理很难学。
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: model example -->
+    <div>
+      <div class="model-box">
+        <div class="model-label">Model Example · 示范 (数学)</div>
+        <div class="model-subject">数学 shùxué · Maths</div>
+        <div class="model-sent">我觉得数学没意思。</div>
+        <div class="model-sent">我对数学不感兴趣。</div>
+        <div class="model-ext">我觉得数学没意思，因为数学很难学。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

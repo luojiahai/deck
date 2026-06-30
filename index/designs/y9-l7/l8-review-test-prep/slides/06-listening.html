@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-06 · I Do · Act.12 Listening</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .page-label {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .main-title {
+    font-family:var(--font-display); font-size:46px; font-weight:900;
+    color:var(--text-primary); margin-bottom:20px; line-height:1.15;
+  }
+
+  .two-col {
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    flex:1;
+  }
+
+  /* ── Left column ── */
+  .activity-card {
+    background:var(--bg-secondary);
+    border:1.5px solid var(--border-light);
+    border-radius:var(--radius-lg);
+    padding:28px 32px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .activity-card-header {
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .activity-card-title {
+    font-family:var(--font-display); font-size:28px; font-weight:900;
+    color:var(--text-primary);
+  }
+  .cd-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+    border-radius:999px;
+    padding:6px 20px;
+    font-size:15px; font-weight:700; color:var(--accent-blue);
+    letter-spacing:0.06em;
+  }
+  .cd-badge .cd-icon { font-size:18px; }
+
+  .inst-list {
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .inst-list li {
+    display:flex; align-items:flex-start; gap:12px;
+    font-size:22px; color:var(--text-secondary); line-height:1.5;
+  }
+  .inst-list li::before {
+    content:''; display:inline-block; flex-shrink:0;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--accent-blue); margin-top:9px;
+  }
+  .inst-list .inst-cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+
+  .focus-strip {
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+    border-radius:var(--radius-md);
+    padding:12px 20px;
+  }
+  .focus-label {
+    font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .focus-items {
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .focus-chip {
+    background:rgba(58,95,138,0.18); border-radius:999px;
+    padding:4px 14px; font-size:16px; font-weight:600; color:var(--accent-blue);
+  }
+
+  .sentence-frame-card {
+    background:var(--bg-tertiary);
+    border-left:5px solid var(--accent-blue);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+    padding:14px 22px;
+    font-family:var(--font-display); font-size:28px; font-weight:700;
+    color:var(--text-primary);
+    line-height:1.6;
+  }
+  .sf-blank {
+    display:inline-block; min-width:100px;
+    border-bottom:3px solid var(--accent-blue);
+    color:var(--accent-blue);
+  }
+  .sf-label {
+    font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px; font-family:var(--font-body);
+  }
+
+  /* ── Right column ── */
+  .right-col { display:flex; flex-direction:column; gap:20px; }
+
+  .word-bank-box {
+    background:var(--accent-teal-dim);
+    border:2px solid var(--accent-teal);
+    border-radius:var(--radius-lg);
+    padding:24px 28px;
+    flex:1;
+  }
+  .wb-title {
+    font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-teal); margin-bottom:14px;
+  }
+  .wb-chips {
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .wb-chip {
+    background:rgba(46,125,110,0.18);
+    border:1.5px solid var(--accent-teal);
+    border-radius:var(--radius-md);
+    padding:10px 22px;
+    font-family:var(--font-display); font-size:30px; font-weight:900;
+    color:var(--accent-teal);
+  }
+
+  .otr-strip {
+    background:var(--bg-secondary);
+    border:1px solid var(--border-light);
+    border-radius:var(--radius-md);
+    padding:18px 24px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .otr-row {
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .otr-tag {
+    flex-shrink:0; padding:3px 12px; border-radius:999px;
+    font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .otr-tag.otr { background:var(--accent-coral-dim); color:var(--accent-coral); }
+  .otr-tag.cfu { background:var(--accent-teal-dim); color:var(--accent-teal); }
+  .otr-row-text { font-size:19px; color:var(--text-secondary); line-height:1.5; }
+  .otr-row-text .cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Act.12 Listening (25–30 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="page-label">25–30 min · I Do · Activity 12</div>
+  <div class="main-title">活动12 · Listening Activity <span style="font-family:var(--font-body);font-size:38px;font-weight:700;color:var(--text-secondary)">(CD Track 28)</span></div>
+
+  <div class="two-col">
+
+    <!-- LEFT: Activity setup card -->
+    <div class="activity-card">
+      <div class="activity-card-header">
+        <div class="activity-card-title">活动 12 · Activity 12</div>
+        <div class="cd-badge">
+          <span class="cd-icon">&#9654;</span>
+          CD Track 28
+        </div>
+      </div>
+
+      <ul class="inst-list">
+        <li>Listen to <span class="inst-cn" style="margin-left:4px">CD Track 28</span></li>
+        <li>Complete the listening task in your <span class="inst-cn" style="margin-left:4px">textbook</span></li>
+        <li>Focus: <span class="inst-cn" style="margin-left:4px">subjects mentioned</span>, <span class="inst-cn" style="margin-left:4px">opinions given</span></li>
+        <li>Note: <span class="inst-cn" style="margin-left:4px">test frequency</span> &amp; <span class="inst-cn" style="margin-left:4px">duration of homework</span></li>
+      </ul>
+
+      <div class="focus-strip">
+        <div class="focus-label">Listen for key info</div>
+        <div class="focus-items">
+          <span class="focus-chip">科目</span>
+          <span class="focus-chip">意见/观点</span>
+          <span class="focus-chip">考试频率</span>
+          <span class="focus-chip">作业时间</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sf-label">Sentence Frame · 句型支架</div>
+        <div class="sentence-frame-card">
+          他/她最喜欢<span class="sf-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>，因为……
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Word bank + OTR -->
+    <div class="right-col">
+
+      <div class="word-bank-box">
+        <div class="wb-title">Word Bank · 词汇支持</div>
+        <div class="wb-chips">
+          <span class="wb-chip">物理</span>
+          <span class="wb-chip">化学</span>
+          <span class="wb-chip">历史</span>
+          <span class="wb-chip">音乐</span>
+          <span class="wb-chip">数学</span>
+          <span class="wb-chip">汉语</span>
+        </div>
+      </div>
+
+      <div class="otr-strip">
+        <div class="otr-row">
+          <span class="otr-tag otr">OTR</span>
+          <span class="otr-row-text">Hold up your exercise book after self-marking</span>
+        </div>
+        <div style="width:100%;height:1px;background:var(--border-light)"></div>
+        <div class="otr-row">
+          <span class="otr-tag cfu">CFU</span>
+          <span class="otr-row-text"><span class="cn">哪一题最难？</span>&ensp;Turn-and-talk 20 seconds</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

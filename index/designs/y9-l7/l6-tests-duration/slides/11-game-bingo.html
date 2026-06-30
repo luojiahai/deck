@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-11 · Vocab Bingo 宾果</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  /* Two-column wrapper */
+  .cols {
+    display:grid;
+    grid-template-columns:55fr 45fr;
+    gap:32px;
+    height:100%;
+  }
+
+  /* ── Left column ── */
+  .col-left { display:flex; flex-direction:column; gap:14px; }
+
+  .col-title {
+    font-family:var(--font-display); font-size:38px; font-weight:900;
+    color:var(--text-primary); line-height:1.1; margin-bottom:2px;
+  }
+  .col-title span { color:var(--accent-blue); }
+
+  /* Word bank grid: 4 cols × 3 rows */
+  .word-bank {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:8px;
+  }
+  .wb-cell {
+    background:var(--bg-secondary);
+    border:1.5px solid var(--border-light);
+    border-radius:var(--radius-sm);
+    padding:9px 12px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    align-items:flex-start;
+  }
+  .wb-hanzi {
+    font-family:var(--font-display); font-size:22px; font-weight:700;
+    color:var(--text-primary); line-height:1;
+  }
+  .wb-pinyin {
+    font-size:13px; color:var(--accent-teal); font-weight:500;
+  }
+
+  /* How to play */
+  .how-title {
+    font-size:14px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:4px;
+  }
+  .steps { display:flex; flex-direction:column; gap:5px; }
+  .step { display:flex; align-items:flex-start; gap:10px; }
+  .step-num {
+    font-family:var(--font-display); font-size:16px; font-weight:900;
+    color:var(--accent-blue); opacity:0.5; flex-shrink:0; min-width:18px;
+    line-height:1.5;
+  }
+  .step-text { font-size:16px; color:var(--text-secondary); line-height:1.5; }
+  .step-text strong { color:var(--text-primary); font-family:var(--font-display); }
+
+  /* ── Right column ── */
+  .col-right { display:flex; flex-direction:column; gap:14px; }
+
+  .grid-label {
+    font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:6px;
+  }
+
+  /* 3×3 sample bingo grid */
+  .bingo-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:6px;
+    margin-bottom:4px;
+  }
+  .bingo-cell {
+    background:var(--bg-primary);
+    border:2px solid var(--border-medium);
+    border-radius:var(--radius-sm);
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    color:var(--border-medium);
+  }
+  /* centre cell slightly highlighted */
+  .bingo-cell.free {
+    background:var(--bg-tertiary);
+    border-color:var(--border-light);
+    font-size:13px;
+    color:var(--text-muted);
+    font-weight:700;
+    letter-spacing:0.04em;
+  }
+
+  /* Teacher definitions */
+  .defs-label {
+    font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text-secondary); margin-bottom:6px;
+  }
+  .defs-list {
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px 6px;
+  }
+  .def-item {
+    font-size:14px; color:var(--text-secondary);
+    background:var(--bg-secondary);
+    border:1px solid var(--border-light);
+    border-radius:var(--radius-sm);
+    padding:3px 10px;
+    line-height:1.4;
+  }
+
+  /* Scaffold / Extension notes */
+  .note-strip {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-radius:var(--radius-sm);
+    padding:9px 16px;
+    font-size:15px;
+    color:var(--text-secondary);
+  }
+  .note-strip.teal {
+    background:var(--accent-teal-dim);
+    border:1.5px solid var(--accent-teal);
+  }
+  .note-strip.gold {
+    background:var(--accent-gold-dim);
+    border:1.5px solid var(--accent-gold);
+  }
+  .note-badge {
+    font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    padding:3px 10px; border-radius:999px; white-space:nowrap; flex-shrink:0;
+  }
+  .note-strip.teal .note-badge { background:var(--accent-teal); color:#fff; }
+  .note-strip.gold .note-badge { background:var(--accent-gold); color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 功课与考试</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Vocab Bingo 宾果 (38–43 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+<div class="cols">
+
+  <!-- ══ LEFT COLUMN ══ -->
+  <div class="col-left">
+
+    <div class="col-title">词汇宾果 <span>Vocab Bingo</span></div>
+
+    <!-- 4×3 word bank -->
+    <div class="word-bank">
+
+      <!-- Row 1 -->
+      <div class="wb-cell">
+        <div class="wb-hanzi">功课</div>
+        <div class="wb-pinyin">gōngkè</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">作业</div>
+        <div class="wb-pinyin">zuòyè</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">测验</div>
+        <div class="wb-pinyin">cèyàn</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">考试</div>
+        <div class="wb-pinyin">kǎoshì</div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="wb-cell">
+        <div class="wb-hanzi">学期</div>
+        <div class="wb-pinyin">xuéqī</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">大概</div>
+        <div class="wb-pinyin">dàgài</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">差不多</div>
+        <div class="wb-pinyin">chàbuduō</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi" style="font-size:18px;">多长时间</div>
+        <div class="wb-pinyin">duō cháng shíjiān</div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="wb-cell">
+        <div class="wb-hanzi">小时</div>
+        <div class="wb-pinyin">xiǎoshí</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi" style="font-size:18px;">每个月</div>
+        <div class="wb-pinyin">měi gè yuè</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi" style="font-size:18px;">每个学期</div>
+        <div class="wb-pinyin">měi gè xuéqī</div>
+      </div>
+      <div class="wb-cell">
+        <div class="wb-hanzi">一次</div>
+        <div class="wb-pinyin">yī cì</div>
+      </div>
+
+    </div>
+
+    <!-- How to play -->
+    <div>
+      <div class="how-title">How to play</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Draw a <strong>3×3</strong> grid in your exercise book</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Choose <strong>9 of the 12 words</strong> — write characters only, one per cell</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Teacher calls English definitions — cross off the matching Chinese character</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">First to complete a row / column / diagonal calls <strong style="font-family:var(--font-display);">宾果！</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-text">Winner reads back 3 characters to verify</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ RIGHT COLUMN ══ -->
+  <div class="col-right">
+
+    <!-- Sample 3×3 bingo grid -->
+    <div class="grid-label">Sample Grid Template</div>
+    <div class="bingo-grid">
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell free">your<br>choice</div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell"></div>
+    </div>
+
+    <!-- Teacher definitions -->
+    <div class="defs-label">Teacher Definitions (call order: your choice)</div>
+    <div class="defs-list">
+      <div class="def-item">approximately</div>
+      <div class="def-item">examination</div>
+      <div class="def-item">one semester</div>
+      <div class="def-item">quiz / short test</div>
+      <div class="def-item">how long</div>
+      <div class="def-item">one time</div>
+      <div class="def-item">homework (1)</div>
+      <div class="def-item">an hour</div>
+      <div class="def-item">every month</div>
+      <div class="def-item">about the same</div>
+      <div class="def-item">homework (2)</div>
+      <div class="def-item">every semester</div>
+    </div>
+
+    <!-- Scaffold note -->
+    <div class="note-strip teal">
+      <span class="note-badge">Scaffold</span>
+      <span>Word bank with characters + pinyin stays on projector throughout the game</span>
+    </div>
+
+    <!-- Extension note -->
+    <div class="note-strip gold">
+      <span class="note-badge">Extension</span>
+      <span>After game: write 3 sentences using your crossed-off words</span>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

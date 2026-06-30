@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-11 · Game · Correct the Teacher</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:6px; }
+  .sub-title { font-size:20px; color:var(--text-muted); margin-bottom:20px; }
+  .game-table { width:100%; border-collapse:separate; border-spacing:0 10px; }
+  .game-table th { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:8px 20px; color:var(--text-muted); text-align:left; }
+  .game-table th.wrong-h { color:var(--accent-coral); }
+  .game-table th.correct-h { color:var(--accent-teal); }
+  .game-row td { padding:14px 20px; font-family:var(--font-display); font-size:26px; font-weight:700; vertical-align:middle; }
+  .game-row td:first-child { border-radius:var(--radius-md) 0 0 var(--radius-md); background:rgba(201,106,92,0.08); color:var(--accent-coral); border:2px solid var(--accent-coral); border-right:none; }
+  .game-row td:first-child .strike { text-decoration:line-through; text-decoration-color:var(--accent-coral); }
+  .game-row td:nth-child(2) { background:var(--bg-secondary); color:var(--text-muted); font-size:22px; font-weight:400; border-top:2px solid var(--border-light); border-bottom:2px solid var(--border-light); text-align:center; font-family:var(--font-body); min-width:60px; }
+  .game-row td:last-child { border-radius:0 var(--radius-md) var(--radius-md) 0; background:rgba(46,125,110,0.08); color:var(--accent-teal); border:2px solid var(--accent-teal); border-left:none; }
+  .diff-wrong { background:rgba(201,106,92,0.3); padding:2px 4px; border-radius:3px; }
+  .diff-correct { background:rgba(46,125,110,0.3); padding:2px 4px; border-radius:3px; }
+  .timer-note { background:var(--accent-gold-dim); border:2px solid var(--accent-gold); border-radius:var(--radius-md); padding:12px 24px; display:flex; align-items:center; gap:14px; margin-top:12px; }
+  .timer-icon { font-size:24px; }
+  .timer-text { font-size:18px; color:var(--accent-gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 兴趣与原因</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Correct the Teacher · 37–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">37–43 min · Game</div>
+  <div class="main-title">游戏 · Correct the Teacher!</div>
+  <div class="sub-title">老师犯了错误——你能改正吗？ (max 10 sec explanation per error)</div>
+
+  <table class="game-table">
+    <thead>
+      <tr>
+        <th class="wrong-h">&#10060; Error (Teacher says…)</th>
+        <th></th>
+        <th class="correct-h">&#10003; Correction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="game-row">
+        <td>我<span class="diff-wrong">在</span>历史很感兴趣。</td>
+        <td>→</td>
+        <td>我<span class="diff-correct">对</span>历史很感兴趣。</td>
+      </tr>
+      <tr class="game-row">
+        <td>我对音乐感兴趣<span class="diff-wrong">很</span>。</td>
+        <td>→</td>
+        <td>我对音乐<span class="diff-correct">很</span>感兴趣。</td>
+      </tr>
+      <tr class="game-row">
+        <td><span class="diff-wrong">所以</span>我喜欢化学。</td>
+        <td>→</td>
+        <td><span class="diff-correct">因为</span>我觉得化学很有意思，<span class="diff-correct">所以</span>我喜欢化学。</td>
+      </tr>
+      <tr class="game-row">
+        <td style="font-size:22px;">因为老师对我很好，<span class="diff-wrong">我</span>喜欢上历史课。</td>
+        <td>→</td>
+        <td style="font-size:22px;">因为老师对我很好，<span class="diff-correct">所以</span>我喜欢上历史课。</td>
+      </tr>
+      <tr class="game-row">
+        <td>我对数学<span class="diff-wrong">有很大兴趣</span>。</td>
+        <td>→</td>
+        <td>我对数学<span class="diff-correct">很感兴趣</span>。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="timer-note">
+    <div class="timer-icon">&#9201;</div>
+    <div class="timer-text">After each correction: explain the error in English in MAX 10 seconds, then move on.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

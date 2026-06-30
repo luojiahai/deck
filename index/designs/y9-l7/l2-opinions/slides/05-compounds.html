@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-05 · Compounds</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:50px; font-weight:900; margin-bottom:28px; }
+  .rule-row { display:flex; align-items:center; gap:28px; margin-bottom:32px; flex-wrap:wrap; }
+  .formula-block { display:flex; align-items:center; gap:16px; background:var(--bg-tertiary); border:2px solid var(--accent-blue); border-radius:var(--radius-md); padding:16px 32px; }
+  .fb-part { text-align:center; }
+  .fb-hanzi { font-family:var(--font-display); font-size:56px; font-weight:900; line-height:1; }
+  .fb-hanzi.blue { color:var(--accent-blue); }
+  .fb-hanzi.teal { color:var(--accent-teal); }
+  .fb-label { font-size:13px; color:var(--text-muted); margin-top:4px; font-weight:600; letter-spacing:0.06em; }
+  .fb-op { font-size:36px; color:var(--text-muted); font-weight:300; }
+  .fb-equals { font-size:40px; color:var(--accent-blue); font-weight:700; }
+  .rule-note { font-size:20px; color:var(--text-secondary); background:var(--accent-blue-dim); border-left:4px solid var(--accent-blue); padding:12px 20px; border-radius:0 var(--radius-md) var(--radius-md) 0; }
+  .rule-note strong { color:var(--accent-blue); }
+  .compounds-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:18px; }
+  .compound-card { border-radius:var(--radius-lg); padding:24px 20px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; border:2px solid; }
+  .compound-card.nan { background:var(--accent-coral-dim); border-color:var(--accent-coral); }
+  .compound-card.easy { background:var(--accent-teal-dim); border-color:var(--accent-teal); }
+  .cc-hanzi { font-family:var(--font-display); font-size:64px; font-weight:900; line-height:1; }
+  .compound-card.nan .cc-hanzi { color:var(--accent-coral); }
+  .compound-card.easy .cc-hanzi { color:var(--accent-teal); }
+  .cc-pinyin { font-size:20px; font-weight:600; color:var(--text-secondary); }
+  .compound-card.nan .cc-pinyin { color:var(--accent-coral); }
+  .compound-card.easy .cc-pinyin { color:var(--accent-teal); }
+  .cc-english { font-size:18px; color:var(--text-secondary); }
+  .cc-build { font-size:16px; color:var(--text-muted); background:rgba(255,255,255,0.6); border-radius:var(--radius-sm); padding:4px 12px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 我觉得</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Compounds: 难学 容易学 难写 容易写 · 14–18 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">14–18 min · I Do · Compound Formation</div>
+  <div class="main-title">合成词 · Difficulty Compounds</div>
+
+  <div class="rule-row">
+    <div class="formula-block">
+      <div class="fb-part">
+        <div class="fb-hanzi blue">难</div>
+        <div class="fb-label">nán · difficult</div>
+      </div>
+      <div class="fb-op">/</div>
+      <div class="fb-part">
+        <div class="fb-hanzi teal">容易</div>
+        <div class="fb-label">róngyì · easy</div>
+      </div>
+      <div class="fb-op">+</div>
+      <div class="fb-part">
+        <div class="fb-hanzi" style="color:var(--text-primary);">动词</div>
+        <div class="fb-label">verb</div>
+      </div>
+      <div class="fb-equals">=</div>
+      <div class="fb-part">
+        <div class="fb-hanzi" style="color:var(--accent-gold);">合成词</div>
+        <div class="fb-label">compound adjective</div>
+      </div>
+    </div>
+    <div class="rule-note">
+      <strong>Rule:</strong> 难 or 容易 + any verb → "difficult/easy to [verb]"<br>
+      Slot: takes the adjective position in a sentence
+    </div>
+  </div>
+
+  <div class="compounds-grid">
+    <div class="compound-card nan">
+      <div class="cc-hanzi">难学</div>
+      <div class="cc-pinyin">nán xué</div>
+      <div class="cc-english">difficult to learn</div>
+      <div class="cc-build">难 + 学</div>
+    </div>
+    <div class="compound-card nan">
+      <div class="cc-hanzi">难写</div>
+      <div class="cc-pinyin">nán xiě</div>
+      <div class="cc-english">difficult to write</div>
+      <div class="cc-build">难 + 写</div>
+    </div>
+    <div class="compound-card easy">
+      <div class="cc-hanzi">容易学</div>
+      <div class="cc-pinyin">róngyì xué</div>
+      <div class="cc-english">easy to learn</div>
+      <div class="cc-build">容易 + 学</div>
+    </div>
+    <div class="compound-card easy">
+      <div class="cc-hanzi">容易写</div>
+      <div class="cc-pinyin">róngyì xiě</div>
+      <div class="cc-english">easy to write</div>
+      <div class="cc-build">容易 + 写</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

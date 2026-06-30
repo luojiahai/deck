@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-08 · We Do · 句子工厂 Sentence Factory</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; color:var(--text-primary); margin-bottom:14px; }
+
+  /* Scaffold frame */
+  .frame-box {
+    background:var(--bg-tertiary);
+    border-left:6px solid var(--accent-blue);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+    padding:12px 24px;
+    font-family:var(--font-display); font-size:30px; font-weight:700;
+    color:var(--text-primary); margin-bottom:16px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .blank {
+    display:inline-block; min-width:110px;
+    border-bottom:3px solid var(--accent-blue);
+    color:var(--accent-blue); text-align:center;
+  }
+  .de-span { color:var(--accent-coral); }
+
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+  /* Prompt table */
+  .prompt-table { width:100%; border-collapse:collapse; margin-bottom:0; }
+  .prompt-table th {
+    text-align:center; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--text-muted); padding:8px 14px 6px;
+    border-bottom:2px solid var(--accent-blue);
+  }
+  .prompt-table td {
+    padding:10px 14px; text-align:center;
+    border-bottom:1px solid var(--border-light);
+    font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary);
+  }
+  .prompt-table tr:nth-child(even) td { background:var(--bg-secondary); }
+
+  /* Steps */
+  .steps-col {}
+  .steps-title { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:10px; }
+  .step-item {
+    display:flex; gap:12px; align-items:flex-start;
+    padding:8px 0; border-bottom:1px solid var(--border-light); font-size:17px; color:var(--text-secondary);
+  }
+  .step-item:last-child { border-bottom:none; }
+  .step-num {
+    font-family:var(--font-display); font-size:22px; font-weight:900;
+    color:var(--accent-teal); flex-shrink:0; line-height:1.3; min-width:26px;
+  }
+  .step-text { line-height:1.5; }
+  .step-time { font-size:13px; color:var(--text-muted); }
+
+  /* Word bank + strips */
+  .word-bank {
+    background:var(--accent-blue-dim); border:1.5px solid var(--accent-blue);
+    border-radius:var(--radius-md); padding:10px 18px;
+    font-size:17px; color:var(--accent-blue); font-weight:700;
+    margin-top:10px;
+  }
+  .wb-label { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; opacity:0.7; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); padding:9px 14px; font-size:14px; color:var(--text-secondary); }
+  .sed-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 动词 + 得</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · 句子工厂 Sentence Factory · 20–31 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">20–31 min · We Do</div>
+  <div class="main-title">句子工厂 Sentence Factory</div>
+
+  <!-- Scaffold Frame -->
+  <div class="frame-box">
+    <span class="blank">&nbsp;主语&nbsp;</span>
+    <span>&nbsp;[activity]&nbsp;</span>
+    <span>[V]</span>
+    <span class="de-span">得</span>
+    <span class="blank">&nbsp;补语&nbsp;</span>
+    。
+  </div>
+
+  <div class="cols">
+    <!-- Prompt table -->
+    <div>
+      <table class="prompt-table">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Subject</th>
+            <th>Complement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>滑冰</td>
+            <td>他</td>
+            <td>很好</td>
+          </tr>
+          <tr>
+            <td>跑步</td>
+            <td>她</td>
+            <td>很快</td>
+          </tr>
+          <tr>
+            <td>钢琴</td>
+            <td>老师</td>
+            <td>也好</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="word-bank">
+        <div class="wb-label">Word Bank · Complements</div>
+        很好 &nbsp;/&nbsp; 很快 &nbsp;/&nbsp; 很慢 &nbsp;/&nbsp; 不太好 &nbsp;/&nbsp; 非常好
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps-col">
+      <div class="steps-title">Activity Steps</div>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text">Teacher models Row 1: <strong>他滑冰滑得很好。</strong> Students write. <span class="step-time">(1 min)</span></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text">Students write independently for Rows 2–3. <span class="step-time">(3 min)</span></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text">Turn-and-talk: <strong>你经常滑冰吗？你滑冰滑得好吗？</strong> <span class="step-time">(2 min)</span></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-text">Cold call 3 students to report partner's answer. <span class="step-time">(2 min)</span></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-text">Students write 2 more free-choice sentences. <span class="step-time">(3 min)</span></div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          Sentence frame stays visible on board. Use word bank for complements.
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          Add frequency clause: 她不经常跑步，但是跑步跑得很快. Add reason with 因为.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

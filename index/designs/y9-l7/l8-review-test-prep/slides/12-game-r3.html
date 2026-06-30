@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-12 · Game Round 3 · 句子挑战 (48–51 min)</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    justify-content: flex-start;
+    padding: 28px 100px 20px;
+  }
+
+  /* Page heading */
+  .section-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+    color: var(--accent-teal); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  /* Challenge cards layout */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .challenge-card {
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Blue theme — Challenge 1 */
+  .challenge-blue {
+    background: var(--accent-blue-dim);
+    border: 2px solid var(--accent-blue);
+  }
+  .challenge-blue .c-num {
+    background: var(--accent-blue);
+    color: #fff;
+  }
+  .challenge-blue .c-type-badge {
+    background: var(--accent-blue);
+    color: #fff;
+  }
+  .challenge-blue .c-sentence {
+    color: var(--text-primary);
+    border-left-color: var(--accent-blue);
+  }
+  .challenge-blue .c-answer-box {
+    background: var(--accent-blue);
+    color: #fff;
+  }
+  .challenge-blue .c-note { color: var(--accent-blue); }
+
+  /* Coral theme — Challenge 2 */
+  .challenge-coral {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+  }
+  .challenge-coral .c-num {
+    background: var(--accent-coral);
+    color: #fff;
+  }
+  .challenge-coral .c-type-badge {
+    background: var(--accent-coral);
+    color: #fff;
+  }
+  .challenge-coral .c-sentence {
+    color: var(--text-primary);
+    border-left-color: var(--accent-coral);
+  }
+  .challenge-coral .c-note { color: var(--accent-coral); }
+
+  /* Teal theme — Challenge 3 */
+  .challenge-teal {
+    background: var(--accent-teal-dim);
+    border: 2px solid var(--accent-teal);
+  }
+  .challenge-teal .c-num {
+    background: var(--accent-teal);
+    color: #fff;
+  }
+  .challenge-teal .c-type-badge {
+    background: var(--accent-teal);
+    color: #fff;
+  }
+  .challenge-teal .c-sentence {
+    color: var(--text-primary);
+    border-left-color: var(--accent-teal);
+  }
+  .challenge-teal .c-note { color: var(--accent-teal); }
+  .challenge-teal .c-open-badge {
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  /* Card elements */
+  .c-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .c-num {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .c-type-badge {
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .c-sentence {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 700;
+    line-height: 1.45;
+    padding: 12px 16px;
+    border-left: 4px solid;
+    background: rgba(255,255,255,0.55);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .c-blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 3px solid currentColor;
+  }
+
+  .c-answer-box {
+    padding: 8px 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 900;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  .c-note {
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  /* Error pair inside coral card */
+  .error-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .err-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.55);
+  }
+  .err-label {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .err-text-wrong {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    color: var(--accent-coral);
+    text-decoration: line-through;
+  }
+  .err-arrow {
+    font-size: 20px; color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .err-text-correct {
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    color: var(--accent-teal);
+  }
+  .err-fix-note {
+    font-size: 16px; font-weight: 700;
+    background: var(--accent-coral);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* Produce card requirement */
+  .c-requirement {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    background: rgba(255,255,255,0.55);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+  }
+  .c-requirement strong { color: var(--accent-teal); }
+
+  /* After-answers note strip */
+  .note-strip {
+    background: var(--accent-gold-dim);
+    border: 1.5px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 11px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .note-strip-icon { font-size: 22px; flex-shrink: 0; }
+  .note-strip-text { font-size: 18px; color: var(--text-secondary); }
+  .note-strip-text strong { color: var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Round 3: 句子挑战 (48–51 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+
+  <div class="section-label">Round 3 · 48–51 min</div>
+  <div class="main-title">Round 3 · 句子挑战 · Sentence Challenges</div>
+
+  <div class="challenges-grid">
+
+    <!-- Challenge 1: Complete the sentence — blue -->
+    <div class="challenge-card challenge-blue">
+      <div class="c-header">
+        <div class="c-num">1</div>
+        <span class="c-type-badge">Complete · 补全句子</span>
+      </div>
+      <div class="c-sentence">
+        因为我觉得历史很有意思，<span class="c-blank"></span>我喜欢历史。
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="c-answer-box">所以</div>
+        <span class="c-note">连词 conjunction</span>
+      </div>
+    </div>
+
+    <!-- Challenge 2: Error correction — coral -->
+    <div class="challenge-card challenge-coral">
+      <div class="c-header">
+        <div class="c-num">2</div>
+        <span class="c-type-badge">Correct Error · 改错</span>
+      </div>
+      <div class="error-block">
+        <div class="err-row">
+          <span class="err-label">❌</span>
+          <span class="err-text-wrong">我在数学很感兴趣。</span>
+        </div>
+        <div style="text-align:center; font-size:22px; color:var(--text-muted);">↓</div>
+        <div class="err-row">
+          <span class="err-label">✅</span>
+          <span class="err-text-correct">我对数学很感兴趣。</span>
+          <span class="err-fix-note">在→对</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Challenge 3: Open production — teal -->
+    <div class="challenge-card challenge-teal">
+      <div class="c-header">
+        <div class="c-num">3</div>
+        <span class="c-type-badge">Produce · 造句</span>
+      </div>
+      <div class="c-sentence">
+        我们的数学老师<span class="c-blank"></span>。
+      </div>
+      <div class="c-requirement">
+        Must use <strong>教得</strong> + complement<br>
+        e.g. 教得很好 / 很有趣
+      </div>
+      <div class="c-open-badge">Open Answer ✦</div>
+    </div>
+
+  </div>
+
+  <!-- After-answer note strip -->
+  <div class="note-strip">
+    <span class="note-strip-icon">⏱</span>
+    <span class="note-strip-text">After each answer: <strong>10-second explanation in English max</strong></span>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+  <span>L8 · Game Round 3 · 句子挑战 · 48–51 min</span>
+</div>
+
+</body>
+</html>

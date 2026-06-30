@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-08 · CFU Checkpoints</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+
+  .section-label {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 40px; font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  /* ── Three-card row ── */
+  .cfu-row {
+    flex: 1;
+    display: flex;
+    gap: 22px;
+  }
+
+  .cfu-card {
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid;
+  }
+  .cfu-card.blue  { border-color: var(--accent-blue); }
+  .cfu-card.coral { border-color: var(--accent-coral); }
+  .cfu-card.teal  { border-color: var(--accent-teal); }
+
+  .card-bar { height: 8px; flex-shrink: 0; }
+  .cfu-card.blue  .card-bar { background: var(--accent-blue); }
+  .cfu-card.coral .card-bar { background: var(--accent-coral); }
+  .cfu-card.teal  .card-bar { background: var(--accent-teal); }
+
+  .card-body {
+    flex: 1;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--bg-secondary);
+  }
+
+  /* Label badge */
+  .cfu-badge {
+    display: inline-block; align-self: flex-start;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    font-family: var(--font-body);
+  }
+  .cfu-card.blue  .cfu-badge { background: var(--accent-blue-dim);  color: var(--accent-blue); }
+  .cfu-card.coral .cfu-badge { background: var(--accent-coral-dim); color: var(--accent-coral); }
+  .cfu-card.teal  .cfu-badge { background: var(--accent-teal-dim);  color: var(--accent-teal); }
+
+  /* Prompt */
+  .cfu-prompt {
+    font-size: 22px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .cfu-prompt .zh {
+    font-family: var(--font-display);
+    font-style: normal; font-weight: 700;
+    font-size: 28px;
+    color: var(--text-primary);
+  }
+  .cfu-prompt .error-zh {
+    font-family: var(--font-display);
+    font-style: normal; font-weight: 700;
+    font-size: 28px;
+    color: var(--accent-coral);
+  }
+
+  .card-rule { height: 1px; background: var(--border-light); flex-shrink: 0; }
+
+  /* Sub-label */
+  .sub-label {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* CFU 1 — expected answer */
+  .answer-zh {
+    font-family: var(--font-display);
+    font-size: 30px; font-weight: 700;
+    color: var(--text-primary); line-height: 1.4;
+  }
+  .k-blue  { color: var(--accent-blue); }
+  .k-teal  { color: var(--accent-teal); }
+
+  /* CFU 2 — error issues */
+  .issue-list { display: flex; flex-direction: column; gap: 10px; }
+  .issue-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 19px; color: var(--text-secondary); line-height: 1.45;
+  }
+  .bul { color: var(--accent-coral); font-size: 20px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .correction {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 700;
+    color: var(--accent-teal);
+  }
+
+  /* CFU 3 — gesture */
+  .finger-hint { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .finger-item { display: flex; align-items: center; gap: 10px; }
+  .fi-hanzi {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 700;
+    color: var(--text-primary);
+  }
+  .fi-badge {
+    padding: 4px 14px; border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    font-family: var(--font-body);
+  }
+  .fi-badge.one { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .fi-badge.two { background: var(--accent-blue-dim); color: var(--accent-blue); }
+
+  .gesture-seq { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
+  .g-word {
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 700;
+    padding: 8px 20px; border-radius: var(--radius-sm);
+  }
+  .g-word.quiz { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .g-word.exam { background: var(--accent-blue-dim); color: var(--accent-blue); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 功课与考试</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · CFU Checkpoints (22–25 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+
+  <div class="section-label">22–25 min · I Do · CFU</div>
+  <div class="main-title">CFU Checkpoints</div>
+
+  <div class="cfu-row">
+
+    <!-- ── CFU 1 · TRANSLATION ── -->
+    <div class="cfu-card blue">
+      <div class="card-bar"></div>
+      <div class="card-body">
+        <div class="cfu-badge">CFU 1 · Translation</div>
+        <div class="cfu-prompt">
+          "How do you say<br>
+          <span class="zh">'I do homework for about two hours'</span>?"
+        </div>
+        <div class="card-rule"></div>
+        <div>
+          <div class="sub-label">Expected Answer</div>
+          <div class="answer-zh" style="margin-top:8px;">
+            我<span class="k-blue">大概</span>要做<span class="k-blue">两个小时</span>功课。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CFU 2 · ERROR FIND ── -->
+    <div class="cfu-card coral">
+      <div class="card-bar"></div>
+      <div class="card-body">
+        <div class="cfu-badge">CFU 2 · Error Find</div>
+        <div class="cfu-prompt">
+          What's wrong?<br>
+          <span class="error-zh">大概我要做功课两个小时。</span>
+        </div>
+        <div class="card-rule"></div>
+        <div>
+          <div class="sub-label">Elicit from class</div>
+          <div class="issue-list" style="margin-top:8px;">
+            <div class="issue-row">
+              <span class="bul">•</span>
+              <span>大概 should come before the verb phrase, not at the start of the sentence</span>
+            </div>
+            <div class="issue-row">
+              <span class="bul">•</span>
+              <span>两个小时 should come before 功课</span>
+            </div>
+          </div>
+          <div class="correction" style="margin-top:12px;">✓ 我大概要做两个小时功课。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CFU 3 · GESTURE CHECK ── -->
+    <div class="cfu-card teal">
+      <div class="card-bar"></div>
+      <div class="card-body">
+        <div class="cfu-badge">CFU 3 · Gesture Check</div>
+        <div class="finger-hint">
+          <div class="finger-item">
+            <span class="fi-hanzi">测验</span>
+            <span class="fi-badge one">☝ 1 finger</span>
+          </div>
+          <div class="finger-item">
+            <span class="fi-hanzi">考试</span>
+            <span class="fi-badge two">✌ 2 fingers</span>
+          </div>
+        </div>
+        <div class="card-rule"></div>
+        <div>
+          <div class="sub-label">Teacher reads in sequence</div>
+          <div class="gesture-seq">
+            <span class="g-word quiz">测验</span>
+            <span class="g-word exam">考试</span>
+            <span class="g-word exam">考试</span>
+            <span class="g-word quiz">测验</span>
+            <span class="g-word exam">考试</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

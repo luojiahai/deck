@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-13 · Preview · Next Lesson</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:48px; font-weight:900; margin-bottom:22px; }
+  .two-col { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:start; }
+
+  /* Left: recap + next lesson activities */
+  .recap-strip { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-md); padding:14px 20px; margin-bottom:18px; }
+  .strip-label { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:8px; }
+  .strip-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .strip-dot { width:7px; height:7px; min-width:7px; border-radius:50%; background:var(--accent-blue); flex-shrink:0; }
+  .strip-text { font-size:19px; color:var(--text-primary); }
+  .strip-text strong { color:var(--accent-blue); font-family:var(--font-display); }
+
+  .next-panel { background:var(--accent-teal-dim); border:2px solid var(--accent-teal); border-radius:var(--radius-lg); padding:22px 26px; position:relative; }
+  .next-badge { position:absolute; top:-14px; left:22px; background:var(--accent-teal); color:#fff; padding:4px 18px; border-radius:999px; font-size:13px; font-weight:700; letter-spacing:0.06em; }
+  .next-heading { font-family:var(--font-display); font-size:24px; font-weight:900; color:var(--accent-teal); margin-bottom:14px; margin-top:6px; }
+  .act-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:12px; }
+  .act-num { width:28px; height:28px; min-width:28px; border-radius:50%; background:var(--accent-teal); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .act-text { font-size:20px; color:var(--text-primary); line-height:1.5; }
+  .act-text strong { color:var(--accent-teal); font-family:var(--font-display); }
+  .act-text em { font-style:normal; color:var(--text-secondary); font-size:16px; }
+
+  .motivator { display:flex; align-items:center; gap:14px; background:#fff; border:2px solid var(--accent-teal); border-radius:var(--radius-md); padding:12px 18px; margin-top:14px; }
+  .motivator-icon { font-size:22px; flex-shrink:0; }
+  .motivator-text { font-family:var(--font-display); font-size:20px; color:var(--accent-teal); font-weight:700; }
+
+  /* Right: character grid */
+  .chars-panel { display:flex; flex-direction:column; gap:14px; }
+  .chars-label { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:4px; }
+  .chars-heading { font-family:var(--font-display); font-size:20px; font-weight:900; color:var(--text-primary); margin-bottom:2px; }
+  .chars-sub { font-size:15px; color:var(--text-muted); margin-bottom:10px; }
+  .char-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; }
+  .char-card { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-md); padding:14px 8px; display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .char-card:hover { border-color:var(--accent-teal); }
+  .char-cn { font-family:var(--font-display); font-size:36px; font-weight:700; color:var(--text-primary); line-height:1.1; }
+  .char-py { font-size:13px; color:var(--text-muted); letter-spacing:0.03em; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 兴趣与原因</span>
+  <span class="sep"></span>
+  <span class="section-name">Preview · Next Lesson</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Preview</div>
+  <div class="main-title">下节课预告 · Coming Next</div>
+
+  <div class="two-col">
+
+    <div>
+      <div class="recap-strip">
+        <div class="strip-label">今天学了什么 · Today's Takeaways</div>
+        <div class="strip-row"><div class="strip-dot"></div><div class="strip-text">句型 <strong>对……感兴趣</strong>——表达兴趣所在</div></div>
+        <div class="strip-row"><div class="strip-dot"></div><div class="strip-text">因果句 <strong>因为……所以……</strong></div></div>
+        <div class="strip-row"><div class="strip-dot"></div><div class="strip-text">精读课文一（第60页）并搭档分享</div></div>
+      </div>
+
+      <div class="next-panel">
+        <div class="next-badge">下节课 · Lesson 4</div>
+        <div class="next-heading">第四课：汉字 · 采访</div>
+        <div class="act-item">
+          <div class="act-num">1</div>
+          <div class="act-text">
+            练习<strong>十二个汉字</strong><br>
+            <em>东、南、西、北、木、禾、石、山、光、土、足、舌</em>
+          </div>
+        </div>
+        <div class="act-item">
+          <div class="act-num">2</div>
+          <div class="act-text">
+            继续<strong>深入理解课文一</strong><br>
+            <em>Text 1 comprehension — deeper questions</em>
+          </div>
+        </div>
+        <div class="act-item">
+          <div class="act-num">3</div>
+          <div class="act-text">
+            <strong>搭档采访</strong>——综合运用 L1–L3 句型<br>
+            <em>Partner interview using patterns from L1–L3</em>
+          </div>
+        </div>
+        <div class="motivator">
+          <div class="motivator-icon">&#128161;</div>
+          <div class="motivator-text">今晚花三分钟认一认这十二个字！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chars-panel">
+      <div>
+        <div class="chars-label">先看一看 · Character Preview</div>
+        <div class="chars-heading">十二个汉字</div>
+        <div class="chars-sub">下节课要练习默写的十二个字</div>
+      </div>
+      <div class="char-grid">
+        <div class="char-card"><div class="char-cn">东</div><div class="char-py">dōng</div></div>
+        <div class="char-card"><div class="char-cn">南</div><div class="char-py">nán</div></div>
+        <div class="char-card"><div class="char-cn">西</div><div class="char-py">xī</div></div>
+        <div class="char-card"><div class="char-cn">北</div><div class="char-py">běi</div></div>
+        <div class="char-card"><div class="char-cn">木</div><div class="char-py">mù</div></div>
+        <div class="char-card"><div class="char-cn">禾</div><div class="char-py">hé</div></div>
+        <div class="char-card"><div class="char-cn">石</div><div class="char-py">shí</div></div>
+        <div class="char-card"><div class="char-cn">山</div><div class="char-py">shān</div></div>
+        <div class="char-card"><div class="char-cn">光</div><div class="char-py">guāng</div></div>
+        <div class="char-card"><div class="char-cn">土</div><div class="char-py">tǔ</div></div>
+        <div class="char-card"><div class="char-cn">足</div><div class="char-py">zú</div></div>
+        <div class="char-card"><div class="char-cn">舌</div><div class="char-py">shé</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-06 · Pattern 2: Approximate Frequency</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+
+  .section-label {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.16em;
+    color: var(--accent-blue); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display); font-size: 46px; font-weight: 900;
+    color: var(--text-primary); margin-bottom: 20px; line-height: 1.15;
+  }
+
+  /* Formula band */
+  .formula-band {
+    display: flex; align-items: stretch; gap: 0;
+    background: var(--bg-tertiary); border: 2px solid var(--accent-blue);
+    border-radius: var(--radius-md); margin-bottom: 22px; overflow: hidden;
+  }
+  .f-chunk {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 14px 22px; gap: 4px;
+  }
+  .f-chunk .f-val {
+    font-family: var(--font-display); font-size: 28px; font-weight: 700;
+    color: var(--text-primary); white-space: nowrap;
+  }
+  .f-chunk .f-val.key { color: var(--accent-blue); }
+  .f-chunk .f-label {
+    font-size: 12px; color: var(--text-muted); font-family: var(--font-body);
+    letter-spacing: 0.06em; white-space: nowrap;
+  }
+  .f-sep {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 10px; font-size: 22px; color: var(--accent-blue); opacity: 0.45;
+    background: var(--bg-tertiary);
+  }
+  .f-chunk.highlight { background: var(--accent-blue-dim); }
+
+  /* Table */
+  .freq-table-wrap { margin-bottom: 20px; }
+  .freq-table {
+    width: 100%; border-collapse: collapse;
+    border: 1.5px solid var(--border-light); border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .freq-table th {
+    padding: 12px 28px; font-size: 20px; font-weight: 700;
+    letter-spacing: 0.08em; text-align: left;
+    border-bottom: 2px solid var(--border-medium);
+  }
+  .freq-table th.th-time { background: var(--accent-blue-dim); color: var(--accent-blue); }
+  .freq-table th.th-freq { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .freq-table td {
+    padding: 14px 28px;
+    font-family: var(--font-display); font-size: 30px; font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .freq-table tr:nth-child(even) td { background: var(--bg-secondary); }
+  .freq-table tr:last-child td { border-bottom: none; }
+  .freq-table td.td-freq { color: var(--accent-teal); }
+
+  /* Examples */
+  .examples-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .ex-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px 22px;
+    background: var(--bg-secondary); border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-sm);
+  }
+  .ex-num {
+    font-family: var(--font-display); font-size: 18px; font-weight: 900;
+    color: var(--accent-blue); opacity: 0.4; min-width: 22px; flex-shrink: 0;
+  }
+  .ex-text {
+    font-family: var(--font-display); font-size: 28px; font-weight: 700;
+    color: var(--text-primary); line-height: 1.35;
+  }
+  .ex-text .hl-blue { color: var(--accent-blue); }
+  .ex-text .hl-teal { color: var(--accent-teal); }
+
+  /* Note box */
+  .note-gold {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--accent-gold-dim); border: 1.5px solid var(--accent-gold);
+    border-radius: var(--radius-sm); padding: 12px 22px;
+  }
+  .note-gold .note-icon { font-size: 22px; flex-shrink: 0; line-height: 1.5; }
+  .note-gold .note-body { font-size: 19px; color: var(--text-secondary); line-height: 1.5; }
+  .note-gold .note-body strong { color: var(--accent-gold); font-family: var(--font-display); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · 功课与考试</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Pattern 2: Approximate Frequency (20–22 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+
+  <div class="section-label">I Do · Pattern 2</div>
+  <div class="main-title">Approximate Frequency · 每个……次</div>
+
+  <!-- Formula band -->
+  <div class="formula-band">
+    <div class="f-chunk highlight">
+      <div class="f-val key">每个</div>
+      <div class="f-label">every (each)</div>
+    </div>
+    <div class="f-sep">+</div>
+    <div class="f-chunk">
+      <div class="f-val">[时间段]</div>
+      <div class="f-label">time unit</div>
+    </div>
+    <div class="f-sep">+</div>
+    <div class="f-chunk">
+      <div class="f-val">[活动]</div>
+      <div class="f-label">activity / verb</div>
+    </div>
+    <div class="f-sep">+</div>
+    <div class="f-chunk">
+      <div class="f-val">[数字]</div>
+      <div class="f-label">number</div>
+    </div>
+    <div class="f-sep">+</div>
+    <div class="f-chunk highlight">
+      <div class="f-val key">次</div>
+      <div class="f-label">time(s) / occurrence</div>
+    </div>
+  </div>
+
+  <!-- Two-column table -->
+  <div class="freq-table-wrap">
+    <table class="freq-table">
+      <thead>
+        <tr>
+          <th class="th-time">时间 Time Unit</th>
+          <th class="th-freq">频率 Frequency Expression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>每个月</td>
+          <td class="td-freq">测验一次</td>
+        </tr>
+        <tr>
+          <td>每个学期</td>
+          <td class="td-freq">考<span style="color:var(--accent-gold);">两三</span>次</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Example sentences -->
+  <div class="examples-list">
+    <div class="ex-item">
+      <div class="ex-num">1</div>
+      <div class="ex-text">
+        <span class="hl-blue">每个月</span>测验<span class="hl-blue">一次</span>，<span class="hl-blue">每个学期</span>考<span class="hl-blue">两三次</span>。
+      </div>
+    </div>
+    <div class="ex-item">
+      <div class="ex-num">2</div>
+      <div class="ex-text">
+        我<span class="hl-blue">每个月</span>游泳<span class="hl-blue">两次</span>。
+      </div>
+    </div>
+    <div class="ex-item">
+      <div class="ex-num">3</div>
+      <div class="ex-text">
+        我们<span class="hl-blue">每个学期</span>考<span class="hl-blue">三次</span>。
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold note -->
+  <div class="note-gold">
+    <div class="note-icon">💡</div>
+    <div class="note-body">
+      <strong>注意</strong> · <strong>两三次</strong> is a fixed approximate phrase from the textbook. The full approximate-number grammar (<strong>两三</strong>, 四五, etc.) will be covered in <strong>Lesson 7</strong>.
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-12 · Game: 找不见的科目</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 80px 28px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:20px; }
+
+  .game-layout { display:grid; grid-template-columns:1fr 320px; gap:32px; }
+
+  /* 15-subject grid */
+  .subj-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; }
+  .subj-cell { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:20px 10px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; min-height:100px; }
+  .subj-cell .zh { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); }
+  .subj-cell .pin { font-size:14px; color:var(--accent-teal); font-weight:500; }
+  .subj-cell.new { background:var(--accent-blue-dim); border-color:var(--accent-blue); }
+  .subj-cell.new .zh { color:var(--accent-blue); }
+  .subj-cell.hidden { background:var(--bg-tertiary); border:2.5px dashed var(--accent-coral); }
+  .subj-cell.hidden .zh { color:transparent; }
+  .subj-cell.hidden .pin { color:var(--accent-coral); font-weight:700; font-size:13px; }
+  .subj-cell.hidden::after { content:"?"; font-family:var(--font-display); font-size:40px; font-weight:900; color:var(--accent-coral); opacity:0.4; }
+
+  /* Rules panel */
+  .rules-panel { display:flex; flex-direction:column; gap:14px; }
+  .rule-box { background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:18px 20px; }
+  .rule-box h3 { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+  .rule-box h3.game { color:var(--accent-coral); }
+  .rule-box h3.sca { color:var(--accent-teal); }
+  .rule-box h3.ext { color:var(--accent-gold); }
+  .rule-text { font-size:15px; color:var(--text-secondary); line-height:1.6; }
+  .rule-text strong { color:var(--text-primary); }
+
+  .game-steps { display:flex; flex-direction:column; gap:6px; }
+  .g-step { display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--text-secondary); line-height:1.5; }
+  .g-step-num { width:20px; height:20px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 找不见的科目！· 48–57 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">48–57 min · Game</div>
+  <div class="main-title">找不见的科目！ · Find the Missing Subject!</div>
+
+  <div class="game-layout">
+    <div class="subj-grid">
+      <div class="subj-cell"><div class="zh">英文</div><div class="pin">Yīngwén</div></div>
+      <div class="subj-cell"><div class="zh">汉语</div><div class="pin">Hànyǔ</div></div>
+      <div class="subj-cell"><div class="zh">音乐</div><div class="pin">yīnyuè</div></div>
+      <div class="subj-cell"><div class="zh">数学</div><div class="pin">shùxué</div></div>
+      <div class="subj-cell"><div class="zh">电脑</div><div class="pin">diànnǎo</div></div>
+      <div class="subj-cell new"><div class="zh">物理</div><div class="pin">wùlǐ</div></div>
+      <div class="subj-cell new"><div class="zh">化学</div><div class="pin">huàxué</div></div>
+      <!-- One hidden slot for demonstration -->
+      <div class="subj-cell hidden"><div class="zh">生物</div><div class="pin">shēngwù?</div></div>
+      <div class="subj-cell new"><div class="zh">地理</div><div class="pin">dìlǐ</div></div>
+      <div class="subj-cell"><div class="zh">历史</div><div class="pin">lìshǐ</div></div>
+      <div class="subj-cell new"><div class="zh">美术</div><div class="pin">měishù</div></div>
+      <div class="subj-cell new"><div class="zh">戏剧</div><div class="pin">xìjù</div></div>
+      <div class="subj-cell new"><div class="zh">法语</div><div class="pin">Fǎyǔ</div></div>
+      <div class="subj-cell new"><div class="zh">日语</div><div class="pin">Rìyǔ</div></div>
+      <div class="subj-cell"><div class="zh">体育</div><div class="pin">tǐyù</div></div>
+    </div>
+
+    <div class="rules-panel">
+      <div class="rule-box">
+        <h3 class="game">How to Play — 5–6 Rounds</h3>
+        <div class="game-steps">
+          <div class="g-step"><div class="g-step-num">1</div>Display all 15 subjects (汉字 only)</div>
+          <div class="g-step"><div class="g-step-num">2</div>Screen goes <strong>blank</strong> — students write as many as they remember</div>
+          <div class="g-step"><div class="g-step-num">3</div>Grid returns with <strong>ONE hidden</strong> — teams race to name the missing subject</div>
+          <div class="g-step"><div class="g-step-num">4</div>Correct answer = 1 point. Repeat!</div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="sca">Scaffold</h3>
+        <div class="rule-text">
+          Rounds 1–2: <strong>pinyin visible</strong> in the hidden box only (as a hint)
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="ext">Extension</h3>
+        <div class="rule-text">
+          Fluent students must use the missing subject in a <strong>full sentence</strong> before the point is awarded:<br>
+          <em style="color:var(--accent-blue); font-style:normal;">我今年学生物。</em>
+        </div>
+      </div>
+
+      <div class="rule-box" style="background:var(--accent-blue-dim); border-color:var(--accent-blue);">
+        <div class="rule-text" style="font-size:13px; color:var(--accent-blue); font-weight:700;">
+          Prioritise new subjects (物理化学生物地理美术戏剧法语日语) in later rounds
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

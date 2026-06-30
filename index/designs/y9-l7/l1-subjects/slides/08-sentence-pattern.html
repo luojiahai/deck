@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-08 · Sentence Pattern</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:24px; }
+
+  .pattern-box { background:var(--bg-tertiary); border-left:6px solid var(--accent-blue); border-radius:0 var(--radius-lg) var(--radius-lg) 0; padding:20px 32px; margin-bottom:28px; }
+  .pattern-label { font-size:14px; font-weight:700; letter-spacing:0.1em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .pattern-sentence { font-family:var(--font-display); font-size:40px; font-weight:900; color:var(--text-primary); line-height:1.4; }
+  .pattern-sentence .blank { display:inline-block; min-width:100px; border-bottom:3px solid var(--accent-blue); color:var(--accent-blue); margin:0 4px; }
+  .pattern-sentence .fixed { color:var(--text-primary); }
+
+  .examples-label { font-size:16px; font-weight:700; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:14px; }
+  .examples-list { display:flex; flex-direction:column; gap:14px; }
+  .example { background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:16px 24px; }
+  .example.silly { border-color:var(--accent-coral); background:var(--accent-coral-dim); }
+  .example .ex-tag { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
+  .example .ex-tag.a { color:var(--accent-blue); }
+  .example .ex-tag.b { color:var(--accent-teal); }
+  .example .ex-tag.c { color:var(--accent-coral); }
+  .example .ex-text { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); line-height:1.45; }
+  .example .ex-text .hl-num { color:var(--accent-blue); }
+  .example .ex-text .hl-mw { color:var(--accent-teal); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 科目</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Sentence Pattern · 28–32 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">28–32 min · I Do · Key Pattern</div>
+  <div class="main-title">句型 · Key Sentence Pattern</div>
+
+  <div class="pattern-box">
+    <div class="pattern-label">Structure</div>
+    <div class="pattern-sentence">
+      <span class="fixed">我今年学</span>
+      <span class="blank">number</span>
+      <span class="fixed">门课：</span>
+      <span class="blank">subject 1</span>
+      <span class="fixed">、</span>
+      <span class="blank">subject 2</span>
+      <span class="fixed">……和</span>
+      <span class="blank">last subject</span>
+      <span class="fixed">。</span>
+    </div>
+  </div>
+
+  <div class="examples-label">Examples · 例子</div>
+  <div class="examples-list">
+    <div class="example">
+      <div class="ex-tag a">Example A</div>
+      <div class="ex-text">我今年学<span class="hl-num">十</span><span class="hl-mw">门</span>课：英文、汉语、音乐、数学、电脑、物理、化学、生物、地理和历史。</div>
+    </div>
+    <div class="example">
+      <div class="ex-tag b">Example B</div>
+      <div class="ex-text">我今年学<span class="hl-num">七</span><span class="hl-mw">门</span>课：英文、数学、科学、历史、音乐、法语和体育。</div>
+    </div>
+    <div class="example silly">
+      <div class="ex-tag c">Silly Example — for fun</div>
+      <div class="ex-text">我今年学<span class="hl-num">一</span><span class="hl-mw">门</span>课：<span style="color:var(--accent-coral)">睡觉</span>。😄</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

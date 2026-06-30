@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-09 · Act.1: Vocab in Exercise Books</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:30px 100px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:18px; }
+
+  .body-cols { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+
+  /* Left: vocab table */
+  .vocab-section-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:10px; }
+  .vocab-table { width:100%; border-collapse:collapse; }
+  .vocab-table th { text-align:left; font-size:14px; font-weight:700; letter-spacing:0.08em; color:var(--text-secondary); text-transform:uppercase; padding:8px 14px; border-bottom:2px solid var(--accent-blue); background:var(--bg-secondary); }
+  .vocab-table td { padding:9px 14px; border-bottom:1px solid var(--border-light); font-size:20px; vertical-align:middle; }
+  .vocab-table tr:nth-child(even) td { background:var(--bg-secondary); }
+  .vc-hanzi { font-family:var(--font-display); font-size:26px; font-weight:900; color:var(--text-primary); }
+  .vc-pinyin { font-size:18px; color:var(--accent-teal); font-weight:500; }
+  .vc-english { font-size:18px; color:var(--text-secondary); }
+
+  .antonym-highlight { display:flex; align-items:center; gap:16px; background:var(--bg-secondary); border:1.5px solid var(--border-medium); border-radius:var(--radius-md); padding:14px 18px; margin-top:12px; }
+  .ant-word { display:flex; align-items:center; gap:8px; }
+  .ant-cn { font-family:var(--font-display); font-size:26px; font-weight:900; }
+  .ant-cn.pos { color:var(--accent-teal); }
+  .ant-cn.neg { color:var(--accent-coral); }
+  .ant-symbol { font-size:22px; }
+  .ant-arrow { font-size:20px; color:var(--text-muted); flex-shrink:0; }
+  .ant-label { font-size:13px; color:var(--text-muted); margin-top:2px; }
+
+  /* Right: procedure + scaffold/extension */
+  .proc-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px; }
+  .proc-list { display:flex; flex-direction:column; gap:9px; margin-bottom:16px; }
+  .proc-item { display:flex; align-items:flex-start; gap:14px; background:var(--bg-secondary); border-radius:var(--radius-md); padding:11px 16px; border:1px solid var(--border-light); }
+  .proc-num { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--accent-blue); opacity:0.5; flex-shrink:0; line-height:1.2; min-width:22px; text-align:center; }
+  .proc-text { font-size:18px; color:var(--text-primary); line-height:1.45; }
+  .proc-text strong { color:var(--accent-blue); }
+
+  .quiz-note { background:var(--accent-blue-dim); border:1.5px solid var(--accent-blue); border-radius:var(--radius-md); padding:12px 18px; margin-bottom:14px; }
+  .quiz-note-text { font-size:18px; font-weight:700; color:var(--accent-blue); }
+  .quiz-note-sub { font-size:14px; color:var(--text-muted); margin-top:3px; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); padding:11px 14px; font-size:14px; color:var(--text-secondary); border:1px solid var(--border-light); line-height:1.5; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 为什么？因为！</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Vocab in Exercise Books (20–27 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">20–27 min · We Do · Act. 1</div>
+  <div class="main-title">生词练习 · Vocabulary in Exercise Books</div>
+
+  <div class="body-cols">
+
+    <!-- Left column: vocab table + antonym -->
+    <div>
+      <div class="vocab-section-label">Target Vocabulary · 目标生词 (3-column entry)</div>
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th>汉字</th>
+            <th>拼音</th>
+            <th>英文</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="vc-hanzi">科目</span></td>
+            <td><span class="vc-pinyin">kēmù</span></td>
+            <td><span class="vc-english">subject; course</span></td>
+          </tr>
+          <tr>
+            <td><span class="vc-hanzi">为什么</span></td>
+            <td><span class="vc-pinyin">wèishénme</span></td>
+            <td><span class="vc-english">why</span></td>
+          </tr>
+          <tr>
+            <td><span class="vc-hanzi">意思</span></td>
+            <td><span class="vc-pinyin">yìsi</span></td>
+            <td><span class="vc-english">meaning</span></td>
+          </tr>
+          <tr>
+            <td><span class="vc-hanzi" style="color:var(--accent-teal);">有意思</span></td>
+            <td><span class="vc-pinyin">yǒu yìsi</span></td>
+            <td><span class="vc-english">interesting</span></td>
+          </tr>
+          <tr>
+            <td><span class="vc-hanzi" style="color:var(--accent-coral);">没意思</span></td>
+            <td><span class="vc-pinyin">méi yìsi</span></td>
+            <td><span class="vc-english">boring / not interesting</span></td>
+          </tr>
+          <tr>
+            <td><span class="vc-hanzi">教</span></td>
+            <td><span class="vc-pinyin">jiāo</span></td>
+            <td><span class="vc-english">teach</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="antonym-highlight">
+        <div class="ant-word">
+          <div class="ant-symbol">👍</div>
+          <div>
+            <div class="ant-cn pos">有意思</div>
+            <div class="ant-label">interesting</div>
+          </div>
+        </div>
+        <div class="ant-arrow">⟷</div>
+        <div class="ant-word">
+          <div class="ant-symbol">👎</div>
+          <div>
+            <div class="ant-cn neg">没意思</div>
+            <div class="ant-label">boring</div>
+          </div>
+        </div>
+        <div style="margin-left:8px; font-size:14px; color:var(--text-muted); line-height:1.5;">Antonym pair · 反义词对<br>Same 意思, opposite prefix!</div>
+      </div>
+    </div>
+
+    <!-- Right column: procedure + scaffold/extension -->
+    <div>
+      <div class="proc-label">Procedure · 步骤</div>
+      <div class="proc-list">
+        <div class="proc-item">
+          <div class="proc-num">1</div>
+          <div class="proc-text">Teacher pronounces each word <strong>×2</strong> → class chorals <strong>×2</strong></div>
+        </div>
+        <div class="proc-item">
+          <div class="proc-num">2</div>
+          <div class="proc-text">Students write <strong>3-column entry</strong> in exercise books: 汉字 | 拼音 | 英文</div>
+        </div>
+        <div class="proc-item">
+          <div class="proc-num">3</div>
+          <div class="proc-text">After writing, teacher <strong>points to hanzi without pinyin</strong> → cold call: "怎么读？"</div>
+        </div>
+        <div class="proc-item">
+          <div class="proc-num">4</div>
+          <div class="proc-text">After all 6 words: <strong>rapid quiz</strong> → choral response for each word</div>
+        </div>
+      </div>
+
+      <div class="quiz-note">
+        <div class="quiz-note-text">Pinyin visible while writing → hidden for quiz only</div>
+        <div class="quiz-note-sub">Cover pinyin column with hand or piece of paper during the rapid quiz round</div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold · 支架</div>
+          Pinyin stays on projector while students write; removed only when pointing for cold-call recall.
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension · 延伸</div>
+          Add a 4th column: sample sentence. Also note antonym pair 有意思 ↔ 没意思 in the margin.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

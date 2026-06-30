@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-05 · Pattern 1 · 对……感兴趣</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:22px; }
+  .structure-box { background:var(--accent-blue-dim); border:2px solid var(--accent-blue); border-radius:var(--radius-lg); padding:20px 36px; margin-bottom:22px; display:flex; align-items:center; gap:0; flex-wrap:wrap; }
+  .struct-label { font-size:14px; font-weight:700; letter-spacing:0.1em; color:var(--accent-blue); text-transform:uppercase; margin-right:24px; }
+  .struct-part { font-family:var(--font-display); font-size:32px; font-weight:700; color:var(--text-primary); }
+  .struct-part.hl { color:var(--accent-blue); }
+  .struct-sep { font-size:24px; color:var(--text-muted); margin:0 8px; }
+  .examples-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:22px; }
+  .example-card { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:20px 24px; }
+  .ex-sentence { font-family:var(--font-display); font-size:30px; font-weight:700; color:var(--text-primary); margin-bottom:8px; line-height:1.3; }
+  .ex-sentence .hl { color:var(--accent-blue); }
+  .ex-breakdown { font-size:16px; color:var(--text-muted); }
+  .error-section { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .error-block { border-radius:var(--radius-lg); padding:20px 26px; }
+  .error-block.wrong { background:rgba(201,106,92,0.08); border:2px solid var(--accent-coral); }
+  .error-block.correct { background:rgba(46,125,110,0.08); border:2px solid var(--accent-teal); }
+  .err-tag { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+  .err-tag.wrong { color:var(--accent-coral); }
+  .err-tag.correct { color:var(--accent-teal); }
+  .err-sentence { font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:8px; }
+  .err-sentence.wrong { color:var(--accent-coral); text-decoration:line-through; }
+  .err-sentence.correct { color:var(--accent-teal); }
+  .err-key { font-size:18px; }
+  .err-key .diff { font-weight:900; font-size:22px; }
+  .err-key.wrong { color:var(--accent-coral); }
+  .err-key.correct { color:var(--accent-teal); }
+  .err-explain { font-size:15px; color:var(--text-muted); margin-top:6px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 兴趣与原因</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Pattern 1: 对……感兴趣 · 16–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">16–20 min · I Do</div>
+  <div class="main-title">句型一 · Pattern 1: 对……感兴趣</div>
+
+  <div class="structure-box">
+    <span class="struct-label">Structure</span>
+    <span class="struct-part">主语</span>
+    <span class="struct-sep">+</span>
+    <span class="struct-part hl">对</span>
+    <span class="struct-sep">+</span>
+    <span class="struct-part">话题</span>
+    <span class="struct-sep">+</span>
+    <span class="struct-part hl">很</span>
+    <span class="struct-sep">+</span>
+    <span class="struct-part hl">感兴趣</span>
+  </div>
+
+  <div class="examples-grid">
+    <div class="example-card">
+      <div class="ex-sentence">我<span class="hl">对</span>历史<span class="hl">很感兴趣</span>。</div>
+      <div class="ex-breakdown">I am very interested in history.</div>
+    </div>
+    <div class="example-card">
+      <div class="ex-sentence">她<span class="hl">对</span>音乐<span class="hl">很感兴趣</span>。</div>
+      <div class="ex-breakdown">She is very interested in music.</div>
+    </div>
+    <div class="example-card">
+      <div class="ex-sentence">我<span class="hl">对</span>数学<span style="color:var(--accent-coral)">不太</span><span class="hl">感兴趣</span>。</div>
+      <div class="ex-breakdown">I'm not very interested in maths. (negation: 不太)</div>
+    </div>
+  </div>
+
+  <div class="error-section">
+    <div class="error-block wrong">
+      <div class="err-tag wrong">&#10060; Common Error</div>
+      <div class="err-sentence wrong">我<span class="diff">在</span>历史很感兴趣。</div>
+      <div class="err-key wrong"><span class="diff">在</span> = in / at a place</div>
+      <div class="err-explain">History is not a location — 在 is for places, not topics.</div>
+    </div>
+    <div class="error-block correct">
+      <div class="err-tag correct">&#10003; Correct Form</div>
+      <div class="err-sentence correct">我<span class="diff">对</span>历史很感兴趣。</div>
+      <div class="err-key correct"><span class="diff">对</span> = towards / regarding</div>
+      <div class="err-explain">对 marks the topic of interest. Always use 对, not 在.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

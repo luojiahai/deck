@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-07 · I Do · CFU Checkpoints</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .section-label { font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:6px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; color:var(--text-primary); margin-bottom:18px; }
+
+  .cfu-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+  .cfu-card {
+    background:var(--bg-secondary);
+    border:2px solid var(--border-light);
+    border-radius:var(--radius-lg);
+    padding:22px 26px;
+    position:relative;
+  }
+  .cfu-card.blue { border-color:var(--accent-blue); background:var(--accent-blue-dim); }
+  .cfu-card.teal { border-color:var(--accent-teal); background:var(--accent-teal-dim); }
+
+  .cfu-badge {
+    display:inline-block; padding:3px 14px; border-radius:999px;
+    font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .cfu-badge.blue { background:var(--accent-blue); color:#fff; }
+  .cfu-badge.teal { background:var(--accent-teal); color:#fff; }
+
+  .cfu-heading { font-family:var(--font-display); font-size:22px; font-weight:900; margin-bottom:12px; }
+  .cfu-heading.blue { color:var(--accent-blue); }
+  .cfu-heading.teal { color:var(--accent-teal); }
+
+  /* CFU 1 */
+  .prompt-row {
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:8px;
+    font-size:17px; color:var(--text-secondary);
+  }
+  .prompt-label { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); width:88px; flex-shrink:0; }
+  .prompt-chips { display:flex; gap:8px; flex-wrap:wrap; }
+  .chip {
+    padding:4px 14px; border-radius:999px; font-size:17px; font-weight:700;
+    font-family:var(--font-display);
+  }
+  .chip-blue { background:var(--accent-blue); color:#fff; }
+  .chip-teal { background:var(--accent-teal); color:#fff; }
+
+  .answer-row {
+    display:flex; align-items:center; gap:10px;
+    padding:8px 14px;
+    background:rgba(255,255,255,0.6);
+    border-radius:var(--radius-md);
+    margin-top:6px;
+    font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--accent-blue);
+  }
+  .answer-label { font-size:12px; color:var(--text-muted); font-family:var(--font-body); font-weight:400; width:56px; flex-shrink:0; }
+
+  .cold-row {
+    margin-top:10px; padding:10px 14px;
+    background:rgba(255,255,255,0.5); border-radius:var(--radius-md);
+    font-size:16px; color:var(--text-secondary);
+  }
+  .cold-row .cold-label { font-size:12px; font-weight:700; color:var(--accent-blue); margin-bottom:4px; }
+  .cold-item { font-family:var(--font-display); font-size:18px; color:var(--text-primary); margin-bottom:3px; }
+  .cold-answer { font-size:16px; color:var(--accent-blue); font-weight:700; }
+
+  /* CFU 2 */
+  .trans-row {
+    display:flex; align-items:center; gap:12px;
+    padding:9px 14px;
+    border-bottom:1px solid var(--border-light);
+    font-size:19px;
+  }
+  .trans-row:last-child { border-bottom:none; }
+  .trans-cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); min-width:120px; }
+  .trans-arr { color:var(--accent-teal); font-size:18px; }
+  .trans-en { color:var(--accent-teal); font-size:17px; }
+
+  .reverse-box {
+    margin-top:10px; padding:10px 14px;
+    background:rgba(255,255,255,0.55); border-radius:var(--radius-md);
+    font-size:16px; color:var(--text-secondary);
+  }
+  .reverse-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent-teal); margin-bottom:4px; }
+  .reverse-item { font-family:var(--font-display); font-size:17px; color:var(--text-primary); }
+  .hl-coral { color:var(--accent-coral); font-weight:900; }
+
+  .num-pair { color:var(--accent-coral); font-weight:900; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 动词 + 得</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · CFU Checkpoints · 26–31 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">26–31 min · I Do · CFU</div>
+  <div class="main-title">理解检查 CFU Checkpoints</div>
+
+  <div class="cfu-cols">
+
+    <!-- CFU 1 -->
+    <div class="cfu-card blue">
+      <div class="cfu-badge blue">CFU 1 · 句子生产</div>
+      <div class="cfu-heading blue">Sentence Production — Choral → Cold Call</div>
+
+      <div class="prompt-row">
+        <span class="prompt-label">Prompt →</span>
+        <div class="prompt-chips">
+          <span class="chip chip-blue">跑步</span>
+          <span class="chip chip-blue">她</span>
+          <span class="chip chip-blue">很快</span>
+        </div>
+      </div>
+      <div class="answer-row">
+        <span class="answer-label">Choral:</span>
+        她跑步跑<span style="color:var(--accent-coral)">得</span>很快。
+      </div>
+
+      <div class="cold-row">
+        <div class="cold-label">Cold Call 2 more →</div>
+        <div class="cold-item">你 / 滑冰 / 不太好</div>
+        <div class="cold-answer">→ 我滑冰滑<span class="hl-coral">得</span>不太好。</div>
+        <div class="cold-item" style="margin-top:6px">老师 / 钢琴 / 非常好</div>
+        <div class="cold-answer">→ 老师钢琴弹<span class="hl-coral">得</span>非常好。</div>
+      </div>
+    </div>
+
+    <!-- CFU 2 -->
+    <div class="cfu-card teal">
+      <div class="cfu-badge teal">CFU 2 · 数字翻译</div>
+      <div class="cfu-heading teal">Number Translation — Teacher gives → Students say</div>
+
+      <div class="trans-row">
+        <span class="trans-cn"><span class="num-pair">一两</span>百</span>
+        <span class="trans-arr">→</span>
+        <span class="trans-en">about one or two hundred</span>
+      </div>
+      <div class="trans-row">
+        <span class="trans-cn"><span class="num-pair">五六</span>个</span>
+        <span class="trans-arr">→</span>
+        <span class="trans-en">about five or six</span>
+      </div>
+      <div class="trans-row">
+        <span class="trans-cn">十<span class="num-pair">五六</span>岁</span>
+        <span class="trans-arr">→</span>
+        <span class="trans-en">about fifteen or sixteen years old</span>
+      </div>
+
+      <div class="reverse-box">
+        <div class="reverse-label">Reverse → students write</div>
+        <div class="reverse-item">
+          Teacher: "about two or three times" &nbsp;→&nbsp;
+          <span class="num-pair">两三次</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>

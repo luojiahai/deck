@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L4-09 · Game 十二字记忆赛</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:28px 80px 24px; }
+  .game-title { font-family:var(--font-display); font-size:52px; font-weight:900; color:var(--text-primary); margin-bottom:20px; text-align:center; }
+  .phases { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px; }
+  .phase { border-radius:var(--radius-lg); padding:20px 22px; border:2px solid; }
+  .phase.p1 { background:var(--accent-teal-dim); border-color:var(--accent-teal); }
+  .phase.p2 { background:var(--bg-secondary); border-color:var(--border-medium); }
+  .phase.p3 { background:var(--accent-blue-dim); border-color:var(--accent-blue); }
+  .phase-label { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px; }
+  .phase.p1 .phase-label { color:var(--accent-teal); }
+  .phase.p2 .phase-label { color:var(--text-muted); }
+  .phase.p3 .phase-label { color:var(--accent-blue); }
+  .phase-title { font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--text-primary); margin-bottom:10px; }
+  .phase-body { font-size:18px; color:var(--text-secondary); line-height:1.6; }
+  .phase-body strong { color:var(--text-primary); }
+  .phase-body .hanzi { font-family:var(--font-display); }
+  .char-grid-mini { display:grid; grid-template-columns:repeat(6, 1fr); gap:8px; }
+  .cm-tile { background:#fff; border:1.5px solid var(--border-light); border-radius:var(--radius-md); padding:10px 6px 8px; display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .cm-tile .h { font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--text-primary); line-height:1; }
+  .cm-tile .p { font-size:14px; color:var(--accent-teal); font-weight:600; }
+  .scoreboard { display:flex; gap:20px; justify-content:center; }
+  .score-team { background:var(--bg-secondary); border:2px solid var(--border-medium); border-radius:var(--radius-md); padding:10px 32px; text-align:center; }
+  .score-team .team-name { font-size:16px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
+  .score-team .score-val { font-family:var(--font-display); font-size:52px; font-weight:900; color:var(--accent-blue); line-height:1; }
+  .vs { font-family:var(--font-display); font-size:36px; font-weight:900; color:var(--text-muted); display:flex; align-items:center; }
+  .section-badge { display:inline-block; background:var(--accent-blue); color:#fff; font-size:13px; font-weight:700; letter-spacing:0.08em; padding:3px 14px; border-radius:999px; margin-bottom:14px; }
+  .time-badge { display:inline-block; background:var(--accent-teal); color:#fff; font-size:13px; font-weight:700; letter-spacing:0.08em; padding:3px 12px; border-radius:999px; margin-left:10px; margin-bottom:14px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L4 · 汉字·采访</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 十二字记忆赛！(27–36 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div>
+    <span class="section-badge">Game</span>
+    <span class="time-badge">27–36 min</span>
+  </div>
+  <div class="game-title">十二字记忆赛！Memory Championship</div>
+
+  <div class="phases">
+
+    <div class="phase p1">
+      <div class="phase-label">Phase 1 · 3 min</div>
+      <div class="phase-title">小组学习 · Group Study</div>
+      <div class="phase-body">
+        Display all <strong>12 characters</strong> with pinyin.<br>
+        Study silently — may re-trace in exercise books.<br>
+        <strong>3-minute countdown.</strong>
+      </div>
+      <div class="char-grid-mini" style="margin-top:12px;">
+        <div class="cm-tile"><div class="h">东</div><div class="p">dōng</div></div>
+        <div class="cm-tile"><div class="h">南</div><div class="p">nán</div></div>
+        <div class="cm-tile"><div class="h">西</div><div class="p">xī</div></div>
+        <div class="cm-tile"><div class="h">北</div><div class="p">běi</div></div>
+        <div class="cm-tile"><div class="h">木</div><div class="p">mù</div></div>
+        <div class="cm-tile"><div class="h">禾</div><div class="p">hé</div></div>
+        <div class="cm-tile"><div class="h">石</div><div class="p">shí</div></div>
+        <div class="cm-tile"><div class="h">山</div><div class="p">shān</div></div>
+        <div class="cm-tile"><div class="h">光</div><div class="p">guāng</div></div>
+        <div class="cm-tile"><div class="h">土</div><div class="p">tǔ</div></div>
+        <div class="cm-tile"><div class="h">足</div><div class="p">zú</div></div>
+        <div class="cm-tile"><div class="h">舌</div><div class="p">shé</div></div>
+      </div>
+    </div>
+
+    <div class="phase p2">
+      <div class="phase-label">Phase 2 · 1 min</div>
+      <div class="phase-title">默写 · Blank &amp; Recall</div>
+      <div class="phase-body" style="text-align:center; padding-top:20px;">
+        <div style="font-size:80px; color:var(--text-muted); opacity:0.3; margin-bottom:16px; font-family:var(--font-display);">？</div>
+        <strong>All characters hidden.</strong><br>
+        Write as many of the 12 as you remember in your exercise book.
+      </div>
+    </div>
+
+    <div class="phase p3">
+      <div class="phase-label">Phase 3 · 5 min</div>
+      <div class="phase-title">Team Challenge · Team Left vs Right</div>
+      <div class="phase-body">
+        Teacher projects one <strong>pinyin</strong> at a time with <strong>5-sec countdown</strong>.<br>
+        All students write the character — hold up books.<br>
+        ✓ = 1 point for team. Teacher reveals correct 汉字.
+      </div>
+      <div class="scoreboard" style="margin-top:16px;">
+        <div class="score-team"><div class="team-name">Team Left</div><div class="score-val">—</div></div>
+        <div class="vs">VS</div>
+        <div class="score-team"><div class="team-name">Team Right</div><div class="score-val">—</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex; gap:16px;">
+    <div style="flex:1; background:var(--accent-teal-dim); border:1.5px solid var(--accent-teal); border-radius:var(--radius-md); padding:12px 20px; font-size:18px; color:var(--accent-teal); font-weight:700;">
+      Scaffold: Phase 1 — annotate traced characters freely.
+    </div>
+    <div style="flex:1; background:var(--accent-gold-dim); border:1.5px solid var(--accent-gold); border-radius:var(--radius-md); padding:12px 20px; font-size:18px; color:var(--accent-gold); font-weight:700;">
+      Extension: After correct character — whisper English gloss to partner for bonus point.
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 科目</span>
+</div>
+
+</body>
+</html>
