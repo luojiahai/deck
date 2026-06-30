@@ -2,25 +2,28 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>L3-08 · CFU Checkpoints</title>
+<title>L3-08b · CFU Answers</title>
 <link rel="stylesheet" href="../../shared/tokens.css">
 <style>
   .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
-  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:10px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:10px; }
   .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:26px; }
   .cfu-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
   .cfu-block { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:28px 32px; }
   .cfu-block-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
-  .cfu-num { width:44px; height:44px; border-radius:50%; background:var(--accent-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:700; flex-shrink:0; }
+  .cfu-num { width:44px; height:44px; border-radius:50%; background:var(--accent-gold); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:700; flex-shrink:0; }
   .cfu-title { font-size:20px; font-weight:700; color:var(--text-primary); }
-  .cfu-method { font-size:14px; font-weight:700; letter-spacing:0.08em; color:var(--accent-teal); text-transform:uppercase; }
+  .cfu-method { font-size:14px; font-weight:700; letter-spacing:0.08em; color:var(--accent-gold); text-transform:uppercase; }
+
+  /* CFU 1 */
   .gap-sentence { font-family:var(--font-display); font-size:38px; font-weight:700; color:var(--text-primary); margin-bottom:16px; line-height:1.4; }
-  .gap-blank { display:inline-block; min-width:80px; border-bottom:4px solid var(--accent-blue); color:var(--accent-blue); text-align:center; }
-  .gap-options { display:flex; gap:16px; margin-top:10px; }
-  .gap-opt { padding:10px 28px; border-radius:999px; font-size:24px; font-family:var(--font-display); font-weight:700; cursor:default; }
-  .gap-opt.opt-blue { background:var(--accent-blue-dim); color:var(--accent-blue); border:2px solid var(--accent-blue); }
-  .gap-opt.opt-coral { background:var(--accent-coral-dim); color:var(--accent-coral); border:2px solid var(--accent-coral); }
-  .gap-label { font-size:16px; color:var(--text-muted); }
+  .gap-blank-filled { display:inline-block; min-width:80px; border-bottom:4px solid var(--accent-gold); color:var(--accent-gold); text-align:center; font-weight:900; }
+  .answer-box { background:var(--accent-gold-dim); border:2px solid var(--accent-gold); border-radius:var(--radius-md); padding:12px 20px; margin-top:14px; }
+  .answer-line { font-size:16px; color:var(--text-secondary); }
+  .answer-line .key { color:var(--accent-gold); font-weight:900; }
+  .answer-line .wrong-part { color:var(--accent-coral); }
+
+  /* CFU 2 */
   .gesture-list { display:flex; flex-direction:column; gap:12px; }
   .gesture-item { display:flex; align-items:center; gap:16px; padding:12px 20px; background:var(--bg-tertiary); border-radius:var(--radius-md); }
   .gesture-sentence { font-family:var(--font-display); font-size:25px; font-weight:700; color:var(--text-primary); flex:1; }
@@ -28,9 +31,6 @@
   .verdict-x { color:var(--accent-coral); }
   .verdict-ok { color:var(--accent-teal); }
   .gesture-note { font-size:15px; color:var(--text-muted); flex:1; }
-  .thumb-instruction { font-size:17px; color:var(--text-secondary); margin-bottom:14px; }
-  .thumb-instruction strong { color:var(--accent-teal); }
-  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; color:var(--text-muted); font-style:italic; font-size:15px; margin-top:14px; opacity:0.5; }
 </style>
 </head>
 <body>
@@ -38,55 +38,57 @@
 <div class="slide-header">
   <span class="lesson-tag">L3 · 兴趣与原因</span>
   <span class="sep"></span>
-  <span class="section-name">I Do · CFU Checkpoints · 18–20 min</span>
-  <div class="accent-line"></div>
+  <span class="section-name">I Do · CFU Answers ↳</span>
+  <div class="accent-line" style="background:var(--accent-gold);"></div>
 </div>
 
 <div class="slide-content">
-  <div class="section-label">18–20 min · Check for Understanding</div>
-  <div class="main-title">CFU · 你明白了吗？</div>
+  <div class="section-label">Answers Revealed · 答案</div>
+  <div class="main-title">答案 · CFU Checkpoints</div>
 
   <div class="cfu-grid">
-    <!-- CFU 1 -->
+    <!-- CFU 1 Answer -->
     <div class="cfu-block">
       <div class="cfu-block-header">
         <div class="cfu-num">1</div>
         <div>
           <div class="cfu-title">Hold-up-book Gap Fill</div>
-          <div class="cfu-method">Write + show books</div>
+          <div class="cfu-method">Answer</div>
         </div>
       </div>
-      <div class="gap-sentence">我<span class="gap-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>历史很感兴趣</div>
-      <div class="gap-label">Students write ONE character in the blank, then hold up books.</div>
-      <div class="gap-options">
-        <div class="gap-opt opt-blue">对</div>
-        <div class="gap-opt opt-coral">在</div>
+      <div class="gap-sentence">我<span class="gap-blank-filled">对</span>历史很感兴趣</div>
+      <div class="answer-box">
+        <div class="answer-line">✅ <span class="key">对</span> is correct — 对……感兴趣 means "interested in"</div>
+        <div class="answer-line" style="margin-top:6px;">❌ <span class="wrong-part">在</span> is wrong — 在 is used for locations (e.g. 在学校)</div>
       </div>
-      <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
     </div>
 
-    <!-- CFU 2 -->
+    <!-- CFU 2 Answer -->
     <div class="cfu-block">
       <div class="cfu-block-header">
         <div class="cfu-num">2</div>
         <div>
           <div class="cfu-title">Gesture Check — Thumbs</div>
-          <div class="cfu-method">Thumbs up ✓ or down ✗</div>
+          <div class="cfu-method">Answers</div>
         </div>
       </div>
-      <div class="thumb-instruction">Teacher reads aloud. Students show <strong>thumbs up (correct)</strong> or <strong>thumbs down (wrong)</strong>:</div>
       <div class="gesture-list">
         <div class="gesture-item">
+          <div class="gesture-verdict verdict-x">✗</div>
           <div class="gesture-sentence">所以我喜欢汉语。</div>
+          <div class="gesture-note">所以 without 因为 — needs the full 因为……所以 pair</div>
         </div>
         <div class="gesture-item">
+          <div class="gesture-verdict verdict-ok">✓</div>
           <div class="gesture-sentence">我对物理很感兴趣。</div>
+          <div class="gesture-note">correct: 对……感兴趣 structure</div>
         </div>
         <div class="gesture-item">
+          <div class="gesture-verdict verdict-ok">✓</div>
           <div class="gesture-sentence" style="font-size:21px;">因为我对化学很感兴趣，所以我喜欢学化学。</div>
+          <div class="gesture-note">both connectors present: 因为 + 所以</div>
         </div>
       </div>
-      <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
     </div>
   </div>
 </div>

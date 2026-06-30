@@ -25,6 +25,7 @@
   .q-answer::before { content:"→ "; opacity:0.5; }
   .tip-strip { margin-top:16px; background:var(--accent-teal-dim); border-left:4px solid var(--accent-teal); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:12px 20px; font-size:18px; color:var(--text-secondary); }
   .tip-strip strong { color:var(--accent-teal); }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; color:var(--text-muted); font-style:italic; font-size:15px; margin-top:12px; opacity:0.5; }
 </style>
 </head>
 <body>
@@ -57,19 +58,17 @@
         <div class="q-item">
           <div class="q-num">Q1</div>
           <div class="q-text">他觉得汉语有用吗？</div>
-          <div class="q-answer" data-reveal>有用。</div>
         </div>
         <div class="q-item">
           <div class="q-num">Q2</div>
           <div class="q-text">汉语难学吗？</div>
-          <div class="q-answer" data-reveal>难学。</div>
         </div>
         <div class="q-item">
           <div class="q-num">Q3</div>
           <div class="q-text">为什么汉字不容易学？</div>
-          <div class="q-answer" data-reveal>因为不容易写。</div>
         </div>
       </div>
+      <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
       <div class="tip-strip">
         <strong>Teacher tip:</strong> read chorally first, then cold call for each question
       </div>

@@ -35,11 +35,6 @@
   .nav-hint { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; font-size: 22px; opacity: 0; transition: opacity .2s; }
   .nav-zone.left .nav-hint { left: 20px; } .nav-zone.right .nav-hint { right: 20px; }
   .nav-zone:hover .nav-hint { opacity: 1; }
-  #frame:not(.revealed) [data-reveal] { opacity: 0; transition: opacity 0.3s; }
-  #frame.revealed [data-reveal]        { opacity: 1; transition: opacity 0.3s; }
-  .reveal-btn { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; }
-  .reveal-btn:hover { opacity: 1; }
-  .reveal-btn.active { background: rgba(46,125,110,0.75); opacity: 1; }
 </style>
 </head>
 <body>
@@ -48,21 +43,12 @@
 <div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
 <div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
 <div class="counter" id="counter">1 / 1</div>
-<button class="reveal-btn" id="revealBtn">Show Answers</button>
 <script>
 (function () {
   const W = window.DECK_WIDTH || 1920, H = window.DECK_HEIGHT || 1080;
   const deck = window.DECK_MANIFEST || [];
   const stage = document.getElementById('stage'), frame = document.getElementById('frame'), counter = document.getElementById('counter');
   let current = 0;
-  let answersShown = false;
-  const revealBtn = document.getElementById('revealBtn');
-  revealBtn.addEventListener('click', function() {
-    answersShown = !answersShown;
-    frame.classList.toggle('revealed', answersShown);
-    revealBtn.textContent = answersShown ? 'Hide Answers' : 'Show Answers';
-    revealBtn.classList.toggle('active', answersShown);
-  });
   stage.style.width = W + 'px'; stage.style.height = H + 'px';
   function fit() {
     const s = Math.min(innerWidth / W, innerHeight / H);
@@ -76,7 +62,6 @@
     const item = deck[idx];
     counter.innerHTML = (idx+1) + ' / ' + deck.length + ' <span class="label">' + (item.label||'') + '</span>';
     if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
-    answersShown = false; frame.classList.remove('revealed'); revealBtn.textContent = 'Show Answers'; revealBtn.classList.remove('active');
     if (loadedFile !== item.file) {
       loadedFile = item.file;
       fetch(item.file).then(r=>r.text()).then(html=>{
@@ -106,7 +91,6 @@
       case'Home':e.preventDefault();show(0);break;
       case'End':e.preventDefault();show(deck.length-1);break;
       case'p':case'P':window.print();break;
-      case'a':case'A':answersShown=!answersShown;frame.classList.toggle('revealed',answersShown);revealBtn.textContent=answersShown?'Hide Answers':'Show Answers';revealBtn.classList.toggle('active',answersShown);break;
       default:if(e.key>='1'&&e.key<='9'){var i=parseInt(e.key,10)-1;if(i<deck.length){e.preventDefault();show(i);}}
     }
   });
