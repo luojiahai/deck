@@ -10,15 +10,6 @@
       "tags": ["Year 7", "中文", "Time"]
     },
     {
-      "id": "y9-l7",
-      "title": "Y9 L7 · 科目·学校生活 School Subjects",
-      "description": "8 节课程幻灯片系列——Year 9 中文科目单元（量词门·觉得·对……感兴趣·因为……所以……·课文·功课考试·动词+得+补语·综合复习），含全屏演示",
-      "createdAt": "2026-06-30",
-      "thumbnail": "designs/y9-l7/thumb.png",
-      "type": "slides",
-      "tags": ["Year 9", "中文", "School"]
-    },
-    {
       "id": "y8-l7",
       "title": "Y8 L7 · 爱好·音乐 Hobbies & Music",
       "description": "8 节课程幻灯片系列——Year 8 中文爱好单元（词汇·一边……一边……·时间长度·拼音·阅读·正在·都·综合写作），含全屏演示",
@@ -26,6 +17,15 @@
       "thumbnail": "designs/y8-l7/thumb.png",
       "type": "slides",
       "tags": ["Year 8", "中文", "Hobbies"]
+    },
+    {
+      "id": "y9-l7",
+      "title": "Y9 L7 · 科目·学校生活 School Subjects",
+      "description": "8 节课程幻灯片系列——Year 9 中文科目单元（量词门·觉得·对……感兴趣·因为……所以……·课文·功课考试·动词+得+补语·综合复习），含全屏演示",
+      "createdAt": "2026-06-30",
+      "thumbnail": "designs/y9-l7/thumb.png",
+      "type": "slides",
+      "tags": ["Year 9", "中文", "School"]
     }
   ]
 }
