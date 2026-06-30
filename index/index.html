@@ -160,7 +160,7 @@
   <div class="empty hidden" id="empty">
     <div class="icon">🎨</div>
     <h2>还没有设计 · No designs yet</h2>
-    <p>使用 <code>/huashu-design</code> 创建你的第一个设计</p>
+    <p>使用 <code>/huashu-design</code> 创建你的第一个设计 · Create your first design</p>
   </div>
   <div class="empty hidden" id="no-results">
     <div class="icon">🔍</div>
@@ -191,7 +191,7 @@
   function escapeHtml(str){
     var div = document.createElement('div');
     div.textContent = (str == null) ? '' : str;
-    return div.innerHTML;
+    return div.innerHTML.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
   var designs = [];
@@ -203,7 +203,7 @@
 
   function matchesQuery(d, q){
     if(!q) return true;
-    var hay = [d.title, d.description, d.type, (d.tags||[]).join(' ')].join(' ').toLowerCase();
+    var hay = [d.title, d.description, d.type, (CATEGORIES[d.type]||''), (d.tags||[]).join(' ')].join(' ').toLowerCase();
     return hay.indexOf(q) !== -1;
   }
 
