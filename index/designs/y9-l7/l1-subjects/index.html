@@ -53,6 +53,11 @@
     --space-xs:8px; --space-sm:16px; --space-md:24px; --space-lg:40px; --space-xl:64px; --space-2xl:96px;
     --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-xl:28px;
   }
+  #frame:not(.revealed) [data-reveal] { opacity: 0; transition: opacity 0.3s; }
+  #frame.revealed [data-reveal]        { opacity: 1; transition: opacity 0.3s; }
+  .reveal-btn { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; }
+  .reveal-btn:hover { opacity: 1; }
+  .reveal-btn.active { background: rgba(46,125,110,0.75); opacity: 1; }
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap');
 </style>
 </head>
@@ -62,12 +67,21 @@
 <div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
 <div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
 <div class="counter" id="counter">1 / 1</div>
+<button class="reveal-btn" id="revealBtn">Show Answers</button>
 <script>
 (function () {
   const W = window.DECK_WIDTH || 1920, H = window.DECK_HEIGHT || 1080;
   const deck = window.DECK_MANIFEST || [];
   const stage = document.getElementById('stage'), frame = document.getElementById('frame'), counter = document.getElementById('counter');
   let current = 0;
+  let answersShown = false;
+  const revealBtn = document.getElementById('revealBtn');
+  revealBtn.addEventListener('click', function() {
+    answersShown = !answersShown;
+    frame.classList.toggle('revealed', answersShown);
+    revealBtn.textContent = answersShown ? 'Hide Answers' : 'Show Answers';
+    revealBtn.classList.toggle('active', answersShown);
+  });
   stage.style.width = W + 'px'; stage.style.height = H + 'px';
   function fit() {
     const s = Math.min(innerWidth / W, innerHeight / H);
@@ -81,6 +95,7 @@
     const item = deck[idx];
     counter.innerHTML = (idx+1) + ' / ' + deck.length + ' <span class="label">' + (item.label||'') + '</span>';
     if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
+    answersShown = false; frame.classList.remove('revealed'); revealBtn.textContent = 'Show Answers'; revealBtn.classList.remove('active');
     if (loadedFile !== item.file) {
       loadedFile = item.file;
       fetch(item.file).then(r=>r.text()).then(html=>{
@@ -110,6 +125,7 @@
       case'Home':e.preventDefault();show(0);break;
       case'End':e.preventDefault();show(deck.length-1);break;
       case'p':case'P':window.print();break;
+      case'a':case'A':answersShown=!answersShown;frame.classList.toggle('revealed',answersShown);revealBtn.textContent=answersShown?'Hide Answers':'Show Answers';revealBtn.classList.toggle('active',answersShown);break;
       default:if(e.key>='1'&&e.key<='9'){var i=parseInt(e.key,10)-1;if(i<deck.length){e.preventDefault();show(i);}}
     }
   });
