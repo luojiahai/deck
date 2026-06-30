@@ -52,6 +52,7 @@
   .model-label { font-size:11px; font-weight:700; color:var(--accent-coral); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
   .model-cn { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--text-primary); }
   .tt-followup { font-size:15px; color:var(--text-secondary); margin-top:8px; line-height:1.5; }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:8px 14px; color:var(--text-muted); font-style:italic; font-size:13px; margin-top:8px; opacity:0.5; }
 </style>
 </head>
 <body>
@@ -92,24 +93,21 @@
         <div class="eg-item">
           <div class="eg-num">1</div>
           <div class="eg-cn">你为什么喜欢数学？</div>
-          <div class="eg-type q">Q 问句</div>
         </div>
         <div class="eg-item">
           <div class="eg-num">2</div>
           <div class="eg-cn">因为我觉得数学很有意思。</div>
-          <div class="eg-type a">A 回答</div>
         </div>
         <div class="eg-item">
           <div class="eg-num">3</div>
           <div class="eg-cn">因为我对历史很感兴趣。</div>
-          <div class="eg-type a">A 回答</div>
         </div>
         <div class="eg-item">
           <div class="eg-num">4</div>
           <div class="eg-cn">你最喜欢哪个科目？为什么？</div>
-          <div class="eg-type q">Q 问句</div>
         </div>
       </div>
+      <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
     </div>
 
     <!-- CFU 2: Cold Call -->
@@ -121,12 +119,8 @@
       <div class="cfu-title">Translation Recall · 翻译记忆</div>
       <div class="cold-q">用中文怎么说<br>"boring"？</div>
       <div class="cold-sub">Cold call — any student · 随机叫学生回答</div>
-      <div class="expected-box">
-        <div class="expected-label">Expected Answer · 答案</div>
-        <div class="expected-ans">没意思</div>
-        <div class="expected-py">méi yìsi</div>
-      </div>
-      <div class="cold-followup">If wrong → write <strong>没意思</strong> on board, class reads ×2 together</div>
+      <div class="answer-hidden">答案见下一张 · Answer on next slide →</div>
+      <div class="cold-followup">If wrong → teacher gives the correction, class reads it aloud ×2 together</div>
     </div>
 
     <!-- CFU 3: Turn-and-Talk -->
