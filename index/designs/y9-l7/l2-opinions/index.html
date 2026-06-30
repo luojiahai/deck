@@ -28,9 +28,9 @@
   html, body { height: 100%; overflow: hidden; font-family: -apple-system, "PingFang SC", sans-serif; background: #0a0a0a; }
   #stage { position: fixed; top: 50%; left: 50%; transform-origin: top left; will-change: transform; background: #fff; box-shadow: 0 10px 60px rgba(0,0,0,0.4); }
   #frame { width: 1920px; height: 1080px; overflow: hidden; position: relative; background: #fff; }
-  .counter { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; z-index: 100; opacity: 0.7; }
-  .counter .label { color: rgba(255,255,255,0.7); margin-left: 8px; }
-  .list-btn { position: fixed; bottom: 20px; left: 20px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer; z-index: 100; opacity: 0.6; text-decoration: none; display: block; }
+  .counter-pill { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; z-index: 100; opacity: 0.7; }
+  .counter-pill .label { color: rgba(255,255,255,0.7); margin-left: 8px; }
+  .list-btn { color: rgba(255,255,255,0.85); text-decoration: none; padding-right: 10px; border-right: 1px solid rgba(255,255,255,0.25); opacity: 0.85; }
   .list-btn:hover { opacity: 1; }
   .nav-zone { position: fixed; top: 0; bottom: 0; width: 15%; cursor: pointer; z-index: 50; }
   .nav-zone.left { left: 0; } .nav-zone.right { right: 0; }
@@ -56,11 +56,13 @@
 </style>
 </head>
 <body>
-<a class="list-btn" href="../">← 列表</a>
 <div id="stage"><div id="frame"></div></div>
 <div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
 <div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
-<div class="counter" id="counter">1 / 1</div>
+<div class="counter-pill">
+  <a class="list-btn" href="../">← 列表</a>
+  <span id="counter">1 / 1</span>
+</div>
 <script>
 (function () {
   const W = window.DECK_WIDTH || 1920, H = window.DECK_HEIGHT || 1080;
