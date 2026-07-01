@@ -229,6 +229,7 @@
   .note-strip-icon { font-size: 22px; flex-shrink: 0; }
   .note-strip-text { font-size: 18px; color: var(--text-secondary); }
   .note-strip-text strong { color: var(--accent-gold); }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; color:var(--text-muted); font-style:italic; font-size:15px; opacity:0.5; margin-bottom:12px; }
 </style>
 </head>
 <body>
@@ -256,10 +257,6 @@
       <div class="c-sentence">
         因为我觉得历史很有意思，<span class="c-blank"></span>我喜欢历史。
       </div>
-      <div style="display:flex; align-items:center; gap:12px;">
-        <div class="c-answer-box">所以</div>
-        <span class="c-note">连词 conjunction</span>
-      </div>
     </div>
 
     <!-- Challenge 2: Error correction — coral -->
@@ -272,12 +269,6 @@
         <div class="err-row">
           <span class="err-label">❌</span>
           <span class="err-text-wrong">我在数学很感兴趣。</span>
-        </div>
-        <div style="text-align:center; font-size:22px; color:var(--text-muted);">↓</div>
-        <div class="err-row">
-          <span class="err-label">✅</span>
-          <span class="err-text-correct">我对数学很感兴趣。</span>
-          <span class="err-fix-note">在→对</span>
         </div>
       </div>
     </div>
@@ -292,8 +283,7 @@
         我们的数学老师<span class="c-blank"></span>。
       </div>
       <div class="c-requirement">
-        Must use <strong>教得</strong> + complement<br>
-        e.g. 教得很好 / 很有趣
+        Must use <strong>教得</strong> + complement
       </div>
       <div class="c-open-badge">Open Answer ✦</div>
     </div>
@@ -301,6 +291,7 @@
   </div>
 
   <!-- After-answer note strip -->
+  <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
   <div class="note-strip">
     <span class="note-strip-icon">⏱</span>
     <span class="note-strip-text">After each answer: <strong>10-second explanation in English max</strong></span>

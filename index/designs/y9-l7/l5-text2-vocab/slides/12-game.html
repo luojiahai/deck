@@ -16,7 +16,7 @@
   .setup-sep { width:1px; height:24px; background:var(--border-light); flex-shrink:0; }
 
   .sentences-grid { display:flex; flex-direction:column; gap:14px; }
-  .sentence-row { background:var(--bg-secondary); border:1.5px solid var(--border-medium); border-radius:var(--radius-lg); padding:14px 20px; display:grid; grid-template-columns:32px 1fr 1fr; gap:16px; align-items:center; }
+  .sentence-row { background:var(--bg-secondary); border:1.5px solid var(--border-medium); border-radius:var(--radius-lg); padding:14px 20px; display:grid; grid-template-columns:32px 1fr; gap:16px; align-items:center; }
   .sentence-row:nth-child(odd) { border-color:var(--accent-blue); background:var(--accent-blue-dim); }
   .sentence-row:nth-child(even) { border-color:var(--accent-teal); background:var(--accent-teal-dim); }
 
@@ -41,6 +41,7 @@
 
   .ext-note { background:var(--accent-gold-dim); border:1.5px solid var(--accent-gold); border-radius:var(--radius-md); padding:10px 20px; margin-top:14px; display:flex; align-items:center; gap:12px; font-size:16px; color:var(--accent-gold); font-weight:700; }
   .ext-note-icon { font-size:20px; flex-shrink:0; }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; color:var(--text-muted); font-style:italic; font-size:15px; opacity:0.5; margin-top:14px; }
 </style>
 </head>
 <body>
@@ -79,13 +80,6 @@
         <div class="chip blue-light">化学</div>
         <div class="chip blue">有意思</div>
       </div>
-      <div class="answer-col">
-        <div class="ans-arrow">→</div>
-        <div class="ans-box">
-          <div class="ans-label">Answer · 答案</div>
-          <div class="ans-cn">我觉得化学很有意思。</div>
-        </div>
-      </div>
     </div>
 
     <div class="sentence-row">
@@ -95,13 +89,6 @@
         <div class="chip teal-light">历史</div>
         <div class="chip teal">为什么</div>
         <div class="chip teal-light">喜欢</div>
-      </div>
-      <div class="answer-col">
-        <div class="ans-arrow">→</div>
-        <div class="ans-box">
-          <div class="ans-label">Answer · 答案</div>
-          <div class="ans-cn">你为什么喜欢历史？</div>
-        </div>
       </div>
     </div>
 
@@ -115,13 +102,6 @@
         <div class="chip blue">没意思</div>
         <div class="chip blue-light">很</div>
       </div>
-      <div class="answer-col">
-        <div class="ans-arrow">→</div>
-        <div class="ans-box">
-          <div class="ans-label">Answer · 答案</div>
-          <div class="ans-cn">因为我觉得数学很没意思。</div>
-        </div>
-      </div>
     </div>
 
     <div class="sentence-row">
@@ -133,20 +113,14 @@
         <div class="chip teal-light">音乐</div>
         <div class="chip teal">感兴趣</div>
       </div>
-      <div class="answer-col">
-        <div class="ans-arrow">→</div>
-        <div class="ans-box">
-          <div class="ans-label">Answer · 答案</div>
-          <div class="ans-cn">我对音乐很感兴趣。</div>
-        </div>
-      </div>
     </div>
 
   </div>
 
+  <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
   <div class="ext-note">
     <div class="ext-note-icon">★</div>
-    Extension: after each answer is revealed, write one additional related sentence in exercise books.
+    Extension: write one additional related sentence in exercise books.
   </div>
 </div>
 

@@ -21,7 +21,7 @@
 
   .cq-label { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:10px; }
   .cq-list { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
-  .cq-item { display:grid; grid-template-columns:28px 1fr auto; gap:16px; align-items:center; background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 18px; border:1px solid var(--border-light); }
+  .cq-item { display:grid; grid-template-columns:28px 1fr; gap:16px; align-items:center; background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 18px; border:1px solid var(--border-light); }
   .cq-num { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--accent-blue); opacity:0.45; text-align:center; }
   .cq-q { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--text-primary); }
   .cq-a { font-family:var(--font-display); font-size:20px; color:var(--accent-teal); font-weight:700; white-space:nowrap; }
@@ -31,6 +31,7 @@
   .note-text { font-size:19px; font-weight:700; color:var(--accent-gold); line-height:1.4; }
   .note-sub { font-size:14px; color:var(--text-muted); margin-top:4px; }
   .highlight-red { color:var(--accent-coral); }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:10px 18px; color:var(--text-muted); font-style:italic; font-size:15px; opacity:0.5; margin-bottom:14px; }
 </style>
 </head>
 <body>
@@ -82,19 +83,17 @@
     <div class="cq-item">
       <div class="cq-num">1</div>
       <div class="cq-q">他最喜欢哪个科目？</div>
-      <div class="cq-a">→ 化学。</div>
     </div>
     <div class="cq-item">
       <div class="cq-num">2</div>
       <div class="cq-q">他为什么喜欢化学？</div>
-      <div class="cq-a">→ 因为他觉得化学很有意思。</div>
     </div>
     <div class="cq-item">
       <div class="cq-num">3</div>
       <div class="cq-q">化学老师教得怎么样？</div>
-      <div class="cq-a">→ 教得很好。/ 也教得好。</div>
     </div>
   </div>
+  <div class="answer-hidden">答案见下一张 · Answers on next slide →</div>
 
   <div class="note-box">
     <div class="note-icon">📌</div>
