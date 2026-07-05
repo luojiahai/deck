@@ -26,6 +26,15 @@
       "thumbnail": "designs/y9-l7/thumb.png",
       "type": "slides",
       "tags": ["Year 9", "中文", "School"]
+    },
+    {
+      "id": "y7-l11",
+      "title": "Y7 L11 · 日常起居 Daily Routine",
+      "description": "8 节课程幻灯片系列——Year 7 中文日常起居单元（时间词·时间换算·部首拼音·起居动词·句型·听力运动·采访·综合复习），延续 Y7 L10 配色，含全屏演示",
+      "createdAt": "2026-07-05",
+      "thumbnail": "designs/y7-l11/thumb.png",
+      "type": "slides",
+      "tags": ["Year 7", "中文", "Daily Routine"]
     }
   ]
 }

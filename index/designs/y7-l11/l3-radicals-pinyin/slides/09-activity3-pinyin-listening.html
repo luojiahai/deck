@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-09 · Activity 3: Pinyin Listening</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 44px 100px 30px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .audio-cue {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 12px 26px;
+    margin-bottom: 20px;
+    font-size: 18px; font-weight: 700; color: var(--accent-coral);
+  }
+
+  .listen-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 1700px; }
+  .listen-cell {
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 18px 10px;
+  }
+  .listen-cell .cell-num { font-size: 13px; font-weight: 700; color: var(--accent-coral); margin-bottom: 8px; }
+  .listen-cell .untoned {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .listen-cell .tone-blank {
+    width: 60px; height: 2px;
+    background: var(--border-medium);
+    margin: 10px auto 6px;
+    border-radius: 1px;
+  }
+  .listen-cell .hint { font-size: 12px; color: var(--text-muted); }
+
+  .instructions { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 16px; color: var(--text-muted); }
+  .instructions .pill { background: var(--bg-tertiary); padding: 7px 16px; border-radius: 999px; font-weight: 500; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; max-width: 1700px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-item .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+
+  .next-hint {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 2px dashed var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 8px 22px;
+    font-size: 16px; font-weight: 700; color: var(--accent-gold);
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 部首拼音</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 3 · Pinyin Listening (You Do) · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 3 · You Do · 7 min</div>
+  <div class="main-title">Add the Tone · 听音写声调</div>
+  <div class="subtitle">On your A4 sheet: listen to each syllable, then write the tone mark above the correct vowel.</div>
+
+  <div class="audio-cue">🔊 播放 CD T51 — pause after each item</div>
+
+  <div class="listen-grid">
+    <div class="listen-cell"><div class="cell-num">1</div><div class="untoned">wan</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">2</div><div class="untoned">ban</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">3</div><div class="untoned">hen</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">4</div><div class="untoned">men</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">5</div><div class="untoned">jin</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">6</div><div class="untoned">xin</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">7</div><div class="untoned">chun</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">8</div><div class="untoned">kun</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">9</div><div class="untoned">qun</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+    <div class="listen-cell"><div class="cell-num">10</div><div class="untoned">yun</div><div class="tone-blank"></div><div class="hint">add tone</div></div>
+  </div>
+
+  <div class="instructions">
+    <span class="pill">✏️ Write the tone mark above the correct vowel</span>
+    <span class="pill">👍👎 Thumbs up/down after each item before moving on</span>
+    <span class="pill">✅ Self-mark against the projected answer key at the end</span>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Track played twice per item + may check the vowel-mouth-shape chart from I Do</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>Fluent students write the full pinyin syllable — initial + final + tone, not just the mark</div>
+  </div>
+
+  <div class="next-hint">答案见下一张 · Answers on next slide →</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

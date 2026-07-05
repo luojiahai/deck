@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-09b · Game: Correct the Teacher · Answers</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { padding: 34px 100px 22px; gap: 14px; }
+  .header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+  .act-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--text-primary); }
+  .reveal-badge {
+    display: inline-block;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 5px 18px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    flex: 1;
+  }
+  .answer-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 14px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card-num { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  .error-pair { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .error-wrong { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--accent-coral); text-decoration: line-through; }
+  .error-arrow { font-size: 18px; color: var(--text-muted); flex-shrink: 0; }
+  .error-correct { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--accent-teal); }
+  .error-note { font-size: 14px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 句型</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Correct the Teacher · Answers</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="header-row">
+    <div class="act-title">Correct the Teacher — Answers</div>
+    <div class="reveal-badge">ANSWER REVEAL</div>
+  </div>
+
+  <div class="answers-grid">
+    <div class="answer-card">
+      <div class="card-num">Error 1 · Word order</div>
+      <div class="error-pair">
+        <span class="error-wrong">你们几点下午放学？</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">你们下午几点放学？</span>
+      </div>
+      <div class="error-note">下午 (time-of-day) comes before 几点 — not after</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="card-num">Error 2 · Wrong verb form</div>
+      <div class="error-pair">
+        <span class="error-wrong">我早上六点半起了床。</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">我早上六点半起床。</span>
+      </div>
+      <div class="error-note">起床 is the fixed verb — not 起了床</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="card-num">Error 3 · Duplicate time-of-day</div>
+      <div class="error-pair">
+        <span class="error-wrong">他晚上上午睡觉。</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">他晚上睡觉。</span>
+      </div>
+      <div class="error-note">Two time-of-day words — remove 上午</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="card-num">Error 4 · 几点 duplicated</div>
+      <div class="error-pair">
+        <span class="error-wrong">你几点几点吃早饭？</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">你几点吃早饭？</span>
+      </div>
+      <div class="error-note">几点 should only appear once</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="card-num">Error 5 · Wrong verb</div>
+      <div class="error-pair">
+        <span class="error-wrong">我们下午三点半上学。</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">我们下午三点半放学。</span>
+      </div>
+      <div class="error-note">Classes ENDING — should be 放学, not 上学</div>
+    </div>
+
+    <div class="answer-card">
+      <div class="card-num">Error 6 · Two verbs combined</div>
+      <div class="error-pair">
+        <span class="error-wrong">她早上七点半上课上学。</span>
+        <span class="error-arrow">&#8594;</span>
+        <span class="error-correct">她早上七点半上课。</span>
+      </div>
+      <div class="error-note">Only ONE verb — 上课 or 上学, not both together</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

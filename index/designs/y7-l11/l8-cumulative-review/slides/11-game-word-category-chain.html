@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-11 · Game: Word Category Chain</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 46px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 22px; max-width: 1300px; }
+
+  .cat-row { display: flex; gap: 14px; justify-content: center; margin-bottom: 22px; flex-wrap: wrap; }
+  .cat-pill {
+    background: var(--accent-teal-dim);
+    color: var(--accent-teal);
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .activity-box {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 28px 40px;
+    max-width: 1300px;
+    margin: 0 auto 22px;
+    position: relative;
+  }
+  .activity-box .activity-badge {
+    position: absolute;
+    top: -15px; left: 32px;
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 4px 20px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .chain-flow {
+    display: flex; align-items: center; gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .chain-step {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    font-size: 18px; font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+  .chain-arrow { font-size: 24px; color: var(--accent-gold); }
+
+  .rules-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .rule-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
+    text-align: left;
+    display: flex; align-items: flex-start; gap: 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  }
+  .rule-card .rule-icon { font-size: 24px; flex-shrink: 0; }
+  .rule-card .rule-text { font-size: 16px; color: var(--text-secondary); }
+  .rule-card .rule-text strong { color: var(--accent-coral); }
+
+  .example-box {
+    background: var(--accent-gold-dim);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 14px;
+    justify-content: center;
+    font-size: 20px;
+    max-width: 1000px; margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .example-box .ex-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-gold); text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 复习</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Word Category Chain · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">5 min · Whole Class · Ex12, p.85</div>
+  <div class="main-title">同类词接龙 · Word Category Chain</div>
+  <div class="subtitle">Whole class in a circle or rows. Teacher names a category — go student to student, each adds a new word within 5 seconds.</div>
+
+  <div class="cat-row">
+    <div class="cat-pill">时间词</div>
+    <div class="cat-pill">日常活动</div>
+    <div class="cat-pill">运动</div>
+    <div class="cat-pill">家庭成员</div>
+    <div class="cat-pill">颜色</div>
+  </div>
+
+  <div class="activity-box">
+    <div class="activity-badge">Whole Class · 3–4 Rounds</div>
+    <div class="chain-flow">
+      <div class="chain-step">🧑 Student 1</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">🧑 Student 2</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">🧑 Student 3</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">🧑 Next...</div>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-icon">🔁</div>
+        <div class="rule-text"><strong>No repeating words.</strong> Each student must add a word not already used in this round.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">⏰</div>
+        <div class="rule-text"><strong>5 seconds per person.</strong> A student who repeats a word or freezes is out for that round.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🔄</div>
+        <div class="rule-text"><strong>New category each round.</strong> Play 3–4 rounds with different categories.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🎤</div>
+        <div class="rule-text"><strong>Verbal game only.</strong> No setup needed — just listen and think fast!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <span class="ex-label">Example · 时间词</span>
+    <span>早上</span> <span style="color:var(--text-muted);">→</span> <span style="color:var(--accent-teal);">下午</span> <span style="color:var(--text-muted);">→</span> <span>晚上</span> <span style="color:var(--text-muted);">→ ...</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

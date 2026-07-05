@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-08 · Activity 2: Radical Bingo</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 44px 110px 32px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+  .bingo-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 3px solid var(--accent-gold);
+    max-width: 460px;
+  }
+  .bingo-cell {
+    background: #fff;
+    border-radius: var(--radius-sm);
+    padding: 16px 8px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    border: 2px dashed var(--border-light);
+    min-height: 74px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bingo-cell.free {
+    background: var(--accent-gold-dim);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    font-size: 18px;
+  }
+  .word-bank { display: flex; flex-direction: column; gap: 10px; }
+  .word-bank-title { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 2px; }
+  .bank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bank-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    padding: 9px 16px;
+    font-size: 17px;
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .bank-item .zh { font-family: var(--font-display); font-weight: 700; }
+  .bank-item .dig { color: var(--text-muted); font-size: 13px; }
+  .how-to { margin-top: 16px; font-size: 16px; color: var(--text-muted); line-height: 1.6; }
+  .how-to .step-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-teal); color: #fff; text-align: center; font-size: 13px; font-weight: 700; line-height: 22px; margin-right: 6px; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 18px; max-width: 1700px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-item .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 部首拼音</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 2 · Radical Bingo · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 2 · 7 min</div>
+  <div class="main-title">Radical Bingo · 部首宾果</div>
+  <div class="subtitle">9-square card, mixing radicals and example characters. Cross off the matching square!</div>
+
+  <div class="two-col">
+    <div class="bingo-card">
+      <div class="bingo-cell">矢</div>
+      <div class="bingo-cell">颜</div>
+      <div class="bingo-cell">艹</div>
+      <div class="bingo-cell">拉</div>
+      <div class="bingo-cell free">部首 FREE</div>
+      <div class="bingo-cell">短</div>
+      <div class="bingo-cell">走</div>
+      <div class="bingo-cell">穿</div>
+      <div class="bingo-cell">页</div>
+    </div>
+
+    <div>
+      <div class="word-bank">
+        <div class="word-bank-title">Word Bank — mix of radicals &amp; example characters</div>
+        <div class="bank-grid">
+          <div class="bank-item"><span class="zh">穴</span><span class="dig">cave</span></div>
+          <div class="bank-item"><span class="zh">矢</span><span class="dig">arrow</span></div>
+          <div class="bank-item"><span class="zh">页</span><span class="dig">page</span></div>
+          <div class="bank-item"><span class="zh">扌</span><span class="dig">hand</span></div>
+          <div class="bank-item"><span class="zh">艹</span><span class="dig">grass</span></div>
+          <div class="bank-item"><span class="zh">走</span><span class="dig">walk</span></div>
+          <div class="bank-item"><span class="zh">穿</span><span class="dig">chuān</span></div>
+          <div class="bank-item"><span class="zh">短</span><span class="dig">duǎn</span></div>
+          <div class="bank-item"><span class="zh">颜</span><span class="dig">yán</span></div>
+          <div class="bank-item"><span class="zh">拉</span><span class="dig">lā</span></div>
+          <div class="bank-item"><span class="zh">英</span><span class="dig">yīng</span></div>
+          <div class="bank-item"><span class="zh">起</span><span class="dig">qǐ</span></div>
+        </div>
+      </div>
+
+      <div class="how-to">
+        <div><span class="step-num">1</span> Draw a 3×3 grid. Centre = <span style="color:var(--accent-gold);font-weight:700;">部首 FREE</span></div>
+        <div><span class="step-num">2</span> Pick 8 items from the word bank, arrange randomly</div>
+        <div><span class="step-num">3</span> Teacher calls a meaning or reads an example character — cross it off!</div>
+        <div><span class="step-num">4</span> Shout <strong>BINGO!</strong> on a line — then read your full line back correctly to win</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Struggling students may use the radical table as an open reference</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>Early Bingo winners keep playing for a full-card win</div>
+    <div class="sed-item otr"><div class="sed-label">OTR</div>Whole-class choral confirmation of the answer after every call</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

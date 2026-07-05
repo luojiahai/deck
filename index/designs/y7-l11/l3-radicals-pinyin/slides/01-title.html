@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .char-highlight {
+    color: var(--accent-gold);
+  }
+  .title-cn .char-highlight2 {
+    color: var(--accent-teal);
+  }
+  .title-en {
+    font-size: 30px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .badge-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+  .watermark-char {
+    position: absolute;
+    right: -60px;
+    bottom: -120px;
+    font-family: var(--font-display);
+    font-size: 480px;
+    font-weight: 900;
+    color: var(--accent-gold-dim);
+    line-height: 1;
+    z-index: 0;
+    user-select: none;
+  }
+  .watermark-char2 {
+    position: absolute;
+    left: -80px;
+    top: -100px;
+    font-family: var(--font-display);
+    font-size: 340px;
+    font-weight: 900;
+    color: var(--accent-teal-dim);
+    line-height: 1;
+    z-index: 0;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="watermark-char2">页</div>
+
+<div class="main">
+  <div class="badge-row">
+    <span class="badge badge-gold">部首 Radicals</span>
+    <span class="badge badge-teal">拼音 Pinyin</span>
+  </div>
+  <div class="lesson-num">Lesson 3 · Y7 Unit 4</div>
+  <h1 class="title-cn">
+    <span class="char-highlight">部</span><span class="char-highlight">首</span><span> &amp; </span><span class="char-highlight2">拼</span><span class="char-highlight2">音</span>
+  </h1>
+  <div class="title-en">6 New Radicals &amp; Listening for an / en / in / un / ün</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Reading + Listening</span>
+  </div>
+</div>
+
+<div class="watermark-char">走</div>
+</body>
+</html>

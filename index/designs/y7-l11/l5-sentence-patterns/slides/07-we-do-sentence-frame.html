@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-07 · We Do: Guided Sentence-Frame Practice</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { padding: 40px 110px 28px; gap: 18px; }
+  .act-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .act-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--text-primary); }
+  .act-chips { display: flex; gap: 12px; align-items: center; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 18px; font-size: 15px; font-weight: 700; }
+  .chip-teal { background: var(--accent-teal-dim); color: var(--accent-teal); border: 1px solid var(--accent-teal); }
+  .chip-time { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-medium); }
+
+  .act-instruction { font-size: 21px; color: var(--text-secondary); margin-bottom: 4px; }
+
+  .frame-row { display: flex; align-items: center; justify-content: center; gap: 28px; margin: 10px 0 6px; }
+  .sentence-frame {
+    background: var(--bg-tertiary);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 18px 30px;
+    font-family: var(--font-display);
+    font-size: 30px; font-weight: 700;
+    color: var(--text-primary);
+  }
+  .sentence-frame.q { border-left-color: var(--accent-teal); }
+  .sentence-frame .blank { display: inline-block; min-width: 70px; border-bottom: 3px solid var(--accent-gold); color: var(--accent-gold); text-align: center; }
+  .sentence-frame.q .blank { border-bottom-color: var(--accent-teal); color: var(--accent-teal); }
+  .frame-swap-arrow { font-size: 34px; color: var(--text-muted); }
+
+  .frame-hint { text-align: center; font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 10px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 18px; font-size: 16px; color: var(--text-secondary); }
+  .sed-item .sed-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 句型</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Sentence-Frame Practice · 20–28 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="act-header">
+    <div class="act-title">Guided Sentence-Frame Practice</div>
+    <div class="act-chips">
+      <div class="chip chip-teal">Activity 1 · We Do</div>
+      <div class="chip chip-time">&#9201; 8 min</div>
+    </div>
+  </div>
+
+  <div class="act-instruction">Using the sentence-frame handout, convert 4 given statements into questions and vice versa. Check each with a partner before the teacher reveals the answer.</div>
+
+  <div class="frame-hint">The frame boxes show exactly where 几点 and the pronoun go</div>
+  <div class="frame-row">
+    <div class="sentence-frame">我<span class="blank">时间</span>动词。</div>
+    <div class="frame-swap-arrow">&#8646;</div>
+    <div class="sentence-frame q">你<span class="blank">几点</span>动词？</div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Frame boxes show exactly where 几点 and the pronoun go
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Fluent students also answer their own converted question with a different time
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Turn-and-talk on every item before the reveal — every student commits an answer first
+    </div>
+  </div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

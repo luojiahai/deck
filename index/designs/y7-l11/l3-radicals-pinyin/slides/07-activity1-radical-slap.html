@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-07 · Activity 1: Radical Slap</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 44px 110px 32px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 22px; }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    max-width: 1700px;
+    margin-bottom: 22px;
+  }
+  .board-card {
+    background: #fff;
+    border: 3px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 20px 12px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .board-card .b-glyph {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+  .board-card .b-meaning {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+  .board-card.c1 { border-left: 4px solid var(--accent-gold); }
+  .board-card.c2 { border-left: 4px solid var(--accent-teal); }
+  .board-card.c3 { border-left: 4px solid var(--accent-coral); }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 14px 18px; font-size: 16px; color: var(--text-secondary); }
+  .sed-item .sed-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+
+  .instructions {
+    margin-top: 18px;
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-size: 17px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 部首拼音</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 1 · Radical Slap · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1 · 6 min</div>
+  <div class="main-title">Radical Slap · 拍部首</div>
+  <div class="subtitle">Two sets of the 6 radical cards, spread on the table. Two students race to slap the correct one!</div>
+
+  <div class="board-grid">
+    <div class="board-card c1"><div class="b-glyph">穴</div><div class="b-meaning">cave</div></div>
+    <div class="board-card c2"><div class="b-glyph">矢</div><div class="b-meaning">arrow</div></div>
+    <div class="board-card c3"><div class="b-glyph">页</div><div class="b-meaning">page</div></div>
+    <div class="board-card c1"><div class="b-glyph">扌</div><div class="b-meaning">hand</div></div>
+    <div class="board-card c2"><div class="b-glyph">艹</div><div class="b-meaning">grass</div></div>
+    <div class="board-card c3"><div class="b-glyph">走</div><div class="b-meaning">walk</div></div>
+  </div>
+
+  <div class="instructions">
+    <span class="pill">🙋 2 students race at the front table</span>
+    <span class="pill">👂 Teacher calls a meaning OR shows the example character</span>
+    <span class="pill">✋ First to slap the correct radical wins!</span>
+    <span class="pill">🔄 Winner stays up — rotate through the whole class in pairs</span>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Radical table stays projected as a reference throughout</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>Teacher calls the example character (e.g. 颜) — students identify the radical inside</div>
+    <div class="sed-item otr"><div class="sed-label">OTR</div>Everyone gets a turn; the class chants the correct radical name after each slap</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

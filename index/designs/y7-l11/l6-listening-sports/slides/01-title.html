@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L6-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 128px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot {
+    color: var(--accent-coral);
+  }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  /* ── Abstract ball-and-arc motif (pure CSS, no imagery) ── */
+  .ball-icon {
+    width: 170px; height: 170px;
+    margin: 0 auto var(--space-lg);
+    position: relative;
+  }
+  .ball-icon .ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 4px solid var(--accent-teal-light);
+    opacity: 0.5;
+  }
+  .ball-icon .ball {
+    position: absolute;
+    width: 66px; height: 66px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 0 14px var(--accent-gold-dim);
+  }
+  .ball-icon .ball::before,
+  .ball-icon .ball::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.55);
+  }
+  .ball-icon .ball::after {
+    inset: 0;
+    border-color: rgba(255,255,255,0.3);
+    transform: rotate(45deg) scale(0.92);
+  }
+  .ball-icon .orbit-dot {
+    position: absolute;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    top: 6px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .ball-watermark {
+    position: absolute;
+    right: -60px; bottom: -60px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    border: 3px solid var(--border-light);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="ball-icon"><div class="ring"></div><div class="orbit-dot"></div><div class="ball"></div></div>
+  <div class="lesson-num">Lesson 6 · Y7 Unit 4</div>
+  <h1 class="title-cn">几点打篮球<span class="dot">？</span></h1>
+  <div class="title-en">Listening (a.m. / p.m.) + Sports Vocabulary · 听力练习与运动词汇</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Listening + Game</span>
+  </div>
+</div>
+
+<div class="ball-watermark"></div>
+</body>
+</html>

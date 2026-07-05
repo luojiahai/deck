@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .review-icon {
+    width: 170px; height: 170px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-gold-dim);
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 68px;
+    font-weight: 900;
+    color: var(--accent-gold);
+    background: #fff;
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 118px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .clock-watermark { right: 60px; bottom: -60px; }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="review-icon">复</div>
+  <div class="lesson-num">Lesson 8 · Y7 Unit 4</div>
+  <h1 class="title-cn">总<span class="dot">复习</span></h1>
+  <div class="title-en">Cumulative Review + Test 4.2 Prep · 综合对话与备考</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Writing-Focused</span>
+  </div>
+</div>
+
+<div class="clock-watermark"></div>
+</body>
+</html>

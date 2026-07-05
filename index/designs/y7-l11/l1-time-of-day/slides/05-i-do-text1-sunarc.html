@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-05 · I Do: Text 1 Sun-Arc Diagram</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 20px; }
+
+  .arc-strip { display: flex; height: 130px; border-radius: 65px; overflow: hidden; margin-bottom: 20px; max-width: 1680px; }
+  .arc-seg { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; position: relative; }
+  .arc-seg .term { font-family: var(--font-display); font-size: 32px; font-weight: 900; }
+  .arc-seg .range { font-size: 14px; opacity: 0.88; margin-top: 4px; font-family: var(--font-mono); }
+  .seg-1 { background: var(--accent-gold-light); }
+  .seg-2 { background: var(--accent-gold); }
+  .seg-3 { background: #B5822F; }
+  .seg-4 { background: var(--accent-teal-light); }
+  .seg-5 { background: var(--accent-teal); }
+
+  .sunarc-table { width: 100%; border-collapse: collapse; max-width: 1680px; font-size: 20px; }
+  .sunarc-table th { text-align: left; font-weight: 700; color: var(--text-secondary); padding: 8px 20px; border-bottom: 2px solid var(--accent-gold); font-size: 14px; letter-spacing: 0.06em; }
+  .sunarc-table td { padding: 8px 20px; border-bottom: 1px solid var(--border-light); }
+  .sunarc-table tr:nth-child(even) td { background: var(--bg-secondary); }
+  .sunarc-table .term-cell { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--text-primary); }
+  .sunarc-table .range-cell { font-family: var(--font-mono); font-size: 17px; color: var(--text-secondary); }
+  .sunarc-table .scene-cell { font-size: 17px; color: var(--text-secondary); }
+  .sunarc-table .scene-cell .em { color: var(--accent-gold); font-weight: 700; }
+
+  .warning-box {
+    margin-top: 16px;
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 26px;
+    display: flex; align-items: center; gap: 16px;
+    max-width: 1680px;
+  }
+  .warning-box .warn-icon { font-size: 32px; }
+  .warning-box .warn-text { font-size: 19px; font-weight: 700; color: var(--accent-coral); line-height: 1.4; }
+  .warning-box .warn-text u { text-decoration-color: var(--accent-coral); }
+  .warning-box .warn-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 时间词</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Text 1 Sun-Arc Diagram · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do · Text 1, p.78 · CD T45</div>
+  <div class="main-title">一天的时间 · The Sun-Arc Diagram</div>
+
+  <div class="arc-strip">
+    <div class="arc-seg seg-1"><div class="term">早上</div><div class="range">5:00–8:00</div></div>
+    <div class="arc-seg seg-2"><div class="term">上午</div><div class="range">before noon</div></div>
+    <div class="arc-seg seg-3"><div class="term">中午</div><div class="range">noon</div></div>
+    <div class="arc-seg seg-4"><div class="term">下午</div><div class="range">afternoon</div></div>
+    <div class="arc-seg seg-5"><div class="term">晚上</div><div class="range">18:00–24:00</div></div>
+  </div>
+
+  <table class="sunarc-table">
+    <thead><tr><th>时间词</th><th>时间范围</th><th>场景 Scene</th></tr></thead>
+    <tbody>
+      <tr><td class="term-cell">早上</td><td class="range-cell">5:00 – 8:00</td><td class="scene-cell"><span class="em">早上七点</span> — going to school 去上学</td></tr>
+      <tr><td class="term-cell">上午</td><td class="range-cell">before noon</td><td class="scene-cell"><span class="em">上午十点</span> — studying 学习</td></tr>
+      <tr><td class="term-cell">中午</td><td class="range-cell">noon</td><td class="scene-cell"><span class="em">中午十二点</span> — eating 吃饭</td></tr>
+      <tr><td class="term-cell">下午</td><td class="range-cell">afternoon</td><td class="scene-cell"><span class="em">下午四点</span> — playing football 踢足球</td></tr>
+      <tr><td class="term-cell">晚上</td><td class="range-cell">18:00 – 24:00</td><td class="scene-cell"><span class="em">晚上八点</span> — watching TV 看电视</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <div class="warn-icon">⚠️</div>
+    <div>
+      <div class="warn-text">早上 (<u>5:00–8:00</u>) ≠ 上午 (<u>before noon</u>) — both mean "morning" in English, but cover different ranges!</div>
+      <div class="warn-sub">早上 is only the early part of the day · 上午 covers everything up to 12:00</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

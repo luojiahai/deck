@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-10 · Game: Radical Writing Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 50px 100px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 26px; }
+  .game-flow { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .flow-step { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 16px 24px; text-align: center; min-width: 120px; }
+  .flow-step .icon { font-size: 34px; margin-bottom: 2px; }
+  .flow-step .label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .flow-arrow { font-size: 24px; color: var(--accent-gold); }
+
+  .rounds { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1700px; }
+  .round-card { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 20px 12px; text-align: center; }
+  .round-card .r-num { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 6px; }
+  .round-card .r-glyph { font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--text-primary); }
+  .round-card .r-meaning { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .round-card.bonus { border: 2px dashed var(--accent-gold); }
+  .round-card.bonus .r-num { color: var(--accent-gold); }
+
+  .rules { margin-top: 22px; font-size: 17px; color: var(--text-muted); display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+
+  .next-hint {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 2px dashed var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 10px 24px;
+    font-size: 17px; font-weight: 700; color: var(--accent-gold);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 部首拼音</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Writing Relay · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Game · 5 min</div>
+  <div class="main-title">Radical Writing Relay · 写字接力</div>
+  <div class="subtitle">4 teams. Teacher calls a radical's meaning — first runner writes ONE example character with it!</div>
+
+  <div class="game-flow">
+    <div class="flow-step"><div class="icon">👂</div><div class="label">Listen</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🏃</div><div class="label">Run!</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">✍️</div><div class="label">Write!</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🙌</div><div class="label">Tag next!</div></div>
+  </div>
+
+  <div class="rounds">
+    <div class="round-card"><div class="r-num">Round 1</div><div class="r-glyph">穴</div><div class="r-meaning">cave</div></div>
+    <div class="round-card"><div class="r-num">Round 2</div><div class="r-glyph">矢</div><div class="r-meaning">arrow</div></div>
+    <div class="round-card"><div class="r-num">Round 3</div><div class="r-glyph">页</div><div class="r-meaning">page</div></div>
+    <div class="round-card"><div class="r-num">Round 4</div><div class="r-glyph">扌</div><div class="r-meaning">hand</div></div>
+    <div class="round-card bonus"><div class="r-num">Round 5 · Bonus</div><div class="r-glyph">艹</div><div class="r-meaning">grass</div></div>
+    <div class="round-card bonus"><div class="r-num">Round 6 · Bonus</div><div class="r-glyph">走</div><div class="r-meaning">walk</div></div>
+  </div>
+
+  <div class="rules">
+    <span>✅ Any correct character with the radical counts — taught or bonus!</span>
+    <span>🏆 Fastest correct team scores a point</span>
+    <span>🪑 Board space: 4 lanes, chalk/markers ready per team</span>
+  </div>
+
+  <div class="next-hint">参考答案见下一张 · Reference answers on next slide →</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

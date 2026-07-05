@@ -1,0 +1,359 @@
+/* ═══════════════════════════════════════════════════
+   Y7 L11 · Daily Routine 日常起居 · Shared Design Tokens
+   8-lesson classroom slide deck series
+   (palette continued from Y7 L10 — same unit series)
+   ═══════════════════════════════════════════════════ */
+
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+/* ── Canvas Lock (1920×1080 for projector) ── */
+html, body {
+  margin: 0; padding: 0;
+  width: 1920px; height: 1080px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+/* ── Design Tokens ── */
+:root {
+  /* Palette */
+  --bg-primary: #FEFCF7;
+  --bg-secondary: #F6F2E8;
+  --bg-tertiary: #EDE7D7;
+  --text-primary: #1E2A38;
+  --text-secondary: #5B6677;
+  --text-muted: #8B94A3;
+  --accent-gold: #C8943E;
+  --accent-gold-light: #E8CD8A;
+  --accent-gold-dim: rgba(200, 148, 62, 0.12);
+  --accent-teal: #3A7D8C;
+  --accent-teal-light: #6BAFB9;
+  --accent-teal-dim: rgba(58, 125, 140, 0.10);
+  --accent-coral: #D4756B;
+  --accent-coral-dim: rgba(212, 117, 107, 0.10);
+  --border-light: #E5DFD0;
+  --border-medium: #D5CEBB;
+
+  /* Typography */
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-body: 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* ── Slide Chrome: Top Bar ── */
+.slide-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(254, 252, 247, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+.slide-header .lesson-tag {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  font-family: var(--font-body);
+}
+.slide-header .sep {
+  width: 1px; height: 20px;
+  background: var(--border-light);
+  margin: 0 20px;
+}
+.slide-header .section-name {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.slide-header .accent-line {
+  position: absolute;
+  top: 0; left: 80px; right: 80px;
+  height: 4px;
+  background: var(--accent-gold);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Slide Chrome: Bottom Bar ── */
+.slide-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.slide-footer .brand {
+  opacity: 0.5;
+}
+
+/* ── Content Area ── */
+.slide-content {
+  position: absolute;
+  top: 80px; left: 0; right: 0; bottom: 52px;
+  padding: 60px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Typography Utilities ── */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 120px; font-weight: 900;
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: 80px; font-weight: 900;
+  line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.display-md {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.heading-sm {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 28px; font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.body-md {
+  font-family: var(--font-body);
+  font-size: 22px; font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.caption {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Accent text ── */
+.text-gold { color: var(--accent-gold); }
+.text-teal { color: var(--accent-teal); }
+.text-coral { color: var(--accent-coral); }
+
+/* ── Cards & containers ── */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+.card-accent-left {
+  border-left: 4px solid var(--accent-gold);
+}
+
+/* ── Grids ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-md); }
+
+/* ── Flex helpers ── */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ── Clock Face (CSS) ── */
+.clock-face {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 6px solid var(--text-primary);
+  background: #fff;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.clock-face::before {
+  content: '';
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--text-primary);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.clock-face .hand-hour {
+  position: absolute;
+  width: 5px; height: 55px;
+  background: var(--text-primary);
+  border-radius: 3px;
+  bottom: 50%; left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(var(--hour-angle, 0deg));
+}
+.clock-face .hand-minute {
+  position: absolute;
+  width: 3px; height: 75px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  bottom: 50%; left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(var(--minute-angle, 0deg));
+}
+
+/* ── Badge / Tag ── */
+.badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+}
+.badge-gold { background: var(--accent-gold-dim); color: var(--accent-gold); }
+.badge-teal { background: var(--accent-teal-dim); color: var(--accent-teal); }
+.badge-coral { background: var(--accent-coral-dim); color: var(--accent-coral); }
+
+/* ── Table styles ── */
+.table-compact {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 24px;
+}
+.table-compact th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 12px 20px;
+  border-bottom: 2px solid var(--accent-gold);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+}
+.table-compact td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-body);
+  font-size: 26px;
+}
+.table-compact tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+/* ── Activity box ── */
+.activity-box {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+}
+.activity-box .activity-badge {
+  position: absolute;
+  top: -14px; left: 28px;
+  background: var(--accent-teal);
+  color: #fff;
+  padding: 4px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* ── Time display (large numbers) ── */
+.time-display {
+  font-family: var(--font-mono);
+  font-size: 160px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.time-display .colon {
+  color: var(--accent-gold);
+  animation: blink 1.2s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Highlight word ── */
+.hl {
+  display: inline-block;
+  background: linear-gradient(180deg, transparent 60%, var(--accent-gold-dim) 60%);
+  padding: 0 4px;
+}
+
+/* ── Pattern formula box ── */
+.formula-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.formula-box .op {
+  color: var(--accent-gold);
+  font-size: 24px;
+}
+
+/* ── Clock face watermark ── */
+.clock-watermark {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  border: 3px solid var(--border-light);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.clock-watermark::before {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--border-light);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y7 L11 · Daily Routine in Chinese · 日常起居</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #FEFCF7;
+    --text: #1E2A38;
+    --text-muted: #5B6677;
+    --accent: #C8943E;
+    --accent-teal: #3A7D8C;
+    --accent-coral: #D4756B;
+    --border: #E5DFD0;
+    --card-bg: #F6F2E8;
+    --font-display: 'Noto Serif SC', 'Songti SC', serif;
+    --font-body: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .hero .hero-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .unit-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding: 4px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .hero h1 .dot { color: var(--accent); }
+  .hero .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .hero .meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .hero .meta .pill {
+    background: var(--card-bg);
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .hero .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ── Card internals ── */
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* ── Sun-arc motif (day cycle — 早上→上午→中午→下午→晚上) ── */
+  .hero-sun {
+    width: 96px; height: 96px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-sun .arc {
+    position: absolute;
+    top: 8px; left: 0;
+    width: 96px; height: 96px;
+    border: 3px dashed var(--border);
+    border-radius: 50%;
+    clip-path: inset(0 0 48px 0);
+  }
+  .hero-sun .horizon {
+    position: absolute;
+    left: 4px; right: 4px;
+    top: 56px;
+    height: 2px;
+    background: var(--text-muted);
+    opacity: 0.35;
+  }
+  .hero-sun .sun {
+    position: absolute;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    top: 4px; left: 62px;
+    box-shadow: 0 0 0 6px rgba(200,148,62,0.14);
+  }
+
+  /* ── Lesson Grid ── */
+  .lessons {
+    padding: 0 0 80px;
+  }
+  .lessons .section-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .lesson-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .lesson-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(30, 42, 56, 0.10);
+    border-color: var(--accent);
+  }
+  .lesson-card .card-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: -8px;
+  }
+  .lesson-card .card-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .lesson-card .card-en {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .lesson-card .card-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-top: auto;
+  }
+  .badge-gold  { background: #FDF2E1; color: #B87D2E; }
+  .badge-teal  { background: #E5F0F3; color: #2D6A76; }
+  .badge-coral { background: #FBE8E3; color: #B85D53; }
+  .badge-brown { background: #F0E8E4; color: #7D5542; }
+
+  /* ── Top nav ── */
+  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 40px 0 32px; }
+    .hero h1 { font-size: 40px; }
+    .hero .hero-inner { gap: 24px; }
+    .hero .subtitle { font-size: 17px; margin-bottom: 16px; }
+    .hero .unit-tag { font-size: 13px; }
+    .hero .meta { font-size: 13px; gap: 12px; }
+    .lessons .section-title { font-size: 24px; margin-bottom: 24px; }
+    .lesson-card { padding: 22px 18px; border-radius: 14px; }
+    .lesson-card .card-num { font-size: 40px; }
+    .lesson-card .card-title { font-size: 20px; }
+    .lesson-card .card-en { font-size: 13px; }
+    .container { padding: 0 20px; }
+  }
+
+  @media (max-width: 640px) {
+    .lesson-grid { grid-template-columns: 1fr; gap: 14px; }
+    .hero { padding: 32px 0 24px; }
+    .hero h1 { font-size: 36px; }
+    .hero .hero-inner { gap: 20px; }
+    .hero .subtitle { font-size: 15px; margin-bottom: 12px; }
+    .hero .unit-tag { font-size: 12px; padding: 3px 12px; margin-bottom: 8px; }
+    .hero .meta { font-size: 13px; gap: 10px; }
+    .lessons { padding: 0 0 48px; }
+    .lessons .section-title { font-size: 20px; margin-bottom: 18px; }
+    .lesson-card { padding: 18px 16px; border-radius: 12px; }
+    .lesson-card .card-num { font-size: 32px; margin-bottom: -4px; }
+    .lesson-card .card-title { font-size: 18px; }
+    .lesson-card .card-en { font-size: 12px; margin-bottom: 8px; }
+    .lesson-card .card-badge { font-size: 10px; padding: 2px 8px; }
+    footer { padding: 24px 0; font-size: 12px; }
+  }
+
+  @media (max-width: 500px) {
+    .hero { padding: 24px 0 20px; }
+    .hero .hero-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .hero h1 { font-size: 32px; }
+    .hero .subtitle { font-size: 14px; margin-bottom: 10px; }
+    .hero .meta { font-size: 12px; gap: 8px; }
+    .lesson-card { padding: 16px 14px; }
+    .lesson-card .card-num { font-size: 28px; }
+    .lesson-card .card-title { font-size: 17px; }
+    .container { padding: 0 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="container">
+    <a href="../../">← Deck Gallery · 设计画廊</a>
+  </div>
+</div>
+
+<!-- ════════ Hero ════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-sun">
+        <div class="arc"></div>
+        <div class="horizon"></div>
+        <div class="sun"></div>
+      </div>
+      <div class="hero-text">
+        <div class="unit-tag">Year 7 · Unit 4.2</div>
+        <h1>日常起居<span class="dot">。</span></h1>
+        <div class="subtitle">Daily Routine in Chinese · 用中文说一天的生活</div>
+        <div class="meta">
+          <span class="pill">8 Lessons</span>
+          <span class="sep"></span>
+          <span class="pill">50 mins each</span>
+          <span class="sep"></span>
+          <span class="pill">Projector-only · No Devices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ Lesson Cards ════════ -->
+<section class="lessons">
+  <div class="container">
+    <div class="section-title">8 节课程 · Lesson Decks</div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card">
+        <a href="l1-time-of-day/" class="card-link">
+          <div class="card-num">01</div>
+          <div class="card-title">早上·上午·晚上</div>
+          <div class="card-en">Time-of-Day Vocab + Greetings</div>
+          <span class="card-badge badge-gold">Writing + Vocab</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l2-time-conversion/" class="card-link">
+          <div class="card-num">02</div>
+          <div class="card-title">下午四点三刻</div>
+          <div class="card-en">Time-of-Day + Clock Conversion</div>
+          <span class="card-badge badge-gold">Writing + Conversion</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l3-radicals-pinyin/" class="card-link">
+          <div class="card-num">03</div>
+          <div class="card-title">部首 · 拼音</div>
+          <div class="card-en">6 Radicals + an/en/in/un/ün Listening</div>
+          <span class="card-badge badge-coral">Game-Dominated</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l4-routine-verbs/" class="card-link">
+          <div class="card-num">04</div>
+          <div class="card-title">起床·上学·睡觉</div>
+          <div class="card-en">Routine Verbs + Text 2</div>
+          <span class="card-badge badge-gold">Character Writing</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l5-sentence-patterns/" class="card-link">
+          <div class="card-num">05</div>
+          <div class="card-title">你几点起床？</div>
+          <div class="card-en">Statements ↔ Questions</div>
+          <span class="card-badge badge-teal">Mixed · Speaking+Writing</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l6-listening-sports/" class="card-link">
+          <div class="card-num">06</div>
+          <div class="card-title">打篮球·做作业</div>
+          <div class="card-en">Listening (a.m./p.m.) + Sports Vocab</div>
+          <span class="card-badge badge-coral">Game + Listening</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l7-partner-interview/" class="card-link">
+          <div class="card-num">07</div>
+          <div class="card-title">采访同伴</div>
+          <div class="card-en">Partner Interview + Written Report</div>
+          <span class="card-badge badge-gold">Interview + Report</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l8-cumulative-review/" class="card-link">
+          <div class="card-num">08</div>
+          <div class="card-title">综合复习</div>
+          <div class="card-en">Cumulative Dialogue + Test 4.2 Prep</div>
+          <span class="card-badge badge-brown">Review + Test Prep</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Y7 Chinese · Unit 4.2 Daily Routine 日常起居 · 8-lesson deck series · <a href="../../">← Back to Gallery</a>
+  </div>
+</footer>
+
+</body>
+</html>

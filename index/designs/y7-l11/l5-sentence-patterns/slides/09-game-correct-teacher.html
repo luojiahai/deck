@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-09 · Game: Correct the Teacher</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { padding: 34px 100px 22px; gap: 12px; }
+  .act-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+  .act-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--text-primary); }
+  .act-chips { display: flex; gap: 12px; align-items: center; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 7px 18px; font-size: 15px; font-weight: 700; }
+  .chip-coral { background: var(--accent-coral-dim); color: var(--accent-coral); border: 1px solid var(--accent-coral); }
+  .chip-time { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-medium); }
+
+  .act-instruction { font-size: 19px; color: var(--text-secondary); margin-bottom: 4px; }
+
+  .errors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    flex: 1;
+  }
+  .error-card {
+    background: rgba(212,117,107,0.07);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-num { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); }
+  .wrong-sentence { font-family: var(--font-display); font-size: 27px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .correct-space { border-top: 2px dashed rgba(212,117,107,0.3); padding-top: 8px; min-height: 34px; display: flex; align-items: center; }
+  .correct-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-right: 8px; }
+  .correct-blank { font-family: var(--font-display); font-size: 20px; color: var(--text-muted); font-style: italic; }
+
+  .hint-box {
+    margin-top: 4px;
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--accent-coral-dim);
+    border-radius: var(--radius-sm);
+    border: 2px dashed var(--accent-coral);
+  }
+  .hint-box span { font-size: 16px; font-weight: 700; color: var(--accent-coral); }
+
+  .setup-note { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 句型</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Correct the Teacher · 36–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+
+  <div class="act-header">
+    <div class="act-title">Correct the Teacher! · 我来考老师</div>
+    <div class="act-chips">
+      <div class="chip chip-coral">Game</div>
+      <div class="chip chip-time">&#9201; 7 min</div>
+    </div>
+  </div>
+
+  <div class="act-instruction">Each sentence below has a mistake. Work with your partner to spot it and write the correction — a representative from each pair will read it out.</div>
+
+  <div class="errors-grid">
+    <div class="error-card">
+      <div class="card-num">Error 1</div>
+      <div class="wrong-sentence">你们几点下午放学？</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+    <div class="error-card">
+      <div class="card-num">Error 2</div>
+      <div class="wrong-sentence">我早上六点半起了床。</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+    <div class="error-card">
+      <div class="card-num">Error 3</div>
+      <div class="wrong-sentence">他晚上上午睡觉。</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+    <div class="error-card">
+      <div class="card-num">Error 4</div>
+      <div class="wrong-sentence">你几点几点吃早饭？</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+    <div class="error-card">
+      <div class="card-num">Error 5</div>
+      <div class="wrong-sentence">我们下午三点半上学。</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+    <div class="error-card">
+      <div class="card-num">Error 6</div>
+      <div class="wrong-sentence">她早上七点半上课上学。</div>
+      <div class="correct-space"><span class="correct-label">Correct &#8594;</span><span class="correct-blank">你来写…</span></div>
+    </div>
+  </div>
+
+  <div class="hint-box"><span>答案见下一张 · Answers on next slide &#8594;</span></div>
+  <div class="setup-note">Setup: pairs just need paper and pen — no other materials needed.</div>
+
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

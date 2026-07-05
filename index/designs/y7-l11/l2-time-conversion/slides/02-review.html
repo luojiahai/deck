@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-02 · Review · Time-of-Day Words</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .arc-strip { display: flex; height: 92px; border-radius: 46px; overflow: hidden; margin-bottom: 24px; max-width: 1680px; }
+  .arc-seg { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; position: relative; }
+  .arc-seg .term { font-family: var(--font-display); font-size: 24px; font-weight: 900; }
+  .arc-seg .range { font-size: 12px; opacity: 0.88; margin-top: 2px; font-family: var(--font-mono); }
+  .seg-1 { background: var(--accent-gold-light); }
+  .seg-2 { background: var(--accent-gold); }
+  .seg-3 { background: #B5822F; }
+  .seg-4 { background: var(--accent-teal-light); }
+  .seg-5 { background: var(--accent-teal); }
+
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    max-width: 1680px;
+  }
+  .q-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 18px 12px;
+    text-align: center;
+  }
+  .q-item.tricky { border: 2px solid var(--accent-coral); }
+  .q-num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    margin: 0 auto 10px;
+  }
+  .q-item.tricky .q-num { background: var(--accent-coral); }
+  .q-time {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+  .q-hint {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    min-height: 32px;
+  }
+  .instructions {
+    margin-top: 22px;
+    display: flex; gap: 20px;
+    font-size: 17px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .answer-hint {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 10px 22px;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 时间换算</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · Time-of-Day Words · 0–8 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Review</div>
+  <div class="main-title">Review: Time-of-Day Words · 复习时间词</div>
+  <div class="subtitle">Which time-of-day word fits each digital time? Write the word only — hold up!</div>
+
+  <div class="arc-strip">
+    <div class="arc-seg seg-1"><div class="term">早上</div><div class="range">5:00–8:00</div></div>
+    <div class="arc-seg seg-2"><div class="term">上午</div><div class="range">before noon</div></div>
+    <div class="arc-seg seg-3"><div class="term">中午</div><div class="range">noon</div></div>
+    <div class="arc-seg seg-4"><div class="term">下午</div><div class="range">afternoon</div></div>
+    <div class="arc-seg seg-5"><div class="term">晚上</div><div class="range">18:00–24:00</div></div>
+  </div>
+
+  <div class="q-grid">
+    <div class="q-item">
+      <div class="q-num">1</div>
+      <div class="q-time">06:30</div>
+      <div class="q-hint">Which word?</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">2</div>
+      <div class="q-time">11:00</div>
+      <div class="q-hint">Which word?</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">3</div>
+      <div class="q-time">14:00</div>
+      <div class="q-hint">Which word?</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">4</div>
+      <div class="q-time">19:00</div>
+      <div class="q-hint">Which word?</div>
+    </div>
+    <div class="q-item tricky">
+      <div class="q-num">5</div>
+      <div class="q-time">09:45</div>
+      <div class="q-hint">🤔 Careful — justify it!</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">6</div>
+      <div class="q-time">12:30</div>
+      <div class="q-hint">Which word?</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <div class="pill">✍️ Write the time-of-day word only — hold up!</div>
+    <div class="pill">🗣️ Cold call 2 students per item to justify</div>
+  </div>
+
+  <div class="answer-hint">答案见下一张 · Answers on next slide →</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

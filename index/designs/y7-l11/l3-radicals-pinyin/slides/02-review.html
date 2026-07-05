@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-02 · Review</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 60px 110px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 32px; }
+  .review-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1650px; }
+  .review-cell {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .review-cell .period-icon { font-size: 32px; margin-bottom: 8px; }
+  .review-cell .digital {
+    font-family: var(--font-mono);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .review-cell .answer-zh {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    visibility: hidden;
+    border-top: 1px dashed var(--border-medium);
+    padding-top: 10px;
+  }
+  .review-cell:hover .answer-zh { visibility: visible; }
+  .review-cell.trap { border: 2px solid var(--accent-coral); }
+  .review-cell.trap .answer-zh { color: var(--accent-coral); }
+  .review-cell .cha-tag {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent-coral);
+    visibility: hidden;
+  }
+  .review-cell.trap:hover .cha-tag { visibility: visible; }
+  .instructions {
+    margin-top: 28px;
+    display: flex; gap: 24px;
+    font-size: 18px; color: var(--text-muted);
+  }
+  .instructions .pill {
+    background: var(--bg-tertiary);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 部首拼音</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · 0–8 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">0–8 min · Quick-Fire Review</div>
+  <div class="main-title">Review · 复习</div>
+  <div class="subtitle">Team huddle-and-shout! First team to call out the correct Chinese time scores a point. (Hover to check as teacher.)</div>
+
+  <div class="review-grid">
+    <div class="review-cell">
+      <div class="period-icon">🌅</div>
+      <div class="digital">07:15</div>
+      <div class="answer-zh">早上七点十五分</div>
+    </div>
+    <div class="review-cell">
+      <div class="period-icon">☀️</div>
+      <div class="digital">12:30</div>
+      <div class="answer-zh">中午十二点半</div>
+    </div>
+    <div class="review-cell">
+      <div class="period-icon">🌙</div>
+      <div class="digital">18:45</div>
+      <div class="answer-zh">晚上六点四十五分</div>
+    </div>
+    <div class="review-cell">
+      <div class="period-icon">🌅</div>
+      <div class="digital">09:00</div>
+      <div class="answer-zh">早上九点</div>
+    </div>
+    <div class="review-cell trap">
+      <div class="period-icon">🌇</div>
+      <div class="digital">15:50</div>
+      <div class="answer-zh">下午四点差十分</div>
+      <div class="cha-tag">⚠️ 差 form!</div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <span class="pill">👥 Huddle with your team, then shout together</span>
+    <span class="pill">🏆 First correct team = 1 point</span>
+    <span class="pill">🔗 Today: from telling time → looking inside characters</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>

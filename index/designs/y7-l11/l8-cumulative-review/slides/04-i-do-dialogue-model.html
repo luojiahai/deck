@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-04 · I Do: Cumulative Dialogue Model</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 42px 100px; }
+  .section-label { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .dialogue-label {
+    display: inline-block;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--accent-teal); text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 4px 14px;
+    background: var(--accent-teal-dim);
+    border-radius: 999px;
+  }
+  .dialogue-box { display: flex; flex-direction: column; gap: 9px; }
+  .speech-line { display: flex; align-items: flex-start; gap: 10px; }
+  .speech-line .speaker {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .speech-line .speaker.a { background: var(--accent-gold); }
+  .speech-line .speaker.b { background: var(--accent-teal); }
+  .speech-line .bubble {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 8px 18px;
+    font-size: 19px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    max-width: 720px;
+  }
+  .speech-line.a-line .bubble { border: 2px solid var(--accent-gold-dim); }
+  .speech-line.b-line .bubble { border: 2px solid var(--accent-teal-dim); }
+  .speech-line .bubble .zh { font-weight: 700; color: var(--text-primary); }
+  .speech-line .bubble .sub { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+
+  .flow-strip {
+    margin-top: 16px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+    max-width: 1720px;
+  }
+  .flow-step {
+    background: #fff;
+    border-radius: 999px;
+    padding: 7px 20px;
+    font-size: 16px; font-weight: 700;
+    color: var(--text-primary);
+  }
+  .flow-arrow { font-size: 18px; color: var(--accent-gold); }
+  .flow-note { margin-left: 14px; font-size: 14px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 复习</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Cumulative Dialogue · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do · Ex11, p.85</div>
+  <div class="main-title">综合对话示范 · Cumulative Dialogue Model</div>
+  <div class="subtitle">One full dialogue combining greetings, routine, activities, and bedtime — nearly every pattern from the unit.</div>
+
+  <div class="two-col">
+    <div>
+      <div class="dialogue-label">Part 1 · Greeting & Morning · 问候与起床</div>
+      <div class="dialogue-box">
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">早上好！你叫什么名字？</div>
+            <div class="sub">Zǎoshang hǎo! Nǐ jiào shénme míngzi? · Good morning! What's your name?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">我叫王小明。</div>
+            <div class="sub">Wǒ jiào Wáng Xiǎomíng. · My name is Wang Xiaoming.</div>
+          </div>
+        </div>
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">你早上几点起床？</div>
+            <div class="sub">Nǐ zǎoshang jǐ diǎn qǐchuáng? · What time do you get up?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">我早上六点半起床，六点三刻吃早饭。</div>
+            <div class="sub">... liù diǎn bàn qǐchuáng, liù diǎn sān kè chī zǎofàn. · I get up at 6:30, breakfast at 6:45.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="dialogue-label">Part 2 · School, Afternoon & Night · 上学、放学与睡觉</div>
+      <div class="dialogue-box">
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">你几点去上学？</div>
+            <div class="sub">Nǐ jǐ diǎn qù shàngxué? · What time do you go to school?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">我七点一刻去上学，坐校车。</div>
+            <div class="sub">... qī diǎn yī kè qù shàngxué, zuò xiàochē. · I go at 7:15, by school bus.</div>
+          </div>
+        </div>
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">你们下午几点放学？</div>
+            <div class="sub">Nǐmen xiàwǔ jǐ diǎn fàngxué? · What time do classes finish?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">我们下午三点半放学。放学以后，我打篮球。</div>
+            <div class="sub">... sān diǎn bàn fàngxué. Fàngxué yǐhòu, wǒ dǎ lánqiú. · Finish at 3:30. After, I play basketball.</div>
+          </div>
+        </div>
+        <div class="speech-line a-line">
+          <div class="speaker a">A</div>
+          <div class="bubble">
+            <div class="zh">你晚上几点睡觉？</div>
+            <div class="sub">Nǐ wǎnshang jǐ diǎn shuìjiào? · What time do you go to bed?</div>
+          </div>
+        </div>
+        <div class="speech-line b-line">
+          <div class="speaker b">B</div>
+          <div class="bubble">
+            <div class="zh">我晚上九点半睡觉。</div>
+            <div class="sub">Wǒ wǎnshang jiǔ diǎn bàn shuìjiào. · I go to bed at 9:30pm.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-strip">
+    <div class="flow-step">问候 Greeting</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">起居 Routine</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">活动 Activity</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">睡觉 Bedtime</div>
+    <div class="flow-note">This one dialogue strings together almost every pattern from the unit.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4 日常起居</span>
+</div>
+
+</body>
+</html>
