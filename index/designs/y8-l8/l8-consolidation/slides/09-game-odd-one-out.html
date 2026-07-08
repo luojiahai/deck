@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-09 · Game · Odd One Out</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 40px 100px 36px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .act-header { display:flex; align-items:center; gap:20px; }
+  .act-badge-large { background:var(--accent-coral); color:#fff; padding:8px 22px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:0.08em; flex-shrink:0; }
+  .act-title { font-family:var(--font-display); font-size:40px; font-weight:900; color:var(--text-primary); }
+  .timer-chip { margin-left:auto; background:var(--accent-coral-dim); border:1.5px solid var(--accent-coral); border-radius:999px; padding:6px 20px; font-size:18px; font-weight:700; color:var(--accent-coral); flex-shrink:0; }
+
+  .rules-line { font-size:20px; color:var(--text-secondary); line-height:1.5; }
+  .rules-line strong { color:var(--text-primary); }
+
+  .round-label { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-gold); margin-bottom:12px; }
+
+  .word-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; }
+  .word-card { background:var(--bg-secondary); border:2px solid var(--border-medium); border-radius:var(--radius-lg); padding:26px 20px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; }
+  .wc-hanzi { font-family:var(--font-display); font-size:52px; font-weight:900; color:var(--text-primary); line-height:1; }
+  .wc-pinyin { font-size:17px; color:var(--accent-teal); font-weight:500; }
+  .wc-english { font-size:16px; color:var(--text-muted); }
+
+  .more-rounds-box { border:2px dashed var(--border-medium); border-radius:var(--radius-lg); padding:18px 28px; display:flex; align-items:center; gap:16px; }
+  .more-rounds-box .icon { font-size:24px; flex-shrink:0; opacity:0.6; }
+  .more-rounds-box .text { font-size:18px; color:var(--text-muted); line-height:1.5; }
+  .more-rounds-box .text strong { color:var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · CONSOLIDATION + TEST PREP</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Odd One Out · 4 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-badge-large">GAME</div>
+    <div class="act-title">谁不是同类？· Odd One Out</div>
+    <div class="timer-chip">⏱ 4 min</div>
+  </div>
+
+  <div class="rules-line">
+    Teacher projects <strong>4 words at a time</strong> — 3 from one category, 1 from another. Students <strong>identify and explain</strong> which one doesn't belong and why.
+  </div>
+
+  <div>
+    <div class="round-label">Round 1 · Live Discussion — don't call it out until asked!</div>
+    <div class="word-grid">
+      <div class="word-card">
+        <div class="wc-hanzi">篮球</div>
+        <div class="wc-pinyin">lánqiú</div>
+        <div class="wc-english">basketball</div>
+      </div>
+      <div class="word-card">
+        <div class="wc-hanzi">网球</div>
+        <div class="wc-pinyin">wǎngqiú</div>
+        <div class="wc-english">tennis</div>
+      </div>
+      <div class="word-card">
+        <div class="wc-hanzi">乒乓球</div>
+        <div class="wc-pinyin">pīngpāngqiú</div>
+        <div class="wc-english">table tennis</div>
+      </div>
+      <div class="word-card">
+        <div class="wc-hanzi">电影</div>
+        <div class="wc-pinyin">diànyǐng</div>
+        <div class="wc-english">movie</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="more-rounds-box">
+    <div class="icon">🎲</div>
+    <div class="text"><strong>Rounds 2–5</strong> — teacher prepares 3–4 more word groups in the same format (3 from one category + 1 odd one out) for this slide before class.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

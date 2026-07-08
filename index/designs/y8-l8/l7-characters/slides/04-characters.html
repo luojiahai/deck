@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-04 · Simple Characters</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 40px 80px 36px;
+    justify-content: flex-start;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 6px;
+  }
+  .main-title {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+  .char-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    flex: 1;
+  }
+  .char-card {
+    border-radius: var(--radius-xl);
+    padding: 28px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .char-card.gold {
+    background: linear-gradient(160deg, rgba(200,148,62,0.12), rgba(200,148,62,0.05));
+    border-color: rgba(200,148,62,0.3);
+  }
+  .char-card.teal {
+    background: linear-gradient(160deg, rgba(58,125,140,0.12), rgba(58,125,140,0.05));
+    border-color: rgba(58,125,140,0.3);
+  }
+  .char-card.coral {
+    background: linear-gradient(160deg, rgba(212,117,107,0.12), rgba(212,117,107,0.05));
+    border-color: rgba(212,117,107,0.3);
+  }
+  .char-big {
+    font-family: var(--font-display);
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .gold .char-big { color: var(--accent-gold); }
+  .teal .char-big { color: var(--accent-teal); }
+  .coral .char-big { color: var(--accent-coral); }
+  .char-pinyin {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .gold .char-pinyin { color: rgba(200,148,62,0.75); }
+  .teal .char-pinyin { color: rgba(58,125,140,0.75); }
+  .coral .char-pinyin { color: rgba(212,117,107,0.75); }
+  .char-english {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+  .char-divider {
+    width: 40px;
+    height: 2px;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
+  .gold .char-divider { background: var(--accent-gold); }
+  .teal .char-divider { background: var(--accent-teal); }
+  .coral .char-divider { background: var(--accent-coral); }
+  .char-strokes {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .gold .char-strokes { color: var(--accent-gold); }
+  .teal .char-strokes { color: var(--accent-teal); }
+  .coral .char-strokes { color: var(--accent-coral); }
+  .char-note {
+    font-size: 16px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .card-num {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.35;
+  }
+  .gold .card-num { color: var(--accent-gold); }
+  .teal .card-num { color: var(--accent-teal); }
+  .coral .card-num { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 汉字·组词</span>
+  <span class="sep"></span>
+  <span class="section-name">Simple Characters · Act. 9 (p.75)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content flex-col">
+  <div class="section-label">New Characters Today · 今天学的字</div>
+  <div class="main-title">4 Simple Characters · 四个简单的汉字</div>
+
+  <div class="char-grid">
+    <!-- 夕 xī — gold -->
+    <div class="char-card gold">
+      <div class="card-num">3 strokes</div>
+      <div class="char-big">夕</div>
+      <div class="char-pinyin">xī</div>
+      <div class="char-english">sunset</div>
+      <div class="char-divider"></div>
+      <div class="char-strokes">3 strokes</div>
+      <div class="char-note">Simple, standalone character<br>taught for character literacy</div>
+    </div>
+
+    <!-- 心 xīn — teal -->
+    <div class="char-card teal">
+      <div class="card-num">4 strokes</div>
+      <div class="char-big">心</div>
+      <div class="char-pinyin">xīn</div>
+      <div class="char-english">heart</div>
+      <div class="char-divider"></div>
+      <div class="char-strokes">4 strokes</div>
+      <div class="char-note">Often reappears as a<br>building block in later words</div>
+    </div>
+
+    <!-- 目 mù — coral -->
+    <div class="char-card coral">
+      <div class="card-num">5 strokes</div>
+      <div class="char-big">目</div>
+      <div class="char-pinyin">mù</div>
+      <div class="char-english">eye</div>
+      <div class="char-divider"></div>
+      <div class="char-strokes">5 strokes</div>
+      <div class="char-note">Simple, standalone character<br>taught for character literacy</div>
+    </div>
+
+    <!-- 方 fāng — gold -->
+    <div class="char-card gold">
+      <div class="card-num">4 strokes</div>
+      <div class="char-big">方</div>
+      <div class="char-pinyin">fāng</div>
+      <div class="char-english">square</div>
+      <div class="char-divider"></div>
+      <div class="char-strokes">4 strokes</div>
+      <div class="char-note">Often reappears as a<br>building block in later words</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

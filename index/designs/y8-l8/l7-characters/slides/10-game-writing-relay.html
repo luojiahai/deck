@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-10 · Game · Writing Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 28px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-teal); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-teal-dim); color: var(--accent-teal); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+
+  .relay-layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .rounds-col { display: flex; flex-direction: column; gap: 14px; }
+  .round-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .r-num {
+    width: 44px; height: 44px;
+    background: var(--accent-teal);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .r-char {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    width: 66px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .r-body { flex: 1; }
+  .r-info { font-size: 17px; color: var(--text-secondary); }
+  .r-info strong { color: var(--text-primary); }
+  .r-strokes {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rules-col {
+    width: 380px;
+  }
+  .rules-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 22px 26px;
+    margin-bottom: 14px;
+  }
+  .rules-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 14px;
+  }
+  .rule-item { display: flex; gap: 10px; align-items: flex-start; font-size: 19px; color: var(--text-primary); margin-bottom: 10px; line-height: 1.4; }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 汉字·组词</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Writing Relay · 32–37 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Game</div>
+    <div class="time-badge">⏱ 5 min</div>
+    <div class="mode-badge">Live Play</div>
+  </div>
+  <div class="main-title">接力写字 · Writing Relay</div>
+  <div class="subtitle">Teams line up at the board — teacher calls a character, first student writes it and tags the next</div>
+
+  <div class="relay-layout">
+
+    <div class="rounds-col">
+      <div class="round-card">
+        <div class="r-num">1</div>
+        <div class="r-char" style="color:var(--accent-gold)">夕</div>
+        <div class="r-body">
+          <div class="r-info">Teacher calls: <strong>夕</strong> (xī / sunset) — first runner writes it on the board</div>
+        </div>
+        <div class="r-strokes">3 strokes</div>
+      </div>
+      <div class="round-card">
+        <div class="r-num">2</div>
+        <div class="r-char" style="color:var(--accent-teal)">心</div>
+        <div class="r-body">
+          <div class="r-info">Teacher calls: <strong>心</strong> (xīn / heart) — tag the next runner</div>
+        </div>
+        <div class="r-strokes" style="background:var(--accent-teal-dim);border-color:var(--accent-teal);color:var(--accent-teal)">4 strokes</div>
+      </div>
+      <div class="round-card">
+        <div class="r-num">3</div>
+        <div class="r-char" style="color:var(--accent-coral)">目</div>
+        <div class="r-body">
+          <div class="r-info">Teacher calls: <strong>目</strong> (mù / eye) — tag the next runner</div>
+        </div>
+        <div class="r-strokes" style="background:var(--accent-coral-dim);border-color:var(--accent-coral);color:var(--accent-coral)">5 strokes</div>
+      </div>
+      <div class="round-card">
+        <div class="r-num">4</div>
+        <div class="r-char" style="color:var(--accent-gold)">方</div>
+        <div class="r-body">
+          <div class="r-info">Teacher calls: <strong>方</strong> (fāng / square) — last runner writes and finishes</div>
+        </div>
+        <div class="r-strokes">4 strokes</div>
+      </div>
+    </div>
+
+    <div class="rules-col">
+      <div class="rules-box">
+        <h3>Relay Rules</h3>
+        <div class="rule-item"><div class="rule-icon">👥</div><div>Teams line up at the board — one column each</div></div>
+        <div class="rule-item"><div class="rule-icon">📣</div><div>Teacher calls a character: 夕 / 心 / 目 / 方</div></div>
+        <div class="rule-item"><div class="rule-icon">✍️</div><div>First student runs up, writes it, tags the next student</div></div>
+        <div class="rule-item"><div class="rule-icon">⚡</div><div>Fastest correct team wins</div></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-icon">🛠️</div>
+        <div>
+          <div class="tip-text">Setup Needed</div>
+          <div class="tip-sub">Board space divided into team columns, markers ready</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

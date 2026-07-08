@@ -35,6 +35,15 @@
       "thumbnail": "designs/y7-l11/thumb.png",
       "type": "slides",
       "tags": ["Year 7", "中文", "Daily Routine"]
+    },
+    {
+      "id": "y8-l8",
+      "title": "Y8 L8 · 爱好·运动 Hobbies & Sports",
+      "description": "8 节课程幻灯片系列——Year 8 中文爱好单元第二课（核心运动词汇·跟(和)……一起·拼音 ou/uo·课文一·时间长度·正在·不太喜欢·但是·频率副词·汉字组词·综合复习），延续 Y8 L7 配色，含全屏演示",
+      "createdAt": "2026-07-08",
+      "thumbnail": "designs/y8-l8/thumb.png",
+      "type": "slides",
+      "tags": ["Year 8", "中文", "Sports"]
     }
   ]
 }

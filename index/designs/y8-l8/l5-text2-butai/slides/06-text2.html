@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-06 · Text 2</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 34px 100px 26px; }
+  .section-label { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 16px; }
+  .layout { display: grid; grid-template-columns: 1fr 420px; gap: 32px; align-items: start; }
+  .text-panel {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 26px 32px;
+  }
+  .text-panel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .cd-badge {
+    background: var(--accent-teal-dim);
+    border: 1.5px solid var(--accent-teal);
+    color: var(--accent-teal);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+  }
+  .text-name { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-secondary); }
+  .dialogue-lines { display: flex; flex-direction: column; gap: 12px; }
+  .dialogue-line { display: flex; align-items: flex-start; gap: 14px; }
+  .spk {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 16px;
+    color: #fff; flex-shrink: 0; margin-top: 2px;
+  }
+  .spk.a { background: var(--accent-gold); }
+  .spk.b { background: var(--accent-teal); }
+  .dialogue-text {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+  .dialogue-text .yb {
+    color: var(--accent-gold);
+    font-weight: 900;
+    background: linear-gradient(180deg, transparent 55%, rgba(200,148,62,0.18) 55%);
+    padding: 0 2px;
+  }
+  .listen-flow { display: flex; align-items: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .flow-step { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+  .flow-num { background: var(--accent-gold); color: #fff; width: 22px; height: 22px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .flow-arrow { color: var(--border-medium); font-size: 16px; }
+  .right-col { display: flex; flex-direction: column; gap: 16px; }
+  .grammar-box {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    border: 1.5px solid var(--border-light);
+  }
+  .grammar-box .gb-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 12px; }
+  .gb-item { display: flex; align-items: baseline; gap: 8px; font-size: 16px; color: var(--text-secondary); margin-bottom: 6px; }
+  .gb-item .cn { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 19px; }
+  .comprehension-panel {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+  }
+  .cp-label { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 14px; }
+  .cp-qs { display: flex; flex-direction: column; gap: 14px; }
+  .cp-q { font-size: 19px; color: var(--text-primary); line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
+  .cp-q .qnum { color: var(--accent-teal); font-weight: 700; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · TV · MOVIES · 不太喜欢</span>
+  <span class="sep"></span>
+  <span class="section-name">Text 2 · 电视·电影·周末 · I Do / We Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">I Do · Text Presentation</div>
+  <div class="main-title">Text 2 · 课文二</div>
+
+  <div class="layout">
+    <div class="text-panel">
+      <div class="text-panel-header">
+        <div class="cd-badge">🎧 CD Track 39 · p.74</div>
+        <div class="text-name">课文二</div>
+      </div>
+      <div class="dialogue-lines">
+        <div class="dialogue-line"><div class="spk a">A</div><div class="dialogue-text">我<span class="yb">不太喜欢</span>运动，<span class="yb">但是</span>我喜欢游泳。你喜欢运动吗？</div></div>
+        <div class="dialogue-line"><div class="spk b">B</div><div class="dialogue-text">我很喜欢运动。我还喜欢看电视、看电影。</div></div>
+        <div class="dialogue-line"><div class="spk a">A</div><div class="dialogue-text">你喜欢看什么电视节目？</div></div>
+        <div class="dialogue-line"><div class="spk b">B</div><div class="dialogue-text">我喜欢看体育节目。</div></div>
+        <div class="dialogue-line"><div class="spk a">A</div><div class="dialogue-text">你经常看电影吗？</div></div>
+        <div class="dialogue-line"><div class="spk b">B</div><div class="dialogue-text">我<span class="yb">差不多</span>每个周末都看。</div></div>
+      </div>
+      <div class="listen-flow">
+        <div class="flow-step"><div class="flow-num">1</div> Listen, read aloud once</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="flow-num">2</div> Choral read together</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="flow-num">3</div> Pair read (roles A/B)</div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="grammar-box">
+        <div class="gb-label">Grammar Spotlight</div>
+        <div class="gb-item"><span class="cn">不太喜欢</span><span>don't really like</span></div>
+        <div class="gb-item"><span class="cn">但是</span><span>but</span></div>
+        <div class="gb-item"><span class="cn">差不多</span><span>almost / nearly</span></div>
+      </div>
+
+      <div class="comprehension-panel">
+        <div class="cp-label">Comprehension Questions</div>
+        <div class="cp-qs">
+          <div class="cp-q"><span class="qnum">Q1</span><span>Does speaker A like sport? What's the one exception?</span></div>
+          <div class="cp-q"><span class="qnum">Q2</span><span>What kind of TV programme does B like?</span></div>
+          <div class="cp-q"><span class="qnum">Q3</span><span>How often does B watch movies?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

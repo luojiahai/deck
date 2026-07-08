@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-08 · Activity 2 · CD Track 40</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content {
+    padding: 40px 100px 36px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .act-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .act-badge-large {
+    background: var(--accent-teal);
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  .act-title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+
+  .act-ref {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .timer-chip {
+    margin-left: auto;
+    background: var(--accent-teal-dim);
+    border: 1.5px solid var(--accent-teal);
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-teal);
+    flex-shrink: 0;
+  }
+
+  .main-area {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 28px;
+    flex: 1;
+  }
+
+  /* CD Badge panel */
+  .cd-panel {
+    background: var(--accent-teal-dim);
+    border: 2.5px solid var(--accent-teal);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 28px;
+    gap: 14px;
+  }
+
+  .cd-icon {
+    font-size: 76px;
+    line-height: 1;
+  }
+
+  .cd-track-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+  }
+
+  .cd-track-num {
+    font-family: var(--font-display);
+    font-size: 76px;
+    font-weight: 900;
+    color: var(--accent-teal);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .cd-book-ref {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* Instructions panel */
+  .instructions-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .instr-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .instr-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .instr-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 11px 20px;
+  }
+
+  .step-icon {
+    font-size: 19px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 19px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  .step-text strong { color: var(--text-primary); }
+
+  /* Answer-format demo (abstract — no real item content shown) */
+  .format-demo {
+    background: var(--bg-tertiary);
+    border: 1.5px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+  }
+
+  .format-demo-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .format-table {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr 1fr;
+    gap: 0;
+    font-size: 17px;
+  }
+
+  .format-header {
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-bottom: 1.5px solid var(--border-medium);
+    text-align: center;
+  }
+
+  .format-header.item-col { text-align: left; }
+
+  .format-cell {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border-light);
+    text-align: center;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 18px;
+  }
+
+  .format-cell.item-col { text-align: left; color: var(--text-primary); font-family:var(--font-body); }
+  .format-cell .circled { color: var(--accent-teal); font-weight: 700; }
+
+  .sed-strip {
+    margin-top: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · CONSOLIDATION + TEST PREP</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 2 · Listening · 6 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-badge-large">ACT 2 · LISTENING</div>
+    <div class="act-title">听力练习 · CD Track 40</div>
+    <div class="act-ref">Act. 14</div>
+    <div class="timer-chip">⏱ 6 min</div>
+  </div>
+
+  <div class="main-area">
+    <!-- CD Panel -->
+    <div class="cd-panel">
+      <div class="cd-icon">💿</div>
+      <div class="cd-track-label">CD Track</div>
+      <div class="cd-track-num">40</div>
+      <div class="cd-book-ref">Book 2 · Unit 3 · Act. 14</div>
+    </div>
+
+    <!-- Instructions Panel -->
+    <div class="instructions-panel">
+      <div class="instr-title">What to do:</div>
+      <div class="instr-steps">
+        <div class="instr-step">
+          <div class="step-icon">1️⃣</div>
+          <div class="step-text"><strong>Listen</strong> — you will hear <strong>6 short items</strong>, each with 3 possible answers</div>
+        </div>
+        <div class="instr-step">
+          <div class="step-icon">2️⃣</div>
+          <div class="step-text"><strong>Circle</strong> the correct choice for each of the 6 items</div>
+        </div>
+        <div class="instr-step">
+          <div class="step-icon">3️⃣</div>
+          <div class="step-text"><strong>Self-mark</strong> as a class immediately after — hands up for any you missed</div>
+        </div>
+      </div>
+
+      <div class="format-demo">
+        <div class="format-demo-title">Answer sheet format</div>
+        <div class="format-table">
+          <div class="format-header item-col">Item</div>
+          <div class="format-header">A</div>
+          <div class="format-header">B</div>
+          <div class="format-header">C</div>
+          <div class="format-cell item-col">1</div>
+          <div class="format-cell"></div>
+          <div class="format-cell"><span class="circled">◯</span></div>
+          <div class="format-cell"></div>
+          <div class="format-cell item-col">2</div>
+          <div class="format-cell"><span class="circled">◯</span></div>
+          <div class="format-cell"></div>
+          <div class="format-cell"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Key vocabulary for all 18 answer options pre-translated at the bottom of the sheet
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      For any 2 items, also write why the other 2 options are wrong
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Independent listening task; self-mark as a class immediately after
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

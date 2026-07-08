@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y8 L8 · Sports in Chinese · 运动</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #FEFCF7; --text: #1E2A38; --text-muted: #5B6677;
+    --accent: #C8943E; --accent-teal: #3A7D8C; --accent-coral: #D4756B;
+    --border: #E5DFD0; --card-bg: #F6F2E8;
+    --font-display: 'Noto Serif SC', 'Songti SC', serif;
+    --font-body: 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  /* Hero */
+  .hero { padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero-inner { display: flex; align-items: center; gap: 36px; }
+  .hero-text { display: flex; flex-direction: column; }
+  .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
+  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+  .hero h1 .dot { color: var(--accent); }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.02em; }
+  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .meta .pill { background: var(--card-bg); padding: 5px 14px; border-radius: 999px; }
+  .meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+  /* Sports motif */
+  .hero-motif { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.7; }
+
+  /* Lesson Grid */
+  .lessons { padding: 0 0 80px; }
+  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .lesson-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; }
+  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(30,42,56,0.10); border-color: var(--accent); }
+  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+  .card-num { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--accent); opacity: 0.25; line-height: 1; margin-bottom: -8px; }
+  .card-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.03em; }
+  .card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-top: auto; }
+
+  .badge-vocab { background: #FDF2E1; color: #B87D2E; }
+  .badge-grammar { background: #E5F0F3; color: #2D6A76; }
+  .badge-listening { background: #FBE8E3; color: #B85D53; }
+  .badge-reading { background: #EEF2E1; color: #5A7D2E; }
+  .badge-writing { background: #F0E8F5; color: #6D4E8A; }
+
+  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; font-size: 14px; color: var(--text-muted); letter-spacing: 0.04em; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* Grammar summary panel */
+  .grammar-panel { margin-bottom: 48px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; }
+  .grammar-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+  .grammar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .grammar-item { text-align: center; padding: 16px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+  .grammar-item .g-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .grammar-item .g-zh { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .grammar-item .g-en { font-size: 13px; color: var(--text-muted); }
+
+  @media (max-width: 900px) {
+    .lesson-grid { grid-template-columns: repeat(2,1fr); }
+    .grammar-grid { grid-template-columns: repeat(2,1fr); }
+    .hero h1 { font-size: 40px; }
+  }
+  @media (max-width: 640px) {
+    .lesson-grid { grid-template-columns: 1fr; }
+    .grammar-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="container">
+    <a href="../../">← Deck Gallery · 设计画廊</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-motif">球</div>
+      <div class="hero-text">
+        <div class="unit-tag">Year 8 · Unit 3 · Lesson 8</div>
+        <h1>爱好<span class="dot">·</span> 运动</h1>
+        <div class="subtitle">Hobbies (2): Sports — 8-Lesson Series</div>
+        <div class="meta">
+          <span class="pill">8 Lessons</span>
+          <span class="sep"></span>
+          <span class="pill">50 mins each</span>
+          <span class="sep"></span>
+          <span class="pill">轻松学中文 Book 2 Unit 3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Grammar overview -->
+  <div class="grammar-panel">
+    <h2>Grammar Focus · 本单元语法点</h2>
+    <div class="grammar-grid">
+      <div class="grammar-item">
+        <div class="g-num">L8.1–2</div>
+        <div class="g-zh">跟(和)……一起</div>
+        <div class="g-en">Together with</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L8.3–4</div>
+        <div class="g-zh">动词+时间+宾语</div>
+        <div class="g-en">Duration with separable verbs</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L8.5</div>
+        <div class="g-zh">不太……但是……</div>
+        <div class="g-en">Not really... but...</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L8.6</div>
+        <div class="g-zh">经常/常常/差不多</div>
+        <div class="g-en">Frequency adverb placement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson Cards -->
+  <section class="lessons">
+    <div class="section-title">8 节课程 · Lesson Decks</div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card">
+        <a href="l1-core-vocab/" class="card-link">
+          <div class="card-num">01</div>
+          <div class="card-title">核心运动词汇</div>
+          <div class="card-en">Core Sports Vocab + Verb Rules</div>
+          <span class="card-badge badge-vocab">Vocab + Writing</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l2-extra-sports/" class="card-link">
+          <div class="card-num">02</div>
+          <div class="card-title">更多运动</div>
+          <div class="card-en">More Sports + 跟(和)……一起</div>
+          <span class="card-badge badge-grammar">Grammar + Speaking</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l3-pinyin-text1/" class="card-link">
+          <div class="card-num">03</div>
+          <div class="card-title">拼音 ou/uo + 课文一</div>
+          <div class="card-en">Pinyin Focus + Gao Li's Family</div>
+          <span class="card-badge badge-listening">Listening + Reading</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l4-duration-zhengzai/" class="card-link">
+          <div class="card-num">04</div>
+          <div class="card-title">时间长度 + 正在</div>
+          <div class="card-en">Duration Q&amp;A + Present Continuous</div>
+          <span class="card-badge badge-grammar">Grammar Drill</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l5-text2-butai/" class="card-link">
+          <div class="card-num">05</div>
+          <div class="card-title">电视·电影·周末</div>
+          <div class="card-en">TV, Movies &amp; Weekends + 不太喜欢</div>
+          <span class="card-badge badge-reading">Reading + Speaking</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l6-adverbs-danshi/" class="card-link">
+          <div class="card-num">06</div>
+          <div class="card-title">频率副词 + 但是</div>
+          <div class="card-en">Frequency Adverbs + Experience Sentences</div>
+          <span class="card-badge badge-grammar">Grammar Focus</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l7-characters/" class="card-link">
+          <div class="card-num">07</div>
+          <div class="card-title">汉字·组词</div>
+          <div class="card-en">Simple Characters + Word-Building</div>
+          <span class="card-badge badge-writing">Writing + Review</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l8-consolidation/" class="card-link">
+          <div class="card-num">08</div>
+          <div class="card-title">综合复习</div>
+          <div class="card-en">Consolidation + Test 3.2 Prep</div>
+          <span class="card-badge badge-writing">Review + Test Prep</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Y8 Chinese · Unit 3 Hobbies 爱好 · 8-lesson deck series · <a href="../../">← Back to Gallery</a>
+  </div>
+</footer>
+
+</body>
+</html>

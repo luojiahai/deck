@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-05 · Verb Rules + Key Pattern</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:44px 120px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; margin-bottom:6px; }
+  .subtitle { font-size:17px; color:var(--text-muted); margin-bottom:18px; }
+
+  /* Verb rule table */
+  .verb-table { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:22px; }
+  .verb-col { border-radius:var(--radius-lg); padding:14px 20px; border:2px solid var(--border-medium); background:var(--bg-secondary); }
+  .verb-col.da { border-color:var(--accent-gold); background:var(--accent-gold-dim); }
+  .verb-col.ti { border-color:var(--accent-coral); background:var(--accent-coral-dim); }
+  .verb-col.none { border-color:var(--accent-teal); background:var(--accent-teal-dim); }
+  .verb-col-head { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; }
+  .verb-col-head .hz { font-family:var(--font-display); font-size:30px; font-weight:900; color:var(--text-primary); }
+  .verb-col.da .hz { color:var(--accent-gold); }
+  .verb-col.ti .hz { color:var(--accent-coral); }
+  .verb-col.none .hz { color:var(--accent-teal); }
+  .verb-col-head .py { font-size:14px; color:var(--text-muted); }
+  .verb-col-items { font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--text-secondary); line-height:1.6; }
+
+  /* Pattern row */
+  .pattern-row { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .pat-block { background:var(--bg-tertiary); border:3px solid var(--accent-gold); border-radius:var(--radius-lg); padding:10px 26px; font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); }
+  .pat-plus { font-size:26px; color:var(--accent-gold); font-weight:700; }
+  .pat-equals { font-size:22px; color:var(--text-muted); }
+  .pat-result { font-family:var(--font-display); font-size:24px; color:var(--text-secondary); padding:10px 20px; }
+
+  /* Examples */
+  .examples { display:flex; flex-direction:column; gap:10px; }
+  .example-row { display:flex; align-items:center; gap:16px; padding:10px 22px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); }
+  .ex-zh { font-family:var(--font-display); font-size:25px; font-weight:700; color:var(--text-primary); }
+  .ex-zh .key { color:var(--accent-gold); }
+  .ex-en { font-size:16px; color:var(--text-muted); margin-left:auto; }
+  .example-row.silly { border-color:var(--accent-coral); background:var(--accent-coral-dim); }
+  .silly-tag { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-coral); padding:2px 12px; border-radius:999px; background:rgba(212,117,107,0.15); margin-left:12px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · MORE SPORTS</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Key Pattern &amp; Verb Rules</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do</div>
+  <div class="main-title">Verb Rules &amp; Key Sentence Pattern · 动词规则与句型</div>
+  <div class="subtitle">Three categories: 打 / 踢 / no verb at all</div>
+
+  <div class="verb-table">
+    <div class="verb-col da">
+      <div class="verb-col-head"><span class="hz">打</span><span class="py">dǎ</span></div>
+      <div class="verb-col-items">打网球 · 打排球 · 打篮球 · 打乒乓球 · 打羽毛球 · 打高尔夫球</div>
+    </div>
+    <div class="verb-col ti">
+      <div class="verb-col-head"><span class="hz">踢</span><span class="py">tī</span></div>
+      <div class="verb-col-items">踢足球</div>
+    </div>
+    <div class="verb-col none">
+      <div class="verb-col-head"><span class="hz">—</span><span class="py">no verb</span></div>
+      <div class="verb-col-items">跑步 · 游泳 · 滑冰 · 滑雪</div>
+    </div>
+  </div>
+
+  <div class="pattern-row">
+    <div class="pat-block" style="color:var(--accent-gold)">我喜欢跟(和)朋友一起</div>
+    <div class="pat-plus">+</div>
+    <div class="pat-block">sport</div>
+    <div class="pat-equals">→</div>
+    <div class="pat-result">"I like doing [sport] with [someone]"</div>
+  </div>
+
+  <div class="examples">
+    <div class="example-row">
+      <div class="ex-zh"><span class="key">我喜欢跟朋友一起</span>打篮球。</div>
+      <div class="ex-en">I like playing basketball with friends.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-zh">我哥哥<span class="key">喜欢和同学一起</span>踢足球。</div>
+      <div class="ex-en">My older brother likes playing football with classmates.</div>
+    </div>
+    <div class="example-row">
+      <div class="ex-zh">我们<span class="key">喜欢跟家人一起</span>滑雪。</div>
+      <div class="ex-en">We like skiing with family.</div>
+    </div>
+    <div class="example-row silly">
+      <div class="ex-zh"><span class="key">我喜欢跟</span>我的狗<span class="key">一起</span>打乒乓球！<span class="silly-tag">silly example</span></div>
+      <div class="ex-en">I like playing table tennis with my dog!</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

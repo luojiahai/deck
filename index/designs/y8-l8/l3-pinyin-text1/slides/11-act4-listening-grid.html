@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-11 · Activity 4 · Listening Grid</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { padding: 36px 100px 28px; justify-content: flex-start; gap: 16px; }
+  .act-header { display: flex; align-items: center; gap: 20px; }
+  .act-badge-large { background: var(--accent-coral); color: #fff; padding: 8px 22px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; flex-shrink: 0; }
+  .act-title { font-family: var(--font-display); font-size: 38px; font-weight: 900; color: var(--text-primary); }
+  .wedo-chip { background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: 999px; padding: 6px 18px; font-size: 15px; font-weight: 700; color: var(--text-secondary); flex-shrink: 0; }
+  .timer-chip { margin-left: auto; background: var(--accent-coral-dim); border: 1.5px solid var(--accent-coral); border-radius: 999px; padding: 6px 20px; font-size: 18px; font-weight: 700; color: var(--accent-coral); flex-shrink: 0; }
+  .main-area { display: grid; grid-template-columns: 260px 1fr; gap: 24px; }
+  .cd-panel { background: var(--accent-coral-dim); border: 2.5px solid var(--accent-coral); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; gap: 10px; }
+  .cd-icon { font-size: 56px; line-height: 1; }
+  .cd-track-label { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-coral); }
+  .cd-track-num { font-family: var(--font-display); font-size: 56px; font-weight: 900; color: var(--accent-coral); line-height: 1; }
+  .cd-book-ref { font-size: 14px; color: var(--text-muted); font-weight: 500; text-align:center; }
+  .instr-steps { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; width: 100%; }
+  .instr-step { font-size: 14px; color: var(--text-secondary); line-height: 1.4; background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 8px 12px; }
+  .instr-step strong { color: var(--text-primary); }
+  .grid-panel { display: flex; flex-direction: column; gap: 10px; }
+  .grid-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .grid-title em { color: var(--text-muted); font-weight: 400; }
+  .listen-grid { display: grid; grid-template-columns: 110px repeat(4, 1fr) 1.6fr; border: 1.5px solid var(--border-medium); border-radius: var(--radius-md); overflow: hidden; }
+  .lg-cell { padding: 10px 10px; border-bottom: 1px solid var(--border-light); border-right: 1px solid var(--border-light); display:flex; align-items:center; justify-content:center; text-align: center; font-size: 15px; }
+  .lg-cell:last-child { border-right: none; }
+  .lg-header { background: var(--bg-tertiary); font-weight: 700; color: var(--text-secondary); font-family: var(--font-display); font-size: 17px; flex-direction:column; gap:2px; }
+  .lg-header .en { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); font-weight: 400; }
+  .lg-header.more { color: var(--text-muted); font-family: var(--font-body); font-size: 13px; font-weight: 700; }
+  .lg-person { background: var(--bg-secondary); font-weight: 700; color: var(--text-primary); justify-content:flex-start; padding-left:16px; }
+  .lg-blank { color: var(--border-medium); }
+  .lg-note { justify-content:flex-start; padding-left:16px; color: var(--text-muted); font-size: 13px; font-style: italic; }
+  .grid-footnote { font-size: 14px; color: var(--text-muted); }
+  .grid-footnote strong { color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · PINYIN ou/uo + TEXT 1</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 4 · CD Track 38 · 35–41 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-badge-large">ACT 4 · LISTENING</div>
+    <div class="act-title">听力表格 · Listening Grid</div>
+    <div class="wedo-chip">You Do</div>
+    <div class="timer-chip">⏱ 6 min</div>
+  </div>
+
+  <div class="main-area">
+    <div class="cd-panel">
+      <div class="cd-icon">💿</div>
+      <div class="cd-track-label">CD Track</div>
+      <div class="cd-track-num">38</div>
+      <div class="cd-book-ref">Book 2 · Unit 3 · Act. 5</div>
+      <div class="instr-steps">
+        <div class="instr-step"><strong>Listen</strong> to 6 short descriptions of people's sport habits</div>
+        <div class="instr-step"><strong>Tick</strong> the correct box for each person</div>
+        <div class="instr-step"><strong>Self-mark</strong> as a class, raise hand if wrong</div>
+      </div>
+    </div>
+
+    <div class="grid-panel">
+      <div class="grid-title">Grid Format · 6 People × 8 Activities <em>(first 3 shown)</em></div>
+      <div class="listen-grid">
+        <div class="lg-cell lg-header" style="justify-content:flex-start;padding-left:16px;">Person</div>
+        <div class="lg-cell lg-header">跑步<span class="en">run</span></div>
+        <div class="lg-cell lg-header">游泳<span class="en">swim</span></div>
+        <div class="lg-cell lg-header">打网球<span class="en">tennis</span></div>
+        <div class="lg-cell lg-header">打篮球<span class="en">basketball</span></div>
+        <div class="lg-cell lg-header more">+ 4 more sports from Units 1–2</div>
+
+        <div class="lg-cell lg-person">Person 1</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-note">…</div>
+
+        <div class="lg-cell lg-person">Person 2</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-note">…</div>
+
+        <div class="lg-cell lg-person">Person 3</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-blank">☐</div>
+        <div class="lg-cell lg-note">…</div>
+      </div>
+      <div class="grid-footnote">Full printed grid continues for all <strong>6 people × 8 activities</strong> (all sports taught in Units 1–2), pictures included alongside the Chinese activity names.</div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Grid pre-labelled with pictures alongside the Chinese activity names</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>After ticking, write one full sentence about one person from memory</div>
+    <div class="sed-item otr"><div class="sed-label">OTR</div>Independent listening, checked as a class — raise hands for any wrong</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>
