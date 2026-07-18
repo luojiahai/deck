@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 112px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot { color: var(--accent-gold); }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+
+  /* Combo icon — clock (time) + road/vehicle (transport), synthesis of both themes */
+  .combo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin: 0 auto var(--space-lg);
+  }
+  .combo-clock-wrap { transform: scale(0.55); margin: -44px -44px; }
+  .combo-plus {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--accent-gold);
+  }
+  .combo-road-wrap {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .combo-road {
+    width: 240px; height: 64px;
+    position: relative;
+  }
+  .combo-road .vehicle-icon {
+    position: absolute;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .title-watermark {
+    position: absolute;
+    right: -20px; bottom: 60px;
+    width: 520px;
+  }
+  .title-watermark .road-watermark { right: 0; bottom: 0; }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="combo-row">
+    <div class="combo-clock-wrap">
+      <div class="clock-face" style="--hour-angle: 225deg; --minute-angle: 180deg;">
+        <div class="hand-hour"></div>
+        <div class="hand-minute"></div>
+      </div>
+    </div>
+    <div class="combo-plus">+</div>
+    <div class="combo-road-wrap">
+      <div class="combo-road">
+        <div class="road-strip"></div>
+        <div class="vehicle-icon"><div class="window"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-num">Lesson 5 · Y7 Unit 4.3</div>
+  <h1 class="title-cn">几点坐车<span class="dot">？</span></h1>
+  <div class="title-en">Synthesis: Time + Transport · 时间 + 交通工具</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Speaking + Listening</span>
+  </div>
+</div>
+
+<div class="title-watermark"><div class="road-watermark"></div></div>
+</body>
+</html>

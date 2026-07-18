@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-05 · I Do: Ex6 Scene Modelling</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 46px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }
+  .main-title { font-family: var(--font-display); font-size: 42px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 22px; }
+
+  .scene-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 26px; max-width: 1680px; }
+  .scene-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 14px 10px 12px;
+    text-align: center;
+    border: 2px solid transparent;
+  }
+  .scene-card.active { background: var(--accent-gold-dim); border-color: var(--accent-gold); }
+  .scene-card .s-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; }
+  .scene-card.active .s-label { color: var(--accent-gold); }
+  .scene-icons { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px; }
+  .person-dot {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--border-medium);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .scene-card.active .person-dot { border-color: var(--accent-gold); color: var(--accent-gold); }
+  .mini-vehicle { transform: scale(0.4); margin: -14px -28px; }
+  .mini-clock { transform: scale(0.28); margin: -72px -72px; }
+  .scene-card .s-hint { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .think-box {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-teal);
+    border-radius: var(--radius-lg);
+    padding: 22px 30px;
+    max-width: 1680px;
+  }
+  .think-box .tb-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent-teal); text-transform: uppercase; margin-bottom: 16px;
+  }
+  .step-flow { display: flex; align-items: stretch; gap: 12px; flex-wrap: nowrap; }
+  .step-chip {
+    flex: 1;
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .step-chip .st-num { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 6px; }
+  .step-chip .st-cn { font-family: var(--font-display); font-size: 21px; font-weight: 900; color: var(--text-primary); }
+  .step-chip .st-en { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+  .step-arrow { align-self: center; font-size: 22px; color: var(--accent-teal); flex-shrink: 0; }
+
+  .apply-note { margin-top: 14px; font-size: 16px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 时间交通</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Ex6 Scene Modelling · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do · Ex6, p.91</div>
+  <div class="main-title">情景练习 · Text/Scenes</div>
+  <div class="subtitle">5 scenes, each showing a person + transport icon + clock time — model Scene 1, then Scenes 2–5 follow the same process.</div>
+
+  <div class="scene-strip">
+    <div class="scene-card active">
+      <div class="s-label">Scene 1</div>
+      <div class="scene-icons">
+        <div class="person-dot">?</div>
+        <div class="mini-vehicle"><div class="vehicle-icon"><div class="window"></div></div></div>
+      </div>
+      <div class="mini-clock"><div class="clock-face"><div class="hand-hour"></div><div class="hand-minute"></div></div></div>
+      <div class="s-hint">modelled below</div>
+    </div>
+    <div class="scene-card">
+      <div class="s-label">Scene 2</div>
+      <div class="scene-icons">
+        <div class="person-dot">?</div>
+        <div class="mini-vehicle"><div class="vehicle-icon"><div class="window"></div></div></div>
+      </div>
+      <div class="mini-clock"><div class="clock-face"><div class="hand-hour"></div><div class="hand-minute"></div></div></div>
+      <div class="s-hint">your turn</div>
+    </div>
+    <div class="scene-card">
+      <div class="s-label">Scene 3</div>
+      <div class="scene-icons">
+        <div class="person-dot">?</div>
+        <div class="mini-vehicle"><div class="vehicle-icon"><div class="window"></div></div></div>
+      </div>
+      <div class="mini-clock"><div class="clock-face"><div class="hand-hour"></div><div class="hand-minute"></div></div></div>
+      <div class="s-hint">your turn</div>
+    </div>
+    <div class="scene-card">
+      <div class="s-label">Scene 4</div>
+      <div class="scene-icons">
+        <div class="person-dot">?</div>
+        <div class="mini-vehicle"><div class="vehicle-icon"><div class="window"></div></div></div>
+      </div>
+      <div class="mini-clock"><div class="clock-face"><div class="hand-hour"></div><div class="hand-minute"></div></div></div>
+      <div class="s-hint">your turn</div>
+    </div>
+    <div class="scene-card">
+      <div class="s-label">Scene 5</div>
+      <div class="scene-icons">
+        <div class="person-dot">?</div>
+        <div class="mini-vehicle"><div class="vehicle-icon"><div class="window"></div></div></div>
+      </div>
+      <div class="mini-clock"><div class="clock-face"><div class="hand-hour"></div><div class="hand-minute"></div></div></div>
+      <div class="s-hint">your turn</div>
+    </div>
+  </div>
+
+  <div class="think-box">
+    <div class="tb-label">Think-Aloud · Scene 1 — build the sentence element by element</div>
+    <div class="step-flow">
+      <div class="step-chip">
+        <div class="st-num">Step 1</div>
+        <div class="st-cn">主语</div>
+        <div class="st-en">Subject — who is it?</div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-chip">
+        <div class="st-num">Step 2</div>
+        <div class="st-cn">时间</div>
+        <div class="st-en">Time — what time?</div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-chip">
+        <div class="st-num">Step 3</div>
+        <div class="st-cn">交通工具</div>
+        <div class="st-en">Transport — 坐/走路/开车</div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-chip">
+        <div class="st-num">Step 4</div>
+        <div class="st-cn">活动</div>
+        <div class="st-en">Activity — 上班/上学…</div>
+      </div>
+    </div>
+    <div class="apply-note">Scenes 2–5: students apply this same 4-step process independently in Activity 1.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

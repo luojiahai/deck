@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 118px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-en {
+    font-size: 30px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+
+  /* Road + vehicle title icon — this slide only */
+  .road-icon-stage {
+    position: relative;
+    width: 300px; height: 150px;
+    margin: 0 auto var(--space-lg);
+  }
+  .road-icon-stage .road-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  .road-icon-stage .vehicle-icon {
+    position: absolute;
+    bottom: 38px; left: 50%;
+    transform: translateX(-50%) scale(1.2);
+  }
+  .road-watermark { right: -40px; bottom: 30px; }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="road-icon-stage">
+    <div class="road-strip"></div>
+    <div class="vehicle-icon"><div class="window"></div></div>
+  </div>
+  <div class="lesson-num">Lesson 8 · Y7 Unit 4.3</div>
+  <h1 class="title-cn">综合复习</h1>
+  <div class="title-en">Full Synthesis · Test 4.3 Prep · 综合运用与备考</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Writing-Focused</span>
+  </div>
+</div>
+
+<div class="road-watermark"></div>
+</body>
+</html>

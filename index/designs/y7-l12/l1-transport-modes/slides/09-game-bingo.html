@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-09 · Game: Transport Bingo</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .game-flow { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
+  .flow-step { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 18px 26px; text-align: center; min-width: 130px; }
+  .flow-step .icon { font-size: 36px; margin-bottom: 4px; }
+  .flow-step .label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .flow-arrow { font-size: 26px; color: var(--accent-gold); }
+
+  .bingo-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 420px;
+    margin: 0 auto 26px;
+    background: var(--bg-tertiary);
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--accent-gold);
+  }
+  .bingo-cell {
+    background: #fff;
+    border-radius: var(--radius-sm);
+    padding: 14px 6px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text-primary);
+  }
+
+  .rules { margin-top: 6px; font-size: 17px; color: var(--text-muted); display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 交通工具</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Transport Bingo · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Game · 5 min</div>
+  <div class="main-title">Transport Bingo · 交通工具宾果</div>
+  <div class="subtitle">Cross off the square when the teacher calls its Chinese word.</div>
+
+  <div class="game-flow">
+    <div class="flow-step"><div class="icon">📢</div><div class="label">Call word</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">✍️</div><div class="label">Cross off</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">📣</div><div class="label">"Bingo!"</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">📖</div><div class="label">Read line aloud</div></div>
+  </div>
+
+  <div class="bingo-card">
+    <div class="bingo-cell">校车</div>
+    <div class="bingo-cell">火车</div>
+    <div class="bingo-cell">电车</div>
+    <div class="bingo-cell">飞机</div>
+    <div class="bingo-cell">渡船</div>
+    <div class="bingo-cell">出租车</div>
+    <div class="bingo-cell">公共汽车</div>
+    <div class="bingo-cell">走路</div>
+    <div class="bingo-cell">开车</div>
+  </div>
+
+  <div class="rules">
+    <span>🎴 9-square cards, printed — pinyin or picture</span>
+    <span>🏆 First "Bingo!" reads their line aloud to confirm</span>
+    <span>🚫 No devices needed</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

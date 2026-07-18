@@ -53,6 +53,15 @@
       "thumbnail": "designs/y9-l8/thumb.png",
       "type": "slides",
       "tags": ["Year 9", "中文", "School"]
+    },
+    {
+      "id": "y7-l12",
+      "title": "Y7 L12 · 交通工具 Means of Transport",
+      "description": "8 节课程幻灯片系列——Year 7 中文交通工具单元（交通工具词汇·怎么问·上下词组拼音·部首拼音·时间交通综合·采访同伴·语法巩固·综合复习），延续 Y7 L10/L11 配色，含全屏演示",
+      "createdAt": "2026-07-18",
+      "thumbnail": "designs/y7-l12/thumb.png",
+      "type": "slides",
+      "tags": ["Year 7", "中文", "Transport"]
     }
   ]
 }

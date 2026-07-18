@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-09 · Game: Sentence Jumble</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 46px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 26px; }
+
+  .game-flow { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+  .flow-step { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 16px 22px; text-align: center; min-width: 120px; }
+  .flow-step .icon { font-size: 32px; margin-bottom: 4px; }
+  .flow-step .label { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+  .flow-arrow { font-size: 24px; color: var(--accent-gold); }
+
+  .jumble-grid { display: flex; gap: 16px; margin-bottom: 26px; }
+  .jumble-card {
+    background: #fff;
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--text-primary);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+  .jumble-card:nth-child(2) { transform: rotate(-3deg); }
+  .jumble-card:nth-child(3) { transform: rotate(2deg); }
+  .jumble-card:nth-child(4) { transform: rotate(-2deg); }
+  .jumble-card:nth-child(5) { transform: rotate(3deg); }
+  .jumble-card:nth-child(6) { transform: rotate(-1deg); }
+
+  .rules { margin-top: 6px; font-size: 16px; color: var(--text-muted); display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 时间交通</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Sentence Jumble · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Game · 5 min</div>
+  <div class="main-title">句子拼图 · Sentence Jumble</div>
+  <div class="subtitle">Pairs race to arrange the word cards into the correct sentence order on their desk.</div>
+
+  <div class="game-flow">
+    <div class="flow-step"><div class="icon">🎴</div><div class="label">Shuffle cards</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🏃</div><div class="label">Race in pairs</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🔤</div><div class="label">Arrange in order</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🙌</div><div class="label">Hands up when done</div></div>
+  </div>
+
+  <div class="jumble-grid">
+    <div class="jumble-card">上学</div>
+    <div class="jumble-card">我</div>
+    <div class="jumble-card">坐</div>
+    <div class="jumble-card">每天</div>
+    <div class="jumble-card">校车</div>
+    <div class="jumble-card">七点半</div>
+  </div>
+
+  <div class="rules">
+    <span>🃏 6 cards per set · one set per pair</span>
+    <span>🏆 First correct pair raises hands — teacher checks</span>
+    <span>🚫 No devices needed</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

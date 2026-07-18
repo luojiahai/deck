@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 118px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .transport-decor {
+    width: 320px; height: 140px;
+    position: relative;
+    margin: 0 auto var(--space-lg);
+  }
+  .transport-decor .road-strip {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 1;
+  }
+  .transport-decor .vehicle-icon {
+    position: absolute;
+    left: 50%; bottom: 74px;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="transport-decor">
+    <div class="vehicle-icon"><div class="window"></div></div>
+    <div class="road-strip"></div>
+  </div>
+  <div class="lesson-num">Lesson 1 · Y7 Unit 4.3</div>
+  <h1 class="title-cn">交通工具<span class="dot">。</span></h1>
+  <div class="title-en">Transport Modes + 坐/走路/开车</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Writing + Speaking</span>
+  </div>
+</div>
+
+<div class="road-watermark"></div>
+</body>
+</html>

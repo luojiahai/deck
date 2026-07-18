@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-04 · I Do: Negation Pattern</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 50px 130px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 22px; }
+
+  .sentence-frame {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--bg-tertiary);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 16px 30px;
+    font-family: var(--font-display);
+    font-size: 32px; font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .sentence-frame .neg { color: var(--accent-coral); }
+  .frame-gloss { font-size: 17px; color: var(--text-muted); margin-bottom: 26px; }
+
+  .row-2col { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: start; }
+
+  .verb-block .verb-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 12px; }
+  .verb-chips { display: flex; flex-direction: column; gap: 10px; }
+  .verb-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+    font-family: var(--font-display);
+    font-size: 24px; font-weight: 700;
+    color: var(--text-primary);
+    width: fit-content;
+  }
+  .verb-chip .neg { color: var(--accent-coral); }
+
+  .diagram-box {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
+  }
+  .diagram-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 14px; }
+  .word-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .word-chip {
+    background: #fff;
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    padding: 8px 14px;
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 700;
+    color: var(--text-secondary);
+  }
+  .word-chip.verb-pair { border-color: var(--accent-coral); background: var(--accent-coral-dim); color: var(--accent-coral); }
+  .word-chip.transport { border-color: var(--accent-teal); color: var(--accent-teal); position: relative; }
+  .transport-note {
+    position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    font-size: 12px; font-weight: 700; color: var(--accent-teal); white-space: nowrap;
+  }
+  .warning-box {
+    background: var(--accent-coral-dim);
+    border: 2px solid var(--accent-coral);
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .warning-box .warn-icon { font-size: 26px; }
+  .warning-box .warn-text { font-size: 17px; font-weight: 700; color: var(--accent-coral); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 语法巩固</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Negation Pattern · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do · Negation with 不</div>
+  <div class="main-title">否定句 · 不 + Verb</div>
+
+  <div class="sentence-frame">我妈妈<span class="neg">不</span>工作。</div>
+  <div class="frame-gloss">My mum doesn't work. — <strong style="color:var(--accent-gold);">不</strong> goes directly before the verb.</div>
+
+  <div class="row-2col">
+    <div class="verb-block">
+      <div class="verb-label">不 + Verb</div>
+      <div class="verb-chips">
+        <div class="verb-chip"><span class="neg">不</span>工作</div>
+        <div class="verb-chip"><span class="neg">不</span>开车</div>
+        <div class="verb-chip"><span class="neg">不</span>走路</div>
+      </div>
+    </div>
+
+    <div class="diagram-box">
+      <div class="diagram-title">Where Does 不 Go? · 我妈妈不坐公共汽车上班，她走路。</div>
+      <div class="word-chips">
+        <span class="word-chip">我妈妈</span>
+        <span class="word-chip verb-pair">不坐</span>
+        <span class="word-chip transport">公共汽车<span class="transport-note">NOT here!</span></span>
+        <span class="word-chip">上班，</span>
+        <span class="word-chip">她走路。</span>
+      </div>
+      <div class="warning-box">
+        <div class="warn-icon">&#9888;&#65039;</div>
+        <div class="warn-text">不 goes right before the VERB being negated (坐) — never before the time or transport word (公共汽车).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 118px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .mark {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 32px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-lg);
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+  .swap-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto var(--space-sm);
+  }
+  .swap-chip {
+    border: 4px solid var(--accent-gold-dim);
+    border-radius: 999px;
+    padding: 14px 32px;
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--text-secondary);
+  }
+  .swap-chip.q { color: var(--accent-gold); border-color: var(--accent-gold); }
+  .swap-arrow {
+    font-size: 40px;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .swap-caption {
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-lg);
+  }
+  .mini-road-wrap {
+    position: relative;
+    width: 340px;
+    margin: 0 auto;
+  }
+  .mini-road-wrap .road-strip { height: 44px; border-radius: var(--radius-sm); }
+  .mini-road-wrap .vehicle-icon {
+    position: absolute;
+    top: -30px; left: 50%;
+    transform: translateX(-50%) scale(0.8);
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="swap-icon">
+    <div class="swap-chip">问</div>
+    <div class="swap-arrow">&#8646;</div>
+    <div class="swap-chip q">答</div>
+  </div>
+  <div class="swap-caption">MATCHING Q &amp; A &nbsp;&middot;&nbsp; 不 NEGATION</div>
+  <div class="lesson-num">Lesson 7 · Y7 Unit 4.3</div>
+  <h1 class="title-cn">语法<span class="mark">巩固</span></h1>
+  <div class="title-en">Grammar Consolidation</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Listening + Writing</span>
+  </div>
+  <div class="mini-road-wrap">
+    <div class="road-strip"></div>
+    <div class="vehicle-icon"><div class="window"></div></div>
+  </div>
+</div>
+
+<div class="road-watermark"></div>
+</body>
+</html>

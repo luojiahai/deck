@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-02b · Review Answers</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 55px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 46px; font-weight: 900; margin-bottom: 20px; }
+
+  .q-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 1680px; }
+  .q-item {
+    background: var(--accent-gold-dim);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 18px 26px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .q-num {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .q-answer-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .q-given { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--text-muted); }
+  .q-arrow { font-size: 20px; color: var(--accent-gold); }
+  .q-answer { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--accent-gold); }
+
+  .q-item.negation { grid-column: 1 / -1; background: var(--accent-coral-dim); border-color: var(--accent-coral); }
+  .q-item.negation .q-num { background: var(--accent-coral); }
+  .q-item.negation .q-given { font-family: var(--font-body); font-size: 20px; font-style: italic; }
+  .q-item.negation .q-answer { color: var(--accent-coral); }
+
+  .note-box {
+    margin-top: 22px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 18px 30px;
+    max-width: 1680px;
+    font-size: 17px;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">Review · Answers · 0–8 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Review — Answers</div>
+  <div class="main-title">答案找问题 · Model Answers</div>
+
+  <div class="q-grid">
+    <div class="q-item">
+      <div class="q-num">1</div>
+      <div class="q-answer-row"><span class="q-given">坐火车。</span><span class="q-arrow">→</span><span class="q-answer">你怎么上班？</span></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">2</div>
+      <div class="q-answer-row"><span class="q-given">开车。</span><span class="q-arrow">→</span><span class="q-answer">你爸爸怎么上班？</span></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">3</div>
+      <div class="q-answer-row"><span class="q-given">坐地铁。</span><span class="q-arrow">→</span><span class="q-answer">你怎么上学？</span></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">4</div>
+      <div class="q-answer-row"><span class="q-given">走路。</span><span class="q-arrow">→</span><span class="q-answer">你怎么上学？</span></div>
+    </div>
+    <div class="q-item negation">
+      <div class="q-num">5</div>
+      <div class="q-answer-row"><span class="q-given">"My dad doesn't drive."</span><span class="q-arrow">→</span><span class="q-answer">我爸爸不开车。</span></div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    More than one valid question can be correct as long as the grammar is right — e.g. 你怎么上学？or 你怎么上班？both work for most answers here, depending on who you imagine is speaking.
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

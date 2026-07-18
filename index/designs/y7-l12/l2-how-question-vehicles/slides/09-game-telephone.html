@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-09 · Game: Telephone (传声筒)</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; align-items: center; text-align: center; padding: 50px 120px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-coral); text-transform: uppercase; margin-bottom: 12px; }
+  .main-title { font-family: var(--font-display); font-size: 48px; font-weight: 900; margin-bottom: 6px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .game-flow { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
+  .flow-step { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 18px 26px; text-align: center; min-width: 140px; }
+  .flow-step .icon { font-size: 36px; margin-bottom: 4px; }
+  .flow-step .label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .flow-arrow { font-size: 26px; color: var(--accent-gold); }
+
+  .chain-people { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 26px; }
+  .person { width: 60px; height: 60px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .person.start { background: var(--accent-gold-dim); }
+  .person.end { background: var(--accent-teal-dim); }
+  .chain-dash { width: 24px; height: 2px; background: var(--border-medium); }
+
+  .target-sentence {
+    display: inline-block;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: 18px 40px;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 26px;
+  }
+
+  .rules { margin-top: 6px; font-size: 17px; color: var(--text-muted); display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 怎么问</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Telephone · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Game · 5 min</div>
+  <div class="main-title">传声筒 · Telephone</div>
+  <div class="subtitle">Whisper the sentence down the row. The last student says it aloud or writes it on the board.</div>
+
+  <div class="game-flow">
+    <div class="flow-step"><div class="icon">🤫</div><div class="label">Whisper once</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">👂</div><div class="label">Pass down the row</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🗣️</div><div class="label">Last student says it</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="icon">🔍</div><div class="label">Compare to original</div></div>
+  </div>
+
+  <div class="chain-people">
+    <div class="person start">🗣️</div>
+    <div class="chain-dash"></div>
+    <div class="person">🧑</div>
+    <div class="chain-dash"></div>
+    <div class="person">🧑</div>
+    <div class="chain-dash"></div>
+    <div class="person">🧑</div>
+    <div class="chain-dash"></div>
+    <div class="person end">❓</div>
+  </div>
+
+  <div class="target-sentence">你爸爸怎么上班？坐火车。</div>
+
+  <div class="rules">
+    <span>🤫 Whisper only once — no repeats</span>
+    <span>🏆 Last student says or writes the sentence, then reveal the original</span>
+    <span>🚫 No devices needed — whole-class activity</span>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-07 · We Do: Phrase-Pair Matching</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: center; padding: 40px 100px 26px; }
+  .section-label { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 6px; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 16px; }
+
+  .two-col { display: grid; grid-template-columns: 1.15fr 1fr; gap: 30px; align-items: start; }
+
+  .pic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .pic-card {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .pic-card .pic-num { font-size: 12px; font-weight: 700; color: var(--accent-teal); margin-bottom: 6px; }
+  .pic-card .pic-glyph { font-size: 34px; margin-bottom: 8px; }
+  .pic-card .pic-blank { width: 50%; height: 2px; background: var(--border-medium); margin: 0 auto; border-radius: 1px; }
+
+  .phrase-box { background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 14px 20px; }
+  .phrase-box .pb-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 8px; }
+  .phrase-item { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 15px; }
+  .phrase-item .letter { font-weight: 700; color: var(--accent-gold); width: 16px; flex-shrink: 0; }
+  .phrase-item .hz { font-family: var(--font-display); font-weight: 700; color: var(--text-primary); }
+  .phrase-item .py { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+
+  .activity-box { margin-top: 14px; padding: var(--space-md); }
+  .activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 4px; }
+  .activity-col .col-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 4px; }
+  .activity-col .col-text { font-size: 14px; color: var(--text-secondary); line-height: 1.45; }
+  .answer-hint {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px dashed var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 7px 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 上下词组</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Activity 1 · 20–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">Activity 1 · 8 min · We Do · Ex2, p.88</div>
+  <div class="main-title">Phrase-Pair Matching · 词组配对</div>
+  <div class="subtitle">Match each picture to its phrase in the box below. Write the matching letter under the picture.</div>
+
+  <div class="two-col">
+    <div class="pic-grid">
+      <div class="pic-card"><div class="pic-num">1</div><div class="pic-glyph">🎒</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">2</div><div class="pic-glyph">📖</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">3</div><div class="pic-glyph">🚪</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">4</div><div class="pic-glyph">🏫</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">5</div><div class="pic-glyph">🚌⬆️</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">6</div><div class="pic-glyph">🔔</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">7</div><div class="pic-glyph">💼</div><div class="pic-blank"></div></div>
+      <div class="pic-card"><div class="pic-num">8</div><div class="pic-glyph">🚌⬇️</div><div class="pic-blank"></div></div>
+    </div>
+
+    <div class="phrase-box">
+      <div class="pb-title">Phrase Box</div>
+      <div class="phrase-item"><span class="letter">A</span><span class="hz">上课</span><span class="py">shàng kè</span></div>
+      <div class="phrase-item"><span class="letter">B</span><span class="hz">下课</span><span class="py">xià kè</span></div>
+      <div class="phrase-item"><span class="letter">C</span><span class="hz">上学</span><span class="py">shàng xué</span></div>
+      <div class="phrase-item"><span class="letter">D</span><span class="hz">放学</span><span class="py">fàng xué</span></div>
+      <div class="phrase-item"><span class="letter">E</span><span class="hz">上班</span><span class="py">shàng bān</span></div>
+      <div class="phrase-item"><span class="letter">F</span><span class="hz">下班</span><span class="py">xià bān</span></div>
+      <div class="phrase-item"><span class="letter">G</span><span class="hz">上车</span><span class="py">shàng chē</span></div>
+      <div class="phrase-item"><span class="letter">H</span><span class="hz">下车</span><span class="py">xià chē</span></div>
+    </div>
+  </div>
+
+  <div class="activity-box">
+    <div class="activity-badge">We Do · 8 min</div>
+    <div class="activity-grid">
+      <div class="activity-col">
+        <div class="col-title">Scaffold</div>
+        <div class="col-text">Pinyin printed next to each phrase option.</div>
+      </div>
+      <div class="activity-col">
+        <div class="col-title">Extension</div>
+        <div class="col-text">Write one full sentence using each of 2 chosen pairs — e.g. 我们八点上课，三点半下课。</div>
+      </div>
+      <div class="activity-col">
+        <div class="col-title">OTR</div>
+        <div class="col-text">Mini whiteboards — hold up the matched letter as the teacher reveals each picture.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="answer-hint">答案见下一张 · Checked as a class on next slide →</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y7 Chinese · Unit 4.3 交通工具</span>
+</div>
+
+</body>
+</html>

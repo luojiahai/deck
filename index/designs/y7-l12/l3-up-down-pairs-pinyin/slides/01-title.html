@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-01 · Title</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    overflow: hidden;
+    position: relative;
+  }
+  .main {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .badge-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+  .road-scene {
+    width: 320px;
+    height: 118px;
+    margin: 0 auto var(--space-lg);
+    position: relative;
+  }
+  .road-scene .road-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  .road-scene .vehicle-icon {
+    position: absolute;
+    bottom: 46px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .lesson-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+  }
+  .title-cn {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .title-cn .dot {
+    color: var(--accent-gold);
+  }
+  .title-en {
+    font-size: 30px;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-xl);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .meta .sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+
+<div class="road-watermark"></div>
+
+<div class="main">
+  <div class="road-scene">
+    <div class="vehicle-icon"><div class="window"></div></div>
+    <div class="road-strip"></div>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-gold">上/下 Phrase Pairs</span>
+    <span class="badge badge-teal">拼音 Pinyin</span>
+  </div>
+  <div class="lesson-num">Lesson 3 · Y7 Unit 4.3</div>
+  <h1 class="title-cn">上课<span class="dot">·</span>下课</h1>
+  <div class="title-en">上/下 Phrase Pairs + Pinyin · 上下词组与拼音</div>
+  <div class="meta">
+    <span>Year 7 Chinese</span>
+    <span class="sep"></span>
+    <span>50 mins</span>
+    <span class="sep"></span>
+    <span>Writing + Speaking</span>
+  </div>
+</div>
+
+</body>
+</html>
