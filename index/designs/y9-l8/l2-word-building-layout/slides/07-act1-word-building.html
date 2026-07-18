@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-07 · Act 1: 猜猜看组词</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:24px; }
+
+  .two-col { display:grid; grid-template-columns:1.2fr 1fr; gap:36px; }
+
+  .activity-box { background:var(--bg-secondary); border:2px dashed var(--accent-teal); border-radius:var(--radius-xl); padding:28px 28px 22px; position:relative; }
+  .activity-badge { position:absolute; top:-14px; left:28px; background:var(--accent-teal); color:#fff; padding:4px 18px; border-radius:999px; font-size:14px; font-weight:700; letter-spacing:0.06em; }
+
+  .step-list { display:flex; flex-direction:column; gap:14px; }
+  .step { display:flex; align-items:flex-start; gap:14px; }
+  .step-num { width:32px; height:32px; border-radius:50%; background:var(--accent-teal); color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; flex-shrink:0; }
+  .step-text { font-size:18px; color:var(--text-secondary); line-height:1.55; padding-top:4px; }
+  .step-text strong { color:var(--text-primary); }
+  .step-text em { color:var(--accent-teal); font-style:normal; font-weight:700; }
+  .step-text .zh { font-family:var(--font-display); font-weight:700; color:var(--accent-blue); }
+
+  .otr-tag { display:inline-block; background:var(--accent-coral-dim); color:var(--accent-coral); border-radius:999px; padding:3px 14px; font-size:13px; font-weight:700; margin-top:14px; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px; }
+  .sed-item { background:var(--bg-tertiary); border-radius:var(--radius-md); padding:14px 16px; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-text { font-size:15px; color:var(--text-secondary); line-height:1.5; }
+
+  /* Right panel: base word prompts */
+  .right-panel { display:flex; flex-direction:column; gap:16px; }
+  .preview-label { font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); }
+  .base-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+  .base-cell { background:var(--bg-tertiary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:16px 14px; text-align:center; }
+  .base-cell .zh { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--text-primary); }
+  .base-cell .zh .blank { color:var(--accent-teal); }
+  .final-round { background:var(--accent-blue-dim); border:1.5px solid var(--accent-blue); border-radius:var(--radius-md); padding:14px 18px; }
+  .final-round .fr-label { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:6px; }
+  .final-round .fr-text { font-size:16px; color:var(--text-secondary); line-height:1.5; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 组词·布局</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Activity 1 · 20–27 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">20–27 min · We Do</div>
+  <div class="main-title">活动一 · 猜猜看组词</div>
+
+  <div class="two-col">
+    <div class="activity-box">
+      <div class="activity-badge">WE DO · Guided Word-Building</div>
+      <div style="height:14px;"></div>
+
+      <div class="step-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Teacher projects <strong>one base word at a time</strong> — class chorally calls out the missing <em>building block</em> character.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">After each correct answer, teacher <strong>reveals the full compound word</strong> and its meaning.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Final round:</strong> teacher gives the meaning in <em>English only</em> — class must produce the full Chinese compound from scratch.</div>
+        </div>
+      </div>
+
+      <div class="otr-tag">OTR 1 · every base word answered chorally by whole class before cold call</div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          <div class="sed-text">Keep the building-block table from I Do visible throughout as a reference</div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          <div class="sed-text">After each compound, fluent speakers use it in a full sentence: "我们学校有一个游泳池。"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="preview-label">Base words for this round</div>
+      <div class="base-grid">
+        <div class="base-cell"><div class="zh">图书<span class="blank">__</span></div></div>
+        <div class="base-cell"><div class="zh">体育<span class="blank">__</span></div></div>
+        <div class="base-cell"><div class="zh">篮球<span class="blank">__</span></div></div>
+        <div class="base-cell"><div class="zh">足球<span class="blank">__</span></div></div>
+        <div class="base-cell"><div class="zh">停车<span class="blank">__</span></div></div>
+        <div class="base-cell"><div class="zh">游泳<span class="blank">__</span></div></div>
+        <div class="base-cell" style="grid-column:1/3;"><div class="zh">教学<span class="blank">__</span></div></div>
+      </div>
+      <div class="final-round">
+        <div class="fr-label">Final Round</div>
+        <div class="fr-text">Teacher says "music room" in English only → class produces <strong>音乐室</strong> from scratch, no visual prompt.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-09 · Game · Round 1: 词汇闪卡</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+
+  .page-label {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-gold); margin-bottom:4px;
+  }
+  .main-title {
+    font-family:var(--font-display); font-size:48px; font-weight:900;
+    color:var(--text-primary); line-height:1.1; margin-bottom:2px;
+  }
+  .sub-title {
+    font-family:var(--font-body); font-size:22px; font-weight:700;
+    color:var(--accent-blue); margin-bottom:4px; letter-spacing:0.04em;
+  }
+  .instruction-strip {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent-gold-dim); border:1.5px solid var(--accent-gold);
+    border-radius:999px; padding:6px 22px;
+    font-size:17px; color:var(--accent-gold); font-weight:600;
+    margin-bottom:26px;
+  }
+
+  .cards-row {
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+    margin-bottom:28px;
+    max-width:900px;
+  }
+
+  .flash-card {
+    background:#fff;
+    border:2px solid var(--border-medium);
+    border-radius:var(--radius-lg);
+    padding:34px 20px 28px;
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+    position:relative;
+    box-shadow:0 2px 12px rgba(26,37,53,0.06);
+  }
+
+  .flash-card .card-num {
+    position:absolute; top:14px; left:16px;
+    font-size:12px; font-weight:700; color:var(--text-muted); letter-spacing:0.08em;
+  }
+  .flash-cn {
+    font-family:var(--font-display); font-size:60px; font-weight:900;
+    color:var(--text-primary); line-height:1.1; text-align:center;
+  }
+
+  .bottom-row {
+    display:grid; grid-template-columns:1fr auto; gap:28px;
+    align-items:center;
+  }
+
+  .otr-note-strip {
+    background:var(--accent-coral-dim);
+    border:1.5px solid var(--accent-coral);
+    border-radius:var(--radius-md);
+    padding:12px 22px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .otr-note-strip .otr-icon { font-size:22px; flex-shrink:0; }
+  .otr-note-strip .otr-text { font-size:18px; font-weight:600; color:var(--accent-coral); }
+
+  .scoreboard {
+    background:var(--bg-secondary);
+    border:2px solid var(--border-medium);
+    border-radius:var(--radius-lg);
+    padding:16px 32px;
+    display:flex; align-items:center; gap:28px;
+  }
+  .scoreboard-title {
+    font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:10px; text-align:center;
+  }
+  .teams-row { display:flex; align-items:center; gap:20px; }
+  .team-block { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .team-label {
+    font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-secondary);
+  }
+  .score-box {
+    width:80px; height:56px;
+    border-radius:var(--radius-md);
+    border:2px solid var(--border-medium);
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:36px; font-weight:900;
+    color:var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Round 1: 词汇闪卡 (38–39 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="page-label">38–39 min · Game · Round 1</div>
+  <div class="main-title">复习问答接力</div>
+  <div class="sub-title">Round 1 · 词汇闪卡 · Vocab Flash Cards</div>
+  <div class="instruction-strip">
+    <span>&#9654;</span>
+    Chinese &#8594; Teams call out English. First team wins the point!
+  </div>
+
+  <!-- Flash Cards -->
+  <div class="cards-row">
+
+    <div class="flash-card">
+      <span class="card-num"># 1</span>
+      <div class="flash-cn">校医室</div>
+    </div>
+
+    <div class="flash-card">
+      <span class="card-num"># 2</span>
+      <div class="flash-cn">游泳馆</div>
+    </div>
+
+    <div class="flash-card">
+      <span class="card-num"># 3</span>
+      <div class="flash-cn">楼上</div>
+    </div>
+
+  </div>
+
+  <!-- Bottom row: OTR note + Scoreboard -->
+  <div class="bottom-row">
+
+    <div class="otr-note-strip">
+      <span class="otr-icon">&#128065;</span>
+      <span class="otr-text">Teams call out the English — answers on next slide</span>
+    </div>
+
+    <div class="scoreboard">
+      <div>
+        <div class="scoreboard-title">Scoreboard</div>
+        <div class="teams-row">
+          <div class="team-block">
+            <div class="team-label">Team A</div>
+            <div class="score-box">—</div>
+          </div>
+          <div style="font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--text-muted); padding-top:24px;">vs</div>
+          <div class="team-block">
+            <div class="team-label">Team B</div>
+            <div class="score-box">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

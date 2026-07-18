@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-05 · Sentence Pattern + 层=楼</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:24px; }
+
+  .two-col { display:grid; grid-template-columns:1.3fr 1fr; gap:40px; }
+
+  .pattern-panel { display:flex; flex-direction:column; gap:18px; }
+  .pattern-box { background:var(--bg-tertiary); border:2px solid var(--accent-blue); border-radius:var(--radius-lg); padding:20px 28px; }
+  .pattern-box .pb-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:8px; }
+  .pattern-box .pb-formula { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); line-height:1.5; }
+  .pattern-box .pb-formula .slot { color:var(--accent-blue); }
+
+  .examples-label { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
+  .example-list { display:flex; flex-direction:column; gap:12px; }
+  .example-item { background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:14px 22px; }
+  .example-item .num { font-size:13px; font-weight:700; color:var(--accent-teal); margin-right:8px; }
+  .example-item .zh { font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--text-primary); }
+  .example-item.silly { background:var(--accent-coral-dim); border-color:var(--accent-coral); }
+  .example-item.silly .zh { color:var(--accent-coral); }
+  .example-item .tag { font-size:13px; color:var(--text-muted); display:block; margin-top:4px; }
+
+  /* Right panel — 层=楼 */
+  .equiv-panel { display:flex; flex-direction:column; gap:16px; }
+  .equiv-box { background:var(--accent-teal-dim); border:2px solid var(--accent-teal); border-radius:var(--radius-xl); padding:28px; text-align:center; }
+  .equiv-box .equiv-formula { font-family:var(--font-display); font-size:56px; font-weight:900; color:var(--accent-teal); line-height:1.3; }
+  .equiv-box .equiv-formula .eq { color:var(--text-muted); font-size:40px; margin:0 12px; }
+  .equiv-box .equiv-en { font-size:18px; color:var(--text-secondary); margin-top:8px; }
+
+  .equiv-note { background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:16px 22px; font-size:18px; color:var(--text-secondary); line-height:1.55; }
+  .equiv-note .zh { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 教室·楼层</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Sentence Pattern · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do · Key Sentence Pattern</div>
+  <div class="main-title">句型 · Asking &amp; Telling Which Floor</div>
+
+  <div class="two-col">
+    <div class="pattern-panel">
+      <div class="pattern-box">
+        <div class="pb-label">Structure</div>
+        <div class="pb-formula">[<span class="slot">Room</span>] 在 [<span class="slot">floor</span>]。&nbsp;&nbsp;/&nbsp;&nbsp; [<span class="slot">Room</span>] 在几层？</div>
+      </div>
+
+      <div class="examples-label">Modelled Examples · 教师朗读，全班跟读</div>
+      <div class="example-list">
+        <div class="example-item"><span class="num">1</span><span class="zh">汉语教室在三层。</span></div>
+        <div class="example-item"><span class="num">2</span><span class="zh">物理实验室在哪儿？— 在二层。</span></div>
+        <div class="example-item silly"><span class="num">3</span><span class="zh">校长办公室在游泳池里面！</span><span class="tag">Silly example — wait for reaction!</span></div>
+      </div>
+    </div>
+
+    <div class="equiv-panel">
+      <div class="equiv-box">
+        <div class="equiv-formula">三层<span class="eq">=</span>三楼</div>
+        <div class="equiv-en">both mean "third floor"</div>
+      </div>
+      <div class="equiv-note">
+        <span class="zh">三层</span> 和 <span class="zh">三楼</span> 意思一样，都是 "third floor"。课文里两个都会看到。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

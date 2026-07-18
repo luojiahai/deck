@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-07 · Game: 部首大挑战</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:30px 80px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:18px; }
+
+  .game-layout { display:grid; grid-template-columns:1fr 340px; gap:32px; }
+
+  .radical-only-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:10px; margin-bottom:14px; }
+  .radical-only-cell { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:18px 8px; text-align:center; }
+  .radical-only-cell .zh { font-family:var(--font-display); font-size:44px; font-weight:900; color:var(--text-primary); }
+  .grid-caption { font-size:15px; color:var(--text-muted); text-align:center; line-height:1.5; }
+  .grid-caption strong { color:var(--accent-coral); }
+
+  .rules-panel { display:flex; flex-direction:column; gap:12px; }
+  .rule-box { background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:16px 18px; }
+  .rule-box h3 { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:9px; }
+  .rule-box h3.game { color:var(--accent-coral); }
+  .rule-box h3.otr { color:var(--accent-coral); }
+  .rule-box h3.sca { color:var(--accent-teal); }
+  .rule-box h3.ext { color:var(--accent-gold); }
+  .rule-text { font-size:14px; color:var(--text-secondary); line-height:1.55; }
+  .rule-text strong { color:var(--text-primary); }
+
+  .game-steps { display:flex; flex-direction:column; gap:6px; }
+  .g-step { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--text-secondary); line-height:1.5; }
+  .g-step-num { width:19px; height:19px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 部首·地图</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 部首大挑战 · 20–29 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">20–29 min · We Do / Game · Based on Act. 11, p.78</div>
+  <div class="main-title">部首大挑战 · Radical Writing Competition</div>
+
+  <div class="game-layout">
+    <div>
+      <div class="radical-only-grid">
+        <div class="radical-only-cell"><div class="zh">氵</div></div>
+        <div class="radical-only-cell"><div class="zh">艹</div></div>
+        <div class="radical-only-cell"><div class="zh">扌</div></div>
+        <div class="radical-only-cell"><div class="zh">忄</div></div>
+        <div class="radical-only-cell"><div class="zh">口</div></div>
+        <div class="radical-only-cell"><div class="zh">亻</div></div>
+        <div class="radical-only-cell"><div class="zh">木</div></div>
+        <div class="radical-only-cell"><div class="zh">火</div></div>
+        <div class="radical-only-cell"><div class="zh">钅</div></div>
+        <div class="radical-only-cell"><div class="zh">土</div></div>
+        <div class="radical-only-cell"><div class="zh">纟</div></div>
+        <div class="radical-only-cell"><div class="zh">宀</div></div>
+      </div>
+      <div class="grid-caption">Project the reference grid for <strong>1 minute of final study</strong> — then hide it for the 3-minute write phase.</div>
+    </div>
+
+    <div class="rules-panel">
+      <div class="rule-box">
+        <h3 class="game">How to Play</h3>
+        <div class="game-steps">
+          <div class="g-step"><div class="g-step-num">1</div>3–4 teams; one <strong>scribe</strong> writes for the team (or each member writes and the team's best set counts)</div>
+          <div class="g-step"><div class="g-step-num">2</div>Study grid <strong>1 min</strong> → grid hidden</div>
+          <div class="g-step"><div class="g-step-num">3</div><strong>3 min</strong>: write as many radicals as remembered, each with one example word</div>
+          <div class="g-step"><div class="g-step-num">4</div>Teams read list aloud — <strong>1 pt</strong> per correct radical + <strong>1 bonus pt</strong> if the example word is also correct. Track on whiteboard corner.</div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="otr">OTR 1</h3>
+        <div class="rule-text">Every team member must contribute at least <strong>one radical</strong> — teacher circulates during the 3-minute window to confirm.</div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="sca">Scaffold</h3>
+        <div class="rule-text">Teams may keep the <strong>meaning column</strong> (English) visible as a memory hook — only 汉字/example columns hidden.</div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="ext">Extension</h3>
+        <div class="rule-text">Bonus point for any radical <strong>beyond the twelve</strong> shown (e.g. 讠, 刂, 辶) if correctly identified with an example.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

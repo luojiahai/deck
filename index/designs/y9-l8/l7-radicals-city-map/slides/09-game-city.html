@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-09 · Game: 城市设计大挑战</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:30px 80px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; margin-bottom:16px; }
+
+  .game-layout { display:grid; grid-template-columns:1fr 380px; gap:32px; }
+
+  .city-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:14px; }
+  .city-cell { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:18px 10px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-height:84px; }
+  .city-cell .icon { font-size:24px; }
+  .city-cell .zh { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--text-primary); }
+
+  .model-sentences { background:var(--bg-tertiary); border-radius:var(--radius-md); padding:14px 20px; }
+  .model-sentences .m-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .model-sentences .m-text { font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--text-primary); line-height:1.7; }
+
+  .rules-panel { display:flex; flex-direction:column; gap:11px; }
+  .rule-box { background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:15px 18px; }
+  .rule-box h3 { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:9px; }
+  .rule-box h3.game { color:var(--accent-coral); }
+  .rule-box h3.sca { color:var(--accent-teal); }
+  .rule-box h3.ext { color:var(--accent-gold); }
+  .rule-text { font-size:14px; color:var(--text-secondary); line-height:1.5; }
+  .rule-text strong { color:var(--text-primary); }
+  .rule-text .zh { font-family:var(--font-display); color:var(--accent-blue); font-style:normal; }
+
+  .phase-steps { display:flex; flex-direction:column; gap:8px; }
+  .phase-step { display:flex; align-items:flex-start; gap:8px; }
+  .phase-num { width:19px; height:19px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0; margin-top:2px; }
+  .phase-text { font-size:13px; color:var(--text-secondary); line-height:1.5; }
+  .phase-text strong { color:var(--text-primary); }
+
+  .word-bank { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .wb-chip { background:var(--bg-tertiary); border-radius:999px; padding:3px 12px; font-size:13px; color:var(--text-secondary); font-family:var(--font-display); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · 部首·地图</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 城市设计大挑战 · 34–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">34–43 min · Game · Based on Act. 12, p.79</div>
+  <div class="main-title">城市设计大挑战 · City Map Design Challenge</div>
+
+  <div class="game-layout">
+    <div>
+      <div class="city-grid">
+        <div class="city-cell"><div class="icon">📚</div><div class="zh">图书馆</div></div>
+        <div class="city-cell"><div class="icon">🏫</div><div class="zh">学校</div></div>
+        <div class="city-cell"><div class="icon">🏥</div><div class="zh">医院</div></div>
+        <div class="city-cell"><div class="icon">🌳</div><div class="zh">公园</div></div>
+        <div class="city-cell"><div class="icon">🏬</div><div class="zh">商店</div></div>
+        <div class="city-cell"><div class="icon">🚉</div><div class="zh">火车站</div></div>
+      </div>
+      <div class="model-sentences">
+        <div class="m-label">Modelling — describe the original city centre</div>
+        <div class="m-text">图书馆在学校的对面。<br>公园在医院的旁边。</div>
+      </div>
+    </div>
+
+    <div class="rules-panel">
+      <div class="rule-box">
+        <h3 class="game">How to Play — Same Teams as Act. 1</h3>
+        <div class="phase-steps">
+          <div class="phase-step"><div class="phase-num">1</div><div class="phase-text"><strong>Describe (3 min):</strong> teams describe the projected city map together using position words — 3–4 sentences</div></div>
+          <div class="phase-step"><div class="phase-num">2</div><div class="phase-text"><strong>Redesign (4 min):</strong> each team redesigns the city on a blank grid in exercise books — move buildings anywhere — and writes 3–4 sentences describing the new layout</div></div>
+          <div class="phase-step"><div class="phase-num">3</div><div class="phase-text"><strong>Present (2 min):</strong> one member from 2–3 teams presents their redesigned city in Chinese; class listens and can ask one question each</div></div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="sca">Scaffold</h3>
+        <div class="rule-text">
+          Sentence frame: <span class="zh">______在______的______。</span><br>
+          <div class="word-bank">
+            <span class="wb-chip">图书馆</span><span class="wb-chip">学校</span><span class="wb-chip">医院</span>
+            <span class="wb-chip">公园</span><span class="wb-chip">商店</span><span class="wb-chip">火车站</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="ext">Extension</h3>
+        <div class="rule-text">
+          Use at least <strong>five different position words</strong> across the description and redesign, and justify one design choice:<br>
+          <span class="zh">"我们把公园放在学校旁边，因为……"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

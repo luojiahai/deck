@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-08 · We Do · Act.1 课文二精听</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .page-label {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .main-title {
+    font-family:var(--font-display); font-size:44px; font-weight:900;
+    color:var(--text-primary); margin-bottom:20px; line-height:1.15;
+  }
+
+  .two-col {
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    flex:1;
+  }
+
+  /* Left column */
+  .activity-card {
+    background:var(--bg-secondary);
+    border:1.5px solid var(--border-light);
+    border-radius:var(--radius-lg);
+    padding:28px 32px;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .activity-card-header {
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .activity-card-title {
+    font-family:var(--font-display); font-size:26px; font-weight:900;
+    color:var(--text-primary);
+  }
+  .cd-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+    border-radius:999px;
+    padding:6px 20px;
+    font-size:15px; font-weight:700; color:var(--accent-blue);
+    letter-spacing:0.06em;
+  }
+  .cd-badge .cd-icon { font-size:18px; }
+
+  .inst-list {
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .inst-list li {
+    display:flex; align-items:flex-start; gap:12px;
+    font-size:18px; color:var(--text-secondary); line-height:1.5;
+  }
+  .inst-list li::before {
+    content:''; display:inline-block; flex-shrink:0;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--accent-blue); margin-top:8px;
+  }
+  .inst-list .inst-cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+
+  .focus-strip {
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+    border-radius:var(--radius-md);
+    padding:12px 20px;
+  }
+  .focus-label {
+    font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .focus-items {
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .focus-chip {
+    background:rgba(58,95,138,0.18); border-radius:999px;
+    padding:4px 14px; font-size:15px; font-weight:600; color:var(--accent-blue);
+    font-family:var(--font-display);
+  }
+
+  .sentence-frame-card {
+    background:var(--bg-tertiary);
+    border-left:5px solid var(--accent-blue);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+    padding:12px 20px;
+    font-family:var(--font-display); font-size:21px; font-weight:700;
+    color:var(--text-primary);
+    line-height:1.5;
+  }
+  .sf-label {
+    font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px; font-family:var(--font-body);
+  }
+
+  /* Right column */
+  .right-col { display:flex; flex-direction:column; gap:18px; }
+
+  .word-bank-box {
+    background:var(--accent-teal-dim);
+    border:2px solid var(--accent-teal);
+    border-radius:var(--radius-lg);
+    padding:22px 26px;
+  }
+  .wb-title {
+    font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-teal); margin-bottom:12px;
+  }
+  .wb-chips {
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .wb-chip {
+    background:rgba(46,125,110,0.18);
+    border:1.5px solid var(--accent-teal);
+    border-radius:var(--radius-md);
+    padding:9px 20px;
+    font-family:var(--font-display); font-size:22px; font-weight:900;
+    color:var(--accent-teal);
+  }
+
+  .otr-strip {
+    background:var(--bg-secondary);
+    border:1px solid var(--border-light);
+    border-radius:var(--radius-md);
+    padding:18px 24px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .otr-row {
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .otr-tag {
+    flex-shrink:0; padding:3px 12px; border-radius:999px;
+    font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .otr-tag.otr { background:var(--accent-coral-dim); color:var(--accent-coral); }
+  .otr-row-text { font-size:17px; color:var(--text-secondary); line-height:1.5; }
+  .otr-row-text .cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:14px 18px; }
+  .sed-item .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-text { font-size:14px; color:var(--text-secondary); line-height:1.45; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 教室·楼层</span>
+  <span class="sep"></span>
+  <span class="section-name">We Do · Activity 1 课文二精听 · 20–27 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="page-label">20–27 min · We Do · Activity 1</div>
+  <div class="main-title">活动1 · 课文二精听 <span style="font-family:var(--font-body);font-size:32px;font-weight:700;color:var(--text-secondary)">Focused Listening</span></div>
+
+  <div class="two-col">
+
+    <!-- LEFT: Activity setup card -->
+    <div class="activity-card">
+      <div class="activity-card-header">
+        <div class="activity-card-title">活动 1 · Activity 1</div>
+        <div class="cd-badge">
+          <span class="cd-icon">&#9654;</span>
+          CD Track 31
+        </div>
+      </div>
+
+      <ul class="inst-list">
+        <li>Play <span class="inst-cn" style="margin-left:4px">CD Track 31</span> again with <span class="inst-cn" style="margin-left:4px">pinyin visible</span> — students follow silently</li>
+        <li>Play a <span class="inst-cn" style="margin-left:4px">third time</span> with <span class="inst-cn" style="margin-left:4px">characters only</span> (pinyin hidden) — listen for the four locations</li>
+        <li>Project the 3 comprehension questions again (no answers) — <span class="inst-cn" style="margin-left:4px">turn-and-talk</span> (2 min) to compare answers</li>
+        <li>Cold call 3 students, one question each, to answer in a <span class="inst-cn" style="margin-left:4px">full Chinese sentence</span></li>
+      </ul>
+
+      <div class="focus-strip">
+        <div class="focus-label">Listen for four locations</div>
+        <div class="focus-items">
+          <span class="focus-chip">汉语教室</span>
+          <span class="focus-chip">物理实验室</span>
+          <span class="focus-chip">厕所</span>
+          <span class="focus-chip">校长办公室</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sf-label">Model Answer Format · 句型支架</div>
+        <div class="sentence-frame-card">
+          汉语教室在三层，在法语教室的旁边。
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Word bank + OTR + scaffold/extension -->
+    <div class="right-col">
+
+      <div class="word-bank-box">
+        <div class="wb-title">Location Phrases · 方位词</div>
+        <div class="wb-chips">
+          <span class="wb-chip">旁边</span>
+          <span class="wb-chip">隔壁</span>
+          <span class="wb-chip">左边</span>
+          <span class="wb-chip">右边</span>
+          <span class="wb-chip">中间</span>
+        </div>
+      </div>
+
+      <div class="otr-strip">
+        <div class="otr-row">
+          <span class="otr-tag otr">OTR 1</span>
+          <span class="otr-row-text">Turn-and-talk: every student states at least one answer aloud to their partner</span>
+        </div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          <div class="sed-text">Keep the dialogue text (characters only) visible during turn-and-talk for students who need to re-read</div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          <div class="sed-text">Answer all three questions using full 在……的旁边/隔壁/中间 phrasing exactly as in the text, without looking</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

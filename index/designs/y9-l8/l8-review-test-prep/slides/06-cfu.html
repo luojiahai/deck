@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-06 · CFU · Check for Understanding</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:40px 100px 36px; }
+
+  .page-label {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-blue); margin-bottom:6px;
+  }
+  .main-title {
+    font-family:var(--font-display); font-size:46px; font-weight:900;
+    color:var(--text-primary); margin-bottom:24px; line-height:1.15;
+  }
+
+  .cfu-grid {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px;
+    flex:1;
+  }
+
+  .cfu-card {
+    border-radius:var(--radius-lg);
+    padding:30px 30px 26px;
+    display:flex; flex-direction:column; gap:16px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .cfu-card.blue {
+    background:var(--accent-blue-dim);
+    border:2px solid var(--accent-blue);
+  }
+  .cfu-card.blue .cfu-num { color:var(--accent-blue); }
+  .cfu-card.blue .cfu-title { color:var(--accent-blue); }
+  .cfu-card.blue .highlight-word {
+    background:rgba(58,95,138,0.18); border:1.5px solid var(--accent-blue);
+    color:var(--accent-blue);
+  }
+  .cfu-card.blue .method-box {
+    background:rgba(58,95,138,0.08); border-color:rgba(58,95,138,0.25);
+  }
+
+  .cfu-card.teal {
+    background:var(--accent-teal-dim);
+    border:2px solid var(--accent-teal);
+  }
+  .cfu-card.teal .cfu-num { color:var(--accent-teal); }
+  .cfu-card.teal .cfu-title { color:var(--accent-teal); }
+  .cfu-card.teal .method-box {
+    background:rgba(46,125,110,0.08); border-color:rgba(46,125,110,0.25);
+  }
+
+  .cfu-card.coral {
+    background:var(--accent-coral-dim);
+    border:2px solid var(--accent-coral);
+  }
+  .cfu-card.coral .cfu-num { color:var(--accent-coral); }
+  .cfu-card.coral .cfu-title { color:var(--accent-coral); }
+  .cfu-card.coral .method-box {
+    background:rgba(201,106,92,0.08); border-color:rgba(201,106,92,0.25);
+  }
+
+  .cfu-header { display:flex; align-items:center; gap:14px; }
+  .cfu-num {
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    font-family:var(--font-body);
+  }
+  .cfu-title {
+    font-family:var(--font-display); font-size:24px; font-weight:900; line-height:1.2;
+  }
+
+  .cfu-instruction {
+    font-size:20px; color:var(--text-secondary); line-height:1.6;
+  }
+  .cfu-instruction .cn {
+    font-family:var(--font-display); font-weight:700; color:var(--text-primary);
+  }
+
+  .word-highlights {
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .highlight-word {
+    border-radius:var(--radius-md);
+    padding:8px 18px;
+    font-family:var(--font-display); font-size:26px; font-weight:900;
+  }
+
+  .mini-frame {
+    background:var(--bg-tertiary);
+    border-left:4px solid var(--accent-teal);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+    padding:10px 16px;
+    font-family:var(--font-display); font-size:22px; font-weight:700;
+    color:var(--text-primary);
+  }
+  .mini-blank {
+    display:inline-block; min-width:60px;
+    border-bottom:2px solid var(--accent-teal); color:var(--accent-teal);
+  }
+
+  .error-sentence {
+    background:rgba(255,255,255,0.6);
+    border-radius:var(--radius-md);
+    padding:12px 16px;
+    font-family:var(--font-display); font-size:24px; font-weight:700;
+    color:var(--accent-coral);
+  }
+
+  .method-box {
+    border:1.5px solid;
+    border-radius:var(--radius-md);
+    padding:12px 16px;
+  }
+  .method-label {
+    font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:4px;
+  }
+  .method-text { font-size:18px; color:var(--text-secondary); line-height:1.5; }
+  .method-text .cn { font-family:var(--font-display); font-weight:700; color:var(--text-primary); }
+
+  .otr-note {
+    font-size:15px; color:var(--text-muted); font-style:italic; margin-top:auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · 综合复习</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · CFU Checkpoints (16–20 min)</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="page-label">16–20 min · CFU</div>
+  <div class="main-title">三个检查点 · 3 CFU Checkpoints</div>
+
+  <div class="cfu-grid">
+
+    <!-- CFU 1: Blue -->
+    <div class="cfu-card blue">
+      <div>
+        <div class="cfu-num">CFU 1</div>
+        <div class="cfu-title">词汇检查 · Vocab Check</div>
+      </div>
+      <div class="cfu-instruction">
+        Hold up your exercise book — show me your translation for:
+      </div>
+      <div class="word-highlights">
+        <span class="highlight-word">校长室</span>
+        <span class="highlight-word">游泳馆</span>
+      </div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">Hold-up-book — teacher scans for errors</div>
+      </div>
+      <div class="otr-note">Correct on board if needed.</div>
+    </div>
+
+    <!-- CFU 2: Teal -->
+    <div class="cfu-card teal">
+      <div>
+        <div class="cfu-num">CFU 2</div>
+        <div class="cfu-title">句型检查 · Pattern Check</div>
+      </div>
+      <div class="cfu-instruction">
+        Give me <strong>ONE</strong> sentence using <span class="cn">X在Y的旁边</span>
+      </div>
+      <div class="mini-frame">
+        <span class="mini-blank">&ensp;&ensp;&ensp;</span>在<span class="mini-blank">&ensp;&ensp;&ensp;</span>的旁边。
+      </div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">
+          Cold call <strong>2 students.</strong><br>
+          Class echoes the better one <strong>chorally.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CFU 3: Coral -->
+    <div class="cfu-card coral">
+      <div>
+        <div class="cfu-num">CFU 3</div>
+        <div class="cfu-title">改错检查 · Error Check</div>
+      </div>
+      <div class="cfu-instruction">
+        <span class="cn">找出错误！</span> Project and correct:
+      </div>
+      <div class="error-sentence">操场旁边在体育馆。</div>
+      <div class="method-box">
+        <div class="method-label">Method</div>
+        <div class="method-text">
+          Cold call <strong>1 student</strong> to fix it.<br>
+          <span style="opacity:0.75;">Answer on next slide →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

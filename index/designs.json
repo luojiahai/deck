@@ -44,6 +44,15 @@
       "thumbnail": "designs/y8-l8/thumb.png",
       "type": "slides",
       "tags": ["Year 8", "中文", "Sports"]
+    },
+    {
+      "id": "y9-l8",
+      "title": "Y9 L8 · 学校设施 School Facilities",
+      "description": "8 节课程幻灯片系列——Year 9 中文学校生活单元第二课（量词个/幢·组词·教室楼层·位置词旁边隔壁中间左右·上下前后对面楼上楼下·听力·汉字·部首·地图设计·综合复习），延续 Y9 L7 配色，含全屏演示",
+      "createdAt": "2026-07-18",
+      "thumbnail": "designs/y9-l8/thumb.png",
+      "type": "slides",
+      "tags": ["Year 9", "中文", "School"]
     }
   ]
 }

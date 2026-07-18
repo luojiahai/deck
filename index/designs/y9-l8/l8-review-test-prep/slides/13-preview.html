@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-13 · Preview · Lesson 9 文具</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  body { display:flex; align-items:center; justify-content:center; background:var(--bg-primary); overflow:hidden; position:relative; }
+
+  .bg-char { position:absolute; right:-30px; bottom:-50px; font-family:var(--font-display); font-size:400px; color:var(--accent-teal); opacity:0.05; line-height:1; pointer-events:none; user-select:none; }
+
+  .main { text-align:center; position:relative; z-index:1; max-width:1400px; }
+
+  .complete-badge {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent-gold); color:#fff;
+    font-family:var(--font-body); font-size:15px; font-weight:700;
+    letter-spacing:0.14em; text-transform:uppercase;
+    padding:8px 26px; border-radius:999px;
+    margin-bottom:var(--space-lg);
+  }
+
+  .lesson-num { font-size:18px; font-weight:700; letter-spacing:0.18em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:var(--space-sm); }
+
+  .title-cn { font-family:var(--font-display); font-size:90px; font-weight:900; line-height:1.1; color:var(--text-primary); margin-bottom:10px; }
+  .title-en { font-size:26px; color:var(--text-muted); font-weight:400; letter-spacing:0.03em; margin-bottom:var(--space-xl); }
+
+  .teaser-box {
+    background:var(--accent-teal-dim);
+    border:2px solid var(--accent-teal);
+    border-radius:var(--radius-lg);
+    padding:24px 40px;
+    margin:0 auto var(--space-lg);
+    max-width:1000px;
+  }
+  .teaser-zh { font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--text-primary); line-height:1.6; margin-bottom:8px; }
+  .teaser-en { font-size:17px; color:var(--text-secondary); line-height:1.5; }
+
+  .word-chips { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:var(--space-lg); }
+  .word-chip {
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    background:#fff; border:1.5px solid var(--border-medium);
+    border-radius:var(--radius-md); padding:14px 26px;
+  }
+  .word-chip .zh { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--accent-teal); }
+  .word-chip .en { font-size:14px; color:var(--text-muted); }
+  .plus { font-size:24px; color:var(--text-muted); }
+
+  .motive { font-size:17px; color:var(--accent-gold); font-weight:700; }
+</style>
+</head>
+<body>
+<div class="bg-char">具</div>
+<div class="main">
+
+  <div class="complete-badge">🎉 L8 Series Complete · 学校设施全部完成！</div>
+
+  <div class="lesson-num">Preview · Next Lesson 9</div>
+
+  <h1 class="title-cn">文具</h1>
+  <div class="title-en">Stationery · Naming Items &amp; Borrowing Things</div>
+
+  <div class="teaser-box">
+    <div class="teaser-zh">下节课我们开始学Lesson 9：文具——我们会学怎么说铅笔、橡皮这些文具的名字，还有怎么借东西。</div>
+    <div class="teaser-en">Next lesson we start Lesson 9: Stationery — learning to name items like pencils and erasers, and how to borrow things.</div>
+  </div>
+
+  <div class="word-chips">
+    <div class="word-chip"><span class="zh">铅笔</span><span class="en">pencil</span></div>
+    <span class="plus">+</span>
+    <div class="word-chip"><span class="zh">橡皮</span><span class="en">eraser</span></div>
+    <span class="plus">+</span>
+    <div class="word-chip"><span class="zh">借</span><span class="en">to borrow</span></div>
+  </div>
+
+  <div class="motive">🎯 今天复习完，测验3.2就准备好了！Well done finishing Unit 3 School Facilities.</div>
+
+</div>
+</body>
+</html>

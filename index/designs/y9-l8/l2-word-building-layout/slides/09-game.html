@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-09 · Game: 组词接力赛</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 80px 28px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-coral); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:20px; }
+
+  .game-layout { display:grid; grid-template-columns:1fr 340px; gap:32px; }
+
+  /* 12-base-word grid */
+  .base-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; }
+  .base-cell { background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:22px 10px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; min-height:100px; }
+  .base-cell .zh { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); }
+  .base-cell .zh .blank { color:var(--accent-coral); }
+  .base-cell.preview { background:var(--accent-blue-dim); border-color:var(--accent-blue); }
+  .base-cell.preview .zh { color:var(--accent-blue); }
+
+  /* Rules panel */
+  .rules-panel { display:flex; flex-direction:column; gap:14px; }
+  .rule-box { background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:18px 20px; }
+  .rule-box h3 { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+  .rule-box h3.game { color:var(--accent-coral); }
+  .rule-box h3.sca { color:var(--accent-teal); }
+  .rule-box h3.ext { color:var(--accent-gold); }
+  .rule-text { font-size:15px; color:var(--text-secondary); line-height:1.6; }
+  .rule-text strong { color:var(--text-primary); }
+
+  .game-steps { display:flex; flex-direction:column; gap:6px; }
+  .g-step { display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--text-secondary); line-height:1.5; }
+  .g-step-num { width:20px; height:20px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 组词·布局</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · 组词接力赛 · 35–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">35–43 min · Game</div>
+  <div class="main-title">组词接力赛 · Word-Building Relay</div>
+
+  <div class="game-layout">
+    <div class="base-grid">
+      <div class="base-cell"><div class="zh">图书<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">体育<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">篮球<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">足球<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">停车<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">游泳<span class="blank">__</span></div></div>
+      <div class="base-cell"><div class="zh">教学<span class="blank">__</span></div></div>
+      <div class="base-cell preview"><div class="zh">办公<span class="blank">__</span></div></div>
+      <div class="base-cell preview"><div class="zh">实验<span class="blank">__</span></div></div>
+      <div class="base-cell preview"><div class="zh">音乐<span class="blank">__</span></div></div>
+      <div class="base-cell preview"><div class="zh">校医<span class="blank">__</span></div></div>
+      <div class="base-cell preview"><div class="zh">校长<span class="blank">__</span></div></div>
+    </div>
+
+    <div class="rules-panel">
+      <div class="rule-box">
+        <h3 class="game">How to Play</h3>
+        <div class="game-steps">
+          <div class="g-step"><div class="g-step-num">1</div>Divide class into 3–4 teams. Project one base word at a time.</div>
+          <div class="g-step"><div class="g-step-num">2</div>First student in each team's line races to be first to call out the completed compound word with the correct building-block character.</div>
+          <div class="g-step"><div class="g-step-num">3</div>First correct answer scores a point; teacher reveals the correct compound to confirm.</div>
+          <div class="g-step"><div class="g-step-num">4</div>Rotate through all 12 base words, keeping score on the whiteboard corner or projector.</div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="sca">Scaffold</h3>
+        <div class="rule-text">
+          If a team is stuck, teacher may reveal the <strong>first character</strong> of the building block as a hint.
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h3 class="ext">Extension</h3>
+        <div class="rule-text">
+          Once a team wins a round, one member must use the new compound word in a <strong>full sentence</strong> before the point is confirmed.
+        </div>
+      </div>
+
+      <div class="rule-box" style="background:var(--accent-blue-dim); border-color:var(--accent-blue);">
+        <div class="rule-text" style="font-size:13px; color:var(--accent-blue); font-weight:700;">
+          Blue cells = previewed Lesson 3 items (办公室/实验室/音乐室/校医室/校长室) — rapid retrieval practice ahead of formal teaching
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

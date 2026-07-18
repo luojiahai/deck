@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-05 · Measure Words 个/幢</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:36px 100px 32px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-blue); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:24px; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1.6fr; gap:36px; }
+
+  .char-stack { display:flex; flex-direction:column; gap:16px; }
+  .char-hero { display:flex; align-items:center; gap:18px; background:var(--accent-blue-dim); border:2px solid var(--accent-blue); border-radius:var(--radius-xl); padding:18px 24px; }
+  .char-hero.zhuang { background:var(--accent-teal-dim); border-color:var(--accent-teal); }
+  .char-hero .big-char { font-family:var(--font-display); font-size:80px; font-weight:900; color:var(--accent-blue); line-height:1; }
+  .char-hero.zhuang .big-char { color:var(--accent-teal); }
+  .char-hero .char-info { display:flex; flex-direction:column; gap:2px; }
+  .char-hero .char-pinyin { font-size:20px; color:var(--accent-teal); font-weight:700; }
+  .char-hero.zhuang .char-pinyin { color:var(--accent-blue); }
+  .char-hero .char-def { font-size:15px; color:var(--text-secondary); line-height:1.4; }
+
+  .right-panel { display:flex; flex-direction:column; gap:16px; }
+  .concept-box { background:var(--bg-secondary); border-radius:var(--radius-lg); padding:18px 24px; border:1px solid var(--border-light); }
+  .concept-box h3 { font-size:15px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .concept-box p { font-size:17px; color:var(--text-secondary); line-height:1.55; }
+  .concept-box p strong { color:var(--text-primary); font-family:var(--font-display); }
+
+  .error-pair { display:flex; align-items:center; gap:16px; padding:14px 20px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); }
+  .error-wrong { font-family:var(--font-display); font-size:30px; font-weight:700; color:var(--accent-coral); text-decoration:line-through; }
+  .cross { font-size:24px; color:var(--accent-coral); }
+  .error-arrow { font-size:22px; color:var(--text-muted); flex-shrink:0; }
+  .error-correct { font-family:var(--font-display); font-size:30px; font-weight:700; color:var(--accent-teal); }
+  .tick { font-size:24px; color:var(--accent-teal); }
+
+  .warning-box { padding:12px 20px; }
+  .warning-box .warn-text { font-size:18px; }
+  .warning-box .warn-sub { font-size:14px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · 设施词汇</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · Measure Words 个/幢 · 14–17 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">14–17 min · I Do · Grammar Focus</div>
+  <div class="main-title">量词 · Measure Words 个 &amp; 幢</div>
+
+  <div class="two-col">
+    <div class="char-stack">
+      <div class="char-hero">
+        <div class="big-char">个</div>
+        <div class="char-info">
+          <div class="char-pinyin">gè</div>
+          <div class="char-def">default for most rooms/facilities:<br>一<strong>个</strong>图书馆, 一<strong>个</strong>礼堂</div>
+        </div>
+      </div>
+      <div class="char-hero zhuang">
+        <div class="big-char">幢</div>
+        <div class="char-info">
+          <div class="char-pinyin">zhuàng</div>
+          <div class="char-def">whole buildings/blocks:<br>五<strong>幢</strong>教学楼</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="concept-box">
+        <h3>Which measure word?</h3>
+        <p><strong>数整栋楼用"幢"，其他的大部分用"个"。</strong> Count a whole building block with 幢; count most other rooms/facilities with 个.</p>
+      </div>
+
+      <div class="error-pair">
+        <span class="cross">✗</span>
+        <span class="error-wrong">一个教学楼</span>
+        <span class="error-arrow">→</span>
+        <span class="tick">✓</span>
+        <span class="error-correct">一幢教学楼</span>
+      </div>
+
+      <div class="warning-box">
+        <span class="warn-icon">⚠️</span>
+        <div>
+          <div class="warn-text">场-words don't take a separate measure word</div>
+          <div class="warn-sub">篮球场/足球场/操场/停车场 already include 场 — always 一<strong>个</strong>篮球场, never "一场篮球场".</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>

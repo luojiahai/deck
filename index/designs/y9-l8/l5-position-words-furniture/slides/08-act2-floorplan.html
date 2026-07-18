@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L5-08 · Act 2: 教学楼平面图</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 100px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:44px; font-weight:900; margin-bottom:16px; }
+
+  .two-col { display:grid; grid-template-columns:1.15fr 1fr; gap:32px; }
+
+  .activity-box { background:var(--bg-secondary); border:2px dashed var(--accent-gold); border-radius:var(--radius-xl); padding:22px 24px 18px; position:relative; }
+  .activity-badge { position:absolute; top:-14px; left:26px; background:var(--accent-gold); color:#fff; padding:4px 18px; border-radius:999px; font-size:14px; font-weight:700; letter-spacing:0.06em; }
+
+  .step-list { display:flex; flex-direction:column; gap:10px; }
+  .step { display:flex; align-items:flex-start; gap:12px; }
+  .step-num { width:28px; height:28px; border-radius:50%; background:var(--accent-gold); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+  .step-text { font-size:16px; color:var(--text-secondary); line-height:1.45; padding-top:2px; }
+  .step-text strong { color:var(--text-primary); }
+  .step-text .zh { font-family:var(--font-display); font-weight:700; color:var(--accent-blue); }
+
+  .frames-box { margin-top:12px; background:var(--bg-tertiary); border-radius:var(--radius-md); padding:14px 18px; }
+  .frames-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .frame-row { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--text-primary); margin-bottom:5px; }
+  .frame-row .blank { display:inline-block; min-width:60px; border-bottom:2px solid var(--accent-blue); color:var(--accent-blue); margin:0 3px; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+  .sed-item { background:var(--bg-tertiary); border-radius:var(--radius-md); padding:10px 14px; }
+  .sed-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-text { font-size:13px; color:var(--text-secondary); line-height:1.4; }
+  .otr-note { margin-top:10px; background:var(--accent-coral-dim); border-radius:var(--radius-md); padding:10px 14px; font-size:13px; color:var(--text-secondary); }
+  .otr-note strong { color:var(--accent-coral); }
+
+  /* Floor plan visual */
+  .floorplan { display:flex; flex-direction:column; gap:0; border-radius:var(--radius-xl); overflow:hidden; border:1.5px solid var(--border-light); }
+  .fp-storey { display:grid; grid-template-columns:70px 1fr 1fr; border-bottom:1px solid var(--border-light); }
+  .fp-storey:last-child { border-bottom:none; }
+  .fp-label { background:var(--accent-blue); color:#fff; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; font-family:var(--font-display); font-size:16px; font-weight:700; padding:8px 0; }
+  .fp-room { background:var(--bg-secondary); display:flex; align-items:center; justify-content:center; padding:20px 10px; border-right:1px solid var(--border-light); }
+  .fp-room:last-child { border-right:none; }
+  .fp-room .zh { font-family:var(--font-display); font-size:24px; font-weight:900; color:var(--text-primary); }
+  .fp-ext { background:var(--accent-coral-dim); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:16px 10px; }
+  .fp-ext .zh { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--accent-coral); }
+  .fp-ext .tag { font-size:11px; color:var(--text-muted); margin-top:2px; }
+  .fp-caption { text-align:center; font-size:13px; color:var(--text-muted); padding:8px; background:var(--bg-tertiary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L5 · 上下前后</span>
+  <span class="sep"></span>
+  <span class="section-name">You Do · Activity 2 · 27–36 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">27–36 min · You Do, Writing (Based on Act. 9, p.77)</div>
+  <div class="main-title">活动二 · 教学楼平面图</div>
+
+  <div class="two-col">
+    <div>
+      <div class="activity-box">
+        <div class="activity-badge">YOU DO · Model → Write → Peer-Check</div>
+        <div style="height:14px;"></div>
+
+        <div class="step-list">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Teacher models live, thinking aloud: <span class="zh">教室在楼上，办公室在楼下</span>——用'楼上'和'楼下'。<span class="zh">图书馆在餐厅的对面</span>——用'对面'。</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Individual writing (5 min):</strong> paragraph (5–6 sentences) using at least <strong>4 different position words</strong> (mixing L4 + today's set).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Peer-check (2 min):</strong> swap books; neighbour checks ≥4 different position words used and circles word-order errors.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="frames-box">
+        <div class="frames-label">Sentence Frame (Scaffold)</div>
+        <div class="frame-row">教室在<span class="blank"></span>。</div>
+        <div class="frame-row">办公室在<span class="blank"></span>。</div>
+        <div class="frame-row">图书馆在餐厅的<span class="blank"></span>。</div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label">Scaffold</div>
+          <div class="sed-text">Partially-filled sentence frame (above)</div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label">Extension</div>
+          <div class="sed-text">No frame; use ≥6 of 12 total position words + 我觉得图书馆的位置比餐厅方便，因为……</div>
+        </div>
+      </div>
+      <div class="otr-note"><strong>OTR 2:</strong> all students write independently; peer-check requires every student to read and mark a partner's paragraph.</div>
+    </div>
+
+    <div class="floorplan">
+      <div class="fp-storey">
+        <div class="fp-label">楼上</div>
+        <div class="fp-room"><div class="zh">教室</div></div>
+        <div class="fp-room"><div class="zh">音乐室</div></div>
+      </div>
+      <div class="fp-storey">
+        <div class="fp-label">楼下</div>
+        <div class="fp-room"><div class="zh">办公室</div></div>
+        <div class="fp-room"><div class="zh">图书馆</div></div>
+      </div>
+      <div class="fp-storey" style="grid-template-columns:1fr;">
+        <div class="fp-ext"><div class="zh">餐厅</div><div class="tag">adjoining external building</div></div>
+      </div>
+      <div class="fp-caption">图书馆 is opposite 餐厅 (external)</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 学校设施</span>
+</div>
+
+</body>
+</html>
