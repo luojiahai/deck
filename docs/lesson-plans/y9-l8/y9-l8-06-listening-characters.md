@@ -17,8 +17,7 @@ We are learning to understand spoken descriptions of school layout, revise measu
 
 ## Materials Needed
 
-- Projector (all visuals displayed and controlled from projector only)
-- CD player — Track 30 (Act. 4, p. 73) and Track 32 (Act. 10, p. 78)
+- Projector (all visuals displayed and controlled from projector only; audio for Track 30, Act. 4, p. 73, and Track 32, Act. 10, p. 78, plays through the projector's speakers)
 - Students' exercise books and pens
 - No printed cards, no mini whiteboards, no student devices required
 

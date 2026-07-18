@@ -17,8 +17,7 @@ We are learning to name school rooms in Chinese and understand people asking and
 
 ## Materials Needed
 
-- Projector (all visuals displayed and controlled from projector only)
-- CD player — Track 31 (Text 2, p. 75)
+- Projector (all visuals displayed and controlled from projector only; audio for Track 31, Text 2, p. 75, plays through the projector's speakers)
 - Students' exercise books and pens
 - No printed cards, no mini whiteboards, no student devices required
 
