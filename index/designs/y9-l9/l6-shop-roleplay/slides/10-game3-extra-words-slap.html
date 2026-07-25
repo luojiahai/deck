@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L6-10 · Quick Game: Extra Words Slap the Board</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 22px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .act-badge { background: var(--accent-gold); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-gold-dim); color: var(--accent-gold); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .word-card { border: 3px solid var(--accent-gold); border-radius: var(--radius-lg); overflow: hidden; width: 420px; }
+  .word-title-bar { background: var(--accent-gold); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: 0.06em; }
+  .word-scatter { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 22px; background: var(--bg-primary); }
+  .word-tile { text-align: center; }
+  .word-tile .hanzi { font-family: var(--font-display); font-size: 26px; font-weight: 900; color: var(--text-primary); }
+  .word-tile .pin { font-size: 13px; color: var(--accent-gold); font-weight: 600; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-gold-dim); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-gold); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · SHOP ROLEPLAY</span>
+  <span class="sep" style="margin: 0px;"></span>
+  <span class="section-name">Quick Game · Slap the Board · 38–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p style="margin: 0px; padding: 0px;">Quick Game</p></div>
+    <div class="time-badge"><p style="margin: 0px; padding: 0px;">⏱ 5 min</p></div>
+    <div class="mode-badge"><p style="margin: 0px; padding: 0px;">Speed Recall</p></div>
+  </div>
+  <div class="main-title"><p style="margin: 0px; padding: 0px;">拍词游戏 · Extra Words Slap the Board</p></div>
+  <div class="subtitle"><p style="margin: 0px; padding: 0px;">Teacher calls the English meaning, students write the matching 汉字 on mini whiteboards</p></div>
+
+  <div class="grid-layout">
+
+    <div class="word-card">
+      <div class="word-title-bar"><p style="margin: 0px; padding: 0px;">5 EXTRA WORDS</p></div>
+      <div class="word-scatter">
+        <div class="word-tile"><div class="hanzi"><p style="margin: 0px; padding: 0px;">支</p></div><div class="pin"><p style="margin: 0px; padding: 0px;">zhī</p></div></div>
+        <div class="word-tile"><div class="hanzi"><p style="margin: 0px; padding: 0px;">礼品纸</p></div><div class="pin"><p style="margin: 0px; padding: 0px;">lǐpǐnzhǐ</p></div></div>
+        <div class="word-tile"><div class="hanzi"><p style="margin: 0px; padding: 0px;">钢笔</p></div><div class="pin"><p style="margin: 0px; padding: 0px;">gāngbǐ</p></div></div>
+        <div class="word-tile"><div class="hanzi"><p style="margin: 0px; padding: 0px;">毛笔</p></div><div class="pin"><p style="margin: 0px; padding: 0px;">máobǐ</p></div></div>
+        <div class="word-tile"><div class="hanzi"><p style="margin: 0px; padding: 0px;">笔记本</p></div><div class="pin"><p style="margin: 0px; padding: 0px;">bǐjìběn</p></div></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">1️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Project the <strong>5 Extra Words</strong> scattered on screen.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">2️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Teacher calls an <strong>English meaning</strong>; students write the matching 汉字 on mini whiteboards and hold up.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">🏆</p></div>
+            <div><p style="margin: 0px; padding: 0px;"><strong>Fastest correct answer</strong> scores a point for their team.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p style="margin: 0px; padding: 0px;">🖥️</p></div>
+        <div>
+          <div class="setup-text"><p style="margin: 0px; padding: 0px;">Setup Needed</p></div>
+          <div class="setup-sub"><p style="margin: 0px; padding: 0px;">Projector, mini whiteboards</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Scaffold</p></div><p style="margin: 0px; padding: 0px;">Keep pinyin visible next to each word</p><p></p></div>
+    <div class="sed-item extension"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Extension</p></div><p style="margin: 0px; padding: 0px;">Winning students must also give the price-question sentence for that item</p><p></p></div>
+    <div class="sed-item otr"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">OTR</p></div><p style="margin: 0px; padding: 0px;">Every student writes an answer for each of the 5 calls</p><p></p></div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 Stationery 文具</span>
+</div>
+
+
+
+</body></html>

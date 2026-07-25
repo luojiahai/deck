@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L6-08 · Game 1: 猜价钱 Price Guessing</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 22px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .item-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); overflow: hidden; width: 380px; }
+  .item-title-bar { background: var(--accent-coral); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: 0.06em; }
+  .item-display { background: var(--bg-primary); padding: 40px 20px; text-align: center; }
+  .item-hanzi { font-family: var(--font-display); font-size: 60px; font-weight: 900; color: var(--text-primary); margin-bottom: 10px; }
+  .item-price-blank { display: inline-block; min-width: 160px; border-bottom: 3px dashed var(--accent-coral); color: var(--accent-coral); font-size: 22px; font-weight: 700; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-coral); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · SHOP ROLEPLAY</span>
+  <span class="sep" style="margin: 0px;"></span>
+  <span class="section-name">Game 1 · 猜价钱 · 26–32 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p style="margin: 0px; padding: 0px;">Game 1</p></div>
+    <div class="time-badge"><p style="margin: 0px; padding: 0px;">⏱ 6 min</p></div>
+    <div class="mode-badge"><p style="margin: 0px; padding: 0px;">Team Competition</p></div>
+  </div>
+  <div class="main-title"><p style="margin: 0px; padding: 0px;">猜价钱 · Price Guessing</p></div>
+  <div class="subtitle"><p style="margin: 0px; padding: 0px;">In teams, guess the price of the projected item using the X块Y毛 pattern</p></div>
+
+  <div class="grid-layout">
+
+    <div class="item-card">
+      <div class="item-title-bar"><p style="margin: 0px; padding: 0px;">GUESS THE PRICE</p></div>
+      <div class="item-display">
+        <div class="item-hanzi"><p style="margin: 0px; padding: 0px;">钢笔</p></div>
+        <div class="item-price-blank"><p style="margin: 0px; padding: 0px;">？块？毛</p></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">1️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Teacher projects a <strong>stationery item</strong> (e.g. 钢笔) without a price.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">2️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">In teams, students discuss briefly and write a guessed price in Chinese on a <strong>mini whiteboard</strong> (X块Y毛), hold up on three.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">3️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Teacher reveals the "real" price (teacher-set for the game); <strong>closest team without going over</strong> wins the round.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">🏆</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Repeat for <strong>4–5 items</strong>.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p style="margin: 0px; padding: 0px;">🖥️</p></div>
+        <div>
+          <div class="setup-text"><p style="margin: 0px; padding: 0px;">Setup Needed</p></div>
+          <div class="setup-sub"><p style="margin: 0px; padding: 0px;">Projector only — mini whiteboards for teams</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Scaffold</p></div><p style="margin: 0px; padding: 0px;">Provide a price range on the board (0–200 块) to narrow guesses</p><p></p></div>
+    <div class="sed-item extension"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Extension</p></div><p style="margin: 0px; padding: 0px;">Winning teams must say their guess as a full question-answer pair: "一支钢笔多少钱？——二十五块。"</p><p></p></div>
+    <div class="sed-item otr"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">OTR</p></div><p style="margin: 0px; padding: 0px;">Every team writes and holds up a guess for all 4–5 rounds</p><p></p></div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 Stationery 文具</span>
+</div>
+
+
+
+</body></html>

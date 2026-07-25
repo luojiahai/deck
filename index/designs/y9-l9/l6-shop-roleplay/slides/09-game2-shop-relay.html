@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L6-09 · Game 2: Shop Roleplay Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 22px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .act-badge { background: var(--accent-teal); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-teal-dim); color: var(--accent-teal); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .card-frame { border: 3px solid var(--accent-teal); border-radius: var(--radius-lg); overflow: hidden; width: 400px; }
+  .card-title-bar { background: var(--accent-teal); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: 0.06em; }
+  .card-body { background: var(--bg-primary); padding: 20px; }
+  .relay-line { background: var(--bg-tertiary); border-left: 5px solid var(--accent-teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 9px 16px; margin-bottom: 8px; font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); }
+  .relay-line .spk { font-family: var(--font-body); font-size: 11px; font-weight: 700; color: var(--accent-teal); margin-right: 6px; }
+  .relay-arrow { text-align: center; font-size: 22px; color: var(--accent-teal); margin: 4px 0; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-teal-dim); border: 2px solid var(--accent-teal); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-teal); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L6 · SHOP ROLEPLAY</span>
+  <span class="sep" style="margin: 0px;"></span>
+  <span class="section-name">Game 2 · Shop Relay · 32–38 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p style="margin: 0px; padding: 0px;">Game 2</p></div>
+    <div class="time-badge"><p style="margin: 0px; padding: 0px;">⏱ 6 min</p></div>
+    <div class="mode-badge"><p style="margin: 0px; padding: 0px;">Rotating Pairs</p></div>
+  </div>
+  <div class="main-title"><p style="margin: 0px; padding: 0px;">购物接力 · Shop Roleplay Relay</p></div>
+  <div class="subtitle"><p style="margin: 0px; padding: 0px;">Perform the shop dialogue, then swap partners and repeat with a new item</p></div>
+
+  <div class="grid-layout">
+
+    <div class="card-frame">
+      <div class="card-title-bar"><p style="margin: 0px; padding: 0px;">DIALOGUE SKELETON</p></div>
+      <div class="card-body">
+        <div class="relay-line"><p style="margin: 0px; padding: 0px;"><span class="spk" style="margin: 0px;">买家</span>你好！我想买……</p></div>
+        <div class="relay-line"><p style="margin: 0px; padding: 0px;"><span class="spk" style="margin: 0px;">卖家</span>好的，给你。</p></div>
+        <div class="relay-line"><p style="margin: 0px; padding: 0px;"><span class="spk" style="margin: 0px;">买家</span>……多少钱？</p></div>
+        <div class="relay-line"><p style="margin: 0px; padding: 0px;"><span class="spk" style="margin: 0px;">卖家</span>……块……毛。</p></div>
+        <div class="relay-arrow"><p style="margin: 0px; padding: 0px;">🔁 swap partners after 90 sec</p></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">1️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">In pairs, students perform a <strong>short shop dialogue</strong> (buyer asks for an item + price, seller answers), using any items from Lessons 1, 4, and today.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">2️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">After <strong>90 seconds</strong>, students swap partners (move one seat over) and repeat with a <strong>new item</strong>, alternating who plays buyer/seller.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">3️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Repeat for <strong>2–3 rounds</strong> so students practise with multiple partners and multiple items.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p style="margin: 0px; padding: 0px;">🖥️</p></div>
+        <div>
+          <div class="setup-text"><p style="margin: 0px; padding: 0px;">Setup Needed</p></div>
+          <div class="setup-sub"><p style="margin: 0px; padding: 0px;">None — projector displays the sentence pattern as a reminder throughout</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Scaffold</p></div><p style="margin: 0px; padding: 0px;">Students may keep a card in front of them listing 5 items + made-up prices to draw from</p><p></p></div>
+    <div class="sed-item extension"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">Extension</p></div><p style="margin: 0px; padding: 0px;">Fluent pairs negotiate ("太贵了！便宜一点，行吗？") as an improvised extra line — bonus, not required</p><p></p></div>
+    <div class="sed-item otr"><p style="margin: 0px; padding: 0px;"></p><div class="sed-label"><p style="margin: 0px; padding: 0px;">OTR</p></div><p style="margin: 0px; padding: 0px;">Every pair performs 2–3 rounds with different partners and items</p><p></p></div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 Stationery 文具</span>
+</div>
+
+
+
+</body></html>

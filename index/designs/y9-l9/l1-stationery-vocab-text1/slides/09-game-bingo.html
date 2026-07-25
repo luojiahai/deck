@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L1-09 · Game: 文具 Bingo</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 30px 100px 18px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .grid-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); overflow: hidden; width: 440px; }
+  .grid-title-bar { background: var(--accent-coral); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: 0.06em; }
+  .bingo-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .bingo-cell { border: 1px solid var(--border-medium); text-align: center; background: var(--bg-primary); font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; justify-content: center; height: 108px; }
+  .bingo-cell.crossed { color: var(--border-medium); text-decoration: line-through; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-coral); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · STATIONERY VOCAB</span>
+  <span class="sep" style="margin: 0px;"></span>
+  <span class="section-name">Game · 文具 Bingo · 38–43 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p style="margin: 0px; padding: 0px;">Game</p></div>
+    <div class="time-badge"><p style="margin: 0px; padding: 0px;">⏱ 5 min</p></div>
+    <div class="mode-badge"><p style="margin: 0px; padding: 0px;">Mini Whiteboards · Individual</p></div>
+  </div>
+  <div class="main-title"><p style="margin: 0px; padding: 0px;">文具 Bingo</p></div>
+  <div class="subtitle"><p style="margin: 0px; padding: 0px;">Rapid English → 汉字 recall for all 11 new stationery words</p></div>
+
+  <div class="grid-layout">
+
+    <div class="grid-card">
+      <div class="grid-title-bar"><p style="margin: 0px; padding: 0px;">SAMPLE 3 × 3 BINGO GRID</p></div>
+      <div class="bingo-grid">
+        <div class="bingo-cell crossed"><p style="margin: 0px; padding: 0px;">铅笔</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">尺子</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">橡皮</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">卷笔刀</p></div>
+        <div class="bingo-cell crossed"><p style="margin: 0px; padding: 0px;">练习本</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">课本</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">日记本</p></div>
+        <div class="bingo-cell"><p style="margin: 0px; padding: 0px;">文具盒</p></div>
+        <div class="bingo-cell crossed"><p style="margin: 0px; padding: 0px;">小说</p></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">1️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Students draw a <strong>3×3 grid</strong> on the back of a mini whiteboard and fill it with <strong>9 of the 11</strong> vocabulary items (汉字 only), in any order.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">2️⃣</p></div>
+            <div><p style="margin: 0px; padding: 0px;">Teacher calls out <strong>English meanings</strong> one at a time; students cross off the matching 汉字.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p style="margin: 0px; padding: 0px;">🏆</p></div>
+            <div><p style="margin: 0px; padding: 0px;">First student to cross off a full <strong>row, column, or diagonal</strong> calls "Bingo!" and reads their winning line aloud in Chinese to confirm.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p style="margin: 0px; padding: 0px;">🗂️</p></div>
+        <div>
+          <div class="setup-text"><p style="margin: 0px; padding: 0px;">Setup Needed</p></div>
+          <div class="setup-sub"><p style="margin: 0px; padding: 0px;">Mini whiteboards only — already on desks</p></div>
+        </div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label"><p style="margin: 0px; padding: 0px;">Scaffold</p></div>
+          <div class="sed-text"><p style="margin: 0px; padding: 0px;">Allow students to keep the vocabulary table projected for their first grid to draw from</p></div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label"><p style="margin: 0px; padding: 0px;">Extension</p></div>
+          <div class="sed-text"><p style="margin: 0px; padding: 0px;">Winning students must read their winning line as a full sentence: "尺子——我的尺子在文具盒里边。"</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y9 Chinese · Unit 3 Stationery 文具</span>
+</div>
+
+
+
+</body></html>
