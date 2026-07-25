@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-04 · New Vocabulary</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:44px 100px 40px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:10px; }
+  .main-title { font-family:var(--font-display); font-size:46px; font-weight:900; margin-bottom:24px; }
+  .vocab-grid { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:28px; }
+  .vocab-card { flex:1 1 calc(25% - 11px); background:var(--bg-secondary); border:1.5px solid var(--border-light); border-radius:var(--radius-lg); padding:18px 22px; display:flex; align-items:center; gap:18px; }
+  .vocab-card.highlight { border-color:var(--accent-gold); background:var(--accent-gold-dim); }
+  .vc-hanzi { font-family:var(--font-display); font-size:36px; font-weight:900; color:var(--text-primary); white-space:nowrap; min-width:60px; }
+  .vc-hanzi.long { font-size:26px; }
+  .vc-right { display:flex; flex-direction:column; gap:2px; }
+  .vc-pinyin { font-size:17px; color:var(--accent-teal); font-weight:500; }
+  .vc-english { font-size:16px; color:var(--text-secondary); }
+
+  .verb-rule-label { font-size:15px; font-weight:700; letter-spacing:0.1em; color:var(--accent-teal); text-transform:uppercase; margin-bottom:12px; }
+  .verb-rule-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .verb-col { border-radius:var(--radius-lg); padding:16px 24px; border:2px solid; }
+  .verb-col.hit { background:var(--accent-gold-dim); border-color:var(--accent-gold); }
+  .verb-col.none { background:var(--accent-teal-dim); border-color:var(--accent-teal); }
+  .vr-label { font-size:14px; font-weight:700; letter-spacing:0.06em; margin-bottom:6px; text-transform:uppercase; }
+  .verb-col.hit .vr-label { color:var(--accent-gold); }
+  .verb-col.none .vr-label { color:var(--accent-teal); }
+  .vr-example { font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--text-primary); }
+  .vr-example .vr-en { font-family:var(--font-body); font-size:15px; font-weight:400; color:var(--text-muted); margin-left:8px; }
+  .caption-note { margin-top:10px; font-size:14px; color:var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 从……开始 + DURATION</span>
+  <span class="sep"></span>
+  <span class="section-name">I Do · New Vocabulary · 10–20 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label">10–20 min · I Do</div>
+  <div class="main-title">New Vocabulary · 词汇</div>
+
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vc-hanzi">拉</div>
+      <div class="vc-right">
+        <div class="vc-pinyin">lā</div>
+        <div class="vc-english">pull; play (bowed string)</div>
+      </div>
+    </div>
+    <div class="vocab-card">
+      <div class="vc-hanzi">提</div>
+      <div class="vc-right">
+        <div class="vc-pinyin">tí</div>
+        <div class="vc-english">carry; lift</div>
+      </div>
+    </div>
+    <div class="vocab-card highlight">
+      <div class="vc-hanzi">小提琴</div>
+      <div class="vc-right">
+        <div class="vc-pinyin">xiǎotíqín</div>
+        <div class="vc-english">violin</div>
+      </div>
+    </div>
+    <div class="vocab-card highlight">
+      <div class="vc-hanzi">拉小提琴</div>
+      <div class="vc-right">
+        <div class="vc-pinyin">lā xiǎotíqín</div>
+        <div class="vc-english">play the violin</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verb-rule-label">Instrument Verb Rule · 拉 vs 弹</div>
+  <div class="verb-rule-row">
+    <div class="verb-col hit">
+      <div class="vr-label">拉 — bowed string instrument</div>
+      <div class="vr-example">拉小提琴 <span class="vr-en">lā xiǎotíqín — "pull" the bow</span></div>
+    </div>
+    <div class="verb-col none">
+      <div class="vr-label">弹 — keyboard / plucked instrument</div>
+      <div class="vr-example">弹钢琴 / 弹吉他 <span class="vr-en">tán gāngqín / tán jítā — "flick / pluck"</span></div>
+    </div>
+  </div>
+  <div class="caption-note">拉 and 弹 are not interchangeable — mixing them up is a common mistake.</div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

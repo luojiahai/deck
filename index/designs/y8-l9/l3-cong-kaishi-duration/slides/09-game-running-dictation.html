@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L3-09 · Game: Running Dictation</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .game-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 16px; align-items: start; }
+
+  .strips-col h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 14px; }
+  .strip-list { display: flex; flex-direction: column; gap: 12px; }
+  .strip-card { background: var(--bg-primary); border: 2px dashed var(--border-medium); border-radius: var(--radius-md); padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .strip-pin { font-size: 20px; flex-shrink: 0; }
+  .strip-zh { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--text-primary); }
+
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 16px; }
+  .how-box h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 14px; }
+  .rule-list { display: flex; flex-direction: column; gap: 10px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 19px; color: var(--text-primary); }
+  .rule-icon { font-size: 20px; flex-shrink: 0; }
+  .caller-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .caller-icon { font-size: 22px; flex-shrink: 0; }
+  .caller-text { font-size: 18px; font-weight: 700; color: var(--accent-coral); }
+  .caller-sub { font-size: 15px; color: var(--text-muted); margin-top: 2px; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L3 · 从……开始 + DURATION</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Running Dictation</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Game</div>
+    <div class="time-badge">⏱ 7 min</div>
+    <div class="mode-badge">You Do</div>
+  </div>
+  <div class="main-title">Running Dictation · 跑动听写</div>
+  <div class="subtitle">Sentence strips posted around the room — pairs relay-dictate them to win</div>
+
+  <div class="game-layout">
+
+    <div class="strips-col">
+      <h3>Sentence Strips Around the Room</h3>
+      <div class="strip-list">
+        <div class="strip-card"><div class="strip-pin">📌</div><div class="strip-zh">我从四岁开始学跳舞。</div></div>
+        <div class="strip-card"><div class="strip-pin">📌</div><div class="strip-zh">我从六岁开始拉小提琴。</div></div>
+        <div class="strip-card"><div class="strip-pin">📌</div><div class="strip-zh">我每天拉四十五分钟小提琴。</div></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div>Sentence strips using <strong>从……开始</strong> are taped up around the classroom / corridor</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div>In pairs, one student <strong>runs to read</strong> a sentence, memorises it, runs back, and <strong>dictates it</strong> to their partner, who writes it down</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div>Partners <strong>swap roles</strong> each round. <strong>First pair</strong> to correctly transcribe all sentences wins!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="caller-box">
+        <div class="caller-icon">🏃</div>
+        <div>
+          <div class="caller-text">Setup needed</div>
+          <div class="caller-sub">Sentence strips taped up around the classroom/corridor, pens and paper for each pair</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Shorter, simpler strips (fewer characters) posted closer to the classroom door for pairs who need it
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Fast-finishing pairs add a bonus duration clause of their own to an extra blank strip
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">OTR</div>
+      Every pair runs and writes simultaneously — teacher circulates to check transcriptions as pairs finish
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

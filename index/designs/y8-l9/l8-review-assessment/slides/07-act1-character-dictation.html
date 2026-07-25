@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-07 · Activity 1: Character Dictation Grid</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 100px 20px; }
+  .act-header { display:flex; align-items:center; gap:16px; margin-bottom:6px; }
+  .act-num-badge { background:var(--accent-teal); color:#fff; font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 20px; border-radius:999px; }
+  .act-title { font-family:var(--font-display); font-size:38px; font-weight:900; }
+  .act-meta { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .time-badge { background:var(--accent-gold-dim); color:var(--accent-gold); font-size:15px; font-weight:700; padding:5px 16px; border-radius:999px; border:1px solid var(--accent-gold); }
+  .section-badge { background:var(--accent-teal-dim); color:var(--accent-teal); font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:5px 14px; border-radius:999px; }
+
+  .dictation-layout { display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:start; margin-bottom:14px; }
+
+  .dictation-card { border:3px solid var(--accent-teal); border-radius:var(--radius-lg); overflow:hidden; width:480px; }
+  .dictation-grid { display:grid; grid-template-columns:repeat(5, 1fr); }
+  .dc-cell { border:1px solid var(--border-medium); padding:10px 4px; text-align:center; background:var(--bg-primary); display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:76px; position:relative; }
+  .dc-num { position:absolute; top:4px; left:6px; font-size:10px; font-weight:700; color:var(--text-muted); }
+  .dc-char { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--text-primary); }
+
+  .how-box { background:var(--bg-secondary); border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:18px 24px; margin-bottom:14px; }
+  .how-box h3 { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-teal); margin-bottom:12px; }
+  .rule-list { display:flex; flex-direction:column; gap:8px; }
+  .rule-item { display:flex; gap:12px; align-items:flex-start; font-size:18px; color:var(--text-primary); line-height:1.4; }
+  .rule-icon { font-size:18px; flex-shrink:0; }
+
+  .team-box { background:var(--accent-coral-dim); border:2px solid var(--accent-coral); border-radius:var(--radius-md); padding:12px 20px; display:flex; align-items:center; gap:14px; }
+  .team-icon { font-size:20px; flex-shrink:0; }
+  .team-text { font-size:17px; font-weight:700; color:var(--accent-coral); }
+  .team-sub { font-size:14px; color:var(--text-muted); margin-top:2px; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .sed-item { background:var(--bg-secondary); border-radius:var(--radius-md); padding:10px 14px; font-size:14px; color:var(--text-secondary); }
+  .sed-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .sed-item.scaffold .sed-label { color:var(--accent-teal); }
+  .sed-item.extension .sed-label { color:var(--accent-gold); }
+  .sed-item.otr .sed-label { color:var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · REVIEW + TEST PREP</span>
+  <span class="sep"></span>
+  <span class="section-name">Activity 1 · We Do</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-num-badge">Activity 1</div>
+    <div class="act-title">Character Dictation Grid</div>
+  </div>
+  <div class="act-meta">
+    <div class="time-badge">⏱ 8 min</div>
+    <div class="section-badge">We Do</div>
+  </div>
+
+  <div class="dictation-layout">
+    <div class="dictation-card">
+      <div class="dictation-grid">
+        <div class="dc-cell"><div class="dc-num">1</div><div class="dc-char">平</div></div>
+        <div class="dc-cell"><div class="dc-num">2</div><div class="dc-char">土</div></div>
+        <div class="dc-cell"><div class="dc-num">3</div><div class="dc-char">角</div></div>
+        <div class="dc-cell"><div class="dc-num">4</div><div class="dc-char">页</div></div>
+        <div class="dc-cell"><div class="dc-num">5</div><div class="dc-char">包</div></div>
+        <div class="dc-cell"><div class="dc-num">6</div><div class="dc-char">止</div></div>
+        <div class="dc-cell"><div class="dc-num">7</div><div class="dc-char">士</div></div>
+        <div class="dc-cell"><div class="dc-num">8</div><div class="dc-char">豆</div></div>
+        <div class="dc-cell"><div class="dc-num">9</div><div class="dc-char">夕</div></div>
+        <div class="dc-cell"><div class="dc-num">10</div><div class="dc-char">心</div></div>
+        <div class="dc-cell"><div class="dc-num">11</div><div class="dc-char">目</div></div>
+        <div class="dc-cell"><div class="dc-num">12</div><div class="dc-char">方</div></div>
+        <div class="dc-cell"><div class="dc-num">13</div><div class="dc-char">平</div></div>
+        <div class="dc-cell"><div class="dc-num">14</div><div class="dc-char">土</div></div>
+        <div class="dc-cell"><div class="dc-num">15</div><div class="dc-char">角</div></div>
+        <div class="dc-cell"><div class="dc-num">16</div><div class="dc-char">页</div></div>
+        <div class="dc-cell"><div class="dc-num">17</div><div class="dc-char">包</div></div>
+        <div class="dc-cell"><div class="dc-num">18</div><div class="dc-char">止</div></div>
+        <div class="dc-cell"><div class="dc-num">19</div><div class="dc-char">士</div></div>
+        <div class="dc-cell"><div class="dc-num">20</div><div class="dc-char">豆</div></div>
+        <div class="dc-cell"><div class="dc-num">21</div><div class="dc-char">夕</div></div>
+        <div class="dc-cell"><div class="dc-num">22</div><div class="dc-char">心</div></div>
+        <div class="dc-cell"><div class="dc-num">23</div><div class="dc-char">目</div></div>
+        <div class="dc-cell"><div class="dc-num">24</div><div class="dc-char">方</div></div>
+        <div class="dc-cell"><div class="dc-num">25</div><div class="dc-char">平</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="how-box">
+        <h3>How It Works</h3>
+        <div class="rule-list">
+          <div class="rule-item"><div class="rule-icon">1️⃣</div><div>Grid displayed for <strong>90 seconds</strong> to memorise the character in each numbered square — then <strong>hidden</strong>.</div></div>
+          <div class="rule-item"><div class="rule-icon">2️⃣</div><div>Teacher <strong>dictates one character at a time</strong> by pinyin or meaning (e.g. "tǔ — soil").</div></div>
+          <div class="rule-item"><div class="rule-icon">3️⃣</div><div>Students write it into the <strong>matching numbered square</strong> on their blank grid template.</div></div>
+          <div class="rule-item"><div class="rule-icon">4️⃣</div><div>Run as a <strong>team competition</strong> — most correct squares wins.</div></div>
+        </div>
+      </div>
+      <div class="team-box">
+        <div class="team-icon">👥</div>
+        <div>
+          <div class="team-text">Characters: 平 土 角 页 (new this unit) + 包 止 士 豆 夕 心 目 方 (review, L7–L8)</div>
+          <div class="team-sub">Pool of 12 characters cycled across the 25 grid squares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label">Scaffold</div>Grid stays partially visible (positions labelled with pinyin) for students who need it; teacher repeats each dictated item twice</div>
+    <div class="sed-item extension"><div class="sed-label">Extension</div>Students also write one word that uses each dictated character as part of a compound, where they know one</div>
+    <div class="sed-item otr"><div class="sed-label">OTR</div>Every student writes every dictated item — team format keeps engagement high</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

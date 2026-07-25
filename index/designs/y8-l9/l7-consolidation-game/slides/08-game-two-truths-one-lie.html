@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L7-08 · Game: Two Truths, One Lie</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 36px 100px 26px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 24px; }
+
+  .game-layout { display: grid; grid-template-columns: 560px 1fr; gap: 32px; margin-bottom: 20px; align-items: start; }
+
+  .demo-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); overflow: hidden; }
+  .demo-header { background: var(--accent-coral); color: #fff; text-align: center; padding: 12px 0; font-family: var(--font-display); font-size: 20px; font-weight: 900; letter-spacing: 0.04em; }
+  .demo-body { background: var(--bg-primary); padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .demo-line { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-light); }
+  .demo-num { font-family: var(--font-display); font-weight: 900; font-size: 18px; color: var(--accent-coral); flex-shrink: 0; }
+  .demo-text { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .demo-question { text-align: center; font-size: 16px; color: var(--accent-coral); font-weight: 700; margin-top: 4px; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 16px; }
+  .how-box h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 14px; }
+  .rule-list { display: flex; flex-direction: column; gap: 10px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 19px; color: var(--text-primary); }
+  .rule-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-teal-dim); border: 2px solid var(--accent-teal); border-radius: var(--radius-md); padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .setup-icon { font-size: 22px; flex-shrink: 0; }
+  .setup-text { font-size: 18px; font-weight: 700; color: var(--accent-teal); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L7 · CONSOLIDATION</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Two Truths, One Lie</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Game</div>
+    <div class="time-badge">⏱ 7 min</div>
+    <div class="mode-badge">Small Groups</div>
+  </div>
+  <div class="main-title">两真一假 · Two Truths, One Lie</div>
+  <div class="subtitle">Each student says 3 hobby sentences using 3 different L9 patterns — the group votes on the lie</div>
+
+  <div class="game-layout">
+
+    <div class="demo-card">
+      <div class="demo-header">Example Round</div>
+      <div class="demo-body">
+        <div class="demo-line"><span class="demo-num">1</span><span class="demo-text">除了游泳以外，我还喜欢舞蹈。</span></div>
+        <div class="demo-line"><span class="demo-num">2</span><span class="demo-text">我从三岁开始拉小提琴。</span></div>
+        <div class="demo-line"><span class="demo-num">3</span><span class="demo-text">我在学校打篮球呢。</span></div>
+        <div class="demo-question">Which one is the lie? 🤔</div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div>In small groups, each student says <strong>3 sentences</strong> about their hobbies, each using a <strong>different one</strong> of the 5 L9 grammar patterns.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div><strong>Two sentences are true</strong>, one is a lie.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div>The group <strong>listens and votes</strong> on which sentence is the lie — the student then <strong>reveals the answer</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon">🛠️</div>
+        <div>
+          <div class="setup-text">Setup: none beyond the 5-pattern chart</div>
+          <div class="setup-sub">The recap chart from earlier stays visible for reference — no extra materials needed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

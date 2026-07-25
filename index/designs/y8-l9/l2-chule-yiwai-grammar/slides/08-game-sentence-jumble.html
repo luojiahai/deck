@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L2-08 · Game: Sentence Jumble</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 32px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 44px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 22px; }
+
+  .jumble-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 18px; align-items: start; }
+
+  .jumble-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); padding: 24px; background: var(--bg-secondary); }
+  .jumble-card h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 16px; }
+  .tile-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .tile { background: var(--bg-primary); border: 2px solid var(--border-medium); border-radius: var(--radius-sm); padding: 10px 16px; font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-primary); }
+  .jumble-arrow { text-align: center; font-size: 22px; color: var(--accent-coral); margin-bottom: 16px; }
+  .solved-row { background: var(--accent-teal-dim); border: 2px solid var(--accent-teal); border-radius: var(--radius-md); padding: 14px 20px; }
+  .solved-zh { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--accent-teal); }
+  .solved-en { font-size: 15px; color: var(--text-muted); margin-top: 4px; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 16px; }
+  .how-box h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 14px; }
+  .rule-list { display: flex; flex-direction: column; gap: 10px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 19px; color: var(--text-primary); }
+  .rule-icon { font-size: 20px; flex-shrink: 0; }
+  .caller-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .caller-icon { font-size: 22px; flex-shrink: 0; }
+  .caller-text { font-size: 18px; font-weight: 700; color: var(--accent-coral); }
+  .caller-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .sed-item { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-secondary); }
+  .sed-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .sed-item.scaffold .sed-label { color: var(--accent-teal); }
+  .sed-item.extension .sed-label { color: var(--accent-gold); }
+  .sed-item.otr .sed-label { color: var(--accent-coral); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L2 · 除了……以外 GRAMMAR</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Sentence Jumble</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Game</div>
+    <div class="time-badge">⏱ 5 min</div>
+    <div class="mode-badge">You Do</div>
+  </div>
+  <div class="main-title">Sentence Jumble · 句子拼图</div>
+  <div class="subtitle">Race to arrange pre-cut word-strip pieces into a correct sentence</div>
+
+  <div class="jumble-layout">
+
+    <div class="jumble-card">
+      <h3>Example Set · Scrambled</h3>
+      <div class="tile-row">
+        <div class="tile">舞蹈</div>
+        <div class="tile">我</div>
+        <div class="tile">还</div>
+        <div class="tile">喜欢</div>
+        <div class="tile">以外</div>
+        <div class="tile">除了</div>
+        <div class="tile">音乐</div>
+        <div class="tile">，</div>
+      </div>
+      <div class="jumble-arrow">↓ arrange correctly ↓</div>
+      <div class="solved-row">
+        <div class="solved-zh">除了音乐以外，我还喜欢舞蹈。</div>
+        <div class="solved-en">Besides music, I also like dance.</div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div>Pre-cut sentence-piece sets (word-by-word) for <strong>4–5 sentences</strong> — a mix of 除了……以外 and 有的人在…… — are distributed to pairs/small groups.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div>Race to <strong>arrange the pieces</strong> into a correct sentence and write it out on your whiteboard.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div>First group with the <strong>correct order</strong> raises hands — teacher checks and calls the next sentence.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="caller-box">
+        <div class="caller-icon">✂️</div>
+        <div>
+          <div class="caller-text">Setup needed: pre-cut word-strip envelopes</div>
+          <div class="caller-sub">One set per pair/group — 4–5 sentences, mixing both patterns</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold">
+      <div class="sed-label">Scaffold</div>
+      Simpler, shorter sentences (fewer pieces) given to pairs needing more support
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label">Extension</div>
+      Fast finishers get an extra 6th sentence combining both patterns in one go
+    </div>
+    <div class="sed-item otr">
+      <div class="sed-label">Setup</div>
+      Pre-cut word-strip envelopes, one set per pair/group
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

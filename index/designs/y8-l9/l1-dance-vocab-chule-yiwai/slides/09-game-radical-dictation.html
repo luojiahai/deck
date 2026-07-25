@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L1-09 · Game: Radical Dictation Grid</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 30px 100px 18px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .grid-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); overflow: hidden; width: 460px; }
+  .grid-title-bar { background: var(--accent-coral); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: 0.06em; }
+  .radical-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .radical-cell { border: 1px solid var(--border-medium); text-align: center; background: var(--bg-primary); font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; justify-content: center; height: 60px; line-height: 1.2; position: relative; }
+  .radical-cell .cell-num { position: absolute; top: 2px; left: 5px; font-family: var(--font-body); font-size: 9px; color: var(--text-muted); opacity: 0.6; }
+  .radical-cell .qmark { font-size: 22px; color: var(--border-medium); }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-coral); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .caption-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L1 · DANCE VOCAB</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Radical Dictation Grid</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge">Game</div>
+    <div class="time-badge">⏱ 7 min</div>
+    <div class="mode-badge">Act.1 Style · Team Competition</div>
+  </div>
+  <div class="main-title">部首听写方格 · Radical Dictation Grid</div>
+  <div class="subtitle">Memorise the radical grid, then write each dictated radical back into its correct square from memory</div>
+
+  <div class="grid-layout">
+
+    <div class="grid-card">
+      <div class="grid-title-bar">5 × 5 RADICAL GRID</div>
+      <div class="radical-grid">
+        <div class="radical-cell"><span class="cell-num">1</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">2</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">3</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">4</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">5</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">6</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">7</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">8</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">9</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">10</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">11</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">12</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">13</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">14</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">15</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">16</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">17</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">18</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">19</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">20</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">21</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">22</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">23</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">24</span><span class="qmark">?</span></div>
+        <div class="radical-cell"><span class="cell-num">25</span><span class="qmark">?</span></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon">1️⃣</div>
+            <div>Project the textbook's <strong>"Learn the Radicals" grid (p.81, 25 radicals)</strong> for <strong>1 minute</strong> — students memorise the positions.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">2️⃣</div>
+            <div>Hide the grid. Teacher <strong>dictates radicals</strong> one at a time by pinyin or meaning.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">3️⃣</div>
+            <div>In teams, students write each radical into its <strong>correct grid square</strong> from memory on the blank template.</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">🏆</div>
+            <div><strong>Most correct squares</strong> after 15 radicals wins.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon">🗂️</div>
+        <div>
+          <div class="setup-text">Setup Needed</div>
+          <div class="setup-sub">Textbook radical grid (p.81) on the projector + blank 5×5 grid template per team</div>
+        </div>
+      </div>
+      <div class="caption-note">Radicals drawn from the textbook's own "Learn the Radicals" box, p.81 — teacher displays it briefly before dictating.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>

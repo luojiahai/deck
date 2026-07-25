@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L8-09 · Game · Odd One Out</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { padding:34px 100px 30px; justify-content:flex-start; gap:16px; }
+  .act-header { display:flex; align-items:center; gap:20px; }
+  .act-badge-large { background:var(--accent-coral); color:#fff; padding:8px 22px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:0.08em; flex-shrink:0; }
+  .act-title { font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--text-primary); }
+  .timer-chip { margin-left:auto; background:var(--accent-coral-dim); border:1.5px solid var(--accent-coral); border-radius:999px; padding:6px 20px; font-size:17px; font-weight:700; color:var(--accent-coral); flex-shrink:0; }
+
+  .rules-line { font-size:18px; color:var(--text-secondary); line-height:1.5; }
+  .rules-line strong { color:var(--text-primary); }
+
+  .round-label { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-gold); margin-bottom:10px; }
+
+  .word-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  .word-card { background:var(--bg-secondary); border:2px solid var(--border-medium); border-radius:var(--radius-lg); padding:18px 16px; display:flex; flex-direction:column; align-items:center; gap:5px; text-align:center; }
+  .wc-hanzi { font-family:var(--font-display); font-size:32px; font-weight:900; color:var(--text-primary); line-height:1.2; }
+  .wc-pinyin { font-size:14px; color:var(--accent-teal); font-weight:500; }
+  .wc-english { font-size:14px; color:var(--text-muted); }
+
+  .more-rounds-box { border:2px dashed var(--border-medium); border-radius:var(--radius-lg); padding:14px 26px; display:flex; align-items:center; gap:14px; }
+  .more-rounds-box .icon { font-size:22px; flex-shrink:0; opacity:0.6; }
+  .more-rounds-box .text { font-size:16px; color:var(--text-muted); line-height:1.5; }
+  .more-rounds-box .text strong { color:var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag">L8 · REVIEW + TEST PREP</span>
+  <span class="sep"></span>
+  <span class="section-name">Game · Odd One Out · 6 min</span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="act-header">
+    <div class="act-badge-large">GAME</div>
+    <div class="act-title">谁不是同类？· Odd One Out</div>
+    <div class="timer-chip">⏱ 6 min</div>
+  </div>
+
+  <div class="rules-line">
+    Teacher projects <strong>4 words at a time</strong> — 3 from one category, 1 from another. Students <strong>identify and explain</strong> which one doesn't belong and why.
+  </div>
+
+  <div>
+    <div class="round-label">Round 1 · Vocabulary Category</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="wc-hanzi">什么时候</div><div class="wc-pinyin">shénme shíhou</div><div class="wc-english">when</div></div>
+      <div class="word-card"><div class="wc-hanzi">几点</div><div class="wc-pinyin">jǐ diǎn</div><div class="wc-english">what time</div></div>
+      <div class="word-card"><div class="wc-hanzi">时候</div><div class="wc-pinyin">shíhou</div><div class="wc-english">time; moment</div></div>
+      <div class="word-card"><div class="wc-hanzi">篮球场</div><div class="wc-pinyin">lánqiúchǎng</div><div class="wc-english">basketball court</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="round-label">Round 2 · 吧 vs 呢 in Context</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="wc-hanzi">我们跳舞吧。</div><div class="wc-english">Let's dance!</div></div>
+      <div class="word-card"><div class="wc-hanzi">你先走吧。</div><div class="wc-english">You go first.</div></div>
+      <div class="word-card"><div class="wc-hanzi">一起来吧！</div><div class="wc-english">Come join us!</div></div>
+      <div class="word-card"><div class="wc-hanzi">妹妹跳舞呢。</div><div class="wc-english">Little sister is dancing.</div></div>
+    </div>
+  </div>
+
+  <div class="more-rounds-box">
+    <div class="icon">🎲</div>
+    <div class="text"><strong>Rounds 3–8</strong> — teacher prepares 6–8 total "odd one out" sets covering the whole unit (vocabulary categories + grammar particles) before class.</div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand">Y8 Chinese · Unit 3 Hobbies 爱好</span>
+</div>
+
+</body>
+</html>
