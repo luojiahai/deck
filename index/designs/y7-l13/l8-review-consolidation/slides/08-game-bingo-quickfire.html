@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L8-08 · Game · Cumulative Bingo + Quickfire</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:32px 100px 26px; }
+  .section-label { font-size:16px; font-weight:700; letter-spacing:0.14em; color:var(--accent-gold); text-transform:uppercase; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; margin-bottom:16px; }
+  .cols { display:grid; grid-template-columns:1.15fr 1fr; gap:26px; align-items:start; }
+
+  .panel { background:var(--bg-secondary); border-radius:var(--radius-lg); padding:20px 24px; border:1px solid var(--border-light); }
+  .panel-h { font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:12px; }
+  .panel-h.gold { color:var(--accent-gold); }
+  .panel-h.coral { color:var(--accent-coral); }
+
+  .chip-grid { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:12px; }
+  .mini-chip { display:flex; align-items:center; gap:6px; background:var(--bg-primary); border:1.5px solid var(--border-light); border-radius:999px; padding:5px 12px 5px 5px; }
+  .mini-chip .dot { width:18px; height:18px; border-radius:50%; border:2px solid rgba(0,0,0,0.12); flex-shrink:0; }
+  .mini-chip .dot.word { width:auto; height:auto; border-radius:999px; background:var(--accent-gold); color:#fff; font-size:11px; font-weight:900; padding:2px 8px; border:none; }
+  .mini-chip .cc-hanzi { font-family:var(--font-display); font-size:15px; font-weight:900; color:var(--text-primary); }
+
+  .steps { display:flex; flex-direction:column; gap:6px; font-size:15px; color:var(--text-secondary); line-height:1.5; }
+  .steps .step-num { color:var(--accent-gold); font-weight:900;  }
+
+  .qf-box { background:var(--accent-coral-dim); border:2px solid var(--accent-coral); border-radius:var(--radius-md); padding:14px 20px; margin-top:8px; }
+  .qf-box .qf-text { font-size:16px; color:var(--text-primary); font-weight:700; line-height:1.5; }
+
+  .sed-strip2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <div class="lesson-tag"><p style="margin: 0px; padding: 0px;">L8 · REVIEW &amp; CONSOLIDATION</p></div>
+  <span class="sep" style="margin: 0px;"></span>
+  <div class="section-name"><p style="margin: 0px; padding: 0px;">Game · Cumulative Bingo + Quickfire · 38–43 min</p></div>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label"><p style="margin: 0px; padding: 0px;">38–43 min · Final Game — High-Energy Consolidation</p></div>
+  <div class="main-title"><p style="margin: 0px; padding: 0px;">大宾果 · Cumulative Bingo + Quickfire</p></div>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="panel-h gold"><p style="margin: 0px; padding: 0px;">Cumulative Bingo — 13 Items</p></div>
+      <div class="chip-grid">
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-black);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">黑色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-white);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">白色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-yellow);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">黄色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-blue);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">蓝色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-red);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">红色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-pink);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">粉红色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-orange);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">橙色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-purple);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">紫色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-brown);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">棕色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-green);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">绿色</p></div></div>
+        <div class="mini-chip"><div class="dot" style="background:var(--swatch-grey);"></div><div class="cc-hanzi"><p style="margin:0;padding:0;">灰色</p></div></div>
+        <div class="mini-chip"><div class="dot word"><p style="margin:0;padding:0;">+2</p></div><div class="cc-hanzi"><p style="margin:0;padding:0;">喜欢</p></div></div>
+        <div class="mini-chip"><div class="dot word"><p style="margin:0;padding:0;">+2</p></div><div class="cc-hanzi"><p style="margin:0;padding:0;">颜色</p></div></div>
+      </div>
+      <div class="steps">
+        <p style="margin:0;padding:0;"><span class="step-num">1.</span>&nbsp; Draw a grid on a mini whiteboard; write the 13 items (汉字 only) in any order.</p>
+        <p style="margin:0;padding:0;"><span class="step-num">2.</span>&nbsp; Teacher calls out items; cross off as each is called.</p>
+        <p style="margin:0;padding:0;"><span class="step-num">3.</span>&nbsp; First to cross off a full line shouts "Bingo!" and reads the winning line aloud.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h coral"><p style="margin: 0px; padding: 0px;">Quickfire Quiz — 60 Seconds</p></div>
+      <div class="qf-box">
+        <div class="qf-text"><p style="margin: 0px; padding: 0px;">Immediately after Bingo: teacher fires colour/vocab questions at random students — <strong>no hands up.</strong></p></div>
+      </div>
+      <div class="steps" style="margin-top:12px;">
+        <p style="margin:0;padding:0;">Full-unit vocabulary recall under time pressure — the last consolidation push before assessment.</p>
+        <p style="margin:0;padding:0;"><strong style="color:var(--text-primary);">Setup:</strong> mini whiteboards only.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip2">
+    <div class="sed-item scaffold">
+      <div class="sed-label"><p style="margin: 0px; padding: 0px;">Scaffold</p></div>
+      <p style="margin: 0px; padding: 0px;">Winners read their line with pinyin support if needed.</p>
+    </div>
+    <div class="sed-item extension">
+      <div class="sed-label"><p style="margin: 0px; padding: 0px;">Extension</p></div>
+      <p style="margin: 0px; padding: 0px;">Quickfire questions for confident students include full sentence production, not just single words.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <div class="brand"><p style="margin: 0px; padding: 0px;">Y7 Chinese · Unit 5 Colours 颜色</p></div>
+</div>
+
+</body></html>
