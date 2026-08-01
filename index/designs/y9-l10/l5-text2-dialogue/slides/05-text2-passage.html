@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L5-05 · Text 2 Dialogue + Comprehension Questions</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:22px 90px 16px; }
+  .section-label { font-size:13px; font-weight:700; letter-spacing:0.14em; color:var(--accent-brick); text-transform:uppercase; margin-bottom:4px; }
+  .main-title-row { display:flex; align-items:baseline; gap:16px; margin-bottom:8px; }
+  .main-title { font-family:var(--font-display); font-size:30px; font-weight:900; }
+  .cd-badge { display:inline-flex; align-items:center; gap:8px; background:var(--accent-brick-dim); border:2px solid var(--accent-brick); border-radius:999px; padding:3px 16px; font-size:13px; font-weight:700; color:var(--accent-brick); letter-spacing:0.06em; }
+
+  .two-col { display:grid; grid-template-columns:1.35fr 1fr; gap:30px; flex:1; min-height:0; }
+
+  .dialogue-list { display:flex; flex-direction:column; gap:5px; }
+  .exchange { background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:6px 14px; }
+  .line { display:flex; gap:10px; align-items:baseline; margin-bottom:2px; }
+  .line:last-child { margin-bottom:0; }
+  .speaker { font-size:11px; font-weight:700; color:var(--accent-jade); min-width:50px; flex-shrink:0; }
+  .line.b .speaker { color:var(--accent-brick); }
+  .line-text { display:flex; flex-direction:column; gap:0px; }
+  .zh-line { font-family:var(--font-display); font-size:15.5px; font-weight:700; color:var(--text-primary); line-height:1.25; }
+  .pinyin-line { font-size:10.5px; color:var(--text-muted); }
+
+  .q-panel { display:flex; flex-direction:column; gap:16px; }
+  .q-box { background:var(--accent-coral-dim); border:2px solid var(--accent-coral); border-radius:var(--radius-lg); padding:20px 24px; flex:1; }
+  .q-box .q-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-coral); margin-bottom:12px; }
+  .q-list { display:flex; flex-direction:column; gap:12px; }
+  .q-item { display:flex; align-items:flex-start; gap:10px; }
+  .q-num { width:26px; height:26px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+  .q-text { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--text-primary); line-height:1.4; }
+  .answer-hidden { border:2px dashed var(--border-medium); border-radius:var(--radius-md); padding:8px 14px; color:var(--text-muted); font-style:italic; font-size:13px; margin-top:12px; opacity:0.6; }
+
+  .instruction-note { font-size:14px; color:var(--text-secondary); line-height:1.5; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:12px 18px; }
+  .instruction-note strong { color:var(--text-primary); }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L5 · TEXT 2 DIALOGUE</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>I Do · Text 2 Dialogue · 10–20 min</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="section-label"><p>10–20 min · I Do · Text / Dialogue</p></div>
+  <div class="main-title-row">
+    <div class="main-title"><p>课文二 · Text 2 (p.95)</p></div>
+    <span class="cd-badge"><p>▶ Track 39</p></span>
+  </div>
+
+  <div class="two-col">
+    <div class="dialogue-list">
+      <div class="exchange">
+        <div class="line"><span class="speaker"><p>学生A</p></span><div class="line-text"><span class="zh-line"><p>你每天午饭吃什么？</p></span><span class="pinyin-line"><p>Nǐ měitiān wǔfàn chī shénme?</p></span></div></div>
+        <div class="line b"><span class="speaker"><p>学生B</p></span><div class="line-text"><span class="zh-line"><p>我有时候从家里带三明治，有时候在学校餐厅买东西吃。</p></span><span class="pinyin-line"><p>Wǒ yǒushíhou cóng jiā lǐ dài sānmíngzhì, yǒushíhou zài xuéxiào cāntīng mǎi dōngxi chī.</p></span></div></div>
+      </div>
+      <div class="exchange">
+        <div class="line"><span class="speaker"><p>学生A</p></span><div class="line-text"><span class="zh-line"><p>你平时买些什么？</p></span><span class="pinyin-line"><p>Nǐ píngshí mǎi xiē shénme?</p></span></div></div>
+        <div class="line b"><span class="speaker"><p>学生B</p></span><div class="line-text"><span class="zh-line"><p>我通常买盒饭吃，有时候也会买薯片、薯条、炸鸡翅（膀）、糖果等。</p></span><span class="pinyin-line"><p>Wǒ tōngcháng mǎi héfàn chī, yǒushíhou yě huì mǎi shǔpiàn, shǔtiáo, zhá jīchì(bǎng), tángguǒ děng.</p></span></div></div>
+      </div>
+      <div class="exchange">
+        <div class="line"><span class="speaker"><p>学生A</p></span><div class="line-text"><span class="zh-line"><p>盒饭贵吗？多少钱一盒？</p></span><span class="pinyin-line"><p>Héfàn guì ma? Duōshao qián yì hé?</p></span></div></div>
+        <div class="line b"><span class="speaker"><p>学生B</p></span><div class="line-text"><span class="zh-line"><p>十九块，不算太贵。</p></span><span class="pinyin-line"><p>Shíjiǔ kuài, bú suàn tài guì.</p></span></div></div>
+      </div>
+      <div class="exchange">
+        <div class="line"><span class="speaker"><p>学生A</p></span><div class="line-text"><span class="zh-line"><p>你喜欢吃哪种盒饭？</p></span><span class="pinyin-line"><p>Nǐ xǐhuan chī nǎ zhǒng héfàn?</p></span></div></div>
+        <div class="line b"><span class="speaker"><p>学生B</p></span><div class="line-text"><span class="zh-line"><p>我常买咖喱牛肉饭、鱼柳饭、猪排饭等。</p></span><span class="pinyin-line"><p>Wǒ cháng mǎi gālí niúròu fàn, yúliǔ fàn, zhūpái fàn děng.</p></span></div></div>
+      </div>
+    </div>
+
+    <div class="q-panel">
+      <div class="q-box">
+        <div class="q-label"><p>Comprehension Questions · 理解问题</p></div>
+        <div class="q-list">
+          <div class="q-item"><span class="q-num"><p>1</p></span><span class="q-text"><p>这个人午饭有时候吃什么？有时候呢？</p></span></div>
+          <div class="q-item"><span class="q-num"><p>2</p></span><span class="q-text"><p>盒饭多少钱一盒？</p></span></div>
+          <div class="q-item"><span class="q-num"><p>3</p></span><span class="q-text"><p>他喜欢吃哪几种盒饭？</p></span></div>
+        </div>
+        <div class="answer-hidden"><p>答案见下一张 · Answers on next slide →</p></div>
+      </div>
+      <div class="instruction-note"><p>
+        Play the audio (or read aloud) once, students follow along. Read together in pairs — <strong>one student each role</strong>, then swap roles. Play Track 39.
+      </p></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y9 Chinese · Unit 4 Fresh Market 菜市场</p></span>
+</div>
+
+
+</body></html>

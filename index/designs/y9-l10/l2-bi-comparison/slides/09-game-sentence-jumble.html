@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L2-09 · Game: Sentence Jumble 比字句拼句子</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  p { margin:0; padding:0; }
+  .slide-content { justify-content:flex-start; padding:28px 90px 26px; }
+  .badge-row { display:flex; gap:10px; margin-bottom:12px; }
+  .act-badge { display:inline-block; background:var(--accent-coral); color:#fff; font-size:13px; font-weight:700; letter-spacing:0.08em; padding:4px 16px; border-radius:999px; }
+  .time-badge { display:inline-block; background:var(--accent-jade); color:#fff; font-size:13px; font-weight:700; letter-spacing:0.08em; padding:4px 14px; border-radius:999px; }
+  .mode-badge { display:inline-block; background:var(--bg-tertiary); color:var(--text-secondary); border:1.5px solid var(--border-medium); font-size:13px; font-weight:700; letter-spacing:0.08em; padding:3px 14px; border-radius:999px; }
+
+  .main-title { font-family:var(--font-display); font-size:42px; font-weight:900; margin-bottom:18px; }
+
+  .game-layout { display:grid; grid-template-columns:1.15fr 1fr; gap:32px; }
+
+  .how-box { background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:22px 26px; }
+  .how-box h3 { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-coral); margin-bottom:14px; }
+  .phase-steps { display:flex; flex-direction:column; gap:11px; }
+  .phase-step { display:flex; align-items:flex-start; gap:12px; }
+  .phase-num { width:24px; height:24px; border-radius:50%; background:var(--accent-coral); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; margin-top:2px; }
+  .phase-text { font-size:16px; color:var(--text-secondary); line-height:1.55; }
+  .phase-text strong { color:var(--text-primary); }
+  .phase-text .zh { font-family:var(--font-display); color:var(--accent-brick); font-style:normal; }
+
+  .right-col { display:flex; flex-direction:column; gap:14px; }
+  .setup-box { background:var(--accent-brick-dim); border:1.5px solid var(--accent-brick); border-radius:var(--radius-lg); padding:18px 22px; }
+  .setup-box h3 { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-brick); margin-bottom:8px; }
+  .setup-list { display:flex; flex-wrap:wrap; gap:8px; }
+  .setup-chip { background:#fff; border:1px solid var(--accent-brick); border-radius:999px; padding:4px 14px; font-size:14px; color:var(--accent-brick); font-weight:600; }
+  .practises { font-size:14px; color:var(--text-secondary); margin-top:8px; }
+  .practises strong { color:var(--accent-brick); }
+
+  .tile-box { background:var(--bg-secondary); border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:18px 22px; }
+  .tile-box h3 { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
+  .tiles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .tile { background:var(--bg-tertiary); border:1.5px solid var(--border-medium); border-radius:var(--radius-sm); padding:6px 14px; font-family:var(--font-display); font-size:18px; font-weight:900; color:var(--text-primary); }
+  .answer-line { border-top:1px dashed var(--border-medium); padding-top:10px; }
+  .answer-line .a-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-jade); margin-bottom:4px; }
+  .answer-line .a-text { font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--accent-jade); }
+
+  .sed-strip { grid-template-columns:1fr 1fr; margin-top:18px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L2 · 比 COMPARISON</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>Game · 比字句拼句子 · 40–43 min</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="badge-row">
+    <span class="act-badge"><p>GAME</p></span>
+    <span class="time-badge"><p>40–43 min</p></span>
+    <span class="mode-badge"><p>Pairs Race · Whiteboards</p></span>
+  </div>
+  <div class="main-title"><p>比字句拼句子 · Sentence Jumble</p></div>
+
+  <div class="game-layout">
+    <div class="how-box">
+      <h3>How to Play</h3>
+      <div class="phase-steps">
+        <div class="phase-step"><div class="phase-num"><p>1</p></div><div class="phase-text"><p>Project <strong>2 sets</strong> of scrambled words for a 比 sentence.</p></div></div>
+        <div class="phase-step"><div class="phase-num"><p>2</p></div><div class="phase-text"><p>In pairs, students race to reorder the words into a correct 比 sentence on their whiteboards.</p></div></div>
+        <div class="phase-step"><div class="phase-num"><p>3</p></div><div class="phase-text"><p><strong>First pair</strong> with the correct sentence holds it up and reads it aloud for the class to confirm.</p></div></div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="setup-box">
+        <h3>Setup Needed</h3>
+        <div class="setup-list">
+          <span class="setup-chip"><p>Mini whiteboards only</p></span>
+        </div>
+        <div class="practises"><p><strong>Practises:</strong> 比 sentence word order</p></div>
+      </div>
+
+      <div class="tile-box">
+        <h3>Example Scrambled Set</h3>
+        <div class="tiles">
+          <span class="tile"><p>新鲜</p></span>
+          <span class="tile"><p>比</p></span>
+          <span class="tile"><p>超市</p></span>
+          <span class="tile"><p>菜市场</p></span>
+          <span class="tile"><p>的菜</p></span>
+          <span class="tile"><p>的菜</p></span>
+        </div>
+        <div class="answer-line">
+          <div class="a-label"><p>Correct Answer</p></div>
+          <div class="a-text"><p>菜市场的菜比超市的菜新鲜。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label"><p>Scaffold</p></div><p>Give the sentence's English translation alongside the scrambled words.</p></div>
+    <div class="sed-item extension"><div class="sed-label"><p>Extension</p></div><p>After solving, pairs write one additional original 比 sentence using the same adjective.</p></div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y9 Chinese · Unit 4 Fresh Market 菜市场</p></span>
+</div>
+
+
+</body></html>

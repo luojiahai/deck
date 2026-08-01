@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L4-08 · Game: Odd One Out — 零食 Edition</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content:flex-start; padding:30px 100px 20px; }
+  .top-row { display:flex; align-items:center; gap:16px; margin-bottom:8px; }
+  .act-badge { background:var(--accent-mustard); color:#fff; padding:6px 20px; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:0.08em; }
+  .time-badge { background:var(--bg-secondary); border:1px solid var(--border-light); padding:6px 18px; border-radius:999px; font-size:15px; color:var(--text-secondary); font-weight:600; }
+  .mode-badge { background:var(--accent-mustard-dim); color:var(--accent-mustard); padding:6px 18px; border-radius:999px; font-size:15px; font-weight:700; }
+  .main-title { font-family:var(--font-display); font-size:38px; font-weight:900; margin-bottom:4px; }
+  .subtitle { font-size:16px; color:var(--text-muted); margin-bottom:16px; }
+
+  .set-list { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+  .set-row { display:flex; align-items:center; gap:18px; background:var(--bg-secondary); border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:12px 22px; }
+  .set-num { font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--accent-mustard); flex-shrink:0; min-width:64px; }
+  .word-chips { display:flex; gap:9px; flex-shrink:0; }
+  .word-chip { background:var(--bg-tertiary); border:1.5px solid var(--border-medium); border-radius:999px; padding:8px 16px; font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--text-primary); }
+  .set-answer { font-size:14.5px; color:var(--accent-coral); font-weight:600; margin-left:auto; padding-left:16px; border-left:2px solid var(--border-light); }
+  .set-answer strong { font-family:var(--font-display); font-size:17px; }
+
+  .setup-box { background:var(--accent-mustard-dim); border:2px solid var(--accent-mustard); border-radius:var(--radius-md); padding:12px 20px; display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+  .setup-icon { font-size:20px; flex-shrink:0; }
+  .setup-text { font-size:16px; font-weight:700; color:var(--accent-mustard); }
+  .setup-sub { font-size:13.5px; color:var(--text-muted); margin-top:2px; }
+
+  .sed-strip { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L4 · SNACK VOCAB</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>Game · Odd One Out · 37–42 min</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p>Game</p></div>
+    <div class="time-badge"><p>⏱ 5 min</p></div>
+    <div class="mode-badge"><p>Whole Class</p></div>
+  </div>
+  <div class="main-title"><p>找不同 · Odd One Out — 零食 Edition</p></div>
+  <div class="subtitle"><p>Project 3 sets of 4 words; students write the odd one out and a one-sentence reason</p></div>
+
+  <div class="set-list">
+    <div class="set-row">
+      <div class="set-num"><p>Set 1</p></div>
+      <div class="word-chips">
+        <div class="word-chip"><p>薯片</p></div>
+        <div class="word-chip"><p>薯条</p></div>
+        <div class="word-chip"><p>糖果</p></div>
+        <div class="word-chip"><p>猪排</p></div>
+      </div>
+      <div class="set-answer"><p>Odd: <strong>猪排</strong> — a main dish, not a snack</p></div>
+    </div>
+    <div class="set-row">
+      <div class="set-num"><p>Set 2</p></div>
+      <div class="word-chips">
+        <div class="word-chip"><p>三明治</p></div>
+        <div class="word-chip"><p>盒饭</p></div>
+        <div class="word-chip"><p>汉堡包</p></div>
+        <div class="word-chip"><p>可乐</p></div>
+      </div>
+      <div class="set-answer"><p>Odd: <strong>可乐</strong> — a drink, not food</p></div>
+    </div>
+    <div class="set-row">
+      <div class="set-num"><p>Set 3</p></div>
+      <div class="word-chips">
+        <div class="word-chip"><p>炸鸡翅</p></div>
+        <div class="word-chip"><p>鱼柳</p></div>
+        <div class="word-chip"><p>咖喱牛肉</p></div>
+        <div class="word-chip"><p>薯片</p></div>
+      </div>
+      <div class="set-answer"><p>Odd: <strong>薯片</strong> — not part of a box lunch filling</p></div>
+    </div>
+  </div>
+
+  <div class="setup-box">
+    <div class="setup-icon"><p>🧰</p></div>
+    <div>
+      <div class="setup-text"><p>Setup: mini whiteboards only</p></div>
+      <div class="setup-sub"><p>Practises rapid categorisation and vocabulary recall</p></div>
+    </div>
+  </div>
+
+  <div class="sed-strip">
+    <div class="sed-item scaffold"><div class="sed-label"><p>Scaffold</p></div><div class="sed-text"><p>Give English glosses for Set 1</p></div></div>
+    <div class="sed-item extension"><div class="sed-label"><p>Extension</p></div><div class="sed-text"><p>Justify the answer in a full Chinese sentence</p></div></div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y9 Chinese · Unit 4 Fresh Market 菜市场</p></span>
+</div>
+
+
+</body></html>

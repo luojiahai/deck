@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L3-10 · Game: Odd One Out</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 30px 100px 20px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 38px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .sets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 16px; }
+  .set-card { background: var(--bg-secondary); border: 1.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 16px 16px 14px; display:flex; flex-direction:column; }
+  .set-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 10px; }
+  .word-list { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+  .word-item { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--text-primary); padding: 5px 10px; border-radius: var(--radius-sm); }
+  .word-item.odd { background: var(--accent-jade-dim); color: var(--accent-jade); }
+  .answer-note { margin-top:auto; font-size: 12.5px; color: var(--text-secondary); line-height:1.4; border-top:1px solid var(--border-light); padding-top:8px; }
+  .answer-note strong { color: var(--accent-jade); }
+
+  .bottom-row { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 14px 20px; }
+  .how-box h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 8px; }
+  .how-text { font-size: 15px; color: var(--text-primary); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L3 · TEXT 1 + SHOPPING</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>Game · Odd One Out · 38–43 min</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p>Game</p></div>
+    <div class="time-badge"><p>⏱ 5 min</p></div>
+    <div class="mode-badge"><p>Mini Whiteboards · Individual</p></div>
+  </div>
+  <div class="main-title"><p>找不同 · Odd One Out</p></div>
+  <div class="subtitle"><p>Vocabulary categorisation and quick recall from today's lesson</p></div>
+
+  <div class="sets-grid">
+    <div class="set-card">
+      <div class="set-title"><p>Set 1</p></div>
+      <div class="word-list">
+        <div class="word-item"><p>猪肉</p></div>
+        <div class="word-item"><p>牛肉</p></div>
+        <div class="word-item"><p>鸡肉</p></div>
+        <div class="word-item odd"><p>豆腐</p></div>
+      </div>
+      <div class="answer-note"><p><strong>Answer: 豆腐</strong> — not meat</p></div>
+    </div>
+    <div class="set-card">
+      <div class="set-title"><p>Set 2</p></div>
+      <div class="word-list">
+        <div class="word-item"><p>菜市场</p></div>
+        <div class="word-item"><p>超市</p></div>
+        <div class="word-item"><p>水果店</p></div>
+        <div class="word-item odd"><p>图书馆</p></div>
+      </div>
+      <div class="answer-note"><p><strong>Answer: 图书馆</strong> — doesn't sell food</p></div>
+    </div>
+    <div class="set-card">
+      <div class="set-title"><p>Set 3</p></div>
+      <div class="word-list">
+        <div class="word-item"><p>新鲜</p></div>
+        <div class="word-item"><p>便宜</p></div>
+        <div class="word-item"><p>贵</p></div>
+        <div class="word-item odd"><p>附近</p></div>
+      </div>
+      <div class="answer-note"><p><strong>Answer: 附近</strong> — not a price/quality word</p></div>
+    </div>
+    <div class="set-card">
+      <div class="set-title"><p>Set 4</p></div>
+      <div class="word-list">
+        <div class="word-item"><p>活鱼</p></div>
+        <div class="word-item"><p>活虾</p></div>
+        <div class="word-item"><p>蔬菜</p></div>
+        <div class="word-item"><p>水果</p></div>
+      </div>
+      <div class="answer-note"><p><strong>No fixed answer</strong> — could argue either way; accept reasoned answers</p></div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="how-box">
+      <h3>How to Play</h3>
+      <div class="how-text"><p>Project 4 sets of 4 words each; students identify and write down the odd one out on mini whiteboards, then explain why in Chinese or English.</p></div>
+    </div>
+    <div class="sed-strip" style="grid-template-columns:1fr 1fr; margin-top:0;">
+      <div class="sed-item scaffold">
+        <div class="sed-label"><p>Scaffold</p></div>
+        <div class="sed-text"><p>Give English glosses alongside each word for Set 1–2</p></div>
+      </div>
+      <div class="sed-item extension">
+        <div class="sed-label"><p>Extension</p></div>
+        <div class="sed-text"><p>Students must justify their answer in a full Chinese sentence</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y9 Chinese · Unit 4 Fresh Market 菜市场</p></span>
+</div>
+
+</body></html>

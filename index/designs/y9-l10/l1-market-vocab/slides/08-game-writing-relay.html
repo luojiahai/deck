@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L1-08 · Game: 汉字接力 Writing Relay</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 30px 100px 18px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-coral); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-coral-dim); color: var(--accent-coral); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 40px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 18px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .grid-card { border: 3px solid var(--accent-coral); border-radius: var(--radius-lg); overflow: hidden; width: 400px; }
+  .grid-title-bar { background: var(--accent-coral); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 16px; font-weight: 900; letter-spacing: 0.06em; }
+  .relay-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .relay-cell { border: 1px solid var(--border-medium); text-align: center; background: var(--bg-primary); font-family: var(--font-display); font-size: 30px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; justify-content: center; height: 88px; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-coral); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-coral-dim); border: 2px solid var(--accent-coral); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-coral); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .sed-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L1 · MARKET VOCAB</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>Game · Writing Relay · 38–43 min</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p>Game</p></div>
+    <div class="time-badge"><p>⏱ 5 min</p></div>
+    <div class="mode-badge"><p>4 Teams · Board Relay</p></div>
+  </div>
+  <div class="main-title"><p>汉字接力 · Writing Relay</p></div>
+  <div class="subtitle"><p>Character recognition and handwriting accuracy for the 12 Lesson 10 component characters</p></div>
+
+  <div class="grid-layout">
+
+    <div class="grid-card">
+      <div class="grid-title-bar"><p>12 FLASH CHARACTERS</p></div>
+      <div class="relay-grid">
+        <div class="relay-cell"><p>金</p></div>
+        <div class="relay-cell"><p>匕</p></div>
+        <div class="relay-cell"><p>亡</p></div>
+        <div class="relay-cell"><p>尸</p></div>
+        <div class="relay-cell"><p>丁</p></div>
+        <div class="relay-cell"><p>入</p></div>
+        <div class="relay-cell"><p>户</p></div>
+        <div class="relay-cell"><p>井</p></div>
+        <div class="relay-cell"><p>弓</p></div>
+        <div class="relay-cell"><p>方</p></div>
+        <div class="relay-cell"><p>习</p></div>
+        <div class="relay-cell"><p>皿</p></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p>1️⃣</p></div>
+            <div><p>Use the <strong>12 flash characters</strong> from Textbook Act. 2 (金匕亡尸丁入户井弓方习皿). Split the class into <strong>4 teams</strong>, each lined up facing the board.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p>2️⃣</p></div>
+            <div><p>Teacher calls out one character's <strong>English/pinyin meaning</strong>; the first student in each team runs up and writes the correct 汉字 on the board, then tags the next teammate.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p>🏆</p></div>
+            <div><p>First team to correctly write <strong>all 12 characters</strong> wins.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p>🗂️</p></div>
+        <div>
+          <div class="setup-text"><p>Setup Needed</p></div>
+          <div class="setup-sub"><p>Board space for 4 teams; no printed materials needed</p></div>
+        </div>
+      </div>
+
+      <div class="sed-strip">
+        <div class="sed-item scaffold">
+          <div class="sed-label"><p>Scaffold</p></div>
+          <div class="sed-text"><p>Keep the 12 characters projected in a corner for teams that fall behind.</p></div>
+        </div>
+        <div class="sed-item extension">
+          <div class="sed-label"><p>Extension</p></div>
+          <div class="sed-text"><p>Winning team must use one of the characters in a real word from today, e.g. 户 → 户口 (accept any sensible attempt).</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y9 Chinese · Unit 4 Fresh Market 菜市场</p></span>
+</div>
+
+</body></html>
