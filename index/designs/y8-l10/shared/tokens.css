@@ -1,0 +1,393 @@
+/* ═══════════════════════════════════════════════════
+   Y8 L10 · 蔬菜、水果 · Vegetables and Fruits · Shared Design Tokens
+   8-lesson classroom slide deck series
+   New palette for Unit 4 (fresh produce: leaf green / citrus orange / tomato red)
+   Structurally mirrors Y8 L9 (爱好·舞蹈) token system for gallery consistency
+   ═══════════════════════════════════════════════════ */
+
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+/* ── Canvas Lock (1920×1080 for projector) ── */
+html, body {
+  margin: 0; padding: 0;
+  width: 1920px; height: 1080px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+/* ── PPTX-export compatibility reset ──
+   html2pptx.js requires all text inside <p>/<h1>-<h6>, never bare in a <div>.
+   Slides wrap leaf text in <p>/<h1>-<h6> nested inside the styled <div> (which
+   keeps layout/background/border) — this reset stops browser default margins
+   and heading font-sizing from disturbing the div-driven layout. */
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0; padding: 0;
+  font: inherit; font-weight: inherit; color: inherit;
+  display: inline;
+}
+
+/* ── Design Tokens ── */
+:root {
+  /* Palette */
+  --bg-primary: #FBFAF2;
+  --bg-secondary: #F2EFDE;
+  --bg-tertiary: #E8E2C8;
+  --text-primary: #24321C;
+  --text-secondary: #5C6650;
+  --text-muted: #8C9480;
+
+  --accent-green: #5C8A3A;
+  --accent-green-light: #93BB70;
+  --accent-green-dim: rgba(92, 138, 58, 0.12);
+  --accent-orange: #E08A3C;
+  --accent-orange-light: #F0B679;
+  --accent-orange-dim: rgba(224, 138, 60, 0.12);
+  --accent-tomato: #C94F3D;
+  --accent-tomato-dim: rgba(201, 79, 61, 0.10);
+
+  --border-light: #E1DBC0;
+  --border-medium: #CFC7A6;
+
+  /* Typography */
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-body: 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* ── Slide Chrome: Top Bar ── */
+.slide-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(251, 250, 242, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+.slide-header .lesson-tag {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  font-family: var(--font-body);
+}
+.slide-header .sep {
+  width: 1px; height: 20px;
+  background: var(--border-light);
+  margin: 0 20px;
+}
+.slide-header .section-name {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.slide-header .accent-line {
+  position: absolute;
+  top: 0; left: 80px; right: 80px;
+  height: 4px;
+  background: var(--accent-green);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Slide Chrome: Bottom Bar ── */
+.slide-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.slide-footer .brand {
+  opacity: 0.5;
+}
+
+/* ── Content Area ── */
+.slide-content {
+  position: absolute;
+  top: 80px; left: 0; right: 0; bottom: 52px;
+  padding: 60px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Typography Utilities ── */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 120px; font-weight: 900;
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: 80px; font-weight: 900;
+  line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.display-md {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.heading-sm {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 28px; font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.body-md {
+  font-family: var(--font-body);
+  font-size: 22px; font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.caption {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Accent text ── */
+.text-green { color: var(--accent-green); }
+.text-orange { color: var(--accent-orange); }
+.text-tomato { color: var(--accent-tomato); }
+
+/* ── Cards & containers ── */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+/* ── Grids ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-md); }
+
+/* ── Flex helpers ── */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ── Badge / Tag ── */
+.badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+}
+.badge-green { background: var(--accent-green-dim); color: var(--accent-green); }
+.badge-orange { background: var(--accent-orange-dim); color: var(--accent-orange); }
+.badge-tomato { background: var(--accent-tomato-dim); color: var(--accent-tomato); }
+
+/* ── Table styles ── */
+.table-compact {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-compact th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 12px 20px;
+  border-bottom: 2px solid var(--accent-green);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+}
+.table-compact td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-body);
+  font-size: 26px;
+}
+.table-compact tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+.table-compact .hanzi-cell {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.table-compact .pinyin-cell {
+  font-size: 22px;
+  color: var(--accent-orange);
+}
+.table-compact .english-cell {
+  font-size: 22px;
+  color: var(--text-secondary);
+}
+
+/* ── Activity box ── */
+.activity-box {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+}
+.activity-box .activity-badge {
+  position: absolute;
+  top: -14px; left: 28px;
+  background: var(--accent-orange);
+  color: #fff;
+  padding: 4px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* ── Note / Warning / Info boxes ── */
+.note-box {
+  background: var(--accent-orange-dim);
+  border: 2px solid var(--accent-orange);
+  border-radius: var(--radius-md);
+  padding: 16px 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.note-box .note-icon { font-size: 28px; flex-shrink: 0; }
+.note-box .note-text { font-size: 22px; font-weight: 700; color: var(--accent-orange); }
+.note-box .note-sub { font-size: 16px; color: var(--text-muted); }
+
+.warning-box {
+  background: var(--accent-tomato-dim);
+  border: 2px solid var(--accent-tomato);
+  border-radius: var(--radius-md);
+  padding: 16px 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.warning-box .warn-icon { font-size: 28px; flex-shrink: 0; }
+.warning-box .warn-text { font-size: 22px; font-weight: 700; color: var(--accent-tomato); }
+.warning-box .warn-sub { font-size: 16px; color: var(--text-muted); }
+
+.tip-box {
+  background: var(--accent-green-dim);
+  border: 2px solid var(--accent-green);
+  border-radius: var(--radius-md);
+  padding: 16px 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.tip-box .tip-icon { font-size: 28px; flex-shrink: 0; }
+.tip-box .tip-text { font-size: 22px; font-weight: 700; color: var(--accent-green); }
+.tip-box .tip-sub { font-size: 16px; color: var(--text-muted); }
+
+/* ── Pattern / Formula box ── */
+.formula-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent-green);
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.formula-box .op {
+  color: var(--accent-green);
+  font-size: 24px;
+}
+
+/* ── Highlight word ── */
+.hl {
+  display: inline-block;
+  background: var(--accent-green-dim);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* ── Scaffold / Extension / OTR strip ── */
+.sed-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+.sed-item {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.sed-item .sed-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sed-item.scaffold .sed-label { color: var(--accent-orange); }
+.sed-item.extension .sed-label { color: var(--accent-green); }
+.sed-item.otr .sed-label { color: var(--accent-tomato); }
+
+/* ── Sentence frame box ── */
+.sentence-frame {
+  background: var(--bg-tertiary);
+  border-left: 5px solid var(--accent-green);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 16px 24px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.sentence-frame .blank {
+  display: inline-block;
+  min-width: 120px;
+  border-bottom: 3px solid var(--accent-green);
+  color: var(--accent-green);
+}
+
+/* ── Hanzi large display ── */
+.hanzi-hero {
+  font-family: var(--font-display);
+  font-size: 200px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent-green);
+}

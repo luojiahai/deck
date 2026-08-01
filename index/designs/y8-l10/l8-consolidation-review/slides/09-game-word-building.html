@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>L8-09 · Game: Word-Building Grid</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+<style>
+  .slide-content { justify-content: flex-start; padding: 30px 100px 18px; }
+  .top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .act-badge { background: var(--accent-tomato); color: #fff; padding: 6px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; }
+  .time-badge { background: var(--bg-secondary); border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 999px; font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+  .mode-badge { background: var(--accent-tomato-dim); color: var(--accent-tomato); padding: 6px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; }
+  .main-title { font-family: var(--font-display); font-size: 38px; font-weight: 900; margin-bottom: 4px; }
+  .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 16px; }
+
+  .grid-layout { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-bottom: 14px; align-items: start; }
+
+  .grid-card { border: 3px solid var(--accent-tomato); border-radius: var(--radius-lg); overflow: hidden; width: 560px; }
+  .grid-title-bar { background: var(--accent-tomato); color: #fff; text-align: center; padding: 8px 0; font-family: var(--font-display); font-size: 16px; font-weight: 900; letter-spacing: 0.06em; }
+  .wb-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .wb-cell { border: 1px solid var(--border-medium); text-align: center; background: var(--bg-primary); font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; justify-content: center; height: 58px; position: relative; }
+  .wb-cell .cell-num { position: absolute; top: 2px; left: 5px; font-family: var(--font-body); font-size: 9px; color: var(--text-muted); opacity: 0.6; }
+  .wb-cell .blank { color: var(--accent-orange); font-weight: 900; }
+
+  .instructions-col { flex: 1; }
+  .how-box { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; }
+  .how-box h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-tomato); margin-bottom: 12px; }
+  .rule-list { display: flex; flex-direction: column; gap: 9px; }
+  .rule-item { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; color: var(--text-primary); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .setup-box { background: var(--accent-tomato-dim); border: 2px solid var(--accent-tomato); border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .setup-icon { font-size: 20px; flex-shrink: 0; }
+  .setup-text { font-size: 17px; font-weight: 700; color: var(--accent-tomato); }
+  .setup-sub { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .caption-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="slide-header">
+  <span class="lesson-tag"><p>L8 · CONSOLIDATION</p></span>
+  <span class="sep"></span>
+  <span class="section-name"><p>Game · Word-Building Grid</p></span>
+  <div class="accent-line"></div>
+</div>
+
+<div class="slide-content">
+  <div class="top-row">
+    <div class="act-badge"><p>Game</p></div>
+    <div class="time-badge"><p>⏱ 9 min</p></div>
+    <div class="mode-badge"><p>Act.17 Style · Team Competition</p></div>
+  </div>
+  <div class="main-title"><p>组词方格 · Word-Building Grid</p></div>
+  <div class="subtitle"><p>Add one character to each base to form a valid two-character word — 20 items, most correct wins</p></div>
+
+  <div class="grid-layout">
+
+    <div class="grid-card">
+      <div class="grid-title-bar"><p>20-ITEM WORD-BUILDING GRID</p></div>
+      <div class="wb-grid">
+        <div class="wb-cell"><span class="cell-num"><p>1</p></span><p>黄</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>2</p></span><p>电</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>3</p></span><p>号</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>4</p></span><p>多</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>5</p></span><p>学</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>6</p></span><p>中</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>7</p></span><p>秘</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>8</p></span><p>下</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>9</p></span><p>上</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>10</p></span><p>走</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>11</p></span><p>地</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>12</p></span><p>蓝</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>13</p></span><p>校</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>14</p></span><p>长</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>15</p></span><p>汗</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>16</p></span><p>毛</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>17</p></span><p>喜</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>18</p></span><p>起</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>19</p></span><p>早</p><span class="blank"><p>＿</p></span></div>
+        <div class="wb-cell"><span class="cell-num"><p>20</p></span><p>火</p><span class="blank"><p>＿</p></span></div>
+      </div>
+    </div>
+
+    <div class="instructions-col">
+      <div class="how-box">
+        <h3>How to Play</h3>
+        <div class="rule-list">
+          <div class="rule-item">
+            <div class="rule-icon"><p>1️⃣</p></div>
+            <div><p>Grid projected or printed <strong>one per team</strong> — 20 base characters, each with a blank.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p>2️⃣</p></div>
+            <div><p>Teams add <strong>one character</strong> to each base to form a valid <strong>two-character word</strong> (e.g. 黄瓜, 电脑).</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p>3️⃣</p></div>
+            <div><p>Write the <strong>character</strong> if known, or <strong>pinyin</strong> if not — both count as attempts.</p></div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><p>🏆</p></div>
+            <div><p><strong>Most correctly completed items</strong> after time's up wins.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <div class="setup-icon"><p>🗂️</p></div>
+        <div>
+          <div class="setup-text"><p>Setup Needed</p></div>
+          <div class="setup-sub"><p>Grid projected or printed per team; whiteboard for teams to write their answers</p></div>
+        </div>
+      </div>
+      <div class="caption-note"><p>Grid drawn from the textbook's own word-building set, Act.17 — bases mix Unit 3 and Unit 4 characters, so every student has an entry point.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-footer">
+  <span class="brand"><p>Y8 Chinese · Unit 4 Vegetables &amp; Fruits 蔬菜、水果</p></span>
+</div>
+
+
+
+</body></html>
