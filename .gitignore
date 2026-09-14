@@ -1,6 +1,10 @@
 .DS_Store
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
 !.agents/skills/huashu-design/
+.agents/skills/huashu-design/*
+!.agents/skills/huashu-design/SKILL.md
 !.agents/skills/lesson-planning/
 .claude/
 .claude.local.md
