@@ -71,7 +71,34 @@ def img(name):
 
 # ══════════════════════════════════════════════════════════════════
 #  Components — identical class vocabulary to y8-l10 / y8-l11
+#
+#  LAYOUT INVARIANTS. .slide-content is overflow:hidden, so a slide with
+#  more in it than fits loses the bottom of its content silently — in the
+#  browser it just looks finished. The caps below are the MEASURED
+#  ceilings: each container was rendered at 1..30 items of worst-case
+#  content (four-character hanzi, which trips the .long size) and checked
+#  with scripts/check_slides.mjs, and the cap is the last count that did
+#  not clip.
+#
+#  They guard the container in ISOLATION. A block plus a callout on the
+#  same slide fits fewer, so these asserts are a floor under the checker,
+#  not a replacement for it — always rerun:
+#
+#      python3 -m http.server 8087 --directory index &
+#      node scripts/check_slides.mjs --design y8-l12
+#
+#  If a cap is in your way, the fix is to split the slide, never to shrink
+#  the type: the classroom floor (13pt = 26px projected) is not negotiable.
 # ══════════════════════════════════════════════════════════════════
+
+MAX_SENTENCES = 3    # 4 clips by 25px
+MAX_EXAMPLES = 7     # 8 clips by 19px
+MAX_DIALOGUE = 7     # 8 clips by 15px
+MAX_CFU = 5          # 6 clips by 90px
+MAX_CRITERIA = 5     # 6 clips by 69px
+MAX_TASK_LINES = 7   # 8 clips by 8px
+MAX_RECALL_ROWS = 5  # 16 cells at 3-up, 21 at 4-up, 26 at 5-up all clip
+MAX_SUMMARY_ROWS = 3 # 13 cells at 4-up and 19 at 6-up both clip
 
 def word_card(hz, py, en, pic=None, trad=None):
     """Slide A cell. No picture for abstract words — the space stays
@@ -87,6 +114,10 @@ def word_card(hz, py, en, pic=None, trad=None):
 
 
 def words_slide(a, b=None):
+    """Slide A of a cycle. At most two new words — the rule from the
+    lesson-planning skill, enforced here rather than trusted. A third
+    word is a third slide, not a smaller font."""
+    assert a, "a vocabulary slide carries at least one new word"
     k = "" if b else " single"
     cells = word_card(*a) + (("\n" + word_card(*b)) if b else "")
     return ('  <p class="section-label">New Words · 跟我读两遍 · repeat after me, twice</p>\n'
@@ -94,6 +125,9 @@ def words_slide(a, b=None):
 
 
 def sentences_slide(rows, label="例句 · See them used"):
+    assert len(rows) <= MAX_SENTENCES, (
+        f"例句 slide takes at most {MAX_SENTENCES} sentences, got {len(rows)} — "
+        "the cycle is two words and up to three sentences; a fourth is a second slide")
     out = [f'  <p class="section-label">{label}</p>', '  <div class="sentence-list">']
     for py, cn, en, both in rows:
         k = " both" if both else ""
@@ -118,6 +152,9 @@ def write_slide(frames, note, ext_text, ext_cn=None):
 
 def recall_slide(words, cols=3, label="认字 · Read them back — no pinyin, no English"):
     c = {3: "", 4: " c4", 5: " c5"}[cols]
+    assert len(words) <= cols * MAX_RECALL_ROWS, (
+        f"recall board fits {MAX_RECALL_ROWS} rows — at {cols}-up that is "
+        f"{cols * MAX_RECALL_ROWS} words, got {len(words)}")
     cells = "\n".join(
         f'    <div class="recall-cell"><p class="recall-hanzi{" long" if len(w)>=4 else ""}">{w}</p></div>'
         for w in words)
@@ -126,6 +163,10 @@ def recall_slide(words, cols=3, label="认字 · Read them back — no pinyin, n
 
 
 def summary_slide(items, cols=4, label="词汇总览 · Everything from today"):
+    assert len(items) <= cols * MAX_SUMMARY_ROWS, (
+        f"summary board fits {MAX_SUMMARY_ROWS} rows — at {cols}-up that is "
+        f"{cols * MAX_SUMMARY_ROWS} items, got {len(items)}. The pictures are "
+        "what costs the height; a recall_slide holds more.")
     cells = []
     for hz, pic in items:
         long = " long" if len(hz) >= 4 else ""
@@ -140,6 +181,8 @@ def summary_slide(items, cols=4, label="词汇总览 · Everything from today"):
 
 
 def examples_block(rows, note=None, label="模仿我说 · Watch me build it"):
+    assert len(rows) <= MAX_EXAMPLES, (
+        f"examples block takes at most {MAX_EXAMPLES} rows, got {len(rows)}")
     out = [f'  <p class="section-label">{label}</p>', '  <div class="example-list">']
     for i, (cn, en, hardest) in enumerate(rows, 1):
         k = " hardest" if hardest else ""
@@ -165,6 +208,8 @@ def cfu_slide(rows, label="检查理解 · Check for understanding",
     new pattern. Deliberately question-only — there is no answer slide,
     because an answer on the projector is a答案 students copy instead of
     a question they attempt."""
+    assert len(rows) <= MAX_CFU, (
+        f"CFU board takes at most {MAX_CFU} questions, got {len(rows)}")
     cells = "\n".join(
         f'    <div class="sc-row"><p class="sc-num">{i}</p><div>'
         f'<p class="sc-main">{en}</p>' + (f'<p class="sc-cn">{cn}</p>' if cn else "") + '</div></div>'
@@ -175,6 +220,9 @@ def cfu_slide(rows, label="检查理解 · Check for understanding",
 
 
 def dialogue_block(rows, label=None):
+    assert len(rows) <= MAX_DIALOGUE, (
+        f"dialogue takes at most {MAX_DIALOGUE} turns, got {len(rows)} — split the "
+        "text across two slides （前半 / 后半）, which is what L3 and L6 do")
     out = [f'  <p class="section-label">{label}</p>'] if label else []
     out.append('  <div class="dialogue">')
     for who, py, cn in rows:
@@ -195,6 +243,8 @@ def callout(kind, label, text, cn=None, sub=None):
 
 
 def task_slide(label, badge, lines, ext_text, ext_cn=None, steps=None):
+    assert len(lines) <= MAX_TASK_LINES, (
+        f"task box takes at most {MAX_TASK_LINES} lines, got {len(lines)}")
     out = [f'  <p class="section-label">{label}</p>']
     if badge:
         out.append(f'  <div class="badge badge-orange"><p>{badge}</p></div>')
@@ -222,6 +272,8 @@ def task_slide(label, badge, lines, ext_text, ext_cn=None, steps=None):
 
 
 def sc_slide(walt, criteria, compact=False):
+    assert len(criteria) <= MAX_CRITERIA, (
+        f"success criteria slide takes at most {MAX_CRITERIA}, got {len(criteria)}")
     rows = "\n".join(
         f'    <div class="sc-row"><p class="sc-num">{i}</p><div>'
         f'<p class="sc-main">{m}</p>' + (f'<p class="sc-cn">{c}</p>' if c else "") + '</div></div>'
