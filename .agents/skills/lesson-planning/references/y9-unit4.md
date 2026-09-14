@@ -166,12 +166,200 @@ No "circle the correct pinyin" exercise in L10 textbook. Tone pairs worth drilli
 
 ---
 
-## Lessons 11 & 12 — outline (not yet extracted in full)
+## Lesson 11: Snacks 零食 — pp.100–109
 
-- **Lesson 11: Snacks 零食** — textbook pp.100–109, workbook pp.118–127. CD track 42 (p.104) is a 6-turn dialogue about snacks: 你喜欢吃零食吗？/ 我差不多每天都在学校买零食。/ 各种各样的。我一般吃糖果、饼干、薯片等。/ 你常常喝汽水吗？每天都喝。我平时爱喝汽水，最爱喝可乐。/ 你知道糖果对牙齿不好吗？/ 你平时正餐吃得多不多？我早饭吃得多，但是晚饭通常吃得少。/ 你每天去学校要带多少零用钱？妈妈每天给我四十块。
-- **Lesson 12: Eating Out 外出就餐** — textbook pp.110–121, workbook pp.128–137.
+### Core Vocabulary
 
-Extract these two in full before planning either lesson.
+**New Words (after Text 1) — p.101**
+
+| # | 汉字 | 拼音 | English |
+|---|---|---|---|
+| 1 | 零食 | língshí | snack |
+| 2 | 各种各样 | gèzhǒng gèyàng | all kinds of |
+| 3 | 比如 | bǐrú | for example |
+| 4 | 巧克力 | qiǎokèlì | chocolate |
+| 5 | 蛋 | dàn | egg |
+| 6 | 糕 | gāo | cake |
+| 6b | 蛋糕 | dàngāo | cake |
+| 7 | 冰淇淋 | bīngqílín | ice cream |
+| 8 | 饼干 | bǐnggān | cookies; cracker |
+| 9 | 牙 | yá | tooth |
+| 10 | 齿（齒） | chǐ | tooth |
+| 10b | 牙齿 | yáchǐ | tooth; teeth |
+| 11 | 从小 | cóngxiǎo | from childhood |
+| 12 | 总（總） | zǒng | always |
+| 12b | 总是 | zǒngshì | always |
+| 13 | 正餐 | zhèngcān | lunch or supper; dinner |
+
+**New Words (after Text 2) — p.106**
+
+| # | 汉字 | 拼音 | English |
+|---|---|---|---|
+| 1 | 谷（穀） | gǔ | cereal; grain |
+| 2 | 类（類） | lèi | kind; type |
+| 2b | 谷类 | gǔlèi | cereal |
+| 3 | 加 | jiā | add; plus |
+| 4 | 牛奶 | niúnǎi | milk |
+| 5 | 面包 | miànbāo | bread |
+| 6 | 煎 | jiān | fry in shallow oil |
+| 7 | 肠（腸） | cháng | intestine |
+| 7b | 香肠 | xiāngcháng | sausage |
+| 8 | 酸 | suān | sour |
+| 8b | 酸奶 | suānnǎi | yoghurt |
+| 9 | 有时 = 有时候 | yǒushí / yǒushíhou | sometimes |
+| 10 | 汤（湯） | tāng | soup |
+| 10b | 杂菜汤 | zácàitāng | vegetable soup |
+| 11 | 沙拉 | shālā | salad |
+| 12 | 帮忙 | bāngmáng | help |
+| 13 | 完 | wán | finish |
+| 14 | 碗 | wǎn | bowl |
+
+### Key Texts
+
+**Text 1 — p.100 (CD track 41)** — monologue, pinyin printed above the characters
+
+> 我特别喜欢吃零食。我每天都吃各种各样的零食，比如：糖果、巧克力、薯片、蛋糕、冰淇淋、饼干等。我还喜欢喝汽水。我知道糖果和汽水对牙齿不好，可是我从小就喜欢吃零食。妈妈总是对我说，不要吃太多零食，应该多吃正餐。
+
+*Pinyin (as printed):* wǒ tèbié xǐhuan chī língshí. wǒ měitiān dōu chī gèzhǒng gèyàng de língshí, bǐrú: tángguǒ, qiǎokèlì, shǔpiàn, dàngāo, bīngqílín, bǐnggān děng. wǒ hái xǐhuan hē qìshuǐ. wǒ zhīdao tángguǒ hé qìshuǐ duì yáchǐ bù hǎo, kěshì wǒ cóngxiǎo jiù xǐhuan chī língshí. māma zǒngshì duì wǒ shuō, bú yào chī tài duō língshí, yīnggāi duō chī zhèngcān.
+
+**Text 2 — p.105 (CD track 43)** — dialogue, three meals at home
+
+> A: 你早饭吃什么？
+> B: 吃谷类早餐加牛奶，有时候吃面包、煎蛋和香肠。
+> A: 午饭呢？
+> B: 吃三明治、热狗、酸奶，有时吃薯条、杂菜汤、沙拉等。
+> A: 你们家晚饭吃什么？
+> B: 有时候吃中餐，有时候吃西餐。
+> A: 你们家平时谁做饭？你会帮忙吗？
+> B: 一般是妈妈做。有时候吃完晚饭以后，我会帮妈妈洗碗。
+
+### Key Sentence Patterns
+
+1. **各种各样的 + N，比如：A、B、C 等。** — 我每天都吃各种各样的零食，比如：糖果、巧克力、薯片等。/ 这家超市卖各种各样的零食，比如巧克力、糖果等。
+2. **A 对 B 好 / 不好** — 糖果和汽水对牙齿不好。/ 多吃糖果对牙齿不好。/ 我们学校的老师都对学生很好。
+   Related: **对……感兴趣 / 一点儿都不感兴趣** (Act. 4) — 我对音乐非常感兴趣。
+3. **从小就 + V** — 我从小就喜欢吃零食。/ 我从小就喜欢弹钢琴。
+4. **总是 / 每天 / 平时 / 一般 / 有时候** — frequency ladder, drilled in Act. 7 and WB 3/5.
+5. **……完……以后，……** (NOTE, p.108) — "after finishing". 我吃完早饭以后刷牙。/ 做完作业以后，他看电视。= 他做完作业以后看电视。
+   Note the two word orders are equivalent; the book prints both.
+6. **不要 + V / 应该 + V** — 不要吃太多零食，应该多吃正餐。/ 不要经常吃零食。/ 你应该多吃点儿东西。/ 你应该少看电视。
+7. **degree phrases before 喜欢** (Act. 1 Phrases for Reference): 非常喜欢 · 特别喜欢 · 挺喜欢 · 最喜欢 · 不太喜欢
+8. **V 得多 / V 得少** — 我早饭吃得多，但是晚饭通常吃得少。
+9. **加** — 谷类早餐加牛奶 / 茶里加牛奶和糖。
+
+### Grammar Notes
+
+- 比如 introduces examples and is followed by a list closed with 等: 比如：糖果、巧克力、薯片等。
+- 对 here is "towards / for" (not the verb "correct"): 对牙齿不好, 对我很好, 对……感兴趣.
+- 从小就 — 就 is obligatory in this set phrase; 从小 alone is weaker.
+- 完 is a resultative complement: 吃完, 做完, 看完, 游完.
+- 有时 and 有时候 are interchangeable (the book prints 有时 = 有时候).
+- 应该 vs 不要: the pair students must produce in the WB 8 translations (eat less meat / more vegetables).
+
+### Radicals / Character components
+
+Textbook Act. 13 (p.109) — memorize within 5 minutes:
+矢 · 斗 · 力 · 寸 · 青 · 旦 · 自 · 己 · 亡 · 立 · 几 · 上 (12 components)
+
+Workbook Ex. 10 (p.122) — write the simple characters from English clues:
+舌 tongue · 瓜 melon · 羊 sheep · 苗 seedling · 东 east · 南 south · 西 west · 北 north · 弓 bow
+
+Useful clues to flag: 饼/饺 use 饣 (food) · 糕/糖 use 米 (rice) · 酸 uses 酉 (wine jar) · 煎 uses 灬 (fire) · 肠 uses 月 (flesh) · 汤 uses 氵 (water) · 碗 uses 石 (stone).
+
+### Pinyin Focus
+No "circle the correct pinyin" exercise in L11. Tone pairs worth drilling: língshí (2-2) vs lěngshí; qiǎokèlì (3-4-4); bīngqílín (1-2-2); yáchǐ (2-3); suānnǎi (1-3); zǒngshì (3-4); zácàitāng (2-4-1); gèzhǒng gèyàng (4-3-4-4).
+
+### Textbook Activities — page by page
+
+| Page | # | Type | What students do |
+|---|---|---|---|
+| 100 | Text 1 | Reading / listening (CD 41) | 零食 monologue, pinyin printed above |
+| 101 | 1 | Speaking | Say a few sentences about each of 8 pictures, using the **Phrases for Reference** (非常喜欢 / 特别喜欢 / 挺喜欢 / 最喜欢 / 不太喜欢). Example given about 三明治 → 盒饭. Pictures: 1 鸡翅·鸡腿, 2 猪肉·牛肉·羊肉, 3 水果·薯片, 4 巧克力·糖果, 5 冰淇淋·饮料, 6 蛋糕·饼干, 7 西红柿·黄瓜, 8 香蕉·苹果 |
+| 102 | 2 | Writing | Complete 5 sentences. Example: 我特别喜欢买衣服，比如连衣裙、汗衫、毛衣、牛仔裤等。Then 我很喜欢___ / 我非常喜欢___ / 我___ / 我___ |
+| 102 | 3 | Categorize | Add more items to each of 5 categories: 零食 · 中餐 · 西餐 · 快餐 · 饮料 |
+| 103 | 4 | Writing (对) | Complete 5 sentences: 我对___非常感兴趣。/ 多吃糖果对___不好。/ 我们学校的老师都对___很好。/ 我对___一点儿都不感兴趣。/ ___对___。 |
+| 103 | 5 | Speaking | One sentence per shop picture. Example: 这家超市卖各种各样的零食，比如巧克力、糖果等。Shops: 1 服装店, 2 肉店, 3 水果店, 4 餐厅, 5 文具店, 6 家具店, 7 电器店 |
+| 104 | 6 | Listening (CD 42) | 6 multiple-choice items — 她喜欢___ / 她吃___ / 她喝___ / 她从小喜欢吃___ / 她晚饭___ / 她每天有___ (see script below) |
+| 104 | 7 | Speaking | Model paragraph built on 从小就: 我从小就喜欢吃零食，比如蛋糕、巧克力、薯片、糖果等。我从小就喜欢喝可乐…我从小就喜欢弹钢琴。我现在钢琴弹得很好，已经考过了五级。*It is your turn!* Make a similar introduction of yourself |
+| 105 | Text 2 | Reading / listening (CD 43) | Three-meals dialogue |
+| 106 | 8 | Speaking | Say a few sentences about each of 14 food pictures. Example: 我喜欢吃薯条。我每天都吃薯条。Pictures: 1 面包, 2 牛奶, 3 沙拉, 4 香肠, 5 炸鸡翅, 6 酸奶, 7 巧克力, 8 蛋糕, 9 冰淇淋, 10 饼干, 11 薯片, 12 汉堡包, 13 杂菜汤, 14 蒸鱼 |
+| 107 | 9 | Interview + report | Interview **four** classmates with 6 questions (你早饭一般吃什么？你午饭一般吃什么？你晚饭一般吃什么？你们家周末常常去饭店吃饭吗？你们一般去哪家饭店吃饭？你们一般吃什么？) then **Report to the class**: 三个同学早饭一般吃水果和面包，喝牛奶。一个同学有时候早饭吃谷类早餐加牛奶… |
+| 107 | 10 | Speaking (pairs) | Ask your partner 5 questions with dotted target words: 你**有时候**在学校餐厅买午饭吃，你呢？/ 你**小时候**在哪儿住过？/ **上课的时候**你可以吃东西吗？/ **放学以后**，你一般什么时候到家？/ 你**从小就**喜欢吃什么？不喜欢吃什么？ *It is your turn!* Make a question with each of the dotted words |
+| 108 | 11 | Writing (……完……以后) | 8 items. 1–4 give the first clause (我吃完早饭以后___ 刷牙 given · 他游完泳以后去___ · 我们一家人看完电影以后去___ · 她做完作业以后去___); 5–8 give the second clause and need the 完…以后 clause (___帮妈妈洗碗。/ ___跟姐姐一起去买菜。/ ___去图书馆看书。/ ___跟爸爸一起去钓鱼。) + NOTE box + *It is your turn!* make three sentences with the structure |
+| 108 | 12 | Listening (CD 44) | 6 multiple-choice items about meals (see script below) |
+| 109 | 13 | Memory / character | Memorize 12 components in 5 minutes: 矢 斗 力 寸 青 旦 自 己 亡 立 几 上 |
+| 109 | 14 | Project | **Design a menu for your school canteen** in pamphlet form — 学校餐厅菜单 with 早餐 / 午餐 / 晚餐 columns, 5 items each |
+
+### Audio Tracks (Lesson 11)
+| Track | Page | What it is |
+|---|---|---|
+| 41 | 100 | Text 1 — 零食 monologue |
+| 42 | 104 | Act. 6 — snacks interview, 6 Q&A turns |
+| 43 | 105 | Text 2 — three-meals dialogue |
+| 44 | 108 | Act. 12 — meals dialogue, 6 Q&A turns |
+
+### Listening script — CD 42 (p.104, Act. 6)
+> 1) A: 你喜欢吃零食吗？ B: 非常喜欢。我差不多每天都在学校买零食。
+> 2) A: 你每天吃什么零食？ B: 各种各样的。我一般吃糖果、饼干、薯片等。
+> 3) A: 你常常喝汽水吗？ B: 每天都喝。我平时爱喝汽水，最爱喝可乐。
+> 4) A: 你知道糖果对牙齿不好吗？ B: 知道。但我从小就喜欢吃糖，还爱吃巧克力。
+> 5) A: 你平时正餐吃得多不多？ B: 我早饭吃得多，但是晚饭通常吃得少。
+> 6) A: 你每天去学校要带多少零用钱？ B: 妈妈每天给我四十块。
+
+### Listening script — CD 44 (p.108, Act. 12)
+> 1) A: 你今天早饭想吃什么？吃不吃面包、煎蛋？ B: 我昨天就吃了面包、煎蛋。今天吃谷类早餐加牛奶吧。
+> 2) A: 你的茶里要不要加牛奶和糖？ B: 加奶吧，不要加糖。
+> 3) A: 我们今天中午吃什么？吃汉堡包吧。 B: 昨天吃了汉堡。今天吃炸鸡腿和沙拉吧。
+> 4) A: 你昨天晚饭吃了什么？ B: 比萨饼和沙拉。我们去饭店吃的。
+> 5) A: 你们家平时吃中餐还是西餐？ B: 差不多每天吃中餐，很少吃西餐。
+> 6) A: 你们家谁做饭？ B: 平常是妈妈做，我有时候会帮妈妈做。吃过晚饭，我经常洗碗。
+
+### Workbook — Lesson 11 (pp.118–127)
+
+| # | Page | Type | What students do |
+|---|---|---|---|
+| 1 | 118 | Picture → Chinese | Write 12 snacks: 炸鸡翅 (given), 三明治, 可乐, 汽水, 饼干, 蛋糕, 冰淇淋, 面包, 薯片, 薯条, 糖果, 巧克力 |
+| 2 | 118 | Answer the questions | 4 questions: 你从小就喜欢吃什么？你从小就喜欢做什么？你小时候住在哪儿？你周末通常做什么？ |
+| 3 | 119 | Cloze | Word box: 总是 / 每天 / 最 / 从小 / 各种各样 / 对……好 / 比如 / 正餐 — fill a paragraph about a little brother who only eats snacks |
+| 4 | 119 | Translate EN→CN | 12 body parts: eye, head, hair, hand, nose, ear, leg, foot, face, tooth, mouth, tongue |
+| 5 | 119 | Complete the paragraph | 我爸爸___起床。他一起床就___。他___去上班… Words for reference: 总是 / 经常 / 平时 / 一般 / 每天 |
+| 6 | 120 | Dialogue completion | 5 mini-dialogues matched to answers a)–e); item 1 given (我从小就喜欢吃零食。) + *It is your turn!* write a similar short paragraph |
+| 7 | 120 | Categorize | Add **five** items to each: 零食 / 中餐 / 快餐 |
+| 8 | 121 | Translate EN→CN | 6 sentences with Practice Focus box (不要经常吃零食 / 你要多说汉语 / 你应该多吃点儿东西 / 你应该少看电视 / 我想暑假去北京 / 今、明两天会有大风雪): Do not eat fast food too often · You should eat more fruit · You should wear more clothes today because it is cold · You should eat less meat and more vegetables · Are you thinking of going to Shanghai this winter holiday? · This Christmas holiday, my grandparents would probably come to see us |
+| 9 | 121 | Sentence completion | 8 stems: ___对我很好。/ ___对我不好。/ 我对___很感兴趣。/ 我对___不感兴趣。/ 我从小就喜欢___。/ 我平时___。/ 我早上一起床___。/ 我小时候经常___。 |
+| **10** | **122** | **Character writing** | Write 9 simple characters from English clues: tongue (舌), melon (瓜), sheep (羊), seedling (苗), east (东), south (南), west (西), north (北), bow (弓) |
+| 11 | 122 | Reading comprehension | 我们学校的小卖部卖各种各样的零食… passage + 5 questions (小卖部卖什么零食？小卖部卖不卖西式小吃？学生什么时候去小卖部买东西吃？他是不是每天都去小卖部买东西吃？他觉得小卖部卖的东西便宜吗？) + *It is your turn!* list your school canteen's food in a 4-column table: 正餐 / 零食 / 小吃 / 饮料 |
+| 12 | 123 | Picture → Chinese | Write 16 foods: 面条 (given), 面包, 水果, 香肠, 酸奶, 冰淇淋, 米饭, 煎蛋, 牛排, 蛋糕, 饼干, 三明治, 杂菜汤, 面包(法式), 巧克力, 牛奶 |
+| 13 | 123 | Dictionary work | Guess then check: 人类/种类 · 汤面/汤料 · 面食/面粉 · 加油/加热 |
+| **14** | **124** | **Measure words** | Write one word for each of 16 measure words: 件 条 碗 辆 支 架 副 顶 个 间 位 套 幢 双 口 种 |
+| **15** | **124** | **Group the following** | Sort 24 items into 中餐 / 西餐 / 快餐 / 零食 / 饮料: 蒸鱼 牛排 汽水 薯条 冰淇淋 杂菜汤 沙拉 薯片 花茶 炒青菜 比萨饼 炸鸡翅 热狗 可乐 糖果 三明治 巧克力 红烧豆腐 饼干 绿茶 鸡汤 汉堡包 炸鸡腿 北京烤鸭 |
+| 16 | 125 | Picture pairs → sentence | Write a sentence about each of 4 picture pairs using ……完……以后. Practice Focus: 他吃完早饭后去上学。/ 他放学以后做作业。 |
+| **17** | **125** | **Word building** | Add a character to form a phrase: 煎___ · ___肠 · 面___ · 热___ · 酸___ · ___排 · 沙___ · 盒___ · ___汤 · 鸡___ |
+| 18 | 126 | Make sentences | 8 structures: 有时候 · 小时候 · ……的时候 · 从小 · 一……就…… · 除了……以外，…… · 一边……，一边…… · 因为……，所以…… |
+| 19 | 126 | Answer the questions | 7 personal questions (你平时几点起床？你一般吃早饭吗？你通常几点去上学？你经常去快餐店吃饭吗？你们家晚饭一般吃什么？谁做晚饭？你喜欢吃中餐还是西餐？你吃过什么中国菜？) |
+| 20 | 127 | Internet research | The most popular drink in China; the most popular drink in the western world |
+| 21 | 127 | Typing | Type a passage: 我每天都吃早餐。我早餐一般吃面包、煎蛋、谷类早餐、酸奶、香肠等等… |
+| 22 | 127 | Reading + writing task | 酒店早餐 passage + 6 questions; **Writing task:** write about your breakfast when travelling (80–100 words) — Chinese or western breakfast on trips, favourite food and drink, dream breakfast/lunch/supper |
+
+### Lesson 11 → Unit 4 Test mapping
+
+| Test part (WB pp.140–143) | Rehearsed by |
+|---|---|
+| 1 Group into 中餐/西餐/快餐/零食 | TB Act. 3 (p.102) · WB 7 (p.120) · WB 15 (p.124) |
+| 2 Match measure words (碗/只/杯/瓶/块) | WB 14 (p.124) — 碗 is an L11 new word |
+| 3 Make phrases around 奶 排 果 面 鱼 | WB 17 (p.125) |
+| 4 Rearrange to form a sentence (incl. 糖果/就/我/吃/从小/喜欢) | 从小就 pattern, TB Act. 7 |
+| 5 Find the opposite (饱 完 正餐 甜 卖 便宜) | 正餐 and 完 are L11 words |
+| 8 Translate both ways (吃太多糖对牙齿不好 / Watching too much TV is bad for your eyes) | 对……不好 pattern, WB 8 (p.121) |
+| 9 Add more words to each category (蛋糕… 比萨饼…) | TB Act. 3, WB 7 |
+| 10 Make sentences (各种各样+文具 · 从小+喜欢 · 总是+中餐) | TB Act. 5, Act. 7 |
+| 12 Essay — your diet, three meals and snacks | TB Act. 9, WB 22 writing task |
+
+## Lesson 12 — outline (not yet extracted in full)
+
+- **Lesson 12: Eating Out 外出就餐** — textbook pp.110–121, workbook pp.128–137. CD tracks 46 (p.114) and 48 (p.119).
+
+Extract in full before planning this lesson.
 
 ---
 
