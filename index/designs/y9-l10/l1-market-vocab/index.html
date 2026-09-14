@@ -2,131 +2,117 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>L1 · Fresh Market Vocabulary · 菜市场词汇</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Y9 L10 · 菜市场 Fresh Market · Lesson 1 of 6</title>
 <script>
-  window.DECK_MANIFEST = [
-    { file: "slides/01-title.html",                  label: "Title · 菜市场 Fresh Market Vocabulary" },
-    { file: "slides/02-review.html",                 label: "Review · Stationery Recap & Bridge" },
-    { file: "slides/03-li-sc.html",                  label: "Learning Intention & Success Criteria" },
-    { file: "slides/04-vocab.html",                  label: "I Do · New Vocabulary (13 words)" },
-    { file: "slides/05-pattern-cfu.html",             label: "I Do · Sentence Pattern & CFU Checkpoints" },
-    { file: "slides/06-act1-price-writing.html",      label: "We Do · Act 1: Guided Price-Writing" },
-    { file: "slides/07-act2-workbook.html",           label: "You Do · Act 2: Workbook Consolidation" },
-    { file: "slides/08-game-writing-relay.html",      label: "Game · 汉字接力 Writing Relay" },
-    { file: "slides/09-plenary-exit-preview.html",    label: "Plenary · Exit Ticket & Preview" },
+  window.DECK = [
+    { file: "slides/01-title.html",          label: "Title · 菜市场 Fresh Market" },
+    { file: "slides/02-review.html",         label: "Review · L9 文具 recap" },
+    { file: "slides/03-li-sc.html",          label: "Learning Intention & Success Criteria" },
+    { file: "slides/04-c1-words.html",       label: "Cycle 1 · A — 市场 / 菜市场" },
+    { file: "slides/05-c1-examples.html",    label: "Cycle 1 · B — 例句" },
+    { file: "slides/06-c1-write.html",       label: "Cycle 1 · C — 写一句" },
+    { file: "slides/07-c2-words.html",       label: "Cycle 2 · A — 猪肉 / 牛肉" },
+    { file: "slides/08-c2-examples.html",    label: "Cycle 2 · B — 例句" },
+    { file: "slides/09-c2-write.html",       label: "Cycle 2 · C — 写一句" },
+    { file: "slides/10-c3-words.html",       label: "Cycle 3 · A — 新鲜 / 便宜" },
+    { file: "slides/11-c3-examples.html",    label: "Cycle 3 · B — 例句" },
+    { file: "slides/12-c3-write.html",       label: "Cycle 3 · C — 写一句" },
+    { file: "slides/13-recall.html",         label: "Checkpoint · 认字 recall" },
+    { file: "slides/14-pattern.html",        label: "I Do · 句型 sentence pattern" },
+    { file: "slides/15-summary.html",        label: "词汇总览 · summary board" },
+    { file: "slides/16-task.html",           label: "We Do · 任务 write Mum a note" },
+    { file: "slides/17-game.html",           label: "Game · 拍字 Slap the Character" },
+    { file: "slides/18-plenary.html",        label: "Plenary · exit ticket & preview" },
   ];
-  window.DECK_WIDTH = 1920;
-  window.DECK_HEIGHT = 1080;
 </script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; overflow: hidden; font-family: -apple-system, "PingFang SC", sans-serif; background: #0a0a0a; }
-  #stage { position: fixed; top: 50%; left: 50%; transform-origin: top left; will-change: transform; background: #fff; box-shadow: 0 10px 60px rgba(0,0,0,0.4); }
-  #frame { width: 1920px; height: 1080px; overflow: hidden; position: relative; background: #fff; }
-  .counter-pill { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; z-index: 100; opacity: 0.7; }
-  .counter-pill .label { color: rgba(255,255,255,0.7); margin-left: 8px; }
-  .list-btn { color: rgba(255,255,255,0.85); text-decoration: none; padding-right: 10px; border-right: 1px solid rgba(255,255,255,0.25); opacity: 0.85; }
-  .list-btn:hover { opacity: 1; }
-  .nav-zone { position: fixed; top: 0; bottom: 0; width: 15%; cursor: pointer; z-index: 50; }
-  .nav-zone.left { left: 0; } .nav-zone.right { right: 0; }
-  .nav-hint { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; font-size: 22px; opacity: 0; transition: opacity .2s; }
-  .nav-zone.left .nav-hint { left: 20px; } .nav-zone.right .nav-hint { right: 20px; }
-  .nav-zone:hover .nav-hint { opacity: 1; }
-
-  /* ── Scoped design tokens ── */
-  #frame {
-    --bg-primary: #FAF6EE;
-    --bg-secondary: #F1E8D8;
-    --bg-tertiary: #E4D5BC;
-    --text-primary: #2B2018;
-    --text-secondary: #6B5844;
-    --text-muted: #9C8A73;
-    --accent-brick: #A8432E;
-    --accent-brick-light: #C97456;
-    --accent-brick-dim: rgba(168, 67, 46, 0.12);
-    --accent-jade: #3F7A52;
-    --accent-jade-light: #6EA97F;
-    --accent-jade-dim: rgba(63, 122, 82, 0.10);
-    --accent-coral: #D45A3A;
-    --accent-coral-dim: rgba(212, 90, 58, 0.10);
-    --accent-mustard: #C68A1E;
-    --accent-mustard-dim: rgba(198, 138, 30, 0.12);
-    --border-light: #E4D5BC;
-    --border-medium: #D0BC9A;
-    --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
-    --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
-    --font-mono: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
-    --space-xs: 8px; --space-sm: 16px; --space-md: 24px; --space-lg: 40px; --space-xl: 64px; --space-2xl: 96px;
-    --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-xl: 28px;
-  }
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#12100e;font-family:-apple-system,"PingFang SC",sans-serif;overflow:hidden}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #wrap{width:1280px;height:720px;transform-origin:center center;background:#fff;box-shadow:0 12px 70px rgba(0,0,0,.5)}
+  iframe{width:1280px;height:720px;border:0;display:block}
+  .zone{position:fixed;top:0;bottom:0;width:14%;cursor:pointer;z-index:20}
+  .zone.l{left:0}.zone.r{right:0}
+  .bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:30;
+       display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.62);color:#fff;
+       padding:8px 18px;border-radius:999px;font-size:13px;letter-spacing:.04em}
+  .bar b{font-variant-numeric:tabular-nums;font-weight:600}
+  .bar span{color:rgba(255,255,255,.62)}
+  .bar button{background:none;border:0;color:rgba(255,255,255,.85);font:inherit;cursor:pointer;padding:0}
+  .bar button:hover{color:#fff}
+  #grid{position:fixed;inset:0;background:#12100e;z-index:40;overflow:auto;padding:36px;display:none;
+        grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;align-content:start}
+  #grid.on{display:grid}
+  .cell{cursor:pointer}
+  .cell .thumb{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#fff;position:relative;
+               border:2px solid transparent}
+  .cell:hover .thumb{border-color:#C97456}
+  .cell .thumb iframe{transform-origin:top left;pointer-events:none;position:absolute;top:0;left:0}
+  .cell p{color:rgba(255,255,255,.72);font-size:12.5px;margin-top:8px;line-height:1.4}
+  .cell p b{color:#E4B78A;font-weight:600;margin-right:6px}
 </style>
 </head>
 <body>
-<div id="stage"><div id="frame"></div></div>
-<div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
-<div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
-<div class="counter-pill">
-  <a class="list-btn" href="../">← 列表</a>
-  <span id="counter">1 / 1</span>
+
+<div id="stage"><div id="wrap"><iframe id="fr" src="slides/01-title.html"></iframe></div></div>
+<div class="zone l" onclick="go(-1)"></div>
+<div class="zone r" onclick="go(1)"></div>
+
+<div class="bar">
+  <button onclick="toggleGrid()">All slides</button>
+  <span>·</span>
+  <a href="l1-market-vocab.pptx" download style="color:rgba(255,255,255,.85);text-decoration:none">PPTX</a>
+  <span>·</span>
+  <b><span id="n">1</span> / 18</b>
+  <span id="lbl"></span>
 </div>
+
+<div id="grid"></div>
+
 <script>
-(function () {
-  const W = window.DECK_WIDTH || 1920, H = window.DECK_HEIGHT || 1080;
-  const deck = window.DECK_MANIFEST || [];
-  const stage = document.getElementById('stage'), frame = document.getElementById('frame'), counter = document.getElementById('counter');
-  let current = 0;
-  stage.style.width = W + 'px'; stage.style.height = H + 'px';
-  function fit() {
-    const s = Math.min(innerWidth / W, innerHeight / H);
-    stage.style.transform = 'translate(' + ((innerWidth - W*s)/2) + 'px,' + ((innerHeight - H*s)/2) + 'px) scale(' + s + ')';
-    stage.style.top = '0'; stage.style.left = '0';
+  const D = window.DECK; let i = 0;
+  const fr = document.getElementById('fr'), wrap = document.getElementById('wrap');
+
+  function fit(){
+    const s = Math.min(innerWidth / 1280, (innerHeight - 70) / 720);
+    wrap.style.transform = 'scale(' + s + ')';
   }
-  let loadedFile = null;
-  function show(idx) {
-    if (idx < 0 || idx >= deck.length) return;
-    current = idx;
-    const item = deck[idx];
-    counter.innerHTML = (idx+1) + ' / ' + deck.length + ' <span class="label">' + (item.label||'') + '</span>';
-    if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
-    if (loadedFile !== item.file) {
-      loadedFile = item.file;
-      fetch(item.file).then(r=>r.text()).then(html=>{
-        var linkRe=/<link[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi, cssLinks=[], lm;
-        while((lm=linkRe.exec(html))!==null){cssLinks.push(lm[1]);}
-        return Promise.all(cssLinks.map(href=>{
-          var url=/^https?:/.test(href)?href:new URL(href,new URL(item.file,location.href)).href;
-          return fetch(url).then(r=>r.text()).catch(()=>'');
-        })).then(cssContents=>{
-          var linkedCss=cssContents.join('\n');
-          var styles=linkedCss?'<style>'+linkedCss.replace(/\b(html|body)\b(?=\s*[{,])/g,'#frame')+'</style>':'';
-          var styleRe=/<style[^>]*>([\s\S]*?)<\/style>/gi, m;
-          while((m=styleRe.exec(html))!==null){styles+='<style>'+m[1].replace(/\b(html|body)\b(?=\s*[{,])/g,'#frame')+'</style>';}
-          var bodyM=html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-          frame.innerHTML=styles+(bodyM?bodyM[1]:'');
-        });
-      }).catch(()=>{frame.innerHTML='<div style="color:#fff;padding:40px;text-align:center;font-size:24px;">Slide not found</div>';});
-    }
+  function show(k){
+    i = (k + D.length) % D.length;
+    fr.src = D[i].file;
+    document.getElementById('n').textContent = i + 1;
+    document.getElementById('lbl').textContent = D[i].label;
   }
-  function next(){show(Math.min(current+1,deck.length-1));}
-  function prev(){show(Math.max(current-1,0));}
-  document.addEventListener('keydown',function(e){
-    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
-    switch(e.key){
-      case'ArrowRight':case' ':case'PageDown':e.preventDefault();next();break;
-      case'ArrowLeft':case'PageUp':e.preventDefault();prev();break;
-      case'Home':e.preventDefault();show(0);break;
-      case'End':e.preventDefault();show(deck.length-1);break;
-      case'p':case'P':window.print();break;
-      default:if(e.key>='1'&&e.key<='9'){var i=parseInt(e.key,10)-1;if(i<deck.length){e.preventDefault();show(i);}}
-    }
+  function go(d){ show(i + d); }
+  function toggleGrid(){ document.getElementById('grid').classList.toggle('on'); }
+
+  addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { go(1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                    { go(-1); e.preventDefault(); }
+    if (e.key === 'Escape') document.getElementById('grid').classList.remove('on');
+    if (e.key === 'g') toggleGrid();
   });
-  document.getElementById('navL').addEventListener('click',prev);
-  document.getElementById('navR').addEventListener('click',next);
-  window.addEventListener('resize',fit);
-  window.addEventListener('hashchange',function(){var m=location.hash.match(/^#(\d+)$/);if(m){current=parseInt(m[1],10)-1;show(current);}});
+  addEventListener('resize', fit);
+
+  // build the overview grid
+  const g = document.getElementById('grid');
+  D.forEach((s, k) => {
+    const c = document.createElement('div');
+    c.className = 'cell';
+    c.innerHTML = '<div class="thumb"><iframe src="' + s.file + '" scrolling="no"></iframe></div>' +
+                  '<p><b>' + String(k + 1).padStart(2, '0') + '</b>' + s.label + '</p>';
+    c.onclick = () => { show(k); toggleGrid(); };
+    g.appendChild(c);
+    const t = c.querySelector('.thumb'), f = c.querySelector('iframe');
+    requestAnimationFrame(() => {
+      const sc = t.clientWidth / 1280;
+      f.style.width = '1280px'; f.style.height = '720px';
+      f.style.transform = 'scale(' + sc + ')';
+    });
+  });
+
   fit(); show(0);
-})();
 </script>
 </body>
 </html>
