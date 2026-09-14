@@ -131,19 +131,6 @@
       ]
     },
     {
-      "id": "y7-l14",
-      "title": "Y7 L14 · 穿着 Clothing",
-      "description": "6 节课程幻灯片系列——Year 7 中文穿着单元（穿·颜色的衣服·课文二·校服·写描述·介绍一个人），每组生词走「生词→例句→写一句」三张循环，含全屏演示",
-      "createdAt": "2026-09-14",
-      "thumbnail": "designs/y7-l14/thumb.png",
-      "type": "slides",
-      "tags": [
-        "Year 7",
-        "中文",
-        "Clothing"
-      ]
-    },
-    {
       "id": "y8-l10",
       "title": "Y8 L10 · 蔬菜、水果 Vegetables and Fruits",
       "description": "8 节课程幻灯片系列——Year 8 中文蔬菜水果单元（蔬菜词汇·应该·可是+课文一·拼音ie/üe+简单汉字·水果词汇·这些/那些/一些+都+课文二·种+数量范围·综合复习），全新鲜蔬果配色（绿/橙/番茄红三色），含全屏演示与可编辑 PPTX 下载",
@@ -167,6 +154,19 @@
         "Year 9",
         "中文",
         "Food"
+      ]
+    },
+    {
+      "id": "y7-l14",
+      "title": "Y7 L14 · 穿着 Clothing",
+      "description": "6 节课程幻灯片系列——Year 7 中文穿着单元（穿·颜色的衣服·课文二·校服·写描述·介绍一个人），每组生词走「生词→例句→写一句」三张循环，含全屏演示",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y7-l14/thumb.png",
+      "type": "slides",
+      "tags": [
+        "Year 7",
+        "中文",
+        "Clothing"
       ]
     },
     {
