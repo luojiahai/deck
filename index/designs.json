@@ -131,11 +131,11 @@
       ]
     },
     {
-      "id": "y8-l11",
-      "title": "Y8 L11 · 一日三餐 Three Meals a Day",
-      "description": "5 节课程幻灯片系列——Year 8 中文一日三餐单元（中餐/西餐+还是·饮料+课文一·三餐+一般·中餐菜+或者·饭店+会）。每两个生词一个三页循环：生词→例句→写一句；还是与或者相隔三课教、第四课正面对撞（单元测验题型）；全部字号按教室投影标准，配手绘 SVG 食物插图，含全屏演示与可编辑 PPTX 下载",
-      "createdAt": "2026-09-14",
-      "thumbnail": "designs/y8-l11/thumb.png",
+      "id": "y8-l10",
+      "title": "Y8 L10 · 蔬菜、水果 Vegetables and Fruits",
+      "description": "6 节课程幻灯片系列——Year 8 中文蔬菜水果单元（蔬菜词汇·应该+等等·可是+课文一·水果词汇+都·这些+课文二·种+数量范围）。每两个生词一个三页循环：生词→例句→写一句；全部字号按教室投影标准重排，配手绘 SVG 蔬果插图，含全屏演示与可编辑 PPTX 下载",
+      "createdAt": "2026-08-01",
+      "thumbnail": "designs/y8-l10/thumb.png",
       "type": "slides",
       "tags": [
         "Year 8",
@@ -144,11 +144,11 @@
       ]
     },
     {
-      "id": "y8-l10",
-      "title": "Y8 L10 · 蔬菜、水果 Vegetables and Fruits",
-      "description": "6 节课程幻灯片系列——Year 8 中文蔬菜水果单元（蔬菜词汇·应该+等等·可是+课文一·水果词汇+都·这些+课文二·种+数量范围）。每两个生词一个三页循环：生词→例句→写一句；全部字号按教室投影标准重排，配手绘 SVG 蔬果插图，含全屏演示与可编辑 PPTX 下载",
-      "createdAt": "2026-08-01",
-      "thumbnail": "designs/y8-l10/thumb.png",
+      "id": "y8-l11",
+      "title": "Y8 L11 · 一日三餐 Three Meals a Day",
+      "description": "5 节课程幻灯片系列——Year 8 中文一日三餐单元（中餐/西餐+还是·饮料+课文一·三餐+一般·中餐菜+或者·饭店+会）。每两个生词一个三页循环：生词→例句→写一句；还是与或者相隔三课教、第四课正面对撞（单元测验题型）；全部字号按教室投影标准，配手绘 SVG 食物插图，含全屏演示与可编辑 PPTX 下载",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y8-l11/thumb.png",
       "type": "slides",
       "tags": [
         "Year 8",
