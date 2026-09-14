@@ -38,8 +38,7 @@ Downloadable `.pptx` / `.pdf` exports (linked from a design's `index.html`) are 
 The exporter is generic: the huashu-design skill's `html2pptx.js` turns slide
 HTML into native PowerPoint text runs and shapes (real editable text, not
 pictures). Everything in `scripts/` around it is a prep or check pass, also
-design-agnostic. Per-series scripts exist only where lesson *content* is
-generated.
+design-agnostic.
 
 **Exporting a deck** — pick by the canvas its `shared/tokens.css` declares, or
 every slide is rejected:
@@ -72,14 +71,6 @@ each deck at the canvas that deck declares):
 python3 -m http.server 8087 --directory index &
 node scripts/check_slides.mjs --design y9-l11
 ```
-
-**Slide content** was authored directly for 11 of the 15 series. Four recent
-ones instead generate it from a Python builder — `scripts/build_y7_l13.py`,
-`build_y8_l10.py`, `y8l11/build.py`, `y9l11/build.py` — which encode that
-series' lesson content plus measured layout limits (max two new words per
-vocabulary slide, max three worked examples, …). A builder is optional, and
-only worth it for a multi-deck series; see `scripts/y9l11/README.md`. Where one
-exists it is the source of truth — edit the builder, not its slides.
 
 ## URL routing
 
