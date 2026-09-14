@@ -1,0 +1,615 @@
+/* ═══════════════════════════════════════════════════
+   Y7 L14 · Clothing 穿着 · Shared Design Tokens
+   6-lesson classroom slide deck series
+
+   Continuity: same unit, same class, same fortnight as Y7 L13
+   (Colours), so the paper ground and type pairing carry straight
+   over. What changes is the accent key — L13 was keyed to
+   vermillion (红色, the first colour taught); L14 is keyed to
+   indigo, the dye of 牛仔裤, with madder and olive as the
+   secondaries. The deck chrome stays a live sample of its own
+   subject rather than decoration.
+
+   🔴 TYPOGRAPHY FLOOR (classroom, not laptop)
+   These slides are projected to a room. Nothing a student must
+   read sits below 26px on this 1920×1080 canvas; nothing at all
+   below 18px. Pinyin never goes below 28px — tone marks are
+   2–3px features and they are the first thing a projector eats.
+   No per-slide <style> block may push a size under this floor.
+   If it doesn't fit, split the slide.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap');
+
+/* 🔴 Latin FIRST in the body stack, CJK second — deliberate, do not reorder.
+   Noto Sans SC's precomposed first-tone vowels (ā ē ī ō ū) render with the
+   macron shifted right, so "chuān" comes out looking like "chuaīn". Every
+   other face tested renders them correctly. Putting Noto Sans ahead of
+   Noto Sans SC takes Latin (and therefore all pinyin) from the correct
+   face and lets hanzi fall through to Noto Sans SC. First tone is the most
+   common tone in this lesson's vocabulary, so this is not cosmetic. */
+
+/* ── Canvas Lock (1920×1080 for projector) ── */
+html, body {
+  margin: 0; padding: 0;
+  width: 1920px; height: 1080px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+/* ── Design Tokens ── */
+:root {
+  /* Palette */
+  --bg-primary: #FBF9F4;
+  --bg-secondary: #F2EFE7;
+  --bg-tertiary: #E7E2D5;
+  --text-primary: #221F1A;
+  --text-secondary: #56514A;
+  --text-muted: #8C8577;
+
+  --accent-indigo: #2C4C7C;
+  --accent-indigo-light: #6484AE;
+  --accent-indigo-dim: rgba(44, 76, 124, 0.10);
+  --accent-madder: #B03C2C;
+  --accent-madder-light: #D3745F;
+  --accent-madder-dim: rgba(176, 60, 44, 0.10);
+  --accent-olive: #5F7040;
+  --accent-olive-light: #90A06C;
+  --accent-olive-dim: rgba(95, 112, 64, 0.12);
+  --accent-teal: #2E7D6E;
+  --accent-teal-dim: rgba(46, 125, 110, 0.10);
+  --accent-gold: #B0822C;
+  --accent-gold-dim: rgba(176, 130, 44, 0.12);
+
+  --border-light: #E2DBC8;
+  --border-medium: #CFC4A9;
+
+  /* Colour-word swatches — content, not decoration.
+     Carried over unchanged from L13 so a colour means the same
+     thing across both decks. Used only where a slide is teaching
+     or recalling that colour word. */
+  --swatch-black: #1A1A1A;
+  --swatch-white: #FFFFFF;
+  --swatch-yellow: #E8B923;
+  --swatch-blue: #2E5FA3;
+  --swatch-red: #C23B2E;
+  --swatch-pink: #E88EA0;
+  --swatch-orange: #D9762E;
+  --swatch-purple: #7A4E9E;
+  --swatch-brown: #8A5A34;
+  --swatch-green: #4C8A4A;
+  --swatch-grey: #9A9A94;
+  --swatch-skyblue: #6FA8D6;
+  --swatch-denim: #4A6D93;
+
+  /* Typography */
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* ── Slide Chrome: Top Bar ── */
+.slide-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 80px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(251, 249, 244, 0.95);
+  z-index: 10;
+}
+.slide-header .lesson-tag {
+  font-size: 20px;                 /* floor: chrome ≥18 */
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-indigo);
+  font-family: var(--font-body);
+}
+.slide-header .sep {
+  width: 1px; height: 22px;
+  background: var(--border-light);
+  margin: 0 18px;
+}
+.slide-header .section-name {
+  font-size: 22px;                 /* was 15 */
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.slide-header .accent-line {
+  position: absolute;
+  top: 0; left: 80px; right: 80px;
+  height: 4px;
+  background: var(--accent-indigo);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Slide Chrome: Bottom Bar ── */
+.slide-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  border-top: 1px solid var(--border-light);
+  font-size: 18px;                 /* was 12 */
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.slide-footer .brand { opacity: 0.55; }
+
+/* Any SVG dropped into a height-constrained art slot scales to that slot.
+   Without this an inline <svg> with only a viewBox behaves like a replaced
+   element and blows the slide out sideways. */
+.wc-art svg, .vc-art svg, .t-art svg, .pv-art svg {
+  height: 100%; width: auto; display: block; margin: 0 auto;
+}
+
+/* ── Content Area ── */
+.slide-content {
+  position: absolute;
+  top: 84px; left: 0; right: 0; bottom: 56px;
+  padding: 48px 96px;              /* tightened from 60/120 to buy floor space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+/* For the few slides that genuinely carry more than the default padding
+   allows — a four-example pattern plus a note, a long passage. Buys ~44px
+   of vertical room WITHOUT touching any font size, which is the rule. */
+.slide-content.dense { padding: 16px 76px; }
+.slide-content.dense .ex-list { gap: 22px; }
+.slide-content.dense .ex-row .ex-hanzi { line-height: 1.22; }
+.slide-content.dense .pattern-wrap { gap: 22px; }
+.slide-content.dense .note-box, .slide-content.dense .tip-box,
+.slide-content.dense .info-box, .slide-content.dense .warning-box { padding: 16px 28px; }
+
+/* the pattern slide's own vertical rhythm */
+.pattern-wrap { display: flex; flex-direction: column; gap: 30px; }
+.pattern-wrap .ex-list { gap: 24px; }
+
+/* ── Typography Utilities ── */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 120px; font-weight: 900;
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: 80px; font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+.display-md {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.heading-sm {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;   /* was 36 */
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 36px; font-weight: 400;   /* was 28 */
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.body-md {
+  font-family: var(--font-body);
+  font-size: 30px; font-weight: 400;   /* was 22 */
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.caption {
+  font-family: var(--font-body);
+  font-size: 22px;                     /* was 16 */
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* English support line printed under a Chinese instruction. Students read
+   these, so they sit on the 26px student floor, NOT the 22px caption size.
+   .caption is for labels students never have to read (板块名, 页脚). */
+.gloss {
+  font-family: var(--font-body);
+  font-size: 26px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* A white swatch on a white card is invisible from the back row —
+   white always gets the heavier ring. */
+.dot-white, .vc-swatch.white, .colour-chip .dot.white {
+  border-color: var(--text-muted) !important;
+  border-width: 3px !important;
+}
+
+/* ── Accent text ── */
+.text-indigo { color: var(--accent-indigo); }
+.text-madder { color: var(--accent-madder); }
+.text-olive  { color: var(--accent-olive); }
+.text-teal   { color: var(--accent-teal); }
+.text-gold   { color: var(--accent-gold); }
+
+/* ── Cards & containers ── */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+/* ── Grids ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md); }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md); }
+
+/* ── Flex helpers ── */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ── Badge / Tag ── */
+.badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 20px;                 /* was 14 */
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+}
+.badge-indigo { background: var(--accent-indigo-dim); color: var(--accent-indigo); }
+.badge-madder { background: var(--accent-madder-dim); color: var(--accent-madder); }
+.badge-olive  { background: var(--accent-olive-dim);  color: var(--accent-olive); }
+.badge-teal   { background: var(--accent-teal-dim);   color: var(--accent-teal); }
+.badge-gold   { background: var(--accent-gold-dim);   color: var(--accent-gold); }
+
+/* ═══════════════════════════════════════════════════
+   TEACHING SLIDE — two new words, never more.
+   This is the slide type the whole deck is built around.
+   Two .word-card side by side fill the content area.
+   ═══════════════════════════════════════════════════ */
+.word-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+}
+.word-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.word-card .wc-art {
+  width: 100%; height: 250px;
+  display: flex; align-items: center; justify-content: center;
+}
+.word-card .wc-art svg { width: auto; height: 100%; max-width: 100%; }
+.word-card .wc-hanzi {
+  font-family: var(--font-display);
+  font-size: 128px; font-weight: 900;
+  line-height: 1.05;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.word-card .wc-hanzi.long { font-size: 100px; }   /* 3-char words, still far above floor */
+.word-card .wc-pinyin {
+  font-size: 46px; font-weight: 500;
+  color: var(--accent-indigo);
+  letter-spacing: 0.02em;
+}
+.word-card .wc-english {
+  font-size: 34px;
+  color: var(--text-secondary);
+}
+.word-card .wc-clue {
+  font-size: 26px;
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-medium);
+  width: 80%;
+}
+.word-card .wc-clue b { color: var(--accent-olive); font-weight: 700; }
+
+/* ── Example-sentence slide (cycle B) ── */
+.ex-list { display: flex; flex-direction: column; gap: 34px; }
+.ex-row { display: flex; flex-direction: column; gap: 6px; }
+.ex-row .ex-pinyin {
+  font-size: 30px;                 /* floor: pinyin ≥28 */
+  color: var(--accent-indigo);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.ex-row .ex-hanzi {
+  font-family: var(--font-display);
+  font-size: 52px; font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.ex-row .ex-hanzi .new { color: var(--accent-madder); }
+.ex-row .ex-en {
+  font-size: 28px;
+  color: var(--text-secondary);
+}
+.ex-row .ex-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--accent-indigo);
+  opacity: 0.35;
+  margin-right: 14px;
+}
+
+/* ── Write-your-own slide (cycle C) ── */
+.sentence-frame {
+  background: var(--bg-tertiary);
+  border-left: 6px solid var(--accent-indigo);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 24px 32px;
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;      /* was 32 */
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+.sentence-frame .blank {
+  display: inline-block; min-width: 190px;
+  border-bottom: 4px solid var(--accent-madder);
+  color: var(--accent-madder);
+}
+
+/* ── Extension callout — the one annotation that earns its place.
+      Replaces the old .sed-strip three-column fine print, which is
+      deleted: no Scaffold box, no OTR box, no teacher-facing notes
+      on any slide. ── */
+.extension-box {
+  background: var(--accent-gold-dim);
+  border: 2px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 22px 32px;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.extension-box .ext-label {
+  font-size: 22px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-gold);
+  flex-shrink: 0; padding-top: 6px;
+}
+.extension-box .ext-body { font-size: 28px; color: var(--text-primary); line-height: 1.45; }
+.extension-box .ext-body .cn { font-family: var(--font-display); font-weight: 700; }
+.extension-box .ext-body .sub { display: block; font-size: 24px;
+  color: var(--text-secondary); margin-top: 8px; }
+
+/* ── Recall / summary board — known words, scanned not taught.
+      The deliberate exception to the two-word rule. Still obeys
+      the floor. ── */
+.vocab-card {
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.vocab-card.highlight { border-color: var(--accent-indigo); background: var(--accent-indigo-dim); }
+.vocab-card.highlight-madder { border-color: var(--accent-madder); background: var(--accent-madder-dim); }
+.vc-art { height: 96px; display: flex; align-items: center; justify-content: center; }
+.vc-art svg { width: auto; height: 100%; }
+.vc-swatch { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; border: 2px solid rgba(0,0,0,0.12); }
+.vc-hanzi {
+  font-family: var(--font-display);
+  font-size: 52px; font-weight: 900;      /* was 36 */
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.vc-hanzi.long { font-size: 38px; }       /* was 26 */
+.vc-pinyin { font-size: 28px; color: var(--accent-indigo); font-weight: 500; }   /* was 17 */
+.vc-english { font-size: 26px; color: var(--text-secondary); }                   /* was 17 */
+
+/* ── Table styles ── */
+.table-compact { width: 100%; border-collapse: collapse; }
+.table-compact th {
+  text-align: left; font-weight: 700;
+  color: var(--text-secondary);
+  padding: 14px 22px;
+  border-bottom: 2px solid var(--accent-indigo);
+  font-size: 24px; letter-spacing: 0.06em;   /* was 18 */
+}
+.table-compact td {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-body); font-size: 32px;   /* was 26 */
+}
+.table-compact tr:nth-child(even) td { background: var(--bg-secondary); }
+.table-compact .hanzi-cell {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;         /* was 30 */
+  color: var(--text-primary);
+}
+.table-compact .pinyin-cell { font-size: 28px; color: var(--accent-indigo); }    /* was 22 */
+.table-compact .english-cell { font-size: 28px; color: var(--text-secondary); }  /* was 22 */
+
+/* ── Activity box ── */
+.activity-box {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 34px 40px;
+  position: relative;
+}
+.activity-box .activity-badge {
+  position: absolute; top: -17px; left: 32px;
+  background: var(--accent-teal); color: #fff;
+  padding: 5px 22px; border-radius: 999px;
+  font-size: 20px; font-weight: 700; letter-spacing: 0.06em;   /* was 14 */
+}
+
+/* ── Note / Warning / Tip / Info boxes ── */
+.note-box, .warning-box, .tip-box, .info-box {
+  border-radius: var(--radius-md);
+  padding: 20px 32px;
+  display: flex; align-items: flex-start; gap: 20px;
+  border-width: 2px; border-style: solid;
+}
+.note-box    { background: var(--accent-teal-dim);   border-color: var(--accent-teal); }
+.warning-box { background: var(--accent-madder-dim); border-color: var(--accent-madder); }
+.tip-box     { background: var(--accent-gold-dim);   border-color: var(--accent-gold); }
+.info-box    { background: var(--accent-indigo-dim); border-color: var(--accent-indigo); }
+
+.note-box .note-icon, .warning-box .warn-icon,
+.tip-box .tip-icon, .info-box .info-icon {
+  font-size: 36px; flex-shrink: 0; line-height: 1.2;          /* was 28 */
+  font-family: var(--font-display); font-weight: 900;
+}
+.note-box .note-icon { color: var(--accent-teal); }
+.warning-box .warn-icon { color: var(--accent-madder); }
+.tip-box .tip-icon { color: var(--accent-gold); }
+.info-box .info-icon { color: var(--accent-indigo); }
+
+.note-box .note-text, .warning-box .warn-text,
+.tip-box .tip-text, .info-box .info-text {
+  font-size: 30px; font-weight: 700;                          /* was 22 */
+}
+.note-box .note-text { color: var(--accent-teal); }
+.warning-box .warn-text { color: var(--accent-madder); }
+.tip-box .tip-text { color: var(--accent-gold); }
+.info-box .info-text { color: var(--accent-indigo); }
+
+.note-box .note-sub, .warning-box .warn-sub,
+.tip-box .tip-sub, .info-box .info-sub {
+  font-size: 24px; color: var(--text-secondary); margin-top: 6px;   /* was 16 */
+}
+
+/* ── Pattern / formula box ── */
+.formula-box {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent-indigo);
+  border-radius: var(--radius-md);
+  padding: 16px 34px;
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700; letter-spacing: 0.03em;   /* was 32 */
+}
+.formula-box .op { color: var(--accent-indigo); font-size: 32px; }   /* was 24 */
+.formula-box .slot { color: var(--accent-madder); }
+
+/* ── Hanzi large display ── */
+.hanzi-hero {
+  font-family: var(--font-display);
+  font-size: 220px; font-weight: 900;
+  line-height: 1; color: var(--accent-indigo);
+}
+
+/* ── Success-criteria row ── */
+.sc-row {
+  display: flex; align-items: flex-start; gap: 24px;
+  padding: 24px 28px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+.sc-num {
+  font-family: var(--font-display); font-size: 44px; font-weight: 900;   /* was 36 */
+  color: var(--accent-indigo); opacity: 0.4; flex-shrink: 0; line-height: 1.2;
+  min-width: 48px;
+}
+.sc-text { font-size: 32px; color: var(--text-primary); line-height: 1.45; }   /* was 24 */
+.sc-text .cn { font-family: var(--font-display); font-weight: 700; }
+.sc-text .en { font-size: 26px; color: var(--text-secondary); margin-top: 6px; }  /* was 18 */
+
+/* ── Error pair (✗ / ✓) ── */
+.error-pair {
+  display: flex; align-items: center; gap: 28px;
+  padding: 20px 32px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+.error-wrong {
+  font-family: var(--font-display); font-size: 44px; font-weight: 700;   /* was 30 */
+  color: var(--accent-madder); text-decoration: line-through;
+}
+.error-arrow { font-size: 32px; color: var(--text-muted); flex-shrink: 0; }   /* was 24 */
+.error-correct {
+  font-family: var(--font-display); font-size: 44px; font-weight: 700;
+  color: var(--accent-teal);
+}
+
+/* ── Colour swatch chip (content — the actual colour being named) ── */
+.colour-chip {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-light);
+  border-radius: 999px;
+  padding: 10px 24px 10px 10px;
+  font-family: var(--font-display);
+  font-size: 34px; font-weight: 700;
+}
+.colour-chip .dot {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+/* ── Q&A row (used on the uniform-question and dialogue slides) ── */
+.qa-row { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 26px; }
+.qa-tag {
+  font-family: var(--font-body); font-size: 26px; font-weight: 700;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: #fff;
+}
+.qa-tag.q { background: var(--accent-indigo); }
+.qa-tag.a { background: var(--accent-madder); }
+.qa-body .qa-pinyin { font-size: 28px; color: var(--accent-indigo); letter-spacing: 0.04em; }
+.qa-body .qa-hanzi {
+  font-family: var(--font-display); font-size: 50px; font-weight: 700;
+  color: var(--text-primary); line-height: 1.3;
+}
+.qa-body .qa-en { font-size: 26px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ═══════════════════════════════════════════════════
+   DELETED ON PURPOSE
+   .sed-strip / .sed-item — the three-up Scaffold / Extension / OTR
+   strip at 15px. Scaffold and OTR boxes do not belong on a slide
+   (they are teacher-facing), and 15px was the least readable text
+   in the previous decks. Extensions now use .extension-box at 28px.
+   Do not reintroduce it.
+   ═══════════════════════════════════════════════════ */
