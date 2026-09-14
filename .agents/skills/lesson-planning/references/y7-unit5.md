@@ -317,6 +317,24 @@ shénme · kāishǐ · yīnyuè · xǐhuan · liúxíng · yáogǔn · xuéxiào
 | 123 | 13 | Game | **Guess who** — teacher or a student describes a member of the class or a teacher, the rest guess. Example: 他长得高高的。他有黑色的短发。他是中国人。→ 王老师。 |
 | 123 | 14 | Listening (T74) | Tick if true, cross if false — 8 statements about 小英 (age, year level, height, eyes, mouth, hair colour, hair length, outfit) |
 
+### Listening Scripts (textbook p.128)
+
+**T71 (p.116)** — write the pinyin with tone marks
+> 1) shénme 2) kāishǐ 3) yīnyuè 4) xǐhuan 5) liúxíng 6) yáogǔn 7) xuéxiào 8) xiōngdì 9) lǚxíng
+
+**T73 (p.121)** — tick if true, cross if false
+> 1) A：你爸爸长什么样？B：他长得高高的。
+> 2) A：你妈妈长什么样？B：她长得不高也不矮。
+> 3) A：你哥哥长什么样？B：他有大眼睛，头发短短的。
+> 4) A：你妹妹长什么样？B：她有小小的眼睛和小小的嘴巴。
+> 5) A：你弟弟长什么样？B：他有大大的眼睛和小小的嘴巴。
+> 6) A：你姐姐长什么样？B：她长得矮矮的，头发长长的。
+
+**T74 (p.123)** — 小英 passage, tick if true, cross if false
+> 小英今年十一岁，上小学五年级。她长得高高的。她有大大的眼睛，高高的鼻子和大大的嘴巴。她有黑色的长发。她穿衬衫和裙子。
+
+Note **长发** in T74 — the book uses 长发 here, not 头发, for "long hair".
+
 ---
 
 ## Workbook Exercises
@@ -422,6 +440,13 @@ exercise is the natural place to teach it.
 | 17 | 168 | Writing | Make a question with each question word ×6: 几 谁 吗 什么 怎么 哪儿 |
 | 18 | 169 | Writing | Add a word to form a phrase ×9: 下午→午__ · 长裤→裤__ · 中学→学__ · 大火→火__ · 毛衣→衣__ · 早上→上__ · 明年→年__ · 学校→校__ · 出汗→汗__ |
 | 19 | 169 | Reading | Comprehension — 毛小红 passage (age 12, Chinese, big eyes, small nose, big ears, short black hair, wears uniform to school, today in a white shirt and blue short skirt, doesn't like her uniform or its colour) + 5 true/false, then **"Write a similar passage about yourself."** |
+
+**Exercise 19 passage, verbatim (workbook p.169)**
+> 毛小红今年十二岁，是中国人。她有大眼睛、小鼻子和大耳朵。她的头发是黑色的，很短。
+> 她每天穿校服上学。她今天穿白衬衫和蓝短裙。她不喜欢她的校服。她不喜欢校服的颜色。
+
+Its five true/false statements: 1) 毛小红有大鼻子。(✗ — 小鼻子) 2) 她的头发很短。(✓)
+3) 她穿校服上学。(✓) 4) 她喜欢她的校服。(✗) 5) 她一半是中国人。(✗)
 
 **Exercise 19 is the best in-class reading for this lesson** — it is the only text in
 the unit that combines age, nationality, body description, hair, uniform, today's
