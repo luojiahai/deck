@@ -14,3 +14,7 @@ node_modules/
 
 # Visual brainstorm companion
 .superpowers/
+
+# Python bytecode from the slide generators
+__pycache__/
+*.pyc

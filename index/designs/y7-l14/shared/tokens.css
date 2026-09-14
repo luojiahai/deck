@@ -183,6 +183,11 @@ html, body {
 .slide-content.dense .ex-list { gap: 22px; }
 .slide-content.dense .ex-row .ex-hanzi { line-height: 1.22; }
 .slide-content.dense .pattern-wrap { gap: 22px; }
+.slide-content.dense .qa-row { margin-bottom: 14px; }
+.slide-content.dense .qa-body .qa-hanzi { line-height: 1.18; }
+.slide-content.dense .note-box, .slide-content.dense .tip-box,
+.slide-content.dense .info-box, .slide-content.dense .warning-box,
+.slide-content.dense .extension-box { margin-top: 12px !important; }
 .slide-content.dense .note-box, .slide-content.dense .tip-box,
 .slide-content.dense .info-box, .slide-content.dense .warning-box { padding: 16px 28px; }
 

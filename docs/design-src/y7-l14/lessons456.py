@@ -361,13 +361,29 @@ def lesson4():
                    "A white shirt and blue trousers."),
                   ("q", "nǐ xǐhuan nǐ de xiàofú ma", "你喜欢你的校服吗？", "Do you like your uniform?"),
                   ("a", "bù xǐhuan", "不喜欢。", "No (I don't)."),
-              ]) + '''
-  <div class="warning-box" style="margin-top:24px;">
-    <span class="warn-icon">考</span>
-    <span><span class="warn-text">中间那两个问题，课本里一次都没出现过。</span>
-    <span class="warn-sub">你穿什么校服？and 你喜欢你的校服吗？are on the Revision list (练习册 p.171) but nowhere in the textbook lesson — which is why they are taught here.</span></span>
-  </div>''',
+              ]),
                   FL, "轻松学中文 Book 1 · 练习册 p.171 复习 第 7 题", dense=True)))
+
+    m.append(("11b-not-in-the-book.html", "  ↳ 课本里没有的两个问题",
+              page("L4-11b · 课本里没有", "I Do · 这两句，课本里一次都没出现过", '''
+  <div class="nib">
+    <div class="nib-lead">这两个问题，课本第十四课里<b>一次都没有出现过</b>。</div>
+    <div class="nib-q">你穿什么校服？</div>
+    <div class="nib-q">你喜欢你的校服吗？</div>
+    <div class="nib-foot">可是复习表 (练习册 p.171) 要考。所以今天要学。</div>
+    <div class="nib-en">Both are on the Revision list you are tested from, and
+      neither appears anywhere in the textbook lesson. That is why we teach them today.</div>
+  </div>''',
+                  FL, "轻松学中文 Book 1 · 练习册 p.171 复习 第 7 题", '''
+  .nib { background:var(--accent-madder-dim); border:3px solid var(--accent-madder);
+         border-radius:var(--radius-xl); padding:46px 56px; }
+  .nib-lead { font-size:34px; color:var(--text-primary); margin-bottom:32px; }
+  .nib-lead b { color:var(--accent-madder); }
+  .nib-q { font-family:var(--font-display); font-size:62px; font-weight:700;
+           color:var(--text-primary); line-height:1.5; }
+  .nib-foot { font-family:var(--font-display); font-size:38px; font-weight:700;
+              color:var(--accent-madder); margin-top:30px; }
+  .nib-en { font-size:26px; color:var(--text-secondary); margin-top:14px; line-height:1.45; }''')))
 
     m.append(("12-cfu.html", "I Do · 检查 · CFU",
               page("L4-12 · CFU", "I Do · 检查一下 · Check for Understanding", cfu(
