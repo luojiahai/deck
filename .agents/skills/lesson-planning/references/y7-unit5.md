@@ -357,9 +357,49 @@ reading comprehension with 6–8 questions.
 recycles age, year level, city, family size, work times, transport and clothing in
 one paragraph, which is exactly the Unit Test's range.
 
-### Lesson 13 (pp.134–145) and Lesson 15 (pp.158–169)
-Same format mix. L13 leans on colouring and the colour-word grid; L15 adds
-描述 (describe a person) writing tasks and a stroke-order block for 眼 睛 耳 朵 鼻 嘴 巴 手 脚 腿.
+### Lesson 13 (pp.134–145) — 23 exercises
+
+| # | Page | Type | What students do |
+|---|---|---|---|
+| 1 | 134 | Writing | Copy the radicals 疒 火 爫 弓 力 礻 with stroke order |
+| 2 | 135–136 | Writing | Copy Text 1 new words with stroke order: 喜 欢 黑 色 白 黄 蓝 红 粉 |
+| 3 | 136 | Drawing | Draw a picture in the colour given ×6: 黑色 红色 白色 黄色 蓝色 粉红色 |
+| 4 | 137 | Writing | Write the character from pinyin and count its strokes ×8 (huǒ rén bàn gōng shàng xià qù zhōng) |
+| 5 | 137 | Writing | Find a character for each of 12 radicals (目 纟 灬 艹 士 米 钅 冫 ⻊ 王 亻 方) |
+| 6 | 137 | Writing | Count the strokes of 8 characters (粉 色 黑 黄 红 白 蓝 喜) |
+| 7 | 137 | Writing | Stroke ladder — 1-stroke character up to 9-stroke (一 … 美) |
+| 8 | 138 | Drawing | Draw a picture using the colours given ×4: 黑色、白色 · 红色、白色、蓝色 · 黄色、黑色 · 蓝色、白色 |
+| 9 | 138 | Writing | Write the radical of 6 characters (炒 爱 病 弹 加 视) |
+| 10 | 139 | Translation | English → Chinese ×6: black taxi (黑色的出租车, given) · blue car · red public bus · yellow school bus · pink watch · white bed |
+| 11 | 139 | Writing | Answer 8 cumulative questions (age, year level, nationality, does dad work, his job, how he gets to work, what time you get up / go to bed) |
+| 12 | 140 | Writing | Use 几 to make six questions (example 他几岁？) |
+| 13 | 140 | Writing | Make a sentence from the words given ×5: 喜欢/我妹妹 · 红色/不喜欢 · 每天/校车 · 怎么/你爸爸 · 十点/睡觉 |
+| 14 | 140 | Reading | 王红 passage (family of three, dad a lawyer, mum doesn't work, favourite colours) + 4 questions |
+| 15 | 141 | Writing | Copy Text 2 new words with stroke order: 颜 橙 紫 棕 绿 灰 |
+| 16 | 142 | Reading | Circle the odd one out ×6 (上午/上学/早上 · 吃饭/睡觉/怎么 · 今天/明天/哪儿 · 黄色/起床/放学 · 商人/上班/工作 · 火车/汽车/电话) |
+| 17 | 142 | Drawing | Mix the colours ×7: 白+黑=灰色 (given) · 蓝+白 · 红+黄 · 红+黄+蓝 · 白+红 · 黄+蓝 · 紫+黄 |
+| 18 | 143 | Writing | Fill the blanks with characters — a long self-intro passage (age, year level, family of five, parents' jobs, everyone's favourite colours) with pinyin prompts |
+| 19 | 143 | Writing | Answer 6 questions: 你喜欢紫色吗？你喜欢什么颜色？你爸爸喜欢什么颜色？你妈妈喜欢什么颜色？你每天怎么上学？你晚上几点睡觉？ |
+| 20 | 144 | Writing | Spot the mistakes and rewrite ×6 — all word order (他妈妈工作也。→ 他妈妈也工作。/ 什么颜色你喜欢？→ 你喜欢什么颜色？) |
+| 21 | 144 | Reading | Circle the colour words in a 16-cell grid (红级白铁绿黄蓝租 / 灰紫课黑棕走地橙) |
+| 22 | 144 | Translation | English → Chinese ×4: I like red and green colours. · I walk to school every day. · I do not eat breakfast. · It is a quarter past three. |
+| 23 | 145 | Reading | Comprehension — 王黑白 passage (name, Beijing, family of three, dad a teacher who drives to work and likes black and white "so he named me 黑白", mum a secretary who takes the subway and likes blue and brown, his own age/year/colours, now living in Shanghai) with 8 questions |
+
+**Exercise 23 is the best in-class reading for this lesson** — it recycles name, city,
+family, jobs, transport and time from Units 1–4 and hangs the whole thing on colour
+preferences, which is exactly the Unit Test's range. It also contains the only 所以
+in the lesson; treat it as recognition, not production.
+
+**Exercise 14 introduces 都** (爸爸和妈妈都喜欢黑色) — not in the textbook's New Words
+for this lesson. Gloss it when the passage goes up rather than teaching it as a word.
+
+**Exercise 17 #2 (蓝色 + 白色) answers 天蓝色** — the sky-blue word from the textbook
+p.102 answer box, which L14 p.105 Ex.1 then uses as its worked example. The colour-mixing
+exercise is the natural place to teach it.
+
+### Lesson 15 (pp.158–169)
+Same format mix. L15 adds 描述 (describe a person) writing tasks and a stroke-order
+block for 眼 睛 耳 朵 鼻 嘴 巴 手 脚 腿.
 
 ---
 
