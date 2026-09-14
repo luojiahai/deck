@@ -18,7 +18,7 @@
   .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
   /* Hero */
-  .hero { padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero { padding: 36px 0 32px; position: relative; overflow: hidden; }
   .hero-inner { display: flex; align-items: center; gap: 36px; }
   .hero-text { display: flex; flex-direction: column; }
   .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
@@ -31,9 +31,9 @@
   .hero-motif { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.75; }
 
   /* Grammar panel */
-  .grammar-panel { margin-bottom: 48px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; }
+  .grammar-panel { margin-bottom: 40px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 26px 32px; }
   .grammar-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
-  .grammar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .grammar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .grammar-item { text-align: center; padding: 16px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
   .grammar-item .g-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
   .grammar-item .g-zh { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
@@ -41,8 +41,8 @@
 
   /* Lesson Grid */
   .lessons { padding: 0 0 80px; }
-  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; color: var(--text-muted); letter-spacing: 0.04em; }
-  .lesson-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .lesson-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; }
   .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(43,32,24,0.10); border-color: var(--accent); }
   .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
@@ -95,14 +95,16 @@
       <div class="hero-motif">菜</div>
       <div class="hero-text">
         <div class="unit-tag">Year 9 · Unit 4 · Lesson 10</div>
-        <h1>菜市场<span class="dot">·</span>日常饮食</h1>
-        <div class="subtitle">Fresh Market — 8-Lesson Series</div>
+        <h1>菜市场<span class="dot">·</span>Fresh Market</h1>
+        <div class="subtitle">Fresh Market — 6-Lesson Series</div>
         <div class="meta">
-          <span class="pill">8 Lessons</span>
+          <span class="pill">6 Lessons</span>
           <span class="sep"></span>
           <span class="pill">50 mins each</span>
           <span class="sep"></span>
           <span class="pill">轻松学中文 Book 3 · Unit 4</span>
+          <span class="sep"></span>
+          <span class="pill">课本 pp.90–99 · 作业本 pp.108–117</span>
         </div>
       </div>
     </div>
@@ -115,115 +117,100 @@
     <h2>Grammar Focus · 本单元语法点</h2>
     <div class="grammar-grid">
       <div class="grammar-item">
-        <div class="g-num">L1-2</div>
-        <div class="g-zh">比 (+还)</div>
-        <div class="g-en">Comparison: A + 比 + B + adj</div>
+        <div class="g-num">L1</div>
+        <div class="g-zh">我家附近有一个……</div>
+        <div class="g-en">There is a … near my home</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L2</div>
+        <div class="g-zh">价钱 + 量词</div>
+        <div class="g-en">Price + 斤 / 公斤 / 条 / 块</div>
       </div>
       <div class="grammar-item">
         <div class="g-num">L3</div>
-        <div class="g-zh">卖 / 各</div>
-        <div class="g-en">"Sells" + "every/all"</div>
+        <div class="g-zh">A 比 B + 形容词</div>
+        <div class="g-en">Comparison — and never 很 after 比</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L3–4</div>
+        <div class="g-zh">各种 · 部首</div>
+        <div class="g-en">All kinds of … + radicals 鲜活虾猪翅膀</div>
       </div>
       <div class="grammar-item">
         <div class="g-num">L5</div>
-        <div class="g-zh">有时候……有时候……</div>
-        <div class="g-en">Sometimes X, sometimes Y</div>
+        <div class="g-zh">多少钱一……？</div>
+        <div class="g-en">Asking a price; 不算太贵</div>
       </div>
       <div class="grammar-item">
-        <div class="g-num">L1, L6</div>
-        <div class="g-zh">量词 + 价钱</div>
-        <div class="g-en">Measure words + prices</div>
-      </div>
-      <div class="grammar-item">
-        <div class="g-num">L7</div>
-        <div class="g-zh">平时……但是……</div>
-        <div class="g-en">Usually X, but Y (exception)</div>
+        <div class="g-num">L6</div>
+        <div class="g-zh">平时……，但是……</div>
+        <div class="g-en">Usually X, but (today) Y</div>
       </div>
     </div>
   </div>
 
   <section class="lessons">
-    <div class="section-title">8 节课程 · Lesson Decks</div>
+    <div class="section-title">6 节课程 · Lesson Decks</div>
     <div class="lesson-grid">
 
       <div class="lesson-card">
         <a href="l1-market-vocab/" class="card-link">
           <div class="card-num">01</div>
-          <div class="card-title">菜市场词汇</div>
-          <div class="card-en">Market Vocabulary — Meat, Seafood &amp; Tofu</div>
+          <div class="card-title">菜市场的东西</div>
+          <div class="card-en">The Market and What It Sells — 市场・猪肉・新鲜・便宜</div>
           <span class="card-badge badge-vocab">Vocab + Writing</span>
         </a>
         <a href="l1-market-vocab/l1-market-vocab.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
       <div class="lesson-card">
-        <a href="l2-bi-comparison/" class="card-link">
+        <a href="l2-prices-measure-words/" class="card-link">
           <div class="card-num">02</div>
-          <div class="card-title">比字句</div>
-          <div class="card-en">比 Comparison Grammar</div>
-          <span class="card-badge badge-grammar">Grammar + Writing</span>
+          <div class="card-title">价钱与量词</div>
+          <div class="card-en">Prices by 斤 / 公斤 — 鸡肉・活鱼・活虾・豆腐</div>
+          <span class="card-badge badge-writing">Vocab + Writing</span>
         </a>
-        <a href="l2-bi-comparison/l2-bi-comparison.pptx" class="card-pptx">📥 PPTX</a>
+        <a href="l2-prices-measure-words/l2-prices-measure-words.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
       <div class="lesson-card">
-        <a href="l3-text1-shopping/" class="card-link">
+        <a href="l3-bi-comparison/" class="card-link">
           <div class="card-num">03</div>
-          <div class="card-title">课文一 · 买菜</div>
-          <div class="card-en">Text 1 Reading + Market Shopping Talk</div>
-          <span class="card-badge badge-reading">Reading + Writing</span>
+          <div class="card-title">比字句</div>
+          <div class="card-en">Comparing Two Things — A 比 B + 形容词・各种</div>
+          <span class="card-badge badge-grammar">Grammar + Mixed</span>
         </a>
-        <a href="l3-text1-shopping/l3-text1-shopping.pptx" class="card-pptx">📥 PPTX</a>
+        <a href="l3-bi-comparison/l3-bi-comparison.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
       <div class="lesson-card">
-        <a href="l4-snack-vocab/" class="card-link">
+        <a href="l4-text1-radicals/" class="card-link">
           <div class="card-num">04</div>
-          <div class="card-title">午饭和零食</div>
-          <div class="card-en">School Lunch &amp; Snack Vocabulary</div>
-          <span class="card-badge badge-vocab">Vocab + Writing</span>
+          <div class="card-title">课文一与部首</div>
+          <div class="card-en">Text 1 in Full + Radicals and Word Building</div>
+          <span class="card-badge badge-reading">Reading + Characters</span>
         </a>
-        <a href="l4-snack-vocab/l4-snack-vocab.pptx" class="card-pptx">📥 PPTX</a>
+        <a href="l4-text1-radicals/l4-text1-radicals.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
       <div class="lesson-card">
-        <a href="l5-text2-dialogue/" class="card-link">
+        <a href="l5-text2-canteen/" class="card-link">
           <div class="card-num">05</div>
-          <div class="card-title">课文二 · 学校午饭</div>
-          <div class="card-en">Text 2 Dialogue + Sentence Patterns</div>
-          <span class="card-badge badge-reading">Reading + Writing</span>
+          <div class="card-title">课文二 · 学校餐厅</div>
+          <div class="card-en">Lunch at the Canteen — 三明治・盒饭・薯片・薯条</div>
+          <span class="card-badge badge-speaking">Reading + Speaking</span>
         </a>
-        <a href="l5-text2-dialogue/l5-text2-dialogue.pptx" class="card-pptx">📥 PPTX</a>
+        <a href="l5-text2-canteen/l5-text2-canteen.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
       <div class="lesson-card">
-        <a href="l6-prices-measure-words/" class="card-link">
+        <a href="l6-snacks-habits/" class="card-link">
           <div class="card-num">06</div>
-          <div class="card-title">零食价钱和量词</div>
-          <div class="card-en">Snack Prices &amp; Measure Words</div>
-          <span class="card-badge badge-game">Game + Listening</span>
+          <div class="card-title">零食与习惯</div>
+          <div class="card-en">Snacks &amp; Habits — 炸鸡翅・糖果 + 平时……但是……</div>
+          <span class="card-badge badge-game">Mixed + Writing</span>
         </a>
-        <a href="l6-prices-measure-words/l6-prices-measure-words.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l7-shopping-interview/" class="card-link">
-          <div class="card-num">07</div>
-          <div class="card-title">买东西和日常习惯</div>
-          <div class="card-en">Shopping Roleplay + 但是 Contrast + Interview</div>
-          <span class="card-badge badge-speaking">Roleplay + Writing</span>
-        </a>
-        <a href="l7-shopping-interview/l7-shopping-interview.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l8-review-test-prep/" class="card-link">
-          <div class="card-num">08</div>
-          <div class="card-title">综合复习</div>
-          <div class="card-en">Review + Test Prep</div>
-          <span class="card-badge badge-review">Review + Test Prep</span>
-        </a>
-        <a href="l8-review-test-prep/l8-review-test-prep.pptx" class="card-pptx">📥 PPTX</a>
+        <a href="l6-snacks-habits/l6-snacks-habits.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 
     </div>

@@ -146,13 +146,14 @@
     {
       "id": "y9-l10",
       "title": "Y9 L10 · 菜市场 Fresh Market",
-      "description": "8 节课程幻灯片系列——Year 9 中文日常饮食单元第一课（菜市场词汇·比字句（+还）·课文一买菜·卖/各·午饭零食词汇·课文二学校午饭·有时候……有时候……·量词+价钱·买东西角色扮演·平时……但是……·综合复习），全新菜市场配色（砖红/翡翠绿/芥末金三色），含全屏演示与可编辑 PPTX 下载",
-      "createdAt": "2026-08-01",
+      "description": "6 节课程幻灯片系列——Year 9 第四单元第十课「菜市场」：市场词汇 · 价钱与量词（斤/公斤）· 比字句 · 课文一与部首 · 课文二学校餐厅 · 零食与「平时……但是……」。每页只introduce两个新词（配图）+ 例句 + 写一句三段循环，词汇总览与综合任务，教室投影字号下限，含全屏演示与可编辑 PPTX 下载",
+      "createdAt": "2026-09-14",
       "thumbnail": "designs/y9-l10/thumb.png",
       "type": "slides",
       "tags": [
         "Year 9",
         "中文",
+        "Market",
         "Food"
       ]
     },
@@ -167,20 +168,6 @@
         "Year 7",
         "中文",
         "Clothing"
-      ]
-    },
-    {
-      "id": "y9-l10-demo",
-      "title": "Y9 L10 Demo · 菜市场 Fresh Market (Lesson 1 of 6)",
-      "description": "示范课件——新版规范：每页只introduce两个新词（配图）+ 例句 + 写一句三段循环，词汇总览与综合任务，教室投影字号下限，可编辑 PPTX",
-      "createdAt": "2026-09-14",
-      "thumbnail": "designs/y9-l10-demo/thumb.png",
-      "type": "slides",
-      "tags": [
-        "Year 9",
-        "中文",
-        "Market",
-        "Demo"
       ]
     }
   ]
