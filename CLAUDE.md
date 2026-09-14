@@ -45,8 +45,8 @@ every slide is rejected:
 
 | Canvas | PPTX exporter |
 |---|---|
-| `1920px` (13 decks) | `scripts/export-deck-pptx-1920.mjs` — the skill's exporter with one line changed, since it hardcodes `LAYOUT_WIDE` |
-| `960pt` (y9-l10, y9-l11) | the skill's stock `export_deck_pptx.mjs` |
+| `960pt` — **use this for new decks** | the skill's stock `export_deck_pptx.mjs` |
+| `1920px` — legacy, 13 decks, don't add more | `scripts/export-deck-pptx-1920.mjs`, the skill's exporter with one line changed |
 
 PDF always uses the skill's `export_deck_pdf.mjs`, against the real slides.
 
@@ -130,3 +130,15 @@ index/designs/<design-id>/
 ```
 
 Each slide is a self-contained HTML file. Use descriptive filenames (`l1-hobbies-intro.html`, `l8-review-quiz.html`) so the structure is scannable.
+
+**New slide series use the 960pt canvas** — `width: 960pt; height: 540pt` in
+`shared/tokens.css`, type sized in `pt` with a 13pt readability floor. Copy
+`index/designs/y9-l11/shared/tokens.css` as the starting point; its header
+documents the scale (1pt = 2px on a 1080p projector).
+
+Why: `html2pptx.js` reads the body's CSS size as physical inches, so 960pt
+lands on 13.333in × 7.5in — PowerPoint's standard widescreen, and exactly
+pptxgenjs's `LAYOUT_WIDE`, so the skill's stock exporter works unforked. The
+older 1920px decks convert to a non-standard 20in × 11.25in and need the
+repo's forked exporter. Both look identical on a projector (each deck shell
+scales to fit); the canvas only shows up in the PPTX.
