@@ -2,7 +2,7 @@
 
 **Textbook**: 轻松学中文 1 (Easy Steps to Chinese 1)
 **Unit**: 5 | **Lessons**: 13 Colours 颜色 · 14 Clothing 穿着 · 15 Parts of the Body 人体部位
-**Page range**: textbook pp.96–122 · workbook pp.134–175
+**Page range**: textbook pp.96–123 · workbook pp.134–175
 **Audio**: CD tracks T60–T74
 
 This is the **final unit of Book 1**. Everything in Book 1 is fair game for recycling —
@@ -231,7 +231,7 @@ gōngniú · kùnnan · duǎnkù · chuántǒng · tiáozi · tàozhuāng · du�
 
 ---
 
-## Lesson 15: Parts of the Body 人体部位 — pp.114–122
+## Lesson 15: Parts of the Body 人体部位 — pp.114–123
 
 ### Core Vocabulary
 
@@ -314,6 +314,8 @@ shénme · kāishǐ · yīnyuè · xǐhuan · liúxíng · yáogǔn · xuéxiào
 | 121 | 10 | Game | **Simon Says**-style: teacher says a body part, students point; wrong = out |
 | 121 | 11 | Listening (T73) | Tick if true, cross if false — 6 people |
 | 122 | 12 | Group work | **Cumulative interview** — introduce a classmate's mother, 12 questions incl. 10) 她喜欢什么颜色？11) 她喜欢穿什么衣服？12) 她长什么样？ |
+| 123 | 13 | Game | **Guess who** — teacher or a student describes a member of the class or a teacher, the rest guess. Example: 他长得高高的。他有黑色的短发。他是中国人。→ 王老师。 |
+| 123 | 14 | Listening (T74) | Tick if true, cross if false — 8 statements about 小英 (age, year level, height, eyes, mouth, hair colour, hair length, outfit) |
 
 ---
 
@@ -397,9 +399,40 @@ for this lesson. Gloss it when the passage goes up rather than teaching it as a 
 p.102 answer box, which L14 p.105 Ex.1 then uses as its worked example. The colour-mixing
 exercise is the natural place to teach it.
 
-### Lesson 15 (pp.158–169)
-Same format mix. L15 adds 描述 (describe a person) writing tasks and a stroke-order
-block for 眼 睛 耳 朵 鼻 嘴 巴 手 脚 腿.
+### Lesson 15 (pp.158–169) — 19 exercises
+
+| # | Page | Type | What students do |
+|---|---|---|---|
+| 1 | 158 | Writing | Copy the radicals 厂 车 立 革 止 虫 with stroke order |
+| 2 | 159–160 | Writing | Copy Text 1 new words with stroke order: 眼 睛 耳 朵 鼻 嘴 巴 手 脚 腿 |
+| 3 | 160 | Reading | Match 7 pictures to a) 眼睛 b) 鼻子 c) 嘴巴 d) 耳朵 e) 手 f) 脚 g) 腿 |
+| 4 | 161 | Writing | Write the radical for 12 meanings: eye 目 · water 氵 · flesh 月 · sunset 夕 · clothing 衤 · mouth 口 · wood 木 · cave 穴 · food 饣 · metal 钅 · grass 艹 · page 页 |
+| 5 | 161 | Drawing | Draw the picture for 6 phrases: 大鼻子 · 小嘴巴 · 大眼睛 · 长腿 · 大耳朵 · 小手 |
+| 6 | 162 | Writing | Fill the missing dates on a June 2007 calendar, then answer 4 date questions (今天几月几号？今天星期几？六月十日是星期几？七月一日是星期几？) |
+| 7 | 162 | Writing | Answer 4 questions about your own body: 你的眼睛大吗？你的嘴巴小吗？你的腿长吗？你的耳朵大吗？ |
+| 8 | 163 | Colouring | Colour 6 figures and write one sentence about each. Example 他穿灰色的校服。 |
+| 9 | 164 | Writing | Copy Text 2 new words with stroke order: 得 矮 高 头 发 样 |
+| 10 | 165 | Writing | Write one sentence about each of 8 faces/figures. Example 他有大大的眼睛。 |
+| 11 | 166 | Reading | 6×6 character grid — circle 12 phrases and write them out (眼睛 耳朵 嘴巴 腿 鼻子 头发 校服 外套 衬衫 短 长 粉红色 牛仔裤…) |
+| 12 | 166 | Writing | Write the time in Chinese ×6. Example 七点零五分 |
+| 13 | 167 | Writing | **Write a few sentences about each picture.** Example 她长得矮矮的。她有大大的眼睛、小小的鼻子和嘴巴。她的头发不长。 |
+| 14 | 167 | Writing | Answer 你长什么样？ and 你爸爸长什么样？ in 3 lines each |
+| 15 | 168 | Writing | Rearrange words into a sentence/question ×5 (他/上学/每天/穿/校服 → 他每天穿校服上学。· 喜欢/橙色/她/白色/和 · 爸爸/开车/每天/上班 · 王星/九点/晚上/睡觉 · 有/你/姐姐/几个) |
+| 16 | 168 | Writing | Write two characters for each radical ×6: 忄 口 衤 亻 夕 女 |
+| 17 | 168 | Writing | Make a question with each question word ×6: 几 谁 吗 什么 怎么 哪儿 |
+| 18 | 169 | Writing | Add a word to form a phrase ×9: 下午→午__ · 长裤→裤__ · 中学→学__ · 大火→火__ · 毛衣→衣__ · 早上→上__ · 明年→年__ · 学校→校__ · 出汗→汗__ |
+| 19 | 169 | Reading | Comprehension — 毛小红 passage (age 12, Chinese, big eyes, small nose, big ears, short black hair, wears uniform to school, today in a white shirt and blue short skirt, doesn't like her uniform or its colour) + 5 true/false, then **"Write a similar passage about yourself."** |
+
+**Exercise 19 is the best in-class reading for this lesson** — it is the only text in
+the unit that combines age, nationality, body description, hair, uniform, today's
+outfit and an opinion about a colour, which is the exact span of Test Part 11. Its
+"It is your turn!" tail is the natural end-of-sequence writing task.
+
+**Exercise 13 is the single most valuable writing exercise** — its worked example is a
+model paragraph for 长得 + 有…的 + 头发, and it is what Test Part 11 asks for.
+
+**Exercises 6 and 12 are pure Unit 4 revision** (dates, telling the time) dropped into
+the last lesson of the book. Use them as Review-phase material, not as new teaching.
 
 ---
 
