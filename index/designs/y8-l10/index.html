@@ -2,244 +2,127 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Y8 L10 · 蔬菜、水果 Vegetables and Fruits</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #FBFAF2; --text: #24321C; --text-muted: #5C6650;
-    --accent: #5C8A3A; --accent-orange: #E08A3C; --accent-tomato: #C94F3D;
-    --border: #E1DBC0; --card-bg: #F2EFDE;
-    --font-display: 'Noto Serif SC', 'Songti SC', serif;
-    --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FBFAF2; --bg2:#F2EFDE; --line:#E1DBC0;
+    --ink:#24321C; --ink2:#4E5A42; --mute:#78805F;
+    --green:#4C7A2C; --orange:#B96A12; --tomato:#B93F2C;
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Noto Sans','Noto Sans SC','PingFang SC',-apple-system,sans-serif;
   }
-  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-
-  /* Hero */
-  .hero { padding: 56px 0 48px; position: relative; overflow: hidden; }
-  .hero-inner { display: flex; align-items: center; gap: 36px; }
-  .hero-text { display: flex; flex-direction: column; }
-  .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
-  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
-  .hero h1 .dot { color: var(--accent); }
-  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.02em; }
-  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
-  .meta .pill { background: var(--card-bg); padding: 5px 14px; border-radius: 999px; }
-  .meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
-
-  .hero-motif { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.7; }
-
-  /* Lesson Grid */
-  .lessons { padding: 0 0 80px; }
-  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; color: var(--text-muted); letter-spacing: 0.04em; }
-  .lesson-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-
-  .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; }
-  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(36,50,28,0.10); border-color: var(--accent); }
-  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
-  .card-num { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--accent); opacity: 0.25; line-height: 1; margin-bottom: -8px; }
-  .card-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-  .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.03em; }
-  .card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-top: auto; }
-  .card-pptx { display: block; margin-top: 12px; text-align: center; font-size: 12px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 5px 0; border-radius: 6px; transition: background 0.2s, color 0.2s; }
-  .card-pptx:hover { background: var(--accent); color: #fff; }
-
-  .badge-vocab { background: #E9F1E1; color: #4A7530; }
-  .badge-grammar { background: #FBEBDA; color: #B96A24; }
-  .badge-listening { background: #F9E4E1; color: #B33F2F; }
-  .badge-reading { background: #EEF2E1; color: #5A7D2E; }
-  .badge-writing { background: #E5EDF5; color: #3E6D8A; }
-  .badge-speaking { background: #F0E8F5; color: #6D4E8A; }
-
-  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
-  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
-  .top-nav a:hover { color: var(--accent); }
-  footer { border-top: 1px solid var(--border); padding: 32px 0; font-size: 14px; color: var(--text-muted); letter-spacing: 0.04em; }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  /* Grammar summary panel */
-  .grammar-panel { margin-bottom: 48px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; }
-  .grammar-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
-  .grammar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-  .grammar-item { text-align: center; padding: 16px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
-  .grammar-item .g-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-  .grammar-item .g-zh { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-  .grammar-item .g-en { font-size: 13px; color: var(--text-muted); }
-
-  @media (max-width: 1100px) {
-    .grammar-grid { grid-template-columns: repeat(3,1fr); }
-  }
-  @media (max-width: 900px) {
-    .lesson-grid { grid-template-columns: repeat(2,1fr); }
-    .grammar-grid { grid-template-columns: repeat(2,1fr); }
-    .hero h1 { font-size: 40px; }
-  }
-  @media (max-width: 640px) {
-    .lesson-grid { grid-template-columns: 1fr; }
-    .grammar-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 32px; }
-  }
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+       padding:0 0 96px;line-height:1.55}
+  .topbar{border-bottom:1px solid var(--line);padding:16px 32px;margin-bottom:56px}
+  .topbar a{color:var(--ink2);text-decoration:none;font-size:14px}
+  .topbar a:hover{color:var(--green)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+  h1{font-family:var(--serif);font-size:64px;font-weight:900;line-height:1.08;margin:14px 0 6px}
+  .sub{font-family:var(--serif);font-size:27px;font-weight:700;color:var(--green)}
+  .meta{font-size:15px;color:var(--ink2);margin-top:20px;max-width:660px}
+  .rule{height:4px;background:var(--green);width:96px;margin:34px 0 44px;border-radius:2px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--bg2);
+         border:2px solid var(--line);border-radius:18px;padding:26px 28px 28px;
+         transition:border-color .15s, transform .15s}
+  a.card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .n{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+  .t{font-family:var(--serif);font-size:34px;font-weight:900;margin:10px 0 2px;line-height:1.2}
+  .e{font-size:16px;color:var(--green);font-weight:500}
+  .d{font-size:14px;color:var(--ink2);margin-top:14px}
+  .w{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);
+     font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink)}
+  .w span{color:var(--mute);font-weight:400;font-size:13px;font-family:var(--sans);
+          display:block;margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase}
+  .focus{background:var(--bg2);border:2px solid var(--line);border-radius:18px;
+         padding:26px 30px 30px;margin-bottom:34px}
+  .focus h2{font-family:var(--serif);font-size:23px;font-weight:900;margin-bottom:18px}
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .fcell{background:var(--bg);border:1px solid var(--line);border-radius:12px;
+         padding:14px 16px;text-align:center}
+  .fcell .l{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--tomato)}
+  .fcell .p{font-family:var(--serif);font-size:25px;font-weight:900;margin:6px 0 3px}
+  .fcell .g{font-size:12.5px;color:var(--ink2)}
+  footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
+         font-size:14px;color:var(--mute);max-width:760px}
+  footer b{color:var(--ink2)}
 </style>
 </head>
 <body>
-
-<div class="top-nav">
-  <div class="container">
-    <a href="../../">← Deck Gallery · 设计画廊</a>
+<div class="topbar"><a href="../../">← Deck Gallery · 设计画廊</a></div>
+<div class="wrap">
+  <p class="kicker">轻松学中文 2 · Unit 4 · Lesson 10</p>
+  <h1>蔬菜、水果</h1>
+  <p class="sub">Vegetables and Fruits · Year 8</p>
+  <p class="meta">Six 50-minute lessons. Eighteen new words spread across the sequence — four to six
+  per lesson, each pair taught as a three-slide cycle: the words, then the words used, then the
+  students using them. Revision happens inside every lesson rather than in a review lesson at the end.</p>
+  <div class="rule"></div>
+  <div class="focus">
+    <h2>Grammar Focus · 本课语法点</h2>
+    <div class="fgrid">
+      <div class="fcell"><p class="l">L1</p><p class="p">你喜欢吃什么蔬菜？</p><p class="g">Asking preference in a category</p></div>
+      <div class="fcell"><p class="l">L2</p><p class="p">应该 + 动词</p><p class="g">Should — before the verb, never after</p></div>
+      <div class="fcell"><p class="l">L2</p><p class="p">A、B、C 等等</p><p class="g">Closing a list</p></div>
+      <div class="fcell"><p class="l">L3</p><p class="p">……，可是……</p><p class="g">Joining two clauses that disagree</p></div>
+      <div class="fcell"><p class="l">L4</p><p class="p">A、B、C，我都……</p><p class="g">都 covering a whole list</p></div>
+      <div class="fcell"><p class="l">L5</p><p class="p">这些 / 那些 / 一些</p><p class="g">些 is already the measure word</p></div>
+      <div class="fcell"><p class="l">L6</p><p class="p">两三种</p><p class="g">Consecutive numbers = approximation</p></div>
+    </div>
   </div>
+  <div class="grid">
+    <a class="card" href="l1-vegetables-vocab/">
+      <p class="n">Lesson 1 of 6</p>
+      <p class="t">蔬菜</p>
+      <p class="e">Vegetables</p>
+      <p class="d">Six vegetables in three cycles, then a sorting task that needs all six and a vegetable interview.</p>
+      <p class="w"><span>New words · 6</span>蔬菜 · 生菜 · 黄瓜 · 土豆 · 菜花儿 · 西红柿</p>
+    </a>
+    <a class="card" href="l2-yinggai-should/">
+      <p class="n">Lesson 2 of 6</p>
+      <p class="t">应该</p>
+      <p class="e">Should · listing with 等等</p>
+      <p class="d">Giving and reporting advice, plus closing a list with 等等. Writing-focused: sentence completion, translation, Sentence Jumble.</p>
+      <p class="w"><span>New words · 5</span>青菜 · 南瓜 · 应该 · 非常 · 等等</p>
+    </a>
+    <a class="card" href="l3-keshi-text1/">
+      <p class="n">Lesson 3 of 6</p>
+      <p class="t">可是</p>
+      <p class="e">But · Text 1 · the project</p>
+      <p class="d">Joining two clauses that disagree, the whole Text 1 dialogue, the ie/üe pinyin focus, and the supermarket drawing project.</p>
+      <p class="w"><span>New words · 5</span>可是 · 食 · 果 · 欠 · 石</p>
+    </a>
+    <a class="card" href="l4-fruits-vocab/">
+      <p class="n">Lesson 4 of 6</p>
+      <p class="t">水果</p>
+      <p class="e">Fruits · 都</p>
+      <p class="d">Four fruits in two cycles, 都 covering a list, and a sorting task over all ten food words.</p>
+      <p class="w"><span>New words · 4</span>水果 · 苹果 · 香蕉 · 橘子</p>
+    </a>
+    <a class="card" href="l5-zhexie-text2/">
+      <p class="n">Lesson 5 of 6</p>
+      <p class="t">这些</p>
+      <p class="e">These · Text 2</p>
+      <p class="d">Two more fruits, the 这些/那些/一些 family, the whole Text 2 dialogue, and 这些…是谁的？</p>
+      <p class="w"><span>New words · 3</span>西瓜 · 梨 · 这些</p>
+    </a>
+    <a class="card" href="l6-zhong-ranges/">
+      <p class="n">Lesson 6 of 6</p>
+      <p class="t">两三种</p>
+      <p class="e">Kinds · number ranges</p>
+      <p class="d">The measure word 种 and approximate ranges. The plenary looks back over the whole sequence.</p>
+      <p class="w"><span>New words · 1</span>种 · 两三 · 三四 · 四五</p>
+    </a>
+  </div>
+  <footer>
+    <p>Textbook pp.90–99 · workbook pp.108–117. Every listening exercise is written to be <b>read aloud
+    by the teacher</b> — the track&nbsp;47 and track&nbsp;50 scripts are transcribed into the lesson plans,
+    so the CD is not needed.</p>
+  </footer>
 </div>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-motif">菜</div>
-      <div class="hero-text">
-        <div class="unit-tag">Year 8 · Unit 4 · Lesson 10</div>
-        <h1>蔬菜<span class="dot">·</span> 水果</h1>
-        <div class="subtitle">Vegetables and Fruits — 8-Lesson Series</div>
-        <div class="meta">
-          <span class="pill">8 Lessons</span>
-          <span class="sep"></span>
-          <span class="pill">50 mins each</span>
-          <span class="sep"></span>
-          <span class="pill">轻松学中文 Book 2 Unit 4</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container">
-
-  <!-- Grammar overview -->
-  <div class="grammar-panel">
-    <h2>Grammar Focus · 本单元语法点</h2>
-    <div class="grammar-grid">
-      <div class="grammar-item">
-        <div class="g-num">L10.1</div>
-        <div class="g-zh">非常喜欢吃</div>
-        <div class="g-en">Like eating very much</div>
-      </div>
-      <div class="grammar-item">
-        <div class="g-num">L10.2</div>
-        <div class="g-zh">应该</div>
-        <div class="g-en">Should</div>
-      </div>
-      <div class="grammar-item">
-        <div class="g-num">L10.3</div>
-        <div class="g-zh">可是</div>
-        <div class="g-en">But</div>
-      </div>
-      <div class="grammar-item">
-        <div class="g-num">L10.6</div>
-        <div class="g-zh">这些 / 那些 / 一些</div>
-        <div class="g-en">These / those / some</div>
-      </div>
-      <div class="grammar-item">
-        <div class="g-num">L10.7</div>
-        <div class="g-zh">种 + 两三种</div>
-        <div class="g-en">Kind/type + number ranges</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lesson Cards -->
-  <section class="lessons">
-    <div class="section-title">8 节课程 · Lesson Decks</div>
-    <div class="lesson-grid">
-
-      <div class="lesson-card">
-        <a href="l1-vegetables-vocab/" class="card-link">
-          <div class="card-num">01</div>
-          <div class="card-title">蔬菜词汇</div>
-          <div class="card-en">Vegetables Vocabulary</div>
-          <span class="card-badge badge-vocab">Vocab + Writing</span>
-        </a>
-        <a href="l1-vegetables-vocab/l1-vegetables-vocab.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l2-yinggai-should/" class="card-link">
-          <div class="card-num">02</div>
-          <div class="card-title">应该 · 给建议</div>
-          <div class="card-en">应该 (Should) — Giving Advice</div>
-          <span class="card-badge badge-grammar">Grammar + Game</span>
-        </a>
-        <a href="l2-yinggai-should/l2-yinggai-should.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l3-keshi-text1/" class="card-link">
-          <div class="card-num">03</div>
-          <div class="card-title">可是 + 课文一</div>
-          <div class="card-en">可是 (But) + Full Text 1</div>
-          <span class="card-badge badge-reading">Grammar + Reading</span>
-        </a>
-        <a href="l3-keshi-text1/l3-keshi-text1.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l4-pinyin-characters/" class="card-link">
-          <div class="card-num">04</div>
-          <div class="card-title">拼音 + 简单汉字</div>
-          <div class="card-en">Pinyin ie/üe + Simple Characters</div>
-          <span class="card-badge badge-listening">Listening + Characters</span>
-        </a>
-        <a href="l4-pinyin-characters/l4-pinyin-characters.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l5-fruits-vocab/" class="card-link">
-          <div class="card-num">05</div>
-          <div class="card-title">水果词汇</div>
-          <div class="card-en">Fruits Vocabulary</div>
-          <span class="card-badge badge-vocab">Vocab + Writing</span>
-        </a>
-        <a href="l5-fruits-vocab/l5-fruits-vocab.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l6-zhexie-naxie-text2/" class="card-link">
-          <div class="card-num">06</div>
-          <div class="card-title">这些/那些/一些 + 课文二</div>
-          <div class="card-en">这些/那些/一些 + 都 + Full Text 2</div>
-          <span class="card-badge badge-grammar">Grammar + Game</span>
-        </a>
-        <a href="l6-zhexie-naxie-text2/l6-zhexie-naxie-text2.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l7-zhong-ranges/" class="card-link">
-          <div class="card-num">07</div>
-          <div class="card-title">种 + 数量范围</div>
-          <div class="card-en">种 (Kind/Type) + Number Ranges</div>
-          <span class="card-badge badge-listening">Grammar + Listening</span>
-        </a>
-        <a href="l7-zhong-ranges/l7-zhong-ranges.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-      <div class="lesson-card">
-        <a href="l8-consolidation-review/" class="card-link">
-          <div class="card-num">08</div>
-          <div class="card-title">综合复习</div>
-          <div class="card-en">Consolidation and Review</div>
-          <span class="card-badge badge-speaking">Speaking + Review</span>
-        </a>
-        <a href="l8-consolidation-review/l8-consolidation-review.pptx" class="card-pptx">📥 PPTX</a>
-      </div>
-
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <div class="container">
-    Y8 Chinese · Unit 4 Vegetables and Fruits 蔬菜、水果 · 8-lesson deck series · <a href="../../">← Back to Gallery</a>
-  </div>
-</footer>
-
 </body>
 </html>
