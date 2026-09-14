@@ -35,88 +35,51 @@ Downloadable `.pptx` / `.pdf` exports (linked from a design's `index.html`) are 
 
 ## Editable PPTX export
 
-The shipped `.pptx` files carry **real, editable text runs and shapes** — not
-pictures of slides. `pptxgenjs` (via the huashu-design skill's `html2pptx.js`)
-converts slide HTML into native PowerPoint objects. `playwright` measures the
-slides, `sharp` rasterises drawings, `pdf-lib` backs the PDF path. All four are
-local-only tooling and must never be installed on deploy (see [Deployment](#deployment)).
+The exporter is generic: the huashu-design skill's `html2pptx.js` turns slide
+HTML into native PowerPoint text runs and shapes (real editable text, not
+pictures). Everything in `scripts/` around it is a prep or check pass, also
+design-agnostic. Per-series scripts exist only where lesson *content* is
+generated.
 
-### Pick the exporter by canvas size
+**Exporting a deck** — pick by the canvas its `shared/tokens.css` declares, or
+every slide is rejected:
 
-This repo has two slide canvases, and the PPTX layout must match or **every
-slide is rejected**:
+| Canvas | PPTX exporter |
+|---|---|
+| `1920px` (13 decks) | `scripts/export-deck-pptx-1920.mjs` — the skill's exporter with one line changed, since it hardcodes `LAYOUT_WIDE` |
+| `960pt` (y9-l10, y9-l11) | the skill's stock `export_deck_pptx.mjs` |
 
-| Deck canvas (`shared/tokens.css`) | Exporter | Designs |
-|---|---|---|
-| `width: 1920px` | `scripts/export-deck-pptx-1920.mjs` (20in × 11.25in) | y7-l10…l14, y8-l7…l11, y9-l7…l9 |
-| `width: 960pt` | the **skill's stock** `.claude/skills/huashu-design/scripts/export_deck_pptx.mjs` (`LAYOUT_WIDE`, 13.33in × 7.5in) | y9-l10, y9-l11 |
+PDF always uses the skill's `export_deck_pdf.mjs`, against the real slides.
 
-> The header of `export-deck-pptx-1920.mjs` claims it is the one to use for
-> every deck here. That predates the 960pt decks — trust the table.
+Copy the nearest working script rather than starting fresh —
+`scripts/export_y7_l13.sh` (1920px, inline SVG) or `scripts/y9l11/export.sh`
+(960pt, external SVG). They are near-identical wrappers; the deltas are the
+deck list, the exporter, and SVG handling. Both print `pptx N/N` per deck and
+exit non-zero on a partial count — read the count, don't assume success.
 
-PDF export always uses the skill's `export_deck_pdf.mjs`, and runs against the
-**real** slides (it's a browser print, so no massaging needed).
+**Why they export from a temp copy:** `html2pptx.js` requires text in
+`<p>`/`<h1-6>`, no SVG, no CSS gradients, no `background-image` on divs,
+background/border/shadow only on a `<div>`, and no text within 0.5" of an edge.
+The served slides deliberately break these — wrapping text in place injects `<p>`
+margins that overflow ~84 slides. So each script copies the slides, runs
+`wrap-leaf-text.mjs` / `svg_to_png.mjs` and appended CSS on the copy, and
+exports that. Never fix the served slides to please the exporter.
 
-### Export runs against a throwaway copy, never the served slides
-
-`html2pptx.js` imposes constraints the served slides deliberately do not meet —
-satisfying them in place would wreck the pages (injected `<p>` margins alone
-overflow ~84 slides). So each export script copies the slides to a temp dir,
-fixes them there, and exports from the copy:
-
-* **Text must sit in `<p>`/`<h1-6>`/`<ul>`/`<ol>`** — our text lives in `<div>`s
-  and header `<span>`s. `scripts/wrap-leaf-text.mjs` wraps it on the copy, and
-  appended CSS zeroes the resulting margins.
-* **pptxgenjs cannot read SVG.** `scripts/svg_to_png.mjs` handles *inline*
-  `<svg>`; decks referencing external `img/*.svg` need a `sharp` pass plus a
-  `sed` rewriting the references (see `scripts/y9l11/export.sh`).
-* **No text within 0.5" of a slide edge**, and no margins on inline elements —
-  both fixed by CSS appended to the copy's stylesheet.
-* **Background, border and shadow survive only on a `<div>`**, never on a text
-  element. A styled chip must be `<div class="x"><p>…</p></div>`.
-* Also unsupported: CSS gradients, `background-image` on divs.
-
-### Working examples
-
-Only two series have their export committed; the rest were exported ad hoc.
-Copy whichever matches your canvas:
-
-```bash
-bash scripts/export_y7_l13.sh    # 1920px canvas, inline SVG
-bash scripts/y9l11/export.sh     # 960pt canvas, external SVG files
-```
-
-Both print `✓ <deck>  pptx N/N · pdf ✓` per deck and exit non-zero if any deck
-exports incompletely — a partial count means constraints were violated, so read
-the count rather than assuming success.
-
-### Building the slides themselves
-
-Slide *content* is generated per series by its own Python builder — these are
-not superseded by one another, each encodes its own lesson content and layout
-invariants:
-
-```
-scripts/build_y7_l13.py          scripts/y8l11/build.py   (+ l1..l5.py, manifests)
-scripts/build_y8_l10.py          scripts/y9l11/build.py   (+ art.py, l1..l5.py)
-```
-
-`scripts/y9l11/README.md` documents that series end to end, including the
-layout invariants its builder enforces (max two new words per vocabulary slide,
-max three worked examples, six listening items in two columns, …). Read it
-before building a new series — those limits are measured, not stylistic.
-
-### Verify before shipping
-
-`scripts/check_slides.mjs` is the **only** checker; it catches content clipped
-inside `.slide-content` and type under the classroom floor, and it measures each
-deck at the canvas that deck declares. Measuring at the wrong size mis-reports
-overflow, which is why the two canvases matter here too.
+**Verify before shipping** (`check_slides.mjs` is the only checker; it measures
+each deck at the canvas that deck declares):
 
 ```bash
 python3 -m http.server 8087 --directory index &
 node scripts/check_slides.mjs --design y9-l11
 ```
+
+**Slide content** was authored directly for 11 of the 15 series. Four recent
+ones instead generate it from a Python builder — `scripts/build_y7_l13.py`,
+`build_y8_l10.py`, `y8l11/build.py`, `y9l11/build.py` — which encode that
+series' lesson content plus measured layout limits (max two new words per
+vocabulary slide, max three worked examples, …). A builder is optional, and
+only worth it for a multi-deck series; see `scripts/y9l11/README.md`. Where one
+exists it is the source of truth — edit the builder, not its slides.
 
 ## URL routing
 
