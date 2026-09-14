@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y7 L14 · 穿着 Clothing</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #FBF9F4; --text: #221F1A; --text-muted: #56514A;
+    --accent: #2C4C7C; --accent-madder: #B03C2C; --accent-olive: #5F7040;
+    --border: #E2DBC8; --card-bg: #F2EFE7;
+    --font-display: 'Noto Serif SC', 'Songti SC', serif;
+    /* Latin first — Noto Sans SC renders first-tone ā with the macron
+       shifted right, which turns "chuān" into "chuaīn". */
+    --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); }
+
+  .hero { padding: 56px 0 44px; }
+  .hero-inner { display: flex; align-items: center; gap: 36px; }
+  .hero-text { display: flex; flex-direction: column; }
+  .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
+  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+  .hero h1 .dot { color: var(--accent-madder); }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 20px; }
+  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .meta .pill { background: var(--card-bg); padding: 5px 14px; border-radius: 999px; }
+  .meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .hero-motif { width: 128px; height: 128px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); opacity: 0.85; }
+  .hero-motif svg { width: 66px; height: auto; }
+
+  .vocab-panel { margin-bottom: 44px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 30px 34px; }
+  .vocab-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .vocab-panel .lede { font-size: 14px; color: var(--text-muted); margin-bottom: 22px; }
+  .vocab-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .v-item { text-align: center; padding: 14px 10px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+  .v-item .v-zh { font-family: var(--font-display); font-size: 21px; font-weight: 700; margin-bottom: 2px; }
+  .v-item .v-py { font-size: 13px; color: var(--accent); }
+  .v-item .v-en { font-size: 12px; color: var(--text-muted); }
+
+  .lessons { padding: 0 0 72px; }
+  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 10px; color: var(--text-muted); }
+  .section-lede { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; max-width: 760px; }
+  .lesson-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; min-width: 0; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; display: flex; flex-direction: column; }
+  .card-preview { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top center; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(34,31,26,.10); border-color: var(--accent); }
+  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .lesson-card:hover .card-preview { filter: saturate(1.05) brightness(1.02); }
+  .card-num { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--accent); opacity: .22; line-height: 1; margin-bottom: -6px; }
+  .card-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; }
+  .card-words { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .card-words b { font-family: var(--font-display); font-size: 15px; color: var(--text); font-weight: 700; }
+  .card-foot { display: flex; align-items: center; gap: 8px; margin-top: auto; }
+  .card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+  .badge-mixed    { background: #E5EAF2; color: #2C4470; }
+  .badge-speaking { background: #E3F2EF; color: #1E6055; }
+  .badge-writing  { background: #EDE8F5; color: #5A3E8A; }
+  .slide-count { font-size: 12px; color: var(--text-muted); }
+  .card-pdf { display: block; margin: 0 24px 22px; text-align: center; font-size: 12px; letter-spacing: .04em; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 6px 0; border-radius: 6px; transition: background .2s, color .2s; }
+  .card-pdf:hover { background: var(--accent); color: #fff; }
+
+  .note { background: var(--card-bg); border-left: 4px solid var(--accent-madder); border-radius: 0 12px 12px 0; padding: 20px 26px; margin-bottom: 44px; font-size: 15px; color: var(--text-muted); }
+  .note b { color: var(--text); }
+
+  footer { border-top: 1px solid var(--border); padding: 30px 0; font-size: 14px; color: var(--text-muted); }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+    .vocab-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero h1 { font-size: 40px; }
+  }
+  @media (max-width: 560px) {
+    .lesson-grid { grid-template-columns: 1fr; }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav"><div class="container"><a href="../../">&larr; Deck</a></div></div>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-motif">
+      <svg viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2C4C7C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M70 56 L70 188 L150 188 L150 56"/>
+        <path d="M70 56 L34 76 L48 118 L70 106"/>
+        <path d="M150 56 L186 76 L172 118 L150 106"/>
+        <path d="M70 56 L92 48 L110 72 L128 48 L150 56"/>
+        <path d="M110 72 L110 188"/>
+        <circle cx="110" cy="100" r="5" fill="#2C4C7C" stroke="none"/>
+        <circle cx="110" cy="132" r="5" fill="#2C4C7C" stroke="none"/>
+        <circle cx="110" cy="164" r="5" fill="#2C4C7C" stroke="none"/>
+      </svg>
+    </div>
+    <div class="hero-text">
+      <span class="unit-tag">Year 7 · Book 1 · Unit 5 · Lesson 14</span>
+      <h1>穿着<span class="dot">·</span>Clothing</h1>
+      <p class="subtitle">Six 50-minute classroom decks · 轻松学中文 1, 课本 pp.104–113 · 练习册 pp.146–157</p>
+      <div class="meta">
+        <span class="pill">6 lessons</span><span class="sep"></span>
+        <span class="pill">109 slides</span><span class="sep"></span>
+        <span class="pill">11 core words</span><span class="sep"></span>
+        <span class="pill">CD T65–T69</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="vocab-panel">
+    <h2>核心生词 · The eleven core words</h2>
+    <p class="lede">Spread across the six lessons at four to six new words each, because every pair runs a three-slide cycle: the words, the words used in sentences, then students writing one.</p>
+    <div class="vocab-grid">
+      <div class="v-item"><div class="v-zh">穿</div><div class="v-py">chuān</div><div class="v-en">wear</div></div>
+      <div class="v-item"><div class="v-zh">衬衫</div><div class="v-py">chènshān</div><div class="v-en">shirt</div></div>
+      <div class="v-item"><div class="v-zh">牛仔裤</div><div class="v-py">niúzǎikù</div><div class="v-en">jeans</div></div>
+      <div class="v-item"><div class="v-zh">裙子</div><div class="v-py">qúnzi</div><div class="v-en">skirt</div></div>
+      <div class="v-item"><div class="v-zh">长裤</div><div class="v-py">chángkù</div><div class="v-en">trousers</div></div>
+      <div class="v-item"><div class="v-zh">短裤</div><div class="v-py">duǎnkù</div><div class="v-en">shorts</div></div>
+      <div class="v-item"><div class="v-zh">汗衫</div><div class="v-py">hànshān</div><div class="v-en">T-shirt</div></div>
+      <div class="v-item"><div class="v-zh">衣服</div><div class="v-py">yīfu</div><div class="v-en">clothing</div></div>
+      <div class="v-item"><div class="v-zh">校服</div><div class="v-py">xiàofú</div><div class="v-en">uniform</div></div>
+      <div class="v-item"><div class="v-zh">毛衣</div><div class="v-py">máoyī</div><div class="v-en">sweater</div></div>
+      <div class="v-item"><div class="v-zh">外套</div><div class="v-py">wàitào</div><div class="v-en">coat</div></div>
+      <div class="v-item"><div class="v-zh">长 / 短</div><div class="v-py">cháng / duǎn</div><div class="v-en">long / short</div></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <b>两个复习题，课本里没有。</b> Workbook Revision p.171 asks 你穿什么校服？ and 你喜欢你的校服吗？ —
+    two questions that appear nowhere in the textbook lesson but are on the list students are tested from.
+    They are taught in Lesson 4.
+  </div>
+
+  <section class="lessons">
+    <h2 class="section-title">六节课 · The sequence</h2>
+    <p class="section-lede">No revision lesson at the end — the sequence ends on content. Revision happens in each lesson's opening eight minutes, and the Unit Test's own formats (category sorting, radical → meaning, word-order repair, translation both ways, picture description) are used as the practice activities throughout.</p>
+    <div class="lesson-grid">
+
+      <div class="lesson-card">
+        <a class="card-link" href="l1-chuan-text1/">
+          <img class="card-preview" src="l1-chuan-text1/preview.png" alt="两个生词一张 · 穿 和 衬衫" width="760" height="428">
+          <div class="card-body">        <div class="card-num">01</div>
+        <div class="card-title">穿 + 课文一</div>
+        <div class="card-en">The verb, and the first three garments</div>
+        <div class="card-words">新词 <b>穿 · 衬衫 · 牛仔裤 · 裙子</b></div>
+        <div class="card-foot"><span class="card-badge badge-mixed">Mixed</span><span class="slide-count">19 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l1-chuan-text1/l1-chuan-text1.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="lesson-card">
+        <a class="card-link" href="l2-colour-garment/">
+          <img class="card-preview" src="l2-colour-garment/preview.png" alt="两个生词一张 · 长裤 和 短裤" width="760" height="428">
+          <div class="card-body">        <div class="card-num">02</div>
+        <div class="card-title">颜色的衣服</div>
+        <div class="card-en">Colour + 的 + garment · long and short</div>
+        <div class="card-words">新词 <b>长裤 · 短裤 · 汗衫 · 天蓝色</b></div>
+        <div class="card-foot"><span class="card-badge badge-speaking">Speaking</span><span class="slide-count">17 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l2-colour-garment/l2-colour-garment.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="lesson-card">
+        <a class="card-link" href="l3-text2-yifu/">
+          <img class="card-preview" src="l3-text2-yifu/preview.png" alt="课文二 · 你喜欢穿什么衣服？" width="760" height="428">
+          <div class="card-body">        <div class="card-num">03</div>
+        <div class="card-title">你喜欢穿什么衣服？</div>
+        <div class="card-en">Text 2 · listing with 、 and 和</div>
+        <div class="card-words">新词 <b>衣服 · 校服 · 毛衣 · 外套</b></div>
+        <div class="card-foot"><span class="card-badge badge-mixed">Mixed</span><span class="slide-count">19 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l3-text2-yifu/l3-text2-yifu.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="lesson-card">
+        <a class="card-link" href="l4-school-uniform/">
+          <img class="card-preview" src="l4-school-uniform/preview.png" alt="句型 · 穿。不是「是」。" width="760" height="428">
+          <div class="card-body">        <div class="card-num">04</div>
+        <div class="card-title">校服</div>
+        <div class="card-en">你上学穿校服吗？ → 穿。 not 是。</div>
+        <div class="card-words">新词 <b>帽子 · 手套 · 围巾 · 袜子</b></div>
+        <div class="card-foot"><span class="card-badge badge-speaking">Role-play</span><span class="slide-count">18 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l4-school-uniform/l4-school-uniform.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="lesson-card">
+        <a class="card-link" href="l5-describing-outfits/">
+          <img class="card-preview" src="l5-describing-outfits/preview.png" alt="句型 · 他穿……和……" width="760" height="428">
+          <div class="card-body">        <div class="card-num">05</div>
+        <div class="card-title">他穿什么？</div>
+        <div class="card-en">Writing what people wear</div>
+        <div class="card-words">新词 <b>皮鞋 · 运动鞋 · 西装 · 领带</b></div>
+        <div class="card-foot"><span class="card-badge badge-writing">Writing</span><span class="slide-count">17 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l5-describing-outfits/l5-describing-outfits.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="lesson-card">
+        <a class="card-link" href="l6-profiles/">
+          <img class="card-preview" src="l6-profiles/preview.png" alt="范文 · 一份介绍" width="760" height="428">
+          <div class="card-body">        <div class="card-num">06</div>
+        <div class="card-title">介绍一个人</div>
+        <div class="card-en">Profiles — the whole person</div>
+        <div class="card-words">新词 <b>长衫 · 大衣 · 风衣 · 连衣裙</b></div>
+        <div class="card-foot"><span class="card-badge badge-mixed">Mixed</span><span class="slide-count">19 slides</span></div>          </div>
+        </a>
+        <a class="card-pdf" href="l6-profiles/l6-profiles.pdf">PDF &darr;</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer><div class="container">
+  轻松学中文 (Easy Steps to Chinese) Book 1 · Unit 5 Lesson 14 穿着 ·
+  课本 pp.104–113 · 练习册 pp.146–157 ·
+  <a href="../y7-l13/">&larr; L13 颜色</a>
+</div></footer>
+
+</body>
+</html>

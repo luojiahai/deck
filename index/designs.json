@@ -7,7 +7,11 @@
       "createdAt": "2026-06-28",
       "thumbnail": "designs/y7-l10/thumb.png",
       "type": "slides",
-      "tags": ["Year 7", "中文", "Time"]
+      "tags": [
+        "Year 7",
+        "中文",
+        "Time"
+      ]
     },
     {
       "id": "y8-l7",
@@ -16,7 +20,11 @@
       "createdAt": "2026-06-30",
       "thumbnail": "designs/y8-l7/thumb.png",
       "type": "slides",
-      "tags": ["Year 8", "中文", "Hobbies"]
+      "tags": [
+        "Year 8",
+        "中文",
+        "Hobbies"
+      ]
     },
     {
       "id": "y9-l7",
@@ -25,7 +33,11 @@
       "createdAt": "2026-06-30",
       "thumbnail": "designs/y9-l7/thumb.png",
       "type": "slides",
-      "tags": ["Year 9", "中文", "School"]
+      "tags": [
+        "Year 9",
+        "中文",
+        "School"
+      ]
     },
     {
       "id": "y7-l11",
@@ -34,7 +46,11 @@
       "createdAt": "2026-07-05",
       "thumbnail": "designs/y7-l11/thumb.png",
       "type": "slides",
-      "tags": ["Year 7", "中文", "Daily Routine"]
+      "tags": [
+        "Year 7",
+        "中文",
+        "Daily Routine"
+      ]
     },
     {
       "id": "y8-l8",
@@ -43,7 +59,11 @@
       "createdAt": "2026-07-08",
       "thumbnail": "designs/y8-l8/thumb.png",
       "type": "slides",
-      "tags": ["Year 8", "中文", "Sports"]
+      "tags": [
+        "Year 8",
+        "中文",
+        "Sports"
+      ]
     },
     {
       "id": "y9-l8",
@@ -52,7 +72,11 @@
       "createdAt": "2026-07-18",
       "thumbnail": "designs/y9-l8/thumb.png",
       "type": "slides",
-      "tags": ["Year 9", "中文", "School"]
+      "tags": [
+        "Year 9",
+        "中文",
+        "School"
+      ]
     },
     {
       "id": "y7-l12",
@@ -61,7 +85,11 @@
       "createdAt": "2026-07-18",
       "thumbnail": "designs/y7-l12/thumb.png",
       "type": "slides",
-      "tags": ["Year 7", "中文", "Transport"]
+      "tags": [
+        "Year 7",
+        "中文",
+        "Transport"
+      ]
     },
     {
       "id": "y8-l9",
@@ -70,7 +98,11 @@
       "createdAt": "2026-07-25",
       "thumbnail": "designs/y8-l9/thumb.png",
       "type": "slides",
-      "tags": ["Year 8", "中文", "Dance"]
+      "tags": [
+        "Year 8",
+        "中文",
+        "Dance"
+      ]
     },
     {
       "id": "y9-l9",
@@ -79,7 +111,11 @@
       "createdAt": "2026-07-25",
       "thumbnail": "designs/y9-l9/thumb.png",
       "type": "slides",
-      "tags": ["Year 9", "中文", "Stationery"]
+      "tags": [
+        "Year 9",
+        "中文",
+        "Stationery"
+      ]
     },
     {
       "id": "y7-l13",
@@ -88,7 +124,24 @@
       "createdAt": "2026-07-28",
       "thumbnail": "designs/y7-l13/thumb.png",
       "type": "slides",
-      "tags": ["Year 7", "中文", "Colours"]
+      "tags": [
+        "Year 7",
+        "中文",
+        "Colours"
+      ]
+    },
+    {
+      "id": "y7-l14",
+      "title": "Y7 L14 · 穿着 Clothing",
+      "description": "6 节课程幻灯片系列——Year 7 中文穿着单元（穿·颜色的衣服·课文二·校服·写描述·介绍一个人），每组生词走「生词→例句→写一句」三张循环，含全屏演示",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y7-l14/thumb.png",
+      "type": "slides",
+      "tags": [
+        "Year 7",
+        "中文",
+        "Clothing"
+      ]
     },
     {
       "id": "y8-l10",
@@ -97,7 +150,11 @@
       "createdAt": "2026-08-01",
       "thumbnail": "designs/y8-l10/thumb.png",
       "type": "slides",
-      "tags": ["Year 8", "中文", "Food"]
+      "tags": [
+        "Year 8",
+        "中文",
+        "Food"
+      ]
     },
     {
       "id": "y9-l10",
@@ -106,7 +163,25 @@
       "createdAt": "2026-08-01",
       "thumbnail": "designs/y9-l10/thumb.png",
       "type": "slides",
-      "tags": ["Year 9", "中文", "Food"]
+      "tags": [
+        "Year 9",
+        "中文",
+        "Food"
+      ]
+    },
+    {
+      "id": "y9-l10-demo",
+      "title": "Y9 L10 Demo · 菜市场 Fresh Market (Lesson 1 of 6)",
+      "description": "示范课件——新版规范：每页只introduce两个新词（配图）+ 例句 + 写一句三段循环，词汇总览与综合任务，教室投影字号下限，可编辑 PPTX",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y9-l10-demo/thumb.png",
+      "type": "slides",
+      "tags": [
+        "Year 9",
+        "中文",
+        "Market",
+        "Demo"
+      ]
     }
   ]
 }
