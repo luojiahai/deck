@@ -1,14 +1,25 @@
-/* ═══════════════════════════════════════════════════
-   Y8 L10 · 蔬菜、水果 · Vegetables and Fruits · Shared Design Tokens
-   8-lesson classroom slide deck series
-   New palette for Unit 4 (fresh produce: leaf green / citrus orange / tomato red)
-   Structurally mirrors Y8 L9 (爱好·舞蹈) token system for gallery consistency
-   ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   Y8 L10 · 蔬菜、水果 · Vegetables and Fruits
+   Six-lesson classroom deck series.
 
-/* ── Fonts ── */
+   Rebuilt to the classroom typography floor and the two-new-words
+   -per-slide rule. Canvas is 1920×1080, so every number below is a
+   canvas pixel and can be read straight against the floor table.
+
+   Sizes target the IDEAL column, not the minimum — a slide that
+   carries two words has room to be generous, and generosity is the
+   whole point on a projector. Nothing a student must read sits
+   below 26px; nothing at all sits below 18px.
+
+   Palette: leaf green / citrus orange / tomato red on a warm
+   paper ground. Carried over from the previous Y8 L10 deck so the
+   gallery keeps its identity — it was the type that failed, not
+   the colour.
+   ═══════════════════════════════════════════════════════════════ */
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap');
 
-/* ── Canvas Lock (1920×1080 for projector) ── */
+/* ── Canvas lock: 1920×1080 projector ── */
 html, body {
   margin: 0; padding: 0;
   width: 1920px; height: 1080px;
@@ -17,377 +28,323 @@ html, body {
   color: var(--text-primary);
   background: var(--bg-primary);
 }
+p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
 
-/* ── PPTX-export compatibility reset ──
-   html2pptx.js requires all text inside <p>/<h1>-<h6>, never bare in a <div>.
-   Slides wrap leaf text in <p>/<h1>-<h6> nested inside the styled <div> (which
-   keeps layout/background/border) — this reset stops browser default margins
-   and heading font-sizing from disturbing the div-driven layout. */
-p, h1, h2, h3, h4, h5, h6 {
-  margin: 0; padding: 0;
-  font: inherit; font-weight: inherit; color: inherit;
-  display: inline;
-}
-
-/* ── Design Tokens ── */
 :root {
-  /* Palette */
   --bg-primary: #FBFAF2;
   --bg-secondary: #F2EFDE;
   --bg-tertiary: #E8E2C8;
   --text-primary: #24321C;
-  --text-secondary: #5C6650;
-  --text-muted: #8C9480;
+  --text-secondary: #4E5A42;
+  --text-muted: #78805F;
 
-  --accent-green: #5C8A3A;
-  --accent-green-light: #93BB70;
-  --accent-green-dim: rgba(92, 138, 58, 0.12);
-  --accent-orange: #E08A3C;
-  --accent-orange-light: #F0B679;
-  --accent-orange-dim: rgba(224, 138, 60, 0.12);
-  --accent-tomato: #C94F3D;
-  --accent-tomato-dim: rgba(201, 79, 61, 0.10);
+  --accent-green: #4C7A2C;
+  --accent-green-dim: rgba(76, 122, 44, 0.12);
+  --accent-orange: #B96A12;
+  --accent-orange-dim: rgba(185, 106, 18, 0.14);
+  --accent-tomato: #B93F2C;
+  --accent-tomato-dim: rgba(185, 63, 44, 0.11);
 
   --border-light: #E1DBC0;
   --border-medium: #CFC7A6;
 
-  /* Typography */
   --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
   --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
-  --font-mono: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
 
-  /* Spacing scale */
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 40px;
-  --space-xl: 64px;
-  --space-2xl: 96px;
-
-  /* Radii */
-  --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --radius-xl: 28px;
 }
 
-/* ── Slide Chrome: Top Bar ── */
+/* ── Slide chrome ───────────────────────────────────────────── */
 .slide-header {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 80px;
-  display: flex;
-  align-items: center;
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 84px; display: flex; align-items: center;
   padding: 0 80px;
   border-bottom: 1px solid var(--border-light);
-  background: rgba(251, 250, 242, 0.92);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-}
-.slide-header .lesson-tag {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent-green);
-  font-family: var(--font-body);
-}
-.slide-header .sep {
-  width: 1px; height: 20px;
-  background: var(--border-light);
-  margin: 0 20px;
-}
-.slide-header .section-name {
-  font-size: 15px;
-  color: var(--text-secondary);
-  font-weight: 500;
+  background: var(--bg-primary);
 }
 .slide-header .accent-line {
-  position: absolute;
-  top: 0; left: 80px; right: 80px;
-  height: 4px;
-  background: var(--accent-green);
-  border-radius: 0 0 2px 2px;
+  position: absolute; top: 0; left: 80px; right: 80px;
+  height: 5px; background: var(--accent-green);
 }
+.slide-header .lesson-tag {
+  font-size: 20px; font-weight: 700; letter-spacing: 0.10em;
+  color: var(--accent-green); text-transform: uppercase;
+}
+.slide-header .sep { width: 1px; height: 26px; background: var(--border-medium); margin: 0 22px; }
+.slide-header .section-name { font-size: 22px; color: var(--text-secondary); font-weight: 500; }
+.slide-num { margin-left: auto; font-size: 20px; color: var(--text-muted); letter-spacing: 0.04em; }
 
-/* ── Slide Chrome: Bottom Bar ── */
-.slide-footer {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 80px;
-  border-top: 1px solid var(--border-light);
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-}
-.slide-footer .brand {
-  opacity: 0.5;
-}
-
-/* ── Content Area ── */
 .slide-content {
-  position: absolute;
-  top: 80px; left: 0; right: 0; bottom: 52px;
-  padding: 60px 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: absolute; top: 84px; left: 0; right: 0; bottom: 0;
+  padding: 40px 88px 48px;
+  display: flex; flex-direction: column;
+  /* `safe` centring: centred while the content fits, falls back to
+     flex-start the moment it doesn't. Without it, an over-full slide
+     centres its overflow and loses the TOP of the content behind the
+     header — silently, which is the worst way to lose a slide. */
+  justify-content: safe center;
   overflow: hidden;
 }
+.slide-content.top { justify-content: flex-start; }
 
-/* ── Typography Utilities ── */
-.display-xl {
-  font-family: var(--font-display);
-  font-size: 120px; font-weight: 900;
-  line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-.display-lg {
-  font-family: var(--font-display);
-  font-size: 80px; font-weight: 900;
-  line-height: 1.15; letter-spacing: -0.01em;
-  color: var(--text-primary);
-}
-.display-md {
-  font-family: var(--font-display);
-  font-size: 56px; font-weight: 700;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
-.heading-sm {
-  font-family: var(--font-display);
-  font-size: 36px; font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-primary);
-}
-.body-lg {
-  font-family: var(--font-body);
-  font-size: 28px; font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-.body-md {
-  font-family: var(--font-body);
-  font-size: 22px; font-weight: 400;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-.caption {
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-}
+/* ── Type scale ─────────────────────────────────────────────── */
+.display-xl  { font-family: var(--font-display); font-size: 132px; font-weight: 900; line-height: 1.08; }
+.display-lg  { font-family: var(--font-display); font-size: 84px;  font-weight: 900; line-height: 1.14; }
+.display-md  { font-family: var(--font-display); font-size: 60px;  font-weight: 700; line-height: 1.2; }
+.heading     { font-family: var(--font-display); font-size: 46px;  font-weight: 700; line-height: 1.25; }
+.body-lg     { font-size: 36px; line-height: 1.5;  color: var(--text-secondary); }
+.body-md     { font-size: 30px; line-height: 1.55; color: var(--text-secondary); }
+.support     { font-size: 26px; line-height: 1.5;  color: var(--text-muted); }
+.caption     { font-size: 22px; color: var(--text-muted); letter-spacing: 0.04em; }
 
-/* ── Accent text ── */
-.text-green { color: var(--accent-green); }
+.section-label {
+  font-size: 24px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--accent-green); text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.text-green  { color: var(--accent-green); }
 .text-orange { color: var(--accent-orange); }
 .text-tomato { color: var(--accent-tomato); }
 
-/* ── Cards & containers ── */
-.card {
+.stack { display: flex; flex-direction: column; }
+.gap-sm { gap: 13px; } .gap-md { gap: 22px; } .gap-lg { gap: 34px; }
+
+/* ── Slide A · the two new words ────────────────────────────── */
+.word-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.word-pair.single { grid-template-columns: 1fr; max-width: 780px; margin: 0 auto; }
+.word-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 44px 32px 48px;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.word-card .wc-img { height: 250px; display: flex; align-items: center; justify-content: center; }
+.word-card .wc-img img { height: 250px; width: auto; }
+.word-pinyin  { font-size: 44px; font-weight: 500; color: var(--accent-green); letter-spacing: 0.02em; }
+.word-hanzi   { font-family: var(--font-display); font-size: 124px; font-weight: 900; line-height: 1.05; color: var(--text-primary); }
+.word-hanzi.long { font-size: 100px; }
+.word-english { font-size: 34px; color: var(--text-secondary); }
+.word-trad    { font-size: 26px; color: var(--text-muted); }
+
+/* abstract words carry no picture — the space stays empty, not filled */
+.word-card.textonly { padding: 118px 32px; gap: 20px; }
+.word-card.textonly .word-hanzi { font-size: 150px; }
+
+/* ── Slide B · example sentences ────────────────────────────── */
+.sentence-list { display: flex; flex-direction: column; gap: 20px; }
+.sentence-row {
+  background: var(--bg-secondary);
+  border-left: 10px solid var(--accent-green);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 20px 32px 22px;
+}
+.sentence-row.both { border-left-color: var(--accent-tomato); background: var(--accent-tomato-dim); }
+.sentence-py { font-size: 30px; color: var(--accent-green); letter-spacing: 0.02em; margin-bottom: 6px; }
+.sentence-cn {
+  font-family: var(--font-display); font-size: 56px; font-weight: 700;
+  line-height: 1.32; color: var(--text-primary);
+}
+.sentence-cn b { color: var(--accent-tomato); font-weight: 900; }
+.sentence-en { font-size: 28px; color: var(--text-secondary); margin-top: 8px; }
+
+/* ── Slide C · write your own ───────────────────────────────── */
+.frame-box {
+  background: var(--bg-tertiary);
+  border: 3px solid var(--accent-orange);
+  border-radius: var(--radius-lg);
+  padding: 36px 46px;
+}
+.frame-line {
+  font-family: var(--font-display); font-size: 62px; font-weight: 700;
+  line-height: 1.7; color: var(--text-primary);
+}
+.frame-note { font-size: 30px; color: var(--text-secondary); margin-top: 18px; }
+
+.extension-box {
+  background: var(--accent-green-dim);
+  border: 3px solid var(--accent-green);
+  border-radius: var(--radius-md);
+  padding: 22px 30px;
+  margin-top: 20px;
+}
+.extension-label {
+  font-size: 22px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--accent-green); text-transform: uppercase; margin-bottom: 10px;
+}
+.extension-text { font-size: 30px; line-height: 1.45; color: var(--text-primary); }
+.extension-text b { color: var(--accent-green); font-weight: 700; }
+.extension-cn { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+
+/* ── Recall / summary boards ────────────────────────────────── */
+/* Words already taught: the slide is scanned, not taught from, so
+   the whole set may appear at once. The floor still applies. */
+.recall-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.recall-grid.c4 { grid-template-columns: repeat(4, 1fr); }
+.recall-grid.c5 { grid-template-columns: repeat(5, 1fr); }
+.recall-cell {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 34px 12px; text-align: center;
+}
+.recall-hanzi { font-family: var(--font-display); font-size: 94px; font-weight: 900; color: var(--text-primary); line-height: 1.05; }
+.recall-hanzi.long { font-size: 72px; }
+
+.summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.summary-grid.c5 { grid-template-columns: repeat(5, 1fr); gap: 22px; }
+.summary-grid.c6 { grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.summary-cell {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 10px 22px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.summary-cell .sc-img { height: 128px; display: flex; align-items: center; justify-content: center; }
+.summary-cell .sc-img img { height: 128px; width: auto; }
+.summary-hanzi { font-family: var(--font-display); font-size: 62px; font-weight: 900; color: var(--text-primary); line-height: 1.05; }
+.summary-hanzi.long { font-size: 48px; }
+.summary-cell.noimg { padding: 40px 10px; }
+
+/* ── Pattern box ────────────────────────────────────────────── */
+.pattern-box {
+  background: var(--bg-tertiary);
+  border: 3px solid var(--accent-tomato);
+  border-radius: var(--radius-lg);
+  padding: 28px 40px; text-align: center;
+}
+.pattern-text { font-family: var(--font-display); font-size: 66px; font-weight: 900; color: var(--text-primary); letter-spacing: 0.02em; line-height: 1.3; }
+.pattern-text b { color: var(--accent-tomato); }
+.pattern-note { font-size: 28px; color: var(--text-secondary); margin-top: 14px; }
+
+.example-list { display: flex; flex-direction: column; gap: 14px; }
+.example-row { display: flex; align-items: baseline; gap: 24px; }
+.example-num {
+  font-family: var(--font-display); font-size: 34px; font-weight: 900;
+  color: var(--accent-orange); min-width: 40px;
+}
+.example-cn { font-family: var(--font-display); font-size: 46px; font-weight: 700; color: var(--text-primary); line-height: 1.35; }
+.example-cn b { color: var(--accent-tomato); }
+.example-en { font-size: 26px; color: var(--text-muted); }
+.example-row.hardest .example-cn { color: var(--accent-green); }
+
+/* ── Success criteria ───────────────────────────────────────── */
+.sc-row {
+  display: flex; align-items: flex-start; gap: 24px;
+  padding: 20px 28px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+.sc-num { font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--accent-green); min-width: 44px; line-height: 1.15; }
+.sc-main { font-size: 32px; line-height: 1.4; color: var(--text-primary); }
+.sc-cn { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--accent-tomato); margin-top: 8px; }
+
+/* ── Callouts ───────────────────────────────────────────────── */
+.note-box, .warn-box, .tip-box {
+  display: flex; gap: 24px; align-items: flex-start;
+  border-radius: var(--radius-md);
+  padding: 22px 28px;
+}
+.note-box { background: var(--accent-orange-dim); border: 2px solid var(--accent-orange); }
+.warn-box { background: var(--accent-tomato-dim); border: 2px solid var(--accent-tomato); }
+.tip-box  { background: var(--accent-green-dim);  border: 2px solid var(--accent-green); }
+.cb-label { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.note-box .cb-label { color: var(--accent-orange); }
+.warn-box .cb-label { color: var(--accent-tomato); }
+.tip-box  .cb-label { color: var(--accent-green); }
+.cb-text { font-size: 30px; line-height: 1.45; color: var(--text-primary); }
+.cb-cn   { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+.cb-sub  { font-size: 26px; color: var(--text-secondary); margin-top: 8px; }
+
+/* ── Task / activity slides ─────────────────────────────────── */
+.task-box {
+  background: var(--bg-secondary);
+  border: 3px dashed var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  padding: 26px 34px;
 }
+.task-line { font-size: 32px; line-height: 1.55; color: var(--text-primary); }
+.task-line b { color: var(--accent-tomato); font-weight: 700; }
+.task-cn { font-family: var(--font-display); font-size: 42px; font-weight: 700; color: var(--text-primary); line-height: 1.34; }
+.task-py { font-size: 26px; color: var(--accent-green); }
 
-/* ── Grids ── */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
-.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-md); }
+.step-row { display: flex; align-items: baseline; gap: 22px; }
+.step-num {
+  background: var(--accent-green); border-radius: 999px;
+  min-width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; align-self: flex-start;
+}
+.step-num p { font-size: 24px; font-weight: 700; color: var(--bg-primary); }
+.step-text { font-size: 32px; line-height: 1.38; color: var(--text-primary); }
 
-/* ── Flex helpers ── */
-.flex-center { display: flex; align-items: center; justify-content: center; }
-.flex-col { display: flex; flex-direction: column; }
-.gap-sm { gap: var(--space-sm); }
-.gap-md { gap: var(--space-md); }
-.gap-lg { gap: var(--space-lg); }
+/* ── Text / dialogue slides ─────────────────────────────────── */
+.dialogue { display: flex; flex-direction: column; gap: 16px; }
+.dl-row { display: flex; gap: 24px; align-items: flex-start; }
+.dl-who {
+  font-family: var(--font-display); font-size: 40px; font-weight: 900;
+  color: var(--accent-orange); min-width: 52px;
+}
+.dl-body { flex: 1; }
+.dl-py { font-size: 26px; color: var(--accent-green); letter-spacing: 0.02em; margin-bottom: 4px; }
+.dl-cn { font-family: var(--font-display); font-size: 48px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+.dl-cn b { color: var(--accent-tomato); }
+.dl-row.b .dl-who { color: var(--accent-green); }
 
-/* ── Badge / Tag ── */
+/* ── Tables (options, matching, word families) ──────────────── */
+.opt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.opt-grid.c2 { grid-template-columns: repeat(2, 1fr); }
+.opt-cell {
+  background: var(--bg-secondary); border: 2px solid var(--border-light);
+  border-radius: var(--radius-md); padding: 16px 22px;
+  display: flex; align-items: baseline; gap: 18px;
+}
+.opt-key { font-size: 26px; font-weight: 700; color: var(--accent-orange); }
+.opt-cn  { font-family: var(--font-display); font-size: 42px; font-weight: 700; color: var(--text-primary); }
+.opt-cell.correct { background: var(--accent-green-dim); border-color: var(--accent-green); }
+
+.pair-table { width: 100%; border-collapse: collapse; }
+.pair-table td, .pair-table th {
+  border-bottom: 1px solid var(--border-light);
+  padding: 8px 18px; text-align: left; vertical-align: middle;
+}
+.pair-table th { font-size: 24px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.pair-table .hanzi-cell  { font-family: var(--font-display); font-size: 52px; font-weight: 700; color: var(--text-primary); }
+.pair-table .pinyin-cell { font-size: 30px; color: var(--accent-green); }
+.pair-table .english-cell{ font-size: 30px; color: var(--text-secondary); }
+
+/* ── Title slide ────────────────────────────────────────────── */
+.title-wrap { display: flex; flex-direction: column; justify-content: center; height: 100%; padding-left: 24px; }
+.title-kicker { font-size: 28px; font-weight: 700; letter-spacing: 0.20em; color: var(--accent-orange); text-transform: uppercase; }
+.title-hanzi { font-family: var(--font-display); font-size: 190px; font-weight: 900; color: var(--text-primary); line-height: 1.02; margin: 26px 0 10px; }
+.title-en { font-family: var(--font-display); font-size: 68px; font-weight: 700; color: var(--accent-green); }
+.title-meta { font-size: 30px; color: var(--text-secondary); margin-top: 36px; }
+.title-strip { display: flex; gap: 28px; margin-top: 48px; align-items: flex-end; }
+.title-strip img { height: 150px; width: auto; }
+
+/* ── Badges ─────────────────────────────────────────────────── */
 .badge {
-  display: inline-block;
-  padding: 4px 16px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-family: var(--font-body);
+  display: inline-block; padding: 8px 18px; border-radius: 999px; width: fit-content;
 }
-.badge-green { background: var(--accent-green-dim); color: var(--accent-green); }
+.badge p { font-size: 22px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.badge-green  { background: var(--accent-green-dim);  color: var(--accent-green); }
 .badge-orange { background: var(--accent-orange-dim); color: var(--accent-orange); }
 .badge-tomato { background: var(--accent-tomato-dim); color: var(--accent-tomato); }
 
-/* ── Table styles ── */
-.table-compact {
-  width: 100%;
-  border-collapse: collapse;
-}
-.table-compact th {
-  text-align: left;
-  font-weight: 700;
-  color: var(--text-secondary);
-  padding: 12px 20px;
-  border-bottom: 2px solid var(--accent-green);
-  font-size: 18px;
-  letter-spacing: 0.06em;
-}
-.table-compact td {
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--border-light);
-  font-family: var(--font-body);
-  font-size: 26px;
-}
-.table-compact tr:nth-child(even) td {
-  background: var(--bg-secondary);
-}
-.table-compact .hanzi-cell {
-  font-family: var(--font-display);
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-.table-compact .pinyin-cell {
-  font-size: 22px;
-  color: var(--accent-orange);
-}
-.table-compact .english-cell {
-  font-size: 22px;
-  color: var(--text-secondary);
-}
+.hanzi-hero { font-family: var(--font-display); font-size: 300px; font-weight: 900; color: var(--text-primary); line-height: 1; }
 
-/* ── Activity box ── */
-.activity-box {
-  background: var(--bg-secondary);
-  border: 2px dashed var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  position: relative;
-}
-.activity-box .activity-badge {
-  position: absolute;
-  top: -14px; left: 28px;
-  background: var(--accent-orange);
-  color: #fff;
-  padding: 4px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-/* ── Note / Warning / Info boxes ── */
-.note-box {
-  background: var(--accent-orange-dim);
-  border: 2px solid var(--accent-orange);
-  border-radius: var(--radius-md);
-  padding: 16px 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.note-box .note-icon { font-size: 28px; flex-shrink: 0; }
-.note-box .note-text { font-size: 22px; font-weight: 700; color: var(--accent-orange); }
-.note-box .note-sub { font-size: 16px; color: var(--text-muted); }
-
-.warning-box {
-  background: var(--accent-tomato-dim);
-  border: 2px solid var(--accent-tomato);
-  border-radius: var(--radius-md);
-  padding: 16px 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.warning-box .warn-icon { font-size: 28px; flex-shrink: 0; }
-.warning-box .warn-text { font-size: 22px; font-weight: 700; color: var(--accent-tomato); }
-.warning-box .warn-sub { font-size: 16px; color: var(--text-muted); }
-
-.tip-box {
-  background: var(--accent-green-dim);
-  border: 2px solid var(--accent-green);
-  border-radius: var(--radius-md);
-  padding: 16px 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.tip-box .tip-icon { font-size: 28px; flex-shrink: 0; }
-.tip-box .tip-text { font-size: 22px; font-weight: 700; color: var(--accent-green); }
-.tip-box .tip-sub { font-size: 16px; color: var(--text-muted); }
-
-/* ── Pattern / Formula box ── */
-.formula-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-tertiary);
-  border: 2px solid var(--accent-green);
-  border-radius: var(--radius-md);
-  padding: 12px 28px;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-.formula-box .op {
-  color: var(--accent-green);
-  font-size: 24px;
-}
-
-/* ── Highlight word ── */
-.hl {
-  display: inline-block;
-  background: var(--accent-green-dim);
-  padding: 0 4px;
-  border-radius: 3px;
-}
-
-/* ── Scaffold / Extension / OTR strip ── */
-.sed-strip {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-top: 24px;
-}
-.sed-item {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
-  font-size: 15px;
-  color: var(--text-secondary);
-}
-.sed-item .sed-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.sed-item.scaffold .sed-label { color: var(--accent-orange); }
-.sed-item.extension .sed-label { color: var(--accent-green); }
-.sed-item.otr .sed-label { color: var(--accent-tomato); }
-
-/* ── Sentence frame box ── */
-.sentence-frame {
-  background: var(--bg-tertiary);
-  border-left: 5px solid var(--accent-green);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  padding: 16px 24px;
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-.sentence-frame .blank {
-  display: inline-block;
-  min-width: 120px;
-  border-bottom: 3px solid var(--accent-green);
-  color: var(--accent-green);
-}
-
-/* ── Hanzi large display ── */
-.hanzi-hero {
-  font-family: var(--font-display);
-  font-size: 200px;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--accent-green);
-}
+/* ── Learning-intention slide ───────────────────────────────────
+   Three criteria fit at full size. Four do not, so the four-criteria
+   variant tightens padding and leading — never type size. Every value
+   below still clears the classroom floor. */
+.lisc .lisc-2nd { margin-top: 32px; }
+.lisc-compact .lisc-2nd { margin-top: 20px; }
+.lisc-compact .pattern-box { padding: 22px 34px; }
+.lisc-compact .display-md { font-size: 50px; line-height: 1.16; }
+.lisc-compact .sc-row { padding: 14px 26px; }
+.lisc-compact .sc-num { font-size: 38px; min-width: 38px; }
+.lisc-compact .sc-main { font-size: 30px; line-height: 1.3; }
+.lisc-compact .sc-cn { font-size: 32px; margin-top: 4px; }
+.lisc-compact .section-label { margin-bottom: 12px; }
