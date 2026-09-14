@@ -6,21 +6,21 @@ Output: `index/designs/y9-l11/`.
 ```bash
 python3 scripts/y9l11/art.py        # 17 SVG drawings → index/designs/y9-l11/img/
 python3 scripts/y9l11/build.py      # 102 slides + 5 deck shells
-node    scripts/y9l11/clipcheck.mjs y9-l11    # nothing cropped (see below)
 bash    scripts/y9l11/export.sh     # 5 × PPTX + 5 × PDF
+
+# verify (needs a server: python3 -m http.server 8087 --directory index &)
+node    scripts/check_slides.mjs --design y9-l11
 ```
 
-## Why `clipcheck.mjs` exists
+## Verification
 
-`scripts/check_slides.mjs` tests whether a slide overflows the **canvas**. It
-cannot catch the failure that actually happens here: `.slide-content` is
-absolutely positioned with `overflow: hidden`, so a slide with too much in it
-crops the bottom off silently and the body stays exactly 540pt tall. The
-checker reports ✓ and the last example sentence is missing in the classroom.
-
-`clipcheck.mjs` measures `scrollHeight - clientHeight` on `.slide-content`
-instead. It takes design ids as arguments, so it works on any deck in this
-repo, not just this one.
+`scripts/check_slides.mjs` is the only checker — it catches both content
+clipped inside `.slide-content` and type under the classroom floor. It measures
+each deck at the canvas that deck declares, which matters because this repo has
+two: the y7/y8/y9-l7..l9 decks are 1920x1080px and these are 960pt (=1280x720,
+scaled 1.5x by the deck shell at presentation time). `.slide-content` is
+positioned against the viewport rather than the fixed-size body, so measuring at
+the wrong size mis-reports overflow in whichever direction the mismatch runs.
 
 ## Layout invariants the builder enforces
 

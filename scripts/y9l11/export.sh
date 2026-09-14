@@ -74,5 +74,5 @@ done
 exit $fail
 
 # Verify afterwards with:
-#   node scripts/y9l11/clipcheck.mjs y9-l11     # nothing cropped inside .slide-content
+#   python3 -m http.server 8087 --directory index &
 #   node scripts/check_slides.mjs --design y9-l11

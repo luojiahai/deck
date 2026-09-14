@@ -5,12 +5,29 @@
  * Two invariants, both of which fail silently in a browser and only show
  * up in a classroom:
  *
- *   1. NO OVERFLOW. A slide taller than the 1080px canvas loses content
- *      off the bottom — or, with plain `justify-content: center`, off the
- *      top and bottom at once, hidden behind the header.
+ *   1. NO OVERFLOW. A slide with more in it than fits loses content off the
+ *      bottom of .slide-content — or, with plain `justify-content: center`,
+ *      off the top and bottom at once, hidden behind the header. Because
+ *      .slide-content is overflow:hidden the page never scrolls, so this
+ *      fails silently in the browser and only shows up in the classroom.
  *   2. NO TYPE BELOW 18px. The classroom floor from the lesson-planning
  *      skill: nothing a student must read below 26px, nothing at all
  *      below 18px. Tone marks on pinyin are the first casualty.
+ *
+ * Both checks depend on the slide's own canvas, and this repo has two:
+ * the y7/y8/y9-l7..l9 decks are 1920x1080px, while y9-l10 and y9-l11 are
+ * 960pt x 540pt (=1280x720 CSS px, scaled up 1.5x by the deck shell at
+ * presentation time). So:
+ *
+ *   · .slide-content is positioned against the initial containing block —
+ *     the VIEWPORT, not the fixed-size body — so the viewport must match the
+ *     slide's canvas or clientHeight is wrong and overflow is mis-reported in
+ *     whichever direction the mismatch runs. Each slide is therefore measured
+ *     at the size it declares.
+ *   · the type floor is about what a student can read from the back of the
+ *     room, so it is checked against the PROJECTED size: the CSS px are
+ *     multiplied by 1920/canvasWidth. A 10pt header tag on a 960pt canvas is
+ *     13.3 CSS px but projects at 20px, and passes.
  *
  * Needs a static server on the deck root. From the repo root:
  *     python3 -m http.server 8087 --directory index &
@@ -46,12 +63,31 @@ const decks = fs.readdirSync(base)
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 
+// Every slide in a deck shares one canvas, so probe the first slide of each
+// deck and reuse the answer rather than reloading twice per slide.
+async function canvasOf(url) {
+  await page.goto(url);
+  return page.evaluate(() => ({
+    width: document.body.clientWidth || 1920,
+    height: document.body.clientHeight || 1080,
+  }));
+}
+
 let overflows = 0, tiny = 0, total = 0;
 
 for (const deck of decks) {
-  for (const file of fs.readdirSync(path.join(base, deck, 'slides')).sort()) {
+  const files = fs.readdirSync(path.join(base, deck, 'slides')).sort();
+  if (!files.length) continue;
+
+  const urlOf = f => `http://localhost:${port}/designs/${design}/${deck}/slides/${f}`;
+  const canvas = await canvasOf(urlOf(files[0]));
+  await page.setViewportSize(canvas);
+  // What one CSS px becomes on a 1920-wide projector.
+  const scale = 1920 / canvas.width;
+
+  for (const file of files) {
     total++;
-    await page.goto(`http://localhost:${port}/designs/${design}/${deck}/slides/${file}`);
+    await page.goto(urlOf(file));
     await page.waitForTimeout(120);
     const r = await page.evaluate(() => {
       const c = document.querySelector('.slide-content');
@@ -67,18 +103,21 @@ for (const deck of decks) {
     });
     if (r.over > 0) {
       overflows++;
-      console.log(`  OVERFLOW ${String(r.over).padStart(4)}px  ${deck}/${file}`);
+      console.log(`  CLIPPED ${String(r.over).padStart(4)}px  ${deck}/${file}`);
     }
-    if (r.min < floor) {
+    const projected = r.min * scale;
+    if (projected < floor) {
       tiny++;
-      console.log(`  TINY ${r.min}px "${r.minText}"  ${deck}/${file}`);
+      const as = scale === 1 ? `${r.min}px`
+                             : `${r.min}px → ${projected.toFixed(1)}px projected`;
+      console.log(`  TINY ${as} "${r.minText}"  ${deck}/${file}`);
     }
   }
 }
 
 console.log(`\n${design}: ${total} slides across ${decks.length} decks`);
-console.log(overflows === 0 ? '  ✓ no slide overflows the canvas'
-                            : `  ✗ ${overflows} slides overflow`);
+console.log(overflows === 0 ? '  ✓ nothing clipped inside .slide-content'
+                            : `  ✗ ${overflows} slides lose content off the bottom`);
 console.log(tiny === 0 ? `  ✓ nothing rendered below ${floor}px`
                        : `  ✗ ${tiny} slides carry type under ${floor}px`);
 
