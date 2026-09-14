@@ -1,0 +1,2056 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Build the Y7 Lesson 15 slide decks (人体部位) from the eight lesson plans in
+docs/lesson-plans/y7-l15/.
+
+Eight decks, one per classroom lesson — the teacher asked for eight rather
+than the skill's default six. Nineteen new words over eight lessons is a
+comfortable 4–5 each, so unlike the six-lesson default nothing has to be
+cut: every textbook activity, all six radicals, the p.116 pinyin listening
+and all nineteen workbook exercises fit somewhere in the sequence.
+
+Markup and tokens deliberately match index/designs/y7-l13/ and y7-l14/:
+same unit, taught back to back, so the three decks are one visual family.
+shared/tokens.css is copied from y7-l14 rather than forked.
+
+Design constraints this script enforces, so they cannot drift:
+  · a slide that INTRODUCES vocabulary carries at most two new words
+  · every pair of new words runs the three-slide cycle A -> B -> C
+  · every C slide carries an extension
+  · nothing a student must read is set below 26px (see shared/tokens.css)
+  · every picturable word gets an inline SVG line drawing, never emoji
+    (emoji render as empty boxes through Chromium into PPTX/PDF)
+  · abstract words (得, 样, 长 as a verb) get no picture at all
+
+This deck ships web-only — no PPTX/PDF export, like y8-l7.
+
+Run:  python3 scripts/build_y7_l15.py
+"""
+
+import os
+import re
+import shutil
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+BASE = os.path.join(ROOT, 'index', 'designs', 'y7-l15')
+L14 = os.path.join(ROOT, 'index', 'designs', 'y7-l14')
+
+TAG = 'Y7 · L15 人体部位'
+TOTAL_LESSONS = 8
+
+# ══════════════════════════════════════════════════════════════════
+#  Slide shell
+# ══════════════════════════════════════════════════════════════════
+
+STYLE_TITLE = '''<style>
+  #frame, body { display:flex; align-items:center; justify-content:center; }
+  .t-main { text-align:center; position:relative; z-index:1; }
+  /* Heights trimmed by 58px against the y7-l13 original, whose title slide
+     overflows .slide-content by 56px — the meta row sits below the canvas. */
+  .t-num { font-size:26px; font-weight:700; letter-spacing:0.2em;
+           color:var(--accent-indigo); text-transform:uppercase; margin-bottom:14px; }
+  .t-art { height:110px; margin-bottom:16px; opacity:0.9; }
+  .t-art svg { height:100%; width:auto; }
+  .t-cn { font-family:var(--font-display); font-size:130px; font-weight:900;
+          line-height:1.06; color:var(--text-primary); margin-bottom:12px; }
+  .t-cn .dot { color:var(--accent-madder); }
+  .t-en { font-size:34px; color:var(--text-secondary); margin-bottom:22px; }
+  .t-meta { display:flex; align-items:center; justify-content:center; gap:26px;
+            font-size:22px; color:var(--text-muted); letter-spacing:0.06em; }
+  .t-meta .s { width:5px; height:5px; border-radius:50%; background:var(--accent-indigo); }
+  /* The watermark is decoration, but a 440px glyph with line-height:1 still
+     pushes .slide-content's scroll height 56px past its clip — which is what
+     the projector-readiness check reports as lost content on y7-l13's title
+     slides. Sitting it 96px up instead of 40px keeps the check honest. */
+  .bg-char { position:absolute; right:70px; bottom:96px; font-family:var(--font-display);
+             font-size:440px; color:var(--accent-indigo); opacity:0.045; line-height:1;
+             pointer-events:none; user-select:none; }
+</style>
+'''
+
+STYLE_CFU = '''<style>
+  .cfu-list { display:flex; flex-direction:column; gap:26px; }
+  .cfu-q { display:flex; align-items:flex-start; gap:22px; }
+  .cfu-n { font-family:var(--font-display); font-size:42px; font-weight:900;
+           color:var(--accent-madder); opacity:0.4; min-width:46px; }
+  .cfu-t { font-size:32px; color:var(--text-primary); line-height:1.45; }
+  .cfu-t .cn { font-family:var(--font-display); font-weight:700; font-size:42px; }
+</style>
+'''
+
+STYLE_CENTRE = '''<style>
+  #frame, body { display:flex; align-items:center; justify-content:center; }
+</style>
+'''
+
+PAGE = '''<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<title>{title}</title>
+<link rel="stylesheet" href="../../shared/tokens.css">
+{style}</head>
+<body>
+
+<div class="slide-header">
+  <div class="accent-line"></div>
+  <span class="lesson-tag">{tag}</span>
+  <span class="sep"></span>
+  <span class="section-name">{section}</span>
+</div>
+
+<div class="slide-content{dense}">
+{inner}</div>
+
+<div class="slide-footer">
+  <span>{foot}</span>
+  <span class="brand">{brand}</span>
+</div>
+
+</body></html>
+'''
+# ══════════════════════════════════════════════════════════════════
+#  Inline SVG — never emoji. Chromium ships no colour emoji font, so
+#  emoji render as empty boxes in the PPTX and PDF exports.
+#
+#  Every word in this lesson names something you can point at, which is
+#  the one topic in Book 1 where a drawing does the work the English
+#  gloss otherwise does. Abstract words (得, 样, 长 as a verb) get no
+#  picture at all rather than a decorative one.
+# ══════════════════════════════════════════════════════════════════
+
+INK = '#2C4C7C'      # indigo — the drawing itself
+MUTE = '#B8B2A7'     # the part of the drawing that is context, not subject
+MARK = '#C23B2E'     # madder — the part the word actually names
+
+
+def _svg(body, w=4.5):
+    return (f'<svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" '
+            f'fill="none" stroke-width="{w}" stroke-linecap="round" '
+            f'stroke-linejoin="round">{body}</svg>')
+
+
+def svg_eye():
+    return _svg(
+        f'<path d="M28 105 C 70 56, 150 56, 192 105 C 150 154, 70 154, 28 105 Z" stroke="{INK}"/>'
+        f'<circle cx="110" cy="105" r="27" stroke="{MARK}"/>'
+        f'<circle cx="110" cy="105" r="11" fill="{MARK}" stroke="none"/>'
+        f'<path d="M44 76 L30 60 M110 52 L110 32 M176 76 L190 60" stroke="{MUTE}" stroke-width="3.5"/>')
+
+
+def svg_ear():
+    return _svg(
+        f'<path d="M146 44 C 86 26, 56 74, 66 122 C 74 162, 104 186, 132 176" stroke="{INK}"/>'
+        f'<path d="M136 74 C 100 68, 92 112, 108 138 C 116 150, 128 150, 130 140" stroke="{MARK}"/>'
+        f'<path d="M120 100 C 108 100, 104 118, 112 126" stroke="{MUTE}" stroke-width="3.5"/>')
+
+
+def svg_nose():
+    return _svg(
+        f'<path d="M92 28 L92 92 C 92 118, 70 124, 64 136 C 58 150, 76 160, 100 157" stroke="{INK}"/>'
+        f'<path d="M100 157 C 124 154, 140 146, 146 134" stroke="{INK}"/>'
+        f'<path d="M96 138 C 108 146, 124 145, 134 136" stroke="{MARK}"/>'
+        f'<circle cx="86" cy="146" r="5" fill="{MARK}" stroke="none"/>')
+
+
+def svg_mouth():
+    return _svg(
+        f'<path d="M40 102 C 66 74, 98 90, 110 100 C 122 90, 154 74, 180 102" stroke="{INK}"/>'
+        f'<path d="M40 102 C 70 156, 150 156, 180 102" stroke="{INK}"/>'
+        f'<path d="M40 102 L180 102" stroke="{MARK}"/>')
+
+
+def svg_hand():
+    fingers = ''.join(
+        f'<path d="M{x} 118 L{x} {top} C {x} {top - 14}, {x + 20} {top - 14}, '
+        f'{x + 20} {top} L{x + 20} 118" stroke="{INK}"/>'
+        for x, top in ((70, 78), (92, 60), (114, 66), (136, 84)))
+    return _svg(
+        f'<path d="M64 196 L64 124 C 64 108, 156 108, 156 124 L156 196" stroke="{INK}"/>'
+        f'{fingers}'
+        f'<path d="M64 152 C 42 146, 30 122, 40 108 C 50 95, 70 100, 76 120" stroke="{MARK}"/>')
+
+
+
+def svg_foot():
+    return _svg(
+        f'<path d="M80 40 L80 102 M116 40 L116 98" stroke="{MUTE}"/>'
+        f'<path d="M80 102 C 66 112, 62 132, 66 150 L66 164 C 66 172, 72 176, 82 176 '
+        f'L168 176 C 182 176, 184 158, 170 153 C 148 145, 128 134, 118 120 '
+        f'C 113 112, 114 104, 116 98" stroke="{INK}"/>'
+        f'<path d="M146 162 L146 150 M158 165 L159 153 M133 158 L132 145" '
+        f'stroke="{MARK}" stroke-width="3.5"/>')
+
+
+
+def svg_leg():
+    return _svg(
+        f'<path d="M92 24 C 84 62, 80 88, 86 112 C 92 138, 96 162, 92 180" stroke="{INK}"/>'
+        f'<path d="M136 24 C 132 64, 126 90, 128 114 C 130 140, 130 162, 126 180" stroke="{INK}"/>'
+        f'<path d="M86 112 L128 114" stroke="{MARK}" stroke-width="3.5"/>'
+        f'<path d="M92 180 L66 190 L126 190 L126 180" stroke="{MUTE}"/>')
+
+
+def svg_head():
+    return _svg(
+        f'<circle cx="110" cy="74" r="46" stroke="{MARK}"/>'
+        f'<path d="M44 192 C 50 146, 78 126, 110 126 C 142 126, 170 146, 176 192" stroke="{MUTE}"/>'
+        f'<circle cx="94" cy="68" r="5" fill="{MARK}" stroke="none"/>'
+        f'<circle cx="126" cy="68" r="5" fill="{MARK}" stroke="none"/>'
+        f'<path d="M94 94 C 102 104, 118 104, 126 94" stroke="{MARK}" stroke-width="3.5"/>')
+
+
+def svg_face():
+    return _svg(
+        f'<ellipse cx="110" cy="104" rx="58" ry="74" stroke="{MARK}"/>'
+        f'<path d="M110 30 C 76 30, 56 52, 54 78" stroke="{MUTE}" stroke-width="3.5"/>')
+
+
+def svg_teeth():
+    teeth = ''.join(f'<path d="M{62 + i * 17} 100 L{62 + i * 17} 78" stroke="{MARK}" stroke-width="3.5"/>'
+                    for i in range(7))
+    return _svg(
+        f'<path d="M40 100 C 66 66, 154 66, 180 100" stroke="{INK}"/>'
+        f'<path d="M40 100 C 70 154, 150 154, 180 100" stroke="{INK}"/>'
+        f'<path d="M52 100 L168 100" stroke="{MARK}"/>'
+        f'<path d="M54 78 L166 78" stroke="{MARK}" stroke-width="3.5"/>{teeth}')
+
+
+def svg_tongue():
+    return _svg(
+        f'<ellipse cx="110" cy="88" rx="64" ry="36" stroke="{INK}"/>'
+        f'<path d="M46 88 L174 88" stroke="{INK}" stroke-width="3.5"/>'
+        f'<path d="M84 96 C 78 156, 142 156, 136 96" stroke="{MARK}"/>'
+        f'<path d="M110 104 L110 146" stroke="{MARK}" stroke-width="3"/>')
+
+
+
+def svg_skin():
+    return _svg(
+        f'<path d="M44 138 C 72 116, 122 102, 178 98" stroke="{INK}"/>'
+        f'<path d="M54 176 C 82 156, 128 142, 184 134" stroke="{INK}"/>'
+        f'<path d="M178 98 C 192 100, 194 130, 184 134" stroke="{INK}"/>'
+        f'<circle cx="112" cy="134" r="19" stroke="{MARK}" stroke-dasharray="7 7" stroke-width="3.5"/>'
+        f'<path d="M104 130 L120 130 M104 140 L120 140" stroke="{MARK}" stroke-width="3"/>')
+
+
+def svg_finger():
+    return _svg(
+        f'<path d="M66 196 L66 128 C 66 112, 154 112, 154 128 L154 196" stroke="{INK}"/>'
+        f'<path d="M94 122 L94 50 C 94 34, 122 34, 122 50 L122 122" stroke="{MARK}"/>'
+        f'<path d="M128 124 C 148 114, 160 128, 146 142" stroke="{INK}" stroke-width="4"/>'
+        f'<path d="M88 124 C 70 114, 58 128, 72 142" stroke="{INK}" stroke-width="4"/>')
+
+
+
+def svg_hair():
+    return _svg(
+        f'<ellipse cx="110" cy="102" rx="42" ry="50" stroke="{MUTE}"/>'
+        f'<path d="M64 96 C 58 44, 102 28, 132 38 C 160 48, 164 74, 160 96" stroke="{MARK}"/>'
+        f'<path d="M66 92 C 52 126, 48 166, 56 192" stroke="{MARK}"/>'
+        f'<path d="M158 94 C 172 126, 176 166, 168 192" stroke="{MARK}"/>'
+        f'<circle cx="96" cy="98" r="4" fill="{MUTE}" stroke="none"/>'
+        f'<circle cx="126" cy="98" r="4" fill="{MUTE}" stroke="none"/>')
+
+
+def _figure(cx, head_y, h, colour):
+    """One stick figure. h is the y of the feet; head_y sets the height."""
+    body_top = head_y + 16
+    hip = body_top + (h - body_top) * 0.55
+    return (f'<circle cx="{cx}" cy="{head_y}" r="15" stroke="{colour}"/>'
+            f'<path d="M{cx} {body_top} L{cx} {hip:.0f}" stroke="{colour}"/>'
+            f'<path d="M{cx - 24} {body_top + 22} L{cx + 24} {body_top + 22}" stroke="{colour}"/>'
+            f'<path d="M{cx} {hip:.0f} L{cx - 15} {h} M{cx} {hip:.0f} L{cx + 15} {h}" stroke="{colour}"/>')
+
+
+def svg_tall():
+    return _svg(
+        _figure(70, 36, 186, MARK) + _figure(160, 96, 186, MUTE) +
+        f'<path d="M26 190 L200 190" stroke="{MUTE}" stroke-width="3"/>'
+        f'<path d="M40 36 L40 190" stroke="{MARK}" stroke-dasharray="6 8" stroke-width="3"/>')
+
+
+def svg_short():
+    return _svg(
+        _figure(70, 36, 186, MUTE) + _figure(160, 96, 186, MARK) +
+        f'<path d="M26 190 L200 190" stroke="{MUTE}" stroke-width="3"/>'
+        f'<path d="M192 96 L192 190" stroke="{MARK}" stroke-dasharray="6 8" stroke-width="3"/>')
+
+
+def svg_person():
+    """A whole person — the unit's destination, used on title slides."""
+    return _svg(
+        f'<circle cx="110" cy="46" r="27" stroke="{INK}"/>'
+        f'<path d="M83 40 C 80 16, 140 16, 137 40" stroke="{MARK}"/>'
+        f'<circle cx="100" cy="44" r="4" fill="{INK}" stroke="none"/>'
+        f'<circle cx="120" cy="44" r="4" fill="{INK}" stroke="none"/>'
+        f'<path d="M100 58 C 106 64, 114 64, 120 58" stroke="{INK}" stroke-width="3.5"/>'
+        f'<path d="M110 73 L110 132" stroke="{INK}"/>'
+        f'<path d="M74 96 L146 96" stroke="{INK}"/>'
+        f'<path d="M110 132 L86 192 M110 132 L134 192" stroke="{INK}"/>')
+
+
+def svg_radical():
+    """Lesson 4 has no new words — its title art is a character being split."""
+    return ('<svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg">'
+            f'<rect x="24" y="34" width="78" height="142" rx="10" fill="none" '
+            f'stroke="{MARK}" stroke-width="4" stroke-dasharray="9 8"/>'
+            f'<rect x="116" y="34" width="80" height="142" rx="10" fill="none" '
+            f'stroke="{MUTE}" stroke-width="4"/>'
+            f'<text x="63" y="130" font-size="86" font-family="Songti SC, serif" '
+            f'text-anchor="middle" fill="{MARK}">革</text>'
+            f'<text x="156" y="130" font-size="86" font-family="Songti SC, serif" '
+            f'text-anchor="middle" fill="{MUTE}">圭</text></svg>')
+
+
+ART = {
+    '眼睛': svg_eye, '耳朵': svg_ear, '鼻子': svg_nose, '嘴巴': svg_mouth,
+    '手': svg_hand, '脚': svg_foot, '腿': svg_leg, '头': svg_head,
+    '脸': svg_face, '牙齿': svg_teeth, '舌头': svg_tongue,
+    '皮肤': svg_skin, '手指头': svg_finger, '头发': svg_hair,
+    '高': svg_tall, '矮': svg_short, '人体部位': svg_person, '部首': svg_radical,
+}
+
+# Pinyin for the recall and summary boards (b_cards). Known words only.
+PY = {
+    '眼睛': 'yǎnjing', '耳朵': 'ěrduo', '鼻子': 'bízi', '嘴巴': 'zuǐba',
+    '手': 'shǒu', '脚': 'jiǎo', '腿': 'tuǐ', '头': 'tóu',
+    '脸': 'liǎn', '牙齿': 'yáchǐ', '舌头': 'shétou', '皮肤': 'pífū',
+    '手指头': 'shǒuzhǐtou', '头发': 'tóufa', '高': 'gāo', '矮': 'ǎi',
+    '长得': 'zhǎng de', '样': 'yàng', '得': 'de', '长': 'cháng', '短': 'duǎn',
+    '大': 'dà', '小': 'xiǎo', '校服': 'xiàofú', '衬衫': 'chènshān',
+    '外套': 'wàitào', '牛仔裤': 'niúzǎikù', '长发': 'chángfà',
+}
+
+
+def art_for(word):
+    if word in ART:
+        return ART[word]()
+    return ''
+# ══════════════════════════════════════════════════════════════════
+#  Block builders — each returns inner HTML for one slide
+# ══════════════════════════════════════════════════════════════════
+
+def b_caption(text):
+    return f'  <div class="caption" style="text-align:center;margin-bottom:26px;">{text}</div>\n'
+
+
+def b_title(num, label, hanzi, en, meta, art_word):
+    art = art_for(art_word)
+    bg = hanzi.replace('·', '')[0]
+    return f'''  <div class="bg-char">{bg}</div>
+  <div class="t-main">
+    <div class="t-num">Lesson {num} of {TOTAL_LESSONS} · Y7 Unit 5 · 轻松学中文 1</div>
+    <div class="t-art">{art}</div>
+    <h1 class="t-cn">{hanzi}</h1>
+    <div class="t-en">{en}</div>
+    <div class="t-meta">{meta}</div>
+  </div>
+'''
+
+
+def b_words(items):
+    """Slide A of a cycle. At most two items — the rule, enforced."""
+    assert len(items) <= 2, 'a vocabulary slide carries at most two new words'
+    cards = []
+    for it in items:
+        hz = it['hanzi']
+        long = ' long' if len(hz) >= 3 else ''
+        clue = f'<div class="wc-clue">{it["clue"]}</div>' if it.get('clue') else ''
+        cards.append(f'''    <div class="word-card">
+      <div class="wc-art">{art_for(hz)}</div>
+      <div class="wc-hanzi{long}">{hz}</div>
+      <div class="wc-pinyin">{it['pinyin']}</div>
+      <div class="wc-english">{it['english']}</div>
+      {clue}
+    </div>''')
+    return '  <div class="word-pair">\n' + '\n'.join(cards) + '\n  </div>\n'
+
+
+def b_examples(rows, badge=None):
+    out = []
+    if badge:
+        out.append(f'  <div style="margin-bottom:22px;"><span class="badge badge-indigo">{badge}</span></div>\n')
+    out.append('  <div class="ex-list">\n')
+    for r in rows:
+        en = f'<div class="ex-en">{r["en"]}</div>' if r.get('en') else ''
+        out.append(f'''    <div class="ex-row">
+      <div class="ex-pinyin">{r['py']}</div>
+      <div class="ex-hanzi">{r['cn']}</div>
+      {en}
+    </div>\n''')
+    out.append('  </div>\n')
+    return ''.join(out)
+
+
+def b_write(frames, note, ext, secs='60 秒'):
+    fl = '\n'.join(f'    <div class="sentence-frame">{f}</div>' for f in frames)
+    return f'''  <div style="display:flex;flex-direction:column;gap:26px;">
+{fl}
+    <div style="display:flex;align-items:center;gap:20px;margin-top:6px;">
+      <span class="badge badge-indigo">{secs}</span>
+      <span class="body-lg" style="color:var(--text-primary);">{note}</span>
+    </div>
+{b_ext(ext)}  </div>
+'''
+
+
+def b_ext(ext):
+    cn = f'<span class="cn">{ext["cn"]}</span>' if ext.get('cn') else ''
+    sub = f'<span class="sub">{ext["sub"]}</span>' if ext.get('sub') else ''
+    return f'''    <div class="extension-box">
+      <span class="ext-label">更难</span>
+      <span class="ext-body">{ext['text']}{cn}{sub}</span>
+    </div>
+'''
+
+
+def b_cards(words, cols=6, caption=None, pinyin=False):
+    """Recall / summary / review board. Known words only — scanned, not taught."""
+    out = [b_caption(caption)] if caption else []
+    cells = []
+    for w in words:
+        long = ' long' if len(w) >= 3 else ''
+        if isinstance(w, tuple):
+            w, py_txt = w
+        else:
+            py_txt = PY.get(w, '')
+        if w in ART:
+            vis = f'<div class="vc-art">{art_for(w)}</div>'
+        else:
+            vis = ''
+        py = f'<div class="vc-pinyin">{py_txt}</div>' if pinyin and py_txt else ''
+        cells.append(f'    <div class="vocab-card">{vis}<div class="vc-hanzi{long}">{w}</div>{py}</div>')
+    out.append(f'  <div class="grid-{cols}">\n' + '\n'.join(cells) + '\n  </div>\n')
+    return ''.join(out)
+
+
+def b_pattern(formula, examples, note=None, note_kind='info', note_icon='的'):
+    rows = []
+    for e in examples:
+        cn = e['cn']
+        if e.get('hard'):
+            cn = re.sub(r'\[(.+?)\]', r'<span class="new">\1</span>', cn)
+        else:
+            cn = cn.replace('[', '').replace(']', '')
+        en = f'<div class="ex-en">{e["en"]}</div>' if e.get('en') else ''
+        rows.append(f'''      <div class="ex-row">
+        <div class="ex-pinyin">{e['py']}</div>
+        <div class="ex-hanzi">{cn}</div>
+        {en}
+      </div>''')
+    n = ''
+    if note:
+        pre = 'warn' if note_kind == 'warning' else note_kind
+        n = f'''  <div class="{note_kind}-box" style="margin-top:2px;">
+    <span class="{pre}-icon">{note_icon}</span>
+    <span><span class="{pre}-text">{note['text']}</span>
+    <span class="{pre}-sub">{note['sub']}</span></span>
+  </div>
+'''
+    return f'''  <div class="pattern-wrap">
+    <div><span class="formula-box">{formula}</span></div>
+    <div class="ex-list">
+{chr(10).join(rows)}
+    </div>
+  </div>
+{n}'''
+
+
+def b_cfu(questions, errors=None):
+    qs = ''.join(f'    <div class="cfu-q"><span class="cfu-n">{i}</span>'
+                 f'<span class="cfu-t">{q}</span></div>\n'
+                 for i, q in enumerate(questions, 1))
+    out = f'  <div class="cfu-list">\n{qs}  </div>\n'
+    if errors:
+        pairs = ''.join(f'''    <div class="error-pair">
+      <span class="error-wrong">{w}</span>
+      <span class="error-arrow">&rarr;</span>
+      <span class="error-correct">{c}</span>
+    </div>\n''' for w, c in errors)
+        out += f'  <div style="display:flex;flex-direction:column;gap:16px;margin-top:36px;">\n{pairs}  </div>\n'
+    return out
+
+
+def b_lisc(intention, criteria):
+    rows = ''.join(f'''      <div class="sc-row">
+        <span class="sc-num">{i}</span>
+        <span class="sc-text">{c['cn']}<span class="en">{c['en']}</span></span>
+      </div>\n''' for i, c in enumerate(criteria, 1))
+    gap = '14px' if len(criteria) >= 4 else '18px'
+    return f'''  <div style="display:flex;flex-direction:column;gap:30px;">
+    <div>
+      <div class="badge badge-indigo" style="margin-bottom:18px;">今天我们学 · Learning Intention</div>
+      <div class="display-md">{intention}</div>
+    </div>
+    <div>
+      <div class="badge badge-teal" style="margin-bottom:18px;">我会 · Success Criteria</div>
+      <div style="display:flex;flex-direction:column;gap:{gap};margin-top:4px;">
+{rows}      </div>
+    </div>
+  </div>
+'''
+
+
+def b_qa(rows, badge=None, qs=None):
+    out = []
+    if badge:
+        out.append(f'  <div style="margin-bottom:22px;"><span class="badge badge-indigo">{badge}</span></div>\n')
+    out.append('  <div class="ex-list" style="gap:20px;">\n')
+    for r in rows:
+        who = r.get('who')
+        tag = f'<span class="qa-tag {"a" if who == "A" else "q"}">{who}</span>' if who else ''
+        if who:
+            out.append(f'''    <div class="qa-row">{tag}
+      <div class="qa-body"><div class="qa-pinyin">{r['py']}</div>
+      <div class="qa-hanzi">{r['cn']}</div></div>
+    </div>\n''')
+        else:
+            out.append(f'''    <div class="ex-row" style="gap:4px;">
+      <div class="ex-pinyin">{r['py']}</div>
+      <div class="ex-hanzi">{r['cn']}</div>
+    </div>\n''')
+    out.append('  </div>\n')
+    if qs:
+        li = ''.join(f'<li style="margin-bottom:12px;">{q}</li>' for q in qs)
+        out.append(f'''  <div class="card" style="margin-top:22px;padding:26px 34px;">
+    <div class="badge badge-madder" style="margin-bottom:16px;">听 · 读 · 问</div>
+    <ol class="body-md" style="margin:0;padding-left:34px;color:var(--text-primary);">{li}</ol>
+  </div>
+''')
+    return ''.join(out)
+
+
+def b_task(badge, steps, cn_lines=None, ext=None, note=None):
+    sh = ''.join(f'''    <div class="ex-row" style="flex-direction:row;gap:20px;align-items:baseline;">
+      <span class="sc-num">{i}</span>
+      <div class="body-lg" style="color:var(--text-primary);">{s}</div>
+    </div>\n''' for i, s in enumerate(steps, 1))
+    out = f'  <div style="margin-bottom:24px;"><span class="badge badge-olive">{badge}</span></div>\n'
+    out += f'  <div class="ex-list" style="gap:18px;">\n{sh}  </div>\n'
+    if cn_lines:
+        lines = ''.join(f'      <div class="ex-row"><div class="ex-hanzi">{l}</div></div>\n' for l in cn_lines)
+        out += ('  <div class="card" style="margin-top:24px;padding:24px 32px;">\n'
+                '    <div class="ex-list" style="gap:10px;">\n' + lines + '    </div>\n  </div>\n')
+    if note:
+        nsub = f'<span class="note-sub">{note["sub"]}</span>' if note.get('sub') else ''
+        out += f'''  <div class="note-box" style="margin-top:4px;">
+    <span class="note-icon">!</span>
+    <span><span class="note-text">{note['text']}</span>{nsub}</span>
+  </div>
+'''
+    if ext:
+        out += '  <div style="margin-top:20px;">\n' + b_ext(ext) + '  </div>\n'
+    return out
+
+
+def b_plenary(criteria, exit_text, exit_cn, preview):
+    rows = ''.join(f'''      <div class="sc-row">
+        <span class="sc-num">{i}</span>
+        <span class="sc-text">{c}</span>
+      </div>\n''' for i, c in enumerate(criteria, 1))
+    return f'''  <div class="badge badge-teal" style="margin-bottom:20px;">我做到了吗？ 👍 / 😐 / 👎</div>
+  <div style="display:flex;flex-direction:column;gap:14px;">
+{rows}  </div>
+  <div class="note-box" style="margin-top:28px;">
+    <span class="note-icon">✎</span>
+    <span><span class="note-text">出门条 · {exit_text}</span><span class="note-sub">{exit_cn}</span></span>
+  </div>
+  <div class="tip-box" style="margin-top:16px;">
+    <span class="tip-icon">→</span>
+    <span><span class="tip-text">下节课 · {preview}</span></span>
+  </div>
+'''
+
+
+def b_preview(hanzi, en, lines):
+    li = ''.join(f'      <div class="ex-row"><div class="ex-hanzi">{l}</div></div>\n' for l in lines)
+    return f'''  <div style="display:flex;flex-direction:column;align-items:center;gap:28px;">
+    <div class="hanzi-hero">{hanzi}</div>
+    <div class="display-md">{en}</div>
+    <div class="card" style="padding:30px 44px;">
+      <div class="ex-list" style="gap:14px;">
+{li}      </div>
+    </div>
+  </div>
+'''
+
+
+# ══════════════════════════════════════════════════════════════════
+#  The eight decks
+# ══════════════════════════════════════════════════════════════════
+#  Each S(...) is one slide: file, nav label, header section, inner html.
+
+def S(name, label, section, inner, style='', dense=False, foot=None):
+    return dict(name=name, label=label, section=section, inner=inner,
+                style=style, dense=dense, foot=foot)
+
+
+META = ('<span>Year 7 Chinese</span><span class="s"></span><span>50 分钟</span>'
+        '<span class="s"></span><span>Mixed</span><span class="s"></span><span>课本 {p}</span>')
+
+# ══════════════════════════════════════════════════════════════════
+#  The eight decks — one function each, in lesson order.
+#  Content comes from docs/lesson-plans/y7-l15/ and from the cached
+#  unit reference. Nothing here is invented: every sentence is either
+#  in the textbook, in the workbook, or built only from words the
+#  class has already been taught.
+# ══════════════════════════════════════════════════════════════════
+
+FACE4 = ['眼睛', '耳朵', '鼻子', '嘴巴']
+BODY8 = ['眼睛', '耳朵', '鼻子', '嘴巴', '手', '头', '脚', '腿']
+BODY13 = BODY8 + ['脸', '牙齿', '舌头', '皮肤', '手指头']
+
+
+def lesson1():
+    S_ = []
+    S_.append(S('01-title', 'Title · 人体部位 · 眼睛 耳朵 鼻子 嘴巴',
+               'Lesson 1 · 第十五课 人体部位',
+               b_title(1, '', '脸上<span class="dot">·</span>四个词',
+                       'The Face — eye, ear, nose, mouth',
+                       META.format(p='p.114–115'), '人体部位'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-dates', 'Review · 日期 (Unit 4 revision)',
+               'Review · 复习日期 · 0–3 min',
+               b_caption('练习册 p.162 第6题 — 听问题，写在小白板上') +
+               b_qa([
+                   dict(py='Jīntiān jǐ yuè jǐ hào?', cn='今天几月几号？'),
+                   dict(py='Jīntiān xīngqī jǐ?', cn='今天星期几？'),
+                   dict(py='Liù yuè shí rì shì xīngqī jǐ?', cn='六月十日是星期几？'),
+                   dict(py='Qī yuè yī rì shì xīngqī jǐ?', cn='七月一日是星期几？'),
+               ], badge='第四单元 · 两分钟就好'),
+               foot='Lesson 1 of 8 · 眼睛 耳朵 鼻子 嘴巴'))
+
+    S_.append(S('03-review-clothes', 'Review · 校服的颜色 (练习册 p.163)',
+               'Review · 复习衣服和颜色 · 3–8 min',
+               b_task('练习册 p.163 第8题 · 前三个人',
+                      ['给图上的人涂颜色 — colour the first three figures',
+                       '每个人写一句话 — one sentence for each',
+                       '记住 <b>的</b> — 灰色<b>的</b>校服，不是「灰色校服」'],
+                      cn_lines=['他穿灰色的校服。', '她穿白色的衬衫和蓝色的长裤。'],
+                      note=dict(text='上节课最常丢的就是「的」。',
+                                sub='The missing 的 is the single most common error in this unit.')),
+               foot='Lesson 1 of 8 · 眼睛 耳朵 鼻子 嘴巴'))
+
+    S_.append(S('04-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学说脸上的四个部位，还会说它们大不大。',
+                      [dict(cn='我会说 眼睛、耳朵、鼻子、嘴巴，还会指出来',
+                            en='I can name the four parts of the face and point to each'),
+                       dict(cn='我会用 大 / 小 组词 — 大眼睛、小嘴巴',
+                            en='I can build a phrase with 大 or 小'),
+                       dict(cn='我会用「我有……」说一句话',
+                            en='I can say one sentence about my own face using 我有……')])))
+
+    S_.append(S('05-vocab-a1', 'I Do · 生词 1 · 眼睛 · 耳朵', 'I Do · 生词 · 第一组',
+               b_words([dict(hanzi='眼睛', pinyin='yǎnjing', english='eye',
+                             clue='两个字都有 <b>目</b> — eye'),
+                        dict(hanzi='耳朵', pinyin='ěrduo', english='ear',
+                             clue='<b>耳</b> 本来就是耳朵的样子')])))
+
+    S_.append(S('06-vocab-b1', 'I Do · 例句 1 · 眼睛 · 耳朵', 'I Do · 例句 · 第一组',
+               b_examples([
+                   dict(py='Wǒ de yǎnjing hěn dà.', cn='我的<b>眼睛</b>很大。', en='My eyes are big.'),
+                   dict(py='Tā de ěrduo bù dà.', cn='他的<b>耳朵</b>不大。', en="His ears aren't big."),
+                   dict(py='Tā yǒu dà yǎnjing hé xiǎo ěrduo.',
+                        cn='她有大<b>眼睛</b>和小<b>耳朵</b>。', en='She has big eyes and small ears.'),
+               ], badge='只有两个新词 · 别的词你都学过')))
+
+    S_.append(S('07-vocab-c1', 'I Do · 写一句 1', 'I Do · 写一句 · 第一组',
+               b_write(['我的 ______ 很 ______ 。'],
+                       '写一句，写在小白板上。',
+                       dict(text='两个人，两个小句 —',
+                            cn='我的眼睛很大，我妹妹的眼睛不大。',
+                            sub='Two clauses about two different people.'))))
+
+    S_.append(S('08-vocab-a2', 'I Do · 生词 2 · 鼻子 · 嘴巴', 'I Do · 生词 · 第二组',
+               b_words([dict(hanzi='鼻子', pinyin='bízi', english='nose',
+                             clue='<b>鼻</b> 是三层，上面是 <b>自</b>'),
+                        dict(hanzi='嘴巴', pinyin='zuǐba', english='mouth',
+                             clue='<b>嘴</b> 左边是 <b>口</b> — mouth')])))
+
+    S_.append(S('09-vocab-b2', 'I Do · 例句 2 · 鼻子 · 嘴巴', 'I Do · 例句 · 第二组',
+               b_examples([
+                   dict(py='Wǒ de bízi bù dà.', cn='我的<b>鼻子</b>不大。', en="My nose isn't big."),
+                   dict(py='Tā de zuǐba hěn xiǎo.', cn='她的<b>嘴巴</b>很小。', en='Her mouth is small.'),
+                   dict(py='Tā yǒu dà bízi hé dà zuǐba.',
+                        cn='他有大<b>鼻子</b>和大<b>嘴巴</b>。', en='He has a big nose and a big mouth.'),
+               ])))
+
+    S_.append(S('10-vocab-c2', 'I Do · 写一句 2', 'I Do · 写一句 · 第二组',
+               b_write(['他有 ______ 鼻子和 ______ 嘴巴。'],
+                       '写一句 — 可以写班上的人，不要说名字。',
+                       dict(text='四个词一句话，用 、和 和 —',
+                            cn='她有大大的眼睛、小鼻子和小嘴巴。',
+                            sub='All four words in one sentence.'))))
+
+    S_.append(S('11-board', 'I Do · 今天的四个词 · Summary Board',
+               'I Do · 词汇总览 · 只有汉字和图',
+               b_cards(FACE4, cols=4,
+                       caption='今天的四个词 — 看图就说，不要看拼音'),
+               dense=True))
+
+    S_.append(S('12-pattern', 'I Do · 句型 · 有 + 大/小 + 部位', 'I Do · 句型 · 两个框架',
+               b_pattern('有 <span class="op">+</span> 大／小 <span class="op">+</span> '
+                         '<span class="slot">部位</span>',
+                         [dict(py='Wǒ yǒu dà yǎnjing.', cn='我有大眼睛。'),
+                          dict(py='Wǒ de yǎnjing hěn dà.', cn='我的眼睛很大。',
+                               en='same meaning, the other frame'),
+                          dict(py='Tā yǒu xiǎo zuǐba.', cn='他有小嘴巴。'),
+                          dict(py='Tā yǒu dà ěrduo hé xiǎo yǎnjing, tā de bízi bù dà yě bù xiǎo.',
+                               cn='他有大耳朵和小眼睛，[他的鼻子不大也不小]。', hard=True)],
+                         note=dict(text='形容词在前，部位在后。',
+                                   sub='大眼睛 ✓ · 眼睛大 ✗ — the adjective comes first.'),
+                         note_kind='warning', note_icon='!'),
+               dense=True))
+
+    S_.append(S('13-cfu', 'I Do · 检查 · CFU', 'I Do · 检查一下 · CFU',
+               b_cfu(['指一指你的<span class="cn">鼻子</span>。 (whole class, point)',
+                      '哪个字是 eye — <span class="cn">目</span> 还是 <span class="cn">口</span>？',
+                      '<span class="cn">耳朵</span> 的拼音是什么？写在小白板上。'],
+                     errors=[('我有眼睛大。', '我有大眼睛。'),
+                             ('我的眼睛很大的。', '我的眼睛很大。')]),
+               style=STYLE_CFU))
+
+    S_.append(S('14-text1', 'I Do · 课文一 · Text 1 (课本 p.114)',
+               'I Do · 课文一 · 脸上的四个部位',
+               b_cards([('眼睛', 'yǎnjing'), ('耳朵', 'ěrduo'),
+                        ('鼻子', 'bízi'), ('嘴巴', 'zuǐba')], cols=4, pinyin=True,
+                       caption='课本 p.114 — 老师读，你们跟着读两遍，然后指自己的脸') +
+               b_examples([
+                   dict(py='Zhè shì wǒ de yǎnjing.', cn='这是我的眼睛。'),
+                   dict(py='Zhè shì wǒ de bízi.', cn='这是我的鼻子。'),
+               ]), dense=True))
+
+    S_.append(S('15-act1-faces', 'We Do · 活动一 · 说七张脸 (7 min)',
+               'We Do · 活动一 · 课本 p.115 第1题 · 7 min',
+               b_task('课本 p.115 第1题 + 练习册 p.160 第3题',
+                      ['全班一起说第一张脸 — 他有大眼睛和小嘴巴。',
+                       '两个人一组，说完剩下的六张，每张一句',
+                       '然后练习册 p.160 第3题 — 九十秒，图配词'],
+                      cn_lines=['他有大眼睛和小嘴巴。', '她有小眼睛和大耳朵。'],
+                      ext=dict(text='说班上的人或者老师，不要说名字，让同伴猜 —',
+                               cn='他的耳朵不大，他有小眼睛。',
+                               sub='Three of the four words, one negative, and turn away from the screen.'))))
+
+    S_.append(S('16-act2-slap', 'You Do · 活动二 · 抢词卡 Slap the Character (7 min)',
+               'You Do · 活动二 · 抢词卡 · 7 min',
+               b_task('两队，一人上来 · 桌上八张卡',
+                      ['卡片：眼睛 耳朵 鼻子 嘴巴 大 小 长 短',
+                       '老师说的是<b>词组</b>，不是单词 — 大眼睛、小嘴巴',
+                       '要按顺序拍两张卡 — 先「大」，再「眼睛」'],
+                      cn_lines=['大眼睛　　小嘴巴　　大耳朵　　小鼻子'],
+                      ext=dict(text='老师说英文，学生拍两张卡，再说一句完整的话 —',
+                               cn='大眼睛 → 她有大眼睛。',
+                               sub='No point until the sentence is said.'))))
+
+    S_.append(S('17-act3-simon', 'Game · 老师说 (4 min)', 'Game · 老师说 · 4 min',
+               b_task('全班站起来 · 听到「老师说」才能动',
+                      ['老师说：指你的眼睛 / 耳朵 / 鼻子 / 嘴巴',
+                       '指错了，或者没说「老师说」你却动了 — 你出局',
+                       '最后加两个明天的词：<b>手</b>、<b>头</b>'],
+                      cn_lines=['老师说：指你的鼻子。', '指你的耳朵。 ← 不要动！'],
+                      ext=dict(text='让最后站着的学生当老师，只能说中文。',
+                               sub='The caller may use no English at all.'))))
+
+    S_.append(S('18-game-kahoot', 'Game · Kahoot · 十二题 (5 min)',
+               'Game · Kahoot · 5 min',
+               b_task('每人一个设备 · 十二题',
+                      ['四题：汉字 → English',
+                       '四题：图 → 汉字',
+                       '四题：上节课的衣服和颜色 — 灰色的毛衣、校服'],
+                      note=dict(text='最后两题是找错句子。',
+                                sub='The last two show a sentence with one error — 我有眼睛大。'))))
+
+    S_.append(S('19-plenary', 'Plenary · 出门条 (43–50 min)', 'Plenary · 43–50 min',
+               b_plenary(['我会说脸上的四个部位，还会指出来',
+                          '我会用 大 / 小 组词',
+                          '我会用「我有……」说一句话'],
+                         '用「我有」写一句关于你自己的话。',
+                         'Write one sentence about your own face using 我有.',
+                         '脖子以下 — 手、脚、腿、头，还要给一个人贴标签。')))
+
+    S_.append(S('20-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('手 · 脚 · 腿 · 头', 'Lesson 2 — the rest of the body',
+                         ['我的手很小。', '她有长腿。', '老师说：指你的脚。']),
+               style=STYLE_CENTRE))
+    return S_
+
+def lesson2():
+    S_ = []
+    S_.append(S('01-title', 'Title · 手 脚 腿 头', 'Lesson 2 · 第十五课 人体部位',
+               b_title(2, '', '脖子<span class="dot">·</span>以下',
+                       'Below the neck — hand, head, foot, leg',
+                       META.format(p='p.116, 121'), '手'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-flash', 'Review · 快闪卡 · 脸上四个词',
+               'Review · 复习 · 0–3 min',
+               b_cards(FACE4, cols=4, caption='只有汉字 — 全班一起说拼音，再说英文') +
+               b_caption('然后反过来：老师说英文，你写汉字。注意 <b>睛</b> 不是 <b>晴</b>。'),
+               dense=True, foot='Lesson 2 of 8 · 手 头 脚 腿'))
+
+    S_.append(S('03-review-clothes', 'Review · 练习册 p.163 第8题 · 后三个人',
+               'Review · 复习衣服 · 3–8 min',
+               b_task('练习册 p.163 第8题 · 第四到第六个人',
+                      ['把上节课没涂完的三个人涂完',
+                       '每个人写一句 — 他穿什么颜色的什么衣服',
+                       '写完了就两个人一组问答'],
+                      cn_lines=['他穿灰色的校服。', 'A: 你的眼睛大吗？ B: 大。／不大。'],
+                      note=dict(text='回答「……吗？」要重复动词。',
+                                sub='穿。／不穿。 — never 是。 This is Test Part 9.')),
+               foot='Lesson 2 of 8 · 手 头 脚 腿'))
+
+    S_.append(S('04-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学说脖子以下的部位，还会说它们长不长、大不大。',
+                      [dict(cn='我会说 手、脚、腿、头，还会指出来',
+                            en='I can name them and point to each'),
+                       dict(cn='我会给一个人的图贴上八个部位的名字',
+                            en='I can label all eight body parts on a drawing'),
+                       dict(cn='我会说 长腿、大手、小脚',
+                            en='I can say and write phrases like 长腿, 大手, 小脚')])))
+
+    S_.append(S('05-vocab-a1', 'I Do · 生词 1 · 手 · 头', 'I Do · 生词 · 第一组',
+               b_words([dict(hanzi='手', pinyin='shǒu', english='hand',
+                             clue='一个字，四画 — 写的时候中间的竖最后'),
+                        dict(hanzi='头', pinyin='tóu', english='head',
+                             clue='繁体是 <b>頭</b>，右边是 <b>页</b>')])))
+
+    S_.append(S('06-vocab-b1', 'I Do · 例句 1 · 手 · 头', 'I Do · 例句 · 第一组',
+               b_examples([
+                   dict(py='Wǒ de shǒu hěn xiǎo.', cn='我的<b>手</b>很小。', en='My hands are small.'),
+                   dict(py='Tā de tóu hěn dà.', cn='他的<b>头</b>很大。', en='His head is big.'),
+                   dict(py='Tā yǒu xiǎo shǒu hé xiǎo tóu.',
+                        cn='她有小<b>手</b>和小<b>头</b>。', en='She has small hands and a small head.'),
+               ], badge='只有两个新词')))
+
+    S_.append(S('07-vocab-c1', 'I Do · 写一句 1', 'I Do · 写一句 · 第一组',
+               b_write(['我的 ______ 很 ______ 。'], '写一句，六十秒。',
+                       dict(text='比较两个人，屏幕上不给框架 —',
+                            cn='我的手很小，我爸爸的手很大。',
+                            sub='Two people, one sentence, no frame.'))))
+
+    S_.append(S('08-vocab-a2', 'I Do · 生词 2 · 脚 · 腿', 'I Do · 生词 · 第二组',
+               b_words([dict(hanzi='脚', pinyin='jiǎo', english='foot',
+                             clue='左边是 <b>月</b> — flesh，不是月亮'),
+                        dict(hanzi='腿', pinyin='tuǐ', english='leg',
+                             clue='也有 <b>月</b> — 身体的部位常常有这个部首')])))
+
+    S_.append(S('09-vocab-b2', 'I Do · 例句 2 · 脚 · 腿', 'I Do · 例句 · 第二组',
+               b_examples([
+                   dict(py='Wǒ de jiǎo bù dà.', cn='我的<b>脚</b>不大。', en="My feet aren't big."),
+                   dict(py='Tā yǒu cháng tuǐ.', cn='她有长<b>腿</b>。', en='She has long legs.'),
+                   dict(py='Tā de tuǐ hěn cháng, tā de jiǎo hěn dà.',
+                        cn='他的<b>腿</b>很长，他的<b>脚</b>很大。',
+                        en='His legs are long and his feet are big.'),
+               ])))
+
+    S_.append(S('10-vocab-c2', 'I Do · 写一句 2', 'I Do · 写一句 · 第二组',
+               b_write(['他有 ______ 腿和 ______ 脚。'], '写一句，六十秒。',
+                       dict(text='腿用 长/短，手脚用 大/小，一句话里都用上 —',
+                            cn='他有长腿和大脚，他的手不大。',
+                            sub='Two adjective pairs and a negative in one sentence.'))))
+
+    S_.append(S('11-board', 'I Do · 八个部位 · Summary Board',
+               'I Do · 词汇总览 · 八个词',
+               b_cards(BODY8, cols=4, caption='现在你会说八个部位了 — 只有汉字和图'),
+               dense=True))
+
+    S_.append(S('12-pattern', 'I Do · 句型 · 长/短 + 大/小', 'I Do · 句型 · 两个框架',
+               b_pattern('的 <span class="op">+</span> <span class="slot">部位</span> '
+                         '<span class="op">+</span> 很长／很大',
+                         [dict(py='Wǒ yǒu dà shǒu.', cn='我有大手。'),
+                          dict(py='Wǒ de tuǐ hěn cháng.', cn='我的腿很长。'),
+                          dict(py='Tā yǒu xiǎo jiǎo hé cháng tuǐ.', cn='她有小脚和长腿。'),
+                          dict(py='Tā de tóu bù dà, tā yǒu dà shǒu hé dà jiǎo.',
+                               cn='他的头不大，[他有大手和大脚]。', hard=True)],
+                         note=dict(text='腿和头发用 长 / 短，手脚眼睛用 大 / 小。',
+                                   sub='长脚 sounds as odd in Chinese as "long feet" does in English.')),
+               dense=True))
+
+    S_.append(S('13-cfu', 'I Do · 检查 · CFU', 'I Do · 检查一下 · CFU',
+               b_cfu(['<span class="cn">手</span> 还是 <span class="cn">脚</span> — 哪个在下面？指一指。',
+                      '哪个字有 <span class="cn">月</span>（flesh）？<span class="cn">腿</span> 还是 '
+                      '<span class="cn">眼</span>？写在小白板上。',
+                      '这句话对不对？<span class="cn">她有腿长。</span>'],
+                     errors=[('她有腿长。', '她有长腿。'), ('我的脚很长。', '我的脚很大。')]),
+               style=STYLE_CFU))
+
+    S_.append(S('14-act1-label', 'We Do · 活动一 · 贴标签 (7 min)',
+               'We Do · 活动一 · 课本 p.116 第3题 · 7 min',
+               b_task('两个人一组，一张人形图',
+                      ['先<b>不看屏幕</b>，凭记忆写上八个部位 — 三分钟',
+                       '然后总览板回来，用另一支笔自己改',
+                       '课本 p.116 生词表还有五个词 — 老师念，能写的就加上'],
+                      cn_lines=['脸　牙齿　舌头　皮肤　手指头　← 下节课才正式学'],
+                      ext=dict(text='写四句话描写你们的图，每句用不同的部位，至少一句是否定的。',
+                               sub='Then one pair reads theirs aloud while the class draws what they hear.'))))
+
+    S_.append(S('15-act2-strokes', 'You Do · 活动二 · 笔顺 + 画词组 (9 min)',
+               'You Do · 活动二 · 练习册 · 9 min',
+               b_task('练习册 pp.159–160 第2题 → p.161 第5题 → p.162 第7题',
+                      ['第2题：十个字按笔顺抄 — 眼 睛 耳 朵 鼻 嘴 巴 手 脚 腿',
+                       '第5题：把六个词组画出来 — 每个三十秒',
+                       '第7题：回答四个关于你自己的问题，写<b>完整的句子</b>'],
+                      cn_lines=['大鼻子　小嘴巴　大眼睛　长腿　大耳朵　小手',
+                                '你的眼睛大吗？ → 我的眼睛很大。（不是「大。」）'],
+                      note=dict(text='<b>朵</b> 和 <b>鼻</b> 是最容易写错顺序的两个字。',
+                                sub='鼻 is three stacked parts: 自 → 田 → 廾.'),
+                      ext=dict(text='写六句话描写班上一个人，不说名字，让同伴猜是谁。',
+                               sub='Every sentence must use a different body part.'))))
+
+    S_.append(S('16-game-simon', 'Game · 老师说 Simon Says (7 min)',
+               'Game · 老师说 · 课本 p.121 第10题 · 7 min',
+               b_task('全班站起来',
+                      ['老师说一个部位，你就指自己身上的那个地方',
+                       '指错了，或者老师没说「老师说」你却动了 — 出局',
+                       '最后三轮说<b>词组</b>，不只是一个词'],
+                      cn_lines=['老师说：指你的腿。', '老师说：指你的大眼睛。'],
+                      ext=dict(text='最后站着的人当老师，只说中文，不说一个英文词。',
+                               sub='The winner calls, in Chinese only.'))))
+
+    S_.append(S('17-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会说 手、脚、腿、头，还会指出来',
+                          '我会给一个人的图贴上八个部位',
+                          '我会说 长腿、大手、小脚'],
+                         '写两个词组：一个用 长，一个用 大，部位不一样。',
+                         'Two phrases: one with 长, one with 大, different body parts.',
+                         '再五个词 — 脸、牙齿、舌头、皮肤、手指头，还有听写声调。')))
+
+    S_.append(S('18-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('脸 · 牙齿 · 舌头', 'Lesson 3 — five more, and tone marks by ear',
+                         ['我的牙齿很白。', '他的皮肤很白。', '老师念，你写拼音和声调。']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def lesson3():
+    S_ = []
+    S_.append(S('01-title', 'Title · 脸 牙齿 舌头 皮肤 手指头',
+               'Lesson 3 · 第十五课 人体部位',
+               b_title(3, '', '再五个<span class="dot">·</span>词',
+                       'Five more parts, and pinyin by ear',
+                       META.format(p='p.115–116'), '牙齿'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-time', 'Review · 时间 (Unit 4 revision)',
+               'Review · 复习时间 · 0–3 min',
+               b_caption('练习册 p.166 第12题 — 看钟面，用中文写时间') +
+               b_examples([
+                   dict(py='qī diǎn líng wǔ fēn', cn='七点零五分'),
+                   dict(py='bā diǎn yí kè', cn='八点一刻'),
+                   dict(py='chà wǔ fēn jiǔ diǎn', cn='差五分九点'),
+               ], badge='第四单元 · 两三分钟') +
+               b_caption('<b>差</b> 和 <b>刻</b> 是忘得最快的两个 — 今天就检查这两个。'),
+               dense=True, foot='Lesson 3 of 8 · 脸 牙齿 舌头 皮肤 手指头'))
+
+    S_.append(S('03-review-bingo', 'Review · Bingo · 八个部位',
+               'Review · Bingo · 3–8 min',
+               b_task('自己画一个 3×3 的格子',
+                      ['从八个部位里挑，填满九格（一格你自己选）',
+                       '老师说英文，你划掉那个中文词',
+                       '一条线就喊 — 但要把那三个词读出来才算'],
+                      cn_lines=['眼睛　耳朵　鼻子　嘴巴　手　头　脚　腿'],
+                      ext=dict(text='喊 Bingo 的人要用那三个词各说一句话。',
+                               sub='Three words, three sentences, before the line counts.')),
+               foot='Lesson 3 of 8 · 脸 牙齿 舌头 皮肤 手指头'))
+
+    S_.append(S('04-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们再学五个身体的词，还要只靠耳朵写出拼音和声调。',
+                      [dict(cn='我会说 脸、牙齿、舌头、皮肤、手指头',
+                            en='I can name all five'),
+                       dict(cn='我只听一遍就能写出拼音和<b>声调</b>',
+                            en='I can write pinyin with the correct tone mark from listening alone'),
+                       dict(cn='我知道哪个部首配哪个意思 — 目、口、月',
+                            en='I can match a radical to its meaning')])))
+
+    S_.append(S('05-vocab-a1', 'I Do · 生词 1 · 脸 · 牙齿', 'I Do · 生词 · 第一组',
+               b_words([dict(hanzi='脸', pinyin='liǎn', english='face',
+                             clue='繁体 <b>臉</b> — 左边还是 <b>月</b>（flesh）'),
+                        dict(hanzi='牙齿', pinyin='yáchǐ', english='teeth',
+                             clue='繁体 <b>齒</b> — 下面就是牙齿的样子')])))
+
+    S_.append(S('06-vocab-b1', 'I Do · 例句 1 · 脸 · 牙齿', 'I Do · 例句 · 第一组',
+               b_examples([
+                   dict(py='Tā de liǎn hěn xiǎo.', cn='她的<b>脸</b>很小。', en='Her face is small.'),
+                   dict(py='Wǒ de yáchǐ hěn bái.', cn='我的<b>牙齿</b>很白。', en='My teeth are white.'),
+                   dict(py='Tā de liǎn shang yǒu dà yǎnjing hé bái yáchǐ.',
+                        cn='她的<b>脸</b>上有大眼睛和白<b>牙齿</b>。',
+                        en='Her face has big eyes and white teeth.'),
+               ], badge='白 是第十三课的颜色词')))
+
+    S_.append(S('07-vocab-c1', 'I Do · 写一句 1', 'I Do · 写一句 · 第一组',
+               b_write(['我的 ______ 很 ______ 。'], '写一句，六十秒。',
+                       dict(text='用第十三课的颜色词，写两个小句 —',
+                            cn='他的脸不大，他有白白的牙齿。',
+                            sub='Reach back to the colour words from Lesson 13.'))))
+
+    S_.append(S('08-vocab-a2', 'I Do · 生词 2 · 舌头 · 皮肤', 'I Do · 生词 · 第二组',
+               b_words([dict(hanzi='舌头', pinyin='shétou', english='tongue',
+                             clue='<b>头</b> 你已经学过了 — 中文用会的字造新词'),
+                        dict(hanzi='皮肤', pinyin='pífū', english='skin',
+                             clue='繁体 <b>膚</b> — 又是 <b>月</b>')])))
+
+    S_.append(S('09-vocab-b2', 'I Do · 例句 2 · 舌头 · 皮肤', 'I Do · 例句 · 第二组',
+               b_examples([
+                   dict(py='Wǒ de shétou hěn cháng.', cn='我的<b>舌头</b>很长。', en='My tongue is long.'),
+                   dict(py='Tā de pífū hěn bái.', cn='他的<b>皮肤</b>很白。', en='His skin is pale.'),
+                   dict(py='Wǒ de pífū bù bái, wǒ de shétou hěn cháng.',
+                        cn='我的<b>皮肤</b>不白，我的<b>舌头</b>很长。',
+                        en="My skin isn't pale, my tongue is long."),
+               ])))
+
+    S_.append(S('10-vocab-c2', 'I Do · 写一句 2', 'I Do · 写一句 · 第二组',
+               b_write(['他的皮肤很 ______ 。'], '写一句，六十秒。',
+                       dict(text='一句话里用两个颜色词 —',
+                            cn='她的皮肤很白，她有黑色的头发。',
+                            sub='Two colour words, one person, one sentence.'))))
+
+    S_.append(S('11-vocab-a3', 'I Do · 生词 3 · 手指头', 'I Do · 生词 · 第三组',
+               b_words([dict(hanzi='手指头', pinyin='shǒuzhǐtou', english='finger',
+                             clue='<b>手</b> + 指 + <b>头</b> — 两个字你都会了')])))
+
+    S_.append(S('12-vocab-b3', 'I Do · 例句 3 · 手指头', 'I Do · 例句 · 第三组',
+               b_examples([
+                   dict(py='Wǒ yǒu shí gè shǒuzhǐtou.', cn='我有十个<b>手指头</b>。',
+                        en='I have ten fingers.'),
+                   dict(py='Tā de shǒuzhǐtou hěn cháng.', cn='他的<b>手指头</b>很长。',
+                        en='His fingers are long.'),
+                   dict(py='Tā yǒu xiǎo shǒu hé cháng shǒuzhǐtou.',
+                        cn='她有小手和长<b>手指头</b>。', en='She has small hands and long fingers.'),
+               ])))
+
+    S_.append(S('13-vocab-c3', 'I Do · 写一句 3', 'I Do · 写一句 · 第三组',
+               b_write(['我有 ______ 个手指头。'], '写一句，六十秒。',
+                       dict(text='一句话里用 手、手指头 和另一个部位，还要有否定 —',
+                            cn='我有小手和长手指头，我的手指头不短。',
+                            sub='Three body parts and a negative.'))))
+
+    S_.append(S('14-recall', 'I Do · 回读 · 今天的五个词', 'I Do · 回读 · 只有汉字',
+               b_cards(['脸', '牙齿', '舌头', '皮肤', '手指头'], cols=5,
+                       caption='没有拼音，没有英文 — 全班读出来') +
+               b_caption('读不出 <b>皮肤</b> 和 <b>手指头</b> 就回去看图，先别往下走。'),
+               dense=True))
+
+    S_.append(S('15-board', 'I Do · 十三个部位 · Summary Board',
+               'I Do · 词汇总览 · 十三个词',
+               b_cards(BODY13, cols=7, caption='十三个部位 — 这块板整个活动都留在屏幕上'),
+               dense=True))
+
+    S_.append(S('16-act1-thirteen', 'We Do · 活动一 · 十三个词，一张脸 (7 min)',
+               'We Do · 活动一 · 7 min',
+               b_task('两个人一组 · 总览板留在屏幕上',
+                      ['十三个词<b>每个</b>都要写一句话 — 十三句短句，五分钟',
+                       '写四句长的不算完成 — 每个词都要用到',
+                       '然后三组各读两句'],
+                      cn_lines=['我的脸不大。　我的牙齿很白。　我有十个手指头。'],
+                      ext=dict(text='不写十三句，写<b>一段</b>五六句的话，用 和、、、也 连起来 — 而且把总览板关掉。',
+                               sub='One connected paragraph, all thirteen words, no board.'))))
+
+    S_.append(S('17-act2-pinyin', 'You Do · 活动二 · 听写拼音声调 (8 min)',
+               'You Do · 活动二 · 课本 p.116 第4题 · 8 min',
+               b_task('老师念两遍，你写拼音 — 要写<b>声调</b>',
+                      ['九个词，意思不重要 — 这题只考耳朵',
+                       '有几个词你没学过，不要慌',
+                       '然后课本 p.115 第2题：两人一组，一个说词组，一个写拼音'],
+                      cn_lines=['1) shénme　2) kāishǐ　3) yīnyuè　4) xǐhuan　5) liúxíng',
+                                '6) yáogǔn　7) xuéxiào　8) xiōngdì　9) lǚxíng'],
+                      note=dict(text='声调标错位置就算错。',
+                                sub='A tone mark in the wrong place is wrong — mark it strictly.'),
+                      ext=dict(text='不听九个单词，听三个完整的句子，写拼音加声调，再在下面写汉字。',
+                               sub='Dictation of three full sentences, then the same in characters.'))))
+
+    S_.append(S('18-act3-radicals', 'You Do · 活动三 · 部首配意思 (6 min)',
+               'You Do · 活动三 · 练习册 p.161 第4题 · 6 min',
+               b_task('十二个意思，写出部首 — 三分钟，比一比谁快',
+                      ['eye 目 · water 氵 · flesh 月 · sunset 夕',
+                       'clothing 衤 · mouth 口 · wood 木 · cave 穴',
+                       'food 饣 · metal 钅 · grass 艹 · page 页'],
+                      note=dict(text='clothing 是 <b>衤</b>，不是 <b>礻</b>。',
+                                sub='That extra dot was the commonest error in Lesson 14 — and it is worth two marks on the test.'),
+                      ext=dict(text='十二个部首各写一个字，其中三个要写成词组，不只是单字。',
+                               sub='One character per radical; three of them inside a phrase.'))))
+
+    S_.append(S('19-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会说 脸、牙齿、舌头、皮肤、手指头',
+                          '我只听一遍就能写出拼音和声调',
+                          '我知道哪个部首配哪个意思'],
+                         '老师念一个词（脸），你写拼音加声调，再写汉字。',
+                         'One word, heard once: pinyin with tone mark, then characters.',
+                         '整节课都是汉字 — 六个新部首，和字是怎么拼起来的。')))
+
+    S_.append(S('20-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('厂 车 立 革 止 虫', 'Lesson 4 — six radicals, and how characters split',
+                         ['鞋 = 革 + 圭', '步 = 止 + 少', '鼻 = 自 + 田 + 廾']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def b_radicals(items):
+    """Slide A of a radical cycle — two radicals, each with an example
+    character. Not vocabulary: a radical has a meaning, not a gloss."""
+    assert len(items) <= 2, 'a radical slide carries at most two radicals'
+    cards = []
+    for it in items:
+        cards.append(f'''    <div class="word-card">
+      <div class="wc-hanzi" style="font-size:132px;line-height:1.1;">{it['rad']}</div>
+      <div class="wc-pinyin">{it['meaning']}</div>
+      <div class="wc-english">例字 · {it['example']}</div>
+      <div class="wc-clue">{it['clue']}</div>
+    </div>''')
+    return '  <div class="word-pair">\n' + '\n'.join(cards) + '\n  </div>\n'
+
+
+def lesson4():
+    S_ = []
+    S_.append(S('01-title', 'Title · 部首 厂 车 立 革 止 虫',
+               'Lesson 4 · 第十五课 人体部位',
+               b_title(4, '', '部首<span class="dot">·</span>六个',
+                       'Six radicals, and how a character is built',
+                       META.format(p='p.117'), '部首'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-correct', 'Review · 改错句 (4 min)',
+               'Review · 改错 · 0–4 min',
+               b_cfu(['<span class="cn">她的牙齿很白。</span> ← 这句<b>对</b>，说出来',
+                      '<span class="cn">我有脸很小。</span>',
+                      '<span class="cn">他的皮肤很白，他有黑色头发。</span>'],
+                     errors=[('我有脸很小。', '我的脸很小。／我有小脸。'),
+                             ('黑色头发', '黑色的头发')]),
+               style=STYLE_CFU, foot='Lesson 4 of 8 · 部首 · 笔画'))
+
+    S_.append(S('03-review-radicals', 'Review · 十二个部首 (3 min)',
+               'Review · 部首快闪 · 4–8 min',
+               b_cards(['目', '氵', '月', '口', '衤', '艹'], cols=6,
+                       caption='上节课的部首 — 老师出示，全班说意思') +
+               b_caption('然后两个同学上来，各写一个用这些部首的字。'),
+               dense=True, foot='Lesson 4 of 8 · 部首 · 笔画'))
+
+    S_.append(S('04-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学六个新部首，还要会把一个字拆成几块。',
+                      [dict(cn='我会说 厂、车、立、革、止、虫 的意思',
+                            en='I can name the meaning of each of the six'),
+                       dict(cn='给我一个部首，我能写一个用它的字',
+                            en='I can write a character that uses a given radical'),
+                       dict(cn='我能把一个字拆开，还能说哪一块是部首',
+                            en='I can split a character and say which part is the radical')])))
+
+    S_.append(S('05-rad1', 'I Do · 部首 1 · 厂 · 车', 'I Do · 部首 · 第一组',
+               b_radicals([dict(rad='厂', meaning='cliff 山崖', example='厅 tīng hall',
+                                clue='字的形状就是山崖 — 一个平顶'),
+                           dict(rad='车（車）', meaning='vehicle 车辆', example='辆 liàng',
+                                clue='<b>车</b> 你早就会了 — 现在它在别的字里干活')])))
+
+    S_.append(S('06-rad2', 'I Do · 部首 2 · 立 · 革', 'I Do · 部首 · 第二组',
+               b_radicals([dict(rad='立', meaning='stand 站立', example='站 zhàn to stand',
+                                clue='站 = <b>立</b> + 占 — 意思在左边'),
+                           dict(rad='革', meaning='leather 皮革', example='鞋 xié shoe',
+                                clue='鞋是皮做的 — 部首告诉你材料')])))
+
+    S_.append(S('07-rad3', 'I Do · 部首 3 · 止 · 虫', 'I Do · 部首 · 第三组',
+               b_radicals([dict(rad='止', meaning='stop 脚步', example='步 bù step',
+                                clue='两只脚，一前一后'),
+                           dict(rad='虫', meaning='insect 小动物', example='虾 xiā shrimp',
+                                clue='虫子和小动物都归它管')])))
+
+    S_.append(S('08-recall-radicals', 'I Do · 回读 · 六个部首', 'I Do · 回读 · 没有意思',
+               b_cards(['厂', '车', '立', '革', '止', '虫'], cols=6,
+                       caption='只有部首 — 全班说意思，先按顺序，再打乱') +
+               b_caption('每组写完就在小白板上写两个部首<b>加</b>那个例字，部首用另一个颜色。'),
+               dense=True))
+
+    S_.append(S('09-structure', 'I Do · 字是拼起来的', 'I Do · 拆字 · 一个字几块',
+               b_pattern('字 <span class="op">=</span> <span class="slot">部首</span> '
+                         '<span class="op">+</span> 别的部分',
+                         [dict(py='xié · 革 + 圭', cn='鞋 = 革 + 圭', en='radical on the LEFT'),
+                          dict(py='bù · 止 + 少', cn='步 = 止 + 少', en='radical on TOP'),
+                          dict(py='liàng · 车 + 两', cn='辆 = 车 + 两', en='radical on the LEFT'),
+                          dict(py='bí · 自 + 田 + 廾', cn='[鼻 = 自 + 田 + 廾]', hard=True,
+                               en='three parts — and you learnt this word in Lesson 1')],
+                         note=dict(text='你会的字，本来就是这样拼出来的。',
+                                   sub='鼻 was a vocabulary word three lessons ago; today it is a structure.')),
+               dense=True))
+
+    S_.append(S('10-cfu', 'I Do · 检查 · CFU', 'I Do · 检查一下 · CFU',
+               b_cfu(['<span class="cn">鞋</span> 是什么做的？你怎么知道？',
+                      '写一个有 <span class="cn">虫</span> 的字。',
+                      '<span class="cn">站</span> 的部首在左边还是右边？'],
+                     errors=[('裤 写成 礻', '裤 是 衤'), ('鼻 = 自 + 廾', '鼻 = 自 + 田 + 廾')]),
+               style=STYLE_CFU))
+
+    S_.append(S('11-act1-sort', 'We Do · 活动一 · 部首分类 (6 min)',
+               'We Do · 活动一 · 卡片分类 · 6 min',
+               b_task('六个部首当标题，十二张字卡分类',
+                      ['字卡：厅 厂 辆 车 站 位 鞋 革 步 止 虾 虫',
+                       '两个人一组，三分钟分完',
+                       '然后每组要<b>说出理由</b>，至少两张'],
+                      cn_lines=['辆 放在 车 下面，因为车字旁在左边。'],
+                      ext=dict(text='再加练习册第16题的六个部首（忄 口 衤 亻 夕 女）和八张第十三、十四课的字卡；'
+                                    '然后每个部首再写一个卡片上<b>没有</b>的字。',
+                               sub='Twelve headers, twenty cards, then six characters from memory.'))))
+
+    S_.append(S('12-act2-structure', 'You Do · 活动二 · 画结构 (8 min)',
+               'You Do · 活动二 · 课本 p.117 第6题 · 8 min',
+               b_task('九个字，画出结构，圈出部首',
+                      ['班 鼻 起 嘴 灰 橙 差 蓝 套',
+                       '左右？上下？三块？画个框',
+                       '六分钟自己做，然后屏幕上对答案，自己改'],
+                      note=dict(text='<b>差</b> 不是左右结构，<b>套</b> 上面是 <b>大</b>。',
+                                sub='These two are the ones that catch people out.'),
+                      ext=dict(text='练习册 p.168 第16题：六个部首各写<b>两</b>个字，今天屏幕上出现过的不算，'
+                                    '再把其中三个写成词组。',
+                               sub='Twelve characters, none of them from the screen.'))))
+
+    S_.append(S('13-act3-strokes', 'You Do · 活动三 · 笔顺 (3 min)',
+               'You Do · 活动三 · 练习册 p.158 第1题 · 3 min',
+               b_task('六个部首按笔顺抄一遍',
+                      ['厂 车 立 革 止 虫',
+                       '<b>革</b> 和 <b>虫</b> 都是同一个地方出错 — 竖在下面那一横之前'],
+                      note=dict(text='笔顺不是装饰。',
+                                sub='Wrong stroke order shows up as a wrong-looking character, every time.'))))
+
+    S_.append(S('14-game-relay', 'Game · 写字接力 Writing Relay (6 min)',
+               'Game · 写字接力 · 6 min',
+               b_task('两队，两支笔，黑板分两边',
+                      ['老师说一个部首的<b>意思</b> — "leather"、"vehicle"、"stop"',
+                       '第一个人跑上来写一个带这个部首的字，然后把笔传下去',
+                       '黑板上已经有的字不算 · 两分钟一轮'],
+                      ext=dict(text='写完还要说一个词组才能传笔；对会说中文的同学，老师只说部首的形状，不说意思。',
+                               sub='A phrase before the pen passes.'))))
+
+    S_.append(S('15-act4-phrases', 'You Do · 活动四 · 加一个字组词 (3 min)',
+               'You Do · 活动四 · 练习册 p.169 第18题 · 3 min',
+               b_task('小白板，快 — 前五个就好',
+                      ['下午 → 午__　·　长裤 → 裤__　·　中学 → 学__',
+                       '大火 → 火__　·　毛衣 → 衣__'],
+                      cn_lines=['下午 → 午饭　　长裤 → 裤子　　中学 → 学生'],
+                      ext=dict(text='九个都做完，再从任意一个做一条三环链 —',
+                               cn='下午 → 午饭 → 饭馆',
+                               sub='A three-link chain from any of the nine.'))))
+
+    S_.append(S('16-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会说六个部首的意思',
+                          '给我一个部首，我能写一个用它的字',
+                          '我能把一个字拆开，还能说哪块是部首'],
+                         '写一个有 虫 的字，把部首圈出来。',
+                         'One character using 虫, radical circled.',
+                         '整个单元最大的那个问题 — 你长什么样？')))
+
+    S_.append(S('17-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('你长什么样？', 'Lesson 5 — what do you look like?',
+                         ['他长得很高。', '她长得不高也不矮。', '长 有两个读音 — cháng 和 zhǎng']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def lesson5():
+    S_ = []
+    S_.append(S('01-title', 'Title · 你长什么样？', 'Lesson 5 · 第十五课 人体部位',
+               b_title(5, '', '你长<span class="dot">·</span>什么样？',
+                       'What do you look like? — 长得 · 高 · 矮',
+                       META.format(p='p.118–119'), '高'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review', 'Review · 部首 + 抢词卡 (0–8 min)',
+               'Review · 复习 · 0–8 min',
+               b_cards(['厂', '车', '立', '革', '止', '虫'], cols=6,
+                       caption='上节课的六个部首 — 说意思，两个人上来各写一个字') +
+               b_task('然后抢词卡 · 五分钟',
+                      ['十三张部位卡摊在桌上',
+                       '老师说<b>词组</b> — 长腿、小嘴巴、大手',
+                       '两个人抢那个部位的卡 · 十轮，然后换人'],
+                      cn_lines=['长腿　小嘴巴　大手　大耳朵']),
+               dense=True, foot='Lesson 5 of 8 · 长得 高 矮 样'))
+
+    S_.append(S('03-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学问别人长什么样，还会用高矮回答。',
+                      [dict(cn='我会问 你长什么样？／他长什么样？',
+                            en='I can ask what someone looks like'),
+                       dict(cn='我会答 他长得很高。／她长得不高。',
+                            en='I can answer with their height'),
+                       dict(cn='我会读 长 的两个音 — cháng 和 zhǎng',
+                            en='I can read 长 correctly as both cháng and zhǎng')])))
+
+    S_.append(S('04-vocab-a1', 'I Do · 生词 1 · 高 · 矮', 'I Do · 生词 · 第一组',
+               b_words([dict(hanzi='高', pinyin='gāo', english='tall',
+                             clue='第十三课学过 <b>高高的</b>？还没 — 下节课'),
+                        dict(hanzi='矮', pinyin='ǎi', english='short (in height)',
+                             clue='左边是 <b>矢</b>，右下是 <b>女</b>，不是 <b>攵</b>')])))
+
+    S_.append(S('05-vocab-b1', 'I Do · 例句 1 · 高 · 矮', 'I Do · 例句 · 第一组',
+               b_examples([
+                   dict(py='Wǒ bàba hěn gāo.', cn='我爸爸很<b>高</b>。', en='My dad is tall.'),
+                   dict(py='Wǒ mèimei hěn ǎi.', cn='我妹妹很<b>矮</b>。', en='My little sister is short.'),
+                   dict(py='Wǒ bù gāo yě bù ǎi.', cn='我不<b>高</b>也不<b>矮</b>。',
+                        en="I'm neither tall nor short."),
+               ], badge='不……也不…… 下节课还会再用')))
+
+    S_.append(S('06-vocab-c1', 'I Do · 写一句 1', 'I Do · 写一句 · 第一组',
+               b_write(['我 ______ ，我 ______ 很 ______ 。'], '写一句，六十秒。',
+                       dict(text='用 也 把家里三个人的高矮写成两个小句 —',
+                            cn='我爸爸很高，我妈妈不高也不矮，我很矮。',
+                            sub='Three people, compared by height.'))))
+
+    S_.append(S('07-vocab-a2', 'I Do · 生词 2 · 长得 · 样', 'I Do · 生词 · 第二组',
+               b_words([dict(hanzi='长得', pinyin='zhǎng de', english='to look (grow)',
+                             clue='这里读 <b>zhǎng</b>，不是 cháng'),
+                        dict(hanzi='样', pinyin='yàng', english='appearance',
+                             clue='繁体 <b>樣</b> — 什么样 = what kind of appearance')])))
+
+    S_.append(S('08-warn-chang', 'I Do · 注意 · 长 的两个读音',
+               'I Do · 一个字，两个读音',
+               b_pattern('长 <span class="op">=</span> cháng (long) '
+                         '<span class="op">/</span> zhǎng (grow)',
+                         [dict(py='chángkù', cn='长裤 — 第十四课学的「长」'),
+                          dict(py='cháng tuǐ', cn='长腿 — 还是 cháng'),
+                          dict(py='Tā zhǎng de hěn gāo.', cn='他<b>长</b>得很高。 — 这里是 zhǎng'),
+                          dict(py='Tā zhǎng de bù gāo, tā de tóufa hěn cháng.',
+                               cn='她[长]得不高，她的头发很[长]。', hard=True,
+                               en='zhǎng then cháng — same character, one sentence')],
+                         note=dict(text='一个字，两个读音，都在这个单元里。',
+                                   sub='This is the single most likely error in the next three lessons.'),
+                         note_kind='warning', note_icon='!'),
+               dense=True))
+
+    S_.append(S('09-vocab-b2', 'I Do · 例句 2 · 长得 · 样', 'I Do · 例句 · 第二组',
+               b_examples([
+                   dict(py='Nǐ zhǎng shénme yàng?', cn='你<b>长</b>什么<b>样</b>？',
+                        en='What do you look like?'),
+                   dict(py='Tā zhǎng de hěn gāo.', cn='他<b>长得</b>很高。', en="He's tall."),
+                   dict(py='Tā zhǎng de bù gāo yě bù ǎi.', cn='她<b>长得</b>不高也不矮。',
+                        en="She's neither tall nor short."),
+               ])))
+
+    S_.append(S('10-vocab-c2', 'I Do · 写一句 2', 'I Do · 写一句 · 第二组',
+               b_write(['我长得 ______ 。'], '写一句，六十秒。',
+                       dict(text='先写问题再写答案，然后换一个家人再写一遍，高矮要不一样 —',
+                            cn='你长什么样？我长得不高也不矮。我哥哥长得很高。',
+                            sub='Question and answer, twice, two different people.'))))
+
+    S_.append(S('11-board', 'I Do · 今天的词 + 十三个部位',
+               'I Do · 词汇总览',
+               b_cards([('高', 'gāo'), ('矮', 'ǎi'), ('长得', 'zhǎng de'), ('样', 'yàng')],
+                       cols=4, pinyin=True, caption='今天的四个词') +
+               b_cards(BODY8, cols=8, caption='还有八个部位 — 等一下都要用'),
+               dense='dense tight'))
+
+    S_.append(S('12-pattern', 'I Do · 句型 · 你长什么样？', 'I Do · 句型 · 三拍',
+               b_pattern('长得 <span class="op">+</span> '
+                         '<span class="slot">高／矮／不高也不矮</span>',
+                         [dict(py='Nǐ zhǎng shénme yàng?', cn='你长什么样？'),
+                          dict(py='Wǒ zhǎng de hěn gāo.', cn='我长得很高。'),
+                          dict(py='Tā zhǎng de bù gāo.', cn='她长得不高。'),
+                          dict(py='Tā zhǎng de bù gāo yě bù ǎi, tā yǒu dà yǎnjing hé cháng tuǐ.',
+                               cn='他长得不高也不矮，[他有大眼睛和长腿]。', hard=True,
+                               en='this is the shape the test wants')],
+                         note=dict(text='长得 后面跟「怎么样」，<b>不能</b>跟名词。',
+                                   sub='他长得很高 ✓ · 他长得大眼睛 ✗ — for body parts you still need 有 or 的.'),
+                         note_kind='warning', note_icon='!'),
+               dense=True))
+
+    S_.append(S('13-text2-first', 'I Do · 课文二 · 前半 (课本 p.118)',
+               'I Do · 课文二 · 前半 · CD T72',
+               b_examples([
+                   dict(py='Tā zhǎng de ǎiǎi de.', cn='她长得矮矮的。', en='She is short.'),
+                   dict(py='Tā de tóufa bù cháng yě bù duǎn.', cn='她的头发不长也不短。',
+                        en="Her hair is neither long nor short."),
+                   dict(py='Nǐ zhǎng shénme yàng?', cn='你长什么样？', en='What do you look like?'),
+               ], badge='老师读两遍 · 全班跟读 · 没有CD就老师念') +
+               b_caption('<b>矮矮的</b> 为什么说两次？下节课才讲 — 今天只要会读。'),
+               dense=True))
+
+    S_.append(S('14-act1-ex7', 'We Do · 活动一 · 他长什么样？(8 min)',
+               'We Do · 活动一 · 课本 p.119 第7题 · 8 min',
+               b_task('八张图 · 两个人一组',
+                      ['全班先做第一张 — 先说高矮，再说部位',
+                       'A 问 他长什么样？B 答<b>两</b>句 — 一句高矮，一句部位',
+                       '每张图换人'],
+                      cn_lines=['A: 他长什么样？', 'B: 他长得很高。他有大眼睛。'],
+                      ext=dict(text='B 答四句，屏幕上不给框架 — 高矮、两个部位、头发长短；'
+                                    'A 再用第三人称向全班报告一遍 —',
+                               cn='他说他长得很高……',
+                               sub='Four sentences, no frame, then reported back.'))))
+
+    S_.append(S('15-act2-strokes', 'You Do · 活动二 · 笔顺 + 写句子 (7 min)',
+               'You Do · 活动二 · 练习册 p.164, p.165 · 7 min',
+               b_task('第9题 → 第10题',
+                      ['第9题：六个字按笔顺抄 — 得 矮 高 头 发 样',
+                       '第10题：前四张图，每张写一句',
+                       '老师先示范第一张：他长得很高。'],
+                      note=dict(text='<b>矮</b> 的右下角是 <b>女</b>，不是 <b>攵</b>。',
+                                sub='Check this one at the board, not from the back of the room.'),
+                      ext=dict(text='八张图全做，每张<b>两</b>句 — 一句用 长得，一句用 有，其中两张要写成否定的。',
+                               cn='他长得不高。他有小眼睛和大耳朵。',
+                               sub='Sixteen sentences, two of them negative.'))))
+
+    S_.append(S('16-game-20q', 'Game · 二十个问题 (6 min)',
+               'Game · 二十个问题 · 6 min',
+               b_task('一个同学拿一张名人卡，全班问问题',
+                      ['只能问是非问题，只能用中文',
+                       '最多二十个问题，然后猜',
+                       '两三轮'],
+                      cn_lines=['他长得很高吗？　他有黑色的头发吗？　他是中国人吗？'],
+                      ext=dict(text='拿卡的人只能答 对 / 不对；全班必须先问一个 长什么样 的问题'
+                                    '并听到完整句子的回答，才可以猜。',
+                               sub='One open question, answered in a full sentence, before any guess.'))))
+
+    S_.append(S('17-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会问 你长什么样？',
+                          '我会答 他长得很高。／她长得不高。',
+                          '我会读 长 的两个音'],
+                         '用中文回答：你长什么样？（一句话）',
+                         'Answer in Chinese: 你长什么样？ One sentence.',
+                         '为什么 她长得矮矮的 要说两次 矮 — 还有怎么说头发。')))
+
+    S_.append(S('18-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('大大的眼睛', 'Lesson 6 — doubling the adjective, and hair',
+                         ['她有大大的眼睛。', '她的头发不长也不短。', '他长得高高的。']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def lesson6():
+    S_ = []
+    S_.append(S('01-title', 'Title · 大大的眼睛 · 头发', 'Lesson 6 · 第十五课 人体部位',
+               b_title(6, '', '大大的<span class="dot">·</span>眼睛',
+                       'Doubling the adjective · 头发 · 不……也不……',
+                       META.format(p='p.118–119'), '头发'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-quiz', 'Review · 小测 (0–8 min)', 'Review · 小测 · 0–8 min',
+               b_task('小白板 · 五题',
+                      ['翻译：My dad is tall.',
+                       '翻译：She is neither tall nor short.',
+                       '读出来：他长得很高，他穿长裤。（两个「长」）',
+                       '改错：他长得大眼睛。',
+                       '用中文问我：你长什么样？'],
+                      cn_lines=['我爸爸很高。／我爸爸长得很高。',
+                                '她不高也不矮。',
+                                '他长得（zhǎng）很高，他穿长（cháng）裤。'],
+                      ext=dict(text='答完五题就两个人一组：A 问 你长什么样？B 答两句，然后换。',
+                               sub='Pairs, straight into the answer, no waiting.')),
+               dense='tight', foot='Lesson 6 of 8 · 头发 · 大大的'))
+
+    S_.append(S('03-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学把形容词说两次，让描写更生动，还会说头发。',
+                      [dict(cn='我会说 头发，还会说它的颜色和长短',
+                            en='I can describe hair with a colour and a length'),
+                       dict(cn='我会把形容词说两次 — 大大的眼睛、高高的鼻子',
+                            en='I can double an adjective for emphasis'),
+                       dict(cn='我会用 不……也不…… ',
+                            en='I can say something is neither one thing nor the other')])))
+
+    S_.append(S('04-vocab-a1', 'I Do · 生词 · 头发 · 得', 'I Do · 生词 · 只有两个',
+               b_words([dict(hanzi='头发', pinyin='tóufa', english='hair',
+                             clue='繁体 <b>頭髮</b> — 上面是 <b>髟</b>，头发的部首'),
+                        dict(hanzi='得', pinyin='de', english='particle after a verb',
+                             clue='上节课你已经在用了 — 长<b>得</b>很高')])))
+
+    S_.append(S('05-vocab-b1', 'I Do · 例句 · 头发', 'I Do · 例句',
+               b_examples([
+                   dict(py='Tā de tóufa hěn cháng.', cn='她的<b>头发</b>很长。', en='Her hair is long.'),
+                   dict(py='Wǒ de tóufa shì hēisè de.', cn='我的<b>头发</b>是黑色的。',
+                        en='My hair is black.'),
+                   dict(py='Tā de tóufa bù cháng yě bù duǎn.',
+                        cn='她的<b>头发</b>不长也不短。', en='Her hair is neither long nor short.'),
+               ], badge='今天只有两个新词 — 今天的内容是语法')))
+
+    S_.append(S('06-vocab-c1', 'I Do · 写一句', 'I Do · 写一句',
+               b_write(['我的头发 ______ 。'], '写一句，六十秒。',
+                       dict(text='颜色<b>和</b>长短都写上，还要写两个人 —',
+                            cn='我的头发是黑色的，很短；我妈妈的头发很长。',
+                            sub='Colour and length, two people, one sentence.'))))
+
+    S_.append(S('07-pattern-redup', 'I Do · 句型 1 · 形容词说两次',
+               'I Do · 句型 · 叠词 (课本 p.119 NOTE)',
+               b_qa([dict(py='dà yǎnjing → dàdà de yǎnjing', cn='大眼睛 → 大大的眼睛'),
+                     dict(py='gāo bízi → gāogāo de bízi', cn='高鼻子 → 高高的鼻子'),
+                     dict(py='xiǎo zuǐba → xiǎoxiǎo de zuǐba', cn='小嘴巴 → 小小的嘴巴'),
+                     dict(py='hēi tóufa → hēihēi de tóufa', cn='黑头发 → 黑黑的头发')],
+                    badge='形容词 + 形容词 + 的 + 名词') +
+               '''  <div class="warning-box" style="margin-top:20px;">
+    <span class="warn-icon">!</span>
+    <span><span class="warn-text">叠词后面的「的」不能省。</span>
+    <span class="warn-sub">大大的眼睛 ✓ · 大大眼睛 ✗ — 说两次更生动，这是人说话的样子，不是填表格的样子。</span></span>
+  </div>
+''',
+               dense=True))
+
+    S_.append(S('08-pattern-bu-ye', 'I Do · 句型 2 · 不……也不……',
+               'I Do · 句型 · 不……也不……',
+               b_pattern('不 <span class="op">+</span> <span class="slot">形</span> '
+                         '<span class="op">+</span> 也不 <span class="op">+</span> '
+                         '<span class="slot">反义形</span>',
+                         [dict(py='Tā de tóufa bù cháng yě bù duǎn.', cn='她的头发不长也不短。'),
+                          dict(py='Tā bù gāo yě bù ǎi.', cn='他不高也不矮。'),
+                          dict(py='Wǒ de shǒu bù dà yě bù xiǎo.', cn='我的手不大也不小。'),
+                          dict(py='Tā zhǎng de gāogāo de, tā de tóufa bù cháng yě bù duǎn.',
+                               cn='她长得高高的，[她的头发不长也不短]。', hard=True)],
+                         note=dict(text='两个形容词要是<b>反义词</b>。',
+                                   sub='长/短 · 高/矮 · 大/小 — never 很长也很短.')),
+               dense=True))
+
+    S_.append(S('09-text2-full', 'I Do · 课文二 · 全文 (课本 p.118)',
+               'I Do · 课文二 · 全文 · CD T72',
+               b_examples([
+                   dict(py='Tā zhǎng de ǎiǎi de.', cn='她长得矮矮的。'),
+                   dict(py='Tā yǒu dàdà de yǎnjing, gāogāo de bízi hé xiǎoxiǎo de zuǐba.',
+                        cn='她有大大的眼睛、高高的鼻子和小小的嘴巴。'),
+                   dict(py='Tā de tóufa bù cháng yě bù duǎn. Nǐ zhǎng shénme yàng?',
+                        cn='她的头发不长也不短。你长什么样？'),
+               ], badge='老师读两遍 → 全班齐读 → 两人互读',
+                  ) +
+               b_caption('看第二句的 <b>、</b> 和 <b>和</b> — 三样东西，中间用顿号，最后一个前面用「和」。'
+                         '这是第十四课的规矩在做新的工作。'),
+               dense=True))
+
+    S_.append(S('10-board', 'I Do · 词汇总览', 'I Do · 词汇总览 · 全部',
+               b_cards(['头发', '高', '矮', '长', '短', '大', '小'], cols=7,
+                       caption='形容词 + 头发 — 等一下都要用') +
+               b_cards(BODY8, cols=8, caption='八个部位'),
+               dense='dense tight'))
+
+    S_.append(S('11-act1-redup', 'We Do · 活动一 · 变叠词 (6 min)',
+               'We Do · 活动一 · 6 min',
+               b_task('屏幕上八个普通词组，改成叠词',
+                      ['大眼睛 → 大大的眼睛 → 她有大大的眼睛。',
+                       '写在小白板上，最后三个全班一起说',
+                       '然后课本 p.119 第7题，八张图，<b>两个</b>框架都说'],
+                      cn_lines=['他有大大的眼睛。', '他的眼睛大大的。'],
+                      ext=dict(text='挑四张图，每张说三部分 — 长得+叠词、两个叠词部位、一个 不……也不…… 的头发句。',
+                               sub='Spoken first, then written.'))))
+
+    S_.append(S('12-act2-ex13', 'You Do · 活动二 · 写几句话 (9 min)',
+               'You Do · 活动二 · 练习册 p.167 第13题 · 9 min',
+               b_task('这是整课最重要的写作题 — 它的例句就是考试要的那一段',
+                      ['老师先把例句放在屏幕上，用另一个颜色标出三拍',
+                       '每张图写三到四句',
+                       '然后补完第10题的第五到第八张图，这次用叠词'],
+                      cn_lines=['她长得矮矮的。她有大大的眼睛、小小的鼻子和嘴巴。她的头发不长。'],
+                      note=dict(text='两个最常见的错：叠词后面丢「的」，还有 长得 后面跟名词。',
+                                sub='Circulate for exactly these two.'),
+                      ext=dict(text='先写成一段，再把同样的内容改写成两个人的<b>对话</b> — A 问四个问题，'
+                                    'B 把那段话分开来答。',
+                               sub='Same content, different genre.'))))
+
+    S_.append(S('13-game-slap', 'Game · 抢词卡 Slap the Board (6 min)',
+               'Game · 抢词卡 · 课本 p.119 第8题 · 6 min',
+               b_task('两队 · 十五张字卡摊在桌上',
+                      ['卡片：眼睛 耳朵 鼻子 嘴巴 手 脚 腿 头 头发 高 矮 长 短 大 小',
+                       '老师说<b>叠词</b>词组 — 大大的眼睛、小小的嘴巴、黑黑的头发',
+                       '要按顺序拍两张：先形容词，再部位'],
+                      ext=dict(text='老师说英文；拍完两张还要用这个词组说一句带 长得 的话才算分。',
+                               sub='No point until the sentence is said.'))))
+
+    S_.append(S('14-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会说 头发，还会说颜色和长短',
+                          '我会把形容词说两次',
+                          '我会用 不……也不……'],
+                         '写两句：一句用叠词，一句用 不……也不……',
+                         'Two sentences: one doubled adjective, one 不……也不……',
+                         '把全部说出来 — 猜猜他是谁，还有描写名人让全班猜。')))
+
+    S_.append(S('15-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('猜猜他是谁', 'Lesson 7 — describe a person, the class guesses',
+                         ['他长得高高的。', '他有黑色的短发。', '他是中国人。 → 王老师！']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def lesson7():
+    S_ = []
+    S_.append(S('01-title', 'Title · 她长什么样？猜猜他是谁',
+               'Lesson 7 · 第十五课 人体部位',
+               b_title(7, '', '猜猜<span class="dot">·</span>他是谁',
+                       'Describe a whole person, out loud',
+                       META.format(p='p.120–123'), '人体部位'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-t73', 'Review · 听力 对/错 (CD T73)',
+               'Review · 听力 · 课本 p.121 第11题 · 0–8 min',
+               b_qa([dict(who='A', py='Nǐ bàba zhǎng shénme yàng?', cn='你爸爸长什么样？'),
+                     dict(who='B', py='Tā zhǎng de gāogāo de.', cn='他长得高高的。'),
+                     dict(who='A', py='Nǐ gēge zhǎng shénme yàng?', cn='你哥哥长什么样？'),
+                     dict(who='B', py='Tā yǒu dà yǎnjing, tóufa duǎnduǎn de.',
+                          cn='他有大眼睛，头发短短的。'),
+                     dict(who='B', py='Tā zhǎng de ǎiǎi de, tóufa chángchang de.',
+                          cn='她长得矮矮的，头发长长的。')],
+                    badge='没有CD — 老师念，每条念两遍 · 六条全文在教案里') +
+               b_caption('六条答案，每一条都用 <b>长得</b> 或 <b>有</b> — 这两个动词撑起整个话题。'),
+               dense=True, foot='Lesson 7 of 8 · 说一个完整的人'))
+
+    S_.append(S('03-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们学把一个人说清楚，让别人猜得出是谁。',
+                      [dict(cn='我会问 她长什么样？还会用高矮、部位、头发回答',
+                            en='I can ask and answer with height, features and hair'),
+                       dict(cn='我会答 你穿什么校服？和 你喜欢你的校服吗？',
+                            en='I can answer both uniform questions'),
+                       dict(cn='我听得懂一段描写，能判断对还是错',
+                            en='I can tell whether a spoken description is true or false')])))
+
+    S_.append(S('04-uniform-q', 'I Do · 两个课本没教的问题',
+               'I Do · 复习页要考，课本却没教',
+               b_qa([dict(who='A', py='Nǐ chuān shénme xiàofú?', cn='你穿什么校服？'),
+                     dict(who='B', py='Wǒ chuān báisè de chènshān hé lánsè de chángkù.',
+                          cn='我穿白色的衬衫和蓝色的长裤。'),
+                     dict(who='A', py='Nǐ xǐhuan nǐ de xiàofú ma?', cn='你喜欢你的校服吗？'),
+                     dict(who='B', py='Xǐhuan. / Bù xǐhuan.', cn='喜欢。／不喜欢。')],
+                    badge='练习册 pp.170–171 · 第5、6题') +
+               b_caption('这两句在复习表上，可是课本第十五课里一个字都没有 — 所以今天专门教。'
+                         '写下你自己的答案：真的校服颜色，真的喜不喜欢。'),
+               dense=True))
+
+    S_.append(S('05-revision-qa', 'I Do · 复习七问 · 1–4 (练习册 p.171)',
+               'I Do · 复习七问 · 前四题 · 全班接龙',
+               b_qa([dict(py='Nǐ xǐhuan shénme yánsè?', cn='1. 你喜欢什么颜色？→ 红色、橙色和蓝色。'),
+                     dict(py='Nǐ xǐhuan hēisè ma?', cn='2. 你喜欢黑色吗？→ 不喜欢。'),
+                     dict(py='Nǐ xǐhuan chuān shénme yīfu?', cn='3. 你喜欢穿什么衣服？→ 汗衫和牛仔裤。'),
+                     dict(py='Nǐ shàngxué chuān xiàofú ma?', cn='4. 你上学穿校服吗？→ 穿。')],
+                    badge='一个人问，下一个人答，再问下一题'),
+               dense='dense tight'))
+
+    S_.append(S('05b-revision-qa', 'I Do · 复习七问 · 5–7 (练习册 p.171)',
+               'I Do · 复习七问 · 后三题',
+               b_qa([dict(py='Nǐ chuān shénme xiàofú?', cn='5. 你穿什么校服？→ 白色的衬衫和蓝色的长裤。'),
+                     dict(py='Nǐ xǐhuan nǐ de xiàofú ma?', cn='6. 你喜欢你的校服吗？→ 不喜欢。'),
+                     dict(py='Nǐ gēge zhǎng shénme yàng?',
+                          cn='7. 你哥哥长什么样？→ 他长得高高的。他有大眼睛和黑色的短发。')]) +
+               b_caption('第4题和第6题：回答「……吗？」要<b>重复动词</b> — 穿。／喜欢。 不是 是。'
+                         '这就是考试第9部分。'),
+               dense='dense tight'))
+
+    S_.append(S('06-three-beats', 'I Do · 三拍 — 描写的结构',
+               'I Do · 三拍 · 第7题就是模板',
+               b_pattern('高矮 <span class="op">+</span> 部位 <span class="op">+</span> 头发',
+                         [dict(py='Tā zhǎng de gāogāo de.', cn='① 他长得高高的。', en='height'),
+                          dict(py='Tā yǒu dàdà de yǎnjing hé gāogāo de bízi.',
+                               cn='② 他有大大的眼睛和高高的鼻子。', en='features'),
+                          dict(py='Tā de tóufa bù cháng yě bù duǎn.',
+                               cn='③ 他的头发不长也不短。', en='hair'),
+                          dict(py='Tā měitiān chuān xiàofú shàngxué.',
+                               cn='④ [他每天穿校服上学]。', hard=True,
+                               en='add clothing and you have Test Part 11 complete')],
+                         note=dict(text='加上第四拍「穿什么」，考试第11部分就写完了。',
+                                   sub='Four beats is a full answer; two beats is half a mark.')),
+               dense=True))
+
+    S_.append(S('07-act1-ex9', 'We Do · 活动一 · 做对话 + 猜名人 (6 min)',
+               'We Do · 活动一 · 课本 p.120 第9题 · 6 min',
+               b_task('两个人一组',
+                      ['先照框架做对话 — A 问，B 答三拍',
+                      '然后每组挑一个名人，B 描写，A 猜，再让全班猜'],
+                      cn_lines=['A: 她长什么样？', 'B: 她长得不高。她有大大的眼睛……'],
+                      ext=dict(text='描写的人<b>不许</b>用 高 和 矮 — 只能靠部位、头发和衣服，'
+                                    '而且要有一句 不……也不……；然后换人，不给准备时间。',
+                               sub='Then swap, with a person the guesser picks.'))))
+
+    S_.append(S('08-act2-guesswho', 'Game · 猜猜他是谁 Guess Who (8 min)',
+               'Game · 猜猜他是谁 · 课本 p.123 第13题 · 8 min',
+               b_task('淘汰赛 · 只能说中文',
+                      ['描写班上的同学或者老师 — 至少三句，不许说名字、不许指',
+                       '前四分钟全班分两半同时进行，每个人都要描写一次',
+                       '然后最会描写的四个人上来打决赛'],
+                      cn_lines=['他长得高高的。他有黑色的短发。他是中国人。→ 王老师。'],
+                      note=dict(text='说得太笼统，别人一句就猜到 — 那是描写的人输了。',
+                                sub='A correct guess in under three sentences costs the describer.'),
+                      ext=dict(text='描写完要先接受全班提问（他的头发长吗？），而且要用完整句子回答，'
+                                    '不能只说 对/不对，然后才让人猜。',
+                               sub='Questions first, in full sentences.'))))
+
+    S_.append(S('09-act3-interview', 'We Do · 活动三 · 介绍一个同学的妈妈 (6 min)',
+               'We Do · 活动三 · 课本 p.122 第12题 · 6 min',
+               b_task('三个人一组 · 十二个问题',
+                      ['每个人被问一遍关于妈妈的问题',
+                       '然后小组选一位，向全班介绍',
+                       '不方便说妈妈的，说生活里任何一个大人都可以 — 老师一开始就说清楚'],
+                      cn_lines=['10) 她喜欢什么颜色？', '11) 她喜欢穿什么衣服？', '12) 她长什么样？'],
+                      ext=dict(text='报告的人不许看笔记，而且要有一句 不……也不…… 和一个叠词；'
+                                    '小组还要接全班两个问题。',
+                               sub='No notes, and two questions taken afterwards.'))))
+
+    S_.append(S('10-act4-t74', 'You Do · 活动四 · 听力 小英 (3 min)',
+               'You Do · 活动四 · 课本 p.123 第14题 · CD T74 · 3 min',
+               b_examples([
+                   dict(py='Xiǎo Yīng jīnnián shíyī suì, shàng xiǎoxué wǔ niánjí.',
+                        cn='小英今年十一岁，上小学五年级。'),
+                   dict(py='Tā zhǎng de gāogāo de. Tā yǒu dàdà de yǎnjing, gāogāo de bízi hé dàdà de zuǐba.',
+                        cn='她长得高高的。她有大大的眼睛，高高的鼻子和大大的嘴巴。'),
+                   dict(py='Tā yǒu hēisè de chángfà. Tā chuān chènshān hé qúnzi.',
+                        cn='她有黑色的长发。她穿衬衫和裙子。'),
+               ], badge='老师念两遍 · 学生在书上打勾画叉 · 八条') +
+               b_caption('注意 <b>长发</b> — 书上这里用「长发」，不是「头发」。两个都对，读的时候要认得。'),
+               dense=True))
+
+    S_.append(S('11-plenary', 'Plenary · 出门条', 'Plenary · 43–50 min',
+               b_plenary(['我会问 她长什么样？还会答三拍',
+                          '我会答 你穿什么校服？和 你喜欢你的校服吗？',
+                          '我听得懂一段描写，能判断对错'],
+                         '用中文回答：你穿什么校服？你喜欢你的校服吗？',
+                         'Two answers, one slip.',
+                         '本书最后一课 — 读毛小红，然后写你自己。')))
+
+    S_.append(S('12-preview', 'Preview · 下一课', 'Preview · 下节课',
+               b_preview('毛小红', 'Lesson 8 — read a whole person, then write yourself',
+                         ['毛小红今年十二岁，是中国人。', '她有大眼睛、小鼻子和大耳朵。',
+                          'It is your turn! 写你自己。']),
+               style=STYLE_CENTRE))
+    return S_
+
+
+def lesson8():
+    S_ = []
+    S_.append(S('01-title', 'Title · 毛小红 · 写你自己',
+               'Lesson 8 · 第十五课 人体部位',
+               b_title(8, '', '写一段<span class="dot">·</span>你自己',
+                       'Read a description, then write your own',
+                       META.format(p='练习册 p.167–169'), '人体部位'),
+               style=STYLE_TITLE))
+
+    S_.append(S('02-review-grid', 'Review · 字格找词 (练习册 p.166 第11题)',
+               'Review · 找十二个词 · 0–4 min',
+               b_task('6×6 的字格 — 圈出十二个词，再写下来',
+                      ['里面有这一课的部位词：眼睛 耳朵 嘴巴 腿 鼻子 头发',
+                       '也有第十三、十四课的：校服 外套 衬衫 粉红色 牛仔裤',
+                       '还有两个单字形容词：长 和 短'],
+                      note=dict(text='四分钟考完整个单元。',
+                                sub='Solo, then answers on screen.')),
+               foot='Lesson 8 of 8 · 毛小红 · 写一段'))
+
+    S_.append(S('03-review-correct', 'Review · 改错句 (4 min)',
+               'Review · 改错 · 4–8 min',
+               b_cfu(['这四个错，考试上<b>每一个</b>都会出现。',
+                      '写在小白板上，一次一句，一起举起来。'],
+                     errors=[('她长得大大的眼睛。', '她有大大的眼睛。'),
+                             ('我的头发很长也很短。', '我的头发不长也不短。'),
+                             ('他有大大眼睛。', '他有大大的眼睛。'),
+                             ('你穿什么校服？→ 是白色的衬衫。', '我穿白色的衬衫。')]),
+               style=STYLE_CFU, foot='Lesson 8 of 8 · 毛小红 · 写一段'))
+
+    S_.append(S('04-li-sc', 'Learning Intention & Success Criteria',
+               'Learning Intention · 8–10 min',
+               b_lisc('我们读一整段描写一个人的话，然后写一段关于自己的。',
+                      [dict(cn='我读得懂一段描写，会做对错题',
+                            en='I can read a passage about a person and answer true/false'),
+                       dict(cn='我会写四句以上 — 高矮、部位、头发、衣服',
+                            en='I can write four or more sentences describing myself'),
+                       dict(cn='我会把打乱的词排成句子',
+                            en='I can put jumbled words back into the right order')])))
+
+    S_.append(S('05-reading', 'I Do · 阅读 · 毛小红 (练习册 p.169 第19题)',
+               'I Do · 阅读 · 毛小红',
+               b_examples([
+                   dict(py='Máo Xiǎohóng jīnnián shí\'èr suì, shì Zhōngguó rén.',
+                        cn='毛小红今年十二岁，是中国人。'),
+                   dict(py='Tā yǒu dà yǎnjing, xiǎo bízi hé dà ěrduo. Tā de tóufa shì hēisè de, hěn duǎn.',
+                        cn='她有大眼睛、小鼻子和大耳朵。她的头发是黑色的，很短。'),
+                   dict(py='Tā měitiān chuān xiàofú shàngxué. Tā jīntiān chuān bái chènshān hé lán duǎnqún.',
+                        cn='她每天穿校服上学。她今天穿白衬衫和蓝短裙。'),
+                   dict(py='Tā bù xǐhuan tā de xiàofú. Tā bù xǐhuan xiàofú de yánsè.',
+                        cn='她不喜欢她的校服。她不喜欢校服的颜色。'),
+               ], badge='老师读 → 全班齐读 → 自己默读，手里拿笔'),
+               dense=True))
+
+    S_.append(S('06-reading-questions', 'I Do · 对错题 + 中文问答',
+               'I Do · 阅读 · 五个对错题',
+               b_qa([dict(py='Máo Xiǎohóng yǒu dà bízi.', cn='1. 毛小红有大鼻子。'),
+                     dict(py='Tā de tóufa hěn duǎn.', cn='2. 她的头发很短。'),
+                     dict(py='Tā chuān xiàofú shàngxué.', cn='3. 她穿校服上学。'),
+                     dict(py='Tā xǐhuan tā de xiàofú.', cn='4. 她喜欢她的校服。'),
+                     dict(py='Tā yíbàn shì Zhōngguó rén.', cn='5. 她一半是中国人。')],
+                    badge='打勾还是画叉？先自己做，再和同伴对 — 要说服对方'),
+               dense='dense tight'))
+
+    S_.append(S('06b-reading-chinese', 'I Do · 用中文回答 (给会说的同学)',
+               'I Do · 阅读 · 中文问答',
+               b_qa([dict(py='Tā jǐ suì?', cn='她几岁？'),
+                     dict(py='Tā de tóufa cháng ma?', cn='她的头发长吗？'),
+                     dict(py='Tā xǐhuan tā de xiàofú ma?', cn='她喜欢她的校服吗？'),
+                     dict(py='Tā jīntiān chuān shénme?', cn='她今天穿什么？')],
+                    badge='对错题做完了就答这四个 — 用中文，完整句子') +
+               b_caption('答得出来的同学用中文说；其他同学先把对错题弄清楚，这四题不是必须的。'),
+               dense='dense tight'))
+
+    S_.append(S('07-model', 'I Do · 五拍 — 一段话的模板',
+               'I Do · 五拍 · 练习册 p.167 第13题的例句',
+               b_pattern('年龄国籍 <span class="op">+</span> 高矮 <span class="op">+</span> '
+                         '部位 <span class="op">+</span> 头发 <span class="op">+</span> 衣服',
+                         [dict(py='Tā zhǎng de ǎiǎi de.', cn='① 她长得矮矮的。'),
+                          dict(py='Tā yǒu dàdà de yǎnjing, xiǎoxiǎo de bízi hé zuǐba.',
+                               cn='② 她有大大的眼睛、小小的鼻子和嘴巴。'),
+                          dict(py='Tā de tóufa bù cháng.', cn='③ 她的头发不长。'),
+                          dict(py='Tā jīnnián shí\'èr suì, shì Zhōngguó rén. Tā chuān xiàofú shàngxué.',
+                               cn='[④ 她今年十二岁，是中国人。⑤ 她穿校服上学。]', hard=True,
+                               en='the two beats the model is missing — 毛小红 has them')],
+                         note=dict(text='这五拍留在屏幕上，写的时候一直看得见。',
+                                   sub='The outline stays up for the whole writing task.')),
+               dense=True))
+
+    S_.append(S('08-act1-write', 'You Do · 活动一 · 写你自己 (10 min)',
+               'You Do · 活动一 · 练习册 p.169 It is your turn! · 10 min',
+               b_task('五拍，至少五句，七分钟',
+                      ['年龄和国籍 → 高矮 → 部位 → 头发 → 校服和喜不喜欢',
+                       '写完三个同学读出来，全班听哪一拍漏了',
+                       '老师巡堂，专门看三个错：叠词丢「的」、长得后面跟名词、该重复动词的地方用了「是」'],
+                      cn_lines=['我今年十三岁……我长得……我有……我的头发……我穿……'],
+                      ext=dict(text='改写成第三人称，写<b>别人</b>（练习册第14题的下半：我爸爸长什么样），'
+                                    '而且至少两句要用 也 或 和 合成一句；最后再写两句比较两个人 —',
+                               cn='我长得很高，我爸爸长得不高。',
+                               sub='Third person, joined clauses, then a comparison.'))))
+
+    S_.append(S('09-act2-wordorder', 'You Do · 活动二 · 排句子 (5 min)',
+               'You Do · 活动二 · 练习册 p.168 第15题 · 5 min',
+               b_task('五题 · 小白板 · 一题一题举',
+                      ['他／上学／每天／穿／校服',
+                       '喜欢／橙色／她／白色／和',
+                       '爸爸／开车／每天／上班',
+                       '王星／九点／晚上／睡觉　·　有／你／姐姐／几个'],
+                      cn_lines=['他每天穿校服上学。'],
+                      note=dict(text='时间在动词前面，<b>每天</b> 在时间前面。',
+                                sub='This is Test Parts 4 and 8 — lost through carelessness, not ignorance.'),
+                      ext=dict(text='练习册第17题：六个疑问词各写一个问题（几 谁 吗 什么 怎么 哪儿），'
+                                    '其中两个要问长相。',
+                               sub='Six questions, two about appearance.'))))
+
+    S_.append(S('10-act3-phrases', 'You Do · 活动三 · 加字组词 (3 min)',
+               'You Do · 活动三 · 练习册 p.169 第18题 · 3 min',
+               b_task('九个，全做完，要快',
+                      ['下午→午__　长裤→裤__　中学→学__',
+                       '大火→火__　毛衣→衣__　早上→上__',
+                       '明年→年__　学校→校__　出汗→汗__'],
+                      ext=dict(text='挑三个做成三环链 —', cn='学校 → 校服 → 服务',
+                               sub='Three-link chains.'))))
+
+    S_.append(S('11-game-kahoot', 'Game · Kahoot · 整个第五单元 (5 min)',
+               'Game · Kahoot · 二十题 · 5 min',
+               b_task('每人一个设备 · 二十题 · 排行榜',
+                      ['颜色 4 题（第十三课）· 衣服 4 题（第十四课）',
+                       '部位 5 题 · 长得／有 选句子 3 题 · 部首 4 题',
+                       '这是整个单元，不只是今天'],
+                      ext=dict(text='最后三题给一个有错的句子，问错在哪 — 不是翻译题。',
+                               sub='Error-spotting, not translation.'))))
+
+    S_.append(S('12-plenary', 'Plenary · 回顾八节课', 'Plenary · 43–50 min · 回顾整个系列',
+               b_plenary(['我读得懂一段描写，会做对错题',
+                          '我写了一段关于自己的话 — 举起来给大家看',
+                          '十三个部位我都会说吗？三拍我会说吗？六个部首我记得吗？'],
+                         '写一句你<b>最有把握</b>的话 — 八节课里任何内容都可以。',
+                         'One sentence you are confident is correct. Collected.',
+                         '第一册学完了。考试前想不想专门上一节复习课？跟我说。')))
+
+    S_.append(S('13-close', 'Close · 第一册学完了', 'Close · 八节课 · 第五单元',
+               b_preview('第一册 · 学完了',
+                         'Book 1 finished — colours, clothing, and a whole person',
+                         ['第十三课 颜色 → 第十四课 穿着 → 第十五课 人体部位',
+                          '你现在会描写一个完整的人：高矮、部位、头发、衣服。',
+                          '这正是单元考试第11部分要的。']),
+               style=STYLE_CENTRE))
+    return S_
+
+# ══════════════════════════════════════════════════════════════════
+#  Deck registry
+# ══════════════════════════════════════════════════════════════════
+
+DECKS = [
+    dict(n=1, dir='l1-face-parts', fn=lesson1, page='p.114–115',
+         cn='脸上四个词', en='The face — 眼睛 耳朵 鼻子 嘴巴',
+         badge='Vocab + Game', cls='badge-vocab',
+         foot='Lesson 1 of 8 · 眼睛 耳朵 鼻子 嘴巴'),
+    dict(n=2, dir='l2-body-parts', fn=lesson2, page='p.116, 121',
+         cn='脖子以下', en='Below the neck — 手 头 脚 腿, and labelling a figure',
+         badge='Vocab + Mixed', cls='badge-vocab',
+         foot='Lesson 2 of 8 · 手 头 脚 腿'),
+    dict(n=3, dir='l3-extra-body-words', fn=lesson3, page='p.115–116',
+         cn='再五个词 + 声调', en='脸 牙齿 舌头 皮肤 手指头 · pinyin by ear',
+         badge='Vocab + Mixed', cls='badge-vocab',
+         foot='Lesson 3 of 8 · 脸 牙齿 舌头 皮肤 手指头'),
+    dict(n=4, dir='l4-radicals-structure', fn=lesson4, page='p.117',
+         cn='部首 · 拆字', en='Radicals 厂车立革止虫 · how a character splits',
+         badge='Characters + Mixed', cls='badge-vocab',
+         foot='Lesson 4 of 8 · 部首 · 笔画'),
+    dict(n=5, dir='l5-changshenmeyang', fn=lesson5, page='p.118–119',
+         cn='你长什么样？', en='长得 · 高 · 矮 · 样, and the two readings of 长',
+         badge='Grammar + Mixed', cls='badge-grammar',
+         foot='Lesson 5 of 8 · 长得 高 矮 样'),
+    dict(n=6, dir='l6-reduplication-hair', fn=lesson6, page='p.118–119',
+         cn='大大的眼睛', en='Doubling the adjective · 头发 · 不……也不……',
+         badge='Grammar + Mixed', cls='badge-grammar',
+         foot='Lesson 6 of 8 · 头发 · 大大的'),
+    dict(n=7, dir='l7-describing-people', fn=lesson7, page='p.120–123',
+         cn='猜猜他是谁', en='Describe a whole person aloud · the Revision Q&A',
+         badge='Speaking + Game', cls='badge-speaking',
+         foot='Lesson 7 of 8 · 说一个完整的人'),
+    dict(n=8, dir='l8-paragraph-reading', fn=lesson8, page='练习册 p.166–169',
+         cn='毛小红 · 写你自己', en='Reading comprehension, then write your own paragraph',
+         badge='Writing + Mixed', cls='badge-grammar',
+         foot='Lesson 8 of 8 · 毛小红 · 写一段'),
+]
+
+BRAND = '轻松学中文 Book 1 · Unit 5 · 课本 {p}'
+
+# ══════════════════════════════════════════════════════════════════
+#  Deck viewer — taken from y7-l14 so every deck in this unit pages
+#  identically for the teacher.
+# ══════════════════════════════════════════════════════════════════
+
+VIEWER_SRC = os.path.join(L14, 'l1-chuan-text1', 'index.html')
+
+
+def viewer_html(title, slides):
+    if not os.path.exists(VIEWER_SRC):
+        raise SystemExit(f'viewer template missing: {VIEWER_SRC}')
+    src = open(VIEWER_SRC, encoding='utf-8').read()
+    manifest = ',\n'.join(
+        f'    {{ file: "slides/{s["name"]}.html", label: {label_js(s["label"])} }}'
+        for s in slides)
+    src = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', src, count=1, flags=re.S)
+    src = re.sub(r'window\.DECK_MANIFEST = \[.*?\n  \];',
+                 'window.DECK_MANIFEST = [\n' + manifest + '\n  ];', src, count=1, flags=re.S)
+    return src
+
+
+def label_js(s):
+    return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
+
+
+# ══════════════════════════════════════════════════════════════════
+#  Lesson-list page — the design's own index.html
+# ══════════════════════════════════════════════════════════════════
+
+GRAMMAR = [
+    ('L1', '有 + 大/小 + 部位', 'He has big eyes — 他有大眼睛'),
+    ('L2', '的 + 部位 + 很长', 'Her legs are long — 她的腿很长'),
+    ('L4', '部首 · 厂车立革止虫', 'Six radicals, and how characters split'),
+    ('L5', '你长什么样？', 'The question the whole unit answers'),
+    ('L6', '大大的眼睛', 'Doubling the adjective · 不……也不……'),
+    ('L8', '五步写一段', 'Age · height · features · hair · clothes'),
+]
+
+
+def rebuild_index():
+    """Keep the page's chrome; replace the lesson cards and the grammar
+    panel, both of which are keyed to lesson numbers."""
+    path = os.path.join(BASE, 'index.html')
+    src = open(path, encoding='utf-8').read()
+
+    gitems = ''.join(f'''
+      <div class="grammar-item">
+        <div class="g-num">{n}</div>
+        <div class="g-zh">{zh}</div>
+        <div class="g-en">{en}</div>
+      </div>''' for n, zh, en in GRAMMAR)
+    src = re.sub(r'<div class="grammar-grid">.*?\n    </div>',
+                 '<div class="grammar-grid">' + gitems + '\n    </div>',
+                 src, count=1, flags=re.S)
+
+    # No PPTX link on these cards: this deck ships web-only, like y8-l7.
+    cards = ''.join(f'''
+      <div class="lesson-card">
+        <a href="{d['dir']}/" class="card-link">
+          <div class="card-num">{d['n']:02d}</div>
+          <div class="card-title">{d['cn']}</div>
+          <div class="card-en">{d['en']}</div>
+          <span class="card-badge {d['cls']}">{d['badge']}</span>
+        </a>
+      </div>
+''' for d in DECKS)
+    src = re.sub(r'<div class="lesson-grid">.*?\n    </div>',
+                 '<div class="lesson-grid">' + cards + '\n    </div>', src, count=1, flags=re.S)
+    open(path, 'w', encoding='utf-8').write(src)
+
+
+# ══════════════════════════════════════════════════════════════════
+#  Emit
+# ══════════════════════════════════════════════════════════════════
+
+def build():
+    os.makedirs(os.path.join(BASE, 'shared'), exist_ok=True)
+    # tokens come from y7-l14 — same unit, taught back to back, one visual
+    # family. The typography floor is already applied there.
+    css = open(os.path.join(L14, 'shared', 'tokens.css'), encoding='utf-8').read()
+    css += """
+/* ── y7-l15 additions ─────────────────────────────────────────────
+   Same two fixes y7-l13 needed, plus one of our own. Appended here
+   rather than changed upstream so y7-l14's shipped exports stay valid. */
+
+/* Callout sub-lines are inline spans carrying a dead margin-top, so the
+   sub ran on from the text. .ext-body .sub already sets display:block. */
+.note-box .note-sub, .warning-box .warn-sub,
+.tip-box .tip-sub, .info-box .info-sub { display: block; }
+
+/* Pattern slides carry four worked examples plus a callout. Tightening the
+   leading (NOT the size — still 52px, far above the floor) is what keeps
+   the fourth, hardest example on the canvas. */
+.pattern-wrap .ex-row .ex-hanzi { line-height: 1.16; }
+.pattern-wrap .ex-row { gap: 2px; }
+.pattern-wrap { gap: 22px; }
+.pattern-wrap .ex-list { gap: 20px; }
+.slide-content.dense .ex-list { gap: 16px; }
+
+/* A thirteen-word recall board needs more than six across, and .grid-7 /
+   .grid-8 were never defined — a 7-across board silently stacked into one
+   column and ran a thousand pixels off the canvas. */
+.grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-sm); }
+.grid-8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: var(--space-sm); }
+.grid-7 .vocab-card, .grid-8 .vocab-card { padding: 18px 10px; }
+.grid-7 .vc-art, .grid-8 .vc-art { height: 76px; margin-bottom: 10px; }
+
+/* Two stacked boards on one slide, or a seven-row Q&A, sit a few dozen
+   pixels long. Tightening the gaps (never the type) is what fits them. */
+.slide-content.tight .ex-list { gap: 10px; }
+.slide-content.tight .qa-hanzi, .slide-content.tight .ex-hanzi { line-height: 1.14; }
+.slide-content.tight .caption { margin-bottom: 14px !important; }
+.slide-content.tight .card { margin-top: 14px !important; padding: 18px 26px !important; }
+
+/* This lesson's visuals are line drawings rather than colour swatches, so
+   the art needs a real box to sit in — a swatch is square, a foot is not,
+   and `svg { height: 100% }` against an auto-height parent collapses the
+   drawing to its intrinsic size (which is how it ends up thumbnail-sized). */
+.wc-art { height: 150px; display: flex; align-items: center; justify-content: center;
+          margin-bottom: 18px; }
+.vc-art { height: 104px; margin-bottom: 14px; }
+.wc-art .svg-art, .vc-art .svg-art, .t-art .svg-art {
+  height: 100%; width: auto; display: block; margin: 0 auto;
+}
+"""
+    open(os.path.join(BASE, 'shared', 'tokens.css'), 'w', encoding='utf-8').write(css)
+
+    for entry in sorted(os.listdir(BASE)):
+        p = os.path.join(BASE, entry)
+        if os.path.isdir(p) and re.match(r'^l\d', entry):
+            shutil.rmtree(p)
+
+    total = 0
+    for d in DECKS:
+        slides = d['fn']()
+        sdir = os.path.join(BASE, d['dir'], 'slides')
+        os.makedirs(sdir, exist_ok=True)
+        for s in slides:
+            html = PAGE.format(
+                title=f"L{d['n']}-{s['name'][:2]} · {s['section']}",
+                style=s['style'],
+                tag=TAG,
+                section=s['section'],
+                dense=(f" {s['dense']}" if isinstance(s['dense'], str)
+                       else ' dense' if s['dense'] else ''),
+                inner=s['inner'],
+                foot=s['foot'] or d['foot'],
+                brand=BRAND.format(p=d['page']),
+            )
+            open(os.path.join(sdir, s['name'] + '.html'), 'w', encoding='utf-8').write(html)
+        open(os.path.join(BASE, d['dir'], 'index.html'), 'w', encoding='utf-8').write(
+            viewer_html(f"L{d['n']} · {d['cn']} · 人体部位", slides))
+        total += len(slides)
+        print(f"  {d['dir']:<22} {len(slides):>3} slides")
+
+    rebuild_index()
+    print(f'\n  {len(DECKS)} decks · {total} slides')
+
+
+if __name__ == '__main__':
+    build()

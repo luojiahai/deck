@@ -196,6 +196,19 @@
         "Snacks",
         "Food"
       ]
+    },
+    {
+      "id": "y7-l15",
+      "title": "Y7 L15 · 人体部位 Parts of the Body",
+      "description": "8 节课程幻灯片系列——Year 7 中文人体部位单元（脸上四词·脖子以下·再五个词+声调·部首拆字·你长什么样·大大的眼睛·猜猜他是谁·毛小红写一段），含全屏演示",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y7-l15/thumb.png",
+      "type": "slides",
+      "tags": [
+        "Year 7",
+        "中文",
+        "Body"
+      ]
     }
   ]
 }

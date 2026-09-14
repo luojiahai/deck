@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y7 L15 · 人体部位 Parts of the Body</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #FBF9F4; --text: #24201B; --text-muted: #5C5648;
+    --accent: #B8402E; --accent-indigo: #2E4B7A; --accent-teal: #2E7D6E; --accent-coral: #C2564A;
+    --border: #E4DCC9; --card-bg: #F3EEE4;
+    --font-display: 'Noto Serif SC', 'Songti SC', serif;
+    --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  /* Hero */
+  .hero { padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero-inner { display: flex; align-items: center; gap: 36px; }
+  .hero-text { display: flex; flex-direction: column; }
+  .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
+  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+  .hero h1 .dot { color: var(--accent); }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.02em; }
+  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .meta .pill { background: var(--card-bg); padding: 5px 14px; border-radius: 999px; }
+  .meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .hero-motif { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.75; }
+
+  /* Colour swatch row — the unit's own vocabulary, shown for real */
+  .swatch-row { display: flex; gap: 10px; margin-top: 22px; }
+  .bp-row { display: flex; gap: 18px; margin-top: 24px; flex-wrap: wrap; }
+  .bp { width: 56px; height: 56px; }
+  .bp svg { width: 100%; height: 100%; }
+  .swatch { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.1); }
+
+  /* Grammar panel */
+  .grammar-panel { margin-bottom: 48px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; }
+  .grammar-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+  .grammar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .grammar-item { text-align: center; padding: 16px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+  .grammar-item .g-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .grammar-item .g-zh { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .grammar-item .g-en { font-size: 13px; color: var(--text-muted); }
+
+  /* Lesson Grid */
+  .lessons { padding: 0 0 80px; }
+  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .lesson-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; }
+  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(36,32,27,0.10); border-color: var(--accent); }
+  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+  .card-num { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--accent); opacity: 0.25; line-height: 1; margin-bottom: -8px; }
+  .card-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.03em; }
+  .card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-top: auto; }
+  .badge-vocab    { background: #F5E7E4; color: #8A3325; }
+  .badge-grammar  { background: #E5EAF2; color: #2C4470; }
+  .badge-speaking { background: #E3F2EF; color: #1E6055; }
+  .badge-writing  { background: #EDE8F5; color: #5A3E8A; }
+  .badge-review   { background: #F5F0E5; color: #8A6020; }
+  .badge-game     { background: #F5E8EC; color: #8A2C4A; }
+  .card-pptx { display: block; margin-top: 12px; text-align: center; font-size: 12px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 5px 0; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+  .card-pptx:hover { background: var(--accent); color: #fff; }
+
+  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; font-size: 14px; color: var(--text-muted); letter-spacing: 0.04em; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 1100px) {
+    .grammar-grid { grid-template-columns: repeat(3,1fr); }
+  }
+  @media (max-width: 900px) {
+    .lesson-grid { grid-template-columns: repeat(2,1fr); }
+    .grammar-grid { grid-template-columns: repeat(2,1fr); }
+    .hero h1 { font-size: 40px; }
+  }
+  @media (max-width: 640px) {
+    .lesson-grid { grid-template-columns: 1fr; }
+    .grammar-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="container">
+    <a href="../../">← Deck Gallery · 设计画廊</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-motif">体</div>
+      <div class="hero-text">
+        <div class="unit-tag">Year 7 · Unit 5 · Lesson 15</div>
+        <h1>人体部位<span class="dot">·</span>Parts of the Body</h1>
+        <div class="subtitle">Parts of the Body 人体部位 — 8-Lesson Series</div>
+        <div class="meta">
+          <span class="pill">8 Lessons</span>
+          <span class="sep"></span>
+          <span class="pill">50 mins each</span>
+          <span class="sep"></span>
+          <span class="pill">轻松学中文 Book 1 · Unit 5 · 课本 p.114–123</span>
+        </div>
+        <div class="bp-row"><div class="bp" title="眼睛"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 105 C 70 56, 150 56, 192 105 C 150 154, 70 154, 28 105 Z" stroke="#2C4C7C"/><circle cx="110" cy="105" r="27" stroke="#C23B2E"/><circle cx="110" cy="105" r="11" fill="#C23B2E" stroke="none"/><path d="M44 76 L30 60 M110 52 L110 32 M176 76 L190 60" stroke="#B8B2A7" stroke-width="3.5"/></svg></div><div class="bp" title="耳朵"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M146 44 C 86 26, 56 74, 66 122 C 74 162, 104 186, 132 176" stroke="#2C4C7C"/><path d="M136 74 C 100 68, 92 112, 108 138 C 116 150, 128 150, 130 140" stroke="#C23B2E"/><path d="M120 100 C 108 100, 104 118, 112 126" stroke="#B8B2A7" stroke-width="3.5"/></svg></div><div class="bp" title="鼻子"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M92 28 L92 92 C 92 118, 70 124, 64 136 C 58 150, 76 160, 100 157" stroke="#2C4C7C"/><path d="M100 157 C 124 154, 140 146, 146 134" stroke="#2C4C7C"/><path d="M96 138 C 108 146, 124 145, 134 136" stroke="#C23B2E"/><circle cx="86" cy="146" r="5" fill="#C23B2E" stroke="none"/></svg></div><div class="bp" title="嘴巴"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 102 C 66 74, 98 90, 110 100 C 122 90, 154 74, 180 102" stroke="#2C4C7C"/><path d="M40 102 C 70 156, 150 156, 180 102" stroke="#2C4C7C"/><path d="M40 102 L180 102" stroke="#C23B2E"/></svg></div><div class="bp" title="手"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M64 196 L64 124 C 64 108, 156 108, 156 124 L156 196" stroke="#2C4C7C"/><path d="M70 118 L70 78 C 70 64, 90 64, 90 78 L90 118" stroke="#2C4C7C"/><path d="M92 118 L92 60 C 92 46, 112 46, 112 60 L112 118" stroke="#2C4C7C"/><path d="M114 118 L114 66 C 114 52, 134 52, 134 66 L134 118" stroke="#2C4C7C"/><path d="M136 118 L136 84 C 136 70, 156 70, 156 84 L156 118" stroke="#2C4C7C"/><path d="M64 152 C 42 146, 30 122, 40 108 C 50 95, 70 100, 76 120" stroke="#C23B2E"/></svg></div><div class="bp" title="脚"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M80 40 L80 102 M116 40 L116 98" stroke="#B8B2A7"/><path d="M80 102 C 66 112, 62 132, 66 150 L66 164 C 66 172, 72 176, 82 176 L168 176 C 182 176, 184 158, 170 153 C 148 145, 128 134, 118 120 C 113 112, 114 104, 116 98" stroke="#2C4C7C"/><path d="M146 162 L146 150 M158 165 L159 153 M133 158 L132 145" stroke="#C23B2E" stroke-width="3.5"/></svg></div><div class="bp" title="腿"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M92 24 C 84 62, 80 88, 86 112 C 92 138, 96 162, 92 180" stroke="#2C4C7C"/><path d="M136 24 C 132 64, 126 90, 128 114 C 130 140, 130 162, 126 180" stroke="#2C4C7C"/><path d="M86 112 L128 114" stroke="#C23B2E" stroke-width="3.5"/><path d="M92 180 L66 190 L126 190 L126 180" stroke="#B8B2A7"/></svg></div><div class="bp" title="头发"><svg class="svg-art" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="110" cy="102" rx="42" ry="50" stroke="#B8B2A7"/><path d="M64 96 C 58 44, 102 28, 132 38 C 160 48, 164 74, 160 96" stroke="#C23B2E"/><path d="M66 92 C 52 126, 48 166, 56 192" stroke="#C23B2E"/><path d="M158 94 C 172 126, 176 166, 168 192" stroke="#C23B2E"/><circle cx="96" cy="98" r="4" fill="#B8B2A7" stroke="none"/><circle cx="126" cy="98" r="4" fill="#B8B2A7" stroke="none"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="grammar-panel">
+    <h2>Grammar Focus · 本单元语法点</h2>
+    <div class="grammar-grid">
+      <div class="grammar-item">
+        <div class="g-num">L1</div>
+        <div class="g-zh">有 + 大/小 + 部位</div>
+        <div class="g-en">He has big eyes — 他有大眼睛</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L2</div>
+        <div class="g-zh">的 + 部位 + 很长</div>
+        <div class="g-en">Her legs are long — 她的腿很长</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L4</div>
+        <div class="g-zh">部首 · 厂车立革止虫</div>
+        <div class="g-en">Six radicals, and how characters split</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L5</div>
+        <div class="g-zh">你长什么样？</div>
+        <div class="g-en">The question the whole unit answers</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L6</div>
+        <div class="g-zh">大大的眼睛</div>
+        <div class="g-en">Doubling the adjective · 不……也不……</div>
+      </div>
+      <div class="grammar-item">
+        <div class="g-num">L8</div>
+        <div class="g-zh">五步写一段</div>
+        <div class="g-en">Age · height · features · hair · clothes</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="lessons">
+    <div class="section-title">8 节课程 · Lesson Decks</div>
+    <div class="lesson-grid">
+      <div class="lesson-card">
+        <a href="l1-face-parts/" class="card-link">
+          <div class="card-num">01</div>
+          <div class="card-title">脸上四个词</div>
+          <div class="card-en">The face — 眼睛 耳朵 鼻子 嘴巴</div>
+          <span class="card-badge badge-vocab">Vocab + Game</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l2-body-parts/" class="card-link">
+          <div class="card-num">02</div>
+          <div class="card-title">脖子以下</div>
+          <div class="card-en">Below the neck — 手 头 脚 腿, and labelling a figure</div>
+          <span class="card-badge badge-vocab">Vocab + Mixed</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l3-extra-body-words/" class="card-link">
+          <div class="card-num">03</div>
+          <div class="card-title">再五个词 + 声调</div>
+          <div class="card-en">脸 牙齿 舌头 皮肤 手指头 · pinyin by ear</div>
+          <span class="card-badge badge-vocab">Vocab + Mixed</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l4-radicals-structure/" class="card-link">
+          <div class="card-num">04</div>
+          <div class="card-title">部首 · 拆字</div>
+          <div class="card-en">Radicals 厂车立革止虫 · how a character splits</div>
+          <span class="card-badge badge-vocab">Characters + Mixed</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l5-changshenmeyang/" class="card-link">
+          <div class="card-num">05</div>
+          <div class="card-title">你长什么样？</div>
+          <div class="card-en">长得 · 高 · 矮 · 样, and the two readings of 长</div>
+          <span class="card-badge badge-grammar">Grammar + Mixed</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l6-reduplication-hair/" class="card-link">
+          <div class="card-num">06</div>
+          <div class="card-title">大大的眼睛</div>
+          <div class="card-en">Doubling the adjective · 头发 · 不……也不……</div>
+          <span class="card-badge badge-grammar">Grammar + Mixed</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l7-describing-people/" class="card-link">
+          <div class="card-num">07</div>
+          <div class="card-title">猜猜他是谁</div>
+          <div class="card-en">Describe a whole person aloud · the Revision Q&A</div>
+          <span class="card-badge badge-speaking">Speaking + Game</span>
+        </a>
+      </div>
+
+      <div class="lesson-card">
+        <a href="l8-paragraph-reading/" class="card-link">
+          <div class="card-num">08</div>
+          <div class="card-title">毛小红 · 写你自己</div>
+          <div class="card-en">Reading comprehension, then write your own paragraph</div>
+          <span class="card-badge badge-grammar">Writing + Mixed</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Y7 Chinese · Unit 5 Parts of the Body 人体部位 · 8-lesson deck series · <a href="../../">← Back to Gallery</a>
+  </div>
+</footer>
+
+</body>
+</html>
