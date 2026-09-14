@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Y8 L11 · 一日三餐 · Lesson 3 · 一日三餐 Three Meals + 一般</title>
+<script>
+  window.DECK = [
+    { file: "01-title.html", label: "Title · 一日三餐" },
+    { file: "02-review.html", label: "Review · Bingo" },
+    { file: "03-li-sc.html", label: "Learning Intention & Success Criteria" },
+    { file: "04-c1-words.html", label: "Cycle 1 · A — 早餐 / 午饭" },
+    { file: "05-c1-examples.html", label: "Cycle 1 · B — 例句" },
+    { file: "06-c1-write.html", label: "Cycle 1 · C — 写一句" },
+    { file: "07-c2-words.html", label: "Cycle 2 · A — 晚饭 / 一般" },
+    { file: "08-c2-examples.html", label: "Cycle 2 · B — 例句" },
+    { file: "09-c2-write.html", label: "Cycle 2 · C — 写一句" },
+    { file: "10-c3-words.html", label: "Cycle 3 · A — 全 / 粥" },
+    { file: "11-c3-examples.html", label: "Cycle 3 · B — 例句" },
+    { file: "12-c3-write.html", label: "Cycle 3 · C — 写一句" },
+    { file: "13-recall.html", label: "Checkpoint · 认字 recall" },
+    { file: "14-pattern.html", label: "I Do · 句型 一般" },
+    { file: "15-summary.html", label: "词汇总览 · summary board" },
+    { file: "16-task.html", label: "Activity 1 · 一日三餐表 (We Do)" },
+    { file: "17-act2.html", label: "Activity 2 · 一起去吃午饭 (You Do)" },
+    { file: "18-interview.html", label: "Activity 2b · 采访 interview" },
+    { file: "18-game.html", label: "Game · 猜一猜 20 Questions" },
+    { file: "19-plenary.html", label: "Plenary · exit ticket & preview" }
+  ];
+</script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#1A1D14;font-family:-apple-system,"PingFang SC",sans-serif;overflow:hidden}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #wrap{width:1920px;height:1080px;transform-origin:center center;background:#FBFAF2;box-shadow:0 12px 70px rgba(0,0,0,.5)}
+  iframe{width:1920px;height:1080px;border:0;display:block}
+  .zone{position:fixed;top:0;bottom:0;width:14%;cursor:pointer;z-index:20}
+  .zone.l{left:0}.zone.r{right:0}
+  .bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:50;
+       display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.66);color:#fff;
+       padding:9px 20px;border-radius:999px;font-size:13px;letter-spacing:.04em;white-space:nowrap;
+       max-width:calc(100vw - 32px);overflow-x:auto}
+  .bar b{font-variant-numeric:tabular-nums;font-weight:600}
+  .bar span{color:rgba(255,255,255,.62)}
+  .bar button,.bar a{background:none;border:0;color:rgba(255,255,255,.85);font:inherit;cursor:pointer;padding:0;text-decoration:none}
+  .bar button:hover,.bar a:hover{color:#fff}
+  .bar a.home{color:#A9C77E}
+  .bar a.home:hover{color:#fff}
+  #grid{position:fixed;inset:0;background:#1A1D14;z-index:40;overflow:auto;padding:36px;display:none;
+        grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;align-content:start}
+  #grid.on{display:grid}
+  .cell{cursor:pointer}
+  .cell .thumb{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#FBFAF2;position:relative;
+               border:2px solid transparent}
+  .cell:hover .thumb{border-color:#8FB35E}
+  .cell .thumb iframe{transform-origin:top left;pointer-events:none;position:absolute;top:0;left:0}
+  .cell p{color:rgba(255,255,255,.74);font-size:12.5px;margin-top:8px;line-height:1.4}
+  .cell p b{color:#A9C77E;font-weight:600;margin-right:6px}
+</style>
+</head>
+<body>
+
+<div id="stage"><div id="wrap"><iframe id="fr" src="slides/01-title.html"></iframe></div></div>
+<div class="zone l" onclick="go(-1)"></div>
+<div class="zone r" onclick="go(1)"></div>
+
+<div class="bar">
+  <a class="home" href="../" title="回到课程列表 · Back to the lesson list">← 课程列表</a>
+  <span>·</span>
+  <button onclick="toggleGrid()">All slides</button>
+  <span>·</span>
+  <a href="l3-three-meals-yiban.pptx" download>PPTX</a>
+  <span>·</span>
+  <b><span id="n">1</span> / 20</b>
+  <span id="lbl"></span>
+</div>
+
+<div id="grid"></div>
+
+<script>
+  const D = window.DECK; let i = 0;
+  const fr = document.getElementById('fr'), wrap = document.getElementById('wrap');
+  const KEY = 'y8l11-l3-three-meals-yiban';
+
+  function fit() {
+    const s = Math.min(window.innerWidth / 1920, (window.innerHeight - 70) / 1080);
+    wrap.style.transform = 'scale(' + s + ')';
+  }
+  function show(k) {
+    i = (k + D.length) % D.length;
+    fr.src = 'slides/' + D[i].file;
+    document.getElementById('n').textContent = i + 1;
+    document.getElementById('lbl').textContent = D[i].label;
+    try { localStorage.setItem(KEY, i); } catch (e) {}
+  }
+  function go(d) { show(i + d); }
+  function toggleGrid() {
+    const g = document.getElementById('grid');
+    g.classList.toggle('on');
+    if (g.classList.contains('on') && !g.dataset.built) build();
+  }
+  function build() {
+    const g = document.getElementById('grid');
+    D.forEach((s, k) => {
+      const c = document.createElement('div');
+      c.className = 'cell';
+      c.innerHTML = '<div class="thumb"><iframe src="slides/' + s.file + '" scrolling="no"></iframe></div>'
+                  + '<p><b>' + (k + 1) + '</b>' + s.label + '</p>';
+      c.onclick = () => { show(k); toggleGrid(); };
+      g.appendChild(c);
+      const f = c.querySelector('iframe');
+      const scale = () => {
+        const w = c.querySelector('.thumb').clientWidth;
+        f.style.width = '1920px'; f.style.height = '1080px';
+        f.style.transform = 'scale(' + (w / 1920) + ')';
+      };
+      scale(); window.addEventListener('resize', scale);
+    });
+    g.dataset.built = '1';
+  }
+
+  addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(D.length - 1);
+    if (e.key === 'g' || e.key === 'Escape') toggleGrid();
+  });
+  addEventListener('resize', fit);
+  fit();
+  let start = 0;
+  try { start = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; } catch (e) {}
+  show(start);
+</script>
+</body>
+</html>

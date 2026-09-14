@@ -1,0 +1,78 @@
+[
+ {
+  "file": "01-title.html",
+  "label": "Title · 去饭店吃饭 + 会"
+ },
+ {
+  "file": "02-reading.html",
+  "label": "Review · 阅读 田方"
+ },
+ {
+  "file": "03-tf.html",
+  "label": "Review · 对还是错 True or false"
+ },
+ {
+  "file": "04-li-sc.html",
+  "label": "Learning Intention & Success Criteria"
+ },
+ {
+  "file": "05-c1-words.html",
+  "label": "Cycle 1 · A — 饭店 / 吃饭"
+ },
+ {
+  "file": "06-c1-examples.html",
+  "label": "Cycle 1 · B — 例句"
+ },
+ {
+  "file": "07-c1-write.html",
+  "label": "Cycle 1 · C — 写一句"
+ },
+ {
+  "file": "08-c2-words.html",
+  "label": "Cycle 2 · A — 快餐店 / 水果店"
+ },
+ {
+  "file": "09-c2-examples.html",
+  "label": "Cycle 2 · B — 例句"
+ },
+ {
+  "file": "10-c2-write.html",
+  "label": "Cycle 2 · C — 写一句"
+ },
+ {
+  "file": "11-recall.html",
+  "label": "Checkpoint · 认字 recall"
+ },
+ {
+  "file": "12-pattern.html",
+  "label": "I Do · 句型 会"
+ },
+ {
+  "file": "13-text2.html",
+  "label": "课文二 Text 2 (full)"
+ },
+ {
+  "file": "14-summary.html",
+  "label": "词汇总览 · summary board"
+ },
+ {
+  "file": "15-act1.html",
+  "label": "Activity 1 · 这个周末 (We Do)"
+ },
+ {
+  "file": "16-act2.html",
+  "label": "Activity 2 · 饭店 Role-play (You Do)"
+ },
+ {
+  "file": "17-game.html",
+  "label": "Game · 写字接力 (two rounds)"
+ },
+ {
+  "file": "18-sequence.html",
+  "label": "全课复习 · all 26 words"
+ },
+ {
+  "file": "19-plenary.html",
+  "label": "Plenary · exit ticket & preview"
+ }
+]

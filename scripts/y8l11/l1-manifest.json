@@ -1,0 +1,82 @@
+[
+ {
+  "file": "01-title.html",
+  "label": "Title · 中餐还是西餐？"
+ },
+ {
+  "file": "02-review.html",
+  "label": "Review · Lesson 10"
+ },
+ {
+  "file": "03-li-sc.html",
+  "label": "Learning Intention & Success Criteria"
+ },
+ {
+  "file": "04-c1-words.html",
+  "label": "Cycle 1 · A — 中餐 / 西餐"
+ },
+ {
+  "file": "05-c1-examples.html",
+  "label": "Cycle 1 · B — 例句"
+ },
+ {
+  "file": "06-c1-write.html",
+  "label": "Cycle 1 · C — 写一句"
+ },
+ {
+  "file": "07-c2-words.html",
+  "label": "Cycle 2 · A — 快餐 / 热狗"
+ },
+ {
+  "file": "08-c2-examples.html",
+  "label": "Cycle 2 · B — 例句"
+ },
+ {
+  "file": "09-c2-write.html",
+  "label": "Cycle 2 · C — 写一句"
+ },
+ {
+  "file": "10-c3-words.html",
+  "label": "Cycle 3 · A — 汉堡包 / 比萨饼"
+ },
+ {
+  "file": "11-c3-examples.html",
+  "label": "Cycle 3 · B — 例句"
+ },
+ {
+  "file": "12-c3-write.html",
+  "label": "Cycle 3 · C — 写一句"
+ },
+ {
+  "file": "13-recall.html",
+  "label": "Checkpoint · 认字 recall"
+ },
+ {
+  "file": "14-pattern.html",
+  "label": "I Do · 句型 A 还是 B？"
+ },
+ {
+  "file": "15-text1a.html",
+  "label": "课文一 Text 1 (first half)"
+ },
+ {
+  "file": "16-summary.html",
+  "label": "词汇总览 · summary board"
+ },
+ {
+  "file": "17-task.html",
+  "label": "Activity 1 · 三个问题 (We Do)"
+ },
+ {
+  "file": "18-act2.html",
+  "label": "Activity 2 · 我们应该……还是……？ (You Do)"
+ },
+ {
+  "file": "19-game.html",
+  "label": "Game · 拍字 Slap the Character"
+ },
+ {
+  "file": "20-plenary.html",
+  "label": "Plenary · exit ticket & preview"
+ }
+]

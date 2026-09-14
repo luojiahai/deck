@@ -1,0 +1,90 @@
+[
+ {
+  "file": "01-title.html",
+  "label": "Title · 中餐菜 + 或者"
+ },
+ {
+  "file": "02-review.html",
+  "label": "Review · 改错 Correct the Teacher"
+ },
+ {
+  "file": "03-li-sc.html",
+  "label": "Learning Intention & Success Criteria"
+ },
+ {
+  "file": "04-c1-words.html",
+  "label": "Cycle 1 · A — 面条 / 炒面"
+ },
+ {
+  "file": "05-c1-examples.html",
+  "label": "Cycle 1 · B — 例句"
+ },
+ {
+  "file": "06-c1-write.html",
+  "label": "Cycle 1 · C — 写一句"
+ },
+ {
+  "file": "07-c2-words.html",
+  "label": "Cycle 2 · A — 米饭 / 炒菜"
+ },
+ {
+  "file": "08-c2-examples.html",
+  "label": "Cycle 2 · B — 例句"
+ },
+ {
+  "file": "09-c2-write.html",
+  "label": "Cycle 2 · C — 写一句"
+ },
+ {
+  "file": "10-c3-words.html",
+  "label": "Cycle 3 · A — 包子 / 或者"
+ },
+ {
+  "file": "11-c3-examples.html",
+  "label": "Cycle 3 · B — 例句"
+ },
+ {
+  "file": "12-c3-write.html",
+  "label": "Cycle 3 · C — 写一句"
+ },
+ {
+  "file": "13-recall.html",
+  "label": "Checkpoint · 认字 recall"
+ },
+ {
+  "file": "14-extra.html",
+  "label": "Extra Words · 认一认 recognition only"
+ },
+ {
+  "file": "15-compare.html",
+  "label": "句型 · 还是 vs 或者"
+ },
+ {
+  "file": "16-summary.html",
+  "label": "词汇总览 · summary board"
+ },
+ {
+  "file": "17-task.html",
+  "label": "Activity 1 · 一天的菜单 (We Do)"
+ },
+ {
+  "file": "18-act2.html",
+  "label": "Activity 2 · 还是 还是 或者？ (You Do)"
+ },
+ {
+  "file": "19-write-a.html",
+  "label": "写一写 · 粥 或 者"
+ },
+ {
+  "file": "20-write-b.html",
+  "label": "写一写 · 面 条 炒"
+ },
+ {
+  "file": "21-game.html",
+  "label": "Game · 接龙 Category Chain"
+ },
+ {
+  "file": "22-plenary.html",
+  "label": "Plenary · 改错 + exit ticket"
+ }
+]

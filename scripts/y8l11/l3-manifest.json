@@ -1,0 +1,82 @@
+[
+ {
+  "file": "01-title.html",
+  "label": "Title · 一日三餐"
+ },
+ {
+  "file": "02-review.html",
+  "label": "Review · Bingo"
+ },
+ {
+  "file": "03-li-sc.html",
+  "label": "Learning Intention & Success Criteria"
+ },
+ {
+  "file": "04-c1-words.html",
+  "label": "Cycle 1 · A — 早餐 / 午饭"
+ },
+ {
+  "file": "05-c1-examples.html",
+  "label": "Cycle 1 · B — 例句"
+ },
+ {
+  "file": "06-c1-write.html",
+  "label": "Cycle 1 · C — 写一句"
+ },
+ {
+  "file": "07-c2-words.html",
+  "label": "Cycle 2 · A — 晚饭 / 一般"
+ },
+ {
+  "file": "08-c2-examples.html",
+  "label": "Cycle 2 · B — 例句"
+ },
+ {
+  "file": "09-c2-write.html",
+  "label": "Cycle 2 · C — 写一句"
+ },
+ {
+  "file": "10-c3-words.html",
+  "label": "Cycle 3 · A — 全 / 粥"
+ },
+ {
+  "file": "11-c3-examples.html",
+  "label": "Cycle 3 · B — 例句"
+ },
+ {
+  "file": "12-c3-write.html",
+  "label": "Cycle 3 · C — 写一句"
+ },
+ {
+  "file": "13-recall.html",
+  "label": "Checkpoint · 认字 recall"
+ },
+ {
+  "file": "14-pattern.html",
+  "label": "I Do · 句型 一般"
+ },
+ {
+  "file": "15-summary.html",
+  "label": "词汇总览 · summary board"
+ },
+ {
+  "file": "16-task.html",
+  "label": "Activity 1 · 一日三餐表 (We Do)"
+ },
+ {
+  "file": "17-act2.html",
+  "label": "Activity 2 · 一起去吃午饭 (You Do)"
+ },
+ {
+  "file": "18-interview.html",
+  "label": "Activity 2b · 采访 interview"
+ },
+ {
+  "file": "18-game.html",
+  "label": "Game · 猜一猜 20 Questions"
+ },
+ {
+  "file": "19-plenary.html",
+  "label": "Plenary · exit ticket & preview"
+ }
+]

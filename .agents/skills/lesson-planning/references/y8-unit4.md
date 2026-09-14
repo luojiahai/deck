@@ -389,6 +389,33 @@ picture → Chinese · sentence completion · phrase building from a pinyin cue 
 sorting into categories · translation both directions · rearrange to form a sentence ·
 reading comprehension with true/false or questions · essay writing.
 
+
+## Workbook Exercises — Lesson 11 (pp.118–127)
+
+| # | Page | Type | What students do |
+|---|---|---|---|
+| 1 | 118 | Character copying | Copy Text 1 new words with full stroke order: 餐 快 狗 饼 喝 饮 料 |
+| 2 | 119 | Translation C→E | 5 sentences, all 还是 questions (打球还是看电影／蔬菜还是水果／北京还是上海／跟爸爸游泳还是跟妈妈跑步／热的天气还是冷的天气). "It is your turn!" — make three sentences with 还是. |
+| 3 | 119 | Picture → Chinese | Write 15 pictured items in Chinese: 生菜(given), 西红柿, 菜花儿, 土豆, 橘子, 香蕉, 苹果, 南瓜, 西瓜, 梨, 比萨饼, 汉堡包, 热狗, 汽水, 可乐 |
+| 4 | 120 | Make a sentence | Expand 6 word-sets into sentences with a frequency adverb (我／中午／上网 → 我差不多每天中午都上网). Words for Reference: 有时候, 经常, 常常, 差不多 |
+| 5 | 120 | Verb + object | Fill 12 blanks from a verb box (做 看 画 弹 唱 吃 听 拉 打 说 喝 上): __油画儿, __作业, __电视, __钢琴, __小提琴, __电话, __汉语, __音乐, __美术课, __儿歌, __中餐, __可乐 |
+| 6 | 120 | Write the radicals | 8 radicals by meaning: 革 leather (given), 厂 cliff, 车 vehicle, 广 shelter, 贝 treasure, 礻 ritual, 犭 animal, 虫 insect |
+| 7 | 121 | Sorting | List 4 foods/drinks under each of 中餐 · 西餐 · 快餐 · 饮料 |
+| 8 | 121 | Answer the questions | 4 questions: 喜欢吃什么水果？／什么蔬菜？／什么快餐？／喜欢喝什么饮料？ |
+| 9 | 121 | Connect to make questions | 我们应该 + 坐/吃/学/喝/穿 + 中餐/可乐/裤子/电车/法语 + 还是 + 西班牙语?/西餐?/汽水?/地铁?/裙子? |
+| 10 | 122 | Reading comprehension | Passage about 田方 in 香港 (中餐、西餐、快餐、汉堡包、比萨饼、热狗、炸鸡翅、炸薯条; 妈妈说她应该少吃快餐，多吃蔬菜和水果) + 4 true/false |
+| 11 | 122 | Character copying | Copy simple characters 虫 贝 刀 叉 with stroke order |
+| 12 | 123–124 | Character copying | Copy Text 2 new words: 全 般 粥 或 者 面 条 炒 店 |
+| 13 | 124 | Phrase meaning | Write the meaning of 3 phrase families: 炒面/炒饭/炒菜 · 早饭/午饭/晚饭/米饭 · 玩具店/快餐店/水果店/书店/花店 |
+| 14 | 124 | Sentence completion | 我早饭一般吃____ · 我午饭一般吃____ · 我们家晚饭一般吃____ · 周末我们全家____ |
+| 15 | 125 | Fill in 还是 / 或者 | 6 gaps — the discrimination drill: 坐地铁__坐出租车去? (还是) · 晚饭我们吃炒饭__炒面。(或者) · 苹果__香蕉，都可以。(或者) · 想去美国__英国上大学? (还是) · 今天来__明天来，都可以。(或者) · 他晚上一般看书，__看电视。(或者) |
+| 16 | 125 | Translation E→C | 6 sentences, all with 会: "I will probably eat fast food for lunch" · "Is it likely to rain this afternoon?" · "We are likely to watch a movie this weekend" · "I might go to Beijing for university next year" · "Are you likely to eat western food for dinner?" · "Are we likely to have a typhoon tomorrow?" Then type them on the computer. |
+| 17 | 126 | Add to each category | Add 2 more words to each of 10 categories: 春天, 校服, 油画儿, 西红柿, 汉堡包, 多云, 音乐, 跑步, 香蕉, 面条 |
+| 18 | 126 | Make a sentence | One sentence for each: 跟……一起 · 正在 · 一边……一边…… · 从……开始 |
+| 19 | 126 | Pinyin + simple characters | 12 by meaning: 虫 insect (given), 贝 shell, 刀 knife, 民 folk, 食 food, 果 fruit, 欠 owe, 石 stone, 东 east, 南 south, 西 west, 北 north |
+| 20 | 127 | Project | Create a restaurant menu. Example: 乐乐快餐店 — 鱼肉汉堡包 ¥9.80, 鸡肉汉堡包 ¥9.80, 热狗 ¥6.50, 沙拉 ¥8.60, 可乐 ¥5.00, 橙汁 ¥4.50, 绿茶 ¥4.00; address 上海市南京路458号, 电话 (021)24820670 |
+| 21 | 127 | Essay writing | Sample essay about 田方's grandparents in 香港 (很少吃西餐／不喜欢快餐／差不多每天都吃中餐; 奶奶做饭 — 粥, 面条, 炒饭, 炒面, 包子, 汤等等; 除了这些，他们每天还吃两三种蔬菜、水果; 七十多岁, 身体很好, 很少生病). Then write about your own grandparents: how old, where they live, what food they like to eat. |
+
 ---
 
 ## Audio Tracks (Unit 4)
