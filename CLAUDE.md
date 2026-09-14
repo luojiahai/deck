@@ -17,7 +17,10 @@ deck/
 │       └── <design-id>/
 │           ├── index.html  ← Entry point for each design
 │           └── thumb.png   ← Thumbnail for gallery card (1440×900)
-├── vercel.json             ← Build: copies index/* → .vercel/output/static/
+├── vercel.json             ← No-build static serve of index/ (see Deployment)
+├── docs/lesson-plans/<design-id>/   ← lesson plans the builders read (not served)
+├── scripts/                ← per-series builders + export/check passes (not served)
+├── .resources/             ← textbook & workbook PDFs (lesson-planning skill)
 └── .vercel/                ← Vercel project config (do not delete)
 ```
 
@@ -27,8 +30,15 @@ deck/
 2. Add a `thumb.png` (1440×900) to the design folder — this is the gallery card image
 3. Add an entry to `index/designs.json`:
    ```json
-   { "id": "<design-id>", "title": "Name", "description": "...", "createdAt": "YYYY-MM-DD", "thumbnail": "designs/<design-id>/thumb.png" }
+   { "id": "<design-id>", "title": "Name", "description": "...", "createdAt": "YYYY-MM-DD",
+     "thumbnail": "designs/<design-id>/thumb.png", "type": "slides", "tags": ["Year 7", "中文", "Topic"] }
    ```
+   `type` drives the card's category chip; `type` and `tags` both feed the
+   search index. **Order matters:** the gallery renders `designs` in array
+   order into an auto-fill 3-up grid, so the file interleaves the year levels
+   round-robin (y7, y8, y9, y7, …) to keep each year in its own column.
+   Insert at the right place in that rotation — appending at the end breaks
+   the columns.
 4. Commit and push to `main` — Vercel deploys it to production automatically
 
 Downloadable `.pptx` / `.pdf` exports (linked from a design's `index.html`) are an **optional, per-design** feature — see [Editable PPTX export](#editable-pptx-export). Keep PPTX/PDF source artifacts that aren't served (`slides-pptx/`, slide-preview `thumbs/`) out of `index/` — they bloat the deploy and are unreferenced.
@@ -38,7 +48,9 @@ Downloadable `.pptx` / `.pdf` exports (linked from a design's `index.html`) are 
 The exporter is generic: the huashu-design skill's `html2pptx.js` turns slide
 HTML into native PowerPoint text runs and shapes (real editable text, not
 pictures). Everything in `scripts/` around it is a prep or check pass, also
-design-agnostic.
+design-agnostic. The skill's scripts live at
+`.claude/skills/huashu-design/scripts/` (`export_deck_pptx.mjs`,
+`export_deck_pdf.mjs`, `html2pptx.js`).
 
 **Exporting a deck** — pick by the canvas its `shared/tokens.css` declares, or
 every slide is rejected:
@@ -131,10 +143,33 @@ index/designs/<design-id>/
 
 Each slide is a self-contained HTML file. Use descriptive filenames (`l1-hobbies-intro.html`, `l8-review-quiz.html`) so the structure is scannable.
 
-**New slide series use the 960pt canvas** — `width: 960pt; height: 540pt` in
-`shared/tokens.css`, type sized in `pt` with a 13pt readability floor. Copy
-`index/designs/y9-l11/shared/tokens.css` as the starting point; its header
-documents the scale (1pt = 2px on a 1080p projector).
+**Every slide series is generated — edit the builder, not the output.** Each
+series has a Python builder (`scripts/build_<design-id>.py`, or
+`scripts/<design-id>/build.py` plus per-lesson modules for newer ones) that
+reads `docs/lesson-plans/<design-id>/` and writes the whole tree:
+`shared/tokens.css`, every `slides/*.html`, and each deck's `index.html`
+viewer. Nothing under `index/designs/<design-id>/` is hand-maintained — a hand
+edit is lost on the next run, so change the builder and rerun. Builders also
+assert layout invariants (a vocab slide introduces at most two new words, at
+most 3 worked examples per pattern slide, …) so a known overflow cannot come
+back.
+
+```bash
+python3 scripts/<design-id>/art.py     # SVG drawings, if the series has them
+python3 scripts/<design-id>/build.py   # slides + deck shells
+bash    scripts/<design-id>/export.sh  # PPTX + PDF (optional, per design)
+```
+
+**New slide series use the 960pt canvas.** The whole contract, in
+`shared/tokens.css`:
+
+```css
+html, body { width: 960pt; height: 540pt; margin: 0; padding: 0; overflow: hidden; }
+p, h1, h2, h3, h4 { margin: 0; }
+```
+
+Type is then sized in `pt`, with a 13pt floor for anything a student must read
+— 1pt = 2px on a 1080p projector, so 13pt lands at 26px.
 
 Why: `html2pptx.js` reads the body's CSS size as physical inches, so 960pt
 lands on 13.333in × 7.5in — PowerPoint's standard widescreen, and exactly
@@ -142,3 +177,21 @@ pptxgenjs's `LAYOUT_WIDE`, so the skill's stock exporter works unforked. The
 older 1920px decks convert to a non-standard 20in × 11.25in and need the
 repo's forked exporter. Both look identical on a projector (each deck shell
 scales to fit); the canvas only shows up in the PPTX.
+
+🔴 **Fix the canvas before authoring a single slide.** Converting a finished
+series costs a full pass over every slide.
+
+There is no shared stylesheet template — each series carries its own palette
+and class vocabulary, so a sibling deck's `tokens.css` is that deck's design
+language, not a starting point. Two ways to the canvas:
+
+* **new visual identity** → author the stylesheet against the contract above.
+* **same unit as an existing 1920px deck**, where the series should stay one
+  visual family → convert *that* deck's stylesheet px → pt at 1pt = 2px in the
+  builder, with a single `px2pt()` over both the stylesheet and every emitted
+  slide: lesson content stays written in px, and there is one place to get the
+  scale wrong.
+
+When copying a 960pt **deck shell**, two details are per-deck and easy to miss:
+the slide count in the progress bar is hardcoded, and the shell links its own
+`.pptx` — which 404s in a web-only series.
