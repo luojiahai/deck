@@ -29,7 +29,7 @@ deck/
    ```json
    { "id": "<design-id>", "title": "Name", "description": "...", "createdAt": "YYYY-MM-DD", "thumbnail": "designs/<design-id>/thumb.png" }
    ```
-4. Run `vercel deploy --prod`
+4. Commit and push to `main` — Vercel deploys it to production automatically
 
 Downloadable `.pptx` exports (linked from a design's `index.html`) are an **optional, per-design** feature — some designs ship them (e.g. `y7-l10`), others are web-only (e.g. `y8-l7`). Keep PPTX/PDF source artifacts that aren't served (`slides-pptx/`, slide-preview `thumbs/`) out of `index/` — they bloat the deploy and are unreferenced.
 
@@ -56,6 +56,14 @@ cd index && python3 -m http.server 8080   # → http://localhost:8080
 ```
 
 > **Why this config?** The servable content lives under `index/`, so `outputDirectory` points Vercel there directly — the gallery resolves at `/` and designs at `/designs/<id>/`. `installCommand`/`buildCommand` are empty because serving static HTML needs no build, and the root `package.json` deps (playwright, sharp, etc.) are local-only export tooling that must NOT be installed on deploy. `.vercelignore` keeps `node_modules/`, `scripts/`, `docs/`, and `.archive/` out of the upload.
+
+The Vercel project is connected to `github.com/luojiahai/deck`, so deploys are
+continuous — **push to `main` and it ships** to deck.liyu.dev. Open a PR instead
+and Vercel comments a preview URL on it, which is the way to eyeball a new design
+before it's public.
+
+The CLI still works as a manual escape hatch (useful when Git is unavailable or
+you want to deploy uncommitted work):
 
 ```bash
 vercel deploy --prod    # production → deck.liyu.dev
