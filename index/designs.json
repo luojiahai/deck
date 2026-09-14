@@ -168,6 +168,20 @@
         "中文",
         "Food"
       ]
+    },
+    {
+      "id": "y9-l10-demo",
+      "title": "Y9 L10 Demo · 菜市场 Fresh Market (Lesson 1 of 6)",
+      "description": "示范课件——新版规范：每页只introduce两个新词（配图）+ 例句 + 写一句三段循环，词汇总览与综合任务，教室投影字号下限，可编辑 PPTX",
+      "createdAt": "2026-09-14",
+      "thumbnail": "designs/y9-l10-demo/thumb.png",
+      "type": "slides",
+      "tags": [
+        "Year 9",
+        "中文",
+        "Market",
+        "Demo"
+      ]
     }
   ]
 }
