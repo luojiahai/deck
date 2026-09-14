@@ -326,16 +326,29 @@ Answers (script p.159): jièyuè · quèyuè · xièjué · quēlüè · quèqi�
 **p.111 Ex.2 (track 57)** — fill in vowels with tone marks. Focus: **un · ün**.
 Answers (script p.159): jūnxùn · húntun · lúndūn · qúnlùn · chūnyùn · shùnxùn
 
-### Textbook Activities (selected)
+### Textbook Activities (page by page)
 
 | Page | # | Type | What students do |
 |---|---|---|---|
-| 111 | 1 | Speaking | Say 9 pictured RMB coins/notes (一毛(角), 一块(元) …). NOTE box on 块/元 and 毛/角. |
-| 111 | 2 | Pinyin (track 57) | Fill vowels + tone marks, un/ün focus. |
-| 114 | 6 | Listening (track 58) | Listen and tick — 6 three-option items (sentences with 等, 零下…度, 除了…以外, 中餐 dishes, phone language). |
-| 114 | 7 | Characters | 尸 户 革 丁. |
-| 119 | — | Text 2 | Restaurant dialogue (track 59). |
-| 119 | — | Listening (track 60) | Price/food dialogues: 苹果多少钱一斤？／五块五一斤。 |
+| 111 | 1 | Speaking | Say 9 pictured RMB coins/notes: 一毛(角) (given), 五毛(角), 一块(元) coin, 一块(元) note (given), 五块, 十块, 二十块, 五十块, 一百块. NOTE box: spoken 块/毛, written 元/角 — 五块=五元, 三毛=三角. |
+| 111 | 2 | Pinyin (track 57) | Fill vowels + tone marks — un/ün focus. Answers: jūnxùn · húntun · lúndūn · qúnlùn · chūnyùn · shùnxùn. |
+| 112 | 3 | Measure words | Fill 12 blanks from a box (口 家 头 朵 个 位 台 条): 三口人 (given), 一__花, 一__电脑, 一__学校, 一__老师, 一__裙子, 一__白发, 一__裤子, 一__热狗, 一__苹果, 一__饭店, 一__电视. |
+| 112 | 4 | Role play (group) | Groups of 3–4 open a **food stall**. Example: A: 一个热狗多少钱？ B: 十六块。Priced items: 西红柿 ¥3.00/斤, 菜花儿 ¥2.50/斤, 苹果 ¥10.00/五个, 比萨饼 ¥60.00/个. Instructions ask students to bring real food and look up new measure words in a dictionary. |
+| 113 | 5 | Role play (group) | Groups open a **clothing shop**. Model dialogue: 这件衬衫多少钱？／九十五块。／我不喜欢绿色的。你们有红色的吗？／有，请等一等。这件怎么样？／很好，我想买两件。我可以用人民币吗？／可以。 Stock list sorted by measure word — 件: 衬衫, 毛衣, 大衣, 外套, 汗衫, 游泳衣 · 条: 长裤, 短裤, 长裙, 短裙, 牛仔裤, 游泳裤. |
+| 114 | 6 | Listening (track 58) | Listen and tick — 6 three-option items (等 lists, 零下…度左右, 看医生, 除了…以外, 中餐 dishes, phone language). |
+| 114 | 7 | Characters | Learn the simple characters 尸 shī corpse · 户 hù household · 革 gé leather · 丁 dīng man. |
+| 115 | — | Text 2 (track 59) | Restaurant dialogue (see Key Texts). |
+| 116 | 8 | Speaking (pair) | 这炒面怎么样？／非常好吃。over 8 pictured dishes (比萨饼, 香蕉, 炒菜, 炒面, 汉堡包, 西瓜, 苹果, 青菜). Words for Reference — the 好吃 scale: 特别好吃 > 非常好吃 > 很好吃 > 好吃 > 不太好吃 > 不好吃; 不错. |
+| 116 | 9 | Speaking (pair) | 你去过 X 几次？ over 北京, 纽约, 巴黎, 伦敦, 东京. Model answer: 一次也没有去过。 |
+| 117 | 10 | Speaking | One sentence per picture with 得. NOTE: 得 follows the verb — 他说汉语说得很好 / 他汉语说得很好. Pictures: 游泳, 打网球, 弹钢琴, 穿(衣服), 画画儿, 跳舞. Example: 他跑步跑得很快。／他跑得很快。 |
+| 117 | 11 | Speaking (pair) | 你每个月大概花多少钱买 X？ over 杂志, 午饭, CD, 电脑游戏, 衣服. |
+| 118 | 12 | Writing | Make a question with each question word: 几 (given: 你家有几口人？), 谁, 什么, 哪儿, 怎么, 怎么样, 什么样. |
+| 118 | 13 | Writing | Tense drill — four model sentences (past 了 / present 每…都 / present continuous 正在…呢 / future 会、要) plus a time-word bank (昨天 今天 明天 · 去年 今年 明年 · 上个月 这个月 下个月 · 上个星期 这个星期 下个星期) and an activity bank (去朋友家, 在家看书, 看电视, 看电影, 游泳, 跑步, 打篮球, 画画儿, 去饭店吃饭, 去上海, 去美国, 吃中餐). |
+| 119 | 14 | Listening (track 60) | Listen and tick — 6 three-option items (黄瓜/苹果/西瓜 · 快餐/中餐/早餐 · 买水果/打篮球/看电视 · 周末/吃饭/朋友 · 天气/爱好/家人 · 炒菜/包子/米饭). |
+| 119 | 15 | Speaking/writing | **Describe one of your eating-out experiences** — five captioned pictures model the paragraph: 上个星期六我们全家人去饭店吃饭了。／我们去了一家上海饭店。／我们吃了炒菜、炒面、粥、饺子等等。／我们还喝了可乐和汽水。／我们一共花了两百多块，不算贵。 |
+| 120 | 16 | Role play (group) | Groups open **either** a fresh market **or** a clothing shop. Example: 菜花儿怎么卖？／三块一个。／土豆多少钱一斤？／一块五。／买一个菜花儿和一斤土豆。／一共四块五。 Price lists — 黄瓜 ¥1.20/斤, 生菜 ¥1.00/斤, 西红柿 ¥2.00/斤 · 苹果 ¥10.00/四个, 西瓜 ¥1.20/斤, 橘子 ¥10.00/五个 · 牛仔裤 ¥260.00/条, 衬衫 ¥150.00/件 · 毛衣 ¥220.00/件, 外套 ¥200.00/件. |
+| 121 | 17 | Game | Group dictation race over a 25-character grid of simple characters: 尸 户 革 丁 贝 · 虫 叉 食 果 欠 · 平 石 角 页 舌 · 瓜 旦 矢 皿 斗 · 青 立 寸 巾 足. Most correct characters wins. |
+| 121 | 18 | Speaking (pair) | Dialogue from 7 sample question sets: 你晚饭吃了吗？你吃了什么？／你们家谁做晚饭？你会做饭吗？／你喜欢吃蔬菜吗？什么蔬菜？／水果？／中餐？／西餐？／你喜欢吃快餐吗？你一星期吃几次快餐？ |
 
 ---
 
@@ -416,6 +429,34 @@ reading comprehension with true/false or questions · essay writing.
 | 20 | 127 | Project | Create a restaurant menu. Example: 乐乐快餐店 — 鱼肉汉堡包 ¥9.80, 鸡肉汉堡包 ¥9.80, 热狗 ¥6.50, 沙拉 ¥8.60, 可乐 ¥5.00, 橙汁 ¥4.50, 绿茶 ¥4.00; address 上海市南京路458号, 电话 (021)24820670 |
 | 21 | 127 | Essay writing | Sample essay about 田方's grandparents in 香港 (很少吃西餐／不喜欢快餐／差不多每天都吃中餐; 奶奶做饭 — 粥, 面条, 炒饭, 炒面, 包子, 汤等等; 除了这些，他们每天还吃两三种蔬菜、水果; 七十多岁, 身体很好, 很少生病). Then write about your own grandparents: how old, where they live, what food they like to eat. |
 
+## Workbook Exercises — Lesson 12 (pp.128–137)
+
+| # | Page | Type | What students do |
+|---|---|---|---|
+| 1 | 128–129 | Character copying | Copy Text 1 new words with full stroke order: 卖 块 元 钱 斤 买 用 民 币 |
+| 2 | 129 | Picture → Chinese | Write 7 pictured money amounts in Chinese (一元五角 given; combinations of ¥50, ¥20+¥5, ¥100+¥10, ¥5+¥1+coins, ¥50+¥20+coin, ¥20+¥20+coin) |
+| 3 | 129 | Dictionary work | Look up and write the meanings of 买卖, 瓜子, 零钱, 零花钱, 餐饮, 汽油, 有用, 没用, 快车 |
+| 4 | 130 | Answer the questions | 6 questions with 过: 你去过北京吗？／画过国画儿吗？／吃过青菜吗？／学过法语吗？／看过中医吗？／用过人民币吗？ "It is your turn!" — make two more sentences with 过 |
+| 5 | 130 | Price conversion | Find the price (converted to RMB) of 8 items: 一斤西瓜, 五个苹果, 一个热狗, 一包土豆, 一斤西红柿, 四个橘子, 一个汉堡包, 一个比萨饼 |
+| 6 | 130 | Verb + object | Fill 16 blanks from a noun box (儿歌 汽车 外套 音乐 西餐 历史 钢琴 可乐 作业 衣服 小提琴 青菜 汉语 电影 篮球 水彩画儿): 吃西餐 (given), 喝__, 做__, 打__, 画__, 弹__, 穿__, 拉__, 说__, 开__, 买__, 炒__, 唱__, 听__, 看__, 学__ |
+| 7 | 131 | Make a sentence | One sentence with each dotted word, from 6 models: 要 (今天下雨，你要穿雨衣) · 不要 (不要看电视了，快去睡觉) · 条 (我想买一条牛仔裤) · 应该 (我应该每天吃三种蔬菜) · 可以 (我现在可以听音乐吗？) · 会 (今天会下雨吗？). Then type them on the computer |
+| 8 | 131 | Reading comprehension | Market passage: 上个星期天我跟妈妈去市场买菜了…妈妈先买了两条鱼和一斤猪肉。那天的苹果特别便宜，十块钱九个。妈妈买了二十块钱的苹果。我们还买了八个橙子，花了二十块钱。最后，我们又买了一些青菜。市场离我家很近，我们走路回家了。+ 4 true/false |
+| 9 | 132 | Complete the question | Fill the missing words to form a 可以吗？question — 7 items: 我用英语说，可以吗？(given) · 我用____买这些衣服，可以吗？· 我一边做作业____，可以吗？· 我今天晚上想____，可以吗？· 我再打一会儿____，可以吗？· 我今天不想____，可以吗？· ____，可以吗？ |
+| 10 | 132 | Character copying | Copy the simple characters 尸 户 革 丁 with stroke order |
+| 11 | 133 | Character copying | Copy Text 2 new words: 次 特 别 概 百 算 贵 |
+| 12 | 134 | Sentence completion | Fill the missing item that matches the description: 这条裙子很好看 (given) · ____很好喝 · ____不好看 · ____很好吃 · ____不好吃 · ____很好听 |
+| 13 | 134 | Answer the questions | 你每个月花多少钱买书／买杂志／打电话／吃午饭？ |
+| 14 | 134 | Measure words | Fill 18 blanks from a box (门 口 朵 头 家 块 位 台 条 包 个 斤): 一个学校 (given), 一__牛, 一__西瓜, 一__电脑, 四__人, 一__足球, 一__书店, 一__梨, 一__土豆, 两__短裤, 一__云, 一__汉堡包, 一__老师, 十__课, 一__比萨饼, 一__橘子, 一__饭店, 一__菜花儿 |
+| 15 | 135 | Translation C→E | 5 sentences with 得: 爸爸篮球打得很好／妈妈歌唱得很好听／哥哥钢琴弹得很好听／姐姐水彩画儿画得很好／妹妹舞跳得很美. "It is your turn!" — make four more sentences with 得 |
+| 16 | 135 | Answer the questions | 5 questions with 几次: 你一个月看几次电影？／一星期看几次电视？／一星期吃几次快餐？／一个月吃几次中餐？／一星期做几次体育运动？ |
+| 17 | 135 | Pinyin + simple characters | Write the pinyin and character by meaning: 平 flat (given), 土 soil, 角 horn, 户 household, 尸 corpse, 页 page, 革 leather, 自己 oneself |
+| 18 | 136 | Dictionary work | Look up 民歌, 冷饮, 白粥, 条子, 全国, 冬泳, 香水, 特色, 手术, 别人, 网页, 末班车 |
+| 19 | 136 | Numbers | Write 9 numbers in Chinese: 54 (given 五十四), 101, 19, 240, 99, 73, 510, 800, 360 |
+| 20 | 136 | Cloze test | Shopping paragraph with gaps (妈妈从超市回来了。她买了蔬菜和水__。她买了一个西__、两斤__蕉、五个橘__、四个苹果。她还__了一个菜花儿、两个生__、两斤土__和三斤西__柿。她__有买黄瓜，因为黄瓜太贵了。她花了四十五__钱。她买了很__东__。) Then create a cloze test for your partner |
+| 21 | 137 | Matching | Match two halves of 6 sentences, every answer half using 得: 妈妈的菜…做得不太好吃／王天一的油画儿…画得特别好看／美文的钢琴…弹得特别好听／冬冬的水彩画儿…画得很好看／这家饭店的饭菜…炒得不算好吃／姐姐的小提琴…拉得不太好听. Then write two more of your own |
+| 22 | 137 | Essay writing | Sample essay: 我跟家人经常去饭店吃饭，差不多每两个星期去一次。我们常去一家北京饭店吃饭。他们的北京烤鸭做得特别好吃。我也非常爱吃他们做的拉面和水饺。我们每次吃饭大概花三百多块钱，不算太贵。Then write about **your favourite restaurant**: how often you go, what food you like, what you normally eat there, how much you normally spend for one meal |
+
+
 ---
 
 ## Audio Tracks (Unit 4)
@@ -455,6 +496,24 @@ reading comprehension with true/false or questions · essay writing.
 4. 冬冬一家人每天都吃四五种蔬菜、水果。
 5. 王星每个周末画两三个小时画儿。
 6. 小英每天看一两个小时的电视。
+
+**Track 58 (p.114)** — Listen and tick
+1. 我今年学十门课，数学、地理、历史等。
+2. 今天是晴天。气温在零下五度左右。
+3. 我今天生病了，我下午去看医生了。
+4. 除了油画儿以外，我还喜欢画国画儿。
+5. 我喜欢吃中餐。我喜欢吃炒面、包子、面条等。
+6. 对不起，小文不在家，她一会儿回来。
+
+**Track 60 (p.119)** — Listen and tick
+1. A: 苹果多少钱一斤？ B: 五块五一斤。
+2. A: 今天的比萨饼非常好吃。 B: 我喜欢吃汉堡包。
+3. A: 橘子怎么卖？ B: 十块钱四个，二十块十个。
+4. A: 你上个周末去看电影了吗？ B: 去了，可是电影不好看。
+5. A: 我差不多每天游泳。你喜欢运动吗？ B: 喜欢。我喜欢跑步。
+6. A: 你妈妈今天做的包子特别好吃。我大概吃了六七个。 B: 我也吃了四五个。
+
+**Track 57 (p.111)** — Pinyin, un/ün: jūnxùn · húntun · lúndūn · qúnlùn · chūnyùn · shùnxùn
 
 ---
 
