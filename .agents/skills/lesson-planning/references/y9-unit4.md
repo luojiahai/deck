@@ -355,11 +355,168 @@ No "circle the correct pinyin" exercise in L11. Tone pairs worth drilling: líng
 | 10 Make sentences (各种各样+文具 · 从小+喜欢 · 总是+中餐) | TB Act. 5, Act. 7 |
 | 12 Essay — your diet, three meals and snacks | TB Act. 9, WB 22 writing task |
 
-## Lesson 12 — outline (not yet extracted in full)
+## Lesson 12: Eating Out 外出就餐 — pp.110–121
 
-- **Lesson 12: Eating Out 外出就餐** — textbook pp.110–121, workbook pp.128–137. CD tracks 46 (p.114) and 48 (p.119).
+### Core Vocabulary — Text 1 (p.111)
 
-Extract in full before planning this lesson.
+| 汉字 | 拼音 | English |
+|---|---|---|
+| 助 | zhù | help |
+| 自助餐 | zìzhùcān | buffet |
+| 龙（龍） | lóng | dragon |
+| 龙虾 | lóngxiā | lobster |
+| 三文鱼 | sānwényú | salmon |
+| 寿司 | shòusī | sushi |
+| 烤 | kǎo | bake; roast |
+| 牛排 | niúpái | beefsteak |
+| 甜 | tián | sweet |
+| 品 | pǐn | article; goods |
+| 甜品 | tiánpǐn | dessert |
+| 酪 | lào | thick fruit juice |
+| 奶酪 | nǎilào | cheese |
+| 饱（飽） | bǎo | full |
+
+### Core Vocabulary — Text 2 (p.116)
+
+| 汉字 | 拼音 | English |
+|---|---|---|
+| 单（單） | dān | bill |
+| 菜单 | càidān | menu |
+| 点菜 | diǎncài | order food (in a restaurant) |
+| 饿（餓） | è | hungry |
+| 只（隻） | zhī | measure word (animals, one of a pair) |
+| 鸭（鴨） | yā | duck |
+| 烤鸭 | kǎoyā | roast duck |
+| 丝（絲） | sī | silk; thread |
+| 肉丝 | ròusī | shredded meat |
+| 烧（燒） | shāo | cook |
+| 红烧 | hóngshāo | braise in soy sauce |
+| 蒸 | zhēng | steam |
+| 青菜 | qīngcài | green vegetables |
+| 杯 | bēi | cup |
+| 茶 | chá | tea |
+| 绿茶 | lǜchá | green tea |
+| 瓶 | píng | bottle |
+
+**Also appearing in the texts / exercises, already taught or transparent:** 炒面, 炒饭, 巧克力蛋糕, 水果沙拉, 米饭, 可乐, 豆腐, 蒸鱼, 炒青菜, 一共, 花（钱）, 挺……的.
+
+### Key Texts
+
+**Text 1 — CD 45 (p.110), 自助餐 narrative**
+> 我们一家三口上个周末去吃自助餐了。我们吃了龙虾、三文鱼、寿司、烤牛排、炒面等。我们还吃了很多甜品，有奶酪、巧克力蛋糕和水果沙拉。我们都吃得很饱。我们一共花了三百多块，挺便宜的。
+
+**Text 2 — CD 47 (p.115), restaurant ordering dialogue**
+> 服务员：各位好，这是菜单……请问可以点菜了吗？
+> 爸爸：我们都很饿了。我们现在就点。来半只烤鸭、一个炒肉丝、一个红烧豆腐、一个蒸鱼。再来一个炒青菜。
+> 服务员：要不要米饭？
+> 爸爸：来三碗米饭吧。
+> 服务员：请问，想喝点儿什么？
+> 爸爸：来两杯绿茶，再来两瓶可乐。
+
+### Key Sentence Patterns
+
+| Pattern | Example | Note |
+|---|---|---|
+| 来 + 数量 + 菜名 | 来半只烤鸭。来三碗米饭吧。 | ordering; 来 = "bring us / we'll have" |
+| 点 + 菜 | 请问可以点菜了吗？几位点什么菜？ | textbook NOTE box p.120: 点 and 来 both order food |
+| V + 得 + 很 + adj | 我们都吃得很饱。他吃得很快。 | degree complement, recycled from earlier |
+| 一共花了 + 金额 | 我们一共花了三百多块。 | total spend |
+| 挺……的 | 挺便宜的。挺贵的。 | "quite / fairly" |
+| 完……以后…… | 我一般喝完汤以后再吃主食。 | TB Act. 4 drills this |
+| 又……又…… | 他们的饭菜又好吃又便宜。 | CD 46 item 5 |
+| 多少钱一 + 量词 | 龙虾多少钱一个？薯片多少钱一包？ | price question, from L10 |
+
+### Grammar Notes
+
+- **Measure words are the grammatical core of this lesson**: 只 (烤鸭, 鸡), 碗 (米饭, 汤), 杯 (绿茶, 咖啡), 瓶 (可乐, 汽水), 个, 条 (活鱼), 块 (三文鱼, 巧克力), 包 (薯片), 斤 (肉类), 位 (people). TB Act. 9 and WB Ex. 13 both drill them.
+- **半只** — 半 precedes the measure word: 半只烤鸭, not ✗只半烤鸭.
+- **再来** — "and also bring…", chains additional orders within one turn.
+- **点菜 is separable**: 点什么菜, 点了菜.
+- **服务员 / 顾客 / 售货员** are the role labels used in the role-play activities.
+
+### Radicals / Character components
+
+L12 has no "Learn the radicals" box. TB Act. 2 (p.112) is instead a **5-minute memorisation** of 12 simple characters/components: 包 止 夕 平 反 习 页 欠 贝 革 乌 勺.
+
+WB Ex. 17 (p.135) is the related task — find the shared component and gloss each character:
+1. 艹 → 茶 花 蒸 · 2. 饣 → 饼 饿 饱 · 3. 火 → 炒 烤 炸 · 4. 酉 → 酸 酪 · 5. 鸟 → 鸭 鸡 · 6. 米 → 糕 糖 · 7. 虫 → 蛋 虾 · 8. 月 → 膀 肠 · 9. 舌 → 甜 刮
+
+### Pinyin Focus
+
+None — L12 has no pinyin-discrimination exercise.
+
+### Textbook Activities — page by page
+
+| Page | # | Type | What students do |
+|---|---|---|---|
+| 110 | Text 1 | reading / CD 45 | 自助餐 narrative |
+| 111 | 1 | speaking | Describe the buffet picture, split 主食 / 甜品. Example: 在这个自助餐厅，主食你可以吃到龙虾……甜品你可以吃到奶酪蛋糕…… |
+| 112 | 2 | character memory | Memorize 12 characters in 5 min: 包 止 夕 平 反 习 页 欠 贝 革 乌 勺 |
+| 112 | 3 | pair dialogue | Model a 自助餐 dialogue: 你们吃了什么？喝了什么？有水果吗？在那里吃饭贵不贵？→ 还可以，每位一百五十块。 |
+| 112 | 4 | writing | Complete 5 sentences with 完……以后……; then make two of your own |
+| 113 | 5 | role play | 售货员 / 顾客 haggling. **Situation: buy food for your family with ¥200.** Price board: 龙虾¥60/个 · 三文鱼¥68/块 · 寿司¥5/个 · 鸡腿¥12/斤 · 活鱼¥12/条 · 牛排¥22/斤 · 活虾¥25/斤 · 鸡翅¥10/斤 · 香肠¥18/斤 |
+| 114 | 6 | listening / CD 46 | 6 multiple-choice items about a family's eating out (script below) |
+| 114 | 7 | speaking | Model paragraph — mum's birthday buffet. *It is your turn:* describe your recent eating-out experience |
+| 115 | Text 2 | reading / CD 47 | Restaurant ordering dialogue |
+| 116 | 8 | speaking | Say a few sentences about each of 14 dishes: 奶酪蛋糕 白巧克力 寿司 烤鸭 红烧豆腐 蒸鱼 炒青菜 烤牛排 水果沙拉 绿茶 香肠 薯条 青豆蛋炒饭 冰淇淋. Example: 我非常喜欢吃龙虾。我每个月吃一次龙虾。 |
+| 117 | 9 | group game | Measure-word race — find **two** nouns for each of 瓶 杯 辆 本 节 件 位 只 家 张 斤 个 双 包. Fastest group with most correct matches wins |
+| 117 | 10 | pair dialogue | Phone takeaway order. Model: 我想叫外卖……来一个比萨饼、四个炸鸡腿、两个汉堡包和四瓶可乐。一共多少钱？→ 一百五十六块。**Situation: order lunch for five people by phone** |
+| 118 | 11 | interview | 11 questions (中餐/西餐/自助餐/快餐 preferences, 三餐, drinks, last weekend's restaurant, total spend) + **report back to the class** in 3rd person |
+| 119 | 12 | listening / CD 48 | Match 6 people (小天 小文 小山 冬冬 小云 小明) to 8 statements A–H (script below) |
+| 119 | 13 | pair dialogue | Shop-owner / customer. Model: 薯片多少钱一包？→ 四块五。买两包。给你十块。→ 找你一块。 |
+| 120 | 14 | writing | Complete the restaurant dialogue using four printed menus (快乐自助餐厅 / 天天快餐店 / 北京饭店 / 欢欢茶餐厅). **NOTE box: 点 and 来 are used to order food** |
+| 121 | 15 | project | Design a restaurant — A4 floor plan + written menu, in pairs or small groups; class judges design, drawing and language. Model paragraph describes 中港西餐馆: two floors, 十张餐桌, 可以坐下五十个人, 厨房在一楼… |
+
+### Menus printed on p.120 (usable as ready-made role-play props)
+
+| 快乐自助餐厅 | 天天快餐店 | 北京饭店 | 欢欢茶餐厅 |
+|---|---|---|---|
+| 龙虾 寿司 烤牛排 沙拉 巧克力蛋糕 各种水果、甜品 果汁 | 热狗 汉堡包 比萨饼 香肠 煎蛋 可乐 汽水 | 烤鸭 红烧豆腐 蒸鱼 炒肉丝 炒青菜 炒大虾 | 蛋炒饭 鱼蛋面 炒面 白粥 鱼片粥 绿茶 |
+
+### Listening script — CD 46 (p.114, Act. 6)
+> 1) A: 你们家周末常去饭店吃饭吗？ B: 常去，大概每个星期一次。
+> 2) A: 你们常去哪儿吃饭？ B: 我们常去一家西式饭店吃自助餐。
+> 3) A: 你们上个周末去吃了吗？ B: 没有，因为爸爸不舒服。我们在家吃的。
+> 4) A: 那家饭店什么菜做得最好吃？ B: 他们的烤牛排做得非常好吃。我们每次都要吃。
+> 5) A: 去那家饭店吃饭的人多不多？ B: 很多，因为他们的饭菜又好吃又便宜。
+> 6) A: 你们下个周末会去饭店吃饭吗？ B: 不会去，因为爸爸出差了，下个月回来。
+
+### Listening script — CD 48 (p.119, Act. 12)
+> 1) 小天小时候不爱吃蔬菜，现在爱吃了。他每天晚饭都会吃蔬菜。
+> 2) 小文爱吃水果。她最爱吃西瓜和梨。
+> 3) 小山从小就爱吃快餐，每个周末都会吃汉堡包，所以现在很胖。
+> 4) 冬冬最爱吃零食，每天在学校买零食吃。他爱吃薯片、巧克力、冰淇淋，还常常喝汽水。
+> 5) 小云早上吃面包、煎蛋，喝一杯牛奶；中午在学校的餐厅里买盒饭吃。
+> 6) 小明常和家人去北京饭店吃饭。他们爱吃北京烤鸭、红烧豆腐和炒肉丝。
+
+### Workbook — Lesson 12 (pp.128–137)
+
+| # | Page | Format | Content |
+|---|---|---|---|
+| 1 | 128 | picture → 汉字 | 25 food pictures (Text 1 vocabulary set) |
+| 2 | 129 | write simple characters | field 田 · gold 金 · oneself 自己 · light 光 · dagger 刀 · enter 入 · well 井 · die 死 · black 黑 |
+| 3 | 129 | opposites | 大 多 高 凉快 黑 上 出 难看 远 地 直 贵 女 热 长 难 |
+| 4 | 129 | extended reading | Match 6 restaurant signs (大上海一品香饭店 / 印度咖喱王 / 澳门茶餐厅 / 表哥粥面专家 / 元绿寿司 / 中山渔港酒家) to 4 "如果你想吃…你应该去___" prompts |
+| 5 | 130 | complete the sentences | 在文具店你可以买到___ · 在服装店___ · 在超级市场___ · 在中餐厅___ · 在快餐店___ · 在自助餐厅___ |
+| 6 | 130 | cloze | 饮茶 passage. Box: 非常 所以 太 大约 特别 |
+| 7 | 130 | dictionary work | 甜/乱 · 饱/抱 · 煎/剪 · 烧/浇 · 难/推 · 练/炼 · 请/猜 · 汤/烫 |
+| 8 | 131 | categorize | 18 foods → 海鲜 零食 肉类 快餐 中餐 甜品 |
+| 9 | 131 | picture → sentence | 6 pictures, degree complement. Model: 他吃得很快。 |
+| 10 | 132 | reading comprehension | 五星级酒店下午茶 passage + 6 questions |
+| 11 | 132 | captions | 6 pictures — a day of eating, 起床/早饭/午饭/下午/晚饭/睡觉前 |
+| 12 | 133 | picture → 量词+名词 | 16 items, e.g. 一个面包 |
+| 13 | 134 | measure words | 六__蛋糕 一__鱼 两__豆腐 一__绿茶 一__牛排 一__鸡腿 一__烤鸭 一__面条 一__菜汤 一__饼干 五__龙虾 一__可乐 一__薯条 三__猪肉 一__炒饭 四__巧克力 |
+| 14 | 134 | CN→EN | 肉丝 肉片 肉块 土豆丝 胡萝卜丝 黄瓜 |
+| 15 | 134 | opposites | 大 饱 借 贵 直 瘦 低 短 高 远 难 男 |
+| 16 | 134 | EN→CN | menu · order food · shredded meat · tofu · steamed fish · green tea · hungry · full · dessert |
+| 17 | 135 | shared component | 9 groups (see Radicals above) |
+| 18 | 135 | sentence jumble | 7 items: 吗/请问，/点菜/了/可以? · 想/今天/喝/我/红茶。· 很好吃/的/妈妈/做/烤鸭。· 蒸鱼/非常/吃/爸爸/喜欢。· 一碗米饭/了/要/弟弟/又。· 了/我们大家/饿/都。· 和/炒青菜/点/红烧豆腐/了/我。 |
+| 19 | 136 | cloze | 美国暑假 passage. Box: 附近 可乐 暑假 差不多 公斤 家里 特别 经常 |
+| 20 | 136 | EN→CN with 比 | 6 comparison sentences (skirt longer, hat nicer, taller than father, hotter than yesterday, book cheaper, school bigger) |
+| 21 | 136 | error correction | 1. 菜市场上的蔬菜比超市新鲜。 2. 以后我看完书做作业。 3. 我喜欢喝可乐从小就。 4. 一到家就我开始看电视。 |
+| 22 | 137 | internet research | Zodiac animal of this year / next year / your birth year |
+| 23 | 137 | typing | Type the 生日自助餐 passage |
+| 24 | 137 | reading + **writing task** | 北京饭店 passage + 6 questions. **Write 80–100 words about the restaurant your family often goes to**: name and location, best dish, what you ate last time, whether you queue |
 
 ---
 
@@ -402,6 +559,10 @@ Extract in full before planning this lesson.
 | 39 | 95 | Text 2 — canteen lunch dialogue |
 | 40 | 97 | Act. 10 — school canteen dialogue (see script below) |
 | 42 | 104 | Lesson 11 Text — snacks dialogue |
+| 45 | 110 | Lesson 12 Text 1 — 自助餐 narrative |
+| 46 | 114 | Lesson 12 Act. 6 — eating-out multiple choice |
+| 47 | 115 | Lesson 12 Text 2 — restaurant ordering dialogue |
+| 48 | 119 | Lesson 12 Act. 12 — six people, matching |
 
 ### Listening script — CD 38 (p.94, Act. 6)
 1. 今天的鱼很新鲜。黄鱼每斤二十八块。
