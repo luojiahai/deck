@@ -34,11 +34,24 @@ deck/
      "thumbnail": "designs/<design-id>/thumb.png", "type": "slides", "tags": ["Year 7", "中文", "Topic"] }
    ```
    `type` drives the card's category chip; `type` and `tags` both feed the
-   search index. **Order matters:** the gallery renders `designs` in array
-   order into an auto-fill 3-up grid, so the file interleaves the year levels
-   round-robin (y7, y8, y9, y7, …) to keep each year in its own column.
-   Insert at the right place in that rotation — appending at the end breaks
-   the columns.
+   search index. **Just append it at the end** — array order no longer
+   decides which column a card lands in.
+
+   The gallery puts each year level in its own column at 3-up by placing
+   every card in a column explicitly (`index/index.html`: cards carry a
+   `data-col`, and the grid runs `grid-auto-flow: row dense`, which drops
+   each card into the earliest free row of its own column). That holds
+   whatever the per-year deck counts are and whatever order this file is
+   in. It replaced an earlier convention of interleaving the years
+   round-robin and letting the cards flow, which only worked while the
+   years had compatible counts.
+
+   Array order still controls two things, so keep it chronological: the
+   order *within* each column, and the reading order at narrower widths,
+   where the grid falls back to 2-up or 1-up and year columns switch off.
+   Year columns also switch off while a search is active, so results are
+   never stranded in one column.
+
 4. Commit and push to `main` — Vercel deploys it to production automatically
 
 Downloadable `.pptx` / `.pdf` exports (linked from a design's `index.html`) are an **optional, per-design** feature — see [Editable PPTX export](#editable-pptx-export). Keep PPTX/PDF source artifacts that aren't served (`slides-pptx/`, slide-preview `thumbs/`) out of `index/` — they bloat the deploy and are unreferenced.

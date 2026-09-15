@@ -239,11 +239,13 @@ Cached, fully extracted unit references live beside this file:
 | `y8-unit3.md` | Book 2, Unit 3 (L7–9) | Already taught — use for Review only |
 | `y9-unit3.md` | Book 3, Unit 3 (L7–9) | Already taught — use for Review only |
 | `y7-unit5.md` | Book 1, Unit 5 (L13–15) | **In scope** — Colours, Clothing, Parts of the Body |
+| `y8-unit4.md` | Book 2, Unit 4 (L10–12) | **In scope** — Vegetables/Fruits, Three Meals, Eating Out |
+| `y8-unit5.md` | Book 2, Unit 5 (L13–15) | **In scope** — House, Furniture, Neighbourhood |
+| `y9-unit4.md` | Book 3, Unit 4 (L10–12) | **In scope** — Fresh Market, Snacks, Eating Out |
 
 The first three sit immediately *before* an in-scope unit, so they are the right place
 to look when building the Review phase of the first lesson of Y7 U5, Y8 U4 or Y9 U4.
 
-Four of the five in-scope units are still uncached — `y8-unit4.md`, `y8-unit5.md`,
-`y9-unit4.md`, `y9-unit5.md`. Extract each one on demand — see
+One in-scope unit is still uncached — `y9-unit5.md`. Extract it on demand — see
 `extracting-from-pdfs.md` — and save it as `references/y<year>-unit<n>.md` so the
 work is done once per unit rather than once per lesson.
