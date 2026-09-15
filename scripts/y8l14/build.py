@@ -25,13 +25,22 @@ Constraints this file enforces so they cannot drift:
   · CFU slides carry questions only. s_cfu has no answers parameter, so an
     answer slide cannot be added to this series by accident. The teacher
     asked for none: the answers are taken live.
-  · no pinyin-discrimination slides and no radical / simple-character
-    slides. There is no s_components helper in this builder, and textbook
-    Ex. 2 (c/ch, CD 67), Ex. 10 (the group pinyin-writing game) and Ex. 11
-    (井 亡 乌 勺) are out of the series entirely, as is the workbook's
-    dictionary lookup. Stroke-order copying of the lesson's OWN new words
-    (s_strokes, Lessons 1–5) is vocabulary work, not radical practice, and
-    stays — it is the only writing practice these characters get.
+  · no pinyin-discrimination slides. Textbook Ex. 2 (c/ch, CD 67) and
+    Ex. 10 (the group pinyin-writing game) are out of the series entirely,
+    and there is no helper that could render one.
+  · radicals are IN, but in exactly one place. The series was built
+    without them at the teacher's instruction, and the consequence was
+    stated plainly at the time: Unit 5 Test parts 3 and 4 test the radical
+    of a character and the simple character inside a compound, so students
+    would have met those two parts cold. The teacher then asked for a slot,
+    so Lesson 6 carries three slides — s_chars for the eight simple
+    characters the unit actually teaches (p.126 Ex. 7 and p.137 Ex. 11),
+    then two s_radicals boards in the two test formats. They are the only
+    radical slides in the series, and they are task boards, not answer
+    boards: the no-answer-slide rule below still applies to them.
+  · stroke-order copying of the lesson's OWN new words (s_strokes,
+    Lessons 1–5) is vocabulary work rather than radical practice, and is
+    the only writing practice those fifteen characters get.
 
 Run:
     python3 scripts/y8l14/art.py     # drawings first
@@ -291,6 +300,46 @@ def s_strokes(rows, head, note=None):
     return "\n".join(out)
 
 
+
+# ── Radicals and simple characters — Lesson 6 only ─────────────────
+def s_chars(rows, head, note=None):
+    """rows: (hanzi, pinyin, english, where it comes from). The eight
+    simple characters 轻松学中文 2 teaches across Unit 5 — 光 金 匕 入 on
+    p.126 and 井 亡 乌 勺 on p.137. Straight reference, no task: they are
+    what makes Test part 4 answerable at all, and the decks had cut them."""
+    cells = "\n".join(
+        '    <div class="char-cell">'
+        '<p class="char-hz">%s</p>'
+        '<p class="char-py">%s</p>'
+        '<p class="char-en">%s</p>'
+        '<p class="char-src">%s</p></div>' % r for r in rows)
+    out = [label(head).rstrip("\n"), '  <div class="char-grid">', cells, "  </div>"]
+    if note:
+        out.append('  <p class="support" style="margin-top:12pt;">%s</p>' % note)
+    return "\n".join(out)
+
+
+def s_radicals(chars, head, prompt, bank=None, note=None):
+    """A Unit 5 Test part 3 / part 4 board: the characters, and a rule to
+    write the answer on.
+
+    No answers, deliberately — s_cfu's rule holds here too. `bank` is the
+    set to choose from on first exposure; the test gives none, and the
+    caller says so in `note` rather than letting students find out in the
+    exam."""
+    cells = "\n".join(
+        '    <div class="rad-cell"><p class="rad-char">%s</p>'
+        '<div class="rad-slot"></div></div>' % c for c in chars)
+    out = [label(head).rstrip("\n"),
+           '  <p class="body-lg" style="margin-bottom:4pt;">%s</p>' % prompt,
+           '  <div class="rad-grid">', cells, "  </div>"]
+    if bank:
+        out.append('  <div class="rad-bank"><p class="lbl">从这里选 · choose from</p>'
+                   '<p class="chars">%s</p></div>' % "　".join(bank))
+    if note:
+        out.append('  <p class="support" style="margin-top:10pt;">%s</p>' % note)
+    return "\n".join(out)
+
 # ── One drawing, set large, with the teaching point beside it ───────
 def s_figure(pic, head, lines, cn=None):
     body = "\n".join('      <p class="task-line">%s</p>' % l for l in lines)
@@ -455,7 +504,17 @@ def s_lisc(walt, criteria):
 # ── Assembly ───────────────────────────────────────────────────────
 def build_deck(slug, title, slides, pptx=True):
     d = os.path.join(OUT, slug)
-    os.makedirs(os.path.join(d, "slides"), exist_ok=True)
+    sd = os.path.join(d, "slides")
+    os.makedirs(sd, exist_ok=True)
+    # Clear first. Writing over the top leaves an orphan behind whenever a
+    # slide is renamed or removed: the deck shell's manifest stops
+    # referencing it, so it is invisible in the browser, but it still ships
+    # to Vercel and still gets counted by check_slides.mjs — which is how
+    # this was noticed (built 140, checked 141). The builder owns this
+    # directory completely, so it should leave nothing it did not write.
+    for old_file in os.listdir(sd):
+        if old_file.endswith(".html"):
+            os.remove(os.path.join(sd, old_file))
     total = len(slides)
     for n, s in enumerate(slides, 1):
         html = PAGE.format(title="Y8 L14 · " + s["label"], tag=s["tag"],
@@ -668,7 +727,8 @@ INDEX = """<!DOCTYPE html>
   </div>
   <footer>
     <p><b>Six lessons, not seven.</b> The sequence ends on content, not revision — there is no 复习 lesson. Each lesson opens with a cumulative Review phase instead, and Lesson 6's plenary looks back across all six.</p>
-    <p><b>No answer slides, and no pinyin or radical practice.</b> Both at the teacher's request, and both enforced in the builder rather than left to care: the CFU helper takes no answers, and there is no radical-slide helper at all. Textbook Ex. 2 (c/ch), Ex. 10 and Ex. 11 (井 亡 乌 勺) are out of the series, as is the workbook's dictionary lookup. Unit 5 Test parts 3 and 4 test exactly that material, so students meet those two parts unprepared — noted in the Lesson 6 plan.</p>
+    <p><b>No answer slides.</b> At the teacher's request, and enforced in the builder rather than left to care: the CFU helper takes no answers parameter, so an answer slide cannot be added by copying a sibling. The two radical boards in Lesson 6 follow the same rule — they carry the characters and a rule to write on, never the answers.</p>
+    <p><b>No pinyin exercises — but radicals are in, in one place.</b> Textbook Ex. 2 (c/ch) and Ex. 10 are out of the series entirely. Radicals were too, until the consequence was weighed: <b>Unit 5 Test parts 3 and 4</b> ask for the radical of a character and the simple character inside a compound, so students would have met two of the eleven test parts cold. Lesson 6 now carries a five-minute slot — the eight simple characters the unit actually teaches (p.126 Ex. 7 and p.137 Ex. 11), then the exact six characters of Test part 3 and the exact six compounds of part 4, run as that lesson's game.</p>
     <p><b>Pinyin stays.</b> Excluding the pinyin <i>exercises</i> is not the same as hiding pinyin: it sits on every new-word card and above every example sentence, then comes off the board during practice, which is the Year 8 norm.</p>
     <p>Built from <b>docs/lesson-plans/y8-l14/</b> by <b>scripts/y8l14/build.py</b>. Nothing under this folder is hand-edited.</p>
   </footer>

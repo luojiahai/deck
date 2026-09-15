@@ -347,4 +347,48 @@ p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
 .cv-to p { color: var(--accent-slate); }
 .cv-to p b { color: var(--accent-terra); }
 .cv-arrow { font-size: 20pt; color: var(--text-muted); flex: 0 0 auto; }
+
+/* ── Radicals and simple characters ──
+   Added after the series was built, at the teacher's explicit later
+   request: Unit 5 Test parts 3 and 4 test exactly the material the decks
+   had left out, so Lesson 6 now carries a slot for it. Both slides are
+   TASK boards — a character and an empty rule to write on — because the
+   no-answer-slide rule still stands. The bank strip is there so first
+   exposure is recognition; the test itself gives no bank, and the slide
+   says so. */
+.rad-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10pt; margin-top: 8pt; }
+.rad-cell {
+  background: var(--bg-secondary); border: 1.5pt solid var(--border-light);
+  border-radius: var(--radius-md); padding: 11pt 6pt 9pt; text-align: center;
+}
+.rad-char {
+  font-family: var(--font-display); font-size: 44pt; font-weight: 900;
+  color: var(--text-primary); line-height: 1.08;
+}
+.rad-slot { margin-top: 10pt; height: 19pt; border-bottom: 1.5pt dashed var(--text-muted); }
+.rad-bank {
+  margin-top: 13pt; padding: 9pt 15pt; background: var(--accent-slate-dim);
+  border: 1.5pt solid var(--accent-slate); border-radius: var(--radius-md);
+}
+.rad-bank .lbl {
+  font-size: 11pt; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-terra); font-weight: 700;
+}
+.rad-bank .chars {
+  font-family: var(--font-display); font-size: 27pt; font-weight: 700;
+  color: var(--accent-slate); margin-top: 4pt; letter-spacing: 0.14em;
+}
+
+.char-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12pt; margin-top: 8pt; }
+.char-cell {
+  background: var(--bg-secondary); border: 1.5pt solid var(--border-light);
+  border-radius: var(--radius-md); padding: 11pt 6pt 10pt; text-align: center;
+}
+.char-hz {
+  font-family: var(--font-display); font-size: 42pt; font-weight: 900;
+  color: var(--text-primary); line-height: 1.08;
+}
+.char-py { font-size: 15pt; font-weight: 600; color: var(--accent-slate); margin-top: 4pt; }
+.char-en { font-size: 14pt; color: var(--text-secondary); margin-top: 1pt; }
+.char-src { font-size: 11pt; color: var(--text-muted); margin-top: 5pt; letter-spacing: 0.08em; }
 """

@@ -1,11 +1,11 @@
 # Y8 L14 · 家具 Furniture — deck build
 
-Six decks, 138 slides, from `docs/lesson-plans/y8-l14/`.
+Six decks, 140 slides, from `docs/lesson-plans/y8-l14/`.
 Output: `index/designs/y8-l14/`.
 
 ```bash
 python3 scripts/y8l14/art.py        # 19 SVG drawings → index/designs/y8-l14/img/
-python3 scripts/y8l14/build.py      # tokens.css + 138 slides + 6 deck shells + landing page
+python3 scripts/y8l14/build.py      # tokens.css + 140 slides + 6 deck shells + landing page
 bash    scripts/y8l14/export.sh     # 6 × PPTX + 6 × PDF
 
 # verify (needs a server: python3 -m http.server 8087 --directory index &)
@@ -40,25 +40,44 @@ left to care:
 * **No answer slides.** `s_cfu` has no answers parameter — a CFU slide can
   only carry questions. Answers are the teacher's to take live, on
   whiteboards or by cold call.
-* **No pinyin-discrimination and no radical / simple-character practice.**
-  Textbook Ex. 2 (c/ch, CD 67), Ex. 10 (the group pinyin-writing game) and
-  Ex. 11 (井 亡 乌 勺) are out of the decks entirely, as is the workbook's
-  dictionary lookup. There is no `s_components`-style helper in this
-  builder, so such a slide cannot be added by copying a sibling.
-  **Stroke-order copying of the lesson's own new words is not the same
-  thing** and stays: `s_strokes` runs in Lessons 1–5 and is the only writing
-  practice those fifteen characters get anywhere in the sequence.
+* **No pinyin-discrimination practice.** Textbook Ex. 2 (c/ch, CD 67) and
+  Ex. 10 (the group pinyin-writing game) are out of the decks entirely, and
+  there is no helper that could render one.
+* **Stroke-order copying of the lesson's own new words is not radical
+  practice** and stays: `s_strokes` runs in Lessons 1–5 and is the only
+  handwriting practice those fifteen characters get anywhere in the
+  sequence.
+
+## Radicals: out of five lessons, in for one
+
+The series was built without radicals, on instruction, and the cost was
+stated plainly at the time rather than buried: **Unit 5 Test parts 3 and 4**
+ask for the radical of a character and the simple character inside a
+compound, so students would have met two of the eleven test parts cold. The
+teacher then asked for a slot, and Lesson 6 now carries it:
+
+| Slide | What it is | From |
+|---|---|---|
+| `18-chars` | the eight simple characters the unit teaches, as reference | p.126 Ex. 7 (光 金 匕 入) · p.137 Ex. 11 (井 亡 乌 勺) |
+| `19-radicals-1` | write the radical and its meaning — 层 厅 辆 冰 超 站 | Test part 3, verbatim |
+| `20-radicals-2` | find the simple character inside — 毕 忘 返 蚂 仙 鸣 | Test part 4, verbatim |
+
+Three things about how it was fitted:
+
+* It **runs as the lesson's game**, not as a fourth activity, so the
+  23-minute practice block still balances. 20 Questions went; the p.141
+  Ex. 17 interview board stays as the fallback if the race runs short.
+* Both boards are **task boards, not answer boards** — the no-answer-slide
+  rule above applies to them too. Round 1 offers a bank of nine for six
+  characters, because it is first exposure; the slide says out loud that
+  the test gives no bank. Round 2 offers none, matching the test.
+* `s_chars` and `s_radicals` are the only helpers that can produce a
+  radical slide, and they live in Lesson 6 alone.
 
 **Pinyin itself stays.** Excluding the pinyin *exercises* is not the same as
 hiding pinyin, and the teacher confirmed this at scoping: it sits on every
 new-word card and above every example sentence, then comes off the board
 during practice. That is the Year 8 norm.
-
-Consequence worth knowing: **Unit 5 Test parts 3 and 4** (write the radical
-and its meaning; find the simple character inside a compound) test exactly
-the excluded material. Students meet those two parts cold. This is stated in
-`docs/lesson-plans/y8-l14/06-furniture-shopping-describe-mixed.md` and on the
-series landing page.
 
 ## Layout invariants the builder enforces
 
@@ -85,6 +104,10 @@ series landing page.
   carries, so the fifteen-word board fits one screen. 张 and 把 pass `None`
   for their picture there — their counting diagrams are legible at 200px and
   a smudge at the 40px a summary cell gives them.
+* `build_deck` **clears its slides directory** before writing. Writing over
+  the top left an orphan behind when a slide was renamed — invisible in the
+  browser because the shell's manifest stopped referencing it, but still
+  shipped and still counted (built 140, checked 141).
 * every drawing is an SVG, never an emoji — Chromium ships no colour emoji
   font and both exports run through Chromium, so an emoji is an empty box.
   Nor is there **text** in any drawing: the PNG rasteriser in `export.sh`
@@ -101,7 +124,7 @@ series landing page.
 | `l3-kitchen-measure-words` | 26 | p.132 Text 1 kitchen half; p.134 Act. 3, 4; p.135 Act. 6; p.137 Act. 9 (CD 68); WB pp.157–158 | 冰箱 烤箱 电炉 |
 | `l4-my-own-room` | 23 | p.138 Text 2 (first half); p.139 Act. 12, 13; WB pp.160–161 | 椅子 把 书桌 |
 | `l5-storage-v-not-v` | 23 | p.138 Text 2 complete; p.139 NOTE + Act. 14; p.141 Act. 16 (CD 70); WB pp.161–162 | 衣柜 书架 |
-| `l6-furniture-shopping` | 19 | p.136 Act. 8; p.140 Act. 15; p.141 Act. 17; WB pp.162–163 | — (句型 应该上几楼？) |
+| `l6-furniture-shopping` | 21 | p.136 Act. 8; p.140 Act. 15; p.141 Act. 17; WB pp.162–163 | — (句型 应该上几楼？) |
 
 Lesson 6 introduces no nouns on purpose, and says so on a slide of its own:
 应该 (Unit 4), 楼 and 几 (Lesson 13), 上 and 请 (Year 7) are all already

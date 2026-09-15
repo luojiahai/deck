@@ -8,9 +8,23 @@ Workbook pp.162–163 (E→C translation of the appliance and furniture names).
 No new nouns. The pattern is assembled entirely from parts the class
 already has — 应该 (Unit 4), 楼 and 几 (Lesson 13), 上 and 请 (Year 7) —
 which is worth saying out loud to the students rather than glossing over.
+
+This lesson also carries the series' only radical work, added at the
+teacher's later request. The sequence was built without radicals on
+instruction, and the cost was stated at the time: Unit 5 Test parts 3 and
+4 ask for the radical of a character and the simple character inside a
+compound, so students would have met two of eleven test parts cold. The
+slot runs as this lesson's game rather than as a fourth activity, so the
+23-minute practice block still balances — 20 Questions goes, and the
+p.141 Ex. 17 interview board stays as the fallback if the race runs short.
+
+Content is the book's own: the eight simple characters of p.126 Ex. 7 and
+p.137 Ex. 11, then the exact six characters of Test part 3 and the exact
+six compounds of Test part 4. Both boards are tasks, not answers.
 """
 from build import (s_recall, s_summary, s_pattern, s_focus, s_task, s_list,
-                   s_cfu, s_figure, s_dialogue, s_errors, s_title, s_lisc)
+                   s_cfu, s_figure, s_dialogue, s_errors, s_chars, s_radicals,
+                   s_title, s_lisc)
 
 SLUG = "l6-furniture-shopping"
 TITLE = "Y8 L14 · 家具 Furniture · Lesson 6 of 6"
@@ -108,8 +122,8 @@ def slides():
                ("点三个同学，各说一样东西，全班答几楼", "答案是你们自己定的，只要说得出来就算")]))
 
     # ── Practice ──
-    add("11-act1.html", "Activity 1 · Design a furniture store (8 min)", PRAC,
-        "活动一 · 8 分钟",
+    add("11-act1.html", "Activity 1 · Design a furniture store (7 min)", PRAC,
+        "活动一 · 7 分钟",
         s_figure("jiajudian", "活动一 · 两人开一家四层的家具店",
                  ["<b>3 分钟</b>　把总览页上<b>十五个词全部</b>分到四层楼去——"
                   "一个都不能落下。",
@@ -125,8 +139,8 @@ def slides():
                cn="电视柜不是厨房的东西，也不是卧室的东西，所以在五楼。"
                   "　／　对不起，我们没有……"))
 
-    add("13-act2.html", "Activity 2 · Run the store (6 min)", PRAC,
-        "活动二 · 角色扮演 · 6 分钟",
+    add("13-act2.html", "Activity 2 · Run the store (5 min)", PRAC,
+        "活动二 · 角色扮演 · 5 分钟",
         s_list("活动二 · 一个当客人，一个当店员",
                [("老师发给每组一张纸条，上面四样东西", "每组的四样不一样"),
                 ("客人问四次，然后换角色，再换四样", "开口一定要说「请问」"),
@@ -170,15 +184,41 @@ def slides():
                 ("你想不想买新家具？买什么？", "「V 不 V」＋ 总览页")],
                compact=True))
 
-    add("18-game.html", "Game · 20 Questions — what am I buying? (3 min)", PRAC,
-        "游戏 · 猜我要买什么 · 3 分钟",
-        s_list("游戏 · 从总览页挑一样，让全班猜",
-               [("一个同学心里挑一样，不说出来", "全班提问，只能用中文，最多二十个"),
-                ("是不是厨房的东西？　有没有门？　大不大？", "猜中换人，玩两三轮"),
-                ("<b>加难</b>：回答的人<b>不能说「是」也不能说「不是」</b>",
-                 "每次都要说一整句，给一点消息"),
-                ("而且提问只能用「V 不 V」", "问成「……吗？」的，这一轮作废")],
-               "什么都不用准备。问题接不上的时候，用上一页的七组问题。", compact=True))
+    # ── The series' only radical work. Added after the fact, at the
+    # teacher's request; see the module docstring for why it sits here and
+    # why it replaced the game rather than becoming a fourth activity.
+    add("18-chars.html", "Simple characters · p.126 Ex.7 + p.137 Ex.11", PRAC,
+        "游戏 · 第一步 · 90 秒 · 先认清楚",
+        s_chars([("光", "guāng", "light", "第十三课 p.126"),
+                 ("金", "jīn", "gold", "第十三课 p.126"),
+                 ("匕", "bǐ", "dagger", "第十三课 p.126"),
+                 ("入", "rù", "enter", "第十三课 p.126"),
+                 ("井", "jǐng", "well", "第十四课 p.137"),
+                 ("亡", "wáng", "die", "第十四课 p.137"),
+                 ("乌", "wū", "black; dark", "第十四课 p.137"),
+                 ("勺", "sháo", "spoon", "第十四课 p.137")],
+                "独体字 · 这个单元课本教的八个 · Unit 5's simple characters",
+                "这八个字，这个单元一直没教——现在看九十秒，因为下面两轮要用，"
+                "单元测验也要用。有的就藏在后面那六个字里面。"))
+
+    add("19-radicals-1.html", "Game · round 1 — write the radical", PRAC,
+        "游戏 · 第二步 · 部首抢答",
+        s_radicals(["层", "厅", "辆", "冰", "超", "站"],
+                   "游戏 · 第一轮 · 写部首 · 四人一组，写在纸上",
+                   "每个字的部首是什么？写下来，再写它的意思。九十秒。",
+                   bank=["尸", "厂", "车", "冫", "走", "立", "口", "火", "氵"],
+                   note="写对最多的一组得分。<b>方格里有三个是多出来的。</b>　"
+                        "单元测验第三部分考的就是这六个字，"
+                        "而且<b>考试不给方格</b>——今天给，是因为这是第一次。"))
+
+    add("20-radicals-2.html", "Game · round 2 — find the simple character", PRAC,
+        "游戏 · 第三步 · 找独体字",
+        s_radicals(["毕", "忘", "返", "蚂", "仙", "鸣"],
+                   "游戏 · 第二轮 · 找里面的独体字 · 同一组，继续写",
+                   "每个字里面藏着一个独体字，把它找出来，写下来。九十秒。",
+                   note="这一轮<b>没有方格</b>，跟单元测验第四部分一样。"
+                        "上一页那八个字里，有的就在这六个字里面——先回头看一眼。"
+                        "两轮加起来分最高的一组赢。"))
 
     add("19-plenary.html", "Plenary · all six lessons", PLEN, "小结 · 六节课一起看",
         s_task("小结 · 43–50 分钟 · 这一次看的是整课，不只是今天",
