@@ -1,11 +1,11 @@
 # Y8 L15 · 社区 Neighbourhood — deck build
 
-Six decks, 151 slides, from `docs/lesson-plans/y8-l15/`.
+Six decks, 154 slides, from `docs/lesson-plans/y8-l15/`.
 Output: `index/designs/y8-l15/`.
 
 ```bash
 python3 scripts/y8l15/art.py        # 27 SVG drawings → index/designs/y8-l15/img/
-python3 scripts/y8l15/build.py      # tokens.css + 151 slides + 6 deck shells + landing page
+python3 scripts/y8l15/build.py      # tokens.css + 154 slides + 6 deck shells + landing page
 bash    scripts/y8l15/export.sh     # 6 × PPTX + 6 × PDF
 
 # verify (needs a server: python3 -m http.server 8087 --directory index &)
@@ -42,12 +42,9 @@ than left to care:
   whiteboards or by cold call.
 * **No pinyin-discrimination practice.** Textbook Ex. 7 (s/sh, CD 72) is
   out of the decks entirely, and there is no helper that could render one.
-* **No radical or simple-character work.** Ex. 9 (反 血 习 山) and Ex. 3
-  (the 36-character memorise-and-dictate grid) are out too. `s_chars` and
-  `s_radicals` were **deleted** from this fork of `build.py`, and the
-  `.rad-*` / `.char-*` rules deleted from `style.py`, rather than left
-  unused — a stylesheet that still styles a radical board invites one back
-  in by copy-paste from y8l14 next door.
+* **No 36-character dictation grid.** Ex. 3 is out too: it is a memory
+  game over characters the students have not been taught, which is not
+  what the test asks for.
 * **Stroke-order copying of the lesson's own new words is not radical
   practice** and stays: `s_strokes` runs in Lessons 1–5 and is the only
   handwriting practice those twenty-three characters get anywhere in the
@@ -58,21 +55,46 @@ as hiding pinyin: it sits on every new-word card and above every example
 sentence, then comes off the board during practice. That is the Year 8
 norm.
 
-## The cost of leaving radicals out, stated once
+## Radicals: out of five lessons, in for one
 
-**Unit 5 Test parts 3 and 4** ask for the radical of a character (层 厅 辆
-冰 超 站) and the simple character inside a compound (毕 忘 返 蚂 仙 鸣).
-Nothing in Lessons 13–15 now prepares those two of the eleven test parts.
-Every other part is covered: the floor plan, the furniture matching,
-measure words, 离／有／在／就／先…然后… sentence building, translation both
-ways, opposites, the reading comprehension and the essay.
+The series was built without radicals, on instruction, and the cost was
+stated plainly at the time rather than buried: **Unit 5 Test parts 3 and
+4** ask for the radical of a character and the simple character inside a
+compound, so students would have met two of the eleven test parts cold.
+The teacher then asked for a slot, and Lesson 6 now carries it:
 
-This is written on the series landing page and at the foot of
-`docs/lesson-plans/y8-l15/06-my-neighbourhood-mixed.md`, so it reaches the
-teacher rather than living only in a commit message. y8l14 hit the same
-wall and the teacher then asked for a slot; if that happens here, the
-place to put it is Lesson 6's game, and the helpers to restore are in
-`scripts/y8l14/build.py`.
+| Slide | What it is | From |
+|---|---|---|
+| `23-chars` | the four simple characters this lesson teaches, as reference | p.147 Ex. 9 (反 血 习 山) |
+| `24-radicals-1` | write the radical and its meaning — 层 厅 辆 冰 超 站 | Test part 3, verbatim |
+| `25-radicals-2` | find the simple character inside — 毕 忘 返 蚂 仙 鸣 | Test part 4, verbatim |
+
+Four things about how it was fitted:
+
+* It **runs as the lesson's game**. Fitting it cost four minutes taken
+  across the other three activities rather than cutting one of them: the
+  map talk 6→5, the information desk 9→8, the dream city 8→5. All four
+  textbook activities survive.
+* Both boards are **task boards, not answer boards** — the no-answer-slide
+  rule above applies to them too. Round 1 offers a bank of nine for six
+  characters, because it is the first time under timed conditions; the
+  slide says out loud that the test gives no bank. Round 2 offers none,
+  matching the test.
+* **Lesson 15 is the right home for it**, not just the last one available.
+  Three of Test part 4's six compounds hide a character this sequence
+  itself teaches: 返 holds 反 and 仙 holds 山 (p.147 Ex. 9), 蚂 holds 马
+  (Lesson 3's 马路). The round-2 board tells students that three of the
+  six hide a character they met this week and points them back a page —
+  **it does not name the pairs.** The pairings live in `l6.py`'s
+  docstring, which is teacher-facing source; putting them on the slide
+  would turn it into an answer board.
+* `s_chars` shows **four** characters, not the unit's twelve. Three rows
+  of four clips the canvas, and the eight from Lessons 13 and 14 are
+  already a board in the y8l14 deck — they are recalled in the note
+  instead.
+
+`s_chars` and `s_radicals` are the only helpers that can produce a radical
+slide, and they live in Lesson 6 alone.
 
 ## Layout invariants the builder enforces
 
@@ -109,7 +131,7 @@ place to put it is Lesson 6's game, and the helpers to restore are in
 | `l3-jiu-across-the-road` | 24 | p.145 Act. 5; p.152 Act. 14; WB pp.166–167 | 马路 对面 火车站 路 |
 | `l4-first-then` | 25 | p.148 Text 2 (first half); p.150 Act. 11; WB pp.167–168 | 电影院 船 然后 |
 | `l5-how-long` | 27 | p.148 Text 2 complete; p.152 Act. 13; p.153 Act. 15 (CD 75); WB pp.168–169 | 时间 大约 飞机 机场 |
-| `l6-my-neighbourhood` | 25 | p.145 Act. 4; p.146 Act. 6; p.149 Act. 10; p.151 Act. 12; p.153 Act. 16; WB pp.170–173 | 水果店 书店 理发店 快餐店 |
+| `l6-my-neighbourhood` | 28 | p.145 Act. 4; p.146 Act. 6; p.147 Act. 9; p.149 Act. 10; p.151 Act. 12; p.153 Act. 16; WB pp.170–173 | 水果店 书店 理发店 快餐店 |
 
 All twenty numbered new-word entries of the textbook lesson land somewhere.
 Lesson 6's four are the recognition set from p.143's answer bank, and all

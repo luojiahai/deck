@@ -16,14 +16,31 @@ content is the map and the directions.
 This lesson closes the sequence, so the plenary looks back over all six
 learning intentions rather than only today's three.
 
-There is no radical slide here. The y8l14 deck put one in Lesson 6
-because the teacher asked for a slot after the cost was weighed; this
-teacher excluded radicals outright, so Unit 5 Test parts 3 and 4 go
-unprepared and the final slide says so to the teacher, not to the class.
+The radical slot runs as this lesson's game, exactly as it does in
+y8l14's Lesson 6: the series was built without radicals on instruction,
+the cost was stated (Unit 5 Test parts 3 and 4 would be met cold), and
+the teacher then asked for a slot. Three slides — p.147 Ex. 9's four
+simple characters, then the two test formats — and they are task boards,
+not answer boards.
+
+Three of Test part 4's six compounds hide a character this very lesson
+sequence teaches: 返 holds 反, 蚂 holds 马 (Lesson 3's 马路), 仙 holds 山.
+That is why the slot belongs in THIS deck rather than only in y8l14's.
+
+Those three pairings stay here, in teacher-facing source. The board tells
+students that three of the six hide a character they learned this week
+and points them back a page — it does not name the pairs. Writing them
+onto the slide would make it an answer board, which is the one thing this
+series does not have.
+
+Fitting it cost four minutes across the other three activities rather
+than cutting one of them: the map talk drops 6→5, the information desk
+9→8, the dream city 8→5. All four textbook activities survive.
 """
 from build import (s_words, s_examples, s_write, s_recall, s_summary,
                    s_pattern, s_focus, s_task, s_list, s_cfu,
-                   s_figure, s_text, s_errors, s_title, s_lisc)
+                   s_figure, s_text, s_errors, s_chars, s_radicals,
+                   s_title, s_lisc)
 
 SLUG = "l6-my-neighbourhood"
 TITLE = "Y8 L15 · 社区 Neighbourhood · Lesson 6 of 6"
@@ -34,7 +51,7 @@ PRAC = "20–43 MIN · FLEXIBLE PRACTICE"
 PLEN = "43–50 MIN · PLENARY"
 
 CARD = dict(cn='我们的社区', en='My whole neighbourhood',
-            desc='Four more shops, all of them a known character plus 店 — and then the real work: a map, five patterns running at once, and a stranger at the information desk who needs directions.',
+            desc='Four more shops, all of them a known character plus 店 — and then the real work: a map, five patterns running at once, a stranger at the information desk, and the unit\u2019s one radical slot, run as the lesson\u2019s game.',
             words='水果店 · 书店 · 理发店 · 快餐店', n=4)
 
 
@@ -156,8 +173,8 @@ def slides():
                    ("理发店", "lifadian"), ("快餐店", "kuaicandian")],
                   "这一页留在屏幕上——后面三个活动都看它。"))
 
-    add("17-act1.html", "Activity 1 · Read the map (We Do, 6 min)", PRAC,
-        "活动一 · 6 分钟",
+    add("17-act1.html", "Activity 1 · Read the map (We Do, 5 min)", PRAC,
+        "活动一 · 5 分钟",
         s_figure("ditu", "活动一 · 看地图，轮着说",
                  ["<b>三人一组</b>，每组一张 A3 地图，屏幕上是同一张。",
                   "轮流说，一人一句——<b>句型不能重复</b>。",
@@ -172,13 +189,13 @@ def slides():
                 "说完再翻开地图核对，错的地方要<b>用中文</b>自己改。"],
                cn="不对，理发店不在书店对面，在书店右面。"))
 
-    add("19-act2.html", "Activity 2 · The information desk (You Do, 9 min)", PRAC,
-        "活动二 · 9 分钟",
+    add("19-act2.html", "Activity 2 · The information desk (You Do, 8 min)", PRAC,
+        "活动二 · 8 分钟",
         s_figure("zhilu", "活动二 · 火车站的问讯处 · 课本 p.151 第十二题",
                  ["两人一组，用那张 A3 地图。一个坐<b>问讯处</b>，一个是<b>刚下车的客人</b>。",
                   "客人要问<b>五个</b>地方，每个地方都要问到三件事：",
                   "① 在哪儿？　② 怎么去？　③ 要多长时间？",
-                  "四分半换角色。"],
+                  "四分钟换角色。"],
                  cn="请问，电影院在哪儿？　—— 电影院就在马路对面。<br>"
                     "从这儿怎么去超市？　—— 你先走路，然后坐五路公共汽车。<br>"
                     "要多长时间？　—— 大约十五分钟。"))
@@ -191,13 +208,13 @@ def slides():
                cn="你先去水果店，因为它很近，然后去书店，书店就在对面，"
                   "大约二十分钟就够了。"))
 
-    add("21-act3.html", "Activity 3 · Dream city — gallery walk (8 min)", PRAC,
-        "活动三 · 8 分钟 · 课本 p.153 第十六题",
+    add("21-act3.html", "Activity 3 · Dream city — gallery walk (5 min)", PRAC,
+        "活动三 · 5 分钟 · 课本 p.153 第十六题",
         s_list("活动三 · 画你梦想中的城市",
-               [("两人一组，一张 A3。四分钟，画至少<b>八个</b>地方，"
-                 "全部写汉字，其中至少六个是这六课学过的店。", ""),
+               [("两人一组，一张 A3。两分半，画至少<b>六个</b>地方，"
+                 "全部写汉字，其中至少四个是这六课学过的店。", ""),
                 ("下面写<b>两句</b>给一个要来玩的朋友：去哪儿，怎么去。", ""),
-                ("全部贴到墙上。两分钟大家走一圈，"
+                ("全部贴到墙上。九十秒大家走一圈，"
                  "在<b>最想去</b>的那一张旁边打一个勾。", ""),
                 ("票最多的两组把他们写的两句念出来。", "")],
                "画得漂亮不算分，写得清楚才算。", compact=True))
@@ -210,8 +227,43 @@ def slides():
                 "现在先写一遍，而且是当众写。"],
                cn="最好的两封留下来，下节课贴出来。"))
 
+    # ── The radical slot · runs as this lesson's game ──
+    # Three boards, five minutes, at the teacher's request. See the module
+    # docstring for why it lives here and what it cost.
+    add("23-chars.html", "Game · step 1 — the four simple characters", PRAC,
+        "游戏 · 第一步 · 独体字",
+        s_chars([("反", "fǎn", "reverse", "第十五课 p.147"),
+                 ("血", "xuè", "blood", "第十五课 p.147"),
+                 ("习", "xí", "study", "第十五课 p.147"),
+                 ("山", "shān", "mountain", "第十五课 p.147")],
+                "独体字 · 课本 p.147 第九题 · 九十秒看一遍",
+                "这四个字课本教过，我们一直没碰。现在看九十秒——"
+                "下面两轮要用，单元测验也要用。"
+                "第十三课的<b>光 金 匕 入</b>、第十四课的<b>井 亡 乌 勺</b>"
+                "也一起回忆一下，一共十二个。"))
+
+    add("24-radicals-1.html", "Game · round 1 — write the radical", PRAC,
+        "游戏 · 第二步 · 部首抢答",
+        s_radicals(["层", "厅", "辆", "冰", "超", "站"],
+                   "游戏 · 第一轮 · 写部首 · 四人一组，写在纸上",
+                   "每个字的部首是什么？写下来，再写它的意思。九十秒。",
+                   bank=["尸", "厂", "车", "冫", "走", "立", "口", "火", "氵"],
+                   note="写对最多的一组得分。<b>方格里有三个是多出来的。</b>　"
+                        "这六个字就是单元测验第三部分考的，"
+                        "而且<b>考试不给方格</b>。"))
+
+    add("25-radicals-2.html", "Game · round 2 — find the simple character", PRAC,
+        "游戏 · 第三步 · 找独体字",
+        s_radicals(["毕", "忘", "返", "蚂", "仙", "鸣"],
+                   "游戏 · 第二轮 · 找里面的独体字 · 同一组，继续写",
+                   "每个字里面藏着一个独体字，把它找出来，写下来。九十秒。",
+                   note="这一轮<b>没有方格</b>，跟单元测验第四部分一样。"
+                        "这六个字里<b>有三个</b>，藏的是你<b>这个星期刚学过的字</b>——"
+                        "上一页那四个，还有第三课「马路」的第一个字。"
+                        "先回头看一眼，别问老师。两轮加起来分最高的一组赢。"))
+
     # ── Plenary · the whole sequence ──
-    add("23-plenary-all.html", "Plenary · all six lessons", PLEN,
+    add("26-plenary-all.html", "Plenary · all six lessons", PLEN,
         "小结 · 六课一起回头看",
         s_list("小结 · 这六节课，你学会了什么",
                [("第一课　我家附近有花店、文具店、家具店等", "举一个中文例子"),
@@ -222,13 +274,13 @@ def slides():
                 ("第六课　水果店、书店、理发店、快餐店", "举一个中文例子")],
                "今天不是只看今天的三条——六节课一条一条过。"
                "每一条请一个同学用中文举例，说得出来才算学会。", compact=True))
-    add("24-selfassess.html", "Plenary · self-assessment", PLEN, "自评 · 小白板",
+    add("27-selfassess.html", "Plenary · self-assessment", PLEN, "自评 · 小白板",
         s_summary([("附近", "fujin"), ("离", "li"), ("就", None), ("然后", "ranhou"),
                    ("大约", "dayue"), ("对面", "duimian"), ("挺", None),
                    ("多长时间", "shijian")],
                   "小白板：这八样，哪一样你还是 😐？写下来举起来。"
                   "举得最多的那一个，就是复习要从哪儿开始。", dense=True))
-    add("25-exit.html", "Exit ticket", PLEN, "出门条 · Exit ticket",
+    add("28-exit.html", "Exit ticket", PLEN, "出门条 · Exit ticket",
         s_task("出门条 · 写三句你自己的社区，交上来",
                ["第一句用<b>「附近有……等」</b>。",
                 "第二句用<b>「离……远／近」</b>。",

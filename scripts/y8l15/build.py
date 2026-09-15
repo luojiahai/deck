@@ -26,13 +26,26 @@ Constraints this file enforces so they cannot drift:
   · CFU slides carry questions only. s_cfu has no answers parameter, so an
     answer slide cannot be added to this series by accident. The teacher
     asked for none: the answers are taken live.
-  · no pinyin-discrimination slides and no radical slides. Textbook Ex. 7
-    (s/sh, CD 72), Ex. 9 (简单字 反 血 习 山) and Ex. 3 (the 36-character
-    memorise-and-dictate grid) are out of the series entirely, and there is
-    no helper that could render one. s_chars and s_radicals were deleted
-    from this fork rather than left unused, so a copied sibling slide
-    cannot reintroduce them. The cost is stated on the landing page:
-    Unit 5 Test parts 3 and 4 go unprepared.
+  · no pinyin-discrimination slides. Textbook Ex. 7 (s/sh, CD 72) is out
+    of the series entirely, and there is no helper that could render one.
+  · radicals are IN, but in exactly one place. The series was built
+    without them at the teacher's instruction, and the consequence was
+    stated plainly at the time: Unit 5 Test parts 3 and 4 test the radical
+    of a character and the simple character inside a compound, so students
+    would have met those two of the eleven test parts cold. The teacher
+    then asked for a slot, so Lesson 6 carries three slides — s_chars for
+    p.147 Ex. 9's four simple characters (反 血 习 山), then two s_radicals
+    boards in the two test formats. They are the only radical slides in
+    the series, and they are task boards, not answer boards: the
+    no-answer-slide rule above still applies to them.
+
+    This lesson is the right home for them beyond being last. Three of
+    Test part 4's six compounds hide a character L15 itself teaches —
+    返 holds 反 (p.147 Ex. 9), 蚂 holds 马 and 仙 holds 山 (Lesson 3's
+    马路 and Ex. 9 again). The slot is not bolted on; it collects.
+  · Ex. 3 (the 36-character memorise-and-dictate grid) stays out. It is a
+    memory-and-dictation game over characters the students have not been
+    taught, which is not what the test asks for.
   · stroke-order copying of the lesson's OWN new words (s_strokes) is
     vocabulary work rather than radical practice, and stays.
 
@@ -296,6 +309,44 @@ def s_strokes(rows, head, note=None):
 
 
 # ── Radicals and simple characters — Lesson 6 only ─────────────────
+def s_chars(rows, head, note=None):
+    """rows: (hanzi, pinyin, english, where it comes from). The eight
+    simple characters 轻松学中文 2 teaches across Unit 5 — 光 金 匕 入 on
+    p.126 and 井 亡 乌 勺 on p.137. Straight reference, no task: they are
+    what makes Test part 4 answerable at all, and the decks had cut them."""
+    cells = "\n".join(
+        '    <div class="char-cell">'
+        '<p class="char-hz">%s</p>'
+        '<p class="char-py">%s</p>'
+        '<p class="char-en">%s</p>'
+        '<p class="char-src">%s</p></div>' % r for r in rows)
+    out = [label(head).rstrip("\n"), '  <div class="char-grid">', cells, "  </div>"]
+    if note:
+        out.append('  <p class="support" style="margin-top:12pt;">%s</p>' % note)
+    return "\n".join(out)
+
+
+def s_radicals(chars, head, prompt, bank=None, note=None):
+    """A Unit 5 Test part 3 / part 4 board: the characters, and a rule to
+    write the answer on.
+
+    No answers, deliberately — s_cfu's rule holds here too. `bank` is the
+    set to choose from on first exposure; the test gives none, and the
+    caller says so in `note` rather than letting students find out in the
+    exam."""
+    cells = "\n".join(
+        '    <div class="rad-cell"><p class="rad-char">%s</p>'
+        '<div class="rad-slot"></div></div>' % c for c in chars)
+    out = [label(head).rstrip("\n"),
+           '  <p class="body-lg" style="margin-bottom:4pt;">%s</p>' % prompt,
+           '  <div class="rad-grid">', cells, "  </div>"]
+    if bank:
+        out.append('  <div class="rad-bank"><p class="lbl">从这里选 · choose from</p>'
+                   '<p class="chars">%s</p></div>' % "　".join(bank))
+    if note:
+        out.append('  <p class="support" style="margin-top:10pt;">%s</p>' % note)
+    return "\n".join(out)
+
 # ── One drawing, set large, with the teaching point beside it ───────
 def s_figure(pic, head, lines, cn=None):
     body = "\n".join('      <p class="task-line">%s</p>' % l for l in lines)
@@ -665,7 +716,7 @@ INDEX = """<!DOCTYPE html>
   <p class="kicker">轻松学中文 2 · Unit 5 · Lesson 15</p>
   <h1>社区</h1>
   <p class="sub">Neighbourhood · Year 8</p>
-  <p class="meta">Six 50-minute lessons, {slides} slides. Lesson 13 drew the house and Lesson 14 furnished it; this one steps outside the front door. Twenty new-word entries spread across the sequence — three or four per lesson, each pair taught as a three-slide cycle: the words, then the words used, then the students using them. Every lesson carries a CFU board straight after the new pattern, question-only: there is no answer slide anywhere in the series. Revision happens inside every lesson rather than in a review lesson at the end.</p>
+  <p class="meta">Six 50-minute lessons, {slides} slides. Lesson 13 drew the house and Lesson 14 furnished it; this one steps outside the front door. Twenty new-word entries spread across the sequence — three or four per lesson, each pair taught as a three-slide cycle: the words, then the words used, then the students using them. Every lesson carries a CFU board straight after the new pattern, question-only: there is no answer slide anywhere in the series, the two radical boards in Lesson 6 included. Revision happens inside every lesson rather than in a review lesson at the end.</p>
   <div class="rule"></div>
   <div class="focus">
     <h2>Grammar Focus · 本课语法点</h2>
@@ -684,7 +735,7 @@ INDEX = """<!DOCTYPE html>
   <footer>
     <p><b>Six lessons, not seven.</b> The sequence ends on content, not revision — there is no 复习 lesson. Each lesson opens with a cumulative Review phase instead, and Lesson 6's plenary looks back across all six.</p>
     <p><b>No answer slides.</b> At the teacher's request, and enforced in the builder rather than left to care: the CFU helper takes no answers parameter, so an answer slide cannot be added by copying a sibling.</p>
-    <p><b>No radical or pinyin exercises.</b> Also at the teacher's request, and also structural: textbook Ex. 7 (s/sh, CD 72), Ex. 9 (简单字 反 血 习 山) and Ex. 3 (the 36-character memorise-and-dictate grid) are out of the series entirely, and the two helpers that could render a radical board were deleted from this fork rather than left unused. The cost is worth stating plainly: <b>Unit 5 Test parts 3 and 4</b> ask for the radical of a character and the simple character inside a compound, so students meet those two of the eleven test parts cold. Every other part of the test — the floor plan, the furniture matching, measure words, 离／有／在／就／先…然后… sentence building, translation both ways, opposites, the reading comprehension and the essay — is covered across Lessons 13 to 15.</p>
+    <p><b>No pinyin exercises — but radicals are in, in one place.</b> Textbook Ex. 7 (s/sh, CD 72) and Ex. 3 (the 36-character memorise-and-dictate grid) are out of the series entirely. Radicals were too, until the consequence was weighed: <b>Unit 5 Test parts 3 and 4</b> ask for the radical of a character and the simple character inside a compound, so students would have met two of the eleven test parts cold. Lesson 6 now carries a five-minute slot, run as that lesson's game — p.147 Ex. 9's four simple characters (反 血 习 山), then the exact six characters of Test part 3 and the exact six compounds of part 4. It belongs in this deck rather than only in Lesson 14's: three of part 4's six compounds hide a character this sequence itself teaches. Every other part of the test — the floor plan, the furniture matching, measure words, 离／有／在／就／先…然后… sentence building, translation both ways, opposites, the reading comprehension and the essay — is covered across Lessons 13 to 15.</p>
     <p><b>Pinyin stays.</b> Excluding the pinyin <i>exercises</i> is not the same as hiding pinyin: it sits on every new-word card and above every example sentence, then comes off the board during practice, which is the Year 8 norm.</p>
     <p>Built from <b>docs/lesson-plans/y8-l15/</b> by <b>scripts/y8l15/build.py</b>. Nothing under this folder is hand-edited.</p>
   </footer>
