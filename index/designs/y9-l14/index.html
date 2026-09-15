@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y9 L14 · 问路 Asking the Way</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F5F0; --text: #1F2933; --text-muted: #6B7784;
+    --accent: #B3321E; --accent-route: #2D6A4F; --accent-slate: #2F5A7A;
+    --border: #DCD5C7; --card-bg: #ECE8DF;
+    --font-display: 'Noto Serif SC', 'Songti SC', serif;
+    --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  .top-nav { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top-nav a { font-size: 13px; letter-spacing: 0.06em; color: var(--text-muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); }
+
+  .hero { padding: 40px 0 30px; }
+  .hero-inner { display: flex; align-items: center; gap: 36px; }
+  .hero-text { display: flex; flex-direction: column; }
+  .unit-tag { display: inline-block; align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; }
+  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+  .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.02em; }
+  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .meta .pill { background: var(--card-bg); padding: 5px 14px; border-radius: 999px; }
+  .hero-motif { width: 104px; height: 104px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--border); font-family: var(--font-display); font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1; opacity: 0.8; }
+
+  .grammar-panel { margin-bottom: 40px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 26px 32px; }
+  .grammar-panel h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+  .grammar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grammar-item { text-align: center; padding: 16px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+  .grammar-item .g-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .grammar-item .g-zh { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .grammar-item .g-en { font-size: 13px; color: var(--text-muted); }
+
+  .lessons { padding: 0 0 80px; }
+  .section-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .lesson-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .lesson-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; }
+  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(31,41,51,0.10); border-color: var(--accent); }
+  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+  .card-num { font-family: var(--font-display); font-size: 48px; font-weight: 900; color: var(--accent); opacity: 0.22; line-height: 1; margin-bottom: -8px; }
+  .card-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.03em; }
+  .card-blurb { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+  .card-badge { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-top: auto; }
+  .badge-vocab    { background: #E7E2D6; color: #8A4A20; }
+  .badge-grammar  { background: #DFEAE2; color: #1E6055; }
+  .badge-speaking { background: #F2E0DB; color: #9C3C2C; }
+  .badge-writing  { background: #DEE7EE; color: #2F5A7A; }
+  .badge-game     { background: #EDE4D8; color: #7A4426; }
+
+  .footnote { margin-top: 36px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .footnote b { color: var(--text); }
+
+  @media (max-width: 900px) { .lesson-grid, .grammar-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .lesson-grid, .grammar-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 40px; } .hero-motif { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="container">
+    <a href="../../">← Deck Gallery · 设计画廊</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="unit-tag">Year 9 · Book 3 · Unit 5 · Lesson 14</span>
+      <h1>问路</h1>
+      <p class="subtitle">Asking the Way · 六节课 · 轻松学中文 3 pp.132–141</p>
+      <div class="meta">
+        <span class="pill">6 decks</span>
+        <span class="pill">27 new words</span>
+        <span class="pill">50 min each</span>
+        <span class="pill">CFU, no answer slides</span>
+      </div>
+    </div>
+    <div class="hero-motif">被</div>
+  </div>
+</header>
+
+<div class="container">
+  <section class="grammar-panel">
+    <h2>这一课的三个句型 · The three patterns</h2>
+    <div class="grammar-grid">
+      <div class="grammar-item">
+        <p class="g-num">Lessons 1–2</p>
+        <p class="g-zh">或者……，或者……</p>
+        <p class="g-en">either one way or the other</p>
+      </div>
+      <div class="grammar-item">
+        <p class="g-num">Lessons 2–3</p>
+        <p class="g-zh">坐几路车？要坐几站？</p>
+        <p class="g-en">a journey by bus, stop by stop</p>
+      </div>
+      <div class="grammar-item">
+        <p class="g-num">Lessons 5–6</p>
+        <p class="g-zh">……被……偷了 · 找到了</p>
+        <p class="g-en">passive, and whether the action reached its result</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lessons">
+    <h2 class="section-title">六节课 · The six lessons</h2>
+    <div class="lesson-grid">
+        <div class="lesson-card">
+          <a class="card-link" href="l1-getting-around/">
+            <span class="card-num">01</span>
+            <h3 class="card-title">骑车还是坐车</h3>
+            <p class="card-en">Getting Around · 或者……，或者……</p>
+            <p class="card-blurb">骑 · 自行车 · 购物 · 广场 · 车站 · 路，加「或者……，或者……」。一句话给两个办法——陈述句用「或者」，问句才用「还是」。</p>
+            <span class="card-badge badge-vocab">vocab</span>
+          </a>
+        </div>
+        <div class="lesson-card">
+          <a class="card-link" href="l2-bus-route/">
+            <span class="card-num">02</span>
+            <h3 class="card-title">坐几路车</h3>
+            <p class="card-en">Text 1 · The Bus Route</p>
+            <p class="card-blurb">座 · 庙 · 河 · 桥，加三个坐车的问题和「过了……以后」。公交车上看不见路口——所以路线要说<b>路上会看见什么</b>。</p>
+            <span class="card-badge badge-writing">writing</span>
+          </a>
+        </div>
+        <div class="lesson-card">
+          <a class="card-link" href="l3-journeys-from-home/">
+            <span class="card-num">03</span>
+            <h3 class="card-title">从你家怎么去</h3>
+            <p class="card-en">Journeys From Home · 采访 + 报告</p>
+            <p class="card-blurb">没有生词，全靠嘴巴。六个问题采访同伴，然后用<b>第三人称</b>向全班报告——这正是单元测验口试的题型。</p>
+            <span class="card-badge badge-speaking">speaking</span>
+          </a>
+        </div>
+        <div class="lesson-card">
+          <a class="card-link" href="l4-whats-in-the-bag/">
+            <span class="card-num">04</span>
+            <h3 class="card-title">包里有什么</h3>
+            <p class="card-en">What's In The Bag</p>
+            <p class="card-blurb">手提包 · 钱包 · 钥匙 · 手机 · 现金 · 服装。「……里有……、……和……」，再用「除了……以外，还有……」加一样。</p>
+            <span class="card-badge badge-vocab">vocab</span>
+          </a>
+        </div>
+        <div class="lesson-card">
+          <a class="card-link" href="l5-stolen/">
+            <span class="card-num">05</span>
+            <h3 class="card-title">被偷了</h3>
+            <p class="card-en">Text 2 · Reporting a Theft · 被</p>
+            <p class="card-blurb">偷 · 警察 · 被 · 留 · 姓名。中文平常先说谁做的——「被」是给<b>不知道</b>或者<b>不在乎</b>谁做的时候用的。</p>
+            <span class="card-badge badge-grammar">grammar</span>
+          </a>
+        </div>
+        <div class="lesson-card">
+          <a class="card-link" href="l6-lost-property/">
+            <span class="card-num">06</span>
+            <h3 class="card-title">找到了吗</h3>
+            <p class="card-en">Lost Property · 结果补语</p>
+            <p class="card-blurb">身份证 · 学生证 · 借书证，加结果补语：找<b>到</b>、吃<b>完</b>、借<b>走</b>。「找」是做，「找到」是做成了。</p>
+            <span class="card-badge badge-grammar">grammar</span>
+          </a>
+        </div>
+    </div>
+
+    <p class="footnote">
+      Every pair of new words runs a three-slide cycle — <b>生词 → 例句 → 写一句</b> —
+      and every 写一句 slide carries an extension. Each lesson has a CFU board;
+      <b>there are no answer slides anywhere in this series</b>, by the teacher's
+      instruction — the answers are taken live, on whiteboards or by cold call.
+      <b>No radical or component practice</b>: workbook Ex.&nbsp;9 and Ex.&nbsp;14
+      are this lesson's component work and they are out of the decks
+      entirely, by the teacher's instruction.
+      Type is set to the classroom floor — nothing a student must read is under
+      26px on a 1920×1080 projector.
+    </p>
+  </section>
+</div>
+
+</body>
+</html>

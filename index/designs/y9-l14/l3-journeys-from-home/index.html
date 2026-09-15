@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Y9 L14 · 问路 Asking the Way · Lesson 3 of 6</title>
+<script>
+  window.DECK = [
+    { file: "slides/01-title.html", label: "Title · 从你家怎么去" },
+    { file: "slides/02-review.html", label: "Review · 十五个公共设施" },
+    { file: "slides/03-li-sc.html", label: "Learning Intention & Success Criteria" },
+    { file: "slides/04-listening.html", label: "CD 54 · 听一听 (p.136 第 6 题)" },
+    { file: "slides/05-questions.html", label: "六个问题 · The interview questions" },
+    { file: "slides/06-model.html", label: "老师示范 · 一个完整的回答" },
+    { file: "slides/07-pattern.html", label: "Pattern · 离 还是 从？" },
+    { file: "slides/08-cfu.html", label: "CFU · 检查理解" },
+    { file: "slides/09-map.html", label: "Activity 1 · 地图上的路线" },
+    { file: "slides/10-interview.html", label: "Activity 2 · 采访同伴" },
+    { file: "slides/11-game.html", label: "Game · 猜猜我要去哪儿 · 20 Questions" },
+    { file: "slides/12-plenary.html", label: "Plenary · 出门条" }
+  ];
+</script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#12171C;font-family:-apple-system,"PingFang SC",sans-serif;overflow:hidden}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #wrap{width:1280px;height:720px;transform-origin:center center;background:#fff;box-shadow:0 12px 70px rgba(0,0,0,.5)}
+  iframe{width:1280px;height:720px;border:0;display:block}
+  .zone{position:fixed;top:0;bottom:0;width:14%;cursor:pointer;z-index:20}
+  .zone.l{left:0}.zone.r{right:0}
+  .bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:50;
+       display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.62);color:#fff;
+       padding:8px 18px;border-radius:999px;font-size:13px;letter-spacing:.04em;white-space:nowrap;max-width:calc(100vw - 32px);overflow-x:auto}
+  .bar b{font-variant-numeric:tabular-nums;font-weight:600}
+  .bar span{color:rgba(255,255,255,.62)}
+  .bar button,.bar a{background:none;border:0;color:rgba(255,255,255,.85);font:inherit;cursor:pointer;padding:0;text-decoration:none}
+  .bar button:hover,.bar a:hover{color:#fff}
+  .bar a.home{color:#E4A08C}
+  .bar a.home:hover{color:#fff}
+  #grid{position:fixed;inset:0;background:#12171C;z-index:40;overflow:auto;padding:36px;display:none;
+        grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;align-content:start}
+  #grid.on{display:grid}
+  .cell{cursor:pointer}
+  .cell .thumb{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#fff;position:relative;
+               border:2px solid transparent}
+  .cell:hover .thumb{border-color:#B3321E}
+  .cell .thumb iframe{transform-origin:top left;pointer-events:none;position:absolute;top:0;left:0}
+  .cell p{color:rgba(255,255,255,.72);font-size:12.5px;margin-top:8px;line-height:1.4}
+  .cell p b{color:#E4A08C;font-weight:600;margin-right:6px}
+</style>
+</head>
+<body>
+
+<div id="stage"><div id="wrap"><iframe id="fr" src="slides/01-title.html"></iframe></div></div>
+<div class="zone l" onclick="go(-1)"></div>
+<div class="zone r" onclick="go(1)"></div>
+
+<div class="bar">
+  <a class="home" href="../" title="回到课程列表 · Back to the lesson list">← 课程列表</a>
+  <span>·</span>
+  <button onclick="toggleGrid()">All slides</button>
+  <span>·</span>
+  <b><span id="n">1</span> / 12</b>
+  <span id="lbl"></span>
+</div>
+
+<div id="grid"></div>
+
+<script>
+  const D = window.DECK; let i = 0;
+  const fr = document.getElementById('fr'), wrap = document.getElementById('wrap');
+
+  function fit(){
+    const s = Math.min(innerWidth / 1280, (innerHeight - 70) / 720);
+    wrap.style.transform = 'scale(' + s + ')';
+  }
+  function show(k){
+    i = (k + D.length) % D.length;
+    fr.src = D[i].file;
+    document.getElementById('n').textContent = i + 1;
+    document.getElementById('lbl').textContent = D[i].label;
+    try { localStorage.setItem('l3-journeys-from-home-pos', i); } catch (e) {}
+  }
+  function go(d){ show(i + d); }
+  function toggleGrid(){ document.getElementById('grid').classList.toggle('on'); }
+
+  addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { go(1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                    { go(-1); e.preventDefault(); }
+    if (e.key === 'Escape') document.getElementById('grid').classList.remove('on');
+    if (e.key === 'g') toggleGrid();
+  });
+  addEventListener('resize', fit);
+
+  const g = document.getElementById('grid');
+  D.forEach((s, k) => {
+    const c = document.createElement('div');
+    c.className = 'cell';
+    c.innerHTML = '<div class="thumb"><iframe src="' + s.file + '" scrolling="no"></iframe></div>' +
+                  '<p><b>' + String(k + 1).padStart(2, '0') + '</b>' + s.label + '</p>';
+    c.onclick = () => { show(k); toggleGrid(); };
+    g.appendChild(c);
+    const t = c.querySelector('.thumb'), f = c.querySelector('iframe');
+    requestAnimationFrame(() => {
+      const sc = t.clientWidth / 1280;
+      f.style.width = '1280px'; f.style.height = '720px';
+      f.style.transform = 'scale(' + sc + ')';
+    });
+  });
+
+  let start = 0;
+  try { start = Math.min(parseInt(localStorage.getItem('l3-journeys-from-home-pos') || '0', 10) || 0, D.length - 1); } catch (e) {}
+  fit(); show(start);
+</script>
+</body>
+</html>
