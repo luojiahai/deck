@@ -1,0 +1,310 @@
+/* ═══════════════════════════════════════════════════════════════
+   Y8 L13 · 房子 House · six-lesson classroom deck series
+   Book 2 Unit 5, Lesson 13 · 轻松学中文 2 pp.122–131
+
+   GENERATED FILE — do not edit. Written by scripts/y8l13/build.py
+   from scripts/y8l13/style.py. Edit the builder, not this.
+
+   Architect's drafting vellum: cool paper, graphite ink, slate /
+   terracotta / brass. Deliberately not the warm cream of the Unit 4
+   decks next door (y8-l10/11/12) — this is a new unit.
+
+   Canvas 960pt × 540pt. 1pt = 2px on the projector, so the classroom
+   typography floor of 26px is 13pt here. Nothing a student must read
+   is set below it.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap');
+
+/* ── Canvas lock ── */
+html, body {
+  margin: 0; padding: 0;
+  width: 960pt; height: 540pt;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #F2F4F4;
+  --bg-secondary: #E6EAEB;
+  --bg-tertiary: #D8DEE0;
+  --text-primary: #262B30;
+  --text-secondary: #4B545C;
+  --text-muted: #6E7780;
+
+  --accent-slate: #3D5A73;
+  --accent-slate-dim: rgba(61, 90, 115, 0.11);
+  --accent-terra: #B05B3B;
+  --accent-terra-dim: rgba(176, 91, 59, 0.13);
+  --accent-brass: #8F6C12;
+  --accent-brass-dim: rgba(143, 108, 18, 0.14);
+  --accent-moss: #46684C;
+  --accent-moss-dim: rgba(70, 104, 76, 0.11);
+
+  --border-light: #D5DBDD;
+  --border-medium: #B8C1C4;
+
+  --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-body: 'Noto Sans', 'Noto Sans SC', 'PingFang SC', -apple-system, 'Microsoft YaHei', sans-serif;
+
+  --space-sm: 8pt;
+  --space-md: 12pt;
+  --space-lg: 20pt;
+  --radius-md: 5pt;
+  --radius-lg: 9pt;
+}
+
+/* ── Chrome ── */
+.slide-header {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 42pt; display: flex; align-items: center;
+  padding: 0 40pt;
+  border-bottom: 0.5pt solid var(--border-light);
+  background: var(--bg-primary);
+}
+.slide-header .lesson-tag {
+  font-size: 10pt; font-weight: 700; letter-spacing: 0.10em;
+  color: var(--accent-terra);
+}
+.slide-header .sep { width: 0.5pt; height: 13pt; background: var(--border-medium); margin: 0 11pt; }
+.slide-header .section-name { font-size: 11pt; color: var(--text-secondary); font-weight: 500; }
+.slide-header .accent-line {
+  position: absolute; top: 0; left: 40pt; right: 40pt;
+  height: 2.5pt; background: var(--accent-slate);
+}
+.slide-num { margin-left: auto; font-size: 10pt; color: var(--text-muted); letter-spacing: 0.04em; }
+
+.slide-content {
+  position: absolute; top: 42pt; left: 0; right: 0; bottom: 40pt;
+  padding: 24pt 48pt;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+}
+.slide-content.top { justify-content: flex-start; }
+
+/* ── Type scale — every size at or above the classroom floor ── */
+.display-xl { font-family: var(--font-display); font-size: 66pt; font-weight: 900; line-height: 1.08; }
+.display-lg { font-family: var(--font-display); font-size: 42pt; font-weight: 900; line-height: 1.14; }
+.display-md { font-family: var(--font-display); font-size: 30pt; font-weight: 700; line-height: 1.2; }
+.heading    { font-family: var(--font-display); font-size: 23pt; font-weight: 700; line-height: 1.25; }
+.body-lg    { font-size: 18pt; line-height: 1.5;  color: var(--text-secondary); }
+.body-md    { font-size: 15pt; line-height: 1.55; color: var(--text-secondary); }
+.support    { font-size: 12pt; line-height: 1.5;  color: var(--text-muted); }
+.caption    { font-size: 11pt; color: var(--text-muted); letter-spacing: 0.04em; }
+
+.section-label {
+  font-size: 11pt; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--accent-terra); text-transform: uppercase;
+}
+
+.text-slate { color: var(--accent-slate); }
+.text-terra { color: var(--accent-terra); }
+.text-brass { color: var(--accent-brass); }
+.text-moss  { color: var(--accent-moss); }
+
+/* ── Two-word vocabulary slide ── */
+.word-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28pt; margin-top: 8pt; }
+.word-card {
+  background: var(--bg-secondary);
+  border: 1pt solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30pt 22pt;
+  display: flex; flex-direction: column; align-items: center; gap: 9pt;
+}
+.word-card .wc-img { height: 150pt; display: flex; align-items: center; justify-content: center; }
+.word-card .wc-img img { height: 150pt; width: auto; }
+.word-pinyin { font-size: 17pt; font-weight: 500; color: var(--accent-slate); letter-spacing: 0.02em; }
+.word-hanzi  { font-family: var(--font-display); font-size: 48pt; font-weight: 900; line-height: 1.1; color: var(--text-primary); }
+.word-hanzi.long { font-size: 38pt; }
+.word-english { font-size: 15pt; color: var(--text-secondary); }
+
+.word-card.textonly { padding: 74pt 22pt; gap: 14pt; }
+.word-card.textonly .word-hanzi { font-size: 66pt; }
+
+/* ── Example-sentence slide ── */
+.sentence-list { display: flex; flex-direction: column; gap: 12pt; margin-top: 6pt; }
+.sentence-row {
+  background: var(--bg-secondary);
+  border-left: 4pt solid var(--accent-slate);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 12pt 18pt;
+}
+.sentence-row.both { border-left-color: var(--accent-terra); background: var(--accent-terra-dim); }
+.sentence-cn {
+  font-family: var(--font-display); font-size: 26pt; font-weight: 700;
+  line-height: 1.35; color: var(--text-primary);
+}
+.sentence-cn b { color: var(--accent-terra); font-weight: 900; }
+.sentence-en { font-size: 13.5pt; color: var(--text-secondary); margin-top: 5pt; }
+
+/* ── Write-your-own slide ── */
+.frame-box {
+  background: var(--bg-tertiary);
+  border: 1.5pt solid var(--accent-brass);
+  border-radius: var(--radius-lg);
+  padding: 24pt 26pt;
+}
+.frame-line {
+  font-family: var(--font-display); font-size: 30pt; font-weight: 700;
+  line-height: 1.75; color: var(--text-primary);
+}
+.extension-box {
+  background: var(--accent-moss-dim);
+  border: 1.5pt solid var(--accent-moss);
+  border-radius: var(--radius-md);
+  padding: 14pt 18pt;
+  margin-top: 14pt;
+}
+.extension-label {
+  font-size: 11pt; font-weight: 700; letter-spacing: 0.10em;
+  color: var(--accent-moss); text-transform: uppercase; margin-bottom: 5pt;
+}
+.extension-text { font-size: 16pt; line-height: 1.45; color: var(--text-primary); }
+.extension-text b { color: var(--accent-moss); }
+
+/* ── Recall / summary boards ── */
+.recall-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16pt; margin-top: 10pt; }
+.recall-cell {
+  background: var(--bg-secondary);
+  border: 1pt solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 26pt 10pt;
+  text-align: center;
+}
+.recall-hanzi { font-family: var(--font-display); font-size: 44pt; font-weight: 900; color: var(--text-primary); }
+
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt; margin-top: 8pt; }
+.summary-cell {
+  background: var(--bg-secondary);
+  border: 1pt solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 10pt 8pt;
+  display: flex; flex-direction: column; align-items: center; gap: 8pt;
+}
+.summary-cell .sc-img { height: 82pt; display: flex; align-items: center; justify-content: center; }
+.summary-cell .sc-img img { height: 82pt; width: auto; }
+.summary-hanzi { font-family: var(--font-display); font-size: 33pt; font-weight: 900; color: var(--text-primary); }
+.summary-hanzi.long { font-size: 28pt; }
+.summary-grid.dense .summary-cell { padding: 7pt 5pt; gap: 5pt; }
+.summary-grid.dense .sc-img, .summary-grid.dense .sc-img img { height: 48pt; }
+.summary-grid.dense .summary-hanzi { font-size: 24pt; }
+.summary-grid.dense .summary-hanzi.long { font-size: 20pt; }
+/* .packed is the whole-lesson board — thirteen words or more on one screen.
+   19pt is 38px on the projector, still well above the 26px classroom floor. */
+.summary-grid.dense.packed { gap: 9pt; }
+.summary-grid.dense.packed .summary-cell { padding: 6pt 3pt; gap: 4pt; }
+.summary-grid.dense.packed .sc-img, .summary-grid.dense.packed .sc-img img { height: 40pt; }
+.summary-grid.dense.packed .summary-hanzi { font-size: 19pt; }
+.summary-grid.dense.packed .summary-hanzi.long { font-size: 16pt; }
+
+/* ── Task / activity ── */
+.task-box {
+  background: var(--bg-secondary);
+  border: 1.5pt dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 18pt 24pt;
+}
+.task-line { font-size: 17pt; line-height: 1.6; color: var(--text-primary); }
+.task-line b { color: var(--accent-terra); }
+.task-cn { font-family: var(--font-display); font-size: 21pt; font-weight: 700; color: var(--text-primary); line-height: 1.5; }
+
+.pattern-box {
+  background: var(--bg-tertiary);
+  border: 1.5pt solid var(--accent-slate);
+  border-radius: var(--radius-lg);
+  padding: 15pt 24pt;
+  text-align: center;
+}
+.pattern-text { font-family: var(--font-display); font-size: 31pt; font-weight: 900; color: var(--text-primary); letter-spacing: 0.02em; }
+
+.sc-row {
+  display: flex; align-items: flex-start; gap: 13pt;
+  padding: 12pt 16pt;
+  background: var(--bg-secondary);
+  border: 0.5pt solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+.sc-num { font-family: var(--font-display); font-size: 23pt; font-weight: 900; color: var(--accent-terra); min-width: 23pt; line-height: 1.2; }
+.sc-main { font-size: 16pt; line-height: 1.4; color: var(--text-primary); }
+.sc-cn { font-family: var(--font-display); font-size: 15pt; font-weight: 700; color: var(--accent-slate); margin-top: 4pt; }
+
+.stack { display: flex; flex-direction: column; }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ── 有 / 在 contrast — the spine of this whole lesson ──
+   Two columns, one structure each, so the difference is spatial and not
+   something the teacher has to say twice. */
+.contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 22pt; margin-top: 8pt; }
+.contrast-col {
+  background: var(--bg-secondary);
+  border: 1.5pt solid var(--border-light);
+  border-top: 4pt solid var(--accent-slate);
+  border-radius: var(--radius-lg);
+  padding: 16pt 20pt;
+}
+.contrast-col.alt { border-top-color: var(--accent-terra); }
+.contrast-key { font-family: var(--font-display); font-size: 50pt; font-weight: 900; color: var(--accent-slate); line-height: 1.1; }
+.contrast-col.alt .contrast-key { color: var(--accent-terra); }
+.contrast-gloss { font-size: 15pt; color: var(--text-secondary); margin-top: 2pt; }
+.contrast-form { font-size: 14pt; color: var(--text-muted); margin-top: 9pt; letter-spacing: 0.02em; }
+.contrast-eg { font-family: var(--font-display); font-size: 22pt; font-weight: 700; color: var(--text-primary); line-height: 1.45; margin-top: 7pt; }
+
+/* ── Tick grid — the CD-65 listening table (textbook p.130 Ex.11) ── */
+.tick-grid { width: 100%; border-collapse: collapse; margin-top: 10pt; }
+.tick-grid th, .tick-grid td {
+  border: 0.75pt solid var(--border-medium);
+  text-align: center;
+}
+.tick-grid th {
+  background: var(--bg-tertiary);
+  padding: 8pt 3pt;
+  font-family: var(--font-display); font-size: 14pt; font-weight: 700;
+  color: var(--text-primary);
+}
+.tick-grid td { height: 34pt; background: var(--bg-secondary); }
+.tick-grid td.rowhead {
+  background: var(--accent-slate-dim);
+  font-family: var(--font-display); font-size: 16pt; font-weight: 700;
+  color: var(--accent-slate); width: 74pt;
+}
+
+/* ── Stroke-order rows (Lesson 5, workbook p.149 Ex.11) ── */
+.stroke-row {
+  display: flex; align-items: center; gap: 18pt;
+  background: var(--bg-secondary);
+  border: 0.75pt solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 9pt 18pt;
+}
+.stroke-hanzi { font-family: var(--font-display); font-size: 40pt; font-weight: 900; color: var(--text-primary); min-width: 52pt; }
+.stroke-count { font-size: 15pt; color: var(--accent-brass); font-weight: 700; min-width: 58pt; }
+.stroke-note { font-size: 15pt; color: var(--text-secondary); }
+.stroke-boxes { margin-left: auto; display: flex; gap: 7pt; }
+.stroke-boxes div {
+  width: 30pt; height: 30pt;
+  border: 0.75pt dashed var(--border-medium);
+  border-radius: 2pt;
+  background: var(--bg-primary);
+}
+
+/* ── Figure slide: one drawing, set large, with a caption ── */
+.figure-wrap { display: flex; align-items: center; gap: 34pt; margin-top: 4pt; }
+.figure-wrap .fig { flex: 0 0 auto; }
+.figure-wrap .fig img { height: 210pt; width: auto; }
+.figure-wrap .fig-body { flex: 1 1 auto; }
+
+/* ── Error-correction pair (Correct the Teacher) ──
+   The chip is a <div>: html2pptx carries background and border on a div
+   only, never on a text element, so the <p> inside holds type alone. */
+.err-row { display: flex; align-items: center; gap: 16pt; padding: 10pt 0; }
+.err-wrong, .err-right { padding: 9pt 16pt; border-radius: var(--radius-md); }
+.err-wrong { background: rgba(176, 91, 59, 0.13); }
+.err-right { background: var(--accent-moss-dim); }
+.err-wrong p, .err-right p { font-family: var(--font-display); font-size: 24pt; font-weight: 700; }
+.err-wrong p { color: #8A3C22; text-decoration: line-through; }
+.err-right p { color: var(--accent-moss); }
+.err-arrow { font-size: 21pt; color: var(--text-muted); }
