@@ -36,7 +36,7 @@ y7-l14's stylesheet is converted px -> pt at 1pt = 2px, which lands on the
 same 960pt canvas with the same type sizes in the same classes. The floor
 is unchanged in projected terms: 13pt = 26px.
 
-This deck ships web-only — no PPTX/PDF export, like y8-l7.
+PPTX + PDF exports come from scripts/export_y7_l15.sh, run after this.
 
 Run:  python3 scripts/build_y7_l15.py
 """
@@ -1942,7 +1942,7 @@ BRAND = '轻松学中文 Book 1 · Unit 5 · 课本 {p}'
 VIEWER_SRC = os.path.join(L11, 'l1-snack-nouns', 'index.html')
 
 
-def viewer_html(title, slides):
+def viewer_html(title, slug, slides):
     if not os.path.exists(VIEWER_SRC):
         raise SystemExit(f'viewer template missing: {VIEWER_SRC}')
     src = open(VIEWER_SRC, encoding='utf-8').read()
@@ -1954,12 +1954,13 @@ def viewer_html(title, slides):
                  'window.DECK = [\n' + manifest + '\n  ];', src, count=1, flags=re.S)
 
     # The y9-l11 shell hardcodes its own slide count and links its own PPTX.
-    # Both are wrong here: the count is per deck, and this series ships
-    # web-only, so a download link would 404.
+    # Both are per deck, so point them at this one.
     src = re.sub(r'<b><span id="n">1</span> / \d+</b>',
                  f'<b><span id="n">1</span> / {len(slides)}</b>', src, count=1)
-    src = re.sub(r'\s*<span>·</span>\s*\n\s*<a href="[^"]*\.pptx" download>PPTX</a>',
-                 '', src, count=1)
+    src, n = re.subn(r'<a href="[^"]*\.pptx" download>PPTX</a>',
+                     f'<a href="{slug}.pptx" download>PPTX</a>', src, count=1)
+    if n != 1:
+        raise SystemExit('viewer template: PPTX link not found')
     return src
 
 
@@ -1997,7 +1998,6 @@ def rebuild_index():
                  '<div class="grammar-grid">' + gitems + '\n    </div>',
                  src, count=1, flags=re.S)
 
-    # No PPTX link on these cards: this deck ships web-only, like y8-l7.
     cards = ''.join(f'''
       <div class="lesson-card">
         <a href="{d['dir']}/" class="card-link">
@@ -2006,6 +2006,7 @@ def rebuild_index():
           <div class="card-en">{d['en']}</div>
           <span class="card-badge {d['cls']}">{d['badge']}</span>
         </a>
+        <a href="{d['dir']}/{d['dir']}.pptx" class="card-pptx">📥 PPTX</a>
       </div>
 ''' for d in DECKS)
     src = re.sub(r'<div class="lesson-grid">.*?\n    </div>',
@@ -2105,7 +2106,7 @@ def build():
             open(os.path.join(sdir, s['name'] + '.html'), 'w',
                  encoding='utf-8').write(px2pt(html))
         open(os.path.join(BASE, d['dir'], 'index.html'), 'w', encoding='utf-8').write(
-            viewer_html(f"L{d['n']} · {d['cn']} · 人体部位", slides))
+            viewer_html(f"L{d['n']} · {d['cn']} · 人体部位", d['dir'], slides))
         total += len(slides)
         print(f"  {d['dir']:<22} {len(slides):>3} slides")
 
