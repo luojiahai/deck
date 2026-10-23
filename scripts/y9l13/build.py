@@ -387,8 +387,8 @@ def s_lisc(walt, criteria):
 def build_deck(slug, title, slides):
     """slides: list of dicts {file, label, tag, section, body, cls}
 
-    No pptx link in the shell: this is a web-only series (see README), and a
-    shell that links a .pptx it does not have 404s on the teacher.
+    The shell links <slug>.pptx, which scripts/y9l13/export.sh writes. Run
+    the export after this, or the link 404s on the teacher.
     """
     d = os.path.join(OUT, slug)
     os.makedirs(os.path.join(d, "slides"), exist_ok=True)
@@ -458,6 +458,8 @@ SHELL = """<!DOCTYPE html>
   <a class="home" href="../" title="回到课程列表 · Back to the lesson list">← 课程列表</a>
   <span>·</span>
   <button onclick="toggleGrid()">All slides</button>
+  <span>·</span>
+  <a href="{slug}.pptx" download>PPTX</a>
   <span>·</span>
   <b><span id="n">1</span> / {total}</b>
   <span id="lbl"></span>
@@ -536,7 +538,8 @@ def write_series_index(decks):
             '            <p class="card-blurb">%s</p>\n'
             '            <span class="card-badge badge-%s">%s</span>\n'
             '          </a>\n'
-            '        </div>' % (slug, i, cn, en, blurb, badge, badge))
+            '          <a class="card-pptx" href="%s/%s.pptx" download>PPTX</a>\n'
+            '        </div>' % (slug, i, cn, en, blurb, badge, badge, slug, slug))
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
         f.write(SERIES_INDEX.replace("{{CARDS}}", "\n".join(cards)))
 
@@ -890,6 +893,8 @@ SERIES_INDEX = """<!DOCTYPE html>
   .card-en { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.03em; }
   .card-blurb { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
   .card-badge { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-top: auto; }
+  .card-pptx { display: block; margin-top: 12px; text-align: center; font-size: 12px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 5px 0; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+  .card-pptx:hover { background: var(--accent); color: #fff; }
   .badge-vocab    { background: #E7E2D6; color: #8A4A20; }
   .badge-grammar  { background: #DFEAE2; color: #1E6055; }
   .badge-speaking { background: #F2E0DB; color: #9C3C2C; }
