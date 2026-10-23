@@ -6,6 +6,7 @@ Output: `index/designs/y9-l13/`.
 ```bash
 python3 scripts/y9l13/art.py        # 21 SVG drawings → index/designs/y9-l13/img/
 python3 scripts/y9l13/build.py      # tokens.css + 124 slides + 6 deck shells + series index
+bash    scripts/y9l13/export.sh     # 6 × PPTX + 6 × PDF
 
 # verify (needs a server: python3 -m http.server 8087 --directory index &)
 node    scripts/check_slides.mjs --design y9-l13
@@ -16,14 +17,14 @@ every `slides/*.html`, each deck's `index.html` viewer, and the series
 `index.html`. The only thing it does not own is `img/`, which `art.py` owns,
 and `thumb.png`, which is a 1440×900 screenshot of the series index.
 
-## Web-only — no PPTX
+## PPTX + PDF export
 
-There is no `export.sh` in this directory and the deck shells link no
-`.pptx`. Y9 L10–L12 ship one; this series does not. If you add an export
-later, use the skill's stock `export_deck_pptx.mjs` (960pt canvas, not the
-repo's 1920 fork) and add the download link back into `SHELL` in `build.py`
-at the same time — a shell that links a `.pptx` it does not have 404s on the
-teacher.
+`export.sh` writes `<slug>.pptx` and `<slug>.pdf` into each deck folder; the
+deck shells and the series index link the `.pptx`, so run it after every
+`build.py`. Canvas is 960pt, so it uses the skill's stock
+`export_deck_pptx.mjs`, not the repo's 1920 fork. It exports a throwaway copy
+(leaf text wrapped in `<p>`, drawings rasterised to PNG) — the served slides
+are never touched. Read the `pptx N/N` count it prints.
 
 ## Visual identity
 
